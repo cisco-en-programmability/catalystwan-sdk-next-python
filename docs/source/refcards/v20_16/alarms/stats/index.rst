@@ -1,0 +1,39 @@
+============
+alarms.stats
+============
+
+
+Operation: GET /dataservice/alarms/stats
+----------------------------------------
+
+
+Get alarm statistics
+
+.. code:: python
+
+    def get_stats() -> AlarmStatsResponse: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.alarms.stats.get_stats()
+
+
+.. toctree::
+    :maxdepth: 1
+
+    models
+

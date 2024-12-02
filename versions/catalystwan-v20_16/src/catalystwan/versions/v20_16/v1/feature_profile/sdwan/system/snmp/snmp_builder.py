@@ -1,0 +1,132 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+
+from typing import TYPE_CHECKING, Optional
+
+from catalystwan.abc import RequestAdapterInterface
+
+if TYPE_CHECKING:
+    from .schema.schema_builder import SchemaBuilder
+
+
+class SnmpBuilder:
+    """
+    Builds and executes requests for operations under /v1/feature-profile/sdwan/system/snmp
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_snmp_profile_parcel_for_system(self, system_id: str, **kw) -> str:
+        """
+        Get Snmp Profile Parcels for System feature profile
+
+        :param system_id: Feature Profile ID
+        :returns: str
+        """
+        params = {
+            "systemId": system_id,
+        }
+        return self._request_adapter.request(
+            "GET",
+            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/snmp",
+            return_type=str,
+            params=params,
+            **kw,
+        )
+
+    def create_snmp_profile_parcel_for_system(
+        self, system_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Create a Snmp Profile Parcel for System feature profile
+
+        :param system_id: Feature Profile ID
+        :param payload: Snmp Profile Parcel
+        :returns: str
+        """
+        params = {
+            "systemId": system_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/snmp",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
+
+    def get_snmp_profile_parcel_by_parcel_id_for_system(
+        self, system_id: str, snmp_id: str, **kw
+    ) -> str:
+        """
+        Get Snmp Profile Parcel by parcelId for System feature profile
+
+        :param system_id: Feature Profile ID
+        :param snmp_id: Profile Parcel ID
+        :returns: str
+        """
+        params = {
+            "systemId": system_id,
+            "snmpId": snmp_id,
+        }
+        return self._request_adapter.request(
+            "GET",
+            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/snmp/{snmpId}",
+            return_type=str,
+            params=params,
+            **kw,
+        )
+
+    def edit_snmp_profile_parcel_for_system(
+        self, system_id: str, snmp_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Update a Snmp Profile Parcel for System feature profile
+
+        :param system_id: Feature Profile ID
+        :param snmp_id: Profile Parcel ID
+        :param payload: Snmp Profile Parcel
+        :returns: str
+        """
+        params = {
+            "systemId": system_id,
+            "snmpId": snmp_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/snmp/{snmpId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
+
+    def delete_snmp_profile_parcel_for_system(self, system_id: str, snmp_id: str, **kw):
+        """
+        Delete a Snmp Profile Parcel for System feature profile
+
+        :param system_id: Feature Profile ID
+        :param snmp_id: Profile Parcel ID
+        :returns: None
+        """
+        params = {
+            "systemId": system_id,
+            "snmpId": snmp_id,
+        }
+        return self._request_adapter.request(
+            "DELETE",
+            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/snmp/{snmpId}",
+            params=params,
+            **kw,
+        )
+
+    @property
+    def schema(self) -> SchemaBuilder:
+        """
+        The schema property
+        """
+        from .schema.schema_builder import SchemaBuilder
+
+        return SchemaBuilder(self._request_adapter)

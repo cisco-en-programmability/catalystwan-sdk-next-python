@@ -1,0 +1,34 @@
+==========================
+device.csp.system.settings
+==========================
+
+
+Operation: GET /dataservice/device/csp/system/settings
+------------------------------------------------------
+
+
+Get device system settings from device
+
+.. code:: python
+
+    def create_device_system_setting(device_id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.device.csp.system.settings.create_device_system_setting()
+
+

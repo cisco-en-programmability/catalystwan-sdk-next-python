@@ -1,0 +1,65 @@
+---
+name: CI Types
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        required: true
+        type: string
+        description: "From which folder this pipeline executes"
+
+env:
+  FORCE_COLOR: "1"
+
+jobs:
+  typing:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+      - name: Install Catalystwan WAN SDK Self (uv)
+        run:  uv pip install --system .
+      - name: Install Nox
+        run:  uv pip install --system nox==2024.10.*
+      - name: Run typing on ${{ matrix.os }} )
+        run: nox --non-interactive --session "mypy"
+
+  lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+      - name: Install Nox
+        run:  uv pip install --system nox==2024.10.*
+      - name: Run linting on ${{ matrix.os }} )
+        run: nox --non-interactive --session "lint"
+
+  deploy:
+    needs: [lint, typing]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build sdist and wheel
+        run: pipx run build
+  #     - name: Publish distribution PyPI
+  #       uses: pypa/gh-action-pypi-publish@release/v1
+  #       with:
+  #         password: ${{ secrets.PYPI_API_TOKEN }}

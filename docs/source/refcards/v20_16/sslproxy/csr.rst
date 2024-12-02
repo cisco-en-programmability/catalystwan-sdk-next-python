@@ -1,0 +1,34 @@
+============
+sslproxy.csr
+============
+
+
+Operation: GET /dataservice/sslproxy/csr
+----------------------------------------
+
+
+Get SSL proxy CSR
+
+.. code:: python
+
+    def get_ssl_proxy_csr(device_id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.sslproxy.csr.get_ssl_proxy_csr()
+
+

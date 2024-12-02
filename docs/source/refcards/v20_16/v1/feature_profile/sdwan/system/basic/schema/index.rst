@@ -1,0 +1,41 @@
+============================================
+v1.feature_profile.sdwan.system.basic.schema
+============================================
+
+
+Operation: GET /dataservice/v1/feature-profile/sdwan/system/basic/schema
+------------------------------------------------------------------------
+
+
+Get a SDWAN System Basic Feature Schema by Schema Type
+
+.. code:: python
+
+    def get_sdwan_system_basic_feature_schema_by_schema_type(
+        schema_type: SchemaTypeParam,
+    ) -> str: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sdwan.system.basic.schema.get_sdwan_system_basic_feature_schema_by_schema_type()
+
+
+.. toctree::
+    :maxdepth: 1
+
+    models
+

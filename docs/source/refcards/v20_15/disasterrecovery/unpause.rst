@@ -1,0 +1,34 @@
+========================
+disasterrecovery.unpause
+========================
+
+
+Operation: POST /dataservice/disasterrecovery/unpause
+-----------------------------------------------------
+
+
+Unpause DR
+
+.. code:: python
+
+    def unpause_dr() -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.disasterrecovery.unpause.unpause_dr()
+
+

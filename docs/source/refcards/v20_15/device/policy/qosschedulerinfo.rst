@@ -1,0 +1,34 @@
+==============================
+device.policy.qosschedulerinfo
+==============================
+
+
+Operation: GET /dataservice/device/policy/qosschedulerinfo
+----------------------------------------------------------
+
+
+Get QoS scheduler information from device
+
+.. code:: python
+
+    def create_polic_qos_scheduler_info(device_id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.device.policy.qosschedulerinfo.create_polic_qos_scheduler_info()
+
+

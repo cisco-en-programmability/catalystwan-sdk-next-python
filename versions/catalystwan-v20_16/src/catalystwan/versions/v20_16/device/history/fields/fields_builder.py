@@ -1,0 +1,23 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+
+from typing import Any
+
+from catalystwan.abc import RequestAdapterInterface
+
+
+class FieldsBuilder:
+    """
+    Builds and executes requests for operations under /device/history/fields
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_stat_data_fields_22(self, **kw) -> Any:
+        """
+        Get fields and type
+
+        :returns: Any
+        """
+        return self._request_adapter.request("GET", "/dataservice/device/history/fields", **kw)

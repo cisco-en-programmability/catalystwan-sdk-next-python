@@ -1,0 +1,34 @@
+============================================
+sdavc.protocol_pack.compliance.device.status
+============================================
+
+
+Operation: GET /dataservice/sdavc/protocol-pack/compliance/device/status/{uuid}
+-------------------------------------------------------------------------------
+
+
+Get device compliance task status
+
+.. code:: python
+
+    def get_device_compliance_status(uuid: str) -> None: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.sdavc.protocol_pack.compliance.device.status.get_device_compliance_status()
+
+

@@ -1,0 +1,104 @@
+---
+name: CI Core
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        required: true
+        type: string
+        description: "From which folder this pipeline executes"
+
+env:
+  FORCE_COLOR: "1"
+
+jobs:
+  units:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04]
+        python-version:
+          - "3.8"
+          - "3.9"
+          - "3.10"
+          - "3.11"
+          - "3.12"
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          allow-prereleases: true
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+      - name: Install Catalystwan WAN SDK Types (uv)
+        run:  uv pip install --system ../catalystwan-types
+      - name: Install Catalystwan WAN SDK Version 20.15 (uv)
+        run:  uv pip install --system ../../versions/catalystwan-v20_15
+      - name: Install Catalystwan WAN SDK Self (uv)
+        run:  uv pip install --system .
+      - name: Install Nox
+        run:  uv pip install --system nox==2024.10.*
+      - name: Run tests on ${{ matrix.os }} )
+        run:  nox --non-interactive --session "units" --python=${{ matrix.python-version }}
+
+  typing:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+      - name: Install Catalystwan WAN SDK Types (uv)
+        run:  uv pip install --system ../catalystwan-types
+      - name: Install Catalystwan WAN SDK Version 20.15 (uv)
+        run:  uv pip install --system ../../versions/catalystwan-v20_15
+      - name: Install Catalystwan WAN SDK Self (uv)
+        run:  uv pip install --system .
+      - name: Install Nox
+        run:  uv pip install --system nox==2024.10.*
+      - name: Run typing on ${{ matrix.os }} )
+        run: nox --non-interactive --session "mypy"
+
+  lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+      - name: Install Nox
+        run:  uv pip install --system nox==2024.10.*
+      - name: Run linting on ${{ matrix.os }} )
+        run: nox --non-interactive --session "lint"
+
+  deploy:
+    needs: [units, lint, typing]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build sdist and wheel
+        run: pipx run build
+  #     - name: Publish distribution PyPI
+  #       uses: pypa/gh-action-pypi-publish@release/v1
+  #       with:
+  #         password: ${{ secrets.PYPI_API_TOKEN }}

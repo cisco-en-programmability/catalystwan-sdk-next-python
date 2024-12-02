@@ -1,0 +1,28 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+
+from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import SimpleMessageResponse
+
+
+class DumpBuilder:
+    """
+    Builds and executes requests for operations under /alarms/dump
+    """
+
+    m = models
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def dump_correlation_engine_data(self, **kw) -> SimpleMessageResponse:
+        """
+        Dump correlation engine server cache in log file
+
+        :returns: SimpleMessageResponse
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/alarms/dump", return_type=SimpleMessageResponse, **kw
+        )
