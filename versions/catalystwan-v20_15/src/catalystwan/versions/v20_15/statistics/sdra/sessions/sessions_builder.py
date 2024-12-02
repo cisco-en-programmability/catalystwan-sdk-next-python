@@ -1,0 +1,34 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Optional
+from catalystwan.abc import RequestAdapterInterface
+from .models import SdraSessionSummary
+
+
+class SessionsBuilder:
+    """
+    Builds and executes requests for operations under /statistics/sdra/sessions
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_sdra_session_summary(
+        self, site: Optional[int] = None, **kw
+    ) -> SdraSessionSummary:
+        """
+        Get SD-WAN Remote Access session summary
+
+        :param site: Site
+        :returns: SdraSessionSummary
+        """
+        params = {
+            "site": site,
+        }
+        return self._request_adapter.request(
+            "GET",
+            "/dataservice/statistics/sdra/sessions",
+            return_type=SdraSessionSummary,
+            params=params,
+            **kw,
+        )

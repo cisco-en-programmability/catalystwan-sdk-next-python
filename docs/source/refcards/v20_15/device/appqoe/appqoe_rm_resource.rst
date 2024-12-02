@@ -1,0 +1,34 @@
+================================
+device.appqoe.appqoe_rm_resource
+================================
+
+
+Operation: GET /dataservice/device/appqoe/appqoe-rm-resource
+------------------------------------------------------------
+
+
+Get Appqoe Resource Manager resources from device
+
+.. code:: python
+
+    def get_appqoe_rm_resources(device_id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.device.appqoe.appqoe_rm_resource.get_appqoe_rm_resources()
+
+

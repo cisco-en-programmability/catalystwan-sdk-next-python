@@ -1,0 +1,43 @@
+=======================================================
+multicloud.interconnect.gateways.device_chassis_numbers
+=======================================================
+
+
+Operation: GET /dataservice/multicloud/interconnect/{interconnect-type}/gateways/device-chassis-numbers
+-------------------------------------------------------------------------------------------------------
+
+
+API to retrieve available devices or devices associated to a config group.
+
+.. code:: python
+
+    def get_available_devices_or_by_cg_id_1(
+        interconnect_type: InterconnectTypeParam,
+        config_group_id: Optional[str] = None,
+        device_solution_type: Optional[str] = None,
+    ) -> List[InlineResponse2003]: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.multicloud.interconnect.gateways.device_chassis_numbers.get_available_devices_or_by_cg_id_1()
+
+
+.. toctree::
+    :maxdepth: 1
+
+    models
+

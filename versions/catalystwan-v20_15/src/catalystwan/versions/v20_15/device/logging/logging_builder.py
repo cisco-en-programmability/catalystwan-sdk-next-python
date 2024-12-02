@@ -1,0 +1,31 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import List, Any
+from catalystwan.abc import RequestAdapterInterface
+
+
+class LoggingBuilder:
+    """
+    Builds and executes requests for operations under /device/logging
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_logging_from_device(self, device_id: str, **kw) -> List[Any]:
+        """
+        Get logging from device (Real Time)
+
+        :param device_id: deviceId - Device IP
+        :returns: List[Any]
+        """
+        params = {
+            "deviceId": device_id,
+        }
+        return self._request_adapter.request(
+            "GET",
+            "/dataservice/device/logging",
+            return_type=List[Any],
+            params=params,
+            **kw,
+        )

@@ -1,0 +1,41 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from typing import Literal, Optional, List
+from dataclasses import dataclass, field as _field
+
+SortOrderParam = Literal["ASC", "Asc", "DESC", "Desc", "asc", "desc"]
+
+
+@dataclass
+class DpiDataObject:
+    application: Optional[str] = _field(default=None)
+    create_time: Optional[int] = _field(default=None)
+    dest_ip: Optional[str] = _field(default=None)
+    dest_port: Optional[int] = _field(default=None)
+    device_model: Optional[str] = _field(default=None)
+    entry_time: Optional[int] = _field(default=None)
+    expire_time: Optional[int] = _field(default=None)
+    family: Optional[str] = _field(default=None)
+    host_name: Optional[str] = _field(default=None)
+    ip_proto: Optional[int] = _field(default=None)
+    octets: Optional[int] = _field(default=None)
+    packets: Optional[int] = _field(default=None)
+    source_ip: Optional[str] = _field(default=None)
+    source_port: Optional[int] = _field(default=None)
+    vdevice_name: Optional[str] = _field(default=None)
+    vip_idx: Optional[int] = _field(default=None)
+    vpn_id: Optional[int] = _field(default=None)
+
+
+@dataclass
+class DpiResponsePageInfo:
+    count: Optional[int] = _field(default=None)
+    end_time: Optional[str] = _field(default=None, metadata={"alias": "endTime"})
+    start_time: Optional[str] = _field(default=None, metadata={"alias": "startTime"})
+
+
+@dataclass
+class DpiResponse:
+    data: Optional[List[DpiDataObject]] = _field(default=None)
+    page_info: Optional[DpiResponsePageInfo] = _field(
+        default=None, metadata={"alias": "pageInfo"}
+    )

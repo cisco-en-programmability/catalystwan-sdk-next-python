@@ -1,0 +1,39 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import List, TYPE_CHECKING
+from catalystwan.abc import RequestAdapterInterface
+from .models import GetHsecDevicesPayloadInner
+
+if TYPE_CHECKING:
+    from .install.install_builder import InstallBuilder
+
+
+class DevicesBuilder:
+    """
+    Builds and executes requests for operations under /hsec/devices
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def fetch_device_details(self, **kw) -> List[GetHsecDevicesPayloadInner]:
+        """
+        Retrieve list of devices which are valid for fetch of HSEC license
+
+        :returns: List[GetHsecDevicesPayloadInner]
+        """
+        return self._request_adapter.request(
+            "GET",
+            "/dataservice/hsec/devices",
+            return_type=List[GetHsecDevicesPayloadInner],
+            **kw,
+        )
+
+    @property
+    def install(self) -> InstallBuilder:
+        """
+        The install property
+        """
+        from .install.install_builder import InstallBuilder
+
+        return InstallBuilder(self._request_adapter)

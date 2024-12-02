@@ -1,0 +1,50 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Optional, List
+from catalystwan.abc import RequestAdapterInterface
+from .models import ApplicationsSiteItem
+from .models import LastNHoursParam
+from .models import HealthParam
+
+
+class HealthBuilder:
+    """
+    Builds and executes requests for operations under /statistics/perfmon/applications/site/health
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_applications_site_health(
+        self,
+        siteid: str,
+        is_heat_map: Optional[bool] = None,
+        last_n_hours: Optional[LastNHoursParam] = None,
+        health: Optional[HealthParam] = None,
+        include_usage: Optional[bool] = False,
+        **kw,
+    ) -> List[ApplicationsSiteItem]:
+        """
+        Get all applications health for one site
+
+        :param siteid: Siteid
+        :param is_heat_map: Is heat map
+        :param last_n_hours: Last n hours
+        :param health: Health
+        :param include_usage: Include usage
+        :returns: List[ApplicationsSiteItem]
+        """
+        params = {
+            "siteid": siteid,
+            "isHeatMap": is_heat_map,
+            "last_n_hours": last_n_hours,
+            "health": health,
+            "includeUsage": include_usage,
+        }
+        return self._request_adapter.request(
+            "GET",
+            "/dataservice/statistics/perfmon/applications/site/health",
+            return_type=List[ApplicationsSiteItem],
+            params=params,
+            **kw,
+        )

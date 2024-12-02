@@ -1,0 +1,61 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Optional, Any, Type, TYPE_CHECKING
+from catalystwan.abc import RequestAdapterInterface
+
+if TYPE_CHECKING:
+    from .central.central_builder import CentralBuilder
+
+
+class ActivateBuilder:
+    """
+    Builds and executes requests for operations under /template/policy/vsmart/activate
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    @property
+    def activate_policy(self):
+        class activate_policy_:
+            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+                self._request_adapter = request_adapter
+
+            def __call__(
+                self, policy_id: str, payload: Optional[Any] = None, **kw
+            ) -> Any:
+                """
+                Activate vsmart policy for a given policy id
+
+                :param policy_id: Policy Id
+                :param payload: Template policy
+                :returns: Any
+                """
+                params = {
+                    "policyId": policy_id,
+                }
+                return self._request_adapter.request(
+                    "POST",
+                    "/dataservice/template/policy/vsmart/activate/{policyId}",
+                    params=params,
+                    payload=payload,
+                    **kw,
+                )
+
+            def create_payload(self, *args, **kwargs) -> Any:
+                return Any(*args, **kwargs)
+
+            @property
+            def payload_model(self) -> Type[Any]:
+                return Any
+
+        return activate_policy_(self._request_adapter)
+
+    @property
+    def central(self) -> CentralBuilder:
+        """
+        The central property
+        """
+        from .central.central_builder import CentralBuilder
+
+        return CentralBuilder(self._request_adapter)

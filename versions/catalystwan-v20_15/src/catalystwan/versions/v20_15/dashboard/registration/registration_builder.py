@@ -1,0 +1,65 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Optional, Any, Type, TYPE_CHECKING
+from catalystwan.abc import RequestAdapterInterface
+
+if TYPE_CHECKING:
+    from .status.status_builder import StatusBuilder
+
+
+class RegistrationBuilder:
+    """
+    Builds and executes requests for operations under /dashboard/registration
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    @property
+    def registration(self):
+        class registration_:
+            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+                self._request_adapter = request_adapter
+
+            def __call__(self, payload: Optional[Any] = None, **kw):
+                """
+                Register Controller to BiFrost Dashboard (by Controller)
+
+                :param payload: CD profile to be registered
+                :returns: None
+                """
+                return self._request_adapter.request(
+                    "POST", "/dataservice/dashboard/registration", payload=payload, **kw
+                )
+
+            def create_payload(self, *args, **kwargs) -> Any:
+                return Any(*args, **kwargs)
+
+            @property
+            def payload_model(self) -> Type[Any]:
+                return Any
+
+        return registration_(self._request_adapter)
+
+    def deregistration(self, deregister_by_force: Optional[bool] = False, **kw):
+        """
+        De-registration Controller (by Controller)
+
+        :param deregister_by_force: deregister by force
+        :returns: None
+        """
+        params = {
+            "deregisterByForce": deregister_by_force,
+        }
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/dashboard/registration", params=params, **kw
+        )
+
+    @property
+    def status(self) -> StatusBuilder:
+        """
+        The status property
+        """
+        from .status.status_builder import StatusBuilder
+
+        return StatusBuilder(self._request_adapter)

@@ -1,0 +1,26 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import List, Any
+from catalystwan.abc import RequestAdapterInterface
+
+
+class CountersBuilder:
+    """
+    Builds and executes requests for operations under /statistics/process/counters
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_statistics_processing_counters(self, **kw) -> List[Any]:
+        """
+        Get statistics processing counters
+
+        :returns: List[Any]
+        """
+        return self._request_adapter.request(
+            "GET",
+            "/dataservice/statistics/process/counters",
+            return_type=List[Any],
+            **kw,
+        )

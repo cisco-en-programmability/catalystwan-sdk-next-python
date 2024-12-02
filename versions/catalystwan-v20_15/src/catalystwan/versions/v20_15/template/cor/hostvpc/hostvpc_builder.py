@@ -1,0 +1,39 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Optional, List, Any
+from catalystwan.abc import RequestAdapterInterface
+import logging
+
+
+class HostvpcBuilder:
+    """
+    Builds and executes requests for operations under /template/cor/hostvpc
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_cloud_host_vp_cs(
+        self, accountid: str, cloudregion: str, cloudtype: Optional[str] = "AWS", **kw
+    ) -> List[Any]:
+        """
+        Get host VPC/VNet list
+
+        :param accountid: Account Id
+        :param cloudregion: Cloud region
+        :param cloudtype: Cloud type
+        :returns: List[Any]
+        """
+        logging.warning("Operation: %s is deprecated", "getCloudHostVPCs")
+        params = {
+            "accountid": accountid,
+            "cloudregion": cloudregion,
+            "cloudtype": cloudtype,
+        }
+        return self._request_adapter.request(
+            "GET",
+            "/dataservice/template/cor/hostvpc",
+            return_type=List[Any],
+            params=params,
+            **kw,
+        )

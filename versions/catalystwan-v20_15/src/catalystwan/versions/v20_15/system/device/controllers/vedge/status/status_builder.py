@@ -1,0 +1,26 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import List, Any
+from catalystwan.abc import RequestAdapterInterface
+
+
+class StatusBuilder:
+    """
+    Builds and executes requests for operations under /system/device/controllers/vedge/status
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_controller_v_edge_sync_status_1(self, **kw) -> List[Any]:
+        """
+        Get controllers vEdge sync status
+
+        :returns: List[Any]
+        """
+        return self._request_adapter.request(
+            "GET",
+            "/dataservice/system/device/controllers/vedge/status",
+            return_type=List[Any],
+            **kw,
+        )

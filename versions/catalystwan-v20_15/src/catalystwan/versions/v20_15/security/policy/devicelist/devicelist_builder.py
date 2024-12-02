@@ -1,0 +1,27 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import List
+from catalystwan.abc import RequestAdapterInterface
+from .models import SecurityPolicyDeviceList
+
+
+class DevicelistBuilder:
+    """
+    Builds and executes requests for operations under /security/policy/devicelist
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_security_policy_device_list(self, **kw) -> List[SecurityPolicyDeviceList]:
+        """
+        Get security policy device list
+
+        :returns: List[SecurityPolicyDeviceList]
+        """
+        return self._request_adapter.request(
+            "GET",
+            "/dataservice/security/policy/devicelist",
+            return_type=List[SecurityPolicyDeviceList],
+            **kw,
+        )

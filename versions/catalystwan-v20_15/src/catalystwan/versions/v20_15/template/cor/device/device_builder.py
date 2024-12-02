@@ -1,0 +1,25 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import List, Any
+from catalystwan.abc import RequestAdapterInterface
+import logging
+
+
+class DeviceBuilder:
+    """
+    Builds and executes requests for operations under /template/cor/device
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_cloud_on_ramp_devices(self, **kw) -> List[Any]:
+        """
+        Get available device list
+
+        :returns: List[Any]
+        """
+        logging.warning("Operation: %s is deprecated", "getCloudOnRampDevices")
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/cor/device", return_type=List[Any], **kw
+        )

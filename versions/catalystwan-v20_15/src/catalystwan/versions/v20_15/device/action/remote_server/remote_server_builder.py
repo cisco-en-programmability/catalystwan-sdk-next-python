@@ -1,0 +1,134 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Optional, Any, Type
+from catalystwan.abc import RequestAdapterInterface
+
+
+class RemoteServerBuilder:
+    """
+    Builds and executes requests for operations under /device/action/remote-server
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_remote_server_list(self, **kw) -> Any:
+        """
+        Get list of remote servers
+
+        :returns: Any
+        """
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/action/remote-server", **kw
+        )
+
+    @property
+    def add_remote_server(self):
+        class add_remote_server_:
+            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+                self._request_adapter = request_adapter
+
+            def __call__(self, payload: Optional[Any] = None, **kw):
+                """
+                Add a new remote server entry.
+
+                :param payload: Request body for Add a new remote server entry.
+                :returns: None
+                """
+                return self._request_adapter.request(
+                    "POST",
+                    "/dataservice/device/action/remote-server",
+                    payload=payload,
+                    **kw,
+                )
+
+            def create_payload(self, *args, **kwargs) -> Any:
+                return Any(*args, **kwargs)
+
+            @property
+            def payload_model(self) -> Type[Any]:
+                return Any
+
+        return add_remote_server_(self._request_adapter)
+
+    def get_remote_server_by_id(self, id: str, **kw) -> Any:
+        """
+        Get remote server for the specified ID
+
+        :param id: Id
+        :returns: Any
+        """
+        params = {
+            "id": id,
+        }
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/action/remote-server/{id}", params=params, **kw
+        )
+
+    @property
+    def update_remote_server(self):
+        class update_remote_server_:
+            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+                self._request_adapter = request_adapter
+
+            def __call__(self, id: str, payload: Optional[str] = None, **kw) -> Any:
+                """
+                Update remote server for the specified ID
+
+                :param id: Id
+                :param payload: Payload
+                :returns: Any
+                """
+                params = {
+                    "id": id,
+                }
+                return self._request_adapter.request(
+                    "PUT",
+                    "/dataservice/device/action/remote-server/{id}",
+                    params=params,
+                    payload=payload,
+                    **kw,
+                )
+
+            def create_payload(self, *args, **kwargs) -> str:
+                return str(*args, **kwargs)
+
+            @property
+            def payload_model(self) -> Type[str]:
+                return str
+
+        return update_remote_server_(self._request_adapter)
+
+    @property
+    def delete_remote_server(self):
+        class delete_remote_server_:
+            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+                self._request_adapter = request_adapter
+
+            def __call__(self, id: str, payload: Optional[Any] = None, **kw):
+                """
+                Delete remote server for the specified ID
+
+                :param id: remoteServerId
+                :param payload: Request body for Add a new remote server entry.
+                :returns: None
+                """
+                params = {
+                    "id": id,
+                }
+                return self._request_adapter.request(
+                    "DELETE",
+                    "/dataservice/device/action/remote-server/{id}",
+                    params=params,
+                    payload=payload,
+                    **kw,
+                )
+
+            def create_payload(self, *args, **kwargs) -> Any:
+                return Any(*args, **kwargs)
+
+            @property
+            def payload_model(self) -> Type[Any]:
+                return Any
+
+        return delete_remote_server_(self._request_adapter)

@@ -1,0 +1,31 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from catalystwan.abc import RequestAdapterInterface
+from .models import SimpleMessageResponse
+
+
+class StarttrackingBuilder:
+    """
+    Builds and executes requests for operations under /alarms/starttracking
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def start_tracking(self, test_name: str, **kw) -> SimpleMessageResponse:
+        """
+        Start tracking events
+
+        :param test_name: Test Name
+        :returns: SimpleMessageResponse
+        """
+        params = {
+            "testName": test_name,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/alarms/starttracking/{testName}",
+            return_type=SimpleMessageResponse,
+            params=params,
+            **kw,
+        )

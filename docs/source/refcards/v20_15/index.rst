@@ -1,0 +1,86 @@
+=====
+20.15
+=====
+
+
+.. toctree::
+    :maxdepth: 1
+
+    aas/index
+    accesstoken
+    admin/index
+    alarms/index
+    app_registry/index
+    auditlog/index
+    backup/index
+    cdna/index
+    certificate/index
+    client/index
+    cloudservices/index
+    cluster_management/index
+    colocation/monitor/index
+    container_manager/index
+    dashboard/index
+    data/device/index
+    dca/index
+    device/index
+    device_authorization/index
+    disasterrecovery/index
+    entityownership/index
+    event/index
+    featurecertificate/index
+    fedramp/index
+    group/index
+    health/devices/index
+    hsec/index
+    ise/index
+    jobs/batch/index
+    localization/supported_locales
+    management/index
+    mdp/index
+    messaging/device/vmanage/index
+    monitor/sdavccloudconnector/index
+    msla/index
+    multicloud/index
+    network/index
+    networkdesign/index
+    notifications/index
+    onboard/index
+    opentaccase/index
+    partner/index
+    policy/wani/recommendation/process/index
+    refreshtoken
+    resourcepool/resource/vpn
+    restore/index
+    schedule/index
+    sdavc/index
+    security/index
+    segment
+    server/info
+    serverlongpoll/event/poll/index
+    setting/configuration/webserver/certificate/index
+    settings/index
+    sig/index
+    smart_licensing/index
+    software/compliance/ip/origin/check
+    sslproxy/index
+    statistics/index
+    stream/device/index
+    system/index
+    template/index
+    tenant/index
+    tenantbackup/index
+    tenantmigration/index
+    tenantstatus/index
+    token/index
+    topology/index
+    troubleshooting/index
+    umbrella/index
+    ump/status
+    url/monitor/index
+    util/index
+    v1/index
+    v2/data/device/statistics/interfacestatistics/index
+    wani/index
+    webex/index
+

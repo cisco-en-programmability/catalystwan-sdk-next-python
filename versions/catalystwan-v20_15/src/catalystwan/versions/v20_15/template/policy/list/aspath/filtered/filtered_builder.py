@@ -1,0 +1,33 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Optional, List, Any
+from catalystwan.abc import RequestAdapterInterface
+
+
+class FilteredBuilder:
+    """
+    Builds and executes requests for operations under /template/policy/list/aspath/filtered
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_policy_lists_with_info_tag_5(
+        self, info_tag: Optional[str] = None, **kw
+    ) -> List[Any]:
+        """
+        Get policy lists with specific info tag
+
+        :param info_tag: InfoTag
+        :returns: List[Any]
+        """
+        params = {
+            "infoTag": info_tag,
+        }
+        return self._request_adapter.request(
+            "GET",
+            "/dataservice/template/policy/list/aspath/filtered",
+            return_type=List[Any],
+            params=params,
+            **kw,
+        )

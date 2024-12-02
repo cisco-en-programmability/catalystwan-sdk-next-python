@@ -1,0 +1,34 @@
+======================
+device.wireless.client
+======================
+
+
+Operation: GET /dataservice/device/wireless/client
+--------------------------------------------------
+
+
+Get wireless clients from device
+
+.. code:: python
+
+    def get_wireless_clients(device_id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.device.wireless.client.get_wireless_clients()
+
+

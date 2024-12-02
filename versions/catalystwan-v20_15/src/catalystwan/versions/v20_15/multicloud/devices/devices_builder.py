@@ -1,0 +1,49 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Optional, TYPE_CHECKING
+from catalystwan.abc import RequestAdapterInterface
+from .models import DeviceInfoExtendedResponse
+from .models import CloudTypeParam
+
+if TYPE_CHECKING:
+    from .edge.edge_builder import EdgeBuilder
+
+
+class DevicesBuilder:
+    """
+    Builds and executes requests for operations under /multicloud/devices
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_cloud_devices(
+        self, cloud_type: CloudTypeParam, cloud_gateway_name: Optional[str] = None, **kw
+    ) -> DeviceInfoExtendedResponse:
+        """
+        Get cloud devices by cloud type
+
+        :param cloud_type: Cloud type
+        :param cloud_gateway_name: Cloud gateway name
+        :returns: DeviceInfoExtendedResponse
+        """
+        params = {
+            "cloudType": cloud_type,
+            "cloudGatewayName": cloud_gateway_name,
+        }
+        return self._request_adapter.request(
+            "GET",
+            "/dataservice/multicloud/devices/{cloudType}",
+            return_type=DeviceInfoExtendedResponse,
+            params=params,
+            **kw,
+        )
+
+    @property
+    def edge(self) -> EdgeBuilder:
+        """
+        The edge property
+        """
+        from .edge.edge_builder import EdgeBuilder
+
+        return EdgeBuilder(self._request_adapter)

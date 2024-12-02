@@ -1,0 +1,42 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Optional, Any
+from catalystwan.abc import RequestAdapterInterface
+from .models import IfnameParam
+from .models import AfTypeParam
+
+
+class ArpStatsBuilder:
+    """
+    Builds and executes requests for operations under /device/interface/arp_stats
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_device_interface_arp_stats(
+        self,
+        device_id: str,
+        vpn_id: Optional[str] = None,
+        ifname: Optional[IfnameParam] = None,
+        af_type: Optional[AfTypeParam] = None,
+        **kw,
+    ) -> Any:
+        """
+        Get interface ARP statistics
+
+        :param vpn_id: VPN Id
+        :param ifname: IF Name
+        :param af_type: AF Type
+        :param device_id: deviceId - Device IP
+        :returns: Any
+        """
+        params = {
+            "vpn-id": vpn_id,
+            "ifname": ifname,
+            "af-type": af_type,
+            "deviceId": device_id,
+        }
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/interface/arp_stats", params=params, **kw
+        )

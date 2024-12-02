@@ -1,0 +1,25 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Any
+from catalystwan.abc import RequestAdapterInterface
+import logging
+
+
+class AccountdetailsBuilder:
+    """
+    Builds and executes requests for operations under /template/cor/cloud/host/accountdetails
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_cloud_host_vpc_account_details(self, **kw) -> Any:
+        """
+        Get cloud host VPC account details
+
+        :returns: Any
+        """
+        logging.warning("Operation: %s is deprecated", "getCloudHostVpcAccountDetails")
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/cor/cloud/host/accountdetails", **kw
+        )

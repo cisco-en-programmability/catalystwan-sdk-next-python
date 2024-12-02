@@ -1,0 +1,36 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Optional, Any
+from catalystwan.abc import RequestAdapterInterface
+import logging
+
+
+class SummaryBuilder:
+    """
+    Builds and executes requests for operations under /statistics/cflowd/applications/summary
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def create_flowssummary(
+        self, limit: Optional[int] = None, query: Optional[str] = None, **kw
+    ) -> Any:
+        """
+        Generate cflowd flows list in a grid table
+
+        :param limit: Limit
+        :param query: Query
+        :returns: Any
+        """
+        logging.warning("Operation: %s is deprecated", "createFlowssummary")
+        params = {
+            "limit": limit,
+            "query": query,
+        }
+        return self._request_adapter.request(
+            "GET",
+            "/dataservice/statistics/cflowd/applications/summary",
+            params=params,
+            **kw,
+        )

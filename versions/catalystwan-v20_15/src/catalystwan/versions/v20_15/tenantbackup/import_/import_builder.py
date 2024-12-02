@@ -1,0 +1,26 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Any
+from catalystwan.abc import RequestAdapterInterface
+
+
+class ImportBuilder:
+    """
+    Builds and executes requests for operations under /tenantbackup/import
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def import_tenant_backup(self, **kw) -> Any:
+        """
+        Submit a previously backed up file and import the data and apply it to the configuraion database
+
+
+        Note: In a multitenant vManage system, this API is only available in the Provider view.
+
+        :returns: Any
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/tenantbackup/import", **kw
+        )

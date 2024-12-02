@@ -1,0 +1,36 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Optional, List
+from catalystwan.abc import RequestAdapterInterface
+from .models import MapStatus
+
+
+class StatusBuilder:
+    """
+    Builds and executes requests for operations under /multicloud/map/status
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_mapping_status(
+        self, cloud_type: str, region: Optional[str] = None, **kw
+    ) -> List[MapStatus]:
+        """
+        Get mapping status
+
+        :param cloud_type: Multicloud provider type
+        :param region: Region
+        :returns: List[MapStatus]
+        """
+        params = {
+            "cloudType": cloud_type,
+            "region": region,
+        }
+        return self._request_adapter.request(
+            "GET",
+            "/dataservice/multicloud/map/status",
+            return_type=List[MapStatus],
+            params=params,
+            **kw,
+        )

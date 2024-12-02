@@ -1,0 +1,38 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import List, Any, TYPE_CHECKING
+from catalystwan.abc import RequestAdapterInterface
+
+if TYPE_CHECKING:
+    from .update.update_builder import UpdateBuilder
+
+
+class WebexBuilder:
+    """
+    Builds and executes requests for operations under /template/policy/list/webex
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def create_webex_prefix_lists(self, **kw) -> List[Any]:
+        """
+        TEMP-Create Webex policy lists
+
+        :returns: List[Any]
+        """
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/template/policy/list/webex",
+            return_type=List[Any],
+            **kw,
+        )
+
+    @property
+    def update(self) -> UpdateBuilder:
+        """
+        The update property
+        """
+        from .update.update_builder import UpdateBuilder
+
+        return UpdateBuilder(self._request_adapter)

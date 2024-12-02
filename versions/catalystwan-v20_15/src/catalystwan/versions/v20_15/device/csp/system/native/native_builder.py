@@ -1,0 +1,27 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Any
+from catalystwan.abc import RequestAdapterInterface
+
+
+class NativeBuilder:
+    """
+    Builds and executes requests for operations under /device/csp/system/native
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def create_device_system_setting_native_info(self, device_id: str, **kw) -> Any:
+        """
+        Get device system native settings from device
+
+        :param device_id: deviceId - Device IP
+        :returns: Any
+        """
+        params = {
+            "deviceId": device_id,
+        }
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/csp/system/native", params=params, **kw
+        )

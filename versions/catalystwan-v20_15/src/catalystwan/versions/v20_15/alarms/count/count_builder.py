@@ -1,0 +1,59 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+from typing import Optional, List, Any, Type
+from catalystwan.abc import RequestAdapterInterface
+from .models import AlarmCountPost
+
+
+class CountBuilder:
+    """
+    Builds and executes requests for operations under /alarms/count
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_count_1(self, **kw) -> Any:
+        """
+        Get the count of alarms which are active and not acknowledged by user.
+
+        :returns: Any
+        """
+        return self._request_adapter.request("GET", "/dataservice/alarms/count", **kw)
+
+    @property
+    def post_count(self):
+        class post_count_:
+            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+                self._request_adapter = request_adapter
+
+            def __call__(
+                self, payload: Optional[Any] = None, site_id: Optional[str] = None, **kw
+            ) -> List[AlarmCountPost]:
+                """
+                Get the count of alarms as per the query passed.
+
+                :param site_id: Specify the site-id to filter the alarms
+                :param payload: Query
+                :returns: List[AlarmCountPost]
+                """
+                params = {
+                    "site-id": site_id,
+                }
+                return self._request_adapter.request(
+                    "POST",
+                    "/dataservice/alarms/count",
+                    return_type=List[AlarmCountPost],
+                    params=params,
+                    payload=payload,
+                    **kw,
+                )
+
+            def create_payload(self, *args, **kwargs) -> Any:
+                return Any(*args, **kwargs)
+
+            @property
+            def payload_model(self) -> Type[Any]:
+                return Any
+
+        return post_count_(self._request_adapter)
