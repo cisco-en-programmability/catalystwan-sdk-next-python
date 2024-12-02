@@ -1,6 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
-from typing import Literal, Optional, List
-from dataclasses import dataclass, field as _field
+from dataclasses import dataclass
+from dataclasses import field as _field
+from typing import List, Literal, Optional
 
 CloudTypeParam = Literal["AWS", "AZURE", "GCP"]
 

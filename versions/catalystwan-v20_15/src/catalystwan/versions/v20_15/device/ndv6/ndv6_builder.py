@@ -1,9 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any
+
+from typing import Any, Optional
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import VpnIdParam
-from .models import IfNameParam
+
+from .models import IfNameParam, VpnIdParam
 
 
 class Ndv6Builder:

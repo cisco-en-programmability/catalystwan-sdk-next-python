@@ -1,20 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import List, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, List, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import PartnerRes
-from .models import RegisterPartnerRes
-from .models import RegisterPartnerRequest
-from .models import UpdatePartnerRequest
-from .models import StatusResponse
+
+from .models import PartnerRes, RegisterPartnerRequest, RegisterPartnerRes, StatusResponse, UpdatePartnerRequest
 
 if TYPE_CHECKING:
     from .aci.aci_builder import AciBuilder
     from .dnac.dnac_builder import DnacBuilder
-    from .vpn.vpn_builder import VpnBuilder
-    from .wcm.wcm_builder import WcmBuilder
     from .map.map_builder import MapBuilder
     from .unmap.unmap_builder import UnmapBuilder
+    from .vpn.vpn_builder import VpnBuilder
+    from .wcm.wcm_builder import WcmBuilder
 
 
 class PartnerBuilder:

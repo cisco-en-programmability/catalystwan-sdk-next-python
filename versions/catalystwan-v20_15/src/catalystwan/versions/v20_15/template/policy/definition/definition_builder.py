@@ -1,34 +1,28 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .acl.acl_builder import AclBuilder
     from .aclv6.aclv6_builder import Aclv6Builder
-    from .advanced_malware_protection.advanced_malware_protection_builder import (
-        AdvancedMalwareProtectionBuilder,
-    )
-    from .advancedinspectionprofile.advancedinspectionprofile_builder import (
-        AdvancedinspectionprofileBuilder,
-    )
+    from .advanced_malware_protection.advanced_malware_protection_builder import AdvancedMalwareProtectionBuilder
+    from .advancedinspectionprofile.advancedinspectionprofile_builder import AdvancedinspectionprofileBuilder
     from .approute.approute_builder import ApprouteBuilder
     from .cflowd.cflowd_builder import CflowdBuilder
     from .control.control_builder import ControlBuilder
     from .data.data_builder import DataBuilder
     from .deviceaccesspolicy.deviceaccesspolicy_builder import DeviceaccesspolicyBuilder
-    from .deviceaccesspolicyv6.deviceaccesspolicyv6_builder import (
-        Deviceaccesspolicyv6Builder,
-    )
+    from .deviceaccesspolicyv6.deviceaccesspolicyv6_builder import Deviceaccesspolicyv6Builder
     from .dialpeer.dialpeer_builder import DialpeerBuilder
     from .dnssecurity.dnssecurity_builder import DnssecurityBuilder
     from .fxoport.fxoport_builder import FxoportBuilder
     from .fxsdidport.fxsdidport_builder import FxsdidportBuilder
     from .fxsport.fxsport_builder import FxsportBuilder
     from .hubandspoke.hubandspoke_builder import HubandspokeBuilder
-    from .intrusionprevention.intrusionprevention_builder import (
-        IntrusionpreventionBuilder,
-    )
+    from .intrusionprevention.intrusionprevention_builder import IntrusionpreventionBuilder
     from .mesh.mesh_builder import MeshBuilder
     from .priisdnport.priisdnport_builder import PriisdnportBuilder
     from .qosmap.qosmap_builder import QosmapBuilder
@@ -76,9 +70,7 @@ class DefinitionBuilder:
         """
         The advancedMalwareProtection property
         """
-        from .advanced_malware_protection.advanced_malware_protection_builder import (
-            AdvancedMalwareProtectionBuilder,
-        )
+        from .advanced_malware_protection.advanced_malware_protection_builder import AdvancedMalwareProtectionBuilder
 
         return AdvancedMalwareProtectionBuilder(self._request_adapter)
 
@@ -87,9 +79,7 @@ class DefinitionBuilder:
         """
         The advancedinspectionprofile property
         """
-        from .advancedinspectionprofile.advancedinspectionprofile_builder import (
-            AdvancedinspectionprofileBuilder,
-        )
+        from .advancedinspectionprofile.advancedinspectionprofile_builder import AdvancedinspectionprofileBuilder
 
         return AdvancedinspectionprofileBuilder(self._request_adapter)
 
@@ -134,9 +124,7 @@ class DefinitionBuilder:
         """
         The deviceaccesspolicy property
         """
-        from .deviceaccesspolicy.deviceaccesspolicy_builder import (
-            DeviceaccesspolicyBuilder,
-        )
+        from .deviceaccesspolicy.deviceaccesspolicy_builder import DeviceaccesspolicyBuilder
 
         return DeviceaccesspolicyBuilder(self._request_adapter)
 
@@ -145,9 +133,7 @@ class DefinitionBuilder:
         """
         The deviceaccesspolicyv6 property
         """
-        from .deviceaccesspolicyv6.deviceaccesspolicyv6_builder import (
-            Deviceaccesspolicyv6Builder,
-        )
+        from .deviceaccesspolicyv6.deviceaccesspolicyv6_builder import Deviceaccesspolicyv6Builder
 
         return Deviceaccesspolicyv6Builder(self._request_adapter)
 
@@ -210,9 +196,7 @@ class DefinitionBuilder:
         """
         The intrusionprevention property
         """
-        from .intrusionprevention.intrusionprevention_builder import (
-            IntrusionpreventionBuilder,
-        )
+        from .intrusionprevention.intrusionprevention_builder import IntrusionpreventionBuilder
 
         return IntrusionpreventionBuilder(self._request_adapter)
 
@@ -320,9 +304,7 @@ class DefinitionBuilder:
         """
         The vpnmembershipgroup property
         """
-        from .vpnmembershipgroup.vpnmembershipgroup_builder import (
-            VpnmembershipgroupBuilder,
-        )
+        from .vpnmembershipgroup.vpnmembershipgroup_builder import VpnmembershipgroupBuilder
 
         return VpnmembershipgroupBuilder(self._request_adapter)
 

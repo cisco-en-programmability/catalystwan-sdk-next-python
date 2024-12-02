@@ -1,6 +1,8 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Optional
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:

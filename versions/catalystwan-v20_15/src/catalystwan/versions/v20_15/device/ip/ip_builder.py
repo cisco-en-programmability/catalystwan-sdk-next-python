@@ -1,6 +1,8 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
@@ -9,8 +11,8 @@ if TYPE_CHECKING:
     from .mfiboil.mfiboil_builder import MfiboilBuilder
     from .mfibstats.mfibstats_builder import MfibstatsBuilder
     from .mfibsummary.mfibsummary_builder import MfibsummaryBuilder
-    from .nat.nat_builder import NatBuilder
     from .nat64.nat64_builder import Nat64Builder
+    from .nat.nat_builder import NatBuilder
     from .routetable.routetable_builder import RoutetableBuilder
     from .v4fib.v4_fib_builder import V4FibBuilder
     from .v6fib.v6_fib_builder import V6FibBuilder

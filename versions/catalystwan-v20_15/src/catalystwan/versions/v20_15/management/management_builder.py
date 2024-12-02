@@ -1,13 +1,13 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .category.category_builder import CategoryBuilder
-    from .v_manage_resource_utilization.v_manage_resource_utilization_builder import (
-        VManageResourceUtilizationBuilder,
-    )
+    from .v_manage_resource_utilization.v_manage_resource_utilization_builder import VManageResourceUtilizationBuilder
 
 
 class ManagementBuilder:
@@ -32,8 +32,7 @@ class ManagementBuilder:
         """
         The vManageResourceUtilization property
         """
-        from .v_manage_resource_utilization.v_manage_resource_utilization_builder import (
-            VManageResourceUtilizationBuilder,
-        )
+        from .v_manage_resource_utilization.v_manage_resource_utilization_builder import \
+            VManageResourceUtilizationBuilder
 
         return VManageResourceUtilizationBuilder(self._request_adapter)

@@ -1,9 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import DpiResponse
-from .models import SortOrderParam
+
+from .models import DpiResponse, SortOrderParam
 
 if TYPE_CHECKING:
     from .agg_app.agg_app_builder import AggAppBuilder

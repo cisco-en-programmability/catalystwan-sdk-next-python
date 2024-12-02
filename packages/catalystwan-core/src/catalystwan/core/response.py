@@ -8,11 +8,12 @@ from urllib.parse import urlparse
 
 # from catalystwan2 import with_proc_info_header
 from catalystwan.abc import ResponseInterface
-from catalystwan.core.exceptions import ManagerErrorInfo
-from catalystwan.core.metadata import with_proc_info_header
 from requests import PreparedRequest, Request, Response
 from requests.cookies import RequestsCookieJar
 from requests.exceptions import JSONDecodeError
+
+from catalystwan.core.exceptions import ManagerErrorInfo
+from catalystwan.core.metadata import with_proc_info_header
 
 T = TypeVar("T")
 PRINTABLE_CONTENT = re.compile(

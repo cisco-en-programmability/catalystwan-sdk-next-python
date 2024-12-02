@@ -1,9 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import List
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import MapDefaults
-from .models import CloudTypeParam
+
+from .models import CloudTypeParam, MapDefaults
 
 
 class DefaultsBuilder:

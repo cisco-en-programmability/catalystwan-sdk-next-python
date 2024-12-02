@@ -1,15 +1,15 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .aggregation.aggregation_builder import AggregationBuilder
     from .app_agg.app_agg_builder import AppAggBuilder
     from .apphosting.apphosting_builder import ApphostingBuilder
-    from .apphostinginterface.apphostinginterface_builder import (
-        ApphostinginterfaceBuilder,
-    )
+    from .apphostinginterface.apphostinginterface_builder import ApphostinginterfaceBuilder
     from .approute.approute_builder import ApprouteBuilder
     from .art.art_builder import ArtBuilder
     from .bfd.bfd_builder import BfdBuilder
@@ -151,9 +151,7 @@ class StatisticsBuilder:
         """
         The apphostinginterface property
         """
-        from .apphostinginterface.apphostinginterface_builder import (
-            ApphostinginterfaceBuilder,
-        )
+        from .apphostinginterface.apphostinginterface_builder import ApphostinginterfaceBuilder
 
         return ApphostinginterfaceBuilder(self._request_adapter)
 

@@ -1,8 +1,10 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import List, Any, TYPE_CHECKING
-from catalystwan.abc import RequestAdapterInterface
+
 import logging
+from typing import TYPE_CHECKING, Any, List
+
+from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .account.account_builder import AccountBuilder
@@ -62,8 +64,6 @@ class CloudBuilder:
         """
         The mappedhostaccounts property
         """
-        from .mappedhostaccounts.mappedhostaccounts_builder import (
-            MappedhostaccountsBuilder,
-        )
+        from .mappedhostaccounts.mappedhostaccounts_builder import MappedhostaccountsBuilder
 
         return MappedhostaccountsBuilder(self._request_adapter)

@@ -1,15 +1,15 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .authenticate.authenticate_builder import AuthenticateBuilder
     from .fetch_accounts.fetch_accounts_builder import FetchAccountsBuilder
     from .fetch_all_sa.fetch_all_sa_builder import FetchAllSaBuilder
-    from .fetch_reports_for_sa.fetch_reports_for_sa_builder import (
-        FetchReportsForSaBuilder,
-    )
+    from .fetch_reports_for_sa.fetch_reports_for_sa_builder import FetchReportsForSaBuilder
     from .get_user_settings.get_user_settings_builder import GetUserSettingsBuilder
     from .sync_licenses.sync_licenses_builder import SyncLicensesBuilder
 
@@ -54,9 +54,7 @@ class SmartLicensingBuilder:
         """
         The fetchReportsForSa property
         """
-        from .fetch_reports_for_sa.fetch_reports_for_sa_builder import (
-            FetchReportsForSaBuilder,
-        )
+        from .fetch_reports_for_sa.fetch_reports_for_sa_builder import FetchReportsForSaBuilder
 
         return FetchReportsForSaBuilder(self._request_adapter)
 

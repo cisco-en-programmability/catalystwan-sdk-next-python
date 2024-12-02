@@ -1,6 +1,8 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
@@ -22,9 +24,7 @@ class DownloadBuilder:
         """
         The fetchvManageList property
         """
-        from .fetchv_manage_list.fetchv_manage_list_builder import (
-            FetchvManageListBuilder,
-        )
+        from .fetchv_manage_list.fetchv_manage_list_builder import FetchvManageListBuilder
 
         return FetchvManageListBuilder(self._request_adapter)
 

@@ -1,8 +1,9 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import InlineResponse2002
-from .models import TunnelTypeParam
+
+from .models import InlineResponse2002, TunnelTypeParam
 
 
 class ColorsBuilder:

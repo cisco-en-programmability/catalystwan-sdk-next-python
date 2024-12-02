@@ -1,29 +1,24 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Any, Type, TYPE_CHECKING
-from catalystwan.abc import RequestAdapterInterface
+
 import logging
+from typing import TYPE_CHECKING, Any, List, Optional, Type
+
+from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .accountid.accountid_builder import AccountidBuilder
-    from .acquire_resource_pool.acquire_resource_pool_builder import (
-        AcquireResourcePoolBuilder,
-    )
+    from .acquire_resource_pool.acquire_resource_pool_builder import AcquireResourcePoolBuilder
     from .ami.ami_builder import AmiBuilder
     from .cloud.cloud_builder import CloudBuilder
-    from .create_resource_pool.create_resource_pool_builder import (
-        CreateResourcePoolBuilder,
-    )
+    from .create_resource_pool.create_resource_pool_builder import CreateResourcePoolBuilder
     from .delete_devicepair.delete_devicepair_builder import DeleteDevicepairBuilder
     from .device.device_builder import DeviceBuilder
     from .devicepair.devicepair_builder import DevicepairBuilder
     from .external_id.external_id_builder import ExternalIdBuilder
-    from .get_transit_device_pair_and_host_list.get_transit_device_pair_and_host_list_builder import (
-        GetTransitDevicePairAndHostListBuilder,
-    )
-    from .get_transit_vpn_list.get_transit_vpn_list_builder import (
-        GetTransitVpnListBuilder,
-    )
+    from .get_transit_device_pair_and_host_list.get_transit_device_pair_and_host_list_builder import \
+        GetTransitDevicePairAndHostListBuilder
+    from .get_transit_vpn_list.get_transit_vpn_list_builder import GetTransitVpnListBuilder
     from .hostvpc.hostvpc_builder import HostvpcBuilder
     from .map.map_builder import MapBuilder
     from .pem.pem_builder import PemBuilder
@@ -91,9 +86,7 @@ class CorBuilder:
         """
         The acquireResourcePool property
         """
-        from .acquire_resource_pool.acquire_resource_pool_builder import (
-            AcquireResourcePoolBuilder,
-        )
+        from .acquire_resource_pool.acquire_resource_pool_builder import AcquireResourcePoolBuilder
 
         return AcquireResourcePoolBuilder(self._request_adapter)
 
@@ -120,9 +113,7 @@ class CorBuilder:
         """
         The createResourcePool property
         """
-        from .create_resource_pool.create_resource_pool_builder import (
-            CreateResourcePoolBuilder,
-        )
+        from .create_resource_pool.create_resource_pool_builder import CreateResourcePoolBuilder
 
         return CreateResourcePoolBuilder(self._request_adapter)
 
@@ -169,9 +160,8 @@ class CorBuilder:
         """
         The getTransitDevicePairAndHostList property
         """
-        from .get_transit_device_pair_and_host_list.get_transit_device_pair_and_host_list_builder import (
-            GetTransitDevicePairAndHostListBuilder,
-        )
+        from .get_transit_device_pair_and_host_list.get_transit_device_pair_and_host_list_builder import \
+            GetTransitDevicePairAndHostListBuilder
 
         return GetTransitDevicePairAndHostListBuilder(self._request_adapter)
 
@@ -180,9 +170,7 @@ class CorBuilder:
         """
         The getTransitVpnList property
         """
-        from .get_transit_vpn_list.get_transit_vpn_list_builder import (
-            GetTransitVpnListBuilder,
-        )
+        from .get_transit_vpn_list.get_transit_vpn_list_builder import GetTransitVpnListBuilder
 
         return GetTransitVpnListBuilder(self._request_adapter)
 

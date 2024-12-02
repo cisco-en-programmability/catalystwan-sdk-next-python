@@ -1,6 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
-from typing import Literal, Optional, List, Dict
-from dataclasses import dataclass, field as _field
+from dataclasses import dataclass
+from dataclasses import field as _field
+from typing import Dict, List, Literal, Optional
 
 Solution = Literal[
     "cellulargateway",

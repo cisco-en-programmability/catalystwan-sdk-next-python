@@ -1,11 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import HostVpcTagResponse
-from .models import Taskid
-from .models import HostVpcTagPut
-from .models import HostVpcTagPost
+
+from .models import HostVpcTagPost, HostVpcTagPut, HostVpcTagResponse, Taskid
 
 if TYPE_CHECKING:
     from .rebalance_vnets.rebalance_vnets_builder import RebalanceVnetsBuilder

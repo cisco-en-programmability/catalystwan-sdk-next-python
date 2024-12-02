@@ -1,12 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .device_chassis_numbers.device_chassis_numbers_builder import (
-        DeviceChassisNumbersBuilder,
-    )
+    from .device_chassis_numbers.device_chassis_numbers_builder import DeviceChassisNumbersBuilder
 
 
 class GatewaysBuilder:
@@ -22,8 +22,6 @@ class GatewaysBuilder:
         """
         The device-chassis-numbers property
         """
-        from .device_chassis_numbers.device_chassis_numbers_builder import (
-            DeviceChassisNumbersBuilder,
-        )
+        from .device_chassis_numbers.device_chassis_numbers_builder import DeviceChassisNumbersBuilder
 
         return DeviceChassisNumbersBuilder(self._request_adapter)

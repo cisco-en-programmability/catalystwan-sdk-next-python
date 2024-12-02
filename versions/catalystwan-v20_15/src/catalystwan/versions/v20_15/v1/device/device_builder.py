@@ -1,15 +1,13 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .running_ios_cli_config.running_ios_cli_config_builder import (
-        RunningIosCliConfigBuilder,
-    )
-    from .unsupported_cli_config.unsupported_cli_config_builder import (
-        UnsupportedCliConfigBuilder,
-    )
+    from .running_ios_cli_config.running_ios_cli_config_builder import RunningIosCliConfigBuilder
+    from .unsupported_cli_config.unsupported_cli_config_builder import UnsupportedCliConfigBuilder
 
 
 class DeviceBuilder:
@@ -25,9 +23,7 @@ class DeviceBuilder:
         """
         The runningIosCliConfig property
         """
-        from .running_ios_cli_config.running_ios_cli_config_builder import (
-            RunningIosCliConfigBuilder,
-        )
+        from .running_ios_cli_config.running_ios_cli_config_builder import RunningIosCliConfigBuilder
 
         return RunningIosCliConfigBuilder(self._request_adapter)
 
@@ -36,8 +32,6 @@ class DeviceBuilder:
         """
         The unsupportedCliConfig property
         """
-        from .unsupported_cli_config.unsupported_cli_config_builder import (
-            UnsupportedCliConfigBuilder,
-        )
+        from .unsupported_cli_config.unsupported_cli_config_builder import UnsupportedCliConfigBuilder
 
         return UnsupportedCliConfigBuilder(self._request_adapter)

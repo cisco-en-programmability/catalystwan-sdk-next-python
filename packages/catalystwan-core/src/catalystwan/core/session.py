@@ -7,23 +7,18 @@ from typing import Callable, List, Optional, Union
 from urllib.parse import urljoin, urlparse, urlunparse
 
 from catalystwan.abc import SessionInterface, SessionType
+from packaging.version import Version  # type: ignore
+from requests import PreparedRequest, Request, Response, Session, get, head
+from requests.exceptions import ConnectionError, HTTPError, RequestException
+
 from catalystwan.core.apigw_auth import ApiGwAuth, ApiGwLogin, LoginMode
-from catalystwan.core.exceptions import (
-    DefaultPasswordError,
-    ManagerHTTPError,
-    ManagerReadyTimeout,
-    ManagerRequestException,
-    SessionNotCreatedError,
-    TenantSubdomainNotFound,
-)
+from catalystwan.core.exceptions import (DefaultPasswordError, ManagerHTTPError, ManagerReadyTimeout,
+                                         ManagerRequestException, SessionNotCreatedError, TenantSubdomainNotFound)
 from catalystwan.core.metadata import USER_AGENT
 from catalystwan.core.request_limiter import RequestLimiter
 from catalystwan.core.response import ManagerResponse, response_history_debug
 from catalystwan.core.version import NullVersion, parse_api_version
 from catalystwan.core.vmanage_auth import create_vmanage_auth, vManageAuth
-from packaging.version import Version  # type: ignore
-from requests import PreparedRequest, Request, Response, Session, get, head
-from requests.exceptions import ConnectionError, HTTPError, RequestException
 
 
 class UserMode(str, Enum):

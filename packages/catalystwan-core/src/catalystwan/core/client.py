@@ -9,11 +9,7 @@ from catalystwan.core.abstractions import AuthProtocol
 from catalystwan.core.loader import load_client
 from catalystwan.core.request_adapter import RequestAdapter
 from catalystwan.core.request_limiter import RequestLimiter
-from catalystwan.core.session import (
-    ManagerSession,
-    create_base_url,
-    create_manager_session,
-)
+from catalystwan.core.session import ManagerSession, create_base_url, create_manager_session
 
 if TYPE_CHECKING:
     from catalystwan.core.loader import ApiClient

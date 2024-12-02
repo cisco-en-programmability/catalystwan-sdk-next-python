@@ -1,9 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import EnrollOtpResponse
-from .models import EnrollOtpSettings
+
+from .models import EnrollOtpResponse, EnrollOtpSettings
 
 
 class ServerBuilder:

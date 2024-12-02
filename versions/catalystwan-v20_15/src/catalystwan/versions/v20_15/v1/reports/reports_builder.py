@@ -1,15 +1,15 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import ReportSummaryResponse
-from .models import ReportInfo
-from .models import ExecutiveSummaryReport
-from .models import UpdateReportTemplateResponse
+
+from .models import ExecutiveSummaryReport, ReportInfo, ReportSummaryResponse, UpdateReportTemplateResponse
 
 if TYPE_CHECKING:
-    from .preview.preview_builder import PreviewBuilder
     from .action.action_builder import ActionBuilder
+    from .preview.preview_builder import PreviewBuilder
     from .tasks.tasks_builder import TasksBuilder
 
 

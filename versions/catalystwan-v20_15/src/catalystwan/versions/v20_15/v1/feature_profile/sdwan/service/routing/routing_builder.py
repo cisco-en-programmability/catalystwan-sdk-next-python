@@ -1,12 +1,14 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .bgp.bgp_builder import BgpBuilder
-    from .multicast.multicast_builder import MulticastBuilder
     from .eigrp.eigrp_builder import EigrpBuilder
+    from .multicast.multicast_builder import MulticastBuilder
     from .ospf.ospf_builder import OspfBuilder
     from .ospfv3.ospfv3_builder import Ospfv3Builder
 

@@ -1,12 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .gcr_and_attachments.gcr_and_attachments_builder import (
-        GcrAndAttachmentsBuilder,
-    )
+    from .gcr_and_attachments.gcr_and_attachments_builder import GcrAndAttachmentsBuilder
     from .vhubs.vhubs_builder import VhubsBuilder
     from .vwans.vwans_builder import VwansBuilder
 
@@ -24,9 +24,7 @@ class AccountsBuilder:
         """
         The gcr-and-attachments property
         """
-        from .gcr_and_attachments.gcr_and_attachments_builder import (
-            GcrAndAttachmentsBuilder,
-        )
+        from .gcr_and_attachments.gcr_and_attachments_builder import GcrAndAttachmentsBuilder
 
         return GcrAndAttachmentsBuilder(self._request_adapter)
 

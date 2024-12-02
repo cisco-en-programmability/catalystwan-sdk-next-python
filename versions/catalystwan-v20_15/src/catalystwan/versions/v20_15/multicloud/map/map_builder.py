@@ -1,11 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import GetMapResponse
-from .models import CloudTypeParam
-from .models import Taskid
-from .models import PostMapRequest
+
+from .models import CloudTypeParam, GetMapResponse, PostMapRequest, Taskid
 
 if TYPE_CHECKING:
     from .defaults.defaults_builder import DefaultsBuilder

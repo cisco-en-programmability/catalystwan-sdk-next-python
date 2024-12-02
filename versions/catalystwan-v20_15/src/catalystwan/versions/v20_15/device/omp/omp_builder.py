@@ -1,17 +1,15 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .cloudx.cloudx_builder import CloudxBuilder
     from .links.links_builder import LinksBuilder
-    from .mcastautodiscoveradvt.mcastautodiscoveradvt_builder import (
-        McastautodiscoveradvtBuilder,
-    )
-    from .mcastautodiscoverrecv.mcastautodiscoverrecv_builder import (
-        McastautodiscoverrecvBuilder,
-    )
+    from .mcastautodiscoveradvt.mcastautodiscoveradvt_builder import McastautodiscoveradvtBuilder
+    from .mcastautodiscoverrecv.mcastautodiscoverrecv_builder import McastautodiscoverrecvBuilder
     from .mcastroutesadvt.mcastroutesadvt_builder import McastroutesadvtBuilder
     from .mcastroutesrecv.mcastroutesrecv_builder import McastroutesrecvBuilder
     from .peers.peers_builder import PeersBuilder
@@ -54,9 +52,7 @@ class OmpBuilder:
         """
         The mcastautodiscoveradvt property
         """
-        from .mcastautodiscoveradvt.mcastautodiscoveradvt_builder import (
-            McastautodiscoveradvtBuilder,
-        )
+        from .mcastautodiscoveradvt.mcastautodiscoveradvt_builder import McastautodiscoveradvtBuilder
 
         return McastautodiscoveradvtBuilder(self._request_adapter)
 
@@ -65,9 +61,7 @@ class OmpBuilder:
         """
         The mcastautodiscoverrecv property
         """
-        from .mcastautodiscoverrecv.mcastautodiscoverrecv_builder import (
-            McastautodiscoverrecvBuilder,
-        )
+        from .mcastautodiscoverrecv.mcastautodiscoverrecv_builder import McastautodiscoverrecvBuilder
 
         return McastautodiscoverrecvBuilder(self._request_adapter)
 

@@ -1,13 +1,15 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import UmtsSession
-from .models import UmtsInput
+
+from .models import UmtsInput, UmtsSession
 
 if TYPE_CHECKING:
-    from .statistics.statistics_builder import StatisticsBuilder
     from .save.save_builder import SaveBuilder
+    from .statistics.statistics_builder import StatisticsBuilder
 
 
 class UmtsBuilder:

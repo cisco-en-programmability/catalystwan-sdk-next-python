@@ -1,28 +1,21 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .fetch_sdo_token.fetch_sdo_token_builder import FetchSdoTokenBuilder
-    from .get_url_for_sdo_identity_service.get_url_for_sdo_identity_service_builder import (
-        GetUrlForSdoIdentityServiceBuilder,
-    )
-    from .providercredentials.providercredentials_builder import (
-        ProvidercredentialsBuilder,
-    )
-    from .providerscredentials.providerscredentials_builder import (
-        ProviderscredentialsBuilder,
-    )
-    from .rateplans.rateplans_builder import RateplansBuilder
-    from .registeredproviders.registeredproviders_builder import (
-        RegisteredprovidersBuilder,
-    )
     from .commplans.commplans_builder import CommplansBuilder
-    from .provider_credentials.provider_credentials_builder import (
-        ProviderCredentialsBuilder,
-    )
     from .deviceusage.deviceusage_builder import DeviceusageBuilder
+    from .fetch_sdo_token.fetch_sdo_token_builder import FetchSdoTokenBuilder
+    from .get_url_for_sdo_identity_service.get_url_for_sdo_identity_service_builder import \
+        GetUrlForSdoIdentityServiceBuilder
+    from .provider_credentials.provider_credentials_builder import ProviderCredentialsBuilder
+    from .providercredentials.providercredentials_builder import ProvidercredentialsBuilder
+    from .providerscredentials.providerscredentials_builder import ProviderscredentialsBuilder
+    from .rateplans.rateplans_builder import RateplansBuilder
+    from .registeredproviders.registeredproviders_builder import RegisteredprovidersBuilder
 
 
 class SecuredeviceonboardingBuilder:
@@ -65,9 +58,8 @@ class SecuredeviceonboardingBuilder:
         """
         The getUrlForSdoIdentityService property
         """
-        from .get_url_for_sdo_identity_service.get_url_for_sdo_identity_service_builder import (
-            GetUrlForSdoIdentityServiceBuilder,
-        )
+        from .get_url_for_sdo_identity_service.get_url_for_sdo_identity_service_builder import \
+            GetUrlForSdoIdentityServiceBuilder
 
         return GetUrlForSdoIdentityServiceBuilder(self._request_adapter)
 
@@ -76,9 +68,7 @@ class SecuredeviceonboardingBuilder:
         """
         The providerCredentials property
         """
-        from .provider_credentials.provider_credentials_builder import (
-            ProviderCredentialsBuilder,
-        )
+        from .provider_credentials.provider_credentials_builder import ProviderCredentialsBuilder
 
         return ProviderCredentialsBuilder(self._request_adapter)
 
@@ -87,9 +77,7 @@ class SecuredeviceonboardingBuilder:
         """
         The providercredentials property
         """
-        from .providercredentials.providercredentials_builder import (
-            ProvidercredentialsBuilder,
-        )
+        from .providercredentials.providercredentials_builder import ProvidercredentialsBuilder
 
         return ProvidercredentialsBuilder(self._request_adapter)
 
@@ -98,9 +86,7 @@ class SecuredeviceonboardingBuilder:
         """
         The providerscredentials property
         """
-        from .providerscredentials.providerscredentials_builder import (
-            ProviderscredentialsBuilder,
-        )
+        from .providerscredentials.providerscredentials_builder import ProviderscredentialsBuilder
 
         return ProviderscredentialsBuilder(self._request_adapter)
 
@@ -118,8 +104,6 @@ class SecuredeviceonboardingBuilder:
         """
         The registeredproviders property
         """
-        from .registeredproviders.registeredproviders_builder import (
-            RegisteredprovidersBuilder,
-        )
+        from .registeredproviders.registeredproviders_builder import RegisteredprovidersBuilder
 
         return RegisteredprovidersBuilder(self._request_adapter)

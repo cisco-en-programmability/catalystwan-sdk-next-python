@@ -5,15 +5,16 @@ from typing import Optional
 from urllib.parse import urlparse
 
 from catalystwan.abc import SessionInterface
+from packaging.version import Version  # type: ignore
+from requests import PreparedRequest, Response, get, post
+from requests.auth import AuthBase
+from requests.cookies import RequestsCookieJar, merge_cookies
+
 from catalystwan.core.abstractions import AuthProtocol
 from catalystwan.core.exceptions import CatalystwanException, TenantSubdomainNotFound
 from catalystwan.core.metadata import USER_AGENT
 from catalystwan.core.response import auth_response_debug
 from catalystwan.core.version import NullVersion
-from packaging.version import Version  # type: ignore
-from requests import PreparedRequest, Response, get, post
-from requests.auth import AuthBase
-from requests.cookies import RequestsCookieJar, merge_cookies
 
 
 class UnauthorizedAccessError(CatalystwanException):

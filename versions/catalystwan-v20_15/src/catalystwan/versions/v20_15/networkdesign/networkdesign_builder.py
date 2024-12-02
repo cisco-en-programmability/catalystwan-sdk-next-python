@@ -1,8 +1,10 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, Type, TYPE_CHECKING
-from catalystwan.abc import RequestAdapterInterface
+
 import logging
+from typing import TYPE_CHECKING, Any, Optional, Type
+
+from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .attachment.attachment_builder import AttachmentBuilder
@@ -11,9 +13,7 @@ if TYPE_CHECKING:
     from .lock.lock_builder import LockBuilder
     from .mytest.mytest_builder import MytestBuilder
     from .profile.profile_builder import ProfileBuilder
-    from .service_profile_config.service_profile_config_builder import (
-        ServiceProfileConfigBuilder,
-    )
+    from .service_profile_config.service_profile_config_builder import ServiceProfileConfigBuilder
 
 
 class NetworkdesignBuilder:
@@ -154,8 +154,6 @@ class NetworkdesignBuilder:
         """
         The serviceProfileConfig property
         """
-        from .service_profile_config.service_profile_config_builder import (
-            ServiceProfileConfigBuilder,
-        )
+        from .service_profile_config.service_profile_config_builder import ServiceProfileConfigBuilder
 
         return ServiceProfileConfigBuilder(self._request_adapter)

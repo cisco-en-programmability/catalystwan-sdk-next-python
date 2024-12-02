@@ -1,6 +1,8 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
@@ -8,9 +10,7 @@ if TYPE_CHECKING:
     from .component.component_builder import ComponentBuilder
     from .doccount.doccount_builder import DoccountBuilder
     from .enable.enable_builder import EnableBuilder
-    from .get_events_by_component.get_events_by_component_builder import (
-        GetEventsByComponentBuilder,
-    )
+    from .get_events_by_component.get_events_by_component_builder import GetEventsByComponentBuilder
     from .listeners.listeners_builder import ListenersBuilder
     from .page.page_builder import PageBuilder
     from .query.query_builder import QueryBuilder
@@ -147,9 +147,7 @@ class EventBuilder:
         """
         The getEventsByComponent property
         """
-        from .get_events_by_component.get_events_by_component_builder import (
-            GetEventsByComponentBuilder,
-        )
+        from .get_events_by_component.get_events_by_component_builder import GetEventsByComponentBuilder
 
         return GetEventsByComponentBuilder(self._request_adapter)
 

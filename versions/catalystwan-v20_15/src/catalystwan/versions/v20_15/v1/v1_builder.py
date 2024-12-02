@@ -1,6 +1,8 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
@@ -12,9 +14,7 @@ if TYPE_CHECKING:
     from .multicloud.multicloud_builder import MulticloudBuilder
     from .policy_group.policy_group_builder import PolicyGroupBuilder
     from .reports.reports_builder import ReportsBuilder
-    from .securedeviceonboarding.securedeviceonboarding_builder import (
-        SecuredeviceonboardingBuilder,
-    )
+    from .securedeviceonboarding.securedeviceonboarding_builder import SecuredeviceonboardingBuilder
     from .service_insertion.service_insertion_builder import ServiceInsertionBuilder
     from .smart_licensing.smart_licensing_builder import SmartLicensingBuilder
     from .topology_group.topology_group_builder import TopologyGroupBuilder
@@ -105,9 +105,7 @@ class V1Builder:
         """
         The securedeviceonboarding property
         """
-        from .securedeviceonboarding.securedeviceonboarding_builder import (
-            SecuredeviceonboardingBuilder,
-        )
+        from .securedeviceonboarding.securedeviceonboarding_builder import SecuredeviceonboardingBuilder
 
         return SecuredeviceonboardingBuilder(self._request_adapter)
 

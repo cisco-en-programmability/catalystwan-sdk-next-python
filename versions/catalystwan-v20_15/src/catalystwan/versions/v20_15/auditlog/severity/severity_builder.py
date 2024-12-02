@@ -1,9 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Optional
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import GetAuditLogBySeverity
-from .models import SortOrderParam
+
+from .models import GetAuditLogBySeverity, SortOrderParam
 
 if TYPE_CHECKING:
     from .summary.summary_builder import SummaryBuilder

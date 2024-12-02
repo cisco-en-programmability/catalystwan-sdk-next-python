@@ -1,12 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .accesslistassociations.accesslistassociations_builder import (
-        AccesslistassociationsBuilder,
-    )
+    from .accesslistassociations.accesslistassociations_builder import AccesslistassociationsBuilder
     from .accesslistcounters.accesslistcounters_builder import AccesslistcountersBuilder
     from .accesslistnames.accesslistnames_builder import AccesslistnamesBuilder
     from .accesslistpolicers.accesslistpolicers_builder import AccesslistpolicersBuilder
@@ -25,9 +25,7 @@ class Ipv6Builder:
         """
         The accesslistassociations property
         """
-        from .accesslistassociations.accesslistassociations_builder import (
-            AccesslistassociationsBuilder,
-        )
+        from .accesslistassociations.accesslistassociations_builder import AccesslistassociationsBuilder
 
         return AccesslistassociationsBuilder(self._request_adapter)
 
@@ -36,9 +34,7 @@ class Ipv6Builder:
         """
         The accesslistcounters property
         """
-        from .accesslistcounters.accesslistcounters_builder import (
-            AccesslistcountersBuilder,
-        )
+        from .accesslistcounters.accesslistcounters_builder import AccesslistcountersBuilder
 
         return AccesslistcountersBuilder(self._request_adapter)
 
@@ -56,8 +52,6 @@ class Ipv6Builder:
         """
         The accesslistpolicers property
         """
-        from .accesslistpolicers.accesslistpolicers_builder import (
-            AccesslistpolicersBuilder,
-        )
+        from .accesslistpolicers.accesslistpolicers_builder import AccesslistpolicersBuilder
 
         return AccesslistpolicersBuilder(self._request_adapter)

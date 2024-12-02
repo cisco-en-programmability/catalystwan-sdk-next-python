@@ -1,13 +1,13 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .datacenters.datacenters_builder import DatacentersBuilder
-    from .sig_global_credentials.sig_global_credentials_builder import (
-        SigGlobalCredentialsBuilder,
-    )
+    from .sig_global_credentials.sig_global_credentials_builder import SigGlobalCredentialsBuilder
     from .umbrella.umbrella_builder import UmbrellaBuilder
 
 
@@ -33,9 +33,7 @@ class SigBuilder:
         """
         The sigGlobalCredentials property
         """
-        from .sig_global_credentials.sig_global_credentials_builder import (
-            SigGlobalCredentialsBuilder,
-        )
+        from .sig_global_credentials.sig_global_credentials_builder import SigGlobalCredentialsBuilder
 
         return SigGlobalCredentialsBuilder(self._request_adapter)
 

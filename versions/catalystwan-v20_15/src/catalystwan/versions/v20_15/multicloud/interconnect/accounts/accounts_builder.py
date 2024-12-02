@@ -1,14 +1,17 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
+
 from .models import InterconnectAccount
 
 if TYPE_CHECKING:
-    from .credentials.credentials_builder import CredentialsBuilder
     from .billing_accounts.billing_accounts_builder import BillingAccountsBuilder
     from .cloud.cloud_builder import CloudBuilder
     from .connectivity.connectivity_builder import ConnectivityBuilder
+    from .credentials.credentials_builder import CredentialsBuilder
     from .locations.locations_builder import LocationsBuilder
 
 

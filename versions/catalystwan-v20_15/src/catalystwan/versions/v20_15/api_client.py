@@ -1,6 +1,8 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING, Literal
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
@@ -22,9 +24,7 @@ if TYPE_CHECKING:
     from .data.data_builder import DataBuilder
     from .dca.dca_builder import DcaBuilder
     from .device.device_builder import DeviceBuilder
-    from .device_authorization.device_authorization_builder import (
-        DeviceAuthorizationBuilder,
-    )
+    from .device_authorization.device_authorization_builder import DeviceAuthorizationBuilder
     from .disasterrecovery.disasterrecovery_builder import DisasterrecoveryBuilder
     from .entityownership.entityownership_builder import EntityownershipBuilder
     from .event.event_builder import EventBuilder
@@ -197,9 +197,7 @@ class ApiClient:
         """
         The clusterManagement property
         """
-        from .cluster_management.cluster_management_builder import (
-            ClusterManagementBuilder,
-        )
+        from .cluster_management.cluster_management_builder import ClusterManagementBuilder
 
         return ClusterManagementBuilder(self._request_adapter)
 
@@ -262,9 +260,7 @@ class ApiClient:
         """
         The device_authorization property
         """
-        from .device_authorization.device_authorization_builder import (
-            DeviceAuthorizationBuilder,
-        )
+        from .device_authorization.device_authorization_builder import DeviceAuthorizationBuilder
 
         return DeviceAuthorizationBuilder(self._request_adapter)
 
@@ -300,9 +296,7 @@ class ApiClient:
         """
         The featurecertificate property
         """
-        from .featurecertificate.featurecertificate_builder import (
-            FeaturecertificateBuilder,
-        )
+        from .featurecertificate.featurecertificate_builder import FeaturecertificateBuilder
 
         return FeaturecertificateBuilder(self._request_adapter)
 

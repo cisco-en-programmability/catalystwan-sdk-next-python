@@ -1,9 +1,10 @@
 from enum import Enum, auto
 from typing import Optional, Protocol
 
-from catalystwan.abc import ResponseInterface
 from packaging.version import Version
 from typing_extensions import Self
+
+from catalystwan.abc import ResponseInterface
 
 
 class SessionType(Enum):

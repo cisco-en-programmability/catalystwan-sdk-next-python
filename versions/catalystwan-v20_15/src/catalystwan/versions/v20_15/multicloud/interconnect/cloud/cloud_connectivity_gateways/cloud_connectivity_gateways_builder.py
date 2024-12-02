@@ -1,12 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import InlineResponse2008
-from .models import CloudTypeParam
-from .models import ConnectivityGatewayTypeParam
-from .models import InterconnectTypeParam
-from .models import CloudConnectivityGateway
+
+from .models import (CloudConnectivityGateway, CloudTypeParam, ConnectivityGatewayTypeParam, InlineResponse2008,
+                     InterconnectTypeParam)
 
 if TYPE_CHECKING:
     from .create_options.create_options_builder import CreateOptionsBuilder

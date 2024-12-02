@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, Type
+
+from typing import Any, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import InlineResponse2009
-from .models import AzureVirtualWan
-from .models import CloudTypeParam
+
+from .models import AzureVirtualWan, CloudTypeParam, InlineResponse2009
 
 
 class VwansBuilder:

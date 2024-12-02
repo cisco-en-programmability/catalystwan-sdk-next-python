@@ -1,20 +1,17 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .bifrost_controller_registration.bifrost_controller_registration_builder import (
-        BifrostControllerRegistrationBuilder,
-    )
+    from .bifrost_controller_registration.bifrost_controller_registration_builder import \
+        BifrostControllerRegistrationBuilder
     from .cci.cci_builder import CciBuilder
     from .enroll.enroll_builder import EnrollBuilder
-    from .get_bi_frost_signing_key.get_bi_frost_signing_key_builder import (
-        GetBiFrostSigningKeyBuilder,
-    )
-    from .get_controller_client_token.get_controller_client_token_builder import (
-        GetControllerClientTokenBuilder,
-    )
+    from .get_bi_frost_signing_key.get_bi_frost_signing_key_builder import GetBiFrostSigningKeyBuilder
+    from .get_controller_client_token.get_controller_client_token_builder import GetControllerClientTokenBuilder
     from .profiles.profiles_builder import ProfilesBuilder
     from .registration.registration_builder import RegistrationBuilder
 
@@ -32,9 +29,8 @@ class DashboardBuilder:
         """
         The bifrostControllerRegistration property
         """
-        from .bifrost_controller_registration.bifrost_controller_registration_builder import (
-            BifrostControllerRegistrationBuilder,
-        )
+        from .bifrost_controller_registration.bifrost_controller_registration_builder import \
+            BifrostControllerRegistrationBuilder
 
         return BifrostControllerRegistrationBuilder(self._request_adapter)
 
@@ -61,9 +57,7 @@ class DashboardBuilder:
         """
         The getBiFrostSigningKey property
         """
-        from .get_bi_frost_signing_key.get_bi_frost_signing_key_builder import (
-            GetBiFrostSigningKeyBuilder,
-        )
+        from .get_bi_frost_signing_key.get_bi_frost_signing_key_builder import GetBiFrostSigningKeyBuilder
 
         return GetBiFrostSigningKeyBuilder(self._request_adapter)
 
@@ -72,9 +66,7 @@ class DashboardBuilder:
         """
         The getControllerClientToken property
         """
-        from .get_controller_client_token.get_controller_client_token_builder import (
-            GetControllerClientTokenBuilder,
-        )
+        from .get_controller_client_token.get_controller_client_token_builder import GetControllerClientTokenBuilder
 
         return GetControllerClientTokenBuilder(self._request_adapter)
 

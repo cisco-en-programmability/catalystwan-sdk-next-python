@@ -5,12 +5,13 @@ from typing import Literal, Optional
 from urllib.parse import urlparse
 
 from catalystwan.abc import SessionInterface
-from catalystwan.core.abstractions import AuthProtocol
-from catalystwan.core.exceptions import CatalystwanException
-from catalystwan.core.response import auth_response_debug
 from requests import HTTPError, PreparedRequest, post
 from requests.auth import AuthBase
 from requests.exceptions import JSONDecodeError
+
+from catalystwan.core.abstractions import AuthProtocol
+from catalystwan.core.exceptions import CatalystwanException
+from catalystwan.core.response import auth_response_debug
 
 LoginMode = Literal["machine", "user", "session"]
 

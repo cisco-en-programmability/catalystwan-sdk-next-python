@@ -1,6 +1,8 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
@@ -8,20 +10,20 @@ if TYPE_CHECKING:
     from .audit.audit_builder import AuditBuilder
     from .cloud.cloud_builder import CloudBuilder
     from .colors.colors_builder import ColorsBuilder
+    from .config_group.config_group_builder import ConfigGroupBuilder
     from .connectivity.connectivity_builder import ConnectivityBuilder
     from .dashboard.dashboard_builder import DashboardBuilder
     from .entitlement.entitlement_builder import EntitlementBuilder
     from .gateways.gateways_builder import GatewaysBuilder
     from .ip_transit.ip_transit_builder import IpTransitBuilder
+    from .locations.locations_builder import LocationsBuilder
+    from .monitoring.monitoring_builder import MonitoringBuilder
     from .service_sw_package.service_sw_package_builder import ServiceSwPackageBuilder
     from .services.services_builder import ServicesBuilder
     from .settings.settings_builder import SettingsBuilder
     from .sshkeys.sshkeys_builder import SshkeysBuilder
     from .types.types_builder import TypesBuilder
     from .widget.widget_builder import WidgetBuilder
-    from .config_group.config_group_builder import ConfigGroupBuilder
-    from .locations.locations_builder import LocationsBuilder
-    from .monitoring.monitoring_builder import MonitoringBuilder
 
 
 class InterconnectBuilder:
@@ -145,9 +147,7 @@ class InterconnectBuilder:
         """
         The service-sw-package property
         """
-        from .service_sw_package.service_sw_package_builder import (
-            ServiceSwPackageBuilder,
-        )
+        from .service_sw_package.service_sw_package_builder import ServiceSwPackageBuilder
 
         return ServiceSwPackageBuilder(self._request_adapter)
 

@@ -1,6 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
-from typing import Literal, Optional, List, Union, Dict, Any
-from dataclasses import dataclass, field as _field
+from dataclasses import dataclass
+from dataclasses import field as _field
+from typing import Any, Dict, List, Literal, Optional, Union
 
 ReportStatus = Literal[
     "completed", "failed", "in_progress", "not_scheduled", "scheduled"

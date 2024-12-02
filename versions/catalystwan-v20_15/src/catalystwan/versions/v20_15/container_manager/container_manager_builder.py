@@ -1,14 +1,14 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .activate.activate_builder import ActivateBuilder
     from .deactivate.deactivate_builder import DeactivateBuilder
-    from .does_valid_image_exist.does_valid_image_exist_builder import (
-        DoesValidImageExistBuilder,
-    )
+    from .does_valid_image_exist.does_valid_image_exist_builder import DoesValidImageExistBuilder
     from .inspect.inspect_builder import InspectBuilder
     from .settings.settings_builder import SettingsBuilder
 
@@ -44,9 +44,7 @@ class ContainerManagerBuilder:
         """
         The doesValidImageExist property
         """
-        from .does_valid_image_exist.does_valid_image_exist_builder import (
-            DoesValidImageExistBuilder,
-        )
+        from .does_valid_image_exist.does_valid_image_exist_builder import DoesValidImageExistBuilder
 
         return DoesValidImageExistBuilder(self._request_adapter)
 

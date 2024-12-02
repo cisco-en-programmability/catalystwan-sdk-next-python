@@ -1,12 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .service_chain_mapping.service_chain_mapping_builder import (
-        ServiceChainMappingBuilder,
-    )
+    from .service_chain_mapping.service_chain_mapping_builder import ServiceChainMappingBuilder
 
 
 class ServiceInsertionBuilder:
@@ -22,8 +22,6 @@ class ServiceInsertionBuilder:
         """
         The service-chain-mapping property
         """
-        from .service_chain_mapping.service_chain_mapping_builder import (
-            ServiceChainMappingBuilder,
-        )
+        from .service_chain_mapping.service_chain_mapping_builder import ServiceChainMappingBuilder
 
         return ServiceChainMappingBuilder(self._request_adapter)

@@ -1,28 +1,25 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import CloudGatewayListResponse
-from .models import Taskid
-from .models import CloudGatewayPost
-from .models import CloudGatewayAdjusted
-from .models import UpdateCgw
+
+from .models import CloudGatewayAdjusted, CloudGatewayListResponse, CloudGatewayPost, Taskid, UpdateCgw
 
 if TYPE_CHECKING:
     from .config_group.config_group_builder import ConfigGroupBuilder
+    from .gateways.gateways_builder import GatewaysBuilder
     from .nva_security_rules.nva_security_rules_builder import NvaSecurityRulesBuilder
     from .nvas.nvas_builder import NvasBuilder
     from .nvasku.nvasku_builder import NvaskuBuilder
     from .resource.resource_builder import ResourceBuilder
     from .resource_groups.resource_groups_builder import ResourceGroupsBuilder
+    from .site.site_builder import SiteBuilder
     from .vhubs.vhubs_builder import VhubsBuilder
-    from .vnets_noof_attached.vnets_noof_attached_builder import (
-        VnetsNoofAttachedBuilder,
-    )
+    from .vnets_noof_attached.vnets_noof_attached_builder import VnetsNoofAttachedBuilder
     from .vpn_gateways.vpn_gateways_builder import VpnGatewaysBuilder
     from .vwans.vwans_builder import VwansBuilder
-    from .site.site_builder import SiteBuilder
-    from .gateways.gateways_builder import GatewaysBuilder
 
 
 class CloudgatewayBuilder:
@@ -202,9 +199,7 @@ class CloudgatewayBuilder:
         """
         The nvaSecurityRules property
         """
-        from .nva_security_rules.nva_security_rules_builder import (
-            NvaSecurityRulesBuilder,
-        )
+        from .nva_security_rules.nva_security_rules_builder import NvaSecurityRulesBuilder
 
         return NvaSecurityRulesBuilder(self._request_adapter)
 
@@ -267,9 +262,7 @@ class CloudgatewayBuilder:
         """
         The vnetsNoofAttached property
         """
-        from .vnets_noof_attached.vnets_noof_attached_builder import (
-            VnetsNoofAttachedBuilder,
-        )
+        from .vnets_noof_attached.vnets_noof_attached_builder import VnetsNoofAttachedBuilder
 
         return VnetsNoofAttachedBuilder(self._request_adapter)
 

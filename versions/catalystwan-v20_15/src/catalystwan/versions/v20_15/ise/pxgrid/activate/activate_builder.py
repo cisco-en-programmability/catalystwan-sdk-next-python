@@ -1,9 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import ActivateResponse
-from .models import ActivateBody
+
+from .models import ActivateBody, ActivateResponse
 
 
 class ActivateBuilder:

@@ -1,16 +1,18 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .async_.async_builder import AsyncBuilder
     from .bulk.bulk_builder import BulkBuilder
-    from .vsmart.vsmart_builder import VsmartBuilder
-    from .vsmart_mt.vsmart_mt_builder import VsmartMtBuilder
     from .delete.delete_builder import DeleteBuilder
     from .switch.switch_builder import SwitchBuilder
     from .vsessionid.vsessionid_builder import VsessionidBuilder
+    from .vsmart.vsmart_builder import VsmartBuilder
+    from .vsmart_mt.vsmart_mt_builder import VsmartMtBuilder
 
 
 class TenantBuilder:

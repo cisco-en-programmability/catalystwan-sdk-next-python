@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List
+
+from typing import List, Optional
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import ApplicationsSiteItem
-from .models import LastNHoursParam
-from .models import HealthParam
+
+from .models import ApplicationsSiteItem, HealthParam, LastNHoursParam
 
 
 class HealthBuilder:

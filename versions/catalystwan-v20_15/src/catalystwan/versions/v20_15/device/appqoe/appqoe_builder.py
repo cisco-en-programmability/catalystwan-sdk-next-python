@@ -1,6 +1,8 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
@@ -9,23 +11,15 @@ if TYPE_CHECKING:
     from .appqoe_nat_stats.appqoe_nat_stats_builder import AppqoeNatStatsBuilder
     from .appqoe_rm_resource.appqoe_rm_resource_builder import AppqoeRmResourceBuilder
     from .appqoe_rm_stats.appqoe_rm_stats_builder import AppqoeRmStatsBuilder
-    from .appqoe_services_status.appqoe_services_status_builder import (
-        AppqoeServicesStatusBuilder,
-    )
-    from .appqoe_sppi_pipe_resource.appqoe_sppi_pipe_resource_builder import (
-        AppqoeSppiPipeResourceBuilder,
-    )
-    from .appqoe_sppi_queue_resource.appqoe_sppi_queue_resource_builder import (
-        AppqoeSppiQueueResourceBuilder,
-    )
+    from .appqoe_services_status.appqoe_services_status_builder import AppqoeServicesStatusBuilder
+    from .appqoe_sppi_pipe_resource.appqoe_sppi_pipe_resource_builder import AppqoeSppiPipeResourceBuilder
+    from .appqoe_sppi_queue_resource.appqoe_sppi_queue_resource_builder import AppqoeSppiQueueResourceBuilder
     from .cluster_summary.cluster_summary_builder import ClusterSummaryBuilder
     from .error_recent.error_recent_builder import ErrorRecentBuilder
     from .expired_flow_id.expired_flow_id_builder import ExpiredFlowIdBuilder
     from .flow_closed_error.flow_closed_error_builder import FlowClosedErrorBuilder
     from .flow_expired.flow_expired_builder import FlowExpiredBuilder
-    from .service_controllers.service_controllers_builder import (
-        ServiceControllersBuilder,
-    )
+    from .service_controllers.service_controllers_builder import ServiceControllersBuilder
     from .status.status_builder import StatusBuilder
     from .vpn_id.vpn_id_builder import VpnIdBuilder
 
@@ -70,9 +64,7 @@ class AppqoeBuilder:
         """
         The appqoe-rm-resource property
         """
-        from .appqoe_rm_resource.appqoe_rm_resource_builder import (
-            AppqoeRmResourceBuilder,
-        )
+        from .appqoe_rm_resource.appqoe_rm_resource_builder import AppqoeRmResourceBuilder
 
         return AppqoeRmResourceBuilder(self._request_adapter)
 
@@ -90,9 +82,7 @@ class AppqoeBuilder:
         """
         The appqoe-services-status property
         """
-        from .appqoe_services_status.appqoe_services_status_builder import (
-            AppqoeServicesStatusBuilder,
-        )
+        from .appqoe_services_status.appqoe_services_status_builder import AppqoeServicesStatusBuilder
 
         return AppqoeServicesStatusBuilder(self._request_adapter)
 
@@ -101,9 +91,7 @@ class AppqoeBuilder:
         """
         The appqoe-sppi-pipe-resource property
         """
-        from .appqoe_sppi_pipe_resource.appqoe_sppi_pipe_resource_builder import (
-            AppqoeSppiPipeResourceBuilder,
-        )
+        from .appqoe_sppi_pipe_resource.appqoe_sppi_pipe_resource_builder import AppqoeSppiPipeResourceBuilder
 
         return AppqoeSppiPipeResourceBuilder(self._request_adapter)
 
@@ -112,9 +100,7 @@ class AppqoeBuilder:
         """
         The appqoe-sppi-queue-resource property
         """
-        from .appqoe_sppi_queue_resource.appqoe_sppi_queue_resource_builder import (
-            AppqoeSppiQueueResourceBuilder,
-        )
+        from .appqoe_sppi_queue_resource.appqoe_sppi_queue_resource_builder import AppqoeSppiQueueResourceBuilder
 
         return AppqoeSppiQueueResourceBuilder(self._request_adapter)
 
@@ -168,9 +154,7 @@ class AppqoeBuilder:
         """
         The service-controllers property
         """
-        from .service_controllers.service_controllers_builder import (
-            ServiceControllersBuilder,
-        )
+        from .service_controllers.service_controllers_builder import ServiceControllersBuilder
 
         return ServiceControllersBuilder(self._request_adapter)
 

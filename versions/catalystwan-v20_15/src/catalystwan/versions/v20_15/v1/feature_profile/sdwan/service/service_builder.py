@@ -1,9 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
+    from .appqoe.appqoe_builder import AppqoeBuilder
     from .dhcp_server.dhcp_server_builder import DhcpServerBuilder
     from .lan.lan_builder import LanBuilder
     from .routing.routing_builder import RoutingBuilder
@@ -11,7 +14,6 @@ if TYPE_CHECKING:
     from .tracker.tracker_builder import TrackerBuilder
     from .trackergroup.trackergroup_builder import TrackergroupBuilder
     from .wirelesslan.wirelesslan_builder import WirelesslanBuilder
-    from .appqoe.appqoe_builder import AppqoeBuilder
 
 
 class ServiceBuilder:

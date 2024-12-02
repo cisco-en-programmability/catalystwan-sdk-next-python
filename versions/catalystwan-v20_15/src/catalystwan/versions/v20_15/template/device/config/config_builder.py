@@ -1,6 +1,8 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
@@ -16,15 +18,11 @@ if TYPE_CHECKING:
     from .detach.detach_builder import DetachBuilder
     from .detachcloudx.detachcloudx_builder import DetachcloudxBuilder
     from .duplicateip.duplicateip_builder import DuplicateipBuilder
-    from .duplicatelocationname.duplicatelocationname_builder import (
-        DuplicatelocationnameBuilder,
-    )
+    from .duplicatelocationname.duplicatelocationname_builder import DuplicatelocationnameBuilder
     from .exportcsv.exportcsv_builder import ExportcsvBuilder
     from .input.input_builder import InputBuilder
     from .process.process_builder import ProcessBuilder
-    from .quickconnectvariable.quickconnectvariable_builder import (
-        QuickconnectvariableBuilder,
-    )
+    from .quickconnectvariable.quickconnectvariable_builder import QuickconnectvariableBuilder
     from .vbond.vbond_builder import VbondBuilder
     from .verify.verify_builder import VerifyBuilder
 
@@ -150,9 +148,7 @@ class ConfigBuilder:
         """
         The duplicatelocationname property
         """
-        from .duplicatelocationname.duplicatelocationname_builder import (
-            DuplicatelocationnameBuilder,
-        )
+        from .duplicatelocationname.duplicatelocationname_builder import DuplicatelocationnameBuilder
 
         return DuplicatelocationnameBuilder(self._request_adapter)
 
@@ -188,9 +184,7 @@ class ConfigBuilder:
         """
         The quickconnectvariable property
         """
-        from .quickconnectvariable.quickconnectvariable_builder import (
-            QuickconnectvariableBuilder,
-        )
+        from .quickconnectvariable.quickconnectvariable_builder import QuickconnectvariableBuilder
 
         return QuickconnectvariableBuilder(self._request_adapter)
 

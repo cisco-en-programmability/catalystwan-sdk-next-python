@@ -2,12 +2,7 @@ from dataclasses import Field, fields, is_dataclass
 from typing import Any, Dict, List, Optional, Protocol, Union
 
 from catalystwan.core.encoder import serialize_model_value
-from catalystwan.core.types import (
-    MODEL_TYPES,
-    AliasPath,
-    DataclassInstance,
-    is_variable,
-)
+from catalystwan.core.types import MODEL_TYPES, AliasPath, DataclassInstance, is_variable
 
 
 class ValueWrapperCallable(Protocol):

@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Type
+
+from typing import List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import GetMslaDevicesPayload
-from .models import ReleaseLicensesRequest
-from .models import GetDeviceLicensesInner
+
+from .models import GetDeviceLicensesInner, GetMslaDevicesPayload, ReleaseLicensesRequest
 
 
 class DevicesBuilder:

@@ -1,17 +1,15 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .all_statuses.all_statuses_builder import AllStatusesBuilder
     from .download.download_builder import DownloadBuilder
-    from .file_generation_status.file_generation_status_builder import (
-        FileGenerationStatusBuilder,
-    )
-    from .initiate_file_generation.initiate_file_generation_builder import (
-        InitiateFileGenerationBuilder,
-    )
+    from .file_generation_status.file_generation_status_builder import FileGenerationStatusBuilder
+    from .initiate_file_generation.initiate_file_generation_builder import InitiateFileGenerationBuilder
     from .status.status_builder import StatusBuilder
     from .supported_commands.supported_commands_builder import SupportedCommandsBuilder
 
@@ -47,9 +45,7 @@ class DataCollectionBuilder:
         """
         The file-generation-status property
         """
-        from .file_generation_status.file_generation_status_builder import (
-            FileGenerationStatusBuilder,
-        )
+        from .file_generation_status.file_generation_status_builder import FileGenerationStatusBuilder
 
         return FileGenerationStatusBuilder(self._request_adapter)
 
@@ -58,9 +54,7 @@ class DataCollectionBuilder:
         """
         The initiate-file-generation property
         """
-        from .initiate_file_generation.initiate_file_generation_builder import (
-            InitiateFileGenerationBuilder,
-        )
+        from .initiate_file_generation.initiate_file_generation_builder import InitiateFileGenerationBuilder
 
         return InitiateFileGenerationBuilder(self._request_adapter)
 
@@ -78,8 +72,6 @@ class DataCollectionBuilder:
         """
         The supported-commands property
         """
-        from .supported_commands.supported_commands_builder import (
-            SupportedCommandsBuilder,
-        )
+        from .supported_commands.supported_commands_builder import SupportedCommandsBuilder
 
         return SupportedCommandsBuilder(self._request_adapter)

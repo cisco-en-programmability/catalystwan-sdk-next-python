@@ -1,22 +1,21 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import InterconnectGatewayExtended
-from .models import InterconnectTypeParam
-from .models import ProcessResponse
+
+from .models import InterconnectGatewayExtended, InterconnectTypeParam, ProcessResponse
 
 if TYPE_CHECKING:
     from .config_group.config_group_builder import ConfigGroupBuilder
+    from .device_chassis_numbers.device_chassis_numbers_builder import DeviceChassisNumbersBuilder
+    from .devices.devices_builder import DevicesBuilder
     from .image_names.image_names_builder import ImageNamesBuilder
     from .instance_sizes.instance_sizes_builder import InstanceSizesBuilder
     from .push_config.push_config_builder import PushConfigBuilder
-    from .types.types_builder import TypesBuilder
     from .settings.settings_builder import SettingsBuilder
-    from .device_chassis_numbers.device_chassis_numbers_builder import (
-        DeviceChassisNumbersBuilder,
-    )
-    from .devices.devices_builder import DevicesBuilder
+    from .types.types_builder import TypesBuilder
 
 
 class GatewaysBuilder:
@@ -196,9 +195,7 @@ class GatewaysBuilder:
         """
         The device-chassis-numbers property
         """
-        from .device_chassis_numbers.device_chassis_numbers_builder import (
-            DeviceChassisNumbersBuilder,
-        )
+        from .device_chassis_numbers.device_chassis_numbers_builder import DeviceChassisNumbersBuilder
 
         return DeviceChassisNumbersBuilder(self._request_adapter)
 

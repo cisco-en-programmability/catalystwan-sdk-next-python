@@ -1,8 +1,10 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, Type, TYPE_CHECKING
-from catalystwan.abc import RequestAdapterInterface
+
 import logging
+from typing import TYPE_CHECKING, Any, Optional, Type
+
+from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .hostvpc.hostvpc_builder import HostvpcBuilder

@@ -1,11 +1,13 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .ovsnetwork.ovsnetwork_builder import OvsnetworkBuilder
     from .lan.lan_builder import LanBuilder
+    from .ovsnetwork.ovsnetwork_builder import OvsnetworkBuilder
     from .routes.routes_builder import RoutesBuilder
     from .switch.switch_builder import SwitchBuilder
     from .vnf_attributes.vnf_attributes_builder import VnfAttributesBuilder

@@ -1,24 +1,22 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .application_mapping.application_mapping_builder import (
-        ApplicationMappingBuilder,
-    )
     from .application.application_builder import ApplicationBuilder
+    from .application_mapping.application_mapping_builder import ApplicationMappingBuilder
     from .applications.applications_builder import ApplicationsBuilder
     from .common.common_builder import CommonBuilder
     from .device.device_builder import DeviceBuilder
     from .devicedetails.devicedetails_builder import DevicedetailsBuilder
     from .flows.flows_builder import FlowsBuilder
-    from .qosmos_static.qosmos_static_builder import QosmosStaticBuilder
     from .qosmos.qosmos_builder import QosmosBuilder
+    from .qosmos_static.qosmos_static_builder import QosmosStaticBuilder
     from .summary.summary_builder import SummaryBuilder
-    from .supported_applications.supported_applications_builder import (
-        SupportedApplicationsBuilder,
-    )
+    from .supported_applications.supported_applications_builder import SupportedApplicationsBuilder
 
 
 class DpiBuilder:
@@ -43,9 +41,7 @@ class DpiBuilder:
         """
         The application-mapping property
         """
-        from .application_mapping.application_mapping_builder import (
-            ApplicationMappingBuilder,
-        )
+        from .application_mapping.application_mapping_builder import ApplicationMappingBuilder
 
         return ApplicationMappingBuilder(self._request_adapter)
 
@@ -126,8 +122,6 @@ class DpiBuilder:
         """
         The supported-applications property
         """
-        from .supported_applications.supported_applications_builder import (
-            SupportedApplicationsBuilder,
-        )
+        from .supported_applications.supported_applications_builder import SupportedApplicationsBuilder
 
         return SupportedApplicationsBuilder(self._request_adapter)

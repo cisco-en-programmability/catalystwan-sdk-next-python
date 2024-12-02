@@ -1,6 +1,8 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
@@ -8,13 +10,9 @@ if TYPE_CHECKING:
     from .details.details_builder import DetailsBuilder
     from .guest_routes.guest_routes_builder import GuestRoutesBuilder
     from .network_interfaces.network_interfaces_builder import NetworkInterfacesBuilder
-    from .network_utilization.network_utilization_builder import (
-        NetworkUtilizationBuilder,
-    )
+    from .network_utilization.network_utilization_builder import NetworkUtilizationBuilder
     from .processes.processes_builder import ProcessesBuilder
-    from .storage_utilization.storage_utilization_builder import (
-        StorageUtilizationBuilder,
-    )
+    from .storage_utilization.storage_utilization_builder import StorageUtilizationBuilder
     from .utilization.utilization_builder import UtilizationBuilder
 
 
@@ -58,9 +56,7 @@ class AppHostingBuilder:
         """
         The network-interfaces property
         """
-        from .network_interfaces.network_interfaces_builder import (
-            NetworkInterfacesBuilder,
-        )
+        from .network_interfaces.network_interfaces_builder import NetworkInterfacesBuilder
 
         return NetworkInterfacesBuilder(self._request_adapter)
 
@@ -69,9 +65,7 @@ class AppHostingBuilder:
         """
         The network-utilization property
         """
-        from .network_utilization.network_utilization_builder import (
-            NetworkUtilizationBuilder,
-        )
+        from .network_utilization.network_utilization_builder import NetworkUtilizationBuilder
 
         return NetworkUtilizationBuilder(self._request_adapter)
 
@@ -89,9 +83,7 @@ class AppHostingBuilder:
         """
         The storage-utilization property
         """
-        from .storage_utilization.storage_utilization_builder import (
-            StorageUtilizationBuilder,
-        )
+        from .storage_utilization.storage_utilization_builder import StorageUtilizationBuilder
 
         return StorageUtilizationBuilder(self._request_adapter)
 

@@ -1,12 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, Optional
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .application_priority.application_priority_builder import (
-        ApplicationPriorityBuilder,
-    )
+    from .application_priority.application_priority_builder import ApplicationPriorityBuilder
     from .cli.cli_builder import CliBuilder
     from .dns_security.dns_security_builder import DnsSecurityBuilder
     from .embedded_security.embedded_security_builder import EmbeddedSecurityBuilder
@@ -49,9 +49,7 @@ class SdwanBuilder:
         """
         The application-priority property
         """
-        from .application_priority.application_priority_builder import (
-            ApplicationPriorityBuilder,
-        )
+        from .application_priority.application_priority_builder import ApplicationPriorityBuilder
 
         return ApplicationPriorityBuilder(self._request_adapter)
 

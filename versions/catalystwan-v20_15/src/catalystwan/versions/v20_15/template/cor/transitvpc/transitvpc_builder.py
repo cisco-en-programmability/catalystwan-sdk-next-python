@@ -1,13 +1,13 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Any, Type, TYPE_CHECKING
-from catalystwan.abc import RequestAdapterInterface
+
 import logging
+from typing import TYPE_CHECKING, Any, List, Optional, Type
+
+from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .autoscale_properties.autoscale_properties_builder import (
-        AutoscalePropertiesBuilder,
-    )
+    from .autoscale_properties.autoscale_properties_builder import AutoscalePropertiesBuilder
     from .size.size_builder import SizeBuilder
 
 
@@ -106,9 +106,7 @@ class TransitvpcBuilder:
         """
         The autoscale-properties property
         """
-        from .autoscale_properties.autoscale_properties_builder import (
-            AutoscalePropertiesBuilder,
-        )
+        from .autoscale_properties.autoscale_properties_builder import AutoscalePropertiesBuilder
 
         return AutoscalePropertiesBuilder(self._request_adapter)
 

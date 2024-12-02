@@ -1,24 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import ModelParam
-from .models import CertificateStates
-from .models import DeviceUuid
-from .models import DeviceIp
-from .models import CertificateValidity
-from .models import FamilyParam
-from .models import TopologyParam
-from .models import DeleteDevice
+
+from .models import (CertificateStates, CertificateValidity, DeleteDevice, DeviceIp, DeviceUuid, FamilyParam,
+                     ModelParam, TopologyParam)
 
 if TYPE_CHECKING:
     from .bootstrap.bootstrap_builder import BootstrapBuilder
     from .claim_devices.claim_devices_builder import ClaimDevicesBuilder
     from .controllers.controllers_builder import ControllersBuilder
     from .decommission.decommission_builder import DecommissionBuilder
-    from .devices_without_subject_sudi.devices_without_subject_sudi_builder import (
-        DevicesWithoutSubjectSudiBuilder,
-    )
+    from .devices_without_subject_sudi.devices_without_subject_sudi_builder import DevicesWithoutSubjectSudiBuilder
     from .fileupload.fileupload_builder import FileuploadBuilder
     from .generate_payg.generate_payg_builder import GeneratePaygBuilder
     from .lifecycle.lifecycle_builder import LifecycleBuilder
@@ -34,12 +29,10 @@ if TYPE_CHECKING:
     from .tenant.tenant_builder import TenantBuilder
     from .type_.type_builder import TypeBuilder
     from .unclaimed_devices.unclaimed_devices_builder import UnclaimedDevicesBuilder
-    from .update_device_subject_sudi.update_device_subject_sudi_builder import (
-        UpdateDeviceSubjectSudiBuilder,
-    )
+    from .unlock.unlock_builder import UnlockBuilder
+    from .update_device_subject_sudi.update_device_subject_sudi_builder import UpdateDeviceSubjectSudiBuilder
     from .vedgedetection.vedgedetection_builder import VedgedetectionBuilder
     from .vmanagerootca.vmanagerootca_builder import VmanagerootcaBuilder
-    from .unlock.unlock_builder import UnlockBuilder
 
 
 class DeviceBuilder:
@@ -217,9 +210,7 @@ class DeviceBuilder:
         """
         The devicesWithoutSubjectSudi property
         """
-        from .devices_without_subject_sudi.devices_without_subject_sudi_builder import (
-            DevicesWithoutSubjectSudiBuilder,
-        )
+        from .devices_without_subject_sudi.devices_without_subject_sudi_builder import DevicesWithoutSubjectSudiBuilder
 
         return DevicesWithoutSubjectSudiBuilder(self._request_adapter)
 
@@ -372,9 +363,7 @@ class DeviceBuilder:
         """
         The updateDeviceSubjectSUDI property
         """
-        from .update_device_subject_sudi.update_device_subject_sudi_builder import (
-            UpdateDeviceSubjectSudiBuilder,
-        )
+        from .update_device_subject_sudi.update_device_subject_sudi_builder import UpdateDeviceSubjectSudiBuilder
 
         return UpdateDeviceSubjectSudiBuilder(self._request_adapter)
 

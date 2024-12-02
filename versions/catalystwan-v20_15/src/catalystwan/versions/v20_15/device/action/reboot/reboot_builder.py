@@ -1,9 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import DeviceIp
-from .models import TaskId
+
+from .models import DeviceIp, TaskId
 
 if TYPE_CHECKING:
     from .devices.devices_builder import DevicesBuilder

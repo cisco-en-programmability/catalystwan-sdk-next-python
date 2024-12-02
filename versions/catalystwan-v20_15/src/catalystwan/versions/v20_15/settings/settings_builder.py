@@ -1,13 +1,13 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .banner.banner_builder import BannerBuilder
-    from .client_session_timeout.client_session_timeout_builder import (
-        ClientSessionTimeoutBuilder,
-    )
+    from .client_session_timeout.client_session_timeout_builder import ClientSessionTimeoutBuilder
     from .configuration.configuration_builder import ConfigurationBuilder
     from .password_policy.password_policy_builder import PasswordPolicyBuilder
 
@@ -34,9 +34,7 @@ class SettingsBuilder:
         """
         The clientSessionTimeout property
         """
-        from .client_session_timeout.client_session_timeout_builder import (
-            ClientSessionTimeoutBuilder,
-        )
+        from .client_session_timeout.client_session_timeout_builder import ClientSessionTimeoutBuilder
 
         return ClientSessionTimeoutBuilder(self._request_adapter)
 

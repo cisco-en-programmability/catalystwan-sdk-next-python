@@ -1,25 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .dataplane_config.dataplane_config_builder import DataplaneConfigBuilder
     from .dataplane_global.dataplane_global_builder import DataplaneGlobalBuilder
     from .dataplane_stats.dataplane_stats_builder import DataplaneStatsBuilder
-    from .dataplane_stats_summary.dataplane_stats_summary_builder import (
-        DataplaneStatsSummaryBuilder,
-    )
-    from .engine_instance_status.engine_instance_status_builder import (
-        EngineInstanceStatusBuilder,
-    )
+    from .dataplane_stats_summary.dataplane_stats_summary_builder import DataplaneStatsSummaryBuilder
+    from .engine_instance_status.engine_instance_status_builder import EngineInstanceStatusBuilder
     from .engine_status.engine_status_builder import EngineStatusBuilder
-    from .file_analysis_status.file_analysis_status_builder import (
-        FileAnalysisStatusBuilder,
-    )
-    from .file_reputation_status.file_reputation_status_builder import (
-        FileReputationStatusBuilder,
-    )
+    from .file_analysis_status.file_analysis_status_builder import FileAnalysisStatusBuilder
+    from .file_reputation_status.file_reputation_status_builder import FileReputationStatusBuilder
     from .ips_update_status.ips_update_status_builder import IpsUpdateStatusBuilder
     from .signature.signature_builder import SignatureBuilder
     from .urlf_con_status.urlf_con_status_builder import UrlfConStatusBuilder
@@ -67,9 +61,7 @@ class UtdBuilder:
         """
         The dataplane-stats-summary property
         """
-        from .dataplane_stats_summary.dataplane_stats_summary_builder import (
-            DataplaneStatsSummaryBuilder,
-        )
+        from .dataplane_stats_summary.dataplane_stats_summary_builder import DataplaneStatsSummaryBuilder
 
         return DataplaneStatsSummaryBuilder(self._request_adapter)
 
@@ -78,9 +70,7 @@ class UtdBuilder:
         """
         The engine-instance-status property
         """
-        from .engine_instance_status.engine_instance_status_builder import (
-            EngineInstanceStatusBuilder,
-        )
+        from .engine_instance_status.engine_instance_status_builder import EngineInstanceStatusBuilder
 
         return EngineInstanceStatusBuilder(self._request_adapter)
 
@@ -98,9 +88,7 @@ class UtdBuilder:
         """
         The file-analysis-status property
         """
-        from .file_analysis_status.file_analysis_status_builder import (
-            FileAnalysisStatusBuilder,
-        )
+        from .file_analysis_status.file_analysis_status_builder import FileAnalysisStatusBuilder
 
         return FileAnalysisStatusBuilder(self._request_adapter)
 
@@ -109,9 +97,7 @@ class UtdBuilder:
         """
         The file-reputation-status property
         """
-        from .file_reputation_status.file_reputation_status_builder import (
-            FileReputationStatusBuilder,
-        )
+        from .file_reputation_status.file_reputation_status_builder import FileReputationStatusBuilder
 
         return FileReputationStatusBuilder(self._request_adapter)
 
@@ -147,9 +133,7 @@ class UtdBuilder:
         """
         The urlf-update-status property
         """
-        from .urlf_update_status.urlf_update_status_builder import (
-            UrlfUpdateStatusBuilder,
-        )
+        from .urlf_update_status.urlf_update_status_builder import UrlfUpdateStatusBuilder
 
         return UrlfUpdateStatusBuilder(self._request_adapter)
 

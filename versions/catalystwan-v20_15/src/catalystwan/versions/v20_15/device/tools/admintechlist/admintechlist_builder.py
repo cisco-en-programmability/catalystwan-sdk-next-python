@@ -1,9 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Type
+
+from typing import List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import AdminTechListRes
-from .models import AdminTechListReq
+
+from .models import AdminTechListReq, AdminTechListRes
 
 
 class AdmintechlistBuilder:

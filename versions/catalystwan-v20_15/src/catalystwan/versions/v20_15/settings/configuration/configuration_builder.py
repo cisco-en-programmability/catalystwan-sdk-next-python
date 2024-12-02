@@ -1,6 +1,8 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
@@ -9,9 +11,7 @@ if TYPE_CHECKING:
     from .cloudx.cloudx_builder import CloudxBuilder
     from .google_map_key.google_map_key_builder import GoogleMapKeyBuilder
     from .maintenance_window.maintenance_window_builder import MaintenanceWindowBuilder
-    from .microsoft_telemetry.microsoft_telemetry_builder import (
-        MicrosoftTelemetryBuilder,
-    )
+    from .microsoft_telemetry.microsoft_telemetry_builder import MicrosoftTelemetryBuilder
     from .wani.wani_builder import WaniBuilder
 
 
@@ -152,9 +152,7 @@ class ConfigurationBuilder:
         """
         The maintenanceWindow property
         """
-        from .maintenance_window.maintenance_window_builder import (
-            MaintenanceWindowBuilder,
-        )
+        from .maintenance_window.maintenance_window_builder import MaintenanceWindowBuilder
 
         return MaintenanceWindowBuilder(self._request_adapter)
 
@@ -163,9 +161,7 @@ class ConfigurationBuilder:
         """
         The microsoftTelemetry property
         """
-        from .microsoft_telemetry.microsoft_telemetry_builder import (
-            MicrosoftTelemetryBuilder,
-        )
+        from .microsoft_telemetry.microsoft_telemetry_builder import MicrosoftTelemetryBuilder
 
         return MicrosoftTelemetryBuilder(self._request_adapter)
 

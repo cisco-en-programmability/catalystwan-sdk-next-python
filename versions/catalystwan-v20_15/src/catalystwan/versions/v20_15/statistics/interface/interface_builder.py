@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import InterfaceQuery
-from .models import SortOrderParam
-from .models import InterfaceRespWithPageInfo
+
+from .models import InterfaceQuery, InterfaceRespWithPageInfo, SortOrderParam
 
 if TYPE_CHECKING:
     from .aggregation.aggregation_builder import AggregationBuilder

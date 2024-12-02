@@ -1,12 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .device_registration.device_registration_builder import (
-        DeviceRegistrationBuilder,
-    )
+    from .device_registration.device_registration_builder import DeviceRegistrationBuilder
     from .dnscrypt.dnscrypt_builder import DnscryptBuilder
     from .dp_stats.dp_stats_builder import DpStatsBuilder
     from .overview.overview_builder import OverviewBuilder
@@ -26,9 +26,7 @@ class UmbrellaBuilder:
         """
         The device-registration property
         """
-        from .device_registration.device_registration_builder import (
-            DeviceRegistrationBuilder,
-        )
+        from .device_registration.device_registration_builder import DeviceRegistrationBuilder
 
         return DeviceRegistrationBuilder(self._request_adapter)
 

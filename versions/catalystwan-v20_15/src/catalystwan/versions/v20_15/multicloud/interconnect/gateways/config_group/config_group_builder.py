@@ -1,9 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, Type
+
+from typing import Any, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import InterconnectTypeParam
-from .models import GatewaysConfiggroupBody
+
+from .models import GatewaysConfiggroupBody, InterconnectTypeParam
 
 
 class ConfigGroupBuilder:

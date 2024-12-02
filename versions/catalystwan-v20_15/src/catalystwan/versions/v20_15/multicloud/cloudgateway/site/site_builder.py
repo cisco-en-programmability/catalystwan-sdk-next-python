@@ -1,12 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Type
+
+from typing import List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import GetSitesResponse
-from .models import Taskid
-from .models import TunnelScalingRequestPayload
-from .models import AttachSitesRequestPayloadInner
-from .models import DetachSitesRequestPayloadInner
+
+from .models import (AttachSitesRequestPayloadInner, DetachSitesRequestPayloadInner, GetSitesResponse, Taskid,
+                     TunnelScalingRequestPayload)
 
 
 class SiteBuilder:

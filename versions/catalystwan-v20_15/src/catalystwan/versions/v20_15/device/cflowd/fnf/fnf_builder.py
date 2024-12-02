@@ -1,13 +1,13 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .cache_stats.cache_stats_builder import CacheStatsBuilder
-    from .export_client_stats.export_client_stats_builder import (
-        ExportClientStatsBuilder,
-    )
+    from .export_client_stats.export_client_stats_builder import ExportClientStatsBuilder
     from .export_stats.export_stats_builder import ExportStatsBuilder
     from .flow_monitor.flow_monitor_builder import FlowMonitorBuilder
     from .monitor_stats.monitor_stats_builder import MonitorStatsBuilder
@@ -35,9 +35,7 @@ class FnfBuilder:
         """
         The export-client-stats property
         """
-        from .export_client_stats.export_client_stats_builder import (
-            ExportClientStatsBuilder,
-        )
+        from .export_client_stats.export_client_stats_builder import ExportClientStatsBuilder
 
         return ExportClientStatsBuilder(self._request_adapter)
 

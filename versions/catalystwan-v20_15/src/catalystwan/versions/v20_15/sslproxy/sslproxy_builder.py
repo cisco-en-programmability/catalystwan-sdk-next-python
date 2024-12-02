@@ -1,6 +1,8 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
@@ -57,9 +59,7 @@ class SslproxyBuilder:
         """
         The devicecertificates property
         """
-        from .devicecertificates.devicecertificates_builder import (
-            DevicecertificatesBuilder,
-        )
+        from .devicecertificates.devicecertificates_builder import DevicecertificatesBuilder
 
         return DevicecertificatesBuilder(self._request_adapter)
 

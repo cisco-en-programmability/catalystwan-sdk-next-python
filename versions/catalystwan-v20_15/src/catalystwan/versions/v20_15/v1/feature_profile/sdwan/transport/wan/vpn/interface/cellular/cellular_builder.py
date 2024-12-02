@@ -1,12 +1,14 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .schema.schema_builder import SchemaBuilder
     from .ipv6_tracker.ipv6_tracker_builder import Ipv6TrackerBuilder
     from .ipv6_trackergroup.ipv6_trackergroup_builder import Ipv6TrackergroupBuilder
+    from .schema.schema_builder import SchemaBuilder
     from .tracker.tracker_builder import TrackerBuilder
 
 

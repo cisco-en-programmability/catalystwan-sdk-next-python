@@ -1,7 +1,10 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
+
 from .models import AdminTechCreateReq
 
 if TYPE_CHECKING:
@@ -94,8 +97,6 @@ class AdmintechBuilder:
         """
         The supportedfeatures property
         """
-        from .supportedfeatures.supportedfeatures_builder import (
-            SupportedfeaturesBuilder,
-        )
+        from .supportedfeatures.supportedfeatures_builder import SupportedfeaturesBuilder
 
         return SupportedfeaturesBuilder(self._request_adapter)

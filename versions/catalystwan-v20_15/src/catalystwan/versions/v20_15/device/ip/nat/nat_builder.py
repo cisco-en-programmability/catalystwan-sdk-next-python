@@ -1,14 +1,14 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .filter.filter_builder import FilterBuilder
     from .interface.interface_builder import InterfaceBuilder
-    from .interfacestatistics.interfacestatistics_builder import (
-        InterfacestatisticsBuilder,
-    )
+    from .interfacestatistics.interfacestatistics_builder import InterfacestatisticsBuilder
     from .translation.translation_builder import TranslationBuilder
 
 
@@ -43,9 +43,7 @@ class NatBuilder:
         """
         The interfacestatistics property
         """
-        from .interfacestatistics.interfacestatistics_builder import (
-            InterfacestatisticsBuilder,
-        )
+        from .interfacestatistics.interfacestatistics_builder import InterfacestatisticsBuilder
 
         return InterfacestatisticsBuilder(self._request_adapter)
 

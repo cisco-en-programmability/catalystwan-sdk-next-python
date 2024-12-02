@@ -1,22 +1,23 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, List, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
+
 from .models import FeatureParam
 
 if TYPE_CHECKING:
     from .cli.cli_builder import CliBuilder
     from .config.config_builder import ConfigBuilder
     from .feature.feature_builder import FeatureBuilder
-    from .is_migration_required.is_migration_required_builder import (
-        IsMigrationRequiredBuilder,
-    )
+    from .featuretemplates.featuretemplates_builder import FeaturetemplatesBuilder
+    from .is_migration_required.is_migration_required_builder import IsMigrationRequiredBuilder
     from .migration.migration_builder import MigrationBuilder
     from .migration_info.migration_info_builder import MigrationInfoBuilder
     from .object.object_builder import ObjectBuilder
     from .resource_group.resource_group_builder import ResourceGroupBuilder
     from .syncstatus.syncstatus_builder import SyncstatusBuilder
-    from .featuretemplates.featuretemplates_builder import FeaturetemplatesBuilder
 
 
 class DeviceBuilder:
@@ -145,9 +146,7 @@ class DeviceBuilder:
         """
         The is_migration_required property
         """
-        from .is_migration_required.is_migration_required_builder import (
-            IsMigrationRequiredBuilder,
-        )
+        from .is_migration_required.is_migration_required_builder import IsMigrationRequiredBuilder
 
         return IsMigrationRequiredBuilder(self._request_adapter)
 

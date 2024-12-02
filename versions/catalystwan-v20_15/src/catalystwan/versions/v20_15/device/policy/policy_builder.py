@@ -1,18 +1,16 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .accesslistassociations.accesslistassociations_builder import (
-        AccesslistassociationsBuilder,
-    )
+    from .accesslistassociations.accesslistassociations_builder import AccesslistassociationsBuilder
     from .accesslistcounters.accesslistcounters_builder import AccesslistcountersBuilder
     from .accesslistnames.accesslistnames_builder import AccesslistnamesBuilder
     from .accesslistpolicers.accesslistpolicers_builder import AccesslistpolicersBuilder
-    from .approutepolicyfilter.approutepolicyfilter_builder import (
-        ApproutepolicyfilterBuilder,
-    )
+    from .approutepolicyfilter.approutepolicyfilter_builder import ApproutepolicyfilterBuilder
     from .datapolicyfilter.datapolicyfilter_builder import DatapolicyfilterBuilder
     from .filtermemoryusage.filtermemoryusage_builder import FiltermemoryusageBuilder
     from .iptosgtbindings.iptosgtbindings_builder import IptosgtbindingsBuilder
@@ -22,12 +20,8 @@ if TYPE_CHECKING:
     from .pxgridusersessions.pxgridusersessions_builder import PxgridusersessionsBuilder
     from .qosmapinfo.qosmapinfo_builder import QosmapinfoBuilder
     from .qosschedulerinfo.qosschedulerinfo_builder import QosschedulerinfoBuilder
-    from .rewriteassociations.rewriteassociations_builder import (
-        RewriteassociationsBuilder,
-    )
-    from .userusergroupbindings.userusergroupbindings_builder import (
-        UserusergroupbindingsBuilder,
-    )
+    from .rewriteassociations.rewriteassociations_builder import RewriteassociationsBuilder
+    from .userusergroupbindings.userusergroupbindings_builder import UserusergroupbindingsBuilder
     from .vsmart.vsmart_builder import VsmartBuilder
     from .zbfwdropstatistics.zbfwdropstatistics_builder import ZbfwdropstatisticsBuilder
     from .zbfwstatistics.zbfwstatistics_builder import ZbfwstatisticsBuilder
@@ -49,9 +43,7 @@ class PolicyBuilder:
         """
         The accesslistassociations property
         """
-        from .accesslistassociations.accesslistassociations_builder import (
-            AccesslistassociationsBuilder,
-        )
+        from .accesslistassociations.accesslistassociations_builder import AccesslistassociationsBuilder
 
         return AccesslistassociationsBuilder(self._request_adapter)
 
@@ -60,9 +52,7 @@ class PolicyBuilder:
         """
         The accesslistcounters property
         """
-        from .accesslistcounters.accesslistcounters_builder import (
-            AccesslistcountersBuilder,
-        )
+        from .accesslistcounters.accesslistcounters_builder import AccesslistcountersBuilder
 
         return AccesslistcountersBuilder(self._request_adapter)
 
@@ -80,9 +70,7 @@ class PolicyBuilder:
         """
         The accesslistpolicers property
         """
-        from .accesslistpolicers.accesslistpolicers_builder import (
-            AccesslistpolicersBuilder,
-        )
+        from .accesslistpolicers.accesslistpolicers_builder import AccesslistpolicersBuilder
 
         return AccesslistpolicersBuilder(self._request_adapter)
 
@@ -91,9 +79,7 @@ class PolicyBuilder:
         """
         The approutepolicyfilter property
         """
-        from .approutepolicyfilter.approutepolicyfilter_builder import (
-            ApproutepolicyfilterBuilder,
-        )
+        from .approutepolicyfilter.approutepolicyfilter_builder import ApproutepolicyfilterBuilder
 
         return ApproutepolicyfilterBuilder(self._request_adapter)
 
@@ -111,9 +97,7 @@ class PolicyBuilder:
         """
         The filtermemoryusage property
         """
-        from .filtermemoryusage.filtermemoryusage_builder import (
-            FiltermemoryusageBuilder,
-        )
+        from .filtermemoryusage.filtermemoryusage_builder import FiltermemoryusageBuilder
 
         return FiltermemoryusageBuilder(self._request_adapter)
 
@@ -158,9 +142,7 @@ class PolicyBuilder:
         """
         The pxgridusersessions property
         """
-        from .pxgridusersessions.pxgridusersessions_builder import (
-            PxgridusersessionsBuilder,
-        )
+        from .pxgridusersessions.pxgridusersessions_builder import PxgridusersessionsBuilder
 
         return PxgridusersessionsBuilder(self._request_adapter)
 
@@ -187,9 +169,7 @@ class PolicyBuilder:
         """
         The rewriteassociations property
         """
-        from .rewriteassociations.rewriteassociations_builder import (
-            RewriteassociationsBuilder,
-        )
+        from .rewriteassociations.rewriteassociations_builder import RewriteassociationsBuilder
 
         return RewriteassociationsBuilder(self._request_adapter)
 
@@ -198,9 +178,7 @@ class PolicyBuilder:
         """
         The userusergroupbindings property
         """
-        from .userusergroupbindings.userusergroupbindings_builder import (
-            UserusergroupbindingsBuilder,
-        )
+        from .userusergroupbindings.userusergroupbindings_builder import UserusergroupbindingsBuilder
 
         return UserusergroupbindingsBuilder(self._request_adapter)
 
@@ -218,9 +196,7 @@ class PolicyBuilder:
         """
         The zbfwdropstatistics property
         """
-        from .zbfwdropstatistics.zbfwdropstatistics_builder import (
-            ZbfwdropstatisticsBuilder,
-        )
+        from .zbfwdropstatistics.zbfwdropstatistics_builder import ZbfwdropstatisticsBuilder
 
         return ZbfwdropstatisticsBuilder(self._request_adapter)
 
@@ -247,9 +223,7 @@ class PolicyBuilder:
         """
         The zonepairstatistics property
         """
-        from .zonepairstatistics.zonepairstatistics_builder import (
-            ZonepairstatisticsBuilder,
-        )
+        from .zonepairstatistics.zonepairstatistics_builder import ZonepairstatisticsBuilder
 
         return ZonepairstatisticsBuilder(self._request_adapter)
 

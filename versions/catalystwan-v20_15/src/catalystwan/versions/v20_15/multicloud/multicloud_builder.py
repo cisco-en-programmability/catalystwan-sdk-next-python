@@ -1,29 +1,25 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .accounts.accounts_builder import AccountsBuilder
     from .audit.audit_builder import AuditBuilder
     from .billingaccounts.billingaccounts_builder import BillingaccountsBuilder
-    from .cloud_routers_and_attachments.cloud_routers_and_attachments_builder import (
-        CloudRoutersAndAttachmentsBuilder,
-    )
+    from .cloud_routers_and_attachments.cloud_routers_and_attachments_builder import CloudRoutersAndAttachmentsBuilder
     from .cloudgateway.cloudgateway_builder import CloudgatewayBuilder
     from .cloudgateways.cloudgateways_builder import CloudgatewaysBuilder
-    from .cloudgatewaysetting.cloudgatewaysetting_builder import (
-        CloudgatewaysettingBuilder,
-    )
+    from .cloudgatewaysetting.cloudgatewaysetting_builder import CloudgatewaysettingBuilder
     from .cloudgatewaytype.cloudgatewaytype_builder import CloudgatewaytypeBuilder
+    from .config_group.config_group_builder import ConfigGroupBuilder
     from .connected_sites.connected_sites_builder import ConnectedSitesBuilder
     from .connectivity.connectivity_builder import ConnectivityBuilder
-    from .connectivitygateway.connectivitygateway_builder import (
-        ConnectivitygatewayBuilder,
-    )
-    from .connectivitygatewaycreationoptions.connectivitygatewaycreationoptions_builder import (
-        ConnectivitygatewaycreationoptionsBuilder,
-    )
+    from .connectivitygateway.connectivitygateway_builder import ConnectivitygatewayBuilder
+    from .connectivitygatewaycreationoptions.connectivitygatewaycreationoptions_builder import \
+        ConnectivitygatewaycreationoptionsBuilder
     from .corenetworkpolicy.corenetworkpolicy_builder import CorenetworkpolicyBuilder
     from .dashboard.dashboard_builder import DashboardBuilder
     from .device.device_builder import DeviceBuilder
@@ -40,9 +36,7 @@ if TYPE_CHECKING:
     from .license.license_builder import LicenseBuilder
     from .locations.locations_builder import LocationsBuilder
     from .loopback_cgw_color.loopback_cgw_color_builder import LoopbackCgwColorBuilder
-    from .loopbacktransportcolor.loopbacktransportcolor_builder import (
-        LoopbacktransportcolorBuilder,
-    )
+    from .loopbacktransportcolor.loopbacktransportcolor_builder import LoopbacktransportcolorBuilder
     from .map.map_builder import MapBuilder
     from .mapping.mapping_builder import MappingBuilder
     from .partnerports.partnerports_builder import PartnerportsBuilder
@@ -61,7 +55,6 @@ if TYPE_CHECKING:
     from .vwan.vwan_builder import VwanBuilder
     from .vwans.vwans_builder import VwansBuilder
     from .widget.widget_builder import WidgetBuilder
-    from .config_group.config_group_builder import ConfigGroupBuilder
 
 
 class MulticloudBuilder:
@@ -104,9 +97,8 @@ class MulticloudBuilder:
         """
         The cloudRoutersAndAttachments property
         """
-        from .cloud_routers_and_attachments.cloud_routers_and_attachments_builder import (
-            CloudRoutersAndAttachmentsBuilder,
-        )
+        from .cloud_routers_and_attachments.cloud_routers_and_attachments_builder import \
+            CloudRoutersAndAttachmentsBuilder
 
         return CloudRoutersAndAttachmentsBuilder(self._request_adapter)
 
@@ -133,9 +125,7 @@ class MulticloudBuilder:
         """
         The cloudgatewaysetting property
         """
-        from .cloudgatewaysetting.cloudgatewaysetting_builder import (
-            CloudgatewaysettingBuilder,
-        )
+        from .cloudgatewaysetting.cloudgatewaysetting_builder import CloudgatewaysettingBuilder
 
         return CloudgatewaysettingBuilder(self._request_adapter)
 
@@ -180,9 +170,7 @@ class MulticloudBuilder:
         """
         The connectivitygateway property
         """
-        from .connectivitygateway.connectivitygateway_builder import (
-            ConnectivitygatewayBuilder,
-        )
+        from .connectivitygateway.connectivitygateway_builder import ConnectivitygatewayBuilder
 
         return ConnectivitygatewayBuilder(self._request_adapter)
 
@@ -193,9 +181,8 @@ class MulticloudBuilder:
         """
         The connectivitygatewaycreationoptions property
         """
-        from .connectivitygatewaycreationoptions.connectivitygatewaycreationoptions_builder import (
-            ConnectivitygatewaycreationoptionsBuilder,
-        )
+        from .connectivitygatewaycreationoptions.connectivitygatewaycreationoptions_builder import \
+            ConnectivitygatewaycreationoptionsBuilder
 
         return ConnectivitygatewaycreationoptionsBuilder(self._request_adapter)
 
@@ -204,9 +191,7 @@ class MulticloudBuilder:
         """
         The corenetworkpolicy property
         """
-        from .corenetworkpolicy.corenetworkpolicy_builder import (
-            CorenetworkpolicyBuilder,
-        )
+        from .corenetworkpolicy.corenetworkpolicy_builder import CorenetworkpolicyBuilder
 
         return CorenetworkpolicyBuilder(self._request_adapter)
 
@@ -341,9 +326,7 @@ class MulticloudBuilder:
         """
         The loopbackCGWColor property
         """
-        from .loopback_cgw_color.loopback_cgw_color_builder import (
-            LoopbackCgwColorBuilder,
-        )
+        from .loopback_cgw_color.loopback_cgw_color_builder import LoopbackCgwColorBuilder
 
         return LoopbackCgwColorBuilder(self._request_adapter)
 
@@ -352,9 +335,7 @@ class MulticloudBuilder:
         """
         The loopbacktransportcolor property
         """
-        from .loopbacktransportcolor.loopbacktransportcolor_builder import (
-            LoopbacktransportcolorBuilder,
-        )
+        from .loopbacktransportcolor.loopbacktransportcolor_builder import LoopbacktransportcolorBuilder
 
         return LoopbacktransportcolorBuilder(self._request_adapter)
 

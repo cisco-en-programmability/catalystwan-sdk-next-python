@@ -1,11 +1,13 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .schema.schema_builder import SchemaBuilder
     from .dhcp_server.dhcp_server_builder import DhcpServerBuilder
+    from .schema.schema_builder import SchemaBuilder
 
 
 class IpsecBuilder:

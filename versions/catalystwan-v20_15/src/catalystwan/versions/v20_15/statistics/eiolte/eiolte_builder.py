@@ -1,13 +1,13 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .aggregation.aggregation_builder import AggregationBuilder
-    from .cellular_aggregation.cellular_aggregation_builder import (
-        CellularAggregationBuilder,
-    )
+    from .cellular_aggregation.cellular_aggregation_builder import CellularAggregationBuilder
     from .csv.csv_builder import CsvBuilder
     from .doccount.doccount_builder import DoccountBuilder
     from .fields.fields_builder import FieldsBuilder
@@ -116,9 +116,7 @@ class EiolteBuilder:
         """
         The cellularAggregation property
         """
-        from .cellular_aggregation.cellular_aggregation_builder import (
-            CellularAggregationBuilder,
-        )
+        from .cellular_aggregation.cellular_aggregation_builder import CellularAggregationBuilder
 
         return CellularAggregationBuilder(self._request_adapter)
 
@@ -172,8 +170,6 @@ class EiolteBuilder:
         """
         The uniqueAggregation property
         """
-        from .unique_aggregation.unique_aggregation_builder import (
-            UniqueAggregationBuilder,
-        )
+        from .unique_aggregation.unique_aggregation_builder import UniqueAggregationBuilder
 
         return UniqueAggregationBuilder(self._request_adapter)

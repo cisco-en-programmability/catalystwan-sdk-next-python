@@ -1,17 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, Optional
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .basic.basic_builder import BasicBuilder
-    from .qos.qos_builder import QosBuilder
     from .aaaservers.aaaservers_builder import AaaserversBuilder
+    from .basic.basic_builder import BasicBuilder
     from .cellular.cellular_builder import CellularBuilder
     from .esimcellular.esimcellular_builder import EsimcellularBuilder
     from .ethernet.ethernet_builder import EthernetBuilder
     from .logging.logging_builder import LoggingBuilder
     from .network_protocol.network_protocol_builder import NetworkProtocolBuilder
+    from .qos.qos_builder import QosBuilder
     from .security_policy.security_policy_builder import SecurityPolicyBuilder
     from .vpn.vpn_builder import VpnBuilder
     from .wifi.wifi_builder import WifiBuilder

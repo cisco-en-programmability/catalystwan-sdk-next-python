@@ -5,10 +5,11 @@ from typing import Any, Dict, List, Optional, Type, TypeVar, Union
 
 from catalystwan.abc import RequestAdapterInterface, ResponseInterface, SessionInterface
 from catalystwan.abc.types import HTTP_METHOD, JSON
+from typing_extensions import Self, get_args, get_origin
+
 from catalystwan.core.models.deserialize import deserialize
 from catalystwan.core.models.serialize import serialize
 from catalystwan.core.types import get_alias
-from typing_extensions import Self, get_args, get_origin
 
 T = TypeVar("T")
 

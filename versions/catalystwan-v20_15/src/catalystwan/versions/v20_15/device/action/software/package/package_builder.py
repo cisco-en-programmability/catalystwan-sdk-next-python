@@ -1,14 +1,17 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
+
 from .models import InstallPkg
 
 if TYPE_CHECKING:
     from .image_count.image_count_builder import ImageCountBuilder
+    from .metadata.metadata_builder import MetadataBuilder
     from .signature.signature_builder import SignatureBuilder
     from .utdsignature.utdsignature_builder import UtdsignatureBuilder
-    from .metadata.metadata_builder import MetadataBuilder
 
 
 class PackageBuilder:

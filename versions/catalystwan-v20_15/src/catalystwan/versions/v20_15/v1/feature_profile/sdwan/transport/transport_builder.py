@@ -1,13 +1,16 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
-    from .cellular_controller.cellular_controller_builder import (
-        CellularControllerBuilder,
-    )
+    from .cellular_controller.cellular_controller_builder import CellularControllerBuilder
     from .cellular_profile.cellular_profile_builder import CellularProfileBuilder
+    from .esimcellular_controller.esimcellular_controller_builder import EsimcellularControllerBuilder
+    from .esimcellular_profile.esimcellular_profile_builder import EsimcellularProfileBuilder
+    from .gps.gps_builder import GpsBuilder
     from .ipv6_tracker.ipv6_tracker_builder import Ipv6TrackerBuilder
     from .ipv6_trackergroup.ipv6_trackergroup_builder import Ipv6TrackergroupBuilder
     from .management.management_builder import ManagementBuilder
@@ -16,13 +19,6 @@ if TYPE_CHECKING:
     from .tracker.tracker_builder import TrackerBuilder
     from .trackergroup.trackergroup_builder import TrackergroupBuilder
     from .wan.wan_builder import WanBuilder
-    from .esimcellular_controller.esimcellular_controller_builder import (
-        EsimcellularControllerBuilder,
-    )
-    from .esimcellular_profile.esimcellular_profile_builder import (
-        EsimcellularProfileBuilder,
-    )
-    from .gps.gps_builder import GpsBuilder
 
 
 class TransportBuilder:
@@ -162,9 +158,7 @@ class TransportBuilder:
         """
         The cellular-controller property
         """
-        from .cellular_controller.cellular_controller_builder import (
-            CellularControllerBuilder,
-        )
+        from .cellular_controller.cellular_controller_builder import CellularControllerBuilder
 
         return CellularControllerBuilder(self._request_adapter)
 
@@ -182,9 +176,7 @@ class TransportBuilder:
         """
         The esimcellular-controller property
         """
-        from .esimcellular_controller.esimcellular_controller_builder import (
-            EsimcellularControllerBuilder,
-        )
+        from .esimcellular_controller.esimcellular_controller_builder import EsimcellularControllerBuilder
 
         return EsimcellularControllerBuilder(self._request_adapter)
 
@@ -193,9 +185,7 @@ class TransportBuilder:
         """
         The esimcellular-profile property
         """
-        from .esimcellular_profile.esimcellular_profile_builder import (
-            EsimcellularProfileBuilder,
-        )
+        from .esimcellular_profile.esimcellular_profile_builder import EsimcellularProfileBuilder
 
         return EsimcellularProfileBuilder(self._request_adapter)
 

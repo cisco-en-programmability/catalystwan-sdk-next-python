@@ -1,16 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, List, Optional
+
 from catalystwan.abc import RequestAdapterInterface
+
 from .models import DeviceData
 
 if TYPE_CHECKING:
     from .aaa.aaa_builder import AaaBuilder
     from .acl.acl_builder import AclBuilder
     from .action.action_builder import ActionBuilder
+    from .app.app_builder import AppBuilder
     from .app_hosting.app_hosting_builder import AppHostingBuilder
     from .app_route.app_route_builder import AppRouteBuilder
-    from .app.app_builder import AppBuilder
     from .appqoe.appqoe_builder import AppqoeBuilder
     from .arp.arp_builder import ArpBuilder
     from .autonomousversion.autonomousversion_builder import AutonomousversionBuilder
@@ -39,15 +42,11 @@ if TYPE_CHECKING:
     from .downloaded_images.downloaded_images_builder import DownloadedImagesBuilder
     from .dpi.dpi_builder import DpiBuilder
     from .dre.dre_builder import DreBuilder
-    from .dual_static_route_tracker.dual_static_route_tracker_builder import (
-        DualStaticRouteTrackerBuilder,
-    )
+    from .dual_static_route_tracker.dual_static_route_tracker_builder import DualStaticRouteTrackerBuilder
     from .eigrp.eigrp_builder import EigrpBuilder
     from .enable_sdavc.enable_sdavc_builder import EnableSdavcBuilder
     from .endpoint_tracker.endpoint_tracker_builder import EndpointTrackerBuilder
-    from .endpoint_tracker_group.endpoint_tracker_group_builder import (
-        EndpointTrackerGroupBuilder,
-    )
+    from .endpoint_tracker_group.endpoint_tracker_group_builder import EndpointTrackerGroupBuilder
     from .environment_data.environment_data_builder import EnvironmentDataBuilder
     from .featurelist.featurelist_builder import FeaturelistBuilder
     from .file_based.file_based_builder import FileBasedBuilder
@@ -84,22 +83,12 @@ if TYPE_CHECKING:
     from .reachable.reachable_builder import ReachableBuilder
     from .reboothistory.reboothistory_builder import ReboothistoryBuilder
     from .redundancy_group.redundancy_group_builder import RedundancyGroupBuilder
-    from .role_based_counters.role_based_counters_builder import (
-        RoleBasedCountersBuilder,
-    )
-    from .role_based_ipv6_counters.role_based_ipv6_counters_builder import (
-        RoleBasedIpv6CountersBuilder,
-    )
-    from .role_based_ipv6_permissions.role_based_ipv6_permissions_builder import (
-        RoleBasedIpv6PermissionsBuilder,
-    )
-    from .role_based_permissions.role_based_permissions_builder import (
-        RoleBasedPermissionsBuilder,
-    )
+    from .role_based_counters.role_based_counters_builder import RoleBasedCountersBuilder
+    from .role_based_ipv6_counters.role_based_ipv6_counters_builder import RoleBasedIpv6CountersBuilder
+    from .role_based_ipv6_permissions.role_based_ipv6_permissions_builder import RoleBasedIpv6PermissionsBuilder
+    from .role_based_permissions.role_based_permissions_builder import RoleBasedPermissionsBuilder
     from .role_based_sgt_map.role_based_sgt_map_builder import RoleBasedSgtMapBuilder
-    from .sdwan_global_drop_statistics.sdwan_global_drop_statistics_builder import (
-        SdwanGlobalDropStatisticsBuilder,
-    )
+    from .sdwan_global_drop_statistics.sdwan_global_drop_statistics_builder import SdwanGlobalDropStatisticsBuilder
     from .sdwan_stats.sdwan_stats_builder import SdwanStatsBuilder
     from .security.security_builder import SecurityBuilder
     from .sfp.sfp_builder import SfpBuilder
@@ -108,9 +97,7 @@ if TYPE_CHECKING:
     from .software.software_builder import SoftwareBuilder
     from .sse.sse_builder import SseBuilder
     from .sslproxy.sslproxy_builder import SslproxyBuilder
-    from .static_route_tracker.static_route_tracker_builder import (
-        StaticRouteTrackerBuilder,
-    )
+    from .static_route_tracker.static_route_tracker_builder import StaticRouteTrackerBuilder
     from .stats.stats_builder import StatsBuilder
     from .status.status_builder import StatusBuilder
     from .sxp_connections.sxp_connections_builder import SxpConnectionsBuilder
@@ -134,16 +121,12 @@ if TYPE_CHECKING:
     from .utd.utd_builder import UtdBuilder
     from .vdsl_service.vdsl_service_builder import VdslServiceBuilder
     from .vedgeinventory.vedgeinventory_builder import VedgeinventoryBuilder
-    from .virtual_application.virtual_application_builder import (
-        VirtualApplicationBuilder,
-    )
+    from .virtual_application.virtual_application_builder import VirtualApplicationBuilder
     from .vm.vm_builder import VmBuilder
     from .vmanage.vmanage_builder import VmanageBuilder
     from .voice.voice_builder import VoiceBuilder
     from .voiceisdninfo.voiceisdninfo_builder import VoiceisdninfoBuilder
-    from .voicet1e1controllerinfo.voicet1_e1_controllerinfo_builder import (
-        Voicet1E1ControllerinfoBuilder,
-    )
+    from .voicet1e1controllerinfo.voicet1_e1_controllerinfo_builder import Voicet1E1ControllerinfoBuilder
     from .vpn.vpn_builder import VpnBuilder
     from .vrrp.vrrp_builder import VrrpBuilder
     from .wireless.wireless_builder import WirelessBuilder
@@ -253,9 +236,7 @@ class DeviceBuilder:
         """
         The autonomousversion property
         """
-        from .autonomousversion.autonomousversion_builder import (
-            AutonomousversionBuilder,
-        )
+        from .autonomousversion.autonomousversion_builder import AutonomousversionBuilder
 
         return AutonomousversionBuilder(self._request_adapter)
 
@@ -489,9 +470,7 @@ class DeviceBuilder:
         """
         The dualStaticRouteTracker property
         """
-        from .dual_static_route_tracker.dual_static_route_tracker_builder import (
-            DualStaticRouteTrackerBuilder,
-        )
+        from .dual_static_route_tracker.dual_static_route_tracker_builder import DualStaticRouteTrackerBuilder
 
         return DualStaticRouteTrackerBuilder(self._request_adapter)
 
@@ -527,9 +506,7 @@ class DeviceBuilder:
         """
         The endpointTrackerGroup property
         """
-        from .endpoint_tracker_group.endpoint_tracker_group_builder import (
-            EndpointTrackerGroupBuilder,
-        )
+        from .endpoint_tracker_group.endpoint_tracker_group_builder import EndpointTrackerGroupBuilder
 
         return EndpointTrackerGroupBuilder(self._request_adapter)
 
@@ -862,9 +839,7 @@ class DeviceBuilder:
         """
         The roleBasedCounters property
         """
-        from .role_based_counters.role_based_counters_builder import (
-            RoleBasedCountersBuilder,
-        )
+        from .role_based_counters.role_based_counters_builder import RoleBasedCountersBuilder
 
         return RoleBasedCountersBuilder(self._request_adapter)
 
@@ -873,9 +848,7 @@ class DeviceBuilder:
         """
         The roleBasedIpv6Counters property
         """
-        from .role_based_ipv6_counters.role_based_ipv6_counters_builder import (
-            RoleBasedIpv6CountersBuilder,
-        )
+        from .role_based_ipv6_counters.role_based_ipv6_counters_builder import RoleBasedIpv6CountersBuilder
 
         return RoleBasedIpv6CountersBuilder(self._request_adapter)
 
@@ -884,9 +857,7 @@ class DeviceBuilder:
         """
         The roleBasedIpv6Permissions property
         """
-        from .role_based_ipv6_permissions.role_based_ipv6_permissions_builder import (
-            RoleBasedIpv6PermissionsBuilder,
-        )
+        from .role_based_ipv6_permissions.role_based_ipv6_permissions_builder import RoleBasedIpv6PermissionsBuilder
 
         return RoleBasedIpv6PermissionsBuilder(self._request_adapter)
 
@@ -895,9 +866,7 @@ class DeviceBuilder:
         """
         The roleBasedPermissions property
         """
-        from .role_based_permissions.role_based_permissions_builder import (
-            RoleBasedPermissionsBuilder,
-        )
+        from .role_based_permissions.role_based_permissions_builder import RoleBasedPermissionsBuilder
 
         return RoleBasedPermissionsBuilder(self._request_adapter)
 
@@ -906,9 +875,7 @@ class DeviceBuilder:
         """
         The roleBasedSgtMap property
         """
-        from .role_based_sgt_map.role_based_sgt_map_builder import (
-            RoleBasedSgtMapBuilder,
-        )
+        from .role_based_sgt_map.role_based_sgt_map_builder import RoleBasedSgtMapBuilder
 
         return RoleBasedSgtMapBuilder(self._request_adapter)
 
@@ -917,9 +884,7 @@ class DeviceBuilder:
         """
         The sdwan-global-drop-statistics property
         """
-        from .sdwan_global_drop_statistics.sdwan_global_drop_statistics_builder import (
-            SdwanGlobalDropStatisticsBuilder,
-        )
+        from .sdwan_global_drop_statistics.sdwan_global_drop_statistics_builder import SdwanGlobalDropStatisticsBuilder
 
         return SdwanGlobalDropStatisticsBuilder(self._request_adapter)
 
@@ -1000,9 +965,7 @@ class DeviceBuilder:
         """
         The staticRouteTracker property
         """
-        from .static_route_tracker.static_route_tracker_builder import (
-            StaticRouteTrackerBuilder,
-        )
+        from .static_route_tracker.static_route_tracker_builder import StaticRouteTrackerBuilder
 
         return StaticRouteTrackerBuilder(self._request_adapter)
 
@@ -1218,9 +1181,7 @@ class DeviceBuilder:
         """
         The virtualApplication property
         """
-        from .virtual_application.virtual_application_builder import (
-            VirtualApplicationBuilder,
-        )
+        from .virtual_application.virtual_application_builder import VirtualApplicationBuilder
 
         return VirtualApplicationBuilder(self._request_adapter)
 
@@ -1265,9 +1226,7 @@ class DeviceBuilder:
         """
         The voicet1e1controllerinfo property
         """
-        from .voicet1e1controllerinfo.voicet1_e1_controllerinfo_builder import (
-            Voicet1E1ControllerinfoBuilder,
-        )
+        from .voicet1e1controllerinfo.voicet1_e1_controllerinfo_builder import Voicet1E1ControllerinfoBuilder
 
         return Voicet1E1ControllerinfoBuilder(self._request_adapter)
 

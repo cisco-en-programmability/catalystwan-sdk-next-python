@@ -1,13 +1,15 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .associate.associate_builder import AssociateBuilder
     from .deploy.deploy_builder import DeployBuilder
-    from .variables.variables_builder import VariablesBuilder
     from .preview.preview_builder import PreviewBuilder
+    from .variables.variables_builder import VariablesBuilder
 
 
 class DeviceBuilder:

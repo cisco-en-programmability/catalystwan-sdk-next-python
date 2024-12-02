@@ -1,9 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, List, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, List, Optional
+
 from catalystwan.abc import RequestAdapterInterface
-from .models import InstanceSizeResponse
-from .models import CloudTypeParam
+
+from .models import CloudTypeParam, InstanceSizeResponse
 
 if TYPE_CHECKING:
     from .edge.edge_builder import EdgeBuilder

@@ -1,6 +1,8 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
@@ -37,9 +39,7 @@ class OrchestratorBuilder:
         """
         The connectionshistory property
         """
-        from .connectionshistory.connectionshistory_builder import (
-            ConnectionshistoryBuilder,
-        )
+        from .connectionshistory.connectionshistory_builder import ConnectionshistoryBuilder
 
         return ConnectionshistoryBuilder(self._request_adapter)
 

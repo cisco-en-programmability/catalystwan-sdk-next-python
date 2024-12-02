@@ -1,6 +1,8 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
-from typing import Optional, Any, Type, TYPE_CHECKING
+
+from typing import TYPE_CHECKING, Any, Optional, Type
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
@@ -13,8 +15,8 @@ if TYPE_CHECKING:
     from .mrf.mrf_builder import MrfBuilder
     from .ntp.ntp_builder import NtpBuilder
     from .omp.omp_builder import OmpBuilder
-    from .snmp.snmp_builder import SnmpBuilder
     from .security.security_builder import SecurityBuilder
+    from .snmp.snmp_builder import SnmpBuilder
 
 
 class SystemBuilder:

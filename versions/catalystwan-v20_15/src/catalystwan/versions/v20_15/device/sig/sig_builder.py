@@ -1,13 +1,13 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
+
 from typing import TYPE_CHECKING
+
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .get_sig_tunnel_list.get_sig_tunnel_list_builder import GetSigTunnelListBuilder
-    from .get_sig_tunnel_total.get_sig_tunnel_total_builder import (
-        GetSigTunnelTotalBuilder,
-    )
+    from .get_sig_tunnel_total.get_sig_tunnel_total_builder import GetSigTunnelTotalBuilder
     from .tunnel_dashboard.tunnel_dashboard_builder import TunnelDashboardBuilder
     from .umbrella.umbrella_builder import UmbrellaBuilder
     from .zscaler.zscaler_builder import ZscalerBuilder
@@ -26,9 +26,7 @@ class SigBuilder:
         """
         The getSigTunnelList property
         """
-        from .get_sig_tunnel_list.get_sig_tunnel_list_builder import (
-            GetSigTunnelListBuilder,
-        )
+        from .get_sig_tunnel_list.get_sig_tunnel_list_builder import GetSigTunnelListBuilder
 
         return GetSigTunnelListBuilder(self._request_adapter)
 
@@ -37,9 +35,7 @@ class SigBuilder:
         """
         The getSigTunnelTotal property
         """
-        from .get_sig_tunnel_total.get_sig_tunnel_total_builder import (
-            GetSigTunnelTotalBuilder,
-        )
+        from .get_sig_tunnel_total.get_sig_tunnel_total_builder import GetSigTunnelTotalBuilder
 
         return GetSigTunnelTotalBuilder(self._request_adapter)
 

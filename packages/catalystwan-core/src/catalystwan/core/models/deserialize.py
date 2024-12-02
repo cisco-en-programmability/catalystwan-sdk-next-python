@@ -5,12 +5,10 @@ from functools import reduce
 from inspect import isclass, unwrap
 from typing import Any, Dict, List, Literal, Protocol, Tuple, Type, TypeVar, Union
 
-from catalystwan.core.exceptions import (
-    CatalystwanModelInputException,
-    CatalystwanModelValidationError,
-)
-from catalystwan.core.types import MODEL_TYPES, AliasPath, DataclassInstance
 from typing_extensions import Annotated, get_args, get_origin, get_type_hints
+
+from catalystwan.core.exceptions import CatalystwanModelInputException, CatalystwanModelValidationError
+from catalystwan.core.types import MODEL_TYPES, AliasPath, DataclassInstance
 
 T = TypeVar("T", bound=DataclassInstance)
 
