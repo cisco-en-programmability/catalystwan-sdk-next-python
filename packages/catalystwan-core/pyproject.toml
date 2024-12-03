@@ -39,11 +39,7 @@ test = [
     "pytest>=8.2.2",
 ]
 "ver-all" = [
-    "catalystwan-v20-14 == 2.0.0a1",
     "catalystwan-v20-15 == 2.0.0a1",
-]
-"ver-2014" = [
-    "catalystwan-v20-14 == 2.0.0a1",
 ]
 "ver-2015" = [
     "catalystwan-v20-15 == 2.0.0a1",
