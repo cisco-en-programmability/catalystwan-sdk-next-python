@@ -22,11 +22,7 @@ class FetchSdoTokenBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                payload: Optional[DetailsForIdentityVerificationForSdoToken] = None,
-                **kw,
-            ):
+            def __call__(self, payload: Optional[DetailsForIdentityVerificationForSdoToken] = None, **kw):
                 """
                 POST for fetching Secure Device Onboarding Token needed for Secure Device Onboarding APIs for eSim
 
@@ -34,15 +30,10 @@ class FetchSdoTokenBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/securedeviceonboarding/fetchSdoToken",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/securedeviceonboarding/fetchSdoToken", payload=payload, **kw
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> DetailsForIdentityVerificationForSdoToken:
+            def create_payload(self, *args, **kwargs) -> DetailsForIdentityVerificationForSdoToken:
                 return DetailsForIdentityVerificationForSdoToken(*args, **kwargs)
 
             @property

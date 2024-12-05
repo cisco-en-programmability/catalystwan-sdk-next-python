@@ -41,10 +41,7 @@ class WifiBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                profile_id: str,
-                payload: Optional[CreateWifiProfileParcelForMobilityPostRequest] = None,
-                **kw,
+                self, profile_id: str, payload: Optional[CreateWifiProfileParcelForMobilityPostRequest] = None, **kw
             ) -> str:
                 """
                 Create an Wifi Profile Parcel for Mobility feature profile
@@ -65,22 +62,16 @@ class WifiBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> CreateWifiProfileParcelForMobilityPostRequest:
+            def create_payload(self, *args, **kwargs) -> CreateWifiProfileParcelForMobilityPostRequest:
                 return CreateWifiProfileParcelForMobilityPostRequest(*args, **kwargs)
 
             @property
-            def payload_model(
-                self,
-            ) -> Type[CreateWifiProfileParcelForMobilityPostRequest]:
+            def payload_model(self) -> Type[CreateWifiProfileParcelForMobilityPostRequest]:
                 return CreateWifiProfileParcelForMobilityPostRequest
 
         return create_wifi_profile_parcel_for_mobility_(self._request_adapter)
 
-    def get_wifi_profile_parcel_for_mobility(
-        self, profile_id: str, wifi_id: str, **kw
-    ) -> str:
+    def get_wifi_profile_parcel_for_mobility(self, profile_id: str, wifi_id: str, **kw) -> str:
         """
         Get an Wifi Profile Parcel for Mobility feature profile
 
@@ -133,22 +124,16 @@ class WifiBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> CreateWifiProfileParcelForMobilityPostRequest:
+            def create_payload(self, *args, **kwargs) -> CreateWifiProfileParcelForMobilityPostRequest:
                 return CreateWifiProfileParcelForMobilityPostRequest(*args, **kwargs)
 
             @property
-            def payload_model(
-                self,
-            ) -> Type[CreateWifiProfileParcelForMobilityPostRequest]:
+            def payload_model(self) -> Type[CreateWifiProfileParcelForMobilityPostRequest]:
                 return CreateWifiProfileParcelForMobilityPostRequest
 
         return edit_wifi_profile_parcel_for_mobility_(self._request_adapter)
 
-    def delete_wifi_profile_parcel_for_mobility(
-        self, profile_id: str, wifi_id: str, **kw
-    ):
+    def delete_wifi_profile_parcel_for_mobility(self, profile_id: str, wifi_id: str, **kw):
         """
         Delete an Wifi Profile Parcel for Mobility feature profile
 
@@ -161,8 +146,5 @@ class WifiBuilder:
             "wifiId": wifi_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/mobility/global/{profileId}/wifi/{wifiId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/mobility/global/{profileId}/wifi/{wifiId}", params=params, **kw
         )

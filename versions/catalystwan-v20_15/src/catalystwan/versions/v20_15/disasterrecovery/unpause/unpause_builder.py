@@ -20,6 +20,4 @@ class UnpauseBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "POST", "/dataservice/disasterrecovery/unpause", **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/disasterrecovery/unpause", **kw)

@@ -20,6 +20,4 @@ class TreeBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/entityownership/tree", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/entityownership/tree", **kw)

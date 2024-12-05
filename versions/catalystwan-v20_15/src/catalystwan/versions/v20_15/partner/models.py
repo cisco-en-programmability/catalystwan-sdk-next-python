@@ -9,16 +9,12 @@ Type = Literal["aci", "dnac", "mdp", "wcm"]
 @dataclass
 class PartnerRes:
     description: Optional[str] = _field(default=None)
-    devices_attached: Optional[int] = _field(
-        default=None, metadata={"alias": "devicesAttached"}
-    )
+    devices_attached: Optional[int] = _field(default=None, metadata={"alias": "devicesAttached"})
     id: Optional[str] = _field(default=None)
     name: Optional[str] = _field(default=None)
     owner: Optional[str] = _field(default=None)
     partner_id: Optional[str] = _field(default=None, metadata={"alias": "partnerId"})
-    registration_date: Optional[int] = _field(
-        default=None, metadata={"alias": "registrationDate"}
-    )
+    registration_date: Optional[int] = _field(default=None, metadata={"alias": "registrationDate"})
     type_: Optional[Type] = _field(default=None, metadata={"alias": "type"})
 
 

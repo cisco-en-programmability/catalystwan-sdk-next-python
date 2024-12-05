@@ -14,9 +14,7 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def site_per_app(
-        self, app_name: str, vpn_id: Optional[int] = None, **kw
-    ) -> List[Any]:
+    def site_per_app(self, app_name: str, vpn_id: Optional[int] = None, **kw) -> List[Any]:
         """
         Get sites per application per vpn
 
@@ -29,9 +27,5 @@ class StatusBuilder:
             "vpnId": vpn_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/cloudx/status",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/cloudx/status", return_type=List[Any], params=params, **kw
         )

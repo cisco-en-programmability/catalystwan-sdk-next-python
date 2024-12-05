@@ -17,11 +17,7 @@ class DevicesBuilder:
         self._request_adapter = request_adapter
 
     def list_group_devices(
-        self,
-        group_id: Optional[str] = None,
-        ssh: Optional[bool] = False,
-        vpn_id: Optional[List[Vpnid]] = None,
-        **kw,
+        self, group_id: Optional[str] = None, ssh: Optional[bool] = False, vpn_id: Optional[List[Vpnid]] = None, **kw
     ) -> List[Any]:
         """
         Retrieve devices in group
@@ -37,9 +33,5 @@ class DevicesBuilder:
             "vpnId": vpn_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/group/devices",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/group/devices", return_type=List[Any], params=params, **kw
         )

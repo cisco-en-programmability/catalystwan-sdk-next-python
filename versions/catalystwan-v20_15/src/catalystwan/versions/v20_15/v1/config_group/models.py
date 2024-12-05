@@ -3,15 +3,7 @@ from dataclasses import dataclass
 from dataclasses import field as _field
 from typing import Dict, List, Literal, Optional
 
-Solution = Literal[
-    "cellulargateway",
-    "common",
-    "mobility",
-    "nfvirtual",
-    "sd-routing",
-    "sdwan",
-    "service-insertion",
-]
+Solution = Literal["cellulargateway", "common", "mobility", "nfvirtual", "sd-routing", "sdwan", "service-insertion"]
 
 Attribute = Literal["rule", "tag"]
 
@@ -64,17 +56,11 @@ class FeatureProfile:
     # System generated unique identifier of the feature profile in UUID format.
     id: Optional[str] = _field(default=None)
     # User who last updated this.
-    last_updated_by: Optional[str] = _field(
-        default=None, metadata={"alias": "lastUpdatedBy"}
-    )
+    last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
     # Timestamp of last update
-    last_updated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "lastUpdatedOn"}
-    )
+    last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
     # Number of Parcels attached with Feature Profile
-    profile_parcel_count: Optional[int] = _field(
-        default=None, metadata={"alias": "profileParcelCount"}
-    )
+    profile_parcel_count: Optional[int] = _field(default=None, metadata={"alias": "profileParcelCount"})
 
 
 @dataclass
@@ -86,9 +72,7 @@ class Criteria:
 @dataclass
 class UnsupportedFeature:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
-    parcel_type: Optional[ParcelType] = _field(
-        default=None, metadata={"alias": "parcelType"}
-    )
+    parcel_type: Optional[ParcelType] = _field(default=None, metadata={"alias": "parcelType"})
 
 
 @dataclass
@@ -102,9 +86,7 @@ class ConfigGroupDevice:
 @dataclass
 class Topology:
     devices: Optional[List[ConfigGroupDevice]] = _field(default=None)
-    site_devices: Optional[int] = _field(
-        default=None, metadata={"alias": "siteDevices"}
-    )
+    site_devices: Optional[int] = _field(default=None, metadata={"alias": "siteDevices"})
 
 
 @dataclass
@@ -124,37 +106,21 @@ class ConfigGroup:
     # Description of the  Group.
     description: Optional[str] = _field(default=None)
     devices: Optional[List[str]] = _field(default=None)
-    full_config_cli: Optional[bool] = _field(
-        default=None, metadata={"alias": "fullConfigCli"}
-    )
+    full_config_cli: Optional[bool] = _field(default=None, metadata={"alias": "fullConfigCli"})
     # System generated unique identifier of the  Group in UUID format.
     id: Optional[str] = _field(default=None)
-    ios_config_cli: Optional[bool] = _field(
-        default=None, metadata={"alias": "iosConfigCli"}
-    )
+    ios_config_cli: Optional[bool] = _field(default=None, metadata={"alias": "iosConfigCli"})
     # User who last updated this.
-    last_updated_by: Optional[str] = _field(
-        default=None, metadata={"alias": "lastUpdatedBy"}
-    )
+    last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
     # Timestamp of last update
-    last_updated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "lastUpdatedOn"}
-    )
-    number_of_devices: Optional[int] = _field(
-        default=None, metadata={"alias": "numberOfDevices"}
-    )
-    number_of_devices_up_to_date: Optional[int] = _field(
-        default=None, metadata={"alias": "numberOfDevicesUpToDate"}
-    )
+    last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
+    number_of_devices: Optional[int] = _field(default=None, metadata={"alias": "numberOfDevices"})
+    number_of_devices_up_to_date: Optional[int] = _field(default=None, metadata={"alias": "numberOfDevicesUpToDate"})
     origin: Optional[str] = _field(default=None)
-    origin_info: Optional[Dict[str, str]] = _field(
-        default=None, metadata={"alias": "originInfo"}
-    )
+    origin_info: Optional[Dict[str, str]] = _field(default=None, metadata={"alias": "originInfo"})
     # List of devices UUIDs associated with this group
     profiles: Optional[List[FeatureProfile]] = _field(default=None)
     # Source of group
     source: Optional[str] = _field(default=None)
     topology: Optional[Topology] = _field(default=None)
-    version_increment_reason: Optional[str] = _field(
-        default=None, metadata={"alias": "versionIncrementReason"}
-    )
+    version_increment_reason: Optional[str] = _field(default=None, metadata={"alias": "versionIncrementReason"})

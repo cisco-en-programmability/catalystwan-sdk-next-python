@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -31,39 +31,17 @@ class EdgeBuilder:
         params = {
             "edgeType": edge_type,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/accounts/edge", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/multicloud/accounts/edge", params=params, **kw)
 
-    @property
-    def validate_edge_account_add(self):
-        class validate_edge_account_add_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def validate_edge_account_add(self, payload: Optional[Any] = None, **kw):
+        """
+        Authenticate edge account credentials
 
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Authenticate edge account credentials
-
-                :param payload: Multicloud edge account info
-                :returns: None
-                """
-                logging.warning("Operation: %s is deprecated", "validateEdgeAccountAdd")
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/accounts/edge",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return validate_edge_account_add_(self._request_adapter)
+        :param payload: Multicloud edge account info
+        :returns: None
+        """
+        logging.warning("Operation: %s is deprecated", "validateEdgeAccountAdd")
+        return self._request_adapter.request("POST", "/dataservice/multicloud/accounts/edge", payload=payload, **kw)
 
     def get_edge_account_details(self, account_id: str, **kw) -> Any:
         """
@@ -77,46 +55,24 @@ class EdgeBuilder:
             "accountId": account_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/accounts/edge/{accountId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/accounts/edge/{accountId}", params=params, **kw
         )
 
-    @property
-    def update_edge_account(self):
-        class update_edge_account_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def update_edge_account(self, account_id: str, payload: Optional[Any] = None, **kw):
+        """
+        Update Multicloud edge account
 
-            def __call__(self, account_id: str, payload: Optional[Any] = None, **kw):
-                """
-                Update Multicloud edge account
-
-                :param account_id: Multicloud Edge Account Id
-                :param payload: Multicloud edge account info
-                :returns: None
-                """
-                logging.warning("Operation: %s is deprecated", "updateEdgeAccount")
-                params = {
-                    "accountId": account_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/multicloud/accounts/edge/{accountId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return update_edge_account_(self._request_adapter)
+        :param account_id: Multicloud Edge Account Id
+        :param payload: Multicloud edge account info
+        :returns: None
+        """
+        logging.warning("Operation: %s is deprecated", "updateEdgeAccount")
+        params = {
+            "accountId": account_id,
+        }
+        return self._request_adapter.request(
+            "PUT", "/dataservice/multicloud/accounts/edge/{accountId}", params=params, payload=payload, **kw
+        )
 
     def delete_edge_account(self, account_id: str, **kw):
         """
@@ -130,10 +86,7 @@ class EdgeBuilder:
             "accountId": account_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/multicloud/accounts/edge/{accountId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/multicloud/accounts/edge/{accountId}", params=params, **kw
         )
 
     @property

@@ -17,23 +17,15 @@ class SaveTemplateRequestLicenseTemplateSubscriptionsUsed:
 
 @dataclass
 class SaveTemplateRequestLicenseTemplate:
-    license_type: Optional[str] = _field(
-        default=None, metadata={"alias": "licenseType"}
-    )
-    licenses: Optional[List[SaveTemplateRequestLicenseTemplateLicenses]] = _field(
-        default=None
-    )
+    license_type: Optional[str] = _field(default=None, metadata={"alias": "licenseType"})
+    licenses: Optional[List[SaveTemplateRequestLicenseTemplateLicenses]] = _field(default=None)
     sa_account: Optional[str] = _field(default=None, metadata={"alias": "saAccount"})
     sa_name: Optional[str] = _field(default=None, metadata={"alias": "saName"})
-    subscriptions_used: Optional[
-        List[SaveTemplateRequestLicenseTemplateSubscriptionsUsed]
-    ] = _field(default=None, metadata={"alias": "subscriptionsUsed"})
-    template_name: Optional[str] = _field(
-        default=None, metadata={"alias": "templateName"}
+    subscriptions_used: Optional[List[SaveTemplateRequestLicenseTemplateSubscriptionsUsed]] = _field(
+        default=None, metadata={"alias": "subscriptionsUsed"}
     )
-    use_existing_template: Optional[bool] = _field(
-        default=None, metadata={"alias": "useExistingTemplate"}
-    )
+    template_name: Optional[str] = _field(default=None, metadata={"alias": "templateName"})
+    use_existing_template: Optional[bool] = _field(default=None, metadata={"alias": "useExistingTemplate"})
     uuid: Optional[List[str]] = _field(default=None)
     va_account: Optional[str] = _field(default=None, metadata={"alias": "vaAccount"})
     va_name: Optional[str] = _field(default=None, metadata={"alias": "vaName"})

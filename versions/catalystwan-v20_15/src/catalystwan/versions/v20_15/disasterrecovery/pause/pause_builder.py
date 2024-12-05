@@ -20,6 +20,4 @@ class PauseBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "POST", "/dataservice/disasterrecovery/pause", **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/disasterrecovery/pause", **kw)

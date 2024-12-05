@@ -27,11 +27,7 @@ class ModelsBuilder:
             "list": list,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/models",
-            return_type=DeviceModelsResponse,
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/models", return_type=DeviceModelsResponse, params=params, **kw
         )
 
     def get_device_models(self, uuid: str, **kw) -> Any:
@@ -44,6 +40,4 @@ class ModelsBuilder:
         params = {
             "uuid": uuid,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/models/{uuid}", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/models/{uuid}", params=params, **kw)

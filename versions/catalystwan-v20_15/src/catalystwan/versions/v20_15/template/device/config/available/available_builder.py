@@ -14,9 +14,7 @@ class AvailableBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_list_by_master_template_id(
-        self, master_template_id: str, **kw
-    ) -> List[Any]:
+    def get_device_list_by_master_template_id(self, master_template_id: str, **kw) -> List[Any]:
         """
         Get possible device list by master template Id
 

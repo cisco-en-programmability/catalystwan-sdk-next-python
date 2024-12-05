@@ -30,10 +30,7 @@ class RemoveBuilder:
                 """
                 logging.warning("Operation: %s is deprecated", "removeFirmwareImage")
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/device/action/firmware/remove",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/device/action/firmware/remove", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:

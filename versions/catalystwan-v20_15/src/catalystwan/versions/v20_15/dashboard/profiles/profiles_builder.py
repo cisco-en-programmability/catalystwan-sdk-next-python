@@ -26,9 +26,7 @@ class ProfilesBuilder:
         params = {
             "claimStatus": claim_status,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/dashboard/profiles", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/dashboard/profiles", params=params, **kw)
 
     @property
     def update_bi_frost_info(self):
@@ -43,9 +41,7 @@ class ProfilesBuilder:
                 :param payload: Client identification
                 :returns: None
                 """
-                return self._request_adapter.request(
-                    "PUT", "/dataservice/dashboard/profiles", payload=payload, **kw
-                )
+                return self._request_adapter.request("PUT", "/dataservice/dashboard/profiles", payload=payload, **kw)
 
             def create_payload(self, *args, **kwargs) -> SigningKey:
                 return SigningKey(*args, **kwargs)

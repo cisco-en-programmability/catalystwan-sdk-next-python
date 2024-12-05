@@ -24,6 +24,4 @@ class StateBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/vm/oper/state", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/vm/oper/state", params=params, **kw)

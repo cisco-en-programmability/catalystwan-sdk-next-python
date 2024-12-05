@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -33,67 +33,29 @@ class NetworkdesignBuilder:
         logging.warning("Operation: %s is deprecated", "getNetworkDesign")
         return self._request_adapter.request("GET", "/dataservice/networkdesign", **kw)
 
-    @property
-    def edit_network_design(self):
-        class edit_network_design_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_network_design(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Edit network segment
 
-            def __call__(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Edit network segment
+        :param id: Id
+        :param payload: Network design payload
+        :returns: Any
+        """
+        logging.warning("Operation: %s is deprecated", "editNetworkDesign")
+        params = {
+            "id": id,
+        }
+        return self._request_adapter.request("PUT", "/dataservice/networkdesign", params=params, payload=payload, **kw)
 
-                :param id: Id
-                :param payload: Network design payload
-                :returns: Any
-                """
-                logging.warning("Operation: %s is deprecated", "editNetworkDesign")
-                params = {
-                    "id": id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/networkdesign",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
+    def create_network_design(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Create network design
 
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_network_design_(self._request_adapter)
-
-    @property
-    def create_network_design(self):
-        class create_network_design_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Create network design
-
-                :param payload: Network design payload
-                :returns: Any
-                """
-                logging.warning("Operation: %s is deprecated", "createNetworkDesign")
-                return self._request_adapter.request(
-                    "POST", "/dataservice/networkdesign", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_network_design_(self._request_adapter)
+        :param payload: Network design payload
+        :returns: Any
+        """
+        logging.warning("Operation: %s is deprecated", "createNetworkDesign")
+        return self._request_adapter.request("POST", "/dataservice/networkdesign", payload=payload, **kw)
 
     @property
     def attachment(self) -> AttachmentBuilder:

@@ -30,11 +30,7 @@ class TelemetryBuilder:
                 :returns: Taskid
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/telemetry",
-                    return_type=Taskid,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/multicloud/telemetry", return_type=Taskid, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> TelemetryRequests:

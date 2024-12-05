@@ -23,9 +23,7 @@ class AccountsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_accounts(
-        self, interconnect_type: Optional[str] = None, **kw
-    ) -> List[InterconnectAccount]:
+    def get_interconnect_accounts(self, interconnect_type: Optional[str] = None, **kw) -> List[InterconnectAccount]:
         """
         API to retrieve Interconnect provider accounts.
 
@@ -49,9 +47,7 @@ class AccountsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[InterconnectAccount] = None, **kw
-            ) -> InterconnectAccount:
+            def __call__(self, payload: Optional[InterconnectAccount] = None, **kw) -> InterconnectAccount:
                 """
                 API to associate an Interconnect provider account to vManage.
 
@@ -75,9 +71,7 @@ class AccountsBuilder:
 
         return add_interconnect_account_(self._request_adapter)
 
-    def get_interconnect_account(
-        self, interconnect_account_id: str, **kw
-    ) -> InterconnectAccount:
+    def get_interconnect_account(self, interconnect_account_id: str, **kw) -> InterconnectAccount:
         """
         API to retrieve associated Interconnect provider account details by id.
 
@@ -101,12 +95,7 @@ class AccountsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                interconnect_account_id: str,
-                payload: Optional[InterconnectAccount] = None,
-                **kw,
-            ):
+            def __call__(self, interconnect_account_id: str, payload: Optional[InterconnectAccount] = None, **kw):
                 """
                 API to edit associated Interconnect provider account name and description.
 
@@ -145,10 +134,7 @@ class AccountsBuilder:
             "interconnect-account-id": interconnect_account_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/multicloud/interconnect/accounts/{interconnect-account-id}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/multicloud/interconnect/accounts/{interconnect-account-id}", params=params, **kw
         )
 
     @property

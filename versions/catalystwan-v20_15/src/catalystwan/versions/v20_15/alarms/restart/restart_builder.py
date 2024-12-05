@@ -21,8 +21,5 @@ class RestartBuilder:
         :returns: SimpleMessageResponse
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/alarms/restart",
-            return_type=SimpleMessageResponse,
-            **kw,
+            "GET", "/dataservice/alarms/restart", return_type=SimpleMessageResponse, **kw
         )

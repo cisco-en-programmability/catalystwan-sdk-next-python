@@ -16,9 +16,7 @@ class TunnelsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_tunnel_names(
-        self, cloud_type: CloudTypeParam, cloud_gateway_name: str, **kw
-    ) -> List[GetTunnelsResponse]:
+    def get_tunnel_names(self, cloud_type: CloudTypeParam, cloud_gateway_name: str, **kw) -> List[GetTunnelsResponse]:
         """
         Get the tunnels for cloudType
 

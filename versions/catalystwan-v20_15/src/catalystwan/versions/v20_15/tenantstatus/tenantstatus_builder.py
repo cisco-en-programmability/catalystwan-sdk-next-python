@@ -26,9 +26,7 @@ class TenantstatusBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/tenantstatus", return_type=List[Any], **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/tenantstatus", return_type=List[Any], **kw)
 
     @property
     def force(self) -> ForceBuilder:

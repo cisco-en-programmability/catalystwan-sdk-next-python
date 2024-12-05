@@ -12,9 +12,7 @@ class AccesstokenBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_secure_x_access_token(
-        self, client_id: str, region_base_uri: str, **kw
-    ) -> str:
+    def get_secure_x_access_token(self, client_id: str, region_base_uri: str, **kw) -> str:
         """
         Get Access Token for SecureX Ribbon
 
@@ -27,9 +25,5 @@ class AccesstokenBuilder:
             "regionBaseUri": region_base_uri,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/accesstoken/{regionBaseUri}/{clientId}",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/accesstoken/{regionBaseUri}/{clientId}", return_type=str, params=params, **kw
         )

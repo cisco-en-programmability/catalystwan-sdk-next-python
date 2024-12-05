@@ -25,8 +25,5 @@ class ResetBuilder:
             "processQueue": process_queue,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/statistics/collection/reset/{processQueue}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/statistics/collection/reset/{processQueue}", params=params, **kw
         )

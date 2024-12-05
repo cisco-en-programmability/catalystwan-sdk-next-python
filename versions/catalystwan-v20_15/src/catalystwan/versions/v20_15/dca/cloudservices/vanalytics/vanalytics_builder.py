@@ -28,10 +28,7 @@ class VanalyticsBuilder:
                 :returns: Any
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/dca/cloudservices/vanalytics",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/dca/cloudservices/vanalytics", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:

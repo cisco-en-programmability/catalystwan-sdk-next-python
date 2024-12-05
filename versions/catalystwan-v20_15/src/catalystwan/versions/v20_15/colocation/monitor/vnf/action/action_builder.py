@@ -17,9 +17,7 @@ class ActionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def vnf_actions(
-        self, vm_name: str, action: str, device_id: Optional[DeviceUuid] = None, **kw
-    ):
+    def vnf_actions(self, vm_name: str, action: str, device_id: Optional[DeviceUuid] = None, **kw):
         """
         To do VNF actions such as start, stop and restart
 
@@ -34,6 +32,4 @@ class ActionBuilder:
             "action": action,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "POST", "/dataservice/colocation/monitor/vnf/action", params=params, **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/colocation/monitor/vnf/action", params=params, **kw)

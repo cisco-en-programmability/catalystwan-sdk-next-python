@@ -20,6 +20,4 @@ class StatusBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/fedramp/dnssec/status", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/fedramp/dnssec/status", **kw)

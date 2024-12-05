@@ -17,11 +17,7 @@ class TagsBuilder:
         self._request_adapter = request_adapter
 
     def get_interconnect_mapping_tags(
-        self,
-        cloud_type: str,
-        cloud_account_id: str,
-        resource_group: Optional[str] = None,
-        **kw,
+        self, cloud_type: str, cloud_account_id: str, resource_group: Optional[str] = None, **kw
     ) -> InlineResponse2002:
         """
         API to retrieve configured Interconnect host VPC/VNET mapping tags.

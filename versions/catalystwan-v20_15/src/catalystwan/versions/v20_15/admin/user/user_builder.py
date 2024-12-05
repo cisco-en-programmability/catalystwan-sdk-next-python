@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -31,69 +31,31 @@ class UserBuilder:
 
         :returns: List[Any]
         """
+        return self._request_adapter.request("GET", "/dataservice/admin/user", return_type=List[Any], **kw)
+
+    def create_user_1(self, payload: Optional[Any] = None, **kw):
+        """
+        Create a user
+
+        :param payload: User
+        :returns: None
+        """
+        return self._request_adapter.request("POST", "/dataservice/admin/user", payload=payload, **kw)
+
+    def update_user_1(self, user_name: str, payload: Optional[Any] = None, **kw):
+        """
+        Update user
+
+        :param user_name: User name
+        :param payload: User
+        :returns: None
+        """
+        params = {
+            "userName": user_name,
+        }
         return self._request_adapter.request(
-            "GET", "/dataservice/admin/user", return_type=List[Any], **kw
+            "PUT", "/dataservice/admin/user/{userName}", params=params, payload=payload, **kw
         )
-
-    @property
-    def create_user_1(self):
-        class create_user_1_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Create a user
-
-                :param payload: User
-                :returns: None
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/admin/user", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_user_1_(self._request_adapter)
-
-    @property
-    def update_user_1(self):
-        class update_user_1_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, user_name: str, payload: Optional[Any] = None, **kw):
-                """
-                Update user
-
-                :param user_name: User name
-                :param payload: User
-                :returns: None
-                """
-                params = {
-                    "userName": user_name,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/admin/user/{userName}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return update_user_1_(self._request_adapter)
 
     def delete_user_1(self, user_name: str, **kw):
         """
@@ -105,9 +67,7 @@ class UserBuilder:
         params = {
             "userName": user_name,
         }
-        return self._request_adapter.request(
-            "DELETE", "/dataservice/admin/user/{userName}", params=params, **kw
-        )
+        return self._request_adapter.request("DELETE", "/dataservice/admin/user/{userName}", params=params, **kw)
 
     @property
     def active_sessions(self) -> ActiveSessionsBuilder:

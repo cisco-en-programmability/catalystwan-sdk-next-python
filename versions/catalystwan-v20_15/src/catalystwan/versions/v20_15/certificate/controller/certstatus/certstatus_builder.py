@@ -19,8 +19,5 @@ class CertstatusBuilder:
         :returns: str
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/certificate/controller/certstatus",
-            return_type=str,
-            **kw,
+            "GET", "/dataservice/certificate/controller/certstatus", return_type=str, **kw
         )

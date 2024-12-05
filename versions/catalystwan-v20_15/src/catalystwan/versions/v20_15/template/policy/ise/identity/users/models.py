@@ -10,9 +10,7 @@ class UserObject:
     Object containing the users name
     """
 
-    ad_user_sam_account_name: Optional[str] = _field(
-        default=None, metadata={"alias": "adUserSamAccountName"}
-    )
+    ad_user_sam_account_name: Optional[str] = _field(default=None, metadata={"alias": "adUserSamAccountName"})
 
 
 @dataclass
@@ -39,9 +37,7 @@ class HeaderObject:
 
     columns: Optional[Any] = _field(default=None)
     fields: Optional[Any] = _field(default=None)
-    generated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "generatedOn"}
-    )
+    generated_on: Optional[int] = _field(default=None, metadata={"alias": "generatedOn"})
     view_keys: Optional[Any] = _field(default=None, metadata={"alias": "viewKeys"})
 
 

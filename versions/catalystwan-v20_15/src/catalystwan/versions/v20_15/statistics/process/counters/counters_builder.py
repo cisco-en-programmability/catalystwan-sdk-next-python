@@ -21,8 +21,5 @@ class CountersBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/statistics/process/counters",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/statistics/process/counters", return_type=List[Any], **kw
         )

@@ -18,11 +18,7 @@ class CliBuilder:
         self._request_adapter = request_adapter
 
     def get_mobility_cli_feature_profile(
-        self,
-        offset: Optional[int] = None,
-        limit: Optional[int] = 0,
-        reference_count: Optional[bool] = False,
-        **kw,
+        self, offset: Optional[int] = None, limit: Optional[int] = 0, reference_count: Optional[bool] = False, **kw
     ) -> Any:
         """
         Get Mobility Cli Feature Profiles
@@ -37,9 +33,7 @@ class CliBuilder:
             "limit": limit,
             "referenceCount": reference_count,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/mobility/cli", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/v1/feature-profile/mobility/cli", params=params, **kw)
 
     def get_mobility_cli_feature_profile_by_cli_id(self, cli_id: str, **kw) -> Any:
         """
@@ -52,10 +46,7 @@ class CliBuilder:
             "cliId": cli_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/mobility/cli/{cliId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/mobility/cli/{cliId}", params=params, **kw
         )
 
     @property

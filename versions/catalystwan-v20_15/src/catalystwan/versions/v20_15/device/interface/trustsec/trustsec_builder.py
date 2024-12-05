@@ -24,6 +24,4 @@ class TrustsecBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/interface/trustsec", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/interface/trustsec", params=params, **kw)

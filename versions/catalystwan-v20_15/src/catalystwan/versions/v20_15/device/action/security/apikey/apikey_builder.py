@@ -25,8 +25,5 @@ class ApikeyBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/action/security/apikey/{uuid}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/action/security/apikey/{uuid}", params=params, **kw
         )

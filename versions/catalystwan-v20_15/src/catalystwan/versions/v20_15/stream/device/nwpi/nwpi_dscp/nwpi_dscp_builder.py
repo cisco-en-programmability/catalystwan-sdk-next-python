@@ -25,8 +25,5 @@ class NwpiDscpBuilder:
         """
         logging.warning("Operation: %s is deprecated", "getNwpiDscp")
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/stream/device/nwpi/nwpiDSCP",
-            return_type=List[NwpiDscpResponsePayloadInner],
-            **kw,
+            "GET", "/dataservice/stream/device/nwpi/nwpiDSCP", return_type=List[NwpiDscpResponsePayloadInner], **kw
         )

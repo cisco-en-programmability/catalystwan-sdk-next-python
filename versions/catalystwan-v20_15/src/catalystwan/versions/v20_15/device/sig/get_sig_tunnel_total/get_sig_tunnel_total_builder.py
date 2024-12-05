@@ -20,6 +20,4 @@ class GetSigTunnelTotalBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/sig/getSigTunnelTotal", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/sig/getSigTunnelTotal", **kw)

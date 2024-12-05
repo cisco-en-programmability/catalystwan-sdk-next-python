@@ -10,23 +10,15 @@ class SaVaDistributionResponseSaVaMap:
     available: Optional[int] = _field(default=None)
     in_use: Optional[int] = _field(default=None, metadata={"alias": "inUse"})
     sa_name: Optional[str] = _field(default=None, metadata={"alias": "saName"})
-    subscription_id: Optional[str] = _field(
-        default=None, metadata={"alias": "subscriptionId"}
-    )
+    subscription_id: Optional[str] = _field(default=None, metadata={"alias": "subscriptionId"})
     va_name: Optional[str] = _field(default=None, metadata={"alias": "vaName"})
 
 
 @dataclass
 class SaVaDistributionResponseBaseLicenses:
-    display_name: Optional[str] = _field(
-        default=None, metadata={"alias": "displayName"}
-    )
-    platform_class: Optional[str] = _field(
-        default=None, metadata={"alias": "platformClass"}
-    )
-    sava_map: Optional[List[SaVaDistributionResponseSaVaMap]] = _field(
-        default=None, metadata={"alias": "savaMap"}
-    )
+    display_name: Optional[str] = _field(default=None, metadata={"alias": "displayName"})
+    platform_class: Optional[str] = _field(default=None, metadata={"alias": "platformClass"})
+    sava_map: Optional[List[SaVaDistributionResponseSaVaMap]] = _field(default=None, metadata={"alias": "savaMap"})
     tag: Optional[str] = _field(default=None)
     # List of device UUIDs
     uuids: Optional[List[str]] = _field(default=None)
@@ -34,12 +26,8 @@ class SaVaDistributionResponseBaseLicenses:
 
 @dataclass
 class SaVaDistributionResponseTenantLicenses:
-    display_name: Optional[str] = _field(
-        default=None, metadata={"alias": "displayName"}
-    )
-    sava_map: Optional[List[SaVaDistributionResponseSaVaMap]] = _field(
-        default=None, metadata={"alias": "savaMap"}
-    )
+    display_name: Optional[str] = _field(default=None, metadata={"alias": "displayName"})
+    sava_map: Optional[List[SaVaDistributionResponseSaVaMap]] = _field(default=None, metadata={"alias": "savaMap"})
     tag: Optional[str] = _field(default=None)
 
 
@@ -55,22 +43,14 @@ class SaVaDistributionResponse:
 
 @dataclass
 class AppliedFilters:
-    billing_type: Optional[str] = _field(
-        default=None, metadata={"alias": "billingType"}
-    )
-    license_classification: Optional[str] = _field(
-        default=None, metadata={"alias": "licenseClassification"}
-    )
+    billing_type: Optional[str] = _field(default=None, metadata={"alias": "billingType"})
+    license_classification: Optional[str] = _field(default=None, metadata={"alias": "licenseClassification"})
 
 
 @dataclass
 class SaVaDistributionRequestBaseLicenses:
-    display_name: Optional[str] = _field(
-        default=None, metadata={"alias": "displayName"}
-    )
-    platform_class: Optional[str] = _field(
-        default=None, metadata={"alias": "platformClass"}
-    )
+    display_name: Optional[str] = _field(default=None, metadata={"alias": "displayName"})
+    platform_class: Optional[str] = _field(default=None, metadata={"alias": "platformClass"})
     tag: Optional[str] = _field(default=None)
     # List of device UUIDs
     uuids: Optional[List[str]] = _field(default=None)
@@ -78,20 +58,14 @@ class SaVaDistributionRequestBaseLicenses:
 
 @dataclass
 class SaVaDistributionRequestTenantLicense:
-    display_name: Optional[str] = _field(
-        default=None, metadata={"alias": "displayName"}
-    )
+    display_name: Optional[str] = _field(default=None, metadata={"alias": "displayName"})
     tag: Optional[str] = _field(default=None)
-    total_tenant_lic_required: Optional[int] = _field(
-        default=None, metadata={"alias": "totalTenantLicRequired"}
-    )
+    total_tenant_lic_required: Optional[int] = _field(default=None, metadata={"alias": "totalTenantLicRequired"})
 
 
 @dataclass
 class SaVaDistributionRequest:
-    applied_filters: Optional[AppliedFilters] = _field(
-        default=None, metadata={"alias": "appliedFilters"}
-    )
+    applied_filters: Optional[AppliedFilters] = _field(default=None, metadata={"alias": "appliedFilters"})
     base_licenses: Optional[List[SaVaDistributionRequestBaseLicenses]] = _field(
         default=None, metadata={"alias": "baseLicenses"}
     )

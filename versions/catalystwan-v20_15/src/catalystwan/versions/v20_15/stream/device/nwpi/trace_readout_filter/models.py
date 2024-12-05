@@ -11,6 +11,4 @@ class EventReadoutFilterResponsePayload:
     """
 
     # User Name List
-    user_name: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "userName"}
-    )
+    user_name: Optional[List[str]] = _field(default=None, metadata={"alias": "userName"})

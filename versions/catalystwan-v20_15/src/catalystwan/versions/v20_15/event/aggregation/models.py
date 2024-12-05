@@ -16,6 +16,4 @@ class AlarmAggregation:
 @dataclass
 class AlarmAggregationResponse:
     data: Optional[AlarmAggregation] = _field(default=None)
-    entry_time_list: Optional[List[int]] = _field(
-        default=None, metadata={"alias": "entryTimeList"}
-    )
+    entry_time_list: Optional[List[int]] = _field(default=None, metadata={"alias": "entryTimeList"})

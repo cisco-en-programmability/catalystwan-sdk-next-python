@@ -17,11 +17,7 @@ class ConnectionsBuilder:
         self._request_adapter = request_adapter
 
     def create_synced_connection_list(
-        self,
-        device_id: str,
-        peer_type: Optional[PeerTypeParam] = None,
-        system_ip: Optional[str] = None,
-        **kw,
+        self, device_id: str, peer_type: Optional[PeerTypeParam] = None, system_ip: Optional[str] = None, **kw
     ) -> Any:
         """
         Get connections list from vManage

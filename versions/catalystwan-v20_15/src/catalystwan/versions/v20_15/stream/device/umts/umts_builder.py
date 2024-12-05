@@ -26,9 +26,7 @@ class UmtsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[UmtsInput] = None, **kw
-            ) -> List[UmtsSession]:
+            def __call__(self, payload: Optional[UmtsInput] = None, **kw) -> List[UmtsSession]:
                 """
                 assign sessionId to client if there is no conflict ongoing sessions
 
@@ -36,11 +34,7 @@ class UmtsBuilder:
                 :returns: List[UmtsSession]
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/stream/device/umts",
-                    return_type=List[UmtsSession],
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/stream/device/umts", return_type=List[UmtsSession], payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> UmtsInput:
@@ -65,10 +59,7 @@ class UmtsBuilder:
             "sessionId": session_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/stream/device/umts/{operation}/{sessionId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/stream/device/umts/{operation}/{sessionId}", params=params, **kw
         )
 
     @property

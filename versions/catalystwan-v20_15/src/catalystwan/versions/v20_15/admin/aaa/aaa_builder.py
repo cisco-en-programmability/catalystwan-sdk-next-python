@@ -25,9 +25,7 @@ class AaaBuilder:
 
         :returns: Aaa
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/admin/aaa", return_type=Aaa, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/admin/aaa", return_type=Aaa, **kw)
 
     @property
     def update_aaa_config(self):
@@ -45,9 +43,7 @@ class AaaBuilder:
                 :param payload: aaa
                 :returns: None
                 """
-                return self._request_adapter.request(
-                    "PUT", "/dataservice/admin/aaa", payload=payload, **kw
-                )
+                return self._request_adapter.request("PUT", "/dataservice/admin/aaa", payload=payload, **kw)
 
             def create_payload(self, *args, **kwargs) -> Aaa:
                 return Aaa(*args, **kwargs)
@@ -74,9 +70,7 @@ class AaaBuilder:
                 :param payload: aaa
                 :returns: None
                 """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/admin/aaa", payload=payload, **kw
-                )
+                return self._request_adapter.request("POST", "/dataservice/admin/aaa", payload=payload, **kw)
 
             def create_payload(self, *args, **kwargs) -> Aaa:
                 return Aaa(*args, **kwargs)

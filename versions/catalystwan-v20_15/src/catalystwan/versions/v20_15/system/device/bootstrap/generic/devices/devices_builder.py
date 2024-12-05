@@ -17,10 +17,7 @@ class DevicesBuilder:
         self._request_adapter = request_adapter
 
     def generate_generic_bootstrap_config_for_vedges(
-        self,
-        wanif: Optional[str] = None,
-        sd_routing_device: Optional[bool] = None,
-        **kw,
+        self, wanif: Optional[str] = None, sd_routing_device: Optional[bool] = None, **kw
     ) -> GenerateGenericBootstrapConfigForVedges:
         """
         Create bootstrap config for software vEdges

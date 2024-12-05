@@ -30,10 +30,7 @@ class UploadBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/device/tools/admintechs/upload",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/device/tools/admintechs/upload", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> AdminTechsUploadReq:

@@ -38,8 +38,5 @@ class ActivateBuilder:
             "checksum": checksum,
         }
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/container-manager/activate/{containerName}",
-            params=params,
-            **kw,
+            "POST", "/dataservice/container-manager/activate/{containerName}", params=params, **kw
         )

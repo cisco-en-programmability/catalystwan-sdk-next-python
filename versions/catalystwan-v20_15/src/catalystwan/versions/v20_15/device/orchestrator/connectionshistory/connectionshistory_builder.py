@@ -25,8 +25,5 @@ class ConnectionshistoryBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/orchestrator/connectionshistory",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/orchestrator/connectionshistory", params=params, **kw
         )

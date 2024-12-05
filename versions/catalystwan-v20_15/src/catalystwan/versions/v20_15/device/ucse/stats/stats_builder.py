@@ -39,6 +39,4 @@ class StatsBuilder:
             "local-tloc-color": local_tloc_color,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/ucse/stats", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/ucse/stats", params=params, **kw)

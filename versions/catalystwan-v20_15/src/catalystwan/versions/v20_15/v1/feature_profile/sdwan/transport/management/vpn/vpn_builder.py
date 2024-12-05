@@ -18,9 +18,7 @@ class VpnBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_management_vpn_profile_parcel_for_transport(
-        self, transport_id: str, **kw
-    ) -> str:
+    def get_management_vpn_profile_parcel_for_transport(self, transport_id: str, **kw) -> str:
         """
         Get Management Vpn Profile Parcels for Transport feature profile
 
@@ -44,9 +42,7 @@ class VpnBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, transport_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, transport_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Management Vpn Profile Parcel for Transport feature profile
 
@@ -73,13 +69,9 @@ class VpnBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return create_management_vpn_profile_parcel_for_transport_(
-            self._request_adapter
-        )
+        return create_management_vpn_profile_parcel_for_transport_(self._request_adapter)
 
-    def get_management_vpn_profile_parcel_by_parcel_id_for_transport(
-        self, transport_id: str, vpn_id: str, **kw
-    ) -> str:
+    def get_management_vpn_profile_parcel_by_parcel_id_for_transport(self, transport_id: str, vpn_id: str, **kw) -> str:
         """
         Get Management Vpn Profile Parcel by parcelId for Transport feature profile
 
@@ -105,13 +97,7 @@ class VpnBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                transport_id: str,
-                vpn_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, transport_id: str, vpn_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Management Vpn Profile Parcel for Transport feature profile
 
@@ -142,9 +128,7 @@ class VpnBuilder:
 
         return edit_management_vpn_profile_parcel_for_transport_(self._request_adapter)
 
-    def delete_management_vpn_profile_parcel_for_transport(
-        self, transport_id: str, vpn_id: str, **kw
-    ):
+    def delete_management_vpn_profile_parcel_for_transport(self, transport_id: str, vpn_id: str, **kw):
         """
         Delete a Management Vpn Profile Parcel for Transport feature profile
 

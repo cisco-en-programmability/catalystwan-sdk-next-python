@@ -21,8 +21,5 @@ class DiscoveredappsBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/app-registry/app/discoveredapps",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/app-registry/app/discoveredapps", return_type=List[Any], **kw
         )

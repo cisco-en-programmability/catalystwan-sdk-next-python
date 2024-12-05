@@ -25,8 +25,5 @@ class CountersBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/cellularEiolte/ipsec/interface/counters",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/cellularEiolte/ipsec/interface/counters", params=params, **kw
         )

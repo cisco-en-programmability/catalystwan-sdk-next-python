@@ -29,9 +29,7 @@ class LevelBuilder:
                 :param payload: Payload
                 :returns: None
                 """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/util/logging/level", payload=payload, **kw
-                )
+                return self._request_adapter.request("POST", "/dataservice/util/logging/level", payload=payload, **kw)
 
             def create_payload(self, *args, **kwargs) -> SetLogLevelPostRequest:
                 return SetLogLevelPostRequest(*args, **kwargs)

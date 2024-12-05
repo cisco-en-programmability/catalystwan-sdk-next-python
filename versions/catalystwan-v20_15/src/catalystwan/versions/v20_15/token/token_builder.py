@@ -27,9 +27,5 @@ class TokenBuilder:
             "regionBaseUri": region_base_uri,
         }
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/token/{regionBaseUri}/{clientId}",
-            return_type=Tokens,
-            params=params,
-            **kw,
+            "POST", "/dataservice/token/{regionBaseUri}/{clientId}", return_type=Tokens, params=params, **kw
         )

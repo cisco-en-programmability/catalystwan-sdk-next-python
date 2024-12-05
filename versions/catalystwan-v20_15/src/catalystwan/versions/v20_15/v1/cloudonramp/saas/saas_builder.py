@@ -29,9 +29,7 @@ class SaasBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/cloudonramp/saas", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/v1/cloudonramp/saas", **kw)
 
     @property
     def cloud_tunnels(self) -> CloudTunnelsBuilder:

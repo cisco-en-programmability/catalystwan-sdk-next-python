@@ -25,8 +25,5 @@ class AccesslistassociationsBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/policy/accesslistassociations",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/policy/accesslistassociations", params=params, **kw
         )

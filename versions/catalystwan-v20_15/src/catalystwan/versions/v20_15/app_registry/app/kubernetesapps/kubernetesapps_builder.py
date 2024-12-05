@@ -17,11 +17,7 @@ class KubernetesappsBuilder:
         self._request_adapter = request_adapter
 
     def get_kubernetes_services(
-        self,
-        is_cached: Optional[bool] = False,
-        offset: Optional[int] = 0,
-        limit: Optional[int] = 0,
-        **kw,
+        self, is_cached: Optional[bool] = False, offset: Optional[int] = 0, limit: Optional[int] = 0, **kw
     ) -> List[DiscoveredServices]:
         """
         Obtain all services associated with clusters

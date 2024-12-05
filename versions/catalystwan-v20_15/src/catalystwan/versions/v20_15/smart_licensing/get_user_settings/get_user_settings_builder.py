@@ -22,6 +22,4 @@ class GetUserSettingsBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "get settings")
-        return self._request_adapter.request(
-            "GET", "/dataservice/smartLicensing/getUserSettings", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/smartLicensing/getUserSettings", **kw)

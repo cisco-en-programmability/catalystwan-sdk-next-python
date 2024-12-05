@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -25,38 +25,18 @@ class DeviceaccesspolicyBuilder:
 
         :returns: Any
         """
+        return self._request_adapter.request("GET", "/dataservice/template/policy/definition/deviceaccesspolicy", **kw)
+
+    def create_policy_definition_16(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Create policy definition
+
+        :param payload: Policy definition
+        :returns: Any
+        """
         return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/definition/deviceaccesspolicy", **kw
+            "POST", "/dataservice/template/policy/definition/deviceaccesspolicy", payload=payload, **kw
         )
-
-    @property
-    def create_policy_definition_16(self):
-        class create_policy_definition_16_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Create policy definition
-
-                :param payload: Policy definition
-                :returns: Any
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/template/policy/definition/deviceaccesspolicy",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_policy_definition_16_(self._request_adapter)
 
     def get_policy_definition_16(self, id: str, **kw) -> Any:
         """
@@ -69,45 +49,27 @@ class DeviceaccesspolicyBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/policy/definition/deviceaccesspolicy/{id}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/policy/definition/deviceaccesspolicy/{id}", params=params, **kw
         )
 
-    @property
-    def edit_policy_definition_16(self):
-        class edit_policy_definition_16_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_policy_definition_16(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Edit a policy definitions
 
-            def __call__(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Edit a policy definitions
-
-                :param id: Policy Id
-                :param payload: Policy definition
-                :returns: Any
-                """
-                params = {
-                    "id": id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/template/policy/definition/deviceaccesspolicy/{id}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_policy_definition_16_(self._request_adapter)
+        :param id: Policy Id
+        :param payload: Policy definition
+        :returns: Any
+        """
+        params = {
+            "id": id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/template/policy/definition/deviceaccesspolicy/{id}",
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_policy_definition_16(self, id: str, **kw):
         """
@@ -120,10 +82,7 @@ class DeviceaccesspolicyBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/template/policy/definition/deviceaccesspolicy/{id}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/template/policy/definition/deviceaccesspolicy/{id}", params=params, **kw
         )
 
     @property

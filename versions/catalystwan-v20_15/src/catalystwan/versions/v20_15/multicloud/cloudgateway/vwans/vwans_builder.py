@@ -17,12 +17,7 @@ class VwansBuilder:
         self._request_adapter = request_adapter
 
     def get_azure_virtual_wans(
-        self,
-        cloud_type: str,
-        account_id: str,
-        resource_group_name: str,
-        resource_group_source: str,
-        **kw,
+        self, cloud_type: str, account_id: str, resource_group_name: str, resource_group_source: str, **kw
     ) -> List[VwanListResponse]:
         """
         Discover Azure Virtual WANS
@@ -40,9 +35,5 @@ class VwansBuilder:
             "resourceGroupSource": resource_group_source,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/cloudgateway/vwans",
-            return_type=List[VwanListResponse],
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/cloudgateway/vwans", return_type=List[VwanListResponse], params=params, **kw
         )

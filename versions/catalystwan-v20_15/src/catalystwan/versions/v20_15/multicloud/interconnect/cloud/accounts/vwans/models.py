@@ -27,27 +27,17 @@ class AzureVirtualWan:
     resource_group_name: str = _field(metadata={"alias": "resourceGroupName"})
     account_id: Optional[str] = _field(default=None, metadata={"alias": "accountId"})
     # Cloud account name
-    account_name: Optional[str] = _field(
-        default=None, metadata={"alias": "accountName"}
-    )
+    account_name: Optional[str] = _field(default=None, metadata={"alias": "accountName"})
     allow_branch_to_branch_traffic: Optional[bool] = _field(
         default=None, metadata={"alias": "allowBranchToBranchTraffic"}
     )
     cloud_type: Optional[str] = _field(default=None, metadata={"alias": "cloudType"})
     description: Optional[str] = _field(default=None)
     id: Optional[str] = _field(default=None)
-    provisioning_state: Optional[str] = _field(
-        default=None, metadata={"alias": "provisioningState"}
-    )
-    tag_list: Optional[List[AzureVirtualWanTagList]] = _field(
-        default=None, metadata={"alias": "tagList"}
-    )
-    virtual_wan_type: Optional[str] = _field(
-        default=None, metadata={"alias": "virtualWanType"}
-    )
-    vnet_tovnet_traffic_enabled: Optional[bool] = _field(
-        default=None, metadata={"alias": "vnetTovnetTrafficEnabled"}
-    )
+    provisioning_state: Optional[str] = _field(default=None, metadata={"alias": "provisioningState"})
+    tag_list: Optional[List[AzureVirtualWanTagList]] = _field(default=None, metadata={"alias": "tagList"})
+    virtual_wan_type: Optional[str] = _field(default=None, metadata={"alias": "virtualWanType"})
+    vnet_tovnet_traffic_enabled: Optional[bool] = _field(default=None, metadata={"alias": "vnetTovnetTrafficEnabled"})
 
 
 @dataclass
@@ -59,6 +49,4 @@ class InlineResponse2009VWans:
 
 @dataclass
 class InlineResponse2009:
-    v_wans: Optional[List[InlineResponse2009VWans]] = _field(
-        default=None, metadata={"alias": "vWans"}
-    )
+    v_wans: Optional[List[InlineResponse2009VWans]] = _field(default=None, metadata={"alias": "vWans"})

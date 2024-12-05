@@ -23,19 +23,10 @@ class DisabledBuilder:
         :returns: List[DisabledAlarmDetails]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/alarms/disabled",
-            return_type=List[DisabledAlarmDetails],
-            **kw,
+            "GET", "/dataservice/alarms/disabled", return_type=List[DisabledAlarmDetails], **kw
         )
 
-    def disable_enable_alarm(
-        self,
-        event_name: str,
-        disable: Optional[bool] = None,
-        time: Optional[int] = None,
-        **kw,
-    ):
+    def disable_enable_alarm(self, event_name: str, disable: Optional[bool] = None, time: Optional[int] = None, **kw):
         """
         Enable/Disable alarms by event name
 
@@ -49,6 +40,4 @@ class DisabledBuilder:
             "disable": disable,
             "time": time,
         }
-        return self._request_adapter.request(
-            "POST", "/dataservice/alarms/disabled", params=params, **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/alarms/disabled", params=params, **kw)

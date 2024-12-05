@@ -21,8 +21,5 @@ class VedgedetectionBuilder:
         :returns: VedgeCheckResponse
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/system/device/vedgedetection",
-            return_type=VedgeCheckResponse,
-            **kw,
+            "GET", "/dataservice/system/device/vedgedetection", return_type=VedgeCheckResponse, **kw
         )

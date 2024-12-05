@@ -23,8 +23,5 @@ class SeveritymappingsBuilder:
         :returns: List[AlarmSeverityMapping]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/alarms/severitymappings",
-            return_type=List[AlarmSeverityMapping],
-            **kw,
+            "GET", "/dataservice/alarms/severitymappings", return_type=List[AlarmSeverityMapping], **kw
         )

@@ -25,9 +25,7 @@ class GetkeysBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/umbrella/getkeys", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/umbrella/getkeys", **kw)
 
     @property
     def management(self) -> ManagementBuilder:

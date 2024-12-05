@@ -20,6 +20,4 @@ class VersionBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/action/software/ztp/version", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/action/software/ztp/version", **kw)

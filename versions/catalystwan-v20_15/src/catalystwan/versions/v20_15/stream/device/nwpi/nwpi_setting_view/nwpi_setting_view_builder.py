@@ -17,9 +17,7 @@ class NwpiSettingViewBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def nwpi_setting_view(
-        self, type_: Optional[str] = None, **kw
-    ) -> NwpiSettingDataPayload:
+    def nwpi_setting_view(self, type_: Optional[str] = None, **kw) -> NwpiSettingDataPayload:
         """
         get NWPI setting
 

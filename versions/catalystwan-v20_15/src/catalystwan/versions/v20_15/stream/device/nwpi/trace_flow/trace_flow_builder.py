@@ -16,9 +16,7 @@ class TraceFlowBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_trace_flow(
-        self, trace_id: int, timestamp: int, state: str, **kw
-    ) -> NwpitraceFlowRespPayload:
+    def get_trace_flow(self, trace_id: int, timestamp: int, state: str, **kw) -> NwpitraceFlowRespPayload:
         """
         getTraceFlow
 

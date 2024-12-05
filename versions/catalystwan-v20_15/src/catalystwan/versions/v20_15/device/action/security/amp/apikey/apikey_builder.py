@@ -25,8 +25,5 @@ class ApikeyBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/device/action/security/amp/apikey/{uuid}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/device/action/security/amp/apikey/{uuid}", params=params, **kw
         )

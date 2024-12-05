@@ -20,6 +20,4 @@ class ErrorsBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/hardware/errors", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/hardware/errors", **kw)

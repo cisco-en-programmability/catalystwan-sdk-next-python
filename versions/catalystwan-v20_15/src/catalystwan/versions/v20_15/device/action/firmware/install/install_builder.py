@@ -30,10 +30,7 @@ class InstallBuilder:
                 """
                 logging.warning("Operation: %s is deprecated", "installFirmwareImage")
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/device/action/firmware/install",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/device/action/firmware/install", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:

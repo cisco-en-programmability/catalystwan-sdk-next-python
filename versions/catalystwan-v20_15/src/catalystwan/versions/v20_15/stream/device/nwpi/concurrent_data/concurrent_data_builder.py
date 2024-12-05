@@ -16,9 +16,7 @@ class ConcurrentDataBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_concurrent_data(
-        self, trace_id: int, timestamp: int, **kw
-    ) -> NwpitraceFlowRespPayload:
+    def get_concurrent_data(self, trace_id: int, timestamp: int, **kw) -> NwpitraceFlowRespPayload:
         """
         Get concurrent data for NWPI.
 

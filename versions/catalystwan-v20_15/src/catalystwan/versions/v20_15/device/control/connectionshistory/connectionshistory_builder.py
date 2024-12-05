@@ -17,11 +17,7 @@ class ConnectionshistoryBuilder:
         self._request_adapter = request_adapter
 
     def create_connection_history_list_real_time(
-        self,
-        device_id: str,
-        peer_type: Optional[PeerTypeParam] = None,
-        system_ip: Optional[str] = None,
-        **kw,
+        self, device_id: str, peer_type: Optional[PeerTypeParam] = None, system_ip: Optional[str] = None, **kw
     ) -> Any:
         """
         Get connections history list from device (Real Time)

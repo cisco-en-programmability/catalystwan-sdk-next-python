@@ -9,9 +9,7 @@ class NwpiTraceStopRespPayloadTraces:
     action: Optional[str] = _field(default=None)
     device_ip: Optional[str] = _field(default=None, metadata={"alias": "device-ip"})
     entry_time: Optional[int] = _field(default=None)
-    local_system_ip: Optional[str] = _field(
-        default=None, metadata={"alias": "local-system-ip"}
-    )
+    local_system_ip: Optional[str] = _field(default=None, metadata={"alias": "local-system-ip"})
     message: Optional[str] = _field(default=None)
     trace_id: Optional[int] = _field(default=None, metadata={"alias": "trace-id"})
     uuid: Optional[str] = _field(default=None)

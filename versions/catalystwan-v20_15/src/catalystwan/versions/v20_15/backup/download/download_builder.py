@@ -23,9 +23,5 @@ class DownloadBuilder:
             "path": path,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/backup/download/{path}",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/backup/download/{path}", return_type=str, params=params, **kw
         )

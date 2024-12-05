@@ -30,11 +30,7 @@ class PushCgwConfigBuilder:
                 :returns: Taskid
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/pushCgwConfig",
-                    return_type=Taskid,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/multicloud/pushCgwConfig", return_type=Taskid, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> PushCgwConfig:

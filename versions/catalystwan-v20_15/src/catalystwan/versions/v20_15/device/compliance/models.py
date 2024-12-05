@@ -15,17 +15,11 @@ class DeviceCheckList:
 
 @dataclass
 class DeviceApiDetails:
-    chassis_number: Optional[str] = _field(
-        default=None, metadata={"alias": "chassis-Number"}
-    )
-    current_version: Optional[str] = _field(
-        default=None, metadata={"alias": "current-version"}
-    )
+    chassis_number: Optional[str] = _field(default=None, metadata={"alias": "chassis-Number"})
+    current_version: Optional[str] = _field(default=None, metadata={"alias": "current-version"})
     device_type: Optional[str] = _field(default=None, metadata={"alias": "device-type"})
     host_name: Optional[str] = _field(default=None, metadata={"alias": "host-name"})
-    local_system_ip: Optional[str] = _field(
-        default=None, metadata={"alias": "local-system-ip"}
-    )
+    local_system_ip: Optional[str] = _field(default=None, metadata={"alias": "local-system-ip"})
     personality: Optional[str] = _field(default=None)
     reachability: Optional[str] = _field(default=None)
     site_id: Optional[str] = _field(default=None, metadata={"alias": "site-id"})
@@ -36,12 +30,8 @@ class DeviceApiDetails:
 
 @dataclass
 class DeviceComplianceApiData:
-    check_list: Optional[List[DeviceCheckList]] = _field(
-        default=None, metadata={"alias": "checkList"}
-    )
-    device_details: Optional[DeviceApiDetails] = _field(
-        default=None, metadata={"alias": "deviceDetails"}
-    )
+    check_list: Optional[List[DeviceCheckList]] = _field(default=None, metadata={"alias": "checkList"})
+    device_details: Optional[DeviceApiDetails] = _field(default=None, metadata={"alias": "deviceDetails"})
     status: Optional[str] = _field(default=None)
 
 

@@ -17,11 +17,7 @@ class SessionsBuilder:
         self._request_adapter = request_adapter
 
     def create_sessions_list(
-        self,
-        device_id: str,
-        if_name: Optional[IfNameParam] = None,
-        ipv4_dns_pri: Optional[str] = None,
-        **kw,
+        self, device_id: str, if_name: Optional[IfNameParam] = None, ipv4_dns_pri: Optional[str] = None, **kw
     ) -> List[Any]:
         """
         Get cellular session list from device
@@ -37,9 +33,5 @@ class SessionsBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/cellular/sessions",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/cellular/sessions", return_type=List[Any], params=params, **kw
         )

@@ -21,7 +21,5 @@ class QosmosNbarMigrationWarningBuilder:
         :returns: Any
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/policy/vsmart/qosmos_nbar_migration_warning",
-            **kw,
+            "GET", "/dataservice/template/policy/vsmart/qosmos_nbar_migration_warning", **kw
         )

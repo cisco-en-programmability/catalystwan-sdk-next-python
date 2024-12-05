@@ -21,11 +21,7 @@ class EdgeBuilder:
         self._request_adapter = request_adapter
 
     def get_edge_locations_info(
-        self,
-        edge_type: EdgeTypeParam,
-        account_id: Optional[str] = None,
-        region: Optional[str] = None,
-        **kw,
+        self, edge_type: EdgeTypeParam, account_id: Optional[str] = None, region: Optional[str] = None, **kw
     ) -> Any:
         """
         Get Edge Locations
@@ -42,10 +38,7 @@ class EdgeBuilder:
             "region": region,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/locations/edge/{edgeType}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/locations/edge/{edgeType}", params=params, **kw
         )
 
     def delete_edge_account_1(self, edge_type: EdgeTypeParam, **kw):
@@ -60,10 +53,7 @@ class EdgeBuilder:
             "edgeType": edge_type,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/multicloud/locations/edge/{edgeType}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/multicloud/locations/edge/{edgeType}", params=params, **kw
         )
 
     @property

@@ -19,8 +19,5 @@ class IseandpxgridBuilder:
         :returns: bool
         """
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/ise/credentials/iseandpxgrid",
-            return_type=bool,
-            **kw,
+            "DELETE", "/dataservice/ise/credentials/iseandpxgrid", return_type=bool, **kw
         )

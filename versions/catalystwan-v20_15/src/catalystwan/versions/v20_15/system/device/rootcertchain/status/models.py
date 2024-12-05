@@ -6,15 +6,9 @@ from typing import List, Optional
 
 @dataclass
 class GetRootCertStatusAllData:
-    last_update_time: Optional[str] = _field(
-        default=None, metadata={"alias": "lastUpdateTime"}
-    )
-    root_cert_md5: Optional[str] = _field(
-        default=None, metadata={"alias": "rootCertMd5"}
-    )
-    root_cert_status: Optional[str] = _field(
-        default=None, metadata={"alias": "rootCertStatus"}
-    )
+    last_update_time: Optional[str] = _field(default=None, metadata={"alias": "lastUpdateTime"})
+    root_cert_md5: Optional[str] = _field(default=None, metadata={"alias": "rootCertMd5"})
+    root_cert_status: Optional[str] = _field(default=None, metadata={"alias": "rootCertStatus"})
 
 
 @dataclass

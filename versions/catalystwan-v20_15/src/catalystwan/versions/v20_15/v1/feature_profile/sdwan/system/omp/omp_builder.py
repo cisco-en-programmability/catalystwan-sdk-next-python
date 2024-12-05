@@ -28,11 +28,7 @@ class OmpBuilder:
             "systemId": system_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/omp",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/system/{systemId}/omp", return_type=str, params=params, **kw
         )
 
     @property
@@ -41,9 +37,7 @@ class OmpBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Omp Profile Parcel for System feature profile
 
@@ -72,9 +66,7 @@ class OmpBuilder:
 
         return create_omp_profile_parcel_for_system_(self._request_adapter)
 
-    def get_omp_profile_parcel_by_parcel_id_for_system(
-        self, system_id: str, omp_id: str, **kw
-    ) -> str:
+    def get_omp_profile_parcel_by_parcel_id_for_system(self, system_id: str, omp_id: str, **kw) -> str:
         """
         Get Omp Profile Parcel by parcelId for System feature profile
 
@@ -100,9 +92,7 @@ class OmpBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, omp_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, omp_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Omp Profile Parcel for System feature profile
 
@@ -146,10 +136,7 @@ class OmpBuilder:
             "ompId": omp_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/omp/{ompId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/sdwan/system/{systemId}/omp/{ompId}", params=params, **kw
         )
 
     @property

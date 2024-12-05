@@ -20,6 +20,4 @@ class ActiveSessionsBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/admin/user/activeSessions", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/admin/user/activeSessions", **kw)

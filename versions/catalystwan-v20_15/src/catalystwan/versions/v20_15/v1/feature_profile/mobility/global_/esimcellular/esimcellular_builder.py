@@ -14,9 +14,7 @@ class EsimcellularBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_esim_cellular_profile_feature_for_mobility(
-        self, profile_id: str, **kw
-    ) -> str:
+    def get_esim_cellular_profile_feature_for_mobility(self, profile_id: str, **kw) -> str:
         """
         Get EsimCellular Profile Features for Mobility Global Feature Profile
 
@@ -40,9 +38,7 @@ class EsimcellularBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, profile_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, profile_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a EsimCellular Profile Feature for Mobility Global Feature Profile
 
@@ -99,13 +95,7 @@ class EsimcellularBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                profile_id: str,
-                esim_cellular_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, profile_id: str, esim_cellular_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a EsimCellular Profile Feature for Mobility Global Feature Profile
 
@@ -136,9 +126,7 @@ class EsimcellularBuilder:
 
         return edit_esim_cellular_profile_feature_for_mobility_(self._request_adapter)
 
-    def delete_esim_cellular_profile_feature_for_mobility(
-        self, profile_id: str, esim_cellular_id: str, **kw
-    ):
+    def delete_esim_cellular_profile_feature_for_mobility(self, profile_id: str, esim_cellular_id: str, **kw):
         """
         Delete a EsimCellular Profile Feature for Mobility Global Feature Profile
 

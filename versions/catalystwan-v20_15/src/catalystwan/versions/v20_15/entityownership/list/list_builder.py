@@ -21,8 +21,5 @@ class ListBuilder:
         :returns: EntityOwnershipInfo
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/entityownership/list",
-            return_type=EntityOwnershipInfo,
-            **kw,
+            "GET", "/dataservice/entityownership/list", return_type=EntityOwnershipInfo, **kw
         )

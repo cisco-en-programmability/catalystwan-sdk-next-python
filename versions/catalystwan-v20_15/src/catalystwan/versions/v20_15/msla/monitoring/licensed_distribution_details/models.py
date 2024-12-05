@@ -7,16 +7,10 @@ from typing import Optional
 @dataclass
 class LicenseDistributionResult:
     display_name: Optional[str] = _field(default=None)
-    last_updated: Optional[str] = _field(
-        default=None, metadata={"alias": "lastUpdated"}
-    )
+    last_updated: Optional[str] = _field(default=None, metadata={"alias": "lastUpdated"})
     tag: Optional[str] = _field(default=None)
-    total_devices: Optional[int] = _field(
-        default=None, metadata={"alias": "totalDevices"}
-    )
-    total_license: Optional[int] = _field(
-        default=None, metadata={"alias": "totalLicense"}
-    )
+    total_devices: Optional[int] = _field(default=None, metadata={"alias": "totalDevices"})
+    total_license: Optional[int] = _field(default=None, metadata={"alias": "totalLicense"})
 
 
 @dataclass

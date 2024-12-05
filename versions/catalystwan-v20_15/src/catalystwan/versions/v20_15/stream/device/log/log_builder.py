@@ -37,9 +37,7 @@ class LogBuilder:
                 :param payload: Payload
                 :returns: None
                 """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/stream/device/log", payload=payload, **kw
-                )
+                return self._request_adapter.request("POST", "/dataservice/stream/device/log", payload=payload, **kw)
 
             def create_payload(self, *args, **kwargs) -> str:
                 return str(*args, **kwargs)
@@ -56,14 +54,7 @@ class LogBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                log_type: str,
-                device_uuid: str,
-                session_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ):
+            def __call__(self, log_type: str, device_uuid: str, session_id: str, payload: Optional[str] = None, **kw):
                 """
                 Stream log
 
@@ -107,9 +98,7 @@ class LogBuilder:
             "sessionId": session_id,
             "logId": log_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/stream/device/log/{sessionId}", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/stream/device/log/{sessionId}", params=params, **kw)
 
     @property
     def disable(self) -> DisableBuilder:

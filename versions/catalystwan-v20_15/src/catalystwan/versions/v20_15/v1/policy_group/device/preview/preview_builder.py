@@ -26,9 +26,7 @@ class PreviewBuilder:
                 self,
                 policy_group_id: str,
                 device_id: str,
-                payload: Optional[
-                    GetPolicyGroupDeviceConfigurationPreviewPostRequest
-                ] = None,
+                payload: Optional[GetPolicyGroupDeviceConfigurationPreviewPostRequest] = None,
                 **kw,
             ) -> Any:
                 """
@@ -51,17 +49,11 @@ class PreviewBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> GetPolicyGroupDeviceConfigurationPreviewPostRequest:
-                return GetPolicyGroupDeviceConfigurationPreviewPostRequest(
-                    *args, **kwargs
-                )
+            def create_payload(self, *args, **kwargs) -> GetPolicyGroupDeviceConfigurationPreviewPostRequest:
+                return GetPolicyGroupDeviceConfigurationPreviewPostRequest(*args, **kwargs)
 
             @property
-            def payload_model(
-                self,
-            ) -> Type[GetPolicyGroupDeviceConfigurationPreviewPostRequest]:
+            def payload_model(self) -> Type[GetPolicyGroupDeviceConfigurationPreviewPostRequest]:
                 return GetPolicyGroupDeviceConfigurationPreviewPostRequest
 
         return get_policy_group_device_configuration_preview_(self._request_adapter)

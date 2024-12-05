@@ -17,11 +17,7 @@ class NetstatBuilder:
         self._request_adapter = request_adapter
 
     def get_device_tools_netstat(
-        self,
-        device_id: str,
-        vpn: Optional[VpnParam] = None,
-        options: Optional[str] = None,
-        **kw,
+        self, device_id: str, vpn: Optional[VpnParam] = None, options: Optional[str] = None, **kw
     ) -> Any:
         """
         Get device tool net stat
@@ -36,6 +32,4 @@ class NetstatBuilder:
             "options": options,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/tools/netstat", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/tools/netstat", params=params, **kw)

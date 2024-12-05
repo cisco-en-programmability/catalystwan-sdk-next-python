@@ -23,8 +23,5 @@ class CancelBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/sdavc/protocol-pack/maintenance/upload/cancel/{uuid}",
-            params=params,
-            **kw,
+            "POST", "/dataservice/sdavc/protocol-pack/maintenance/upload/cancel/{uuid}", params=params, **kw
         )

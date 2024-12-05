@@ -25,9 +25,5 @@ class SenseBuilder:
             "tag": tag,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/cdna/sense/{tag}",
-            return_type=DnaSenseResponse,
-            params=params,
-            **kw,
+            "GET", "/dataservice/cdna/sense/{tag}", return_type=DnaSenseResponse, params=params, **kw
         )

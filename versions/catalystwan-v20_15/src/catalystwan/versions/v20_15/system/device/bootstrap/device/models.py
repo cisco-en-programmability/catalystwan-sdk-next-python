@@ -6,6 +6,4 @@ from typing import Optional
 
 @dataclass
 class GenerateBootstrapConfigForVedge:
-    bootstrap_config: Optional[str] = _field(
-        default=None, metadata={"alias": "bootstrapConfig"}
-    )
+    bootstrap_config: Optional[str] = _field(default=None, metadata={"alias": "bootstrapConfig"})

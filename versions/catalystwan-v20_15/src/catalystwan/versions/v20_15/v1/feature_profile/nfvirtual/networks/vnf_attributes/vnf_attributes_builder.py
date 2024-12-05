@@ -23,9 +23,7 @@ class VnfAttributesBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, networks_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, networks_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create VNF Attributes Profile config for Networks feature profile
 
@@ -54,9 +52,7 @@ class VnfAttributesBuilder:
 
         return create_nfvirtual_vnf_attributes_parcel_(self._request_adapter)
 
-    def get_nfvirtual_vnf_attributes_parcel(
-        self, networks_id: str, vnf_attributes_id: str, **kw
-    ) -> str:
+    def get_nfvirtual_vnf_attributes_parcel(self, networks_id: str, vnf_attributes_id: str, **kw) -> str:
         """
         Get VNF Attributes Profile Parcels for Networks feature profile
 
@@ -82,13 +78,7 @@ class VnfAttributesBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                networks_id: str,
-                vnf_attributes_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, networks_id: str, vnf_attributes_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a VNF Attributes Profile Parcel for networks feature profile
 
@@ -119,9 +109,7 @@ class VnfAttributesBuilder:
 
         return edit_nfvirtual_vnf_attributes_parcel_(self._request_adapter)
 
-    def delete_nfvirtual_vnf_attributes_parcel(
-        self, networks_id: str, vnf_attributes_id: str, **kw
-    ):
+    def delete_nfvirtual_vnf_attributes_parcel(self, networks_id: str, vnf_attributes_id: str, **kw):
         """
         Delete VNF Attributes Profile config for Networks feature profile
 

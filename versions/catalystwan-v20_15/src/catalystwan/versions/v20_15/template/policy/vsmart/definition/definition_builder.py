@@ -25,8 +25,5 @@ class DefinitionBuilder:
             "policyId": policy_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/policy/vsmart/definition/{policyId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/policy/vsmart/definition/{policyId}", params=params, **kw
         )

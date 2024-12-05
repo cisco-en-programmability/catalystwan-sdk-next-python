@@ -36,10 +36,7 @@ class PackageBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/device/action/software/package",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/device/action/software/package", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> InstallPkg:
@@ -51,9 +48,7 @@ class PackageBuilder:
 
         return install_pkg_(self._request_adapter)
 
-    def download_package_file(
-        self, file_name: str, image_type: Optional[str] = "software", **kw
-    ) -> str:
+    def download_package_file(self, file_name: str, image_type: Optional[str] = "software", **kw) -> str:
         """
         Download software package file
 
@@ -66,11 +61,7 @@ class PackageBuilder:
             "imageType": image_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/action/software/package/{fileName}",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/action/software/package/{fileName}", return_type=str, params=params, **kw
         )
 
     @property
@@ -79,9 +70,7 @@ class PackageBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, image_type: str, payload: Optional[InstallPkg] = None, **kw
-            ):
+            def __call__(self, image_type: str, payload: Optional[InstallPkg] = None, **kw):
                 """
                 Install software image package
 

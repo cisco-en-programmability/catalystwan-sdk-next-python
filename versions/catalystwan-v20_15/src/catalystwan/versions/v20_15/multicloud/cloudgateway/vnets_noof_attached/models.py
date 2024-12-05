@@ -6,6 +6,4 @@ from typing import Optional
 
 @dataclass
 class IsVnetAttached:
-    is_vnet_attached: Optional[bool] = _field(
-        default=None, metadata={"alias": "isVnetAttached"}
-    )
+    is_vnet_attached: Optional[bool] = _field(default=None, metadata={"alias": "isVnetAttached"})

@@ -26,8 +26,5 @@ class CountBuilder:
             "user_group": user_group,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/colocation/monitor/vnf/alarms/count",
-            params=params,
-            **kw,
+            "GET", "/dataservice/colocation/monitor/vnf/alarms/count", params=params, **kw
         )

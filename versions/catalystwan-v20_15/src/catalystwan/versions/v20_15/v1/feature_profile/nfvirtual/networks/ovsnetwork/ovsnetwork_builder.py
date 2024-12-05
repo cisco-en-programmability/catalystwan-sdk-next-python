@@ -14,9 +14,7 @@ class OvsnetworkBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_nfvirtual_ovs_networks_feature_profile_by_profile_id(
-        self, network_id: str, details: bool, **kw
-    ) -> Any:
+    def get_all_nfvirtual_ovs_networks_feature_profile_by_profile_id(self, network_id: str, details: bool, **kw) -> Any:
         """
         Get all Nfvirtual OVS Networks Feature Profile with networkId
 
@@ -29,10 +27,7 @@ class OvsnetworkBuilder:
             "details": details,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/nfvirtual/networks/ovsnetwork/{networkId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/nfvirtual/networks/ovsnetwork/{networkId}", params=params, **kw
         )
 
     @property
@@ -41,9 +36,7 @@ class OvsnetworkBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, networks_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, networks_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create OVS Network Profile Parcel for Networks feature profile
 
@@ -72,9 +65,7 @@ class OvsnetworkBuilder:
 
         return create_nfvirtual_ovs_network_parcel_(self._request_adapter)
 
-    def get_nfvirtual_ovs_network_parcel(
-        self, networks_id: str, ovs_network_id: str, **kw
-    ) -> str:
+    def get_nfvirtual_ovs_network_parcel(self, networks_id: str, ovs_network_id: str, **kw) -> str:
         """
         Get OVS Network Profile Parcels for Networks feature profile
 
@@ -100,13 +91,7 @@ class OvsnetworkBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                networks_id: str,
-                ovs_network_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, networks_id: str, ovs_network_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a OVS Network Profile Parcel for Networks feature profile
 
@@ -137,9 +122,7 @@ class OvsnetworkBuilder:
 
         return edit_nfvirtual_ovs_network_parcel_(self._request_adapter)
 
-    def delete_nfvirtual_ovs_network_parcel(
-        self, networks_id: str, ovs_network_id: str, **kw
-    ):
+    def delete_nfvirtual_ovs_network_parcel(self, networks_id: str, ovs_network_id: str, **kw):
         """
         Delete a OVS Network Profile Parcel for Networks feature profile
 

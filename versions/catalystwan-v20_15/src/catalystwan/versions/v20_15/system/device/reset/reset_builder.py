@@ -25,9 +25,5 @@ class ResetBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "PUT",
-            "/dataservice/system/device/reset/{uuid}",
-            return_type=ResetVedgeCloud,
-            params=params,
-            **kw,
+            "PUT", "/dataservice/system/device/reset/{uuid}", return_type=ResetVedgeCloud, params=params, **kw
         )

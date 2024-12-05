@@ -24,6 +24,4 @@ class DetailsBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/app-hosting/details", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/app-hosting/details", params=params, **kw)

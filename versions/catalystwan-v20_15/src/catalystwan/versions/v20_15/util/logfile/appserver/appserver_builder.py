@@ -23,9 +23,7 @@ class AppserverBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/util/logfile/appserver", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/util/logfile/appserver", **kw)
 
     @property
     def lastnlines(self) -> LastnlinesBuilder:

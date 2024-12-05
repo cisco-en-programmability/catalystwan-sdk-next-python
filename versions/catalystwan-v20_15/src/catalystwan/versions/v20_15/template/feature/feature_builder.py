@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -27,11 +27,7 @@ class FeatureBuilder:
         self._request_adapter = request_adapter
 
     def generate_feature_template_list(
-        self,
-        summary: Optional[bool] = False,
-        offset: Optional[int] = None,
-        limit: Optional[int] = 0,
-        **kw,
+        self, summary: Optional[bool] = False, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
     ) -> List[Any]:
         """
         Get feature template list
@@ -50,38 +46,17 @@ class FeatureBuilder:
             "limit": limit,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/feature",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/feature", return_type=List[Any], params=params, **kw
         )
 
-    @property
-    def create_feature_template(self):
-        class create_feature_template_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_feature_template(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Create feature template
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Create feature template
-
-                :param payload: Feature template
-                :returns: Any
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/template/feature", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_feature_template_(self._request_adapter)
+        :param payload: Feature template
+        :returns: Any
+        """
+        return self._request_adapter.request("POST", "/dataservice/template/feature", payload=payload, **kw)
 
     def generate_template_by_device_type(self, device_type: str, **kw) -> List[Any]:
         """
@@ -97,51 +72,26 @@ class FeatureBuilder:
             "deviceType": device_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/feature/{deviceType}",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/feature/{deviceType}", return_type=List[Any], params=params, **kw
         )
 
-    @property
-    def edit_feature_template(self):
-        class edit_feature_template_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(
-                self, template_id: str, payload: Optional[Any] = None, **kw
-            ) -> Any:
-                """
-                Update feature template
+    def edit_feature_template(self, template_id: str, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Update feature template
 
 
-                Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Note: In a multitenant vManage system, this API is only available in the Provider view.
 
-                :param template_id: Template Id
-                :param payload: Template
-                :returns: Any
-                """
-                params = {
-                    "templateId": template_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/template/feature/{templateId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_feature_template_(self._request_adapter)
+        :param template_id: Template Id
+        :param payload: Template
+        :returns: Any
+        """
+        params = {
+            "templateId": template_id,
+        }
+        return self._request_adapter.request(
+            "PUT", "/dataservice/template/feature/{templateId}", params=params, payload=payload, **kw
+        )
 
     def delete_general_template(self, template_id: str, **kw):
         """

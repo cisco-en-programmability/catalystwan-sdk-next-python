@@ -18,11 +18,7 @@ class PolicyBuilder:
         self._request_adapter = request_adapter
 
     def get_compliance_policy(
-        self,
-        offset: Optional[int] = None,
-        limit: Optional[int] = None,
-        protocol_pack_name: Optional[str] = None,
-        **kw,
+        self, offset: Optional[int] = None, limit: Optional[int] = None, protocol_pack_name: Optional[str] = None, **kw
     ):
         """
         Get all policy compliance details
@@ -38,10 +34,7 @@ class PolicyBuilder:
             "protocolPackName": protocol_pack_name,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/sdavc/protocol-pack/compliance/policy",
-            params=params,
-            **kw,
+            "GET", "/dataservice/sdavc/protocol-pack/compliance/policy", params=params, **kw
         )
 
     @property

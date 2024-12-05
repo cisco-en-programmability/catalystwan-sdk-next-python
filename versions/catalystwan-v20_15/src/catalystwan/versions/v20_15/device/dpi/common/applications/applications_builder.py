@@ -21,8 +21,5 @@ class ApplicationsBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/dpi/common/applications",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/device/dpi/common/applications", return_type=List[Any], **kw
         )

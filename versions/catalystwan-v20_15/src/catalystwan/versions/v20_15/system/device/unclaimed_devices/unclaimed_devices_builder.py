@@ -21,8 +21,5 @@ class UnclaimedDevicesBuilder:
         :returns: GetAllUnclaimedDevices
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/system/device/unclaimedDevices",
-            return_type=GetAllUnclaimedDevices,
-            **kw,
+            "GET", "/dataservice/system/device/unclaimedDevices", return_type=GetAllUnclaimedDevices, **kw
         )

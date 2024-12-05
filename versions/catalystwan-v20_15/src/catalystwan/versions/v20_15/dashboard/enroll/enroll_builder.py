@@ -22,6 +22,4 @@ class EnrollBuilder:
         params = {
             "profileId": profile_id,
         }
-        return self._request_adapter.request(
-            "POST", "/dataservice/dashboard/enroll/{profileId}", params=params, **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/dashboard/enroll/{profileId}", params=params, **kw)

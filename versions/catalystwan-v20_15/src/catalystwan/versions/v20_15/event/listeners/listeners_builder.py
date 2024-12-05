@@ -18,6 +18,4 @@ class ListenersBuilder:
 
         :returns: str
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/event/listeners", return_type=str, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/event/listeners", return_type=str, **kw)

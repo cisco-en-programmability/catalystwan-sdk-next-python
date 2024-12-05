@@ -6,14 +6,10 @@ from typing import List, Optional
 
 @dataclass
 class DiscoveredServices:
-    cluster_name: Optional[str] = _field(
-        default=None, metadata={"alias": "clusterName"}
-    )
+    cluster_name: Optional[str] = _field(default=None, metadata={"alias": "clusterName"})
     ip: Optional[List[str]] = _field(default=None)
     name: Optional[str] = _field(default=None)
     namespace: Optional[str] = _field(default=None)
     port: Optional[List[str]] = _field(default=None)
     protocol: Optional[str] = _field(default=None)
-    server_name: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "serverName"}
-    )
+    server_name: Optional[List[str]] = _field(default=None, metadata={"alias": "serverName"})

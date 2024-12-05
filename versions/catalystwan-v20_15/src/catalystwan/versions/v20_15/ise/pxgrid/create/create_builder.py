@@ -22,9 +22,7 @@ class CreateBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[CreateBody] = None, **kw
-            ) -> CreateResponse:
+            def __call__(self, payload: Optional[CreateBody] = None, **kw) -> CreateResponse:
                 """
                 Create pxGrid account
 
@@ -32,11 +30,7 @@ class CreateBuilder:
                 :returns: CreateResponse
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/ise/pxgrid/create",
-                    return_type=CreateResponse,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/ise/pxgrid/create", return_type=CreateResponse, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> CreateBody:

@@ -22,9 +22,7 @@ class UnmapBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, partner_type: str, nms_id: str, payload: MapDevicesRequest, **kw
-            ) -> StatusResponse:
+            def __call__(self, partner_type: str, nms_id: str, payload: MapDevicesRequest, **kw) -> StatusResponse:
                 """
                 Unmap a set of devices for the partner
 

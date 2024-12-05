@@ -38,9 +38,7 @@ class AaaserversBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, profile_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, profile_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a aaaservers Profile Parcel for Mobility Global Feature Profile
 
@@ -97,13 +95,7 @@ class AaaserversBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                profile_id: str,
-                aaaservers_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, profile_id: str, aaaservers_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a aaaservers Profile Parcel for Mobility Global Feature Profile
 
@@ -134,9 +126,7 @@ class AaaserversBuilder:
 
         return edit_aaa_servers_profile_parcel_for_mobility_(self._request_adapter)
 
-    def delete_aaa_servers_profile_parcel_for_mobility(
-        self, profile_id: str, aaaservers_id: str, **kw
-    ):
+    def delete_aaa_servers_profile_parcel_for_mobility(self, profile_id: str, aaaservers_id: str, **kw):
         """
         Delete a aaaservers Profile Parcel for Mobility Global Feature Profile
 

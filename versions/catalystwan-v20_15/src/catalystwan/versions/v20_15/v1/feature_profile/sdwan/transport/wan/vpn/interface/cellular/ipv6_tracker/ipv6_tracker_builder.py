@@ -39,12 +39,7 @@ class Ipv6TrackerBuilder:
         )
 
     def get_wan_vpn_interface_cellular_associated_ipv6_tracker_parcel_by_parcel_id_for_transport(
-        self,
-        transport_id: str,
-        vpn_id: str,
-        cellular_id: str,
-        ipv6_tracker_id: str,
-        **kw,
+        self, transport_id: str, vpn_id: str, cellular_id: str, ipv6_tracker_id: str, **kw
     ) -> str:
         """
         Get WanVpnInterfaceCellular associated IPv6 Tracker Parcel by ipv6-trackerId for transport feature profile
@@ -70,9 +65,7 @@ class Ipv6TrackerBuilder:
         )
 
     @property
-    def edit_wan_vpn_interface_cellular_and_ipv6_tracker_parcel_association_for_transport(
-        self,
-    ):
+    def edit_wan_vpn_interface_cellular_and_ipv6_tracker_parcel_association_for_transport(self):
         class edit_wan_vpn_interface_cellular_and_ipv6_tracker_parcel_association_for_transport_:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
@@ -118,17 +111,10 @@ class Ipv6TrackerBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return edit_wan_vpn_interface_cellular_and_ipv6_tracker_parcel_association_for_transport_(
-            self._request_adapter
-        )
+        return edit_wan_vpn_interface_cellular_and_ipv6_tracker_parcel_association_for_transport_(self._request_adapter)
 
     def delete_wan_vpn_interface_cellular_and_ipv6_tracker_association_for_transport(
-        self,
-        transport_id: str,
-        vpn_id: str,
-        cellular_id: str,
-        ipv6_tracker_id: str,
-        **kw,
+        self, transport_id: str, vpn_id: str, cellular_id: str, ipv6_tracker_id: str, **kw
     ):
         """
         Delete a WanVpnInterfaceCellular and a IPv6 Tracker Parcel association for transport feature profile
@@ -153,20 +139,13 @@ class Ipv6TrackerBuilder:
         )
 
     @property
-    def create_wan_vpn_interface_cellular_and_ipv6_tracker_parcel_association_for_transport(
-        self,
-    ):
+    def create_wan_vpn_interface_cellular_and_ipv6_tracker_parcel_association_for_transport(self):
         class create_wan_vpn_interface_cellular_and_ipv6_tracker_parcel_association_for_transport_:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                transport_id: str,
-                vpn_parcel_id: str,
-                cellular_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, transport_id: str, vpn_parcel_id: str, cellular_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Associate a WanVpnInterfaceCellular parcel with a IPv6 Tracker Parcel for transport feature profile

@@ -21,8 +21,5 @@ class DbrestorestatusBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/disasterrecovery/dbrestorestatus",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/disasterrecovery/dbrestorestatus", return_type=List[Any], **kw
         )

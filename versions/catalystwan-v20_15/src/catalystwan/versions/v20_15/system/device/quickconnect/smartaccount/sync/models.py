@@ -11,9 +11,7 @@ class SyncDevicesResp:
 
 @dataclass
 class SmartAccountModel:
-    client_credentials: Optional[bool] = _field(
-        default=None, metadata={"alias": "clientCredentials"}
-    )
+    client_credentials: Optional[bool] = _field(default=None, metadata={"alias": "clientCredentials"})
     env: Optional[str] = _field(default=None)
     organization_name: Optional[str] = _field(default=None)
     password: Optional[str] = _field(default=None)

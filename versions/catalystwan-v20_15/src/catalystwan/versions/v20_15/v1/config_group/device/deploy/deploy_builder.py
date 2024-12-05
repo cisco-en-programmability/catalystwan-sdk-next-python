@@ -23,10 +23,7 @@ class DeployBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                config_group_id: str,
-                payload: Optional[DeployConfigGroupPostRequest] = None,
-                **kw,
+                self, config_group_id: str, payload: Optional[DeployConfigGroupPostRequest] = None, **kw
             ) -> str:
                 """
                 deploy config group to devices

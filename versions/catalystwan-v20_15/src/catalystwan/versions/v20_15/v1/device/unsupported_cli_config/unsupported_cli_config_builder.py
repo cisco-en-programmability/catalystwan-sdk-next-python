@@ -29,9 +29,5 @@ class UnsupportedCliConfigBuilder:
             "highlightUnsupportedClis": highlight_unsupported_clis,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/device/unsupportedCliConfig/{deviceUUID}",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/device/unsupportedCliConfig/{deviceUUID}", return_type=str, params=params, **kw
         )

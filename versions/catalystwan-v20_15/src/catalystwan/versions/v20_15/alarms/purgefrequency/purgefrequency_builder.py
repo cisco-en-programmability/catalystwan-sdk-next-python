@@ -31,9 +31,5 @@ class PurgefrequencyBuilder:
             "activeTime": active_time,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/alarms/purgefrequency",
-            return_type=PurgeFrequency,
-            params=params,
-            **kw,
+            "GET", "/dataservice/alarms/purgefrequency", return_type=PurgeFrequency, params=params, **kw
         )

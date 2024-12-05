@@ -6,6 +6,4 @@ from typing import Optional
 
 @dataclass
 class SmartAccountAuthenticateResponse:
-    access_token: Optional[str] = _field(
-        default=None, metadata={"alias": "accessToken"}
-    )
+    access_token: Optional[str] = _field(default=None, metadata={"alias": "accessToken"})

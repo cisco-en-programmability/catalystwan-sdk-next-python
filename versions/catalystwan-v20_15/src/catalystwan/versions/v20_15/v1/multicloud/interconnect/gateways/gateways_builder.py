@@ -23,10 +23,7 @@ class GatewaysBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                interconnect_gateway_name: str,
-                payload: Optional[InterconnectGatewayExtended] = None,
-                **kw,
+                self, interconnect_gateway_name: str, payload: Optional[InterconnectGatewayExtended] = None, **kw
             ) -> ProcessResponse:
                 """
                 Asynchronous API to update the Interconnect Gateway Information in vManage.

@@ -22,9 +22,7 @@ class ClaimDevicesBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[ClaimDevicesRequest] = None, **kw
-            ) -> ClaimDevicesResponse:
+            def __call__(self, payload: Optional[ClaimDevicesRequest] = None, **kw) -> ClaimDevicesResponse:
                 """
                 Claim the selected unclaimed devices
 

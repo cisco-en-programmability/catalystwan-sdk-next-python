@@ -23,8 +23,5 @@ class VmanageBuilder:
         :returns: List[MessagingResp]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/messaging/device/vmanage",
-            return_type=List[MessagingResp],
-            **kw,
+            "GET", "/dataservice/messaging/device/vmanage", return_type=List[MessagingResp], **kw
         )

@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -28,68 +28,28 @@ class GlobalBuilder:
         params = {
             "edgeType": edge_type,
         }
+        return self._request_adapter.request("GET", "/dataservice/multicloud/settings/edge/global", params=params, **kw)
+
+    def update_edge_global_settings(self, payload: Optional[Any] = None, **kw):
+        """
+        Update edge global settings for Edge provider
+
+        :param payload: Global setting
+        :returns: None
+        """
+        logging.warning("Operation: %s is deprecated", "updateEdgeGlobalSettings")
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/settings/edge/global", params=params, **kw
+            "PUT", "/dataservice/multicloud/settings/edge/global", payload=payload, **kw
         )
 
-    @property
-    def update_edge_global_settings(self):
-        class update_edge_global_settings_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def add_edge_global_settings(self, payload: Optional[Any] = None, **kw):
+        """
+        Add global settings for Edge provider
 
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Update edge global settings for Edge provider
-
-                :param payload: Global setting
-                :returns: None
-                """
-                logging.warning(
-                    "Operation: %s is deprecated", "updateEdgeGlobalSettings"
-                )
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/multicloud/settings/edge/global",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return update_edge_global_settings_(self._request_adapter)
-
-    @property
-    def add_edge_global_settings(self):
-        class add_edge_global_settings_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Add global settings for Edge provider
-
-                :param payload: Global setting
-                :returns: None
-                """
-                logging.warning("Operation: %s is deprecated", "addEdgeGlobalSettings")
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/settings/edge/global",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return add_edge_global_settings_(self._request_adapter)
+        :param payload: Global setting
+        :returns: None
+        """
+        logging.warning("Operation: %s is deprecated", "addEdgeGlobalSettings")
+        return self._request_adapter.request(
+            "POST", "/dataservice/multicloud/settings/edge/global", payload=payload, **kw
+        )

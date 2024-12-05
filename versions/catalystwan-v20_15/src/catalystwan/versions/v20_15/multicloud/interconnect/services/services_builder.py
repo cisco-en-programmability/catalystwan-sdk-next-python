@@ -17,11 +17,7 @@ class ServicesBuilder:
         self._request_adapter = request_adapter
 
     def get_interconnect_services(
-        self,
-        interconnect_service_vendor_name: str,
-        interconnect_type: str,
-        interconnect_service_type: str,
-        **kw,
+        self, interconnect_service_vendor_name: str, interconnect_type: str, interconnect_service_type: str, **kw
     ) -> List[InterconnectService]:
         """
         API to retrieve the Interconnect Services Information from vManage.

@@ -20,6 +20,4 @@ class HistoryBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/disasterrecovery/history", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/disasterrecovery/history", **kw)

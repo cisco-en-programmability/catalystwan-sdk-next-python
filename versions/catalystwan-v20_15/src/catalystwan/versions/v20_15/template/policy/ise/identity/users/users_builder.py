@@ -22,9 +22,7 @@ class UsersBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[UsersBody] = None, **kw
-            ) -> UsersResponse:
+            def __call__(self, payload: Optional[UsersBody] = None, **kw) -> UsersResponse:
                 """
                 Get all identity users
 

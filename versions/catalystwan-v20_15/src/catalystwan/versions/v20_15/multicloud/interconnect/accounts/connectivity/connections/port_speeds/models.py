@@ -6,6 +6,4 @@ from typing import List, Optional
 
 @dataclass
 class InlineResponse2007:
-    port_speeds: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "portSpeeds"}
-    )
+    port_speeds: Optional[List[str]] = _field(default=None, metadata={"alias": "portSpeeds"})

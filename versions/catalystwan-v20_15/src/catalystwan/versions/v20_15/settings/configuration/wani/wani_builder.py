@@ -22,9 +22,7 @@ class WaniBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "getWaniConfiguration")
-        return self._request_adapter.request(
-            "GET", "/dataservice/settings/configuration/wani", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/settings/configuration/wani", **kw)
 
     @property
     def edit_wani_configuration(self):
@@ -41,10 +39,7 @@ class WaniBuilder:
                 """
                 logging.warning("Operation: %s is deprecated", "editWaniConfiguration")
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/settings/configuration/wani",
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/settings/configuration/wani", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -71,11 +66,7 @@ class WaniBuilder:
                 """
                 logging.warning("Operation: %s is deprecated", "newWaniConfiguration")
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/settings/configuration/wani",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/settings/configuration/wani", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:

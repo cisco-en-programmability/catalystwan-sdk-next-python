@@ -6,36 +6,22 @@ from typing import List, Optional
 
 @dataclass
 class GetSingleMslaDevicePayload:
-    configured_system_ip: Optional[str] = _field(
-        default=None, metadata={"alias": "configuredSystemIP"}
-    )
-    device_model: Optional[str] = _field(
-        default=None, metadata={"alias": "deviceModel"}
-    )
+    configured_system_ip: Optional[str] = _field(default=None, metadata={"alias": "configuredSystemIP"})
+    device_model: Optional[str] = _field(default=None, metadata={"alias": "deviceModel"})
     host_name: Optional[str] = _field(default=None, metadata={"alias": "hostName"})
-    hsec_compatible: Optional[str] = _field(
-        default=None, metadata={"alias": "hsecCompatible"}
-    )
+    hsec_compatible: Optional[str] = _field(default=None, metadata={"alias": "hsecCompatible"})
     hsec_status: Optional[str] = _field(default=None, metadata={"alias": "hsecStatus"})
-    license_status: Optional[str] = _field(
-        default=None, metadata={"alias": "License_status"}
-    )
-    license_type: Optional[str] = _field(
-        default=None, metadata={"alias": "licenseType"}
-    )
+    license_status: Optional[str] = _field(default=None, metadata={"alias": "License_status"})
+    license_type: Optional[str] = _field(default=None, metadata={"alias": "licenseType"})
     licenses: Optional[List[str]] = _field(default=None)
     msla: Optional[str] = _field(default=None)
     sa_account: Optional[str] = _field(default=None, metadata={"alias": "saAccount"})
     sa_namme: Optional[str] = _field(default=None, metadata={"alias": "saNamme"})
     subscription_id: Optional[List[str]] = _field(default=None)
     tag: Optional[List[str]] = _field(default=None)
-    template_name: Optional[str] = _field(
-        default=None, metadata={"alias": "templateName"}
-    )
+    template_name: Optional[str] = _field(default=None, metadata={"alias": "templateName"})
     uuid: Optional[str] = _field(default=None, metadata={"alias": "UUID"})
-    va_account: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "vaAccount"}
-    )
+    va_account: Optional[List[str]] = _field(default=None, metadata={"alias": "vaAccount"})
     va_name: Optional[str] = _field(default=None, metadata={"alias": "vaName"})
 
 

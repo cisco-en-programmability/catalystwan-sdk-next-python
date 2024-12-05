@@ -19,9 +19,7 @@ class TopologyGroupBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_topology_group_by_solution(
-        self, solution: Optional[str] = None, **kw
-    ) -> List[TopologyGroup]:
+    def get_topology_group_by_solution(self, solution: Optional[str] = None, **kw) -> List[TopologyGroup]:
         """
         Get a Topology Group by Solution
 
@@ -32,11 +30,7 @@ class TopologyGroupBuilder:
             "solution": solution,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/topology-group",
-            return_type=List[TopologyGroup],
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/topology-group", return_type=List[TopologyGroup], params=params, **kw
         )
 
     @property
@@ -53,11 +47,7 @@ class TopologyGroupBuilder:
                 :returns: str
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/topology-group",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/topology-group", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -80,11 +70,7 @@ class TopologyGroupBuilder:
             "topologyGroupId": topology_group_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/topology-group/{topologyGroupId}",
-            return_type=TopologyGroup,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/topology-group/{topologyGroupId}", return_type=TopologyGroup, params=params, **kw
         )
 
     @property
@@ -93,9 +79,7 @@ class TopologyGroupBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, topology_group_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, topology_group_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a Topology Group
 
@@ -135,10 +119,7 @@ class TopologyGroupBuilder:
             "topologyGroupId": topology_group_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/topology-group/{topologyGroupId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/topology-group/{topologyGroupId}", params=params, **kw
         )
 
     @property

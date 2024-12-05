@@ -23,10 +23,7 @@ class DeployBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                policy_group_id: str,
-                payload: Optional[DeployPolicyGroupPostRequest] = None,
-                **kw,
+                self, policy_group_id: str, payload: Optional[DeployPolicyGroupPostRequest] = None, **kw
             ) -> Any:
                 """
                 deploy policy group to devices

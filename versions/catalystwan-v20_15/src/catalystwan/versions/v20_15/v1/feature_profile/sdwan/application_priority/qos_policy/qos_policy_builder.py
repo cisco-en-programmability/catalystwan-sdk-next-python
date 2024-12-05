@@ -20,9 +20,7 @@ class QosPolicyBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, application_priority_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, application_priority_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create QOS Policy feature for application-priority feature profile
 
@@ -51,9 +49,7 @@ class QosPolicyBuilder:
 
         return create_policy_application_profile_parcel_(self._request_adapter)
 
-    def get_policy_application_profile_parcel(
-        self, application_priority_id: str, qos_policy_id: str, **kw
-    ) -> str:
+    def get_policy_application_profile_parcel(self, application_priority_id: str, qos_policy_id: str, **kw) -> str:
         """
         Get QOS Policy feature for application-priority feature profile
 
@@ -80,11 +76,7 @@ class QosPolicyBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                application_priority_id: str,
-                qos_policy_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, application_priority_id: str, qos_policy_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Edit QOS Policy feature for application-priority feature profile
@@ -116,9 +108,7 @@ class QosPolicyBuilder:
 
         return edit_policy_application_profile_parcel_(self._request_adapter)
 
-    def delete_policy_application_profile_parcel(
-        self, application_priority_id: str, qos_policy_id: str, **kw
-    ):
+    def delete_policy_application_profile_parcel(self, application_priority_id: str, qos_policy_id: str, **kw):
         """
         Delete QOS Policy feature for application-priority feature profile
 

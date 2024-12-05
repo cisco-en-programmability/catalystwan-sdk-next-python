@@ -8,15 +8,11 @@ from typing import Optional
 class ProcessGetFirmwareRemoteImageReq:
     description: Optional[str] = _field(default=None)
     file_path: Optional[str] = _field(default=None, metadata={"alias": "filePath"})
-    remote_server_id: Optional[str] = _field(
-        default=None, metadata={"alias": "remoteServerId"}
-    )
+    remote_server_id: Optional[str] = _field(default=None, metadata={"alias": "remoteServerId"})
     version_id: Optional[str] = _field(default=None, metadata={"alias": "versionId"})
 
 
 @dataclass
 class ProcessFirmwareRemoteImageReq:
     file_path: Optional[str] = _field(default=None, metadata={"alias": "filePath"})
-    remote_server_id: Optional[str] = _field(
-        default=None, metadata={"alias": "remoteServerId"}
-    )
+    remote_server_id: Optional[str] = _field(default=None, metadata={"alias": "remoteServerId"})

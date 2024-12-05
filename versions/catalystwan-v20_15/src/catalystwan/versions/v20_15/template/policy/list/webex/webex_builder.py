@@ -24,10 +24,7 @@ class WebexBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/template/policy/list/webex",
-            return_type=List[Any],
-            **kw,
+            "POST", "/dataservice/template/policy/list/webex", return_type=List[Any], **kw
         )
 
     @property

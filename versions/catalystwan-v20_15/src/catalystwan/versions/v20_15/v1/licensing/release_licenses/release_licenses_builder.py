@@ -30,10 +30,7 @@ class ReleaseLicensesBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/licensing/release-licenses",
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/v1/licensing/release-licenses", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> ReleaseLicenses:

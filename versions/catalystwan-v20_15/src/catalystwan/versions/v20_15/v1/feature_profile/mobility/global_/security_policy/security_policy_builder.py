@@ -16,9 +16,7 @@ class SecurityPolicyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_security_policy_profile_parcel_list_for_mobility(
-        self, profile_id: str, **kw
-    ) -> str:
+    def get_security_policy_profile_parcel_list_for_mobility(self, profile_id: str, **kw) -> str:
         """
         Get an Mobility SecurityPolicy Profile Parcel list for Mobility Global Feature Profile
 
@@ -45,9 +43,7 @@ class SecurityPolicyBuilder:
             def __call__(
                 self,
                 profile_id: str,
-                payload: Optional[
-                    CreateSecurityPolicyProfileParcelForMobilityPostRequest
-                ] = None,
+                payload: Optional[CreateSecurityPolicyProfileParcelForMobilityPostRequest] = None,
                 **kw,
             ) -> str:
                 """
@@ -69,26 +65,16 @@ class SecurityPolicyBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> CreateSecurityPolicyProfileParcelForMobilityPostRequest:
-                return CreateSecurityPolicyProfileParcelForMobilityPostRequest(
-                    *args, **kwargs
-                )
+            def create_payload(self, *args, **kwargs) -> CreateSecurityPolicyProfileParcelForMobilityPostRequest:
+                return CreateSecurityPolicyProfileParcelForMobilityPostRequest(*args, **kwargs)
 
             @property
-            def payload_model(
-                self,
-            ) -> Type[CreateSecurityPolicyProfileParcelForMobilityPostRequest]:
+            def payload_model(self) -> Type[CreateSecurityPolicyProfileParcelForMobilityPostRequest]:
                 return CreateSecurityPolicyProfileParcelForMobilityPostRequest
 
-        return create_security_policy_profile_parcel_for_mobility_(
-            self._request_adapter
-        )
+        return create_security_policy_profile_parcel_for_mobility_(self._request_adapter)
 
-    def get_security_policy_profile_parcel_for_mobility(
-        self, profile_id: str, security_policy_id: str, **kw
-    ) -> str:
+    def get_security_policy_profile_parcel_for_mobility(self, profile_id: str, security_policy_id: str, **kw) -> str:
         """
         Get an Mobility SecurityPolicy Profile Parcel for Mobility Global Feature Profile
 
@@ -118,9 +104,7 @@ class SecurityPolicyBuilder:
                 self,
                 profile_id: str,
                 security_policy_id: str,
-                payload: Optional[
-                    CreateSecurityPolicyProfileParcelForMobilityPostRequest
-                ] = None,
+                payload: Optional[CreateSecurityPolicyProfileParcelForMobilityPostRequest] = None,
                 **kw,
             ):
                 """
@@ -143,24 +127,16 @@ class SecurityPolicyBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> CreateSecurityPolicyProfileParcelForMobilityPostRequest:
-                return CreateSecurityPolicyProfileParcelForMobilityPostRequest(
-                    *args, **kwargs
-                )
+            def create_payload(self, *args, **kwargs) -> CreateSecurityPolicyProfileParcelForMobilityPostRequest:
+                return CreateSecurityPolicyProfileParcelForMobilityPostRequest(*args, **kwargs)
 
             @property
-            def payload_model(
-                self,
-            ) -> Type[CreateSecurityPolicyProfileParcelForMobilityPostRequest]:
+            def payload_model(self) -> Type[CreateSecurityPolicyProfileParcelForMobilityPostRequest]:
                 return CreateSecurityPolicyProfileParcelForMobilityPostRequest
 
         return edit_security_policy_profile_parcel_for_mobility_(self._request_adapter)
 
-    def delete_security_policy_profile_parcel_for_mobility(
-        self, profile_id: str, security_policy_id: str, **kw
-    ):
+    def delete_security_policy_profile_parcel_for_mobility(self, profile_id: str, security_policy_id: str, **kw):
         """
         Delete a Security Policy Profile Parcel for Mobility Global Feature Profile
 

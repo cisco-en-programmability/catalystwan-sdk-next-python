@@ -23,8 +23,5 @@ class ClearBuilder:
             "sessionId": session_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/stream/device/log/sessions/clear/{sessionId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/stream/device/log/sessions/clear/{sessionId}", params=params, **kw
         )

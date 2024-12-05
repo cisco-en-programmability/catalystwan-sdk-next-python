@@ -21,10 +21,7 @@ class DevicesBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/policy/security/devices",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/template/policy/security/devices", return_type=List[Any], **kw
         )
 
     def get_device_list_by_id(self, policy_id: str, **kw) -> List[Any]:

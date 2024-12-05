@@ -21,8 +21,5 @@ class ActiveCountBuilder:
         :returns: DeviceTaskStatus
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/action/status/tasks/activeCount",
-            return_type=DeviceTaskStatus,
-            **kw,
+            "GET", "/dataservice/device/action/status/tasks/activeCount", return_type=DeviceTaskStatus, **kw
         )

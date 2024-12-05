@@ -11,9 +11,7 @@ class NwpitraceFlowRespPayloadDataDownstreamDeviceList:
     down_fwd_decision: Optional[str] = _field(default=None)
     egress_next_invalid: Optional[bool] = _field(default=None)
     local_color: Optional[str] = _field(default=None, metadata={"alias": "localColor"})
-    remote_color: Optional[str] = _field(
-        default=None, metadata={"alias": "remoteColor"}
-    )
+    remote_color: Optional[str] = _field(default=None, metadata={"alias": "remoteColor"})
     up_fwd_decision: Optional[str] = _field(default=None)
 
 
@@ -67,15 +65,9 @@ class NwpitraceFlowRespPayloadDataDownstreamHopList:
 @dataclass
 class NwpitraceFlowRespPayloadDataFlowReadout:
     application: Optional[str] = _field(default=None)
-    flow_last_update_time: Optional[str] = _field(
-        default=None, metadata={"alias": "flowLastUpdateTime"}
-    )
-    flow_start_time: Optional[str] = _field(
-        default=None, metadata={"alias": "flowStartTime"}
-    )
-    total_flow_num_counted: Optional[bool] = _field(
-        default=None, metadata={"alias": "totalFlowNumCounted"}
-    )
+    flow_last_update_time: Optional[str] = _field(default=None, metadata={"alias": "flowLastUpdateTime"})
+    flow_start_time: Optional[str] = _field(default=None, metadata={"alias": "flowStartTime"})
+    total_flow_num_counted: Optional[bool] = _field(default=None, metadata={"alias": "totalFlowNumCounted"})
     total_flow_num_last15_mins_counted: Optional[bool] = _field(
         default=None, metadata={"alias": "totalFlowNumLast15MinsCounted"}
     )
@@ -91,19 +83,13 @@ class NwpitraceFlowRespPayloadDataUpActualPath:
 class NwpitraceFlowRespPayloadDataUpstreamDeviceList:
     device_name: Optional[str] = _field(default=None)
     device_system_ip: Optional[str] = _field(default=None)
-    down_actual_path: Optional[NwpitraceFlowRespPayloadDataUpActualPath] = _field(
-        default=None
-    )
+    down_actual_path: Optional[NwpitraceFlowRespPayloadDataUpActualPath] = _field(default=None)
     down_fwd_decision: Optional[str] = _field(default=None)
     egress_next_invalid: Optional[bool] = _field(default=None)
     ingress_pre_invalid: Optional[bool] = _field(default=None)
     local_color: Optional[str] = _field(default=None, metadata={"alias": "localColor"})
-    remote_color: Optional[str] = _field(
-        default=None, metadata={"alias": "remoteColor"}
-    )
-    up_actual_path: Optional[NwpitraceFlowRespPayloadDataUpActualPath] = _field(
-        default=None
-    )
+    remote_color: Optional[str] = _field(default=None, metadata={"alias": "remoteColor"})
+    up_actual_path: Optional[NwpitraceFlowRespPayloadDataUpActualPath] = _field(default=None)
     up_fwd_decision: Optional[str] = _field(default=None)
 
 
@@ -119,13 +105,9 @@ class NwpitraceFlowRespPayloadData:
     device_trace_id: Optional[int] = _field(default=None)
     domain_name: Optional[str] = _field(default=None)
     domain_src: Optional[str] = _field(default=None)
-    downstream_device_list: Optional[
-        List[NwpitraceFlowRespPayloadDataDownstreamDeviceList]
-    ] = _field(default=None)
+    downstream_device_list: Optional[List[NwpitraceFlowRespPayloadDataDownstreamDeviceList]] = _field(default=None)
     downstream_dscp: Optional[str] = _field(default=None)
-    downstream_hop_list: Optional[
-        List[NwpitraceFlowRespPayloadDataDownstreamHopList]
-    ] = _field(default=None)
+    downstream_hop_list: Optional[List[NwpitraceFlowRespPayloadDataDownstreamHopList]] = _field(default=None)
     dpi_policy_used: Optional[bool] = _field(default=None)
     dst_ip: Optional[str] = _field(default=None)
     dst_port: Optional[int] = _field(default=None)
@@ -135,9 +117,7 @@ class NwpitraceFlowRespPayloadData:
     flow_id: Optional[int] = _field(default=None)
     flow_key: Optional[str] = _field(default=None)
     flow_moved: Optional[bool] = _field(default=None)
-    flow_readout: Optional[NwpitraceFlowRespPayloadDataFlowReadout] = _field(
-        default=None
-    )
+    flow_readout: Optional[NwpitraceFlowRespPayloadDataFlowReadout] = _field(default=None)
     max_local_drop_rate: Optional[int] = _field(default=None)
     max_wan_drop_rate: Optional[int] = _field(default=None)
     nat_translated: Optional[bool] = _field(default=None)
@@ -157,13 +137,9 @@ class NwpitraceFlowRespPayloadData:
     tcp_flow_reset: Optional[bool] = _field(default=None)
     test_id: Optional[int] = _field(default=None)
     timestamp: Optional[int] = _field(default=None)
-    upstream_device_list: Optional[
-        List[NwpitraceFlowRespPayloadDataUpstreamDeviceList]
-    ] = _field(default=None)
+    upstream_device_list: Optional[List[NwpitraceFlowRespPayloadDataUpstreamDeviceList]] = _field(default=None)
     upstream_dscp: Optional[str] = _field(default=None)
-    upstream_hop_list: Optional[List[NwpitraceFlowRespPayloadDataDownstreamHopList]] = (
-        _field(default=None)
-    )
+    upstream_hop_list: Optional[List[NwpitraceFlowRespPayloadDataDownstreamHopList]] = _field(default=None)
     user_group: Optional[str] = _field(default=None)
     user_name: Optional[str] = _field(default=None)
     utd_diverted: Optional[bool] = _field(default=None)

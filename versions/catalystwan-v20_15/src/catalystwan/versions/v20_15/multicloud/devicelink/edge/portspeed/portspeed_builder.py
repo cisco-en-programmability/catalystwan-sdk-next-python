@@ -29,8 +29,5 @@ class PortspeedBuilder:
             "edgeType": edge_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/devicelink/edge/portspeed/{edgeType}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/devicelink/edge/portspeed/{edgeType}", params=params, **kw
         )

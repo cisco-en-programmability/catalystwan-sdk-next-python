@@ -22,9 +22,7 @@ class SubmitDevicesBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[SubmitDay0ConfigPostRequest] = None, **kw
-            ) -> List[Any]:
+            def __call__(self, payload: Optional[SubmitDay0ConfigPostRequest] = None, **kw) -> List[Any]:
                 """
                 Creates and pushes bootstrap configurations onto day0 devices.
 

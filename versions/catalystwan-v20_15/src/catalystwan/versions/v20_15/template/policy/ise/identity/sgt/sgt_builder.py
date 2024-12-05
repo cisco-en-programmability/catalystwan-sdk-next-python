@@ -21,8 +21,5 @@ class SgtBuilder:
         :returns: SgtResponse
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/policy/ise/identity/sgt",
-            return_type=SgtResponse,
-            **kw,
+            "GET", "/dataservice/template/policy/ise/identity/sgt", return_type=SgtResponse, **kw
         )

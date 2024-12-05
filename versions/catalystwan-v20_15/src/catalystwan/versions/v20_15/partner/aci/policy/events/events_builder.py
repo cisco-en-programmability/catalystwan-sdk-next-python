@@ -15,11 +15,7 @@ class EventsBuilder:
         self._request_adapter = request_adapter
 
     def get_events_1(
-        self,
-        partner_id: str,
-        starttime: Optional[int] = None,
-        endtime: Optional[int] = None,
-        **kw,
+        self, partner_id: str, starttime: Optional[int] = None, endtime: Optional[int] = None, **kw
     ) -> List[Any]:
         """
         Get ACI events
@@ -35,9 +31,5 @@ class EventsBuilder:
             "endtime": endtime,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/partner/aci/policy/events/{partnerId}",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/partner/aci/policy/events/{partnerId}", return_type=List[Any], params=params, **kw
         )

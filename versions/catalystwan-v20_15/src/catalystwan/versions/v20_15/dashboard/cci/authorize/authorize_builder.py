@@ -18,6 +18,4 @@ class AuthorizeBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "POST", "/dataservice/dashboard/cci/authorize", **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/dashboard/cci/authorize", **kw)

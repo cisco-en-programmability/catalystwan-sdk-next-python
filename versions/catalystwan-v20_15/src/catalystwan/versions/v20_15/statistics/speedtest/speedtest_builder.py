@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -48,57 +48,36 @@ class SpeedtestBuilder:
             "sortBy": sort_by,
             "sortOrder": sort_order,
         }
+        return self._request_adapter.request("GET", "/dataservice/statistics/speedtest", params=params, **kw)
+
+    def get_stats_raw_data_25(
+        self,
+        payload: Optional[Any] = None,
+        page: Optional[int] = None,
+        page_size: Optional[int] = None,
+        sort_by: Optional[str] = None,
+        sort_order: Optional[str] = None,
+        **kw,
+    ) -> Any:
+        """
+        Get stats raw data
+
+        :param page: page number
+        :param page_size: page size
+        :param sort_by: sort by
+        :param sort_order: sort order
+        :param payload: Stats query string
+        :returns: Any
+        """
+        params = {
+            "page": page,
+            "pageSize": page_size,
+            "sortBy": sort_by,
+            "sortOrder": sort_order,
+        }
         return self._request_adapter.request(
-            "GET", "/dataservice/statistics/speedtest", params=params, **kw
+            "POST", "/dataservice/statistics/speedtest", params=params, payload=payload, **kw
         )
-
-    @property
-    def get_stats_raw_data_25(self):
-        class get_stats_raw_data_25_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(
-                self,
-                payload: Optional[Any] = None,
-                page: Optional[int] = None,
-                page_size: Optional[int] = None,
-                sort_by: Optional[str] = None,
-                sort_order: Optional[str] = None,
-                **kw,
-            ) -> Any:
-                """
-                Get stats raw data
-
-                :param page: page number
-                :param page_size: page size
-                :param sort_by: sort by
-                :param sort_order: sort order
-                :param payload: Stats query string
-                :returns: Any
-                """
-                params = {
-                    "page": page,
-                    "pageSize": page_size,
-                    "sortBy": sort_by,
-                    "sortOrder": sort_order,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/statistics/speedtest",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return get_stats_raw_data_25_(self._request_adapter)
 
     @property
     def aggregation(self) -> AggregationBuilder:

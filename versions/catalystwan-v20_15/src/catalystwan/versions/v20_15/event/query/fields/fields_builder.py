@@ -21,8 +21,5 @@ class FieldsBuilder:
         :returns: EventQueryInputResponse
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/event/query/fields",
-            return_type=EventQueryInputResponse,
-            **kw,
+            "GET", "/dataservice/event/query/fields", return_type=EventQueryInputResponse, **kw
         )

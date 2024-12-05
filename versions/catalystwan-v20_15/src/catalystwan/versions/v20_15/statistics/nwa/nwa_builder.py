@@ -47,11 +47,7 @@ class NwaBuilder:
             "sortOrder": sort_order,
         }
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/statistics/nwa",
-            return_type=List[NetworkAvailabilityResp],
-            params=params,
-            **kw,
+            "POST", "/dataservice/statistics/nwa", return_type=List[NetworkAvailabilityResp], params=params, **kw
         )
 
     @property

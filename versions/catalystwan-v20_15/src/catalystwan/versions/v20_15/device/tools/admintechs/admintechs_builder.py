@@ -27,10 +27,7 @@ class AdmintechsBuilder:
         :returns: List[AdminTechsRes]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/tools/admintechs",
-            return_type=List[AdminTechsRes],
-            **kw,
+            "GET", "/dataservice/device/tools/admintechs", return_type=List[AdminTechsRes], **kw
         )
 
     @property

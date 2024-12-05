@@ -6,6 +6,4 @@ from typing import Optional
 
 @dataclass
 class InvalidateVmanageRootCa:
-    vmanage_root_ca_invalidated: Optional[str] = _field(
-        default=None, metadata={"alias": "VmanageRootCAInvalidated"}
-    )
+    vmanage_root_ca_invalidated: Optional[str] = _field(default=None, metadata={"alias": "VmanageRootCAInvalidated"})

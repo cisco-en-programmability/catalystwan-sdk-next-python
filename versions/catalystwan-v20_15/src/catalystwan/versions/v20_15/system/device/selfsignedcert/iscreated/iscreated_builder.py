@@ -20,6 +20,4 @@ class IscreatedBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/system/device/selfsignedcert/iscreated", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/system/device/selfsignedcert/iscreated", **kw)

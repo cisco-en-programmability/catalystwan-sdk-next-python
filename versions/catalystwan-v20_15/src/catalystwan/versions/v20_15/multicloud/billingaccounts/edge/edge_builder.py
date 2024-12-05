@@ -18,11 +18,7 @@ class EdgeBuilder:
         self._request_adapter = request_adapter
 
     def get_edge_billing_accounts(
-        self,
-        edge_type: EdgeTypeParam,
-        edge_account_id: str,
-        region: Optional[str] = None,
-        **kw,
+        self, edge_type: EdgeTypeParam, edge_account_id: str, region: Optional[str] = None, **kw
     ) -> Any:
         """
         Get Edge Billing Accounts
@@ -39,8 +35,5 @@ class EdgeBuilder:
             "region": region,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/billingaccounts/edge/{edgeType}/{edgeAccountId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/billingaccounts/edge/{edgeType}/{edgeAccountId}", params=params, **kw
         )

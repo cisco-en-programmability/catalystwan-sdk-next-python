@@ -28,9 +28,5 @@ class IplistBuilder:
             "vmanageID": vmanage_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/clusterManagement/iplist/{vmanageID}",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/clusterManagement/iplist/{vmanageID}", return_type=List[Any], params=params, **kw
         )

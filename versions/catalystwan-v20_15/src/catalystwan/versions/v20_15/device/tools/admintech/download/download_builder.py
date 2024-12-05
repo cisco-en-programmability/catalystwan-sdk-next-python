@@ -25,8 +25,5 @@ class DownloadBuilder:
             "filename": filename,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/tools/admintech/download/{filename}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/tools/admintech/download/{filename}", params=params, **kw
         )

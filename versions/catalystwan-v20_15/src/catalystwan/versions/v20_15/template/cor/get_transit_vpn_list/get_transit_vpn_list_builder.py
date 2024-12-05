@@ -27,9 +27,5 @@ class GetTransitVpnListBuilder:
             "accountId": account_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/cor/getTransitVpnList",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/cor/getTransitVpnList", return_type=List[Any], params=params, **kw
         )

@@ -18,6 +18,4 @@ class AccesstokenBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/cloudservices/accesstoken", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/cloudservices/accesstoken", **kw)

@@ -24,6 +24,4 @@ class InterfacesBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/dot1x/interfaces", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/dot1x/interfaces", params=params, **kw)

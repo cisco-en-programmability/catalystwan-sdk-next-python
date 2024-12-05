@@ -20,11 +20,7 @@ class TagsBuilder:
         self._request_adapter = request_adapter
 
     def get_vpc_tags(
-        self,
-        cloud_type: Optional[str] = None,
-        region: Optional[str] = None,
-        tag_name: Optional[str] = None,
-        **kw,
+        self, cloud_type: Optional[str] = None, region: Optional[str] = None, tag_name: Optional[str] = None, **kw
     ) -> List[HostVpcTagResponse]:
         """
         Get VPC Tags
@@ -40,11 +36,7 @@ class TagsBuilder:
             "tagName": tag_name,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/hostvpc/tags",
-            return_type=List[HostVpcTagResponse],
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/hostvpc/tags", return_type=List[HostVpcTagResponse], params=params, **kw
         )
 
     @property
@@ -61,11 +53,7 @@ class TagsBuilder:
                 :returns: Taskid
                 """
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/multicloud/hostvpc/tags",
-                    return_type=Taskid,
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/multicloud/hostvpc/tags", return_type=Taskid, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> HostVpcTagPut:
@@ -83,9 +71,7 @@ class TagsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[HostVpcTagPost] = None, **kw
-            ) -> Taskid:
+            def __call__(self, payload: Optional[HostVpcTagPost] = None, **kw) -> Taskid:
                 """
                 Tag a VPC
 
@@ -93,11 +79,7 @@ class TagsBuilder:
                 :returns: Taskid
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/hostvpc/tags",
-                    return_type=Taskid,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/multicloud/hostvpc/tags", return_type=Taskid, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> HostVpcTagPost:
@@ -120,11 +102,7 @@ class TagsBuilder:
             "tagName": tag_name,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/multicloud/hostvpc/tags/{tagName}",
-            return_type=Taskid,
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/multicloud/hostvpc/tags/{tagName}", return_type=Taskid, params=params, **kw
         )
 
     @property

@@ -24,6 +24,4 @@ class NotificationsBuilder:
         params = {
             "userGroup": user_group,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/vm/notifications", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/vm/notifications", params=params, **kw)

@@ -30,11 +30,7 @@ class BatchBuilder:
                 :returns: str
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/jobs/batch",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/jobs/batch", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> BatchFlow:

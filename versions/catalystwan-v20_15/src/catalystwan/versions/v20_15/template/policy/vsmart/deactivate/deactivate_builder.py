@@ -25,8 +25,5 @@ class DeactivateBuilder:
             "policyId": policy_id,
         }
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/template/policy/vsmart/deactivate/{policyId}",
-            params=params,
-            **kw,
+            "POST", "/dataservice/template/policy/vsmart/deactivate/{policyId}", params=params, **kw
         )

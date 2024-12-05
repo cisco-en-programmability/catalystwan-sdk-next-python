@@ -14,6 +14,4 @@ class GetTunnelsResponsePrivateIp:
 
 @dataclass
 class GetTunnelsResponse:
-    private_ip: Optional[List[GetTunnelsResponsePrivateIp]] = _field(
-        default=None, metadata={"alias": "Private IP"}
-    )
+    private_ip: Optional[List[GetTunnelsResponsePrivateIp]] = _field(default=None, metadata={"alias": "Private IP"})

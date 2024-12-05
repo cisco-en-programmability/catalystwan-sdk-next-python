@@ -17,10 +17,7 @@ class DevicesBuilder:
         self._request_adapter = request_adapter
 
     def get_monitoring_interconnect_devices(
-        self,
-        interconnect_type: str,
-        interconnect_gateway_name: Optional[str] = None,
-        **kw,
+        self, interconnect_type: str, interconnect_gateway_name: Optional[str] = None, **kw
     ) -> List[InterconnectDeviceInfoExtended]:
         """
         API to retrieve Interconnect devices by Interconnect type for monitoring.

@@ -29,9 +29,7 @@ class AssignLicensesBuilder:
                 :param payload: List of devices for assigning licenses
                 :returns: None
                 """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/msla/assignLicenses", payload=payload, **kw
-                )
+                return self._request_adapter.request("POST", "/dataservice/msla/assignLicenses", payload=payload, **kw)
 
             def create_payload(self, *args, **kwargs) -> AssignMslaLicenses:
                 return AssignMslaLicenses(*args, **kwargs)

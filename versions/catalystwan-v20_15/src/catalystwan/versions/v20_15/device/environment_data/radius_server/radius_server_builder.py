@@ -25,8 +25,5 @@ class RadiusServerBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/environmentData/radiusServer",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/environmentData/radiusServer", params=params, **kw
         )

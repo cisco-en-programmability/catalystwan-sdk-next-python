@@ -21,8 +21,5 @@ class VersionBuilder:
         :returns: FindVEdgeSoftwareVersion
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/action/software/vedge/version",
-            return_type=FindVEdgeSoftwareVersion,
-            **kw,
+            "GET", "/dataservice/device/action/software/vedge/version", return_type=FindVEdgeSoftwareVersion, **kw
         )

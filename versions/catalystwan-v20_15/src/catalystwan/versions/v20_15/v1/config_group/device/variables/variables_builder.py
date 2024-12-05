@@ -20,11 +20,7 @@ class VariablesBuilder:
         self._request_adapter = request_adapter
 
     def get_config_group_device_variables(
-        self,
-        config_group_id: str,
-        device_id: Optional[str] = None,
-        suggestions: Optional[bool] = None,
-        **kw,
+        self, config_group_id: str, device_id: Optional[str] = None, suggestions: Optional[bool] = None, **kw
     ) -> Any:
         """
         Get device variables
@@ -40,10 +36,7 @@ class VariablesBuilder:
             "suggestions": suggestions,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/config-group/{configGroupId}/device/variables",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/config-group/{configGroupId}/device/variables", params=params, **kw
         )
 
     @property
@@ -53,10 +46,7 @@ class VariablesBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                config_group_id: str,
-                payload: Optional[CreateConfigGroupDeviceVariablesPutRequest] = None,
-                **kw,
+                self, config_group_id: str, payload: Optional[CreateConfigGroupDeviceVariablesPutRequest] = None, **kw
             ) -> Any:
                 """
                 assign values to device variables
@@ -76,9 +66,7 @@ class VariablesBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> CreateConfigGroupDeviceVariablesPutRequest:
+            def create_payload(self, *args, **kwargs) -> CreateConfigGroupDeviceVariablesPutRequest:
                 return CreateConfigGroupDeviceVariablesPutRequest(*args, **kwargs)
 
             @property
@@ -94,10 +82,7 @@ class VariablesBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                config_group_id: str,
-                payload: Optional[CreateConfigGroupDeviceVariablesPutRequest] = None,
-                **kw,
+                self, config_group_id: str, payload: Optional[CreateConfigGroupDeviceVariablesPutRequest] = None, **kw
             ) -> Any:
                 """
                 Fetch device variables
@@ -117,9 +102,7 @@ class VariablesBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> CreateConfigGroupDeviceVariablesPutRequest:
+            def create_payload(self, *args, **kwargs) -> CreateConfigGroupDeviceVariablesPutRequest:
                 return CreateConfigGroupDeviceVariablesPutRequest(*args, **kwargs)
 
             @property

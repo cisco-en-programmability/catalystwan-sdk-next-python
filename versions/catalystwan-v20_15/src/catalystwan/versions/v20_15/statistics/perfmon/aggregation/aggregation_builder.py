@@ -22,9 +22,7 @@ class AggregationBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[str] = None, **kw
-            ) -> List[ApplicationSiteChartItem]:
+            def __call__(self, payload: Optional[str] = None, **kw) -> List[ApplicationSiteChartItem]:
                 """
                 Get one application one site line chart data
 

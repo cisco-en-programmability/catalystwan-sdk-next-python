@@ -25,11 +25,7 @@ class DeviceBuilder:
             "partnerId": partner_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/partner/dnac/sda/device/{partnerId}",
-            return_type=SdaDevicesRes,
-            params=params,
-            **kw,
+            "GET", "/dataservice/partner/dnac/sda/device/{partnerId}", return_type=SdaDevicesRes, params=params, **kw
         )
 
     def get_device_details(self, partner_id: str, uuid: str, **kw) -> SdaDevicesRes:

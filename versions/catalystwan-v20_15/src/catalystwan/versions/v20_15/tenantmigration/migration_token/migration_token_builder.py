@@ -24,6 +24,4 @@ class MigrationTokenBuilder:
         params = {
             "migrationId": migration_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/tenantmigration/migrationToken", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/tenantmigration/migrationToken", params=params, **kw)

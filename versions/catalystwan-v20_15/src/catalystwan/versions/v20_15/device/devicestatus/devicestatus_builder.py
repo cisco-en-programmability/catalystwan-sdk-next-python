@@ -21,8 +21,5 @@ class DevicestatusBuilder:
         :returns: DeviceStatusData
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/devicestatus",
-            return_type=DeviceStatusData,
-            **kw,
+            "GET", "/dataservice/device/devicestatus", return_type=DeviceStatusData, **kw
         )

@@ -24,6 +24,4 @@ class DreStatusBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/dre/dre-status", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/dre/dre-status", params=params, **kw)

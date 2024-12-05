@@ -20,6 +20,4 @@ class DevicecodeBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "POST", "/dataservice/cloudservices/devicecode", **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/cloudservices/devicecode", **kw)

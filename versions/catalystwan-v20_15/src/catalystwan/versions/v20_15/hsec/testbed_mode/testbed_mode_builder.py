@@ -20,6 +20,4 @@ class TestbedModeBuilder:
 
         :returns: TestbedMode
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/hsec/testbedMode", return_type=TestbedMode, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/hsec/testbedMode", return_type=TestbedMode, **kw)

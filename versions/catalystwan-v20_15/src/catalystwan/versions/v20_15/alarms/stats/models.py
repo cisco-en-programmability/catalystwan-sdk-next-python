@@ -6,20 +6,14 @@ from typing import Dict, Optional
 
 @dataclass
 class EventStats:
-    discarded_events: Optional[int] = _field(
-        default=None, metadata={"alias": "Discarded Events"}
-    )
-    processed_events: Optional[int] = _field(
-        default=None, metadata={"alias": "Processed Events"}
-    )
+    discarded_events: Optional[int] = _field(default=None, metadata={"alias": "Discarded Events"})
+    processed_events: Optional[int] = _field(default=None, metadata={"alias": "Processed Events"})
     total: Optional[int] = _field(default=None, metadata={"alias": "Total"})
 
 
 @dataclass
 class AlarmStatsResponseCorrelationEngine:
-    added_events: Optional[int] = _field(
-        default=None, metadata={"alias": "Added Events"}
-    )
+    added_events: Optional[int] = _field(default=None, metadata={"alias": "Added Events"})
 
 
 @dataclass

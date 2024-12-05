@@ -6,6 +6,4 @@ from typing import Optional
 
 @dataclass
 class InProgressCount:
-    in_progress_count: Optional[int] = _field(
-        default=None, metadata={"alias": "inProgressCount"}
-    )
+    in_progress_count: Optional[int] = _field(default=None, metadata={"alias": "inProgressCount"})

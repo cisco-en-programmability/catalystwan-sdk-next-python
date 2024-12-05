@@ -27,9 +27,7 @@ class SystemBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdwan_system_feature_profiles(
-        self, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
-    ) -> Any:
+    def get_sdwan_system_feature_profiles(self, offset: Optional[int] = None, limit: Optional[int] = 0, **kw) -> Any:
         """
         Get all SDWAN Feature Profiles with giving Family and profile type
 
@@ -41,9 +39,7 @@ class SystemBuilder:
             "offset": offset,
             "limit": limit,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/sdwan/system", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/v1/feature-profile/sdwan/system", params=params, **kw)
 
     @property
     def create_sdwan_system_feature_profile(self):
@@ -59,11 +55,7 @@ class SystemBuilder:
                 :returns: str
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/sdwan/system",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/feature-profile/sdwan/system", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -75,9 +67,7 @@ class SystemBuilder:
 
         return create_sdwan_system_feature_profile_(self._request_adapter)
 
-    def get_sdwan_system_feature_profile_by_profile_id(
-        self, system_id: str, **kw
-    ) -> Any:
+    def get_sdwan_system_feature_profile_by_profile_id(self, system_id: str, **kw) -> Any:
         """
         Get a SDWAN System Feature Profile with systemId
 
@@ -88,10 +78,7 @@ class SystemBuilder:
             "systemId": system_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/system/{systemId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/system/{systemId}", params=params, **kw
         )
 
     @property
@@ -100,9 +87,7 @@ class SystemBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a SDWAN System Feature Profile
 
@@ -142,10 +127,7 @@ class SystemBuilder:
             "systemId": system_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/sdwan/system/{systemId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/sdwan/system/{systemId}", params=params, **kw
         )
 
     @property

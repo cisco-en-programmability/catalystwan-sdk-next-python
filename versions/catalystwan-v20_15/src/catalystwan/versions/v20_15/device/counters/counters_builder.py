@@ -21,8 +21,5 @@ class CountersBuilder:
         :returns: DeviceCountersResponse
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/counters",
-            return_type=DeviceCountersResponse,
-            **kw,
+            "GET", "/dataservice/device/counters", return_type=DeviceCountersResponse, **kw
         )

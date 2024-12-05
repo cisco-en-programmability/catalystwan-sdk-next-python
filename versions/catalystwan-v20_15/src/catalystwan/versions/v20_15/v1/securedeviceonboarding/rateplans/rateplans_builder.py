@@ -23,8 +23,5 @@ class RateplansBuilder:
             "accountId": account_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/securedeviceonboarding/rateplans",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/securedeviceonboarding/rateplans", params=params, **kw
         )

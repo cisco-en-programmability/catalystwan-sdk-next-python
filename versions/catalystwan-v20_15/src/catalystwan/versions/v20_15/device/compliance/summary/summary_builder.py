@@ -21,8 +21,5 @@ class SummaryBuilder:
         :returns: DeviceComplianceSummaryResponse
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/compliance/summary",
-            return_type=DeviceComplianceSummaryResponse,
-            **kw,
+            "GET", "/dataservice/device/compliance/summary", return_type=DeviceComplianceSummaryResponse, **kw
         )

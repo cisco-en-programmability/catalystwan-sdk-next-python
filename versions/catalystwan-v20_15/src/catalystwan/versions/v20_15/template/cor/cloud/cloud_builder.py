@@ -28,9 +28,7 @@ class CloudBuilder:
         :returns: List[Any]
         """
         logging.warning("Operation: %s is deprecated", "getCloudList")
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/cor/cloud", return_type=List[Any], **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/template/cor/cloud", return_type=List[Any], **kw)
 
     @property
     def account(self) -> AccountBuilder:

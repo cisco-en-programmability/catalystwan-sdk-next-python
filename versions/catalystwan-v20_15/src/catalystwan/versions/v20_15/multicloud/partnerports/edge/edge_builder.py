@@ -50,6 +50,4 @@ class EdgeBuilder:
             "authorizationKey": authorization_key,
             "refresh": refresh,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/partnerports/edge", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/multicloud/partnerports/edge", params=params, **kw)

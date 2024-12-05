@@ -27,11 +27,7 @@ class GlobalBuilder:
             "cloudType": cloud_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/settings/global",
-            return_type=GlobalSettings,
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/settings/global", return_type=GlobalSettings, params=params, **kw
         )
 
     @property
@@ -48,10 +44,7 @@ class GlobalBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/multicloud/settings/global",
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/multicloud/settings/global", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> GlobalSettings:
@@ -69,9 +62,7 @@ class GlobalBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[GlobalSettings] = None, **kw
-            ) -> Taskid:
+            def __call__(self, payload: Optional[GlobalSettings] = None, **kw) -> Taskid:
                 """
                 Add global settings
 
@@ -79,11 +70,7 @@ class GlobalBuilder:
                 :returns: Taskid
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/settings/global",
-                    return_type=Taskid,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/multicloud/settings/global", return_type=Taskid, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> GlobalSettings:

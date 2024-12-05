@@ -23,6 +23,4 @@ class NodePropertiesBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/clusterManagement/nodeProperties", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/clusterManagement/nodeProperties", **kw)

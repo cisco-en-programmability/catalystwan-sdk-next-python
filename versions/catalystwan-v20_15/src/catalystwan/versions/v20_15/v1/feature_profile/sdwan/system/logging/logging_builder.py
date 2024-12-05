@@ -41,9 +41,7 @@ class LoggingBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Logging Profile Parcel for System feature profile
 
@@ -72,9 +70,7 @@ class LoggingBuilder:
 
         return create_logging_profile_parcel_for_system_(self._request_adapter)
 
-    def get_logging_profile_parcel_by_parcel_id_for_system(
-        self, system_id: str, logging_id: str, **kw
-    ) -> str:
+    def get_logging_profile_parcel_by_parcel_id_for_system(self, system_id: str, logging_id: str, **kw) -> str:
         """
         Get Logging Profile Parcel by parcelId for System feature profile
 
@@ -100,13 +96,7 @@ class LoggingBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                system_id: str,
-                logging_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, system_id: str, logging_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Logging Profile Parcel for System feature profile
 
@@ -137,9 +127,7 @@ class LoggingBuilder:
 
         return edit_logging_profile_parcel_for_system_(self._request_adapter)
 
-    def delete_logging_profile_parcel_for_system(
-        self, system_id: str, logging_id: str, **kw
-    ):
+    def delete_logging_profile_parcel_for_system(self, system_id: str, logging_id: str, **kw):
         """
         Delete a Logging Profile Parcel for System feature profile
 
@@ -152,10 +140,7 @@ class LoggingBuilder:
             "loggingId": logging_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/logging/{loggingId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/sdwan/system/{systemId}/logging/{loggingId}", params=params, **kw
         )
 
     @property

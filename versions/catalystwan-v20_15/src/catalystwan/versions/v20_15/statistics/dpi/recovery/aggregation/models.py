@@ -8,9 +8,7 @@ from typing import List, Optional
 class FecAndPktDupResponseHeader:
     columns: Optional[List[str]] = _field(default=None)
     fields: Optional[List[str]] = _field(default=None)
-    generated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "generatedOn"}
-    )
+    generated_on: Optional[int] = _field(default=None, metadata={"alias": "generatedOn"})
 
 
 @dataclass

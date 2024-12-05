@@ -21,8 +21,5 @@ class PackagingDistributionDetailsBuilder:
         :returns: PackagingDistribution
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/msla/monitoring/packagingDistributionDetails",
-            return_type=PackagingDistribution,
-            **kw,
+            "GET", "/dataservice/msla/monitoring/packagingDistributionDetails", return_type=PackagingDistribution, **kw
         )

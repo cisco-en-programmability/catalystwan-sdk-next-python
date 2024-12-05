@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -20,35 +20,15 @@ class NetworkMigrationBuilder:
 
         :returns: Any
         """
+        return self._request_adapter.request("GET", "/dataservice/tenantmigration/networkMigration", **kw)
+
+    def migrate_network(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Migrate network
+
+        :param payload: Network migration
+        :returns: Any
+        """
         return self._request_adapter.request(
-            "GET", "/dataservice/tenantmigration/networkMigration", **kw
+            "POST", "/dataservice/tenantmigration/networkMigration", payload=payload, **kw
         )
-
-    @property
-    def migrate_network(self):
-        class migrate_network_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Migrate network
-
-                :param payload: Network migration
-                :returns: Any
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/tenantmigration/networkMigration",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return migrate_network_(self._request_adapter)

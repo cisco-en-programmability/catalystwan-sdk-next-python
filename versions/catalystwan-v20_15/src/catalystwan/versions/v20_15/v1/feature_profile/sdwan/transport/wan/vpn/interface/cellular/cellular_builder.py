@@ -20,9 +20,7 @@ class CellularBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interface_cellular_parcels_for_transport_wan_vpn(
-        self, transport_id: str, vpn_id: str, **kw
-    ) -> str:
+    def get_interface_cellular_parcels_for_transport_wan_vpn(self, transport_id: str, vpn_id: str, **kw) -> str:
         """
         Get Interface Cellular Parcels for transport Wan Vpn Parcel
 
@@ -48,13 +46,7 @@ class CellularBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                transport_id: str,
-                vpn_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, transport_id: str, vpn_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a wanvpn Cellular interface Parcel for transport feature profile
 
@@ -83,9 +75,7 @@ class CellularBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return create_wan_vpn_interface_cellular_parcel_for_transport_(
-            self._request_adapter
-        )
+        return create_wan_vpn_interface_cellular_parcel_for_transport_(self._request_adapter)
 
     def get_wan_vpn_interface_cellular_parcel_by_parcel_id_for_transport(
         self, transport_id: str, vpn_id: str, intf_id: str, **kw
@@ -118,12 +108,7 @@ class CellularBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                transport_id: str,
-                vpn_id: str,
-                intf_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, transport_id: str, vpn_id: str, intf_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Update a wanvpn Cellular Interface Parcel for transport feature profile
@@ -155,13 +140,9 @@ class CellularBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return edit_wan_vpn_interface_cellular_parcel_for_transport_(
-            self._request_adapter
-        )
+        return edit_wan_vpn_interface_cellular_parcel_for_transport_(self._request_adapter)
 
-    def delete_wan_vpn_interface_cellular_for_transport(
-        self, transport_id: str, vpn_id: str, intf_id: str, **kw
-    ):
+    def delete_wan_vpn_interface_cellular_for_transport(self, transport_id: str, vpn_id: str, intf_id: str, **kw):
         """
         Delete a wanvpn Cellular interface Parcel for transport feature profile
 

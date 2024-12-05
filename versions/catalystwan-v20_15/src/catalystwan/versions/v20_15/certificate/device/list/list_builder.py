@@ -18,6 +18,4 @@ class ListBuilder:
 
         :returns: str
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/certificate/device/list", return_type=str, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/certificate/device/list", return_type=str, **kw)

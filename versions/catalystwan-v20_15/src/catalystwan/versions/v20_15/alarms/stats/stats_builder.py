@@ -20,6 +20,4 @@ class StatsBuilder:
 
         :returns: AlarmStatsResponse
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/alarms/stats", return_type=AlarmStatsResponse, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/alarms/stats", return_type=AlarmStatsResponse, **kw)

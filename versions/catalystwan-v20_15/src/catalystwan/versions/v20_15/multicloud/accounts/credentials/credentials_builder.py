@@ -22,9 +22,7 @@ class CredentialsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, account_id: str, payload: Optional[PostAccounts] = None, **kw
-            ) -> PostAccountsResponse:
+            def __call__(self, account_id: str, payload: Optional[PostAccounts] = None, **kw) -> PostAccountsResponse:
                 """
                 Update Cloud Account Credentials
 

@@ -16,9 +16,7 @@ class DatacentersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sig_dynamic_data_center_list(
-        self, type_: str, tunneltype: str, **kw
-    ) -> GetDataCenters:
+    def get_sig_dynamic_data_center_list(self, type_: str, tunneltype: str, **kw) -> GetDataCenters:
         """
         The API to get all sig data center for given provider type
 
@@ -31,16 +29,10 @@ class DatacentersBuilder:
             "tunneltype": tunneltype,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/sig/datacenters/{type}/{tunneltype}",
-            return_type=GetDataCenters,
-            params=params,
-            **kw,
+            "GET", "/dataservice/sig/datacenters/{type}/{tunneltype}", return_type=GetDataCenters, params=params, **kw
         )
 
-    def get_sig_data_center_list(
-        self, type_: str, tunneltype: str, devicetype: str, **kw
-    ) -> Any:
+    def get_sig_data_center_list(self, type_: str, tunneltype: str, devicetype: str, **kw) -> Any:
         """
         Get list of data centers for zscaler or umbrella
 
@@ -55,8 +47,5 @@ class DatacentersBuilder:
             "devicetype": devicetype,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/sig/datacenters/{type}/{tunneltype}/{devicetype}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/sig/datacenters/{type}/{tunneltype}/{devicetype}", params=params, **kw
         )

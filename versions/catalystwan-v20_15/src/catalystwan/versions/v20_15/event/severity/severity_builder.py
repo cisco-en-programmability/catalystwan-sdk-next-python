@@ -43,11 +43,7 @@ class SeverityBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/event/severity",
-            return_type=List[EventsBySeverity],
-            params=params,
-            **kw,
+            "GET", "/dataservice/event/severity", return_type=List[EventsBySeverity], params=params, **kw
         )
 
     @property

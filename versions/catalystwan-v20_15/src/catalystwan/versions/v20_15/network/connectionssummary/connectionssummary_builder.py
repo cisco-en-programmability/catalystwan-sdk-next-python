@@ -36,6 +36,4 @@ class ConnectionssummaryBuilder:
             "vpnId": vpn_id,
             "site-id": site_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/network/connectionssummary", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/network/connectionssummary", params=params, **kw)

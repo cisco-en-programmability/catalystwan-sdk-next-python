@@ -21,8 +21,5 @@ class TaskHistoryBuilder:
         :returns: TaskHistoryResponsePayload
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/stream/device/nwpi/tasks/taskHistory",
-            return_type=TaskHistoryResponsePayload,
-            **kw,
+            "GET", "/dataservice/stream/device/nwpi/tasks/taskHistory", return_type=TaskHistoryResponsePayload, **kw
         )

@@ -25,9 +25,5 @@ class ControlBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/troubleshooting/control/{uuid}",
-            return_type=GetControlConnections,
-            params=params,
-            **kw,
+            "GET", "/dataservice/troubleshooting/control/{uuid}", return_type=GetControlConnections, params=params, **kw
         )

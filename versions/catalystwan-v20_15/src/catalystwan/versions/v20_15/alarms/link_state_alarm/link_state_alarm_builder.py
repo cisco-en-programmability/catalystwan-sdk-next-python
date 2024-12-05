@@ -18,9 +18,7 @@ class LinkStateAlarmBuilder:
 
         :returns: str
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/alarms/link-state-alarm", return_type=str, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/alarms/link-state-alarm", return_type=str, **kw)
 
     def enable_disable_link_state_alarm(self, link_name: str, enable: bool, **kw):
         """
@@ -34,6 +32,4 @@ class LinkStateAlarmBuilder:
             "linkName": link_name,
             "enable": enable,
         }
-        return self._request_adapter.request(
-            "POST", "/dataservice/alarms/link-state-alarm", params=params, **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/alarms/link-state-alarm", params=params, **kw)

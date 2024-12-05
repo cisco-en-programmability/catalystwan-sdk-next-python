@@ -14,9 +14,7 @@ class SchemaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdwan_system_bfd_parcel_schema_by_schema_type(
-        self, schema_type: SchemaTypeParam, **kw
-    ) -> str:
+    def get_sdwan_system_bfd_parcel_schema_by_schema_type(self, schema_type: SchemaTypeParam, **kw) -> str:
         """
         Get a SDWAN System Bfd Parcel Schema by Schema Type
 
@@ -27,9 +25,5 @@ class SchemaBuilder:
             "schemaType": schema_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/system/bfd/schema",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/system/bfd/schema", return_type=str, params=params, **kw
         )

@@ -32,10 +32,7 @@ class UpsertSettingBuilder:
                 """
                 logging.warning("Operation: %s is deprecated", "upsertSetting")
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/stream/device/nwpi/upsertSetting",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/stream/device/nwpi/upsertSetting", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> NwpiSettingDataPayload:

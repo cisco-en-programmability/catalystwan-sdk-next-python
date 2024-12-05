@@ -29,9 +29,7 @@ class DetailsBuilder:
                 :param payload: On board Device details
                 :returns: None
                 """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/onboard/details", payload=payload, **kw
-                )
+                return self._request_adapter.request("POST", "/dataservice/onboard/details", payload=payload, **kw)
 
             def create_payload(self, *args, **kwargs) -> DeviceDetailsData:
                 return DeviceDetailsData(*args, **kwargs)

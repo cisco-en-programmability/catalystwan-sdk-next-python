@@ -24,8 +24,5 @@ class TenantListBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/clusterManagement/tenantList",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/clusterManagement/tenantList", return_type=List[Any], **kw
         )

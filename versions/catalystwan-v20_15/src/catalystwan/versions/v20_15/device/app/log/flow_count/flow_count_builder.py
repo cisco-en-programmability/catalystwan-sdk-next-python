@@ -24,6 +24,4 @@ class FlowCountBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/app/log/flow-count", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/app/log/flow-count", params=params, **kw)

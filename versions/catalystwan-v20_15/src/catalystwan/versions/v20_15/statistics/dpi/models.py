@@ -37,6 +37,4 @@ class DpiResponsePageInfo:
 @dataclass
 class DpiResponse:
     data: Optional[List[DpiDataObject]] = _field(default=None)
-    page_info: Optional[DpiResponsePageInfo] = _field(
-        default=None, metadata={"alias": "pageInfo"}
-    )
+    page_info: Optional[DpiResponsePageInfo] = _field(default=None, metadata={"alias": "pageInfo"})

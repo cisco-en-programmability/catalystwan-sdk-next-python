@@ -17,12 +17,7 @@ class SummaryBuilder:
         self._request_adapter = request_adapter
 
     def get_app_route_tunnels_summary_type(
-        self,
-        type_: str,
-        query: Optional[str] = None,
-        limit: Optional[int] = 10,
-        site_id: Optional[str] = None,
-        **kw,
+        self, type_: str, query: Optional[str] = None, limit: Optional[int] = 10, site_id: Optional[str] = None, **kw
     ) -> AppRouteTransportResp:
         """
         Get tunnel top statistics from device

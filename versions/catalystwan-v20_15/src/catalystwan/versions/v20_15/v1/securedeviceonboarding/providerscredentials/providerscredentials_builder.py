@@ -18,6 +18,4 @@ class ProviderscredentialsBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/securedeviceonboarding/providerscredentials", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/v1/securedeviceonboarding/providerscredentials", **kw)

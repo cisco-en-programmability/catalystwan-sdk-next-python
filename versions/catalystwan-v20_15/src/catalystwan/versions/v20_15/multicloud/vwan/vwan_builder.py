@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,32 +15,15 @@ class VwanBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def create_virtual_wan(self):
-        class create_virtual_wan_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_virtual_wan(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Create Virtual WAN
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Create Virtual WAN
-
-                :param payload: Virtual WAN
-                :returns: Any
-                """
-                logging.warning("Operation: %s is deprecated", "createVirtualWan")
-                return self._request_adapter.request(
-                    "POST", "/dataservice/multicloud/vwan", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_virtual_wan_(self._request_adapter)
+        :param payload: Virtual WAN
+        :returns: Any
+        """
+        logging.warning("Operation: %s is deprecated", "createVirtualWan")
+        return self._request_adapter.request("POST", "/dataservice/multicloud/vwan", payload=payload, **kw)
 
     def delete_virtual_wan(
         self,
@@ -67,8 +50,5 @@ class VwanBuilder:
             "resourceGroup": resource_group,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/multicloud/vwan/{cloudProvider}/{vWanName}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/multicloud/vwan/{cloudProvider}/{vWanName}", params=params, **kw
         )

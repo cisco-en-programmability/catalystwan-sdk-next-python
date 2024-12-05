@@ -19,8 +19,5 @@ class DcaBuilder:
         :returns: str
         """
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/settings/configuration/analytics/dca",
-            return_type=str,
-            **kw,
+            "POST", "/dataservice/settings/configuration/analytics/dca", return_type=str, **kw
         )

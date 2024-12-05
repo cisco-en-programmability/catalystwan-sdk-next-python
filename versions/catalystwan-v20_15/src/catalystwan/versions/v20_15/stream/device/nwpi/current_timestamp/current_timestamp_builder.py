@@ -24,8 +24,5 @@ class CurrentTimestampBuilder:
         """
         logging.warning("Operation: %s is deprecated", "getCurrentTimestamp")
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/stream/device/nwpi/currentTimestamp",
-            return_type=CurrentTimestampResponsePayload,
-            **kw,
+            "GET", "/dataservice/stream/device/nwpi/currentTimestamp", return_type=CurrentTimestampResponsePayload, **kw
         )

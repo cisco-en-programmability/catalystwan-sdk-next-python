@@ -6,13 +6,9 @@ from typing import Optional
 
 @dataclass
 class AdminTechListRes:
-    creation_time: Optional[int] = _field(
-        default=None, metadata={"alias": "creationTime"}
-    )
+    creation_time: Optional[int] = _field(default=None, metadata={"alias": "creationTime"})
     file_name: Optional[str] = _field(default=None, metadata={"alias": "fileName"})
-    request_token_id: Optional[str] = _field(
-        default=None, metadata={"alias": "requestTokenId"}
-    )
+    request_token_id: Optional[str] = _field(default=None, metadata={"alias": "requestTokenId"})
     size: Optional[int] = _field(default=None)
     state: Optional[str] = _field(default=None)
 

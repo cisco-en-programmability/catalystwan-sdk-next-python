@@ -38,9 +38,7 @@ class QosBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, global_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, global_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Qos Feature for Global feature profile
 
@@ -69,9 +67,7 @@ class QosBuilder:
 
         return create_qos_feature_for_global_(self._request_adapter)
 
-    def get_qos_feature_by_parcel_id_for_global(
-        self, global_id: str, qos_id: str, **kw
-    ) -> str:
+    def get_qos_feature_by_parcel_id_for_global(self, global_id: str, qos_id: str, **kw) -> str:
         """
         Get Qos Feature by parcelId for Global feature profile
 
@@ -97,9 +93,7 @@ class QosBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, global_id: str, qos_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, global_id: str, qos_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Qos Feature for Global feature profile
 
@@ -143,8 +137,5 @@ class QosBuilder:
             "qosId": qos_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/mobility/global/{globalId}/qos/{qosId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/mobility/global/{globalId}/qos/{qosId}", params=params, **kw
         )

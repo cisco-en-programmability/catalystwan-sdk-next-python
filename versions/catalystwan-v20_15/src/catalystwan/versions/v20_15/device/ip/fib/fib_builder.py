@@ -45,6 +45,4 @@ class FibBuilder:
             "color": color,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/ip/fib", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/ip/fib", params=params, **kw)

@@ -17,9 +17,7 @@ class PreloadinfoBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_preload_info(
-        self, mode: Optional[str] = None, **kw
-    ) -> NwpiPreloadRespPayload:
+    def get_preload_info(self, mode: Optional[str] = None, **kw) -> NwpiPreloadRespPayload:
         """
         Get preload info
 

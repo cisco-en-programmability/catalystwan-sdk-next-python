@@ -22,6 +22,4 @@ class AccountdetailsBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "getCloudHostVpcAccountDetails")
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/cor/cloud/host/accountdetails", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/template/cor/cloud/host/accountdetails", **kw)

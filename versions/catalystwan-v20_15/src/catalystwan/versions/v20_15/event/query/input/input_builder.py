@@ -21,8 +21,5 @@ class InputBuilder:
         :returns: EventQueryInputResponse
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/event/query/input",
-            return_type=EventQueryInputResponse,
-            **kw,
+            "GET", "/dataservice/event/query/input", return_type=EventQueryInputResponse, **kw
         )

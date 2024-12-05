@@ -21,8 +21,5 @@ class ReachableBuilder:
         :returns: DeviceReachableData
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/reachable",
-            return_type=DeviceReachableData,
-            **kw,
+            "GET", "/dataservice/device/reachable", return_type=DeviceReachableData, **kw
         )

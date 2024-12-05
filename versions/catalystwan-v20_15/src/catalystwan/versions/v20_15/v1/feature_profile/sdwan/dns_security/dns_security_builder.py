@@ -18,11 +18,7 @@ class DnsSecurityBuilder:
         self._request_adapter = request_adapter
 
     def get_sdwan_dns_security_feature_profiles(
-        self,
-        offset: Optional[int] = None,
-        limit: Optional[int] = 0,
-        reference_count: Optional[bool] = False,
-        **kw,
+        self, offset: Optional[int] = None, limit: Optional[int] = 0, reference_count: Optional[bool] = False, **kw
     ) -> Any:
         """
         Get all SDWAN Feature Profiles with giving Family and profile type
@@ -38,10 +34,7 @@ class DnsSecurityBuilder:
             "referenceCount": reference_count,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/dns-security",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/dns-security", params=params, **kw
         )
 
     @property
@@ -58,11 +51,7 @@ class DnsSecurityBuilder:
                 :returns: str
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/sdwan/dns-security",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/feature-profile/sdwan/dns-security", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -89,10 +78,7 @@ class DnsSecurityBuilder:
             "references": references,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/dns-security/{dnsSecurityId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/dns-security/{dnsSecurityId}", params=params, **kw
         )
 
     @property
@@ -101,9 +87,7 @@ class DnsSecurityBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, dns_security_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, dns_security_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a SDWAN Dns Security Feature Profile
 
@@ -143,10 +127,7 @@ class DnsSecurityBuilder:
             "dnsSecurityId": dns_security_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/sdwan/dns-security/{dnsSecurityId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/sdwan/dns-security/{dnsSecurityId}", params=params, **kw
         )
 
     @property

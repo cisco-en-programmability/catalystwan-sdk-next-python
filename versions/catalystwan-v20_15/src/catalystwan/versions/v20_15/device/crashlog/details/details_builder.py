@@ -20,6 +20,4 @@ class DetailsBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/crashlog/details", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/crashlog/details", **kw)

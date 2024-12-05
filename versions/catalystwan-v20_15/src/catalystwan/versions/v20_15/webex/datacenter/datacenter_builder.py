@@ -34,11 +34,7 @@ class DatacenterBuilder:
                 :returns: bool
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/webex/datacenter",
-                    return_type=bool,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/webex/datacenter", return_type=bool, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> WebexDataCenter:
@@ -56,9 +52,7 @@ class DatacenterBuilder:
 
         :returns: bool
         """
-        return self._request_adapter.request(
-            "DELETE", "/dataservice/webex/datacenter", return_type=bool, **kw
-        )
+        return self._request_adapter.request("DELETE", "/dataservice/webex/datacenter", return_type=bool, **kw)
 
     @property
     def sync(self) -> SyncBuilder:

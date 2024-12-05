@@ -38,9 +38,7 @@ class GpsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, transport_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, transport_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Gps Profile Parcel for Transport feature profile
 
@@ -69,9 +67,7 @@ class GpsBuilder:
 
         return create_gps_profile_parcel_for_transport_(self._request_adapter)
 
-    def get_gps_profile_parcel_by_parcel_id_for_transport(
-        self, transport_id: str, gps_id: str, **kw
-    ) -> str:
+    def get_gps_profile_parcel_by_parcel_id_for_transport(self, transport_id: str, gps_id: str, **kw) -> str:
         """
         Get Gps Profile Parcel by parcelId for Transport feature profile
 
@@ -97,13 +93,7 @@ class GpsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                transport_id: str,
-                gps_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, transport_id: str, gps_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Gps Profile Parcel for Transport feature profile
 
@@ -134,9 +124,7 @@ class GpsBuilder:
 
         return edit_gps_profile_parcel_for_transport_(self._request_adapter)
 
-    def delete_gps_profile_parcel_for_transport(
-        self, transport_id: str, gps_id: str, **kw
-    ):
+    def delete_gps_profile_parcel_for_transport(self, transport_id: str, gps_id: str, **kw):
         """
         Delete a Gps Profile Parcel for Transport feature profile
 
@@ -149,8 +137,5 @@ class GpsBuilder:
             "gpsId": gps_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/gps/{gpsId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/gps/{gpsId}", params=params, **kw
         )

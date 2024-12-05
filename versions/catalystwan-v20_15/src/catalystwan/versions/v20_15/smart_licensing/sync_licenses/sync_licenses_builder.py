@@ -32,10 +32,7 @@ class SyncLicensesBuilder:
                 """
                 logging.warning("Operation: %s is deprecated", "syncLicenses")
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/smartLicensing/syncLicenses",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/smartLicensing/syncLicenses", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> LicenseUplodFile:

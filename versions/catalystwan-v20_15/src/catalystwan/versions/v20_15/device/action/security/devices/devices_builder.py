@@ -16,9 +16,7 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_security_devices_list(
-        self, policy_type: PolicyTypeParam, group_id: GroupId, **kw
-    ) -> List[Any]:
+    def generate_security_devices_list(self, policy_type: PolicyTypeParam, group_id: GroupId, **kw) -> List[Any]:
         """
         Get list of devices by security policy type
 

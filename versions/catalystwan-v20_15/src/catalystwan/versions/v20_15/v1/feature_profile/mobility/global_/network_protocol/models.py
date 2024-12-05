@@ -3,14 +3,7 @@ from dataclasses import dataclass
 from dataclasses import field as _field
 from typing import List, Literal, Optional
 
-Type = Literal[
-    "cellular",
-    "ethernet",
-    "globalSettings",
-    "networkProtocol",
-    "securityPolicy",
-    "wifi",
-]
+Type = Literal["cellular", "ethernet", "globalSettings", "networkProtocol", "securityPolicy", "wifi"]
 
 
 @dataclass
@@ -49,24 +42,14 @@ class CreateNetworkProtocolProfileParcelForMobilityPostRequest:
     # Description of the Profile Parcel.
     description: Optional[str] = _field(default=None)
     dhcp_pool: Optional[DhcpPool] = _field(default=None, metadata={"alias": "DHCPPool"})
-    dns_settings: Optional[str] = _field(
-        default=None, metadata={"alias": "DNSSettings"}
-    )
+    dns_settings: Optional[str] = _field(default=None, metadata={"alias": "DNSSettings"})
     # System generated unique identifier of the Profile Parcel in UUID format.
     id: Optional[str] = _field(default=None)
     # User who last updated this.
-    last_updated_by: Optional[str] = _field(
-        default=None, metadata={"alias": "lastUpdatedBy"}
-    )
+    last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
     # Timestamp of last update
-    last_updated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "lastUpdatedOn"}
-    )
-    nat_rules: Optional[List[NatRule]] = _field(
-        default=None, metadata={"alias": "NATRules"}
-    )
+    last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
+    nat_rules: Optional[List[NatRule]] = _field(default=None, metadata={"alias": "NATRules"})
     ntp_inherit: Optional[bool] = _field(default=None, metadata={"alias": "NTPInherit"})
-    ntp_settings: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "NTPSettings"}
-    )
+    ntp_settings: Optional[List[str]] = _field(default=None, metadata={"alias": "NTPSettings"})
     variables: Optional[List[Variable]] = _field(default=None)

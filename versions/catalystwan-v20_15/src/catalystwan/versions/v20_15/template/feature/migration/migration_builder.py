@@ -24,8 +24,5 @@ class MigrationBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/feature/migration",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/template/feature/migration", return_type=List[Any], **kw
         )

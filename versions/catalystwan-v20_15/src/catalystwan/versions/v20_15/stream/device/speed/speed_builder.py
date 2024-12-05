@@ -38,11 +38,7 @@ class SpeedBuilder:
                 :returns: SpeedTestResponse
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/stream/device/speed",
-                    return_type=SpeedTestResponse,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/stream/device/speed", return_type=SpeedTestResponse, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> SpeedTestSession:
@@ -61,11 +57,7 @@ class SpeedBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                device_uuid: str,
-                session_id: Uuid,
-                payload: Optional[SpeedTestResult] = None,
-                **kw,
+                self, device_uuid: str, session_id: Uuid, payload: Optional[SpeedTestResult] = None, **kw
             ) -> SpeedTestStatusResponse:
                 """
                 Save speed test results
@@ -97,9 +89,7 @@ class SpeedBuilder:
 
         return save_speed_test_results_(self._request_adapter)
 
-    def get_speed_test(
-        self, session_id: Uuid, log_id: Optional[int] = 0, **kw
-    ) -> SpeedTestResultResponse:
+    def get_speed_test(self, session_id: Uuid, log_id: Optional[int] = 0, **kw) -> SpeedTestResultResponse:
         """
         Get speed test
 

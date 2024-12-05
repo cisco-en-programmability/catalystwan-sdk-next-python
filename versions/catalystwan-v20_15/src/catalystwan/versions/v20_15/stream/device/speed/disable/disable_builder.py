@@ -14,9 +14,7 @@ class DisableBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def disable_speed_test_session(
-        self, session_id: Uuid, **kw
-    ) -> SpeedTestStatusResponse:
+    def disable_speed_test_session(self, session_id: Uuid, **kw) -> SpeedTestStatusResponse:
         """
         Disable speed test session
 

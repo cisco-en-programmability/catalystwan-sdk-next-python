@@ -14,9 +14,7 @@ class SettingsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_container_settings(
-        self, container_name: str, host_ip: Optional[str] = None, **kw
-    ) -> Any:
+    def get_container_settings(self, container_name: str, host_ip: Optional[str] = None, **kw) -> Any:
         """
         Get container settings
 
@@ -29,8 +27,5 @@ class SettingsBuilder:
             "hostIp": host_ip,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/container-manager/settings/{containerName}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/container-manager/settings/{containerName}", params=params, **kw
         )

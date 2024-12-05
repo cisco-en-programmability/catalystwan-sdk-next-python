@@ -25,8 +25,5 @@ class StorageUtilizationBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/app-hosting/storage-utilization",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/app-hosting/storage-utilization", params=params, **kw
         )

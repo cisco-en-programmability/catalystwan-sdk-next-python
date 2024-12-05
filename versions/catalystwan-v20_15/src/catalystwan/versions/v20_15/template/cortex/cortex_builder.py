@@ -26,9 +26,7 @@ class CortexBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/cortex", return_type=List[Any], **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/template/cortex", return_type=List[Any], **kw)
 
     @property
     def cloud(self) -> CloudBuilder:

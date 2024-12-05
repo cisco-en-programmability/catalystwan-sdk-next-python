@@ -39,6 +39,4 @@ class Ndv6Builder:
             "mac": mac,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/ndv6", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/ndv6", params=params, **kw)

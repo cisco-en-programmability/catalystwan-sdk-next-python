@@ -14,9 +14,7 @@ class CsvBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_data_raw_data_as_csv_10(
-        self, query: Optional[str] = None, **kw
-    ) -> str:
+    def get_stat_data_raw_data_as_csv_10(self, query: Optional[str] = None, **kw) -> str:
         """
         Get raw data with optional query as CSV
 
@@ -27,9 +25,5 @@ class CsvBuilder:
             "query": query,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/statistics/cloudx/csv",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/statistics/cloudx/csv", return_type=str, params=params, **kw
         )

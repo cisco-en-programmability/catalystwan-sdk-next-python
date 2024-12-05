@@ -20,9 +20,7 @@ class SnmpBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create SNMP Profile Parcel for System feature profile
 
@@ -77,9 +75,7 @@ class SnmpBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, snmp_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, snmp_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a  SNMP Profile Parcel for System feature profile
 
@@ -123,8 +119,5 @@ class SnmpBuilder:
             "snmpId": snmp_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/nfvirtual/system/{systemId}/snmp/{snmpId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/nfvirtual/system/{systemId}/snmp/{snmpId}", params=params, **kw
         )

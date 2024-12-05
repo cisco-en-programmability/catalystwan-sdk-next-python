@@ -8,9 +8,7 @@ ValueType = Literal["ARRAY", "FALSE", "NULL", "NUMBER", "OBJECT", "STRING", "TRU
 
 @dataclass
 class EditAppDetailsPutRequest:
-    value_type: Optional[ValueType] = _field(
-        default=None, metadata={"alias": "valueType"}
-    )
+    value_type: Optional[ValueType] = _field(default=None, metadata={"alias": "valueType"})
 
 
 @dataclass

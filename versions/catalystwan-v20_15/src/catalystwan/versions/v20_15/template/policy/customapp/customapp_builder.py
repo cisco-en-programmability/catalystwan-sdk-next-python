@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional, Type
+from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -24,34 +24,14 @@ class CustomappBuilder:
             "GET", "/dataservice/template/policy/customapp", return_type=List[Any], **kw
         )
 
-    @property
-    def create_custom_app(self):
-        class create_custom_app_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_custom_app(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Create a policy custom applications
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Create a policy custom applications
-
-                :param payload: App payload
-                :returns: Any
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/template/policy/customapp",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_custom_app_(self._request_adapter)
+        :param payload: App payload
+        :returns: Any
+        """
+        return self._request_adapter.request("POST", "/dataservice/template/policy/customapp", payload=payload, **kw)
 
     def get_custom_app_by_id(self, id: str, **kw) -> Any:
         """
@@ -63,43 +43,22 @@ class CustomappBuilder:
         params = {
             "id": id,
         }
+        return self._request_adapter.request("GET", "/dataservice/template/policy/customapp/{id}", params=params, **kw)
+
+    def edit_custom_app(self, id: str, payload: Optional[Any] = None, **kw):
+        """
+        Edit a policy custom applications
+
+        :param id: Id
+        :param payload: App payload
+        :returns: None
+        """
+        params = {
+            "id": id,
+        }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/customapp/{id}", params=params, **kw
+            "PUT", "/dataservice/template/policy/customapp/{id}", params=params, payload=payload, **kw
         )
-
-    @property
-    def edit_custom_app(self):
-        class edit_custom_app_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, id: str, payload: Optional[Any] = None, **kw):
-                """
-                Edit a policy custom applications
-
-                :param id: Id
-                :param payload: App payload
-                :returns: None
-                """
-                params = {
-                    "id": id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/template/policy/customapp/{id}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_custom_app_(self._request_adapter)
 
     def delete_custom_app(self, id: str, **kw):
         """

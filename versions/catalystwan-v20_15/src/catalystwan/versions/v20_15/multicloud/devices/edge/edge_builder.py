@@ -15,9 +15,7 @@ class EdgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_devices_1(
-        self, edge_type: str, edge_gateway_name: Optional[str] = None, **kw
-    ) -> Any:
+    def get_cloud_devices_1(self, edge_type: str, edge_gateway_name: Optional[str] = None, **kw) -> Any:
         """
         Get cloud devices by cloud type
 
@@ -31,8 +29,5 @@ class EdgeBuilder:
             "edgeGatewayName": edge_gateway_name,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/devices/edge/{edgeType}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/devices/edge/{edgeType}", params=params, **kw
         )

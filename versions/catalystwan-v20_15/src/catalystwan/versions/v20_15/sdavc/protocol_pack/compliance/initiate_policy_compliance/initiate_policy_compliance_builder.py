@@ -19,7 +19,5 @@ class InitiatePolicyComplianceBuilder:
         :returns: None
         """
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/sdavc/protocol-pack/compliance/initiate-policy-compliance",
-            **kw,
+            "POST", "/dataservice/sdavc/protocol-pack/compliance/initiate-policy-compliance", **kw
         )

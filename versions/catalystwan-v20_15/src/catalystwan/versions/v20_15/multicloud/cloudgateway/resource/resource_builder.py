@@ -16,9 +16,7 @@ class ResourceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cgw_org_resources(
-        self, cloud_gateway_name: str, **kw
-    ) -> List[CgwResourceResponse]:
+    def get_cgw_org_resources(self, cloud_gateway_name: str, **kw) -> List[CgwResourceResponse]:
         """
         Discover Resource of CGW
 

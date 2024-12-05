@@ -22,6 +22,4 @@ class GetClientIdBuilder:
         :returns: List[Any]
         """
         logging.warning("Operation: %s is deprecated", "getClientID")
-        return self._request_adapter.request(
-            "GET", "/dataservice/opentaccase/getClientID", return_type=List[Any], **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/opentaccase/getClientID", return_type=List[Any], **kw)

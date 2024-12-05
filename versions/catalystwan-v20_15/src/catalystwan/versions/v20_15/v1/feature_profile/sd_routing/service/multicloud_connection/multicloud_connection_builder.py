@@ -41,9 +41,7 @@ class MulticloudConnectionBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, service_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, service_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Associate a MultiCloudConnection Parcel for service feature profile
 
@@ -72,9 +70,7 @@ class MulticloudConnectionBuilder:
 
         return create_multi_cloud_connection_(self._request_adapter)
 
-    def get_multi_cloud_connection(
-        self, service_id: str, multi_cloud_connection_id: str, **kw
-    ) -> str:
+    def get_multi_cloud_connection(self, service_id: str, multi_cloud_connection_id: str, **kw) -> str:
         """
         Get a multicloud connection parcel
 
@@ -101,11 +97,7 @@ class MulticloudConnectionBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                service_id: str,
-                multi_cloud_connection_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, service_id: str, multi_cloud_connection_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Update a multicloud connection parcel
@@ -137,9 +129,7 @@ class MulticloudConnectionBuilder:
 
         return edit_multi_cloud_connection_(self._request_adapter)
 
-    def delete_multi_cloud_connection_parcel_for_service(
-        self, service_id: str, multi_cloud_connection_id: str, **kw
-    ):
+    def delete_multi_cloud_connection_parcel_for_service(self, service_id: str, multi_cloud_connection_id: str, **kw):
         """
         Delete a MultiCloud Connection Profile Parcel for Service feature profile
 

@@ -27,9 +27,7 @@ class ProtocolPackBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/sdavc/protocol-pack", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/sdavc/protocol-pack", **kw)
 
     @property
     def bases_(self) -> BasesBuilder:

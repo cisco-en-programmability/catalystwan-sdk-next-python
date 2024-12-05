@@ -21,9 +21,5 @@ class PausereplicationBuilder:
 
         :returns: Any
         """
-        logging.warning(
-            "Operation: %s is deprecated", "disasterRecoveryPauseReplication"
-        )
-        return self._request_adapter.request(
-            "POST", "/dataservice/disasterrecovery/pausereplication", **kw
-        )
+        logging.warning("Operation: %s is deprecated", "disasterRecoveryPauseReplication")
+        return self._request_adapter.request("POST", "/dataservice/disasterrecovery/pausereplication", **kw)

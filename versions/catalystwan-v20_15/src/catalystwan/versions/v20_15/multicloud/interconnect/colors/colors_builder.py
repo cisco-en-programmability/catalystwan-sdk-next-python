@@ -14,9 +14,7 @@ class ColorsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_colors(
-        self, tunnel_type: TunnelTypeParam, **kw
-    ) -> InlineResponse2002:
+    def get_interconnect_colors(self, tunnel_type: TunnelTypeParam, **kw) -> InlineResponse2002:
         """
         API to retrieve supported Colors for Interconnect tunnel type.
 

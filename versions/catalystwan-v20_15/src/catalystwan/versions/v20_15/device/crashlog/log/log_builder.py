@@ -25,9 +25,5 @@ class LogBuilder:
             "filename": filename,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/crashlog/log",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/crashlog/log", return_type=str, params=params, **kw
         )

@@ -21,8 +21,5 @@ class VmanageBuilder:
         :returns: DeviceVmanageResponse
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/vmanage",
-            return_type=DeviceVmanageResponse,
-            **kw,
+            "GET", "/dataservice/device/vmanage", return_type=DeviceVmanageResponse, **kw
         )

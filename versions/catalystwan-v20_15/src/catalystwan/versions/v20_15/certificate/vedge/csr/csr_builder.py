@@ -23,9 +23,5 @@ class CsrBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/certificate/vedge/csr",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/certificate/vedge/csr", return_type=str, params=params, **kw
         )

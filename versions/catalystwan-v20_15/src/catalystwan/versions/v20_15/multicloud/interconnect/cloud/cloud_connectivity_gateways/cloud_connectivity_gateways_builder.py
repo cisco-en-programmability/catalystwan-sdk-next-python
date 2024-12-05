@@ -73,10 +73,7 @@ class CloudConnectivityGatewaysBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                cloud_type: CloudTypeParam,
-                payload: Optional[CloudConnectivityGateway] = None,
-                **kw,
+                self, cloud_type: CloudTypeParam, payload: Optional[CloudConnectivityGateway] = None, **kw
             ) -> Any:
                 """
                 API to create a Cloud Connectivity Gateway such as Direct Connect Gateway, Express Route Circuit or Google Cloud routers.
@@ -106,10 +103,7 @@ class CloudConnectivityGatewaysBuilder:
         return add_cloud_connectivity_gateway_(self._request_adapter)
 
     def delete_cloud_connectivity_gateways(
-        self,
-        cloud_type: CloudTypeParam,
-        connectivity_gateway_type: Optional[ConnectivityGatewayTypeParam] = None,
-        **kw,
+        self, cloud_type: CloudTypeParam, connectivity_gateway_type: Optional[ConnectivityGatewayTypeParam] = None, **kw
     ) -> Any:
         """
         API to delete Cloud Connectivity Gateways by type.

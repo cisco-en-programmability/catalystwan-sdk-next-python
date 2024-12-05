@@ -15,11 +15,7 @@ class SupportedApplicationsBuilder:
         self._request_adapter = request_adapter
 
     def create_dpi_statistics(
-        self,
-        device_id: str,
-        application: Optional[str] = None,
-        family: Optional[str] = None,
-        **kw,
+        self, device_id: str, application: Optional[str] = None, family: Optional[str] = None, **kw
     ) -> List[Any]:
         """
         Get supported applications from device (Real Time)
@@ -35,9 +31,5 @@ class SupportedApplicationsBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/dpi/supported-applications",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/dpi/supported-applications", return_type=List[Any], params=params, **kw
         )

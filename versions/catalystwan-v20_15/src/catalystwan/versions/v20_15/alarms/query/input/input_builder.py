@@ -21,8 +21,5 @@ class InputBuilder:
         :returns: AlarmQueryInputResponse
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/alarms/query/input",
-            return_type=AlarmQueryInputResponse,
-            **kw,
+            "GET", "/dataservice/alarms/query/input", return_type=AlarmQueryInputResponse, **kw
         )

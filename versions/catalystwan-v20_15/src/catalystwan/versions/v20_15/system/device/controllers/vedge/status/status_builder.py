@@ -21,8 +21,5 @@ class StatusBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/system/device/controllers/vedge/status",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/system/device/controllers/vedge/status", return_type=List[Any], **kw
         )

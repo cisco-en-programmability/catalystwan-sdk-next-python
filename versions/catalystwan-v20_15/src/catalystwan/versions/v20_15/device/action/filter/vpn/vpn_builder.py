@@ -31,9 +31,5 @@ class VpnBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/action/filter/vpn",
-            return_type=CreateFilterVpnList,
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/action/filter/vpn", return_type=CreateFilterVpnList, params=params, **kw
         )

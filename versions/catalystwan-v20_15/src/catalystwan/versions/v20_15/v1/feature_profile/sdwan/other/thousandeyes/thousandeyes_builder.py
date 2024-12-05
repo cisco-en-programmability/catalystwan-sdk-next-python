@@ -41,9 +41,7 @@ class ThousandeyesBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, other_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, other_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Thousandeyes Profile Parcel for Other feature profile
 
@@ -72,9 +70,7 @@ class ThousandeyesBuilder:
 
         return create_thousandeyes_profile_parcel_for_other_(self._request_adapter)
 
-    def get_thousandeyes_profile_parcel_by_parcel_id_for_other(
-        self, other_id: str, thousandeyes_id: str, **kw
-    ) -> str:
+    def get_thousandeyes_profile_parcel_by_parcel_id_for_other(self, other_id: str, thousandeyes_id: str, **kw) -> str:
         """
         Get Thousandeyes Profile Parcel by parcelId for Other feature profile
 
@@ -100,13 +96,7 @@ class ThousandeyesBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                other_id: str,
-                thousandeyes_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, other_id: str, thousandeyes_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Thousandeyes Profile Parcel for Other feature profile
 
@@ -137,9 +127,7 @@ class ThousandeyesBuilder:
 
         return edit_thousandeyes_profile_parcel_for_other_(self._request_adapter)
 
-    def delete_thousandeyes_profile_parcel_for_other(
-        self, other_id: str, thousandeyes_id: str, **kw
-    ):
+    def delete_thousandeyes_profile_parcel_for_other(self, other_id: str, thousandeyes_id: str, **kw):
         """
         Delete a Thousandeyes Profile Parcel for Other feature profile
 

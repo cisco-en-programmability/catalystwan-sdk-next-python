@@ -25,11 +25,7 @@ class UcseBuilder:
             "otherId": other_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/other/{otherId}/ucse",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/other/{otherId}/ucse", return_type=str, params=params, **kw
         )
 
     @property
@@ -38,9 +34,7 @@ class UcseBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, other_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, other_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Ucse Profile feature for Other feature profile
 
@@ -69,9 +63,7 @@ class UcseBuilder:
 
         return create_ucse_profile_feature_for_other_(self._request_adapter)
 
-    def get_ucse_profile_feature_by_id_f_feature_for_other(
-        self, other_id: str, ucse_id: str, **kw
-    ) -> str:
+    def get_ucse_profile_feature_by_id_f_feature_for_other(self, other_id: str, ucse_id: str, **kw) -> str:
         """
         Get Ucse Profile feature by FeatureId for Other feature profile
 
@@ -97,9 +89,7 @@ class UcseBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, other_id: str, ucse_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, other_id: str, ucse_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Ucse Profile feature for Other feature profile
 
@@ -143,8 +133,5 @@ class UcseBuilder:
             "ucseId": ucse_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/sdwan/other/{otherId}/ucse/{ucseId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/sdwan/other/{otherId}/ucse/{ucseId}", params=params, **kw
         )

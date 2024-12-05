@@ -54,9 +54,7 @@ class DeviceLinksBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[InterconnectDeviceLink] = None, **kw
-            ) -> ProcessResponse:
+            def __call__(self, payload: Optional[InterconnectDeviceLink] = None, **kw) -> ProcessResponse:
                 """
                 API to create a Device-Link in vManage.
 
@@ -80,9 +78,7 @@ class DeviceLinksBuilder:
 
         return add_interconnect_device_link_(self._request_adapter)
 
-    def get_interconnect_device_link(
-        self, device_link_name: str, **kw
-    ) -> InterconnectDeviceLink:
+    def get_interconnect_device_link(self, device_link_name: str, **kw) -> InterconnectDeviceLink:
         """
         API to retrieve Interconnect provider Device-Link.
 
@@ -107,10 +103,7 @@ class DeviceLinksBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                device_link_name: str,
-                payload: Optional[InterconnectDeviceLink] = None,
-                **kw,
+                self, device_link_name: str, payload: Optional[InterconnectDeviceLink] = None, **kw
             ) -> ProcessResponse:
                 """
                 API to update a Device-Link in vManage.

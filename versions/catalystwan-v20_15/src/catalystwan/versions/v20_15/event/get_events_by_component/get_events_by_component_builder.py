@@ -25,9 +25,5 @@ class GetEventsByComponentBuilder:
             "query": query,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/event/getEventsByComponent",
-            return_type=ComponentEventMapping,
-            params=params,
-            **kw,
+            "GET", "/dataservice/event/getEventsByComponent", return_type=ComponentEventMapping, params=params, **kw
         )

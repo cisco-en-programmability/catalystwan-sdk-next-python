@@ -18,6 +18,4 @@ class ApproveBuilder:
 
         :returns: bool
         """
-        return self._request_adapter.request(
-            "PUT", "/dataservice/ise/pxgrid/approve", return_type=bool, **kw
-        )
+        return self._request_adapter.request("PUT", "/dataservice/ise/pxgrid/approve", return_type=bool, **kw)

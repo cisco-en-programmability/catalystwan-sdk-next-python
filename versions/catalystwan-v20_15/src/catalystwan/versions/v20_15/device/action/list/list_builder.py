@@ -23,8 +23,5 @@ class ListBuilder:
         :returns: List[GenerateDeviceActionListInner]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/action/list",
-            return_type=List[GenerateDeviceActionListInner],
-            **kw,
+            "GET", "/dataservice/device/action/list", return_type=List[GenerateDeviceActionListInner], **kw
         )

@@ -25,8 +25,5 @@ class AppqoeSppiPipeResourceBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/appqoe/appqoe-sppi-pipe-resource",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/appqoe/appqoe-sppi-pipe-resource", params=params, **kw
         )

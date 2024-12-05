@@ -34,6 +34,4 @@ class PeerStatsBuilder:
             "appqoe-dre-stats-peer-peer-no": appqoe_dre_stats_peer_peer_no,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/dre/peer-stats", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/dre/peer-stats", params=params, **kw)

@@ -19,9 +19,7 @@ class TagsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_mapping_tags(
-        self, cloud_type: Optional[CloudTypeParam] = None, **kw
-    ) -> TagsResponse:
+    def get_mapping_tags(self, cloud_type: Optional[CloudTypeParam] = None, **kw) -> TagsResponse:
         """
         Get cloud gateway types for specified cloudType
 
@@ -32,11 +30,7 @@ class TagsBuilder:
             "cloudType": cloud_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/map/tags",
-            return_type=TagsResponse,
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/map/tags", return_type=TagsResponse, params=params, **kw
         )
 
     @property

@@ -22,9 +22,7 @@ class ServerBuilder:
 
         :returns: EnrollOtpResponse
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/cdna/server", return_type=EnrollOtpResponse, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/cdna/server", return_type=EnrollOtpResponse, **kw)
 
     @property
     def enroll_cdna_server(self):
@@ -40,11 +38,7 @@ class ServerBuilder:
                 :returns: EnrollOtpResponse
                 """
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/cdna/server",
-                    return_type=EnrollOtpResponse,
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/cdna/server", return_type=EnrollOtpResponse, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> EnrollOtpSettings:

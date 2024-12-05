@@ -19,8 +19,5 @@ class MaintenanceWindowBuilder:
         :returns: str
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/settings/configuration/maintenanceWindow",
-            return_type=str,
-            **kw,
+            "GET", "/dataservice/settings/configuration/maintenanceWindow", return_type=str, **kw
         )

@@ -21,8 +21,5 @@ class ServerBuilder:
         :returns: ClientServerInfoResponse
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/client/server",
-            return_type=ClientServerInfoResponse,
-            **kw,
+            "GET", "/dataservice/client/server", return_type=ClientServerInfoResponse, **kw
         )

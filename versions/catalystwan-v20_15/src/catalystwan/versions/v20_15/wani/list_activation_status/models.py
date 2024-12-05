@@ -6,9 +6,7 @@ from typing import Optional
 
 @dataclass
 class ActivationStatusRes:
-    centralized_policy_active: bool = _field(
-        metadata={"alias": "centralizedPolicyActive"}
-    )
+    centralized_policy_active: bool = _field(metadata={"alias": "centralizedPolicyActive"})
     is_activated_by_v_smarts: bool = _field(metadata={"alias": "isActivatedByVSmarts"})
     activated_centralized_policy_id: Optional[str] = _field(
         default=None, metadata={"alias": "activatedCentralizedPolicyId"}
@@ -16,6 +14,4 @@ class ActivationStatusRes:
     referred_in_active_wani_policy: Optional[bool] = _field(
         default=None, metadata={"alias": "referredInActiveWaniPolicy"}
     )
-    user_defined_policy_id: Optional[str] = _field(
-        default=None, metadata={"alias": "userDefinedPolicyId"}
-    )
+    user_defined_policy_id: Optional[str] = _field(default=None, metadata={"alias": "userDefinedPolicyId"})

@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -55,56 +55,37 @@ class EventBuilder:
             "sortOrder": sort_order,
             "site-id": site_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/event", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/event", params=params, **kw)
 
-    @property
-    def post_events(self):
-        class post_events_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def post_events(
+        self,
+        payload: Optional[Any] = None,
+        page: Optional[int] = None,
+        page_size: Optional[int] = None,
+        sort_by: Optional[str] = None,
+        sort_order: Optional[str] = None,
+        site_id: Optional[str] = None,
+        **kw,
+    ) -> Any:
+        """
+        Get events for given query.
 
-            def __call__(
-                self,
-                payload: Optional[Any] = None,
-                page: Optional[int] = None,
-                page_size: Optional[int] = None,
-                sort_by: Optional[str] = None,
-                sort_order: Optional[str] = None,
-                site_id: Optional[str] = None,
-                **kw,
-            ) -> Any:
-                """
-                Get events for given query.
-
-                :param page: Specify page number. Value should be a positive integer
-                :param page_size: Specify page size. Value should be a positive integer
-                :param sort_by: Specify a field by which alarms need to be sorted
-                :param sort_order: Select sorting order. Use ASC for ascending and DESC for descending
-                :param site_id: Specify the site-id to filter the events
-                :param payload: Event query string
-                :returns: Any
-                """
-                params = {
-                    "page": page,
-                    "pageSize": page_size,
-                    "sortBy": sort_by,
-                    "sortOrder": sort_order,
-                    "site-id": site_id,
-                }
-                return self._request_adapter.request(
-                    "POST", "/dataservice/event", params=params, payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return post_events_(self._request_adapter)
+        :param page: Specify page number. Value should be a positive integer
+        :param page_size: Specify page size. Value should be a positive integer
+        :param sort_by: Specify a field by which alarms need to be sorted
+        :param sort_order: Select sorting order. Use ASC for ascending and DESC for descending
+        :param site_id: Specify the site-id to filter the events
+        :param payload: Event query string
+        :returns: Any
+        """
+        params = {
+            "page": page,
+            "pageSize": page_size,
+            "sortBy": sort_by,
+            "sortOrder": sort_order,
+            "site-id": site_id,
+        }
+        return self._request_adapter.request("POST", "/dataservice/event", params=params, payload=payload, **kw)
 
     @property
     def aggregation(self) -> AggregationBuilder:

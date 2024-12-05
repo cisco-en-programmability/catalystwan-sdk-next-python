@@ -16,10 +16,7 @@ class LicenseBuilder:
         self._request_adapter = request_adapter
 
     def get_subscriptions(
-        self,
-        virtual_account_id: Optional[str] = None,
-        license_type: Optional[str] = None,
-        **kw,
+        self, virtual_account_id: Optional[str] = None, license_type: Optional[str] = None, **kw
     ) -> Any:
         """
         Retrieve MSLA subscription/licenses
@@ -33,6 +30,4 @@ class LicenseBuilder:
             "virtual_account_id": virtual_account_id,
             "licenseType": license_type,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/msla/va/License", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/msla/va/License", params=params, **kw)

@@ -16,9 +16,7 @@ class MapBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_partner_devices(
-        self, partner_type: str, nms_id: str, **kw
-    ) -> PartnerDevicesRes:
+    def get_partner_devices(self, partner_type: str, nms_id: str, **kw) -> PartnerDevicesRes:
         """
         List mapped devices for the partner
 
@@ -31,11 +29,7 @@ class MapBuilder:
             "nmsId": nms_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/partner/{partnerType}/map/{nmsId}",
-            return_type=PartnerDevicesRes,
-            params=params,
-            **kw,
+            "GET", "/dataservice/partner/{partnerType}/map/{nmsId}", return_type=PartnerDevicesRes, params=params, **kw
         )
 
     @property
@@ -44,9 +38,7 @@ class MapBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, partner_type: str, nms_id: str, payload: MapDevicesRequest, **kw
-            ) -> StatusResponse:
+            def __call__(self, partner_type: str, nms_id: str, payload: MapDevicesRequest, **kw) -> StatusResponse:
                 """
                 Map devices for the partner
 
@@ -90,9 +82,5 @@ class MapBuilder:
             "nmsId": nms_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/partner/{partnerType}/map/{nmsId}",
-            return_type=StatusResponse,
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/partner/{partnerType}/map/{nmsId}", return_type=StatusResponse, params=params, **kw
         )

@@ -14,9 +14,7 @@ class OspfBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_lan_vpn_associated_routing_ospf_parcels_for_service(
-        self, service_id: str, vpn_id: str, **kw
-    ) -> str:
+    def get_lan_vpn_associated_routing_ospf_parcels_for_service(self, service_id: str, vpn_id: str, **kw) -> str:
         """
         Get LanVpn associated Routing Ospf Parcels for service feature profile
 
@@ -42,9 +40,7 @@ class OspfBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Associate a lanvpn parcel with a routingospf Parcel for service feature profile
 
@@ -73,9 +69,7 @@ class OspfBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return create_lan_vpn_and_routing_ospf_parcel_association_for_service_(
-            self._request_adapter
-        )
+        return create_lan_vpn_and_routing_ospf_parcel_association_for_service_(self._request_adapter)
 
     def get_lan_vpn_associated_routing_ospf_parcel_by_parcel_id_for_service(
         self, service_id: str, vpn_id: str, ospf_id: str, **kw
@@ -107,14 +101,7 @@ class OspfBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                service_id: str,
-                vpn_id: str,
-                ospf_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, service_id: str, vpn_id: str, ospf_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a LanVpn parcel and a RoutingOspf Parcel association for service feature profile
 
@@ -145,13 +132,9 @@ class OspfBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return edit_lan_vpn_and_routing_ospf_parcel_association_for_service_(
-            self._request_adapter
-        )
+        return edit_lan_vpn_and_routing_ospf_parcel_association_for_service_(self._request_adapter)
 
-    def delete_lan_vpn_and_routing_ospf_association_for_service(
-        self, service_id: str, vpn_id: str, ospf_id: str, **kw
-    ):
+    def delete_lan_vpn_and_routing_ospf_association_for_service(self, service_id: str, vpn_id: str, ospf_id: str, **kw):
         """
         Delete a LanVpn parcel and a RoutingOspf Parcel association for service feature profile
 

@@ -14,15 +14,9 @@ class PxGridInfo:
     px_grid_server_ip: str = _field(metadata={"alias": "pxGridServerIp"})
     px_grid_user_name: str = _field(metadata={"alias": "pxGridUserName"})
     status: str
-    access_secret: Optional[str] = _field(
-        default=None, metadata={"alias": "AccessSecret"}
-    )
+    access_secret: Optional[str] = _field(default=None, metadata={"alias": "AccessSecret"})
     description: Optional[str] = _field(default=None)
     device_type: Optional[str] = _field(default=None, metadata={"alias": "deviceType"})
     node_name: Optional[str] = _field(default=None, metadata={"alias": "nodeName"})
-    px_grid_host_name: Optional[str] = _field(
-        default=None, metadata={"alias": "pxGridHostName"}
-    )
-    rest_base_url: Optional[str] = _field(
-        default=None, metadata={"alias": "restBaseURL"}
-    )
+    px_grid_host_name: Optional[str] = _field(default=None, metadata={"alias": "pxGridHostName"})
+    rest_base_url: Optional[str] = _field(default=None, metadata={"alias": "restBaseURL"})

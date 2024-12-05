@@ -16,14 +16,10 @@ class InterconnectPartnerPortsDetails:
     Megaport specific partner port fields.
     """
 
-    authorization_key: Optional[str] = _field(
-        default=None, metadata={"alias": "authorizationKey"}
-    )
+    authorization_key: Optional[str] = _field(default=None, metadata={"alias": "authorizationKey"})
     # Megaport companyId for the region.
     company_uid: Optional[str] = _field(default=None, metadata={"alias": "companyUid"})
-    connect_type: Optional[ConnectType] = _field(
-        default=None, metadata={"alias": "connectType"}
-    )
+    connect_type: Optional[ConnectType] = _field(default=None, metadata={"alias": "connectType"})
     # Megaport id for the region.
     product_uid: Optional[str] = _field(default=None, metadata={"alias": "productUid"})
     # Bandwidth speeds supported at the region.
@@ -31,9 +27,7 @@ class InterconnectPartnerPortsDetails:
     # Cross connect (VXC) id connected to the region
     vxc_id: Optional[str] = _field(default=None, metadata={"alias": "vxcId"})
     # Cross Connect enabled Megaport region.
-    vxc_permitted: Optional[bool] = _field(
-        default=None, metadata={"alias": "vxcPermitted"}
-    )
+    vxc_permitted: Optional[bool] = _field(default=None, metadata={"alias": "vxcPermitted"})
 
 
 @dataclass
@@ -46,9 +40,7 @@ class InterconnectPartnerPorts:
     att_partner_port: Optional[InterconnectPartnerPortsDetails] = _field(
         default=None, metadata={"alias": "attPartnerPort"}
     )
-    cloud_type: Optional[CloudType] = _field(
-        default=None, metadata={"alias": "cloudType"}
-    )
+    cloud_type: Optional[CloudType] = _field(default=None, metadata={"alias": "cloudType"})
     edge_type: Optional[EdgeType] = _field(default=None, metadata={"alias": "edgeType"})
     # Megaport specific partner port fields.
     eq_partner_port: Optional[InterconnectPartnerPortsDetails] = _field(

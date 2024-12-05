@@ -21,6 +21,4 @@ class ForceBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "POST", "/dataservice/tenantstatus/force", **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/tenantstatus/force", **kw)

@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional, Type
+from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -25,77 +25,35 @@ class AttachDevicesBuilder:
             "nmsId": nms_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/mdp/attachDevices/{nmsId}",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/mdp/attachDevices/{nmsId}", return_type=List[Any], params=params, **kw
         )
 
-    @property
-    def edit_attached_devices(self):
-        class edit_attached_devices_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_attached_devices(self, nms_id: str, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Edit attached devices
 
-            def __call__(self, nms_id: str, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Edit attached devices
+        :param nms_id: Nms id
+        :param payload: deviceList
+        :returns: Any
+        """
+        params = {
+            "nmsId": nms_id,
+        }
+        return self._request_adapter.request(
+            "PUT", "/dataservice/mdp/attachDevices/{nmsId}", params=params, payload=payload, **kw
+        )
 
-                :param nms_id: Nms id
-                :param payload: deviceList
-                :returns: Any
-                """
-                params = {
-                    "nmsId": nms_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/mdp/attachDevices/{nmsId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
+    def attach_devices(self, nms_id: str, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Share devices with MDP
 
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_attached_devices_(self._request_adapter)
-
-    @property
-    def attach_devices(self):
-        class attach_devices_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, nms_id: str, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Share devices with MDP
-
-                :param nms_id: Nms id
-                :param payload: deviceList
-                :returns: Any
-                """
-                params = {
-                    "nmsId": nms_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/mdp/attachDevices/{nmsId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return attach_devices_(self._request_adapter)
+        :param nms_id: Nms id
+        :param payload: deviceList
+        :returns: Any
+        """
+        params = {
+            "nmsId": nms_id,
+        }
+        return self._request_adapter.request(
+            "POST", "/dataservice/mdp/attachDevices/{nmsId}", params=params, payload=payload, **kw
+        )

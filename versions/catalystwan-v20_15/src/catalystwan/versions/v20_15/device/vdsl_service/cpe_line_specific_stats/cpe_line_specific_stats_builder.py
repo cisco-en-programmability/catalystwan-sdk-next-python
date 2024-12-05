@@ -25,8 +25,5 @@ class CpeLineSpecificStatsBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/vdslService/cpeLineSpecificStats",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/vdslService/cpeLineSpecificStats", params=params, **kw
         )

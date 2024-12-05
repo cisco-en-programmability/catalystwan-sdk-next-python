@@ -23,10 +23,7 @@ class DeployBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                topology_group_id: str,
-                payload: Optional[DeployTopologyGroupPostRequest] = None,
-                **kw,
+                self, topology_group_id: str, payload: Optional[DeployTopologyGroupPostRequest] = None, **kw
             ) -> str:
                 """
                 deploy Topology group to devices

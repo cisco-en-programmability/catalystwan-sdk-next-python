@@ -17,12 +17,7 @@ class OverviewBuilder:
         self._request_adapter = request_adapter
 
     def statistics_approute_tunnelhealth_overview_type_get(
-        self,
-        type_: str,
-        last_n_hours: Optional[int] = 12,
-        site: Optional[str] = None,
-        limit: Optional[int] = 30,
-        **kw,
+        self, type_: str, last_n_hours: Optional[int] = 12, site: Optional[str] = None, limit: Optional[int] = 30, **kw
     ) -> TunnelHealthOverview:
         """
         Get all tunnel health overview

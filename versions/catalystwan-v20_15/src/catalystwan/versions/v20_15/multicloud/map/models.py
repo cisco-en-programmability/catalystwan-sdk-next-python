@@ -26,18 +26,14 @@ class Taskid:
 
 @dataclass
 class PostMapRequestMapped:
-    cgw_attachment: Optional[str] = _field(
-        default=None, metadata={"alias": "cgwAttachment"}
-    )
+    cgw_attachment: Optional[str] = _field(default=None, metadata={"alias": "cgwAttachment"})
     cloud_type: Optional[str] = _field(default=None, metadata={"alias": "cloudType"})
     dest_id: Optional[str] = _field(default=None, metadata={"alias": "destId"})
     dest_region: Optional[str] = _field(default=None, metadata={"alias": "destRegion"})
     dest_tag: Optional[str] = _field(default=None, metadata={"alias": "destTag"})
     dest_type: Optional[str] = _field(default=None, metadata={"alias": "destType"})
     region: Optional[str] = _field(default=None)
-    source_region: Optional[str] = _field(
-        default=None, metadata={"alias": "sourceRegion"}
-    )
+    source_region: Optional[str] = _field(default=None, metadata={"alias": "sourceRegion"})
     source_tag: Optional[str] = _field(default=None, metadata={"alias": "sourceTag"})
     src_id: Optional[str] = _field(default=None, metadata={"alias": "srcId"})
     src_type: Optional[str] = _field(default=None, metadata={"alias": "srcType"})
@@ -61,6 +57,4 @@ class PostMapRequestConnMatrix:
 @dataclass
 class PostMapRequest:
     cloud_type: str = _field(metadata={"alias": "cloudType"})
-    conn_matrix: Optional[List[PostMapRequestConnMatrix]] = _field(
-        default=None, metadata={"alias": "connMatrix"}
-    )
+    conn_matrix: Optional[List[PostMapRequestConnMatrix]] = _field(default=None, metadata={"alias": "connMatrix"})

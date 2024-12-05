@@ -30,10 +30,7 @@ class NoncompliantBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/sdavc/protocol-pack/compliance/device/noncompliant",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/sdavc/protocol-pack/compliance/device/noncompliant", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> CompliantDeviceRequest:
@@ -45,9 +42,7 @@ class NoncompliantBuilder:
 
         return get_non_compliant_devices_for_protocol_pack_1_(self._request_adapter)
 
-    def get_non_compliant_devices_for_protocol_pack(
-        self, protocol_pack_name: str, **kw
-    ):
+    def get_non_compliant_devices_for_protocol_pack(self, protocol_pack_name: str, **kw):
         """
         Get all non compliant devices for given protocol pack
 

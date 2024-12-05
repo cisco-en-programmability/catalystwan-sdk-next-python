@@ -23,10 +23,7 @@ class ImportTraceBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                payload: Optional[ImportTraceRequest] = None,
-                new_trace_name: Optional[str] = None,
-                **kw,
+                self, payload: Optional[ImportTraceRequest] = None, new_trace_name: Optional[str] = None, **kw
             ) -> ImportTraceResponse:
                 """
                 Import Trace

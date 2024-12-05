@@ -17,11 +17,7 @@ class HistoryBuilder:
         self._request_adapter = request_adapter
 
     def create_bfd_history_list(
-        self,
-        device_id: str,
-        system_ip: Optional[str] = None,
-        color: Optional[ColorParam] = None,
-        **kw,
+        self, device_id: str, system_ip: Optional[str] = None, color: Optional[ColorParam] = None, **kw
     ) -> List[Any]:
         """
         Get BFD session history from device (Real Time)
@@ -37,9 +33,5 @@ class HistoryBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/bfd/history",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/bfd/history", return_type=List[Any], params=params, **kw
         )

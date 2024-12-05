@@ -22,9 +22,7 @@ class SupportedlistBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[List[str]] = None, **kw
-            ) -> SupportedResponse:
+            def __call__(self, payload: Optional[List[str]] = None, **kw) -> SupportedResponse:
                 """
                 Manual Onboard Supported Device features
 
@@ -32,11 +30,7 @@ class SupportedlistBuilder:
                 :returns: SupportedResponse
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/onboard/supportedlist",
-                    return_type=SupportedResponse,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/onboard/supportedlist", return_type=SupportedResponse, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> List[str]:

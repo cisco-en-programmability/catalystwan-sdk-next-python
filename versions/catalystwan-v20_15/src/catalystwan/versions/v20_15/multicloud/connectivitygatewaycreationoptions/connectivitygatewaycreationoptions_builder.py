@@ -32,9 +32,7 @@ class ConnectivitygatewaycreationoptionsBuilder:
         :param refresh: Refresh
         :returns: Any
         """
-        logging.warning(
-            "Operation: %s is deprecated", "getConnectivityGatewayCreationOptions"
-        )
+        logging.warning("Operation: %s is deprecated", "getConnectivityGatewayCreationOptions")
         params = {
             "accountId": account_id,
             "cloudType": cloud_type,
@@ -42,8 +40,5 @@ class ConnectivitygatewaycreationoptionsBuilder:
             "refresh": refresh,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/connectivitygatewaycreationoptions",
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/connectivitygatewaycreationoptions", params=params, **kw
         )

@@ -65,9 +65,7 @@ class DhcpServerBuilder:
         )
 
     @property
-    def edit_lan_vpn_interface_ethernet_and_dhcp_server_parcel_association_for_transport(
-        self,
-    ):
+    def edit_lan_vpn_interface_ethernet_and_dhcp_server_parcel_association_for_transport(self):
         class edit_lan_vpn_interface_ethernet_and_dhcp_server_parcel_association_for_transport_:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
@@ -113,9 +111,7 @@ class DhcpServerBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return edit_lan_vpn_interface_ethernet_and_dhcp_server_parcel_association_for_transport_(
-            self._request_adapter
-        )
+        return edit_lan_vpn_interface_ethernet_and_dhcp_server_parcel_association_for_transport_(self._request_adapter)
 
     def delete_lan_vpn_interface_ethernet_and_dhcp_server_association_for_transport(
         self, service_id: str, vpn_id: str, ethernet_id: str, dhcp_server_id: str, **kw
@@ -143,20 +139,13 @@ class DhcpServerBuilder:
         )
 
     @property
-    def create_lan_vpn_interface_ethernet_and_dhcp_server_parcel_association_for_transport(
-        self,
-    ):
+    def create_lan_vpn_interface_ethernet_and_dhcp_server_parcel_association_for_transport(self):
         class create_lan_vpn_interface_ethernet_and_dhcp_server_parcel_association_for_transport_:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                service_id: str,
-                vpn_parcel_id: str,
-                ethernet_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, service_id: str, vpn_parcel_id: str, ethernet_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Associate a LanVpnInterfaceEthernet parcel with a DhcpServer Parcel for service feature profile

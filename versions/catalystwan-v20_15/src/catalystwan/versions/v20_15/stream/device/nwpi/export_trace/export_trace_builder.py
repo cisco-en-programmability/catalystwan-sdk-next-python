@@ -26,6 +26,4 @@ class ExportTraceBuilder:
             "traceId": trace_id,
             "timestamp": timestamp,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/stream/device/nwpi/exportTrace", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/stream/device/nwpi/exportTrace", params=params, **kw)

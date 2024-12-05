@@ -41,9 +41,7 @@ class BgpBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, service_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, service_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Routing Bgp Profile Parcel for Service feature profile
 
@@ -72,9 +70,7 @@ class BgpBuilder:
 
         return create_routing_bgp_profile_parcel_for_service_(self._request_adapter)
 
-    def get_routing_bgp_profile_parcel_by_parcel_id_for_service(
-        self, service_id: str, bgp_id: str, **kw
-    ) -> str:
+    def get_routing_bgp_profile_parcel_by_parcel_id_for_service(self, service_id: str, bgp_id: str, **kw) -> str:
         """
         Get Routing Bgp Profile Parcel by parcelId for Service feature profile
 
@@ -100,9 +96,7 @@ class BgpBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, service_id: str, bgp_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, service_id: str, bgp_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Routing Bgp Profile Parcel for Service feature profile
 
@@ -133,9 +127,7 @@ class BgpBuilder:
 
         return edit_routing_bgp_profile_parcel_for_service_(self._request_adapter)
 
-    def delete_routing_bgp_profile_parcel_for_service(
-        self, service_id: str, bgp_id: str, **kw
-    ):
+    def delete_routing_bgp_profile_parcel_for_service(self, service_id: str, bgp_id: str, **kw):
         """
         Delete a Routing Bgp Profile Parcel for Service feature profile
 

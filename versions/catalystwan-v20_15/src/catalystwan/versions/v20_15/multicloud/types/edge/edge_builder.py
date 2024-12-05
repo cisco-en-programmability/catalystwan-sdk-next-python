@@ -22,6 +22,4 @@ class EdgeBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "getEdgeTypes")
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/types/edge", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/multicloud/types/edge", **kw)

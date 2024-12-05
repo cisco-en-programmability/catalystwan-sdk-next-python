@@ -20,6 +20,4 @@ class CertificateBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/sslproxy/settings/certificate", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/sslproxy/settings/certificate", **kw)

@@ -21,8 +21,5 @@ class CorenetworkpolicyBuilder:
         :returns: CoreNetworkPolicyResponse
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/corenetworkpolicy",
-            return_type=CoreNetworkPolicyResponse,
-            **kw,
+            "GET", "/dataservice/multicloud/corenetworkpolicy", return_type=CoreNetworkPolicyResponse, **kw
         )

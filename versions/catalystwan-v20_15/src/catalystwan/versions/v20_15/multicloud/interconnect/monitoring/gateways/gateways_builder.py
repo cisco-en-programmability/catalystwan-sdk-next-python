@@ -16,9 +16,7 @@ class GatewaysBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_monitoring_interconnect_gateways(
-        self, interconnect_type: str, **kw
-    ) -> List[InterconnectGatewayMonitoring]:
+    def get_monitoring_interconnect_gateways(self, interconnect_type: str, **kw) -> List[InterconnectGatewayMonitoring]:
         """
         API to retrieve Interconnect gateways by Interconnect type for monitoring.
 

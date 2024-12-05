@@ -24,6 +24,4 @@ class TokenBuilder:
         params = {
             "deviceCode": device_code,
         }
-        return self._request_adapter.request(
-            "POST", "/dataservice/dashboard/cci/token", params=params, **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/dashboard/cci/token", params=params, **kw)

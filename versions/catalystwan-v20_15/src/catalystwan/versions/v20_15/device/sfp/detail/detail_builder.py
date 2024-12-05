@@ -16,9 +16,7 @@ class DetailBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_detail(
-        self, device_id: str, ifname: Optional[IfnameParam] = None, **kw
-    ) -> Any:
+    def get_detail(self, device_id: str, ifname: Optional[IfnameParam] = None, **kw) -> Any:
         """
         Get SFP detail
 
@@ -30,6 +28,4 @@ class DetailBuilder:
             "ifname": ifname,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/sfp/detail", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/sfp/detail", params=params, **kw)

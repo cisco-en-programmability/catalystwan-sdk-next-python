@@ -41,6 +41,4 @@ class EdgeBuilder:
             "productType": product_type,
             "refresh": refresh,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/license/edge", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/multicloud/license/edge", params=params, **kw)

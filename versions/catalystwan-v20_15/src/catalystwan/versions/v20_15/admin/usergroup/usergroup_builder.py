@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -24,69 +24,31 @@ class UsergroupBuilder:
 
         :returns: List[Any]
         """
+        return self._request_adapter.request("GET", "/dataservice/admin/usergroup", return_type=List[Any], **kw)
+
+    def create_user_group(self, payload: Optional[Any] = None, **kw):
+        """
+        Create user group
+
+        :param payload: User group
+        :returns: None
+        """
+        return self._request_adapter.request("POST", "/dataservice/admin/usergroup", payload=payload, **kw)
+
+    def update_user_group(self, user_group_id: str, payload: Optional[Any] = None, **kw):
+        """
+        Update user group
+
+        :param user_group_id: User group Id
+        :param payload: User group
+        :returns: None
+        """
+        params = {
+            "userGroupId": user_group_id,
+        }
         return self._request_adapter.request(
-            "GET", "/dataservice/admin/usergroup", return_type=List[Any], **kw
+            "PUT", "/dataservice/admin/usergroup/{userGroupId}", params=params, payload=payload, **kw
         )
-
-    @property
-    def create_user_group(self):
-        class create_user_group_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Create user group
-
-                :param payload: User group
-                :returns: None
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/admin/usergroup", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_user_group_(self._request_adapter)
-
-    @property
-    def update_user_group(self):
-        class update_user_group_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, user_group_id: str, payload: Optional[Any] = None, **kw):
-                """
-                Update user group
-
-                :param user_group_id: User group Id
-                :param payload: User group
-                :returns: None
-                """
-                params = {
-                    "userGroupId": user_group_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/admin/usergroup/{userGroupId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return update_user_group_(self._request_adapter)
 
     def delete_user_group(self, user_group_id: str, **kw):
         """

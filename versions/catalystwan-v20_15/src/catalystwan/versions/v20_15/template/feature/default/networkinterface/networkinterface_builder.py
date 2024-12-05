@@ -30,8 +30,5 @@ class NetworkinterfaceBuilder:
             "deviceModel": device_model,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/feature/default/networkinterface",
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/feature/default/networkinterface", params=params, **kw
         )

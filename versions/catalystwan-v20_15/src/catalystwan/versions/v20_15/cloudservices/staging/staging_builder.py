@@ -20,6 +20,4 @@ class StagingBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/cloudservices/staging", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/cloudservices/staging", **kw)

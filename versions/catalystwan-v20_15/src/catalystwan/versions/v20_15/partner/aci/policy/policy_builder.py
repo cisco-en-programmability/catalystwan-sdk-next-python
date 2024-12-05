@@ -26,9 +26,7 @@ class PolicyBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/partner/aci/policy", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/partner/aci/policy", **kw)
 
     @property
     def dscpmapping(self) -> DscpmappingBuilder:

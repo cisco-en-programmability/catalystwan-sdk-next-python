@@ -42,9 +42,7 @@ class GlobalBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[InterconnectGlobalSettings] = None, **kw
-            ):
+            def __call__(self, payload: Optional[InterconnectGlobalSettings] = None, **kw):
                 """
                 API to update global settings for an Interconnect provider.
 
@@ -52,10 +50,7 @@ class GlobalBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/multicloud/interconnect/settings/global",
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/multicloud/interconnect/settings/global", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> InterconnectGlobalSettings:
@@ -73,9 +68,7 @@ class GlobalBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[InterconnectGlobalSettings] = None, **kw
-            ):
+            def __call__(self, payload: Optional[InterconnectGlobalSettings] = None, **kw):
                 """
                 API to add global settings for an Interconnect provider.
 
@@ -83,10 +76,7 @@ class GlobalBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/interconnect/settings/global",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/multicloud/interconnect/settings/global", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> InterconnectGlobalSettings:

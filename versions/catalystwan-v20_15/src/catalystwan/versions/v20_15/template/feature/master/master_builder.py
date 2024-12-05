@@ -28,8 +28,5 @@ class MasterBuilder:
             "type_name": type_name,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/feature/master/{type_name}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/feature/master/{type_name}", params=params, **kw
         )

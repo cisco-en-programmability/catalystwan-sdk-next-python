@@ -24,6 +24,4 @@ class RbacBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/csp/rbac", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/csp/rbac", params=params, **kw)

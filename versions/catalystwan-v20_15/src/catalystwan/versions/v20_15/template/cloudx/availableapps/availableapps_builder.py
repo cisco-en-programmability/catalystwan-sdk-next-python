@@ -21,8 +21,5 @@ class AvailableappsBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/cloudx/availableapps",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/template/cloudx/availableapps", return_type=List[Any], **kw
         )

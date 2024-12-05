@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -34,82 +34,38 @@ class ConfigurationBuilder:
             "type": type_,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/settings/configuration/{type}",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/settings/configuration/{type}", return_type=str, params=params, **kw
         )
 
-    @property
-    def edit_configuration(self):
-        class edit_configuration_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_configuration(self, type_: str, payload: Optional[Any] = None, **kw) -> str:
+        """
+        Update configuration setting
 
-            def __call__(self, type_: str, payload: Optional[Any] = None, **kw) -> str:
-                """
-                Update configuration setting
+        :param type_: Type of the certificate configuration
+        :param payload: Vmanage configuration setting
+        :returns: str
+        """
+        params = {
+            "type": type_,
+        }
+        return self._request_adapter.request(
+            "PUT", "/dataservice/settings/configuration/{type}", return_type=str, params=params, payload=payload, **kw
+        )
 
-                :param type_: Type of the certificate configuration
-                :param payload: Vmanage configuration setting
-                :returns: str
-                """
-                params = {
-                    "type": type_,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/settings/configuration/{type}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
+    def new_configuration(self, type_: str, payload: Optional[Any] = None, **kw) -> str:
+        """
+        Add new certificate configuration
 
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_configuration_(self._request_adapter)
-
-    @property
-    def new_configuration(self):
-        class new_configuration_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, type_: str, payload: Optional[Any] = None, **kw) -> str:
-                """
-                Add new certificate configuration
-
-                :param type_: Type of the certificate configuration
-                :param payload: Vmanage configuration setting
-                :returns: str
-                """
-                params = {
-                    "type": type_,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/settings/configuration/{type}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return new_configuration_(self._request_adapter)
+        :param type_: Type of the certificate configuration
+        :param payload: Vmanage configuration setting
+        :returns: str
+        """
+        params = {
+            "type": type_,
+        }
+        return self._request_adapter.request(
+            "POST", "/dataservice/settings/configuration/{type}", return_type=str, params=params, payload=payload, **kw
+        )
 
     @property
     def analytics(self) -> AnalyticsBuilder:

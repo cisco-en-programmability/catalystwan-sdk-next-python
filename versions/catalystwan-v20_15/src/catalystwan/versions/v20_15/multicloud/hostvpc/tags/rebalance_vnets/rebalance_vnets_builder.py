@@ -14,9 +14,7 @@ class RebalanceVnetsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def rebalance_vnets(
-        self, cloud_type: str, region: str, tag_name: str, **kw
-    ) -> Taskid:
+    def rebalance_vnets(self, cloud_type: str, region: str, tag_name: str, **kw) -> Taskid:
         """
         Tag a VPC
 
@@ -31,9 +29,5 @@ class RebalanceVnetsBuilder:
             "tagName": tag_name,
         }
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/multicloud/hostvpc/tags/rebalanceVnets",
-            return_type=Taskid,
-            params=params,
-            **kw,
+            "POST", "/dataservice/multicloud/hostvpc/tags/rebalanceVnets", return_type=Taskid, params=params, **kw
         )

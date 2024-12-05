@@ -20,6 +20,4 @@ class ConnectBuilder:
 
         :returns: ConnectResponse
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/ise/connect", return_type=ConnectResponse, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/ise/connect", return_type=ConnectResponse, **kw)

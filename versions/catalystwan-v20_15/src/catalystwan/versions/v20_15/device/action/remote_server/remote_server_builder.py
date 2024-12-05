@@ -20,38 +20,16 @@ class RemoteServerBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/action/remote-server", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/action/remote-server", **kw)
 
-    @property
-    def add_remote_server(self):
-        class add_remote_server_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def add_remote_server(self, payload: Optional[Any] = None, **kw):
+        """
+        Add a new remote server entry.
 
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Add a new remote server entry.
-
-                :param payload: Request body for Add a new remote server entry.
-                :returns: None
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/device/action/remote-server",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return add_remote_server_(self._request_adapter)
+        :param payload: Request body for Add a new remote server entry.
+        :returns: None
+        """
+        return self._request_adapter.request("POST", "/dataservice/device/action/remote-server", payload=payload, **kw)
 
     def get_remote_server_by_id(self, id: str, **kw) -> Any:
         """
@@ -85,11 +63,7 @@ class RemoteServerBuilder:
                     "id": id,
                 }
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/device/action/remote-server/{id}",
-                    params=params,
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/device/action/remote-server/{id}", params=params, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -101,36 +75,17 @@ class RemoteServerBuilder:
 
         return update_remote_server_(self._request_adapter)
 
-    @property
-    def delete_remote_server(self):
-        class delete_remote_server_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def delete_remote_server(self, id: str, payload: Optional[Any] = None, **kw):
+        """
+        Delete remote server for the specified ID
 
-            def __call__(self, id: str, payload: Optional[Any] = None, **kw):
-                """
-                Delete remote server for the specified ID
-
-                :param id: remoteServerId
-                :param payload: Request body for Add a new remote server entry.
-                :returns: None
-                """
-                params = {
-                    "id": id,
-                }
-                return self._request_adapter.request(
-                    "DELETE",
-                    "/dataservice/device/action/remote-server/{id}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return delete_remote_server_(self._request_adapter)
+        :param id: remoteServerId
+        :param payload: Request body for Add a new remote server entry.
+        :returns: None
+        """
+        params = {
+            "id": id,
+        }
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/device/action/remote-server/{id}", params=params, payload=payload, **kw
+        )

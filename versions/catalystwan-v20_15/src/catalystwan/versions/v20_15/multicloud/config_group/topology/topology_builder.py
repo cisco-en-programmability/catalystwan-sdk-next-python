@@ -14,9 +14,7 @@ class TopologyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_multi_cloud_config_group_topology(
-        self, cloud_type: str, config_group_id: str, **kw
-    ) -> InlineResponse200:
+    def get_multi_cloud_config_group_topology(self, cloud_type: str, config_group_id: str, **kw) -> InlineResponse200:
         """
         API to retrieve current Multicloud MultiCloud topology for the Config Group.
 

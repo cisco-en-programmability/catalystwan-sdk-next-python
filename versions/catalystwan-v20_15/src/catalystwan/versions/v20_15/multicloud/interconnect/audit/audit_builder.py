@@ -43,9 +43,5 @@ class AuditBuilder:
             "refresh": refresh,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/interconnect/audit",
-            return_type=AuditReport,
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/interconnect/audit", return_type=AuditReport, params=params, **kw
         )

@@ -10,7 +10,5 @@ class NwpiProtocolResponsePayloadInner:
     Protocol for GET response
     """
 
-    protocol_name: Optional[str] = _field(
-        default=None, metadata={"alias": "protocolName"}
-    )
+    protocol_name: Optional[str] = _field(default=None, metadata={"alias": "protocolName"})
     value: Optional[int] = _field(default=None)

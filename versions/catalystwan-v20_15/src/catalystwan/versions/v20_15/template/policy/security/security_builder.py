@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -22,9 +22,7 @@ class SecurityBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_security_template_list(
-        self, mode: Optional[str] = None, **kw
-    ) -> List[Any]:
+    def generate_security_template_list(self, mode: Optional[str] = None, **kw) -> List[Any]:
         """
         Generate template list
 
@@ -35,41 +33,17 @@ class SecurityBuilder:
             "mode": mode,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/policy/security",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/policy/security", return_type=List[Any], params=params, **kw
         )
 
-    @property
-    def create_security_template(self):
-        class create_security_template_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_security_template(self, payload: Optional[Any] = None, **kw):
+        """
+        Create Template
 
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Create Template
-
-                :param payload: Policy template
-                :returns: None
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/template/policy/security",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_security_template_(self._request_adapter)
+        :param payload: Policy template
+        :returns: None
+        """
+        return self._request_adapter.request("POST", "/dataservice/template/policy/security", payload=payload, **kw)
 
     def get_security_templates_for_device(self, device_model: DeviceModel, **kw) -> Any:
         """
@@ -82,47 +56,23 @@ class SecurityBuilder:
             "deviceModel": device_model,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/policy/security/{deviceModel}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/policy/security/{deviceModel}", params=params, **kw
         )
 
-    @property
-    def edit_security_template(self):
-        class edit_security_template_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_security_template(self, policy_id: str, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Edit Template
 
-            def __call__(
-                self, policy_id: str, payload: Optional[Any] = None, **kw
-            ) -> Any:
-                """
-                Edit Template
-
-                :param policy_id: Policy Id
-                :param payload: Policy template
-                :returns: Any
-                """
-                params = {
-                    "policyId": policy_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/template/policy/security/{policyId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_security_template_(self._request_adapter)
+        :param policy_id: Policy Id
+        :param payload: Policy template
+        :returns: Any
+        """
+        params = {
+            "policyId": policy_id,
+        }
+        return self._request_adapter.request(
+            "PUT", "/dataservice/template/policy/security/{policyId}", params=params, payload=payload, **kw
+        )
 
     def delete_security_template(self, policy_id: str, **kw):
         """
@@ -135,10 +85,7 @@ class SecurityBuilder:
             "policyId": policy_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/template/policy/security/{policyId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/template/policy/security/{policyId}", params=params, **kw
         )
 
     @property

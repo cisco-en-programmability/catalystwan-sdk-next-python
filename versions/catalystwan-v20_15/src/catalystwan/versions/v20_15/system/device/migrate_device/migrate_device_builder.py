@@ -25,8 +25,5 @@ class MigrateDeviceBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "PUT",
-            "/dataservice/system/device/migrateDevice/{uuid}",
-            params=params,
-            **kw,
+            "PUT", "/dataservice/system/device/migrateDevice/{uuid}", params=params, **kw
         )

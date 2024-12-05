@@ -72,9 +72,7 @@ class DevicesBuilder:
             "featureType": feature_type,
             "corSaasStatus": cor_saas_status,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/health/devices", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/health/devices", params=params, **kw)
 
     @property
     def overview(self) -> OverviewBuilder:

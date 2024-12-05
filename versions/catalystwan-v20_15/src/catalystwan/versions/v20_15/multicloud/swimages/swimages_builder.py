@@ -17,11 +17,7 @@ class SwimagesBuilder:
         self._request_adapter = request_adapter
 
     def get_supported_software_image_list(
-        self,
-        cloud_type: CloudTypeParam,
-        account_id: Optional[str] = None,
-        cloud_region: Optional[str] = None,
-        **kw,
+        self, cloud_type: CloudTypeParam, account_id: Optional[str] = None, cloud_region: Optional[str] = None, **kw
     ) -> List[SwImagesResponse]:
         """
         Get software image list
@@ -37,9 +33,5 @@ class SwimagesBuilder:
             "cloudRegion": cloud_region,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/swimages",
-            return_type=List[SwImagesResponse],
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/swimages", return_type=List[SwImagesResponse], params=params, **kw
         )

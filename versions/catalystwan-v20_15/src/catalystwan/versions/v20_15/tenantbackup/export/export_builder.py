@@ -23,6 +23,4 @@ class ExportBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/tenantbackup/export", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/tenantbackup/export", **kw)

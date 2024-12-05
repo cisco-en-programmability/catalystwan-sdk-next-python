@@ -24,6 +24,4 @@ class UtilizationBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/app-hosting/utilization", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/app-hosting/utilization", params=params, **kw)

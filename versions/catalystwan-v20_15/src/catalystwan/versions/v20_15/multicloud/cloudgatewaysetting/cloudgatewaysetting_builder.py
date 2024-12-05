@@ -14,9 +14,7 @@ class CloudgatewaysettingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cgw_custom_setting_details(
-        self, cloud_gateway_name: str, **kw
-    ) -> CustomSettings:
+    def get_cgw_custom_setting_details(self, cloud_gateway_name: str, **kw) -> CustomSettings:
         """
         Get cloud gateway custom setting by cloud gateway name
 

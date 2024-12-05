@@ -16,9 +16,7 @@ class DetailBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_vedge_inventory(
-        self, status: Optional[str] = None, **kw
-    ) -> VedgeInventoryData:
+    def get_vedge_inventory(self, status: Optional[str] = None, **kw) -> VedgeInventoryData:
         """
         Get detailed vEdge inventory
 
@@ -29,9 +27,5 @@ class DetailBuilder:
             "status": status,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/vedgeinventory/detail",
-            return_type=VedgeInventoryData,
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/vedgeinventory/detail", return_type=VedgeInventoryData, params=params, **kw
         )

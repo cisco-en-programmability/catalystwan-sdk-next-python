@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -28,38 +28,16 @@ class VpnBuilder:
             "GET", "/dataservice/template/policy/list/vpn", return_type=List[Any], **kw
         )
 
-    @property
-    def create_policy_list_42(self):
-        class create_policy_list_42_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_policy_list_42(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Create policy list
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Create policy list
+        :param payload: Policy list
+        :returns: Any
+        """
+        return self._request_adapter.request("POST", "/dataservice/template/policy/list/vpn", payload=payload, **kw)
 
-                :param payload: Policy list
-                :returns: Any
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/template/policy/list/vpn",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_policy_list_42_(self._request_adapter)
-
-    def delete_policy_lists_with_info_tag_42(
-        self, info_tag: Optional[str] = None, **kw
-    ) -> List[Any]:
+    def delete_policy_lists_with_info_tag_42(self, info_tag: Optional[str] = None, **kw) -> List[Any]:
         """
         Delete policy lists with specific info tag
 
@@ -70,11 +48,7 @@ class VpnBuilder:
             "infoTag": info_tag,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/template/policy/list/vpn",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/template/policy/list/vpn", return_type=List[Any], params=params, **kw
         )
 
     def get_lists_by_id_42(self, id: str, **kw) -> Any:
@@ -87,43 +61,22 @@ class VpnBuilder:
         params = {
             "id": id,
         }
+        return self._request_adapter.request("GET", "/dataservice/template/policy/list/vpn/{id}", params=params, **kw)
+
+    def edit_policy_list_42(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Edit policy list entries for a specific type of policy list
+
+        :param id: Policy Id
+        :param payload: Policy list
+        :returns: Any
+        """
+        params = {
+            "id": id,
+        }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/list/vpn/{id}", params=params, **kw
+            "PUT", "/dataservice/template/policy/list/vpn/{id}", params=params, payload=payload, **kw
         )
-
-    @property
-    def edit_policy_list_42(self):
-        class edit_policy_list_42_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Edit policy list entries for a specific type of policy list
-
-                :param id: Policy Id
-                :param payload: Policy list
-                :returns: Any
-                """
-                params = {
-                    "id": id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/template/policy/list/vpn/{id}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_policy_list_42_(self._request_adapter)
 
     def delete_policy_list_42(self, id: str, **kw):
         """

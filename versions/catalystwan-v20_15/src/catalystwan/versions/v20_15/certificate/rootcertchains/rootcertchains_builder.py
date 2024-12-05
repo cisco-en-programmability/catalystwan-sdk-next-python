@@ -25,11 +25,7 @@ class RootcertchainsBuilder:
             "action": action,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/certificate/rootcertchains",
-            return_type=List[str],
-            params=params,
-            **kw,
+            "GET", "/dataservice/certificate/rootcertchains", return_type=List[str], params=params, **kw
         )
 
     @property
@@ -46,11 +42,7 @@ class RootcertchainsBuilder:
                 :returns: str
                 """
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/certificate/rootcertchains",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/certificate/rootcertchains", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:

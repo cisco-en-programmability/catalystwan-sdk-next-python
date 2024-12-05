@@ -25,9 +25,5 @@ class ActionsBuilder:
             "action": action,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/fedramp/wazuh/actions",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/fedramp/wazuh/actions", return_type=List[Any], params=params, **kw
         )

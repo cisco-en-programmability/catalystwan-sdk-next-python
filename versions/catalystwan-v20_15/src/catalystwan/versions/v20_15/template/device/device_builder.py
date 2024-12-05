@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -42,51 +42,26 @@ class DeviceBuilder:
             "feature": feature,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/device",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/device", return_type=List[Any], params=params, **kw
         )
 
-    @property
-    def edit_master_template(self):
-        class edit_master_template_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(
-                self, template_id: str, payload: Optional[Any] = None, **kw
-            ) -> Any:
-                """
-                Edit template
+    def edit_master_template(self, template_id: str, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Edit template
 
 
-                Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Note: In a multitenant vManage system, this API is only available in the Provider view.
 
-                :param template_id: Template Id
-                :param payload: Template
-                :returns: Any
-                """
-                params = {
-                    "templateId": template_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/template/device/{templateId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_master_template_(self._request_adapter)
+        :param template_id: Template Id
+        :param payload: Template
+        :returns: Any
+        """
+        params = {
+            "templateId": template_id,
+        }
+        return self._request_adapter.request(
+            "PUT", "/dataservice/template/device/{templateId}", params=params, payload=payload, **kw
+        )
 
     def delete_master_template(self, template_id: str, **kw):
         """
@@ -101,9 +76,7 @@ class DeviceBuilder:
         params = {
             "templateId": template_id,
         }
-        return self._request_adapter.request(
-            "DELETE", "/dataservice/template/device/{templateId}", params=params, **kw
-        )
+        return self._request_adapter.request("DELETE", "/dataservice/template/device/{templateId}", params=params, **kw)
 
     @property
     def cli(self) -> CliBuilder:

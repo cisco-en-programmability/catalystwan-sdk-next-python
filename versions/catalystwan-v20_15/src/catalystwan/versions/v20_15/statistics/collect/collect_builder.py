@@ -23,9 +23,7 @@ class CollectBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/statistics/collect", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/statistics/collect", **kw)
 
     @property
     def thread(self) -> ThreadBuilder:

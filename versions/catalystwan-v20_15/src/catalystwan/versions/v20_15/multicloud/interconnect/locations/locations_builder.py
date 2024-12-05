@@ -23,8 +23,5 @@ class LocationsBuilder:
             "interconnect-type": interconnect_type,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/multicloud/interconnect/{interconnect-type}/locations",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/multicloud/interconnect/{interconnect-type}/locations", params=params, **kw
         )

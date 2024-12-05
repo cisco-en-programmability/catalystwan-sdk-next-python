@@ -11,11 +11,7 @@ class MapVpnsResponse:
     """
 
     id: Optional[str] = _field(default=None)
-    reference_count: Optional[int] = _field(
-        default=None, metadata={"alias": "referenceCount"}
-    )
+    reference_count: Optional[int] = _field(default=None, metadata={"alias": "referenceCount"})
     segment_id: Optional[str] = _field(default=None, metadata={"alias": "segmentId"})
-    segment_name: Optional[str] = _field(
-        default=None, metadata={"alias": "segmentName"}
-    )
+    segment_name: Optional[str] = _field(default=None, metadata={"alias": "segmentName"})
     solution: Optional[str] = _field(default=None)

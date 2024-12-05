@@ -17,11 +17,7 @@ class GatewayexitsBuilder:
         self._request_adapter = request_adapter
 
     def create_gateway_exits_list(
-        self,
-        device_id: str,
-        vpn_id: Optional[VpnIdParam] = None,
-        application: Optional[str] = None,
-        **kw,
+        self, device_id: str, vpn_id: Optional[VpnIdParam] = None, application: Optional[str] = None, **kw
     ) -> Any:
         """
         Get list of cloudexpress gateway exits from device (Real Time)
@@ -36,6 +32,4 @@ class GatewayexitsBuilder:
             "application": application,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/cloudx/gatewayexits", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/cloudx/gatewayexits", params=params, **kw)

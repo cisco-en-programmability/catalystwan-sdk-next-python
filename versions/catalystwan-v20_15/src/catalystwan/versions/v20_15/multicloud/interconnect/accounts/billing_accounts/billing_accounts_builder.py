@@ -17,11 +17,7 @@ class BillingAccountsBuilder:
         self._request_adapter = request_adapter
 
     def get_interconnect_billing_accounts(
-        self,
-        interconnect_type: str,
-        interconnect_account_id: str,
-        region: Optional[str] = None,
-        **kw,
+        self, interconnect_type: str, interconnect_account_id: str, region: Optional[str] = None, **kw
     ) -> InlineResponse2001:
         """
         API to retrieve billing accounts for an Interconnect provider type and account.

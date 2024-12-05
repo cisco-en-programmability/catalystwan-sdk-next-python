@@ -27,9 +27,7 @@ class UploadBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[ProtocolPackUploadRequest] = None, **kw
-            ):
+            def __call__(self, payload: Optional[ProtocolPackUploadRequest] = None, **kw):
                 """
                 Upload protocol pack to SDAVC
 
@@ -37,10 +35,7 @@ class UploadBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/sdavc/protocol-pack/maintenance/upload",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/sdavc/protocol-pack/maintenance/upload", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> ProtocolPackUploadRequest:

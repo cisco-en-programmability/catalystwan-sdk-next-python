@@ -16,9 +16,7 @@ class SystemipBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_tenant_management_system_i_ps(
-        self, **kw
-    ) -> List[GetTenantManagementSystemIPsInner]:
+    def get_tenant_management_system_i_ps(self, **kw) -> List[GetTenantManagementSystemIPsInner]:
         """
         Get management system IP
 

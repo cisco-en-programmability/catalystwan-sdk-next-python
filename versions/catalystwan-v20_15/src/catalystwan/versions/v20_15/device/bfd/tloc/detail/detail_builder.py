@@ -16,9 +16,7 @@ class DetailBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_bfd_tloc_state_detail(
-        self, state: Optional[StateParam] = None, **kw
-    ) -> Any:
+    def get_bfd_tloc_state_detail(self, state: Optional[StateParam] = None, **kw) -> Any:
         """
         Get detailed BFD tloc details
 
@@ -28,6 +26,4 @@ class DetailBuilder:
         params = {
             "state": state,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/bfd/tloc/detail", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/bfd/tloc/detail", params=params, **kw)

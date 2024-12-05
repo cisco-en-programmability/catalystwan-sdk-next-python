@@ -38,9 +38,7 @@ class LoggingBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, profile_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, profile_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Logging Profile Feature for Mobility Global Feature Profile
 
@@ -69,9 +67,7 @@ class LoggingBuilder:
 
         return create_logging_profile_feature_for_mobility_(self._request_adapter)
 
-    def get_logging_profile_feature_by_feature_id_for_mobility(
-        self, profile_id: str, logging_id: str, **kw
-    ) -> str:
+    def get_logging_profile_feature_by_feature_id_for_mobility(self, profile_id: str, logging_id: str, **kw) -> str:
         """
         Get Logging Profile Feature by parcelId for Mobility Global Feature Profile
 
@@ -97,13 +93,7 @@ class LoggingBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                profile_id: str,
-                logging_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, profile_id: str, logging_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Logging Profile Feature for Mobility Global Feature Profile
 
@@ -134,9 +124,7 @@ class LoggingBuilder:
 
         return edit_logging_profile_feature_for_mobility_(self._request_adapter)
 
-    def delete_logging_profile_feature_for_mobility(
-        self, profile_id: str, logging_id: str, **kw
-    ):
+    def delete_logging_profile_feature_for_mobility(self, profile_id: str, logging_id: str, **kw):
         """
         Delete a Logging Profile Feature for Mobility Global Feature Profile
 

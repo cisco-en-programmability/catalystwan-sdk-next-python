@@ -23,9 +23,7 @@ class RecordBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, device_uuid: str, payload: str, **kw
-            ) -> NwpiResponsePayload:
+            def __call__(self, device_uuid: str, payload: str, **kw) -> NwpiResponsePayload:
                 """
                 post flow data
 

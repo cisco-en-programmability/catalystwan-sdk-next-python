@@ -17,9 +17,7 @@ class TrackergroupBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_tracker_group_profile_parcel_for_service(
-        self, service_id: str, **kw
-    ) -> str:
+    def get_tracker_group_profile_parcel_for_service(self, service_id: str, **kw) -> str:
         """
         Get TrackerGroup Profile Parcels for Service feature profile
 
@@ -43,9 +41,7 @@ class TrackergroupBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, service_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, service_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a TrackerGroup Profile Parcel for Service feature profile
 
@@ -102,13 +98,7 @@ class TrackergroupBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                service_id: str,
-                trackergroup_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, service_id: str, trackergroup_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a TrackerGroup Profile Parcel for Service feature profile
 
@@ -139,9 +129,7 @@ class TrackergroupBuilder:
 
         return edit_tracker_group_profile_parcel_for_service_(self._request_adapter)
 
-    def delete_tracker_group_profile_parcel_for_service(
-        self, service_id: str, trackergroup_id: str, **kw
-    ):
+    def delete_tracker_group_profile_parcel_for_service(self, service_id: str, trackergroup_id: str, **kw):
         """
         Delete a TrackerGroup Profile Parcel for Service feature profile
 

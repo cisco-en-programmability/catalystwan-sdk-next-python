@@ -22,9 +22,7 @@ class CloudxBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "getCloudxConfiguration")
-        return self._request_adapter.request(
-            "GET", "/dataservice/settings/configuration/cloudx", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/settings/configuration/cloudx", **kw)
 
     @property
     def edit_cloudx_configuration(self):
@@ -39,14 +37,9 @@ class CloudxBuilder:
                 :param payload: Payload
                 :returns: Any
                 """
-                logging.warning(
-                    "Operation: %s is deprecated", "editCloudxConfiguration"
-                )
+                logging.warning("Operation: %s is deprecated", "editCloudxConfiguration")
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/settings/configuration/cloudx",
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/settings/configuration/cloudx", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -73,11 +66,7 @@ class CloudxBuilder:
                 """
                 logging.warning("Operation: %s is deprecated", "newCloudxConfiguration")
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/settings/configuration/cloudx",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/settings/configuration/cloudx", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:

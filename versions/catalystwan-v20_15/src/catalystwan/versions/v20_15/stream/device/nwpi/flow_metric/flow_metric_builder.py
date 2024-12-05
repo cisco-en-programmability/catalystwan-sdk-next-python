@@ -18,13 +18,7 @@ class FlowMetricBuilder:
         self._request_adapter = request_adapter
 
     def get_flow_metric(
-        self,
-        trace_id: int,
-        timestamp: int,
-        flow_id: int,
-        first_timestamp: int,
-        last_timestamp: int,
-        **kw,
+        self, trace_id: int, timestamp: int, flow_id: int, first_timestamp: int, last_timestamp: int, **kw
     ) -> List[NwpiflowMetricRespPayloadInner]:
         """
         flowMetric for NWPI.

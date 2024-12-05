@@ -22,6 +22,4 @@ class StatusBuilder:
         params = {
             "deviceIp": device_ip,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/cloudonramp/saas/status", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/v1/cloudonramp/saas/status", params=params, **kw)

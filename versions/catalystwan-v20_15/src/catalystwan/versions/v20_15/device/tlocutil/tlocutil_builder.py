@@ -27,9 +27,7 @@ class TlocutilBuilder:
         params = {
             "site-id": site_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/tlocutil", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/tlocutil", params=params, **kw)
 
     @property
     def detail(self) -> DetailBuilder:

@@ -25,8 +25,5 @@ class DeviceRegistrationBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/umbrella/device-registration",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/umbrella/device-registration", params=params, **kw
         )

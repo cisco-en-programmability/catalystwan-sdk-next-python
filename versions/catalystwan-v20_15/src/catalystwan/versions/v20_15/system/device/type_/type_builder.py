@@ -20,27 +20,19 @@ class TypeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_dock_data_based_on_device_type(
-        self, device_category: DeviceCategoryParam, **kw
-    ) -> List[Any]:
+    def get_cloud_dock_data_based_on_device_type(self, device_category: DeviceCategoryParam, **kw) -> List[Any]:
         """
         Get devices details
 
         :param device_category: Device category
         :returns: List[Any]
         """
-        logging.warning(
-            "Operation: %s is deprecated", "getCloudDockDataBasedOnDeviceType"
-        )
+        logging.warning("Operation: %s is deprecated", "getCloudDockDataBasedOnDeviceType")
         params = {
             "deviceCategory": device_category,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/system/device/type/{deviceCategory}",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/system/device/type/{deviceCategory}", return_type=List[Any], params=params, **kw
         )
 
     @property

@@ -27,9 +27,7 @@ class ReportsBuilder:
 
         :returns: ReportSummaryResponse
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/reports", return_type=ReportSummaryResponse, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/v1/reports", return_type=ReportSummaryResponse, **kw)
 
     @property
     def create_report_template(self):
@@ -45,11 +43,7 @@ class ReportsBuilder:
                 :returns: ReportInfo
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/reports",
-                    return_type=ReportInfo,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/reports", return_type=ReportInfo, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> ExecutiveSummaryReport:
@@ -72,11 +66,7 @@ class ReportsBuilder:
             "reportId": report_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/reports/{reportId}",
-            return_type=ReportSummaryResponse,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/reports/{reportId}", return_type=ReportSummaryResponse, params=params, **kw
         )
 
     @property
@@ -85,9 +75,7 @@ class ReportsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, report_id: str, payload: ExecutiveSummaryReport, **kw
-            ) -> ReportInfo:
+            def __call__(self, report_id: str, payload: ExecutiveSummaryReport, **kw) -> ReportInfo:
                 """
                 Update the report template by report ID
 
@@ -116,9 +104,7 @@ class ReportsBuilder:
 
         return update_report_template_(self._request_adapter)
 
-    def delete_report_template(
-        self, report_id: str, **kw
-    ) -> UpdateReportTemplateResponse:
+    def delete_report_template(self, report_id: str, **kw) -> UpdateReportTemplateResponse:
         """
         Delete the report template and all report files associated with it
 

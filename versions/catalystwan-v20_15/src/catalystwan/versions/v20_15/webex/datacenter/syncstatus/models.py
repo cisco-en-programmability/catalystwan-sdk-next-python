@@ -7,6 +7,4 @@ from typing import Optional
 @dataclass
 class SyncStatusResponse:
     last_synced: Optional[str] = _field(default=None, metadata={"alias": "Last Synced"})
-    webex_sync_needed: Optional[bool] = _field(
-        default=None, metadata={"alias": "webexSyncNeeded"}
-    )
+    webex_sync_needed: Optional[bool] = _field(default=None, metadata={"alias": "webexSyncNeeded"})

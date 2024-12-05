@@ -31,9 +31,5 @@ class SizeBuilder:
             "cloudEnvironment": cloud_environment,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/cor/transitvpc/size",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/cor/transitvpc/size", return_type=List[Any], params=params, **kw
         )

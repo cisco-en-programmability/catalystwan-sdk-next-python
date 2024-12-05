@@ -14,12 +14,8 @@ class NwpipacketRespPayloadDataPacketPacketEgressFia:
 
 @dataclass
 class NwpipacketRespPayloadDataPacketPacket:
-    egress_fia: Optional[List[NwpipacketRespPayloadDataPacketPacketEgressFia]] = _field(
-        default=None
-    )
-    ingress_fia: Optional[List[NwpipacketRespPayloadDataPacketPacketEgressFia]] = (
-        _field(default=None)
-    )
+    egress_fia: Optional[List[NwpipacketRespPayloadDataPacketPacketEgressFia]] = _field(default=None)
+    ingress_fia: Optional[List[NwpipacketRespPayloadDataPacketPacketEgressFia]] = _field(default=None)
 
 
 @dataclass

@@ -18,11 +18,7 @@ class InterfaceBuilder:
         self._request_adapter = request_adapter
 
     def get_vnf_interface_detail(
-        self,
-        vnf_name: str,
-        device_ip: Optional[DeviceIp] = None,
-        device_class: Optional[str] = None,
-        **kw,
+        self, vnf_name: str, device_ip: Optional[DeviceIp] = None, device_class: Optional[str] = None, **kw
     ):
         """
         Get interface detail of VNF

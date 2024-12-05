@@ -29,9 +29,7 @@ class AlarmsBuilder:
         params = {
             "user_group": user_group,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/colocation/monitor/vnf/alarms", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/colocation/monitor/vnf/alarms", params=params, **kw)
 
     @property
     def count(self) -> CountBuilder:

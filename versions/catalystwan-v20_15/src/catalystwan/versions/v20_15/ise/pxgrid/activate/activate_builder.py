@@ -22,9 +22,7 @@ class ActivateBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[ActivateBody] = None, **kw
-            ) -> ActivateResponse:
+            def __call__(self, payload: Optional[ActivateBody] = None, **kw) -> ActivateResponse:
                 """
                 Activate pxGrid account
 
@@ -32,11 +30,7 @@ class ActivateBuilder:
                 :returns: ActivateResponse
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/ise/pxgrid/activate",
-                    return_type=ActivateResponse,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/ise/pxgrid/activate", return_type=ActivateResponse, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> ActivateBody:

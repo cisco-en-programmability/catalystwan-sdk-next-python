@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -41,73 +41,29 @@ class EdgeBuilder:
             "connectivityType": connectivity_type,
             "edgeGatewayName": edge_gateway_name,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/connectivity/edge", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/multicloud/connectivity/edge", params=params, **kw)
 
-    @property
-    def update_edge_connectivity(self):
-        class update_edge_connectivity_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def update_edge_connectivity(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Update Interconnect connectivity
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Update Interconnect connectivity
+        :param payload: Edge connectivity
+        :returns: Any
+        """
+        logging.warning("Operation: %s is deprecated", "updateEdgeConnectivity")
+        return self._request_adapter.request("PUT", "/dataservice/multicloud/connectivity/edge", payload=payload, **kw)
 
-                :param payload: Edge connectivity
-                :returns: Any
-                """
-                logging.warning("Operation: %s is deprecated", "updateEdgeConnectivity")
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/multicloud/connectivity/edge",
-                    payload=payload,
-                    **kw,
-                )
+    def create_edge_connectivity(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Create Interconnect connectivity
 
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
+        :param payload: Edge connectivity
+        :returns: Any
+        """
+        logging.warning("Operation: %s is deprecated", "createEdgeConnectivity")
+        return self._request_adapter.request("POST", "/dataservice/multicloud/connectivity/edge", payload=payload, **kw)
 
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return update_edge_connectivity_(self._request_adapter)
-
-    @property
-    def create_edge_connectivity(self):
-        class create_edge_connectivity_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Create Interconnect connectivity
-
-                :param payload: Edge connectivity
-                :returns: Any
-                """
-                logging.warning("Operation: %s is deprecated", "createEdgeConnectivity")
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/connectivity/edge",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_edge_connectivity_(self._request_adapter)
-
-    def delete_edge_connectivity(
-        self, connection_name: str, delete_cloud_resources: Optional[str] = None, **kw
-    ) -> Any:
+    def delete_edge_connectivity(self, connection_name: str, delete_cloud_resources: Optional[str] = None, **kw) -> Any:
         """
         Delete Interconnect connectivity
 
@@ -121,10 +77,7 @@ class EdgeBuilder:
             "deleteCloudResources": delete_cloud_resources,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/multicloud/connectivity/edge/{connectionName}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/multicloud/connectivity/edge/{connectionName}", params=params, **kw
         )
 
     def get_edge_connectivity_detail_by_name(self, connectivity_name: str, **kw) -> Any:
@@ -134,15 +87,10 @@ class EdgeBuilder:
         :param connectivity_name: IC-GW connectivity name
         :returns: Any
         """
-        logging.warning(
-            "Operation: %s is deprecated", "getEdgeConnectivityDetailByName"
-        )
+        logging.warning("Operation: %s is deprecated", "getEdgeConnectivityDetailByName")
         params = {
             "connectivityName": connectivity_name,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/connectivity/edge/{connectivityName}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/connectivity/edge/{connectivityName}", params=params, **kw
         )

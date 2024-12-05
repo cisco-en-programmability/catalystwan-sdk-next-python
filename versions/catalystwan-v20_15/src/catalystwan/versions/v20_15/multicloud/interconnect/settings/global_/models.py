@@ -8,13 +8,9 @@ InterconnectTypeParam = Literal["EQUINIX", "MEGAPORT"]
 
 @dataclass
 class MulticloudSystemSettings:
-    enable_monitoring: Optional[bool] = _field(
-        default=None, metadata={"alias": "enableMonitoring"}
-    )
+    enable_monitoring: Optional[bool] = _field(default=None, metadata={"alias": "enableMonitoring"})
     # Enable or disable Configuration Group for Gateways
-    use_configuration_group: Optional[str] = _field(
-        default=None, metadata={"alias": "useConfigurationGroup"}
-    )
+    use_configuration_group: Optional[str] = _field(default=None, metadata={"alias": "useConfigurationGroup"})
 
 
 @dataclass
@@ -26,12 +22,8 @@ class InterconnectGlobalSettings:
     loopback_cgw_color: str = _field(metadata={"alias": "loopbackCgwColor"})
     loopback_tunnel_color: str = _field(metadata={"alias": "loopbackTunnelColor"})
     software_image_id: str = _field(metadata={"alias": "softwareImageId"})
-    invoice_reference: Optional[str] = _field(
-        default=None, metadata={"alias": "invoiceReference"}
-    )
-    ip_subnet_pool: Optional[str] = _field(
-        default=None, metadata={"alias": "ipSubnetPool"}
-    )
+    invoice_reference: Optional[str] = _field(default=None, metadata={"alias": "invoiceReference"})
+    ip_subnet_pool: Optional[str] = _field(default=None, metadata={"alias": "ipSubnetPool"})
     multicloud_system_settings: Optional[MulticloudSystemSettings] = _field(
         default=None, metadata={"alias": "multicloudSystemSettings"}
     )

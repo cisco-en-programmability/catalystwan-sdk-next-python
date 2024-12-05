@@ -20,6 +20,4 @@ class PropertiesBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/statistics/on-demand/queue/properties", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/statistics/on-demand/queue/properties", **kw)

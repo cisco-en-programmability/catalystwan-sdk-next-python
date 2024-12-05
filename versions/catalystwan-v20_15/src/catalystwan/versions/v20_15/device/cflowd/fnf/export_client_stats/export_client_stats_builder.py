@@ -25,8 +25,5 @@ class ExportClientStatsBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/cflowd/fnf/export-client-stats",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/cflowd/fnf/export-client-stats", params=params, **kw
         )

@@ -25,8 +25,5 @@ class EnableSdavcBuilder:
             "enable": enable,
         }
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/device/enableSDAVC/{deviceIP}/{enable}",
-            params=params,
-            **kw,
+            "POST", "/dataservice/device/enableSDAVC/{deviceIP}/{enable}", params=params, **kw
         )

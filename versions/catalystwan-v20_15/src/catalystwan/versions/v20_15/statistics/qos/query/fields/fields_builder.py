@@ -21,8 +21,5 @@ class FieldsBuilder:
         :returns: QoSQueryFieldsResp
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/statistics/qos/query/fields",
-            return_type=QoSQueryFieldsResp,
-            **kw,
+            "GET", "/dataservice/statistics/qos/query/fields", return_type=QoSQueryFieldsResp, **kw
         )

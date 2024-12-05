@@ -30,10 +30,7 @@ class CopyBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/device/tools/admintech/copy",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/device/tools/admintech/copy", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> AdminTechReq:

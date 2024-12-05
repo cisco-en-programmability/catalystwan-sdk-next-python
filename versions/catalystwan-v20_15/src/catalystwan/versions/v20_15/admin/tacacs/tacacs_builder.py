@@ -25,9 +25,7 @@ class TacacsBuilder:
 
         :returns: Tacacs
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/admin/tacacs", return_type=Tacacs, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/admin/tacacs", return_type=Tacacs, **kw)
 
     @property
     def update_tacacs_config(self):
@@ -45,9 +43,7 @@ class TacacsBuilder:
                 :param payload: tacacs
                 :returns: None
                 """
-                return self._request_adapter.request(
-                    "PUT", "/dataservice/admin/tacacs", payload=payload, **kw
-                )
+                return self._request_adapter.request("PUT", "/dataservice/admin/tacacs", payload=payload, **kw)
 
             def create_payload(self, *args, **kwargs) -> Tacacs:
                 return Tacacs(*args, **kwargs)
@@ -74,9 +70,7 @@ class TacacsBuilder:
                 :param payload: tacacs
                 :returns: None
                 """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/admin/tacacs", payload=payload, **kw
-                )
+                return self._request_adapter.request("POST", "/dataservice/admin/tacacs", payload=payload, **kw)
 
             def create_payload(self, *args, **kwargs) -> Tacacs:
                 return Tacacs(*args, **kwargs)
@@ -96,6 +90,4 @@ class TacacsBuilder:
 
         :returns: Tacacs
         """
-        return self._request_adapter.request(
-            "DELETE", "/dataservice/admin/tacacs", return_type=Tacacs, **kw
-        )
+        return self._request_adapter.request("DELETE", "/dataservice/admin/tacacs", return_type=Tacacs, **kw)

@@ -11,18 +11,10 @@ class DeviceBlistResponsePayloadInner:
     """
 
     crash_time: Optional[int] = _field(default=None, metadata={"alias": "crashTime"})
-    crash_version: Optional[str] = _field(
-        default=None, metadata={"alias": "crashVersion"}
-    )
-    crashed_reason: Optional[str] = _field(
-        default=None, metadata={"alias": "crashedReason"}
-    )
-    device_blist_state: Optional[str] = _field(
-        default=None, metadata={"alias": "deviceBlistState"}
-    )
-    device_model: Optional[str] = _field(
-        default=None, metadata={"alias": "deviceModel"}
-    )
+    crash_version: Optional[str] = _field(default=None, metadata={"alias": "crashVersion"})
+    crashed_reason: Optional[str] = _field(default=None, metadata={"alias": "crashedReason"})
+    device_blist_state: Optional[str] = _field(default=None, metadata={"alias": "deviceBlistState"})
+    device_model: Optional[str] = _field(default=None, metadata={"alias": "deviceModel"})
     device_name: Optional[str] = _field(default=None, metadata={"alias": "deviceName"})
     nwpi_state: Optional[str] = _field(default=None, metadata={"alias": "nwpiState"})
     site_id: Optional[int] = _field(default=None, metadata={"alias": "siteId"})

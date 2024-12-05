@@ -20,13 +20,7 @@ class MulticloudConnectionBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                transport_id: str,
-                vrf_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, transport_id: str, vrf_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Associate a Global VRF parcel with a Multicloud Connection Parcel for transport feature profile
 
@@ -55,8 +49,4 @@ class MulticloudConnectionBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return (
-            create_transport_global_vrf_and_multicloud_connection_parcel_association_(
-                self._request_adapter
-            )
-        )
+        return create_transport_global_vrf_and_multicloud_connection_parcel_association_(self._request_adapter)

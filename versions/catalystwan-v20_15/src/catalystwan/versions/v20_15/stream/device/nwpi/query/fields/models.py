@@ -12,9 +12,7 @@ class QueryFieldsResponsePayloadInner:
 
     data_type: Optional[str] = _field(default=None, metadata={"alias": "dataType"})
     is_required: Optional[bool] = _field(default=None, metadata={"alias": "isRequired"})
-    multi_select: Optional[bool] = _field(
-        default=None, metadata={"alias": "multiSelect"}
-    )
+    multi_select: Optional[bool] = _field(default=None, metadata={"alias": "multiSelect"})
     name: Optional[str] = _field(default=None)
     property: Optional[str] = _field(default=None)
     validation: Optional[Any] = _field(default=None)

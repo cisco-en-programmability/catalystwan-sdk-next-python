@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -44,9 +44,7 @@ class AlarmsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_raw_alarm_data(
-        self, query: Optional[str] = None, site_id: Optional[str] = None, **kw
-    ) -> AlarmResponse:
+    def get_raw_alarm_data(self, query: Optional[str] = None, site_id: Optional[str] = None, **kw) -> AlarmResponse:
         """
         Get alarms for given query. If query is empty then last 30 mins data will be returned.
 
@@ -62,57 +60,37 @@ class AlarmsBuilder:
             "GET", "/dataservice/alarms", return_type=AlarmResponse, params=params, **kw
         )
 
-    @property
-    def post_raw_alarm_data(self):
-        class post_raw_alarm_data_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def post_raw_alarm_data(
+        self,
+        payload: Optional[Any] = None,
+        page: Optional[int] = None,
+        page_size: Optional[int] = None,
+        sort_by: Optional[str] = None,
+        sort_order: Optional[str] = None,
+        site_id: Optional[str] = None,
+        **kw,
+    ) -> AlarmResponse:
+        """
+        Get alarms for given query.
 
-            def __call__(
-                self,
-                payload: Optional[Any] = None,
-                page: Optional[int] = None,
-                page_size: Optional[int] = None,
-                sort_by: Optional[str] = None,
-                sort_order: Optional[str] = None,
-                site_id: Optional[str] = None,
-                **kw,
-            ) -> AlarmResponse:
-                """
-                Get alarms for given query.
-
-                :param page: Specify page number. Value should be a positive integer
-                :param page_size: Specify page size. Value should be a positive integer
-                :param sort_by: Specify a field by which alarms need to be sorted
-                :param sort_order: Select sorting order. Use ASC for ascending and DESC for descending
-                :param site_id: Specify the site-id to filter the alarms
-                :param payload: Alarm query string
-                :returns: AlarmResponse
-                """
-                params = {
-                    "page": page,
-                    "pageSize": page_size,
-                    "sortBy": sort_by,
-                    "sortOrder": sort_order,
-                    "site-id": site_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/alarms",
-                    return_type=AlarmResponse,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return post_raw_alarm_data_(self._request_adapter)
+        :param page: Specify page number. Value should be a positive integer
+        :param page_size: Specify page size. Value should be a positive integer
+        :param sort_by: Specify a field by which alarms need to be sorted
+        :param sort_order: Select sorting order. Use ASC for ascending and DESC for descending
+        :param site_id: Specify the site-id to filter the alarms
+        :param payload: Alarm query string
+        :returns: AlarmResponse
+        """
+        params = {
+            "page": page,
+            "pageSize": page_size,
+            "sortBy": sort_by,
+            "sortOrder": sort_order,
+            "site-id": site_id,
+        }
+        return self._request_adapter.request(
+            "POST", "/dataservice/alarms", return_type=AlarmResponse, params=params, payload=payload, **kw
+        )
 
     @property
     def aggregation(self) -> AggregationBuilder:

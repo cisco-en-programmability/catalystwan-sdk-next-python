@@ -25,9 +25,5 @@ class ServicesBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/omp/services",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/omp/services", return_type=List[Any], params=params, **kw
         )

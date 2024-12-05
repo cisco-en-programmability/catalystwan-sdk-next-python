@@ -7,6 +7,4 @@ from typing import List, Optional
 @dataclass
 class CompliantDeviceRequest:
     devices: Optional[List[str]] = _field(default=None)
-    protocol_pack_name: Optional[str] = _field(
-        default=None, metadata={"alias": "protocolPackName"}
-    )
+    protocol_pack_name: Optional[str] = _field(default=None, metadata={"alias": "protocolPackName"})

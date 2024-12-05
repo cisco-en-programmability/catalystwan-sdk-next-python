@@ -38,9 +38,7 @@ class DnsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, dns_security_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, dns_security_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create Parcel for Sig Security Policy
 
@@ -98,11 +96,7 @@ class DnsBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                dns_security_id: str,
-                dns_security_profile_parcel_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, dns_security_id: str, dns_security_profile_parcel_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Update a Sig Security Profile Parcel
@@ -134,9 +128,7 @@ class DnsBuilder:
 
         return edit_sig_security_profile_parcel_(self._request_adapter)
 
-    def delete_sig_security_profile_parcel(
-        self, dns_security_id: str, dns_security_profile_parcel_id: str, **kw
-    ):
+    def delete_sig_security_profile_parcel(self, dns_security_id: str, dns_security_profile_parcel_id: str, **kw):
         """
         Delete a SigSecurity Profile Parcel
 

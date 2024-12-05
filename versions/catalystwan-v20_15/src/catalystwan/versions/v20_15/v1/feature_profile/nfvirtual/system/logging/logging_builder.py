@@ -20,9 +20,7 @@ class LoggingBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create Logging Profile Parcel for System feature profile
 
@@ -51,9 +49,7 @@ class LoggingBuilder:
 
         return create_nfvirtual_logging_parcel_(self._request_adapter)
 
-    def get_nfvirtual_logging_parcel(
-        self, system_id: str, logging_id: str, **kw
-    ) -> str:
+    def get_nfvirtual_logging_parcel(self, system_id: str, logging_id: str, **kw) -> str:
         """
         Get Logging Profile Parcels for System feature profile
 
@@ -79,13 +75,7 @@ class LoggingBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                system_id: str,
-                logging_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, system_id: str, logging_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a  Logging Profile Parcel for System feature profile
 

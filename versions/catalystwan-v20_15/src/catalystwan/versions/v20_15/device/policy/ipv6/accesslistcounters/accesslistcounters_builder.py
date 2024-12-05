@@ -25,8 +25,5 @@ class AccesslistcountersBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/policy/ipv6/accesslistcounters",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/policy/ipv6/accesslistcounters", params=params, **kw
         )

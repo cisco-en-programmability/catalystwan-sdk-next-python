@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -57,58 +57,41 @@ class ApprouteBuilder:
             "sortBy": sort_by,
             "sortOrder": sort_order,
         }
+        return self._request_adapter.request("GET", "/dataservice/statistics/approute", params=params, **kw)
+
+    def get_stats_raw_data_2(
+        self,
+        payload: Optional[Any] = None,
+        page: Optional[int] = None,
+        page_size: Optional[int] = None,
+        sort_by: Optional[str] = None,
+        sort_order: Optional[SortOrderParam] = None,
+        **kw,
+    ) -> List[AppRouteRespWithPageInfo]:
+        """
+        Get stats raw data
+
+        :param page: Page
+        :param page_size: Page size
+        :param sort_by: Sort by
+        :param sort_order: Sort order
+        :param payload: Query filter
+        :returns: List[AppRouteRespWithPageInfo]
+        """
+        params = {
+            "page": page,
+            "pageSize": page_size,
+            "sortBy": sort_by,
+            "sortOrder": sort_order,
+        }
         return self._request_adapter.request(
-            "GET", "/dataservice/statistics/approute", params=params, **kw
+            "POST",
+            "/dataservice/statistics/approute",
+            return_type=List[AppRouteRespWithPageInfo],
+            params=params,
+            payload=payload,
+            **kw,
         )
-
-    @property
-    def get_stats_raw_data_2(self):
-        class get_stats_raw_data_2_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(
-                self,
-                payload: Optional[Any] = None,
-                page: Optional[int] = None,
-                page_size: Optional[int] = None,
-                sort_by: Optional[str] = None,
-                sort_order: Optional[SortOrderParam] = None,
-                **kw,
-            ) -> List[AppRouteRespWithPageInfo]:
-                """
-                Get stats raw data
-
-                :param page: Page
-                :param page_size: Page size
-                :param sort_by: Sort by
-                :param sort_order: Sort order
-                :param payload: Query filter
-                :returns: List[AppRouteRespWithPageInfo]
-                """
-                params = {
-                    "page": page,
-                    "pageSize": page_size,
-                    "sortBy": sort_by,
-                    "sortOrder": sort_order,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/statistics/approute",
-                    return_type=List[AppRouteRespWithPageInfo],
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return get_stats_raw_data_2_(self._request_adapter)
 
     @property
     def aggregation(self) -> AggregationBuilder:

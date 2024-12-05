@@ -28,11 +28,7 @@ class JksBuilder:
                 :returns: str
                 """
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/certificate/jks",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/certificate/jks", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:

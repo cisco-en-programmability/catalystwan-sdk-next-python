@@ -6,13 +6,9 @@ from typing import Optional
 
 @dataclass
 class TraceInfoResponsePayloadSummary:
-    agg_client_prefix: Optional[str] = _field(
-        default=None, metadata={"alias": "agg-client-prefix"}
-    )
+    agg_client_prefix: Optional[str] = _field(default=None, metadata={"alias": "agg-client-prefix"})
     agg_src_sgt: Optional[str] = _field(default=None, metadata={"alias": "agg-src-sgt"})
-    agg_svr_prefix: Optional[str] = _field(
-        default=None, metadata={"alias": "agg-svr-prefix"}
-    )
+    agg_svr_prefix: Optional[str] = _field(default=None, metadata={"alias": "agg-svr-prefix"})
     app: Optional[str] = _field(default=None)
     app_grp: Optional[str] = _field(default=None, metadata={"alias": "app-grp"})
     app_vis: Optional[str] = _field(default=None, metadata={"alias": "app-vis"})
@@ -28,17 +24,13 @@ class TraceInfoResponsePayloadSummary:
     dst_port: Optional[str] = _field(default=None, metadata={"alias": "dst-port"})
     duration: Optional[str] = _field(default=None)
     hub_wan_vis: Optional[str] = _field(default=None, metadata={"alias": "hub-wan-vis"})
-    local_drop_rate_threshold: Optional[int] = _field(
-        default=None, metadata={"alias": "local-drop-rate-threshold"}
-    )
+    local_drop_rate_threshold: Optional[int] = _field(default=None, metadata={"alias": "local-drop-rate-threshold"})
     message: Optional[str] = _field(default=None)
     protocol: Optional[str] = _field(default=None)
     qos_mon: Optional[str] = _field(default=None, metadata={"alias": "qos-mon"})
     sampling: Optional[str] = _field(default=None)
     source_site: Optional[str] = _field(default=None, metadata={"alias": "source-site"})
-    source_site_vmanage_version: Optional[str] = _field(
-        default=None, metadata={"alias": "source-site-vmanage-version"}
-    )
+    source_site_vmanage_version: Optional[str] = _field(default=None, metadata={"alias": "source-site-vmanage-version"})
     spl_intvl: Optional[str] = _field(default=None, metadata={"alias": "spl-intvl"})
     src_if: Optional[str] = _field(default=None, metadata={"alias": "src-if"})
     src_ip: Optional[str] = _field(default=None, metadata={"alias": "src-ip"})
@@ -49,14 +41,10 @@ class TraceInfoResponsePayloadSummary:
     stop_time: Optional[int] = _field(default=None, metadata={"alias": "stop-time"})
     task_id: Optional[int] = _field(default=None, metadata={"alias": "taskId"})
     trace_name: Optional[str] = _field(default=None, metadata={"alias": "trace-name"})
-    trace_trigger_event: Optional[str] = _field(
-        default=None, metadata={"alias": "trace-trigger-event"}
-    )
+    trace_trigger_event: Optional[str] = _field(default=None, metadata={"alias": "trace-trigger-event"})
     vpn_id: Optional[str] = _field(default=None, metadata={"alias": "vpn-id"})
     vpn_list: Optional[str] = _field(default=None, metadata={"alias": "vpn-list"})
-    wan_drop_rate_threshold: Optional[int] = _field(
-        default=None, metadata={"alias": "wan-drop-rate-threshold"}
-    )
+    wan_drop_rate_threshold: Optional[int] = _field(default=None, metadata={"alias": "wan-drop-rate-threshold"})
     warning: Optional[str] = _field(default=None)
 
 

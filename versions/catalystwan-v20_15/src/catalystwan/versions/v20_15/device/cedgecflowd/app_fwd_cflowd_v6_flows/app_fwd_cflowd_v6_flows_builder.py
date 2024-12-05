@@ -44,8 +44,5 @@ class AppFwdCflowdV6FlowsBuilder:
             "family": family,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/cedgecflowd/app-fwd-cflowd-v6-flows",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/cedgecflowd/app-fwd-cflowd-v6-flows", params=params, **kw
         )

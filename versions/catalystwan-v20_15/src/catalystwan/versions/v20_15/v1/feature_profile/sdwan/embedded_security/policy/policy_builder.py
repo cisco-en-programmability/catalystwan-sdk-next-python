@@ -38,9 +38,7 @@ class PolicyBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, security_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, security_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create Parcel for Security Policy
 
@@ -98,11 +96,7 @@ class PolicyBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                security_id: str,
-                security_profile_parcel_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, security_id: str, security_profile_parcel_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Update a Security Profile Parcel
@@ -134,9 +128,7 @@ class PolicyBuilder:
 
         return edit_security_profile_parcel_1_(self._request_adapter)
 
-    def delete_security_profile_parcel_1(
-        self, security_id: str, security_profile_parcel_id: str, **kw
-    ):
+    def delete_security_profile_parcel_1(self, security_id: str, security_profile_parcel_id: str, **kw):
         """
         Delete a Security Profile Parcel
 

@@ -7,23 +7,17 @@ from typing import List, Optional
 @dataclass
 class DeviceCountersData:
     crash_count: Optional[int] = _field(default=None, metadata={"alias": "crashCount"})
-    expected_control_connections: Optional[int] = _field(
-        default=None, metadata={"alias": "expectedControlConnections"}
-    )
+    expected_control_connections: Optional[int] = _field(default=None, metadata={"alias": "expectedControlConnections"})
     number_vsmart_control_connections: Optional[int] = _field(
         default=None, metadata={"alias": "number-vsmart-control-connections"}
     )
-    reboot_count: Optional[int] = _field(
-        default=None, metadata={"alias": "rebootCount"}
-    )
+    reboot_count: Optional[int] = _field(default=None, metadata={"alias": "rebootCount"})
     system_ip: Optional[str] = _field(default=None, metadata={"alias": "system-ip"})
 
 
 @dataclass
 class DeviceResponseHeader:
-    generated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "generatedOn"}
-    )
+    generated_on: Optional[int] = _field(default=None, metadata={"alias": "generatedOn"})
 
 
 @dataclass

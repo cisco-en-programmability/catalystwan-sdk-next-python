@@ -23,9 +23,7 @@ class TypesBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/types", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/multicloud/types", **kw)
 
     @property
     def edge(self) -> EdgeBuilder:

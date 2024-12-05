@@ -12,9 +12,7 @@ class RulesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_rule_association_by_config_group_id(
-        self, config_group_id: str, **kw
-    ) -> str:
+    def get_rule_association_by_config_group_id(self, config_group_id: str, **kw) -> str:
         """
         Get Rule by associated object Id, example : get rules by config group Id
 
@@ -25,9 +23,5 @@ class RulesBuilder:
             "configGroupId": config_group_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/config-group/{configGroupId}/rules",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/config-group/{configGroupId}/rules", return_type=str, params=params, **kw
         )

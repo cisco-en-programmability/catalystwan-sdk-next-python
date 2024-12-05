@@ -13,17 +13,11 @@ class HostVpcsResponse:
     region: str
     # Used for Azure and Azure GovCloud cloud types
     vnet_id: str = _field(metadata={"alias": "vnetId"})
-    account_name: Optional[str] = _field(
-        default=None, metadata={"alias": "accountName"}
-    )
+    account_name: Optional[str] = _field(default=None, metadata={"alias": "accountName"})
     # Used for AWS, AWS GovCloud and GCP cloud types
-    host_vpc_name: Optional[str] = _field(
-        default=None, metadata={"alias": "hostVpcName"}
-    )
+    host_vpc_name: Optional[str] = _field(default=None, metadata={"alias": "hostVpcName"})
     # Used for Azure and Azure GovCloud cloud types
-    resource_groups: Optional[str] = _field(
-        default=None, metadata={"alias": "resourceGroups"}
-    )
+    resource_groups: Optional[str] = _field(default=None, metadata={"alias": "resourceGroups"})
     # Used for Azure and Azure GovCloud cloud types
     vnet_key: Optional[str] = _field(default=None, metadata={"alias": "vnetKey"})
     # Used for Azure and Azure GovCloud cloud types

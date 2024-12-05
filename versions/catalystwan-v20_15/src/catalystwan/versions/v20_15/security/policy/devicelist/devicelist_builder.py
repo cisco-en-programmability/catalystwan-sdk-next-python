@@ -23,8 +23,5 @@ class DevicelistBuilder:
         :returns: List[SecurityPolicyDeviceList]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/security/policy/devicelist",
-            return_type=List[SecurityPolicyDeviceList],
-            **kw,
+            "GET", "/dataservice/security/policy/devicelist", return_type=List[SecurityPolicyDeviceList], **kw
         )

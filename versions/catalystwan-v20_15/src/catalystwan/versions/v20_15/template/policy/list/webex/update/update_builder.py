@@ -21,8 +21,5 @@ class UpdateBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/template/policy/list/webex/update",
-            return_type=List[Any],
-            **kw,
+            "POST", "/dataservice/template/policy/list/webex/update", return_type=List[Any], **kw
         )

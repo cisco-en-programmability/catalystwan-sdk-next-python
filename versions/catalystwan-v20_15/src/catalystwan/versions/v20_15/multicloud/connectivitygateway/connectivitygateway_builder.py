@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -56,54 +56,28 @@ class ConnectivitygatewayBuilder:
             "refresh": refresh,
             "edgeType": edge_type,
         }
+        return self._request_adapter.request("GET", "/dataservice/multicloud/connectivitygateway", params=params, **kw)
+
+    def create_connectivity_gateway(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Create Connectivity gateway
+
+        :param payload: Connectivity gateway
+        :returns: Any
+        """
+        logging.warning("Operation: %s is deprecated", "createConnectivityGateway")
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/connectivitygateway", params=params, **kw
+            "POST", "/dataservice/multicloud/connectivitygateway", payload=payload, **kw
         )
 
-    @property
-    def create_connectivity_gateway(self):
-        class create_connectivity_gateway_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Create Connectivity gateway
-
-                :param payload: Connectivity gateway
-                :returns: Any
-                """
-                logging.warning(
-                    "Operation: %s is deprecated", "createConnectivityGateway"
-                )
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/connectivitygateway",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_connectivity_gateway_(self._request_adapter)
-
-    def clean_up_all_connectivity_gateways_in_local_db(
-        self, deletion_type: Optional[str] = None, **kw
-    ) -> Any:
+    def clean_up_all_connectivity_gateways_in_local_db(self, deletion_type: Optional[str] = None, **kw) -> Any:
         """
         Delete all Connectivity Gateways in local DB
 
         :param deletion_type: Deletion Type
         :returns: Any
         """
-        logging.warning(
-            "Operation: %s is deprecated", "cleanUpAllConnectivityGatewaysInLocalDB"
-        )
+        logging.warning("Operation: %s is deprecated", "cleanUpAllConnectivityGatewaysInLocalDB")
         params = {
             "deletionType": deletion_type,
         }
@@ -112,11 +86,7 @@ class ConnectivitygatewayBuilder:
         )
 
     def delete_connectivity_gateway(
-        self,
-        cloud_provider: str,
-        connectivity_gateway_name: str,
-        connectivity_type: Optional[str] = None,
-        **kw,
+        self, cloud_provider: str, connectivity_gateway_name: str, connectivity_type: Optional[str] = None, **kw
     ) -> Any:
         """
         Delete Connectivity Gateway

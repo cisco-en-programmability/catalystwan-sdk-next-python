@@ -20,9 +20,7 @@ class TrafficPolicyBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, application_priority_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, application_priority_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Traffic Policy Profile Parcel for application-priority feature profile
 
@@ -49,9 +47,7 @@ class TrafficPolicyBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return create_traffic_policy_profile_parcel_forapplication_priority_(
-            self._request_adapter
-        )
+        return create_traffic_policy_profile_parcel_forapplication_priority_(self._request_adapter)
 
     def get_traffic_policy_profile_parcel_by_parcel_id_forapplication_priority(
         self, application_priority_id: str, traffic_policy_id: str, **kw
@@ -82,11 +78,7 @@ class TrafficPolicyBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                application_priority_id: str,
-                traffic_policy_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, application_priority_id: str, traffic_policy_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Update a Traffic Policy Profile Parcel for application-priority feature profile
@@ -116,9 +108,7 @@ class TrafficPolicyBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return edit_traffic_policy_profile_parcel_forapplication_priority_(
-            self._request_adapter
-        )
+        return edit_traffic_policy_profile_parcel_forapplication_priority_(self._request_adapter)
 
     def delete_traffic_policy_profile_parcel_forapplication_priority(
         self, application_priority_id: str, traffic_policy_id: str, **kw

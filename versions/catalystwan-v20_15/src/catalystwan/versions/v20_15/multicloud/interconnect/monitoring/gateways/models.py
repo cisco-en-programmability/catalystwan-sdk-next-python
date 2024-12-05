@@ -13,17 +13,9 @@ class InterconnectGatewayMonitoring:
     region: str
     site_name: str = _field(metadata={"alias": "siteName"})
     description: Optional[str] = _field(default=None)
-    edge_account_name: Optional[str] = _field(
-        default=None, metadata={"alias": "edgeAccountName"}
-    )
-    edge_gateway_id: Optional[str] = _field(
-        default=None, metadata={"alias": "edgeGatewayId"}
-    )
+    edge_account_name: Optional[str] = _field(default=None, metadata={"alias": "edgeAccountName"})
+    edge_gateway_id: Optional[str] = _field(default=None, metadata={"alias": "edgeGatewayId"})
     # Custom Settings enabled for Interconnect Gateway
-    is_custom_setting: Optional[bool] = _field(
-        default=None, metadata={"alias": "isCustomSetting"}
-    )
-    resource_state: Optional[str] = _field(
-        default=None, metadata={"alias": "resourceState"}
-    )
+    is_custom_setting: Optional[bool] = _field(default=None, metadata={"alias": "isCustomSetting"})
+    resource_state: Optional[str] = _field(default=None, metadata={"alias": "resourceState"})
     status: Optional[str] = _field(default=None)

@@ -23,8 +23,5 @@ class ApplicationsBuilder:
         """
         logging.warning("Operation: %s is deprecated", "getQosmosApplicationList")
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/dpi/qosmos/applications",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/device/dpi/qosmos/applications", return_type=List[Any], **kw
         )

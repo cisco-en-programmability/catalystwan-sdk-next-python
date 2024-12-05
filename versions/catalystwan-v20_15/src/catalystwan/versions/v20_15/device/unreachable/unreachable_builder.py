@@ -25,11 +25,7 @@ class UnreachableBuilder:
             "personality": personality,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/unreachable",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/unreachable", return_type=List[Any], params=params, **kw
         )
 
     def remove_unreachable_device(self, device_ip: str, **kw):

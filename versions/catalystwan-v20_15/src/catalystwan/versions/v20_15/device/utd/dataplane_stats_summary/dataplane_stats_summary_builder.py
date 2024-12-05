@@ -25,8 +25,5 @@ class DataplaneStatsSummaryBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/utd/dataplane-stats-summary",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/utd/dataplane-stats-summary", params=params, **kw
         )

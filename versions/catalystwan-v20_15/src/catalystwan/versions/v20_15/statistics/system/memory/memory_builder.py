@@ -26,6 +26,4 @@ class MemoryBuilder:
             "query": query,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/statistics/system/memory", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/statistics/system/memory", params=params, **kw)

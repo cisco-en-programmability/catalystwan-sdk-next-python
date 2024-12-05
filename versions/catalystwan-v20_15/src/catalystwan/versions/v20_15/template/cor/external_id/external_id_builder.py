@@ -22,6 +22,4 @@ class ExternalIdBuilder:
         :returns: List[Any]
         """
         logging.warning("Operation: %s is deprecated", "getExternalId")
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/cor/externalId", return_type=List[Any], **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/template/cor/externalId", return_type=List[Any], **kw)

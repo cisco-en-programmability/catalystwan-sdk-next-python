@@ -23,9 +23,7 @@ class SaasfeedBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/app-registry/saasfeed", return_type=List[Any], **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/app-registry/saasfeed", return_type=List[Any], **kw)
 
     @property
     def app(self) -> AppBuilder:

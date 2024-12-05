@@ -25,6 +25,4 @@ class EventsBuilder:
         params = {
             "vnfName": vnf_name,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/colocation/monitor/vnf/events", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/colocation/monitor/vnf/events", params=params, **kw)

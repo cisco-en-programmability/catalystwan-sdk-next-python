@@ -44,9 +44,7 @@ class IpsecBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a LanVpn InterfaceIpsec parcel for service feature profile
 
@@ -77,9 +75,7 @@ class IpsecBuilder:
 
         return create_ip_sec_profile_parcel_(self._request_adapter)
 
-    def get_profile_parcel_by_parcel_id(
-        self, service_id: str, vpn_id: str, ipsec_id: str, **kw
-    ) -> str:
+    def get_profile_parcel_by_parcel_id(self, service_id: str, vpn_id: str, ipsec_id: str, **kw) -> str:
         """
         Get LanVpn InterfaceIpsec Parcel by ethernetId for Service feature profile
 
@@ -107,14 +103,7 @@ class IpsecBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                service_id: str,
-                vpn_id: str,
-                ipsec_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, service_id: str, vpn_id: str, ipsec_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a LanVpn Interface Ipsec Parcel for Service feature profile
 

@@ -18,9 +18,7 @@ class ListBuilder:
 
         :returns: str
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/certificate/vsmart/list", return_type=str, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/certificate/vsmart/list", return_type=str, **kw)
 
     def setv_smart_list(self, **kw) -> str:
         """
@@ -28,6 +26,4 @@ class ListBuilder:
 
         :returns: str
         """
-        return self._request_adapter.request(
-            "POST", "/dataservice/certificate/vsmart/list", return_type=str, **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/certificate/vsmart/list", return_type=str, **kw)

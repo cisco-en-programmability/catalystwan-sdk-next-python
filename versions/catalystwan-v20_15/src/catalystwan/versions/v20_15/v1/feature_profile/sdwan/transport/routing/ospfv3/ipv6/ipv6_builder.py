@@ -14,9 +14,7 @@ class Ipv6Builder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_routing_ospfv3_ipv6_af_profile_parcel_for_transport(
-        self, transport_id: str, **kw
-    ) -> str:
+    def get_routing_ospfv3_ipv6_af_profile_parcel_for_transport(self, transport_id: str, **kw) -> str:
         """
         Get all routing OSPFv3 IPv6 address family profile parcels for transport feature profile
 
@@ -40,9 +38,7 @@ class Ipv6Builder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, transport_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, transport_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a routing OSPFv3 IPv6 address family profile parcel for transport feature profile
 
@@ -69,9 +65,7 @@ class Ipv6Builder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return create_routing_ospfv3_ipv6_af_profile_parcel_for_transport_(
-            self._request_adapter
-        )
+        return create_routing_ospfv3_ipv6_af_profile_parcel_for_transport_(self._request_adapter)
 
     def get_routing_ospfv3_ipv6_af_profile_parcel_by_parcel_id_for_transport(
         self, transport_id: str, ospfv3_id: str, **kw
@@ -101,13 +95,7 @@ class Ipv6Builder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                transport_id: str,
-                ospfv3_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, transport_id: str, ospfv3_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a routing OSPFv3 IPv6 address family profile parcel for transport feature profile
 
@@ -136,13 +124,9 @@ class Ipv6Builder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return edit_routing_ospfv3_ipv6_af_profile_parcel_for_transport_(
-            self._request_adapter
-        )
+        return edit_routing_ospfv3_ipv6_af_profile_parcel_for_transport_(self._request_adapter)
 
-    def delete_routing_ospfv3_ipv6_af_profile_parcel_for_transport(
-        self, transport_id: str, ospfv3_id: str, **kw
-    ):
+    def delete_routing_ospfv3_ipv6_af_profile_parcel_for_transport(self, transport_id: str, ospfv3_id: str, **kw):
         """
         Delete the routing OSPFv3 IPv6 address family profile parcel by ID for transport feature profile
 

@@ -21,8 +21,5 @@ class UserSettingsBuilder:
         :returns: UserSettingsResponse
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/smart-licensing/user-settings",
-            return_type=UserSettingsResponse,
-            **kw,
+            "GET", "/dataservice/v1/smart-licensing/user-settings", return_type=UserSettingsResponse, **kw
         )

@@ -28,11 +28,7 @@ class BasicBuilder:
             "systemId": system_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/basic",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/system/{systemId}/basic", return_type=str, params=params, **kw
         )
 
     @property
@@ -41,9 +37,7 @@ class BasicBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Basic Profile Feature for System feature profile
 
@@ -72,9 +66,7 @@ class BasicBuilder:
 
         return create_basic_profile_feature_for_system_(self._request_adapter)
 
-    def get_basic_profile_feature_by_feature_id_for_system(
-        self, system_id: str, basic_id: str, **kw
-    ) -> str:
+    def get_basic_profile_feature_by_feature_id_for_system(self, system_id: str, basic_id: str, **kw) -> str:
         """
         Get Basic Profile Feature by FeatureId for System feature profile
 
@@ -100,9 +92,7 @@ class BasicBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, basic_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, basic_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Basic Profile Feature for System feature profile
 
@@ -133,9 +123,7 @@ class BasicBuilder:
 
         return edit_basic_profile_feature_for_system_(self._request_adapter)
 
-    def delete_basic_profile_feature_for_system(
-        self, system_id: str, basic_id: str, **kw
-    ):
+    def delete_basic_profile_feature_for_system(self, system_id: str, basic_id: str, **kw):
         """
         Delete a Basic Profile Feature for System feature profile
 
@@ -148,10 +136,7 @@ class BasicBuilder:
             "basicId": basic_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/basic/{basicId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/sdwan/system/{systemId}/basic/{basicId}", params=params, **kw
         )
 
     @property

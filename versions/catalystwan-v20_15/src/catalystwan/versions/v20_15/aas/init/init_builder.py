@@ -29,9 +29,7 @@ class InitBuilder:
                 :param payload: Payload
                 :returns: None
                 """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/aas/init", payload=payload, **kw
-                )
+                return self._request_adapter.request("POST", "/dataservice/aas/init", payload=payload, **kw)
 
             def create_payload(self, *args, **kwargs) -> InitBlob:
                 return InitBlob(*args, **kwargs)

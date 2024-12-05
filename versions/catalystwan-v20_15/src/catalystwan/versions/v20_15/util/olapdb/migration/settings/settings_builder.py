@@ -20,9 +20,7 @@ class SettingsBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/util/olapdb/migration/settings", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/util/olapdb/migration/settings", **kw)
 
     @property
     def post_stats_migration_settings(self):
@@ -38,10 +36,7 @@ class SettingsBuilder:
                 :returns: Any
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/util/olapdb/migration/settings",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/util/olapdb/migration/settings", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:

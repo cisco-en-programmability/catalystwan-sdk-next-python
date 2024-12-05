@@ -12,9 +12,7 @@ class Vpn:
 
 @dataclass
 class VpnListResHeader:
-    generated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "generatedOn"}
-    )
+    generated_on: Optional[int] = _field(default=None, metadata={"alias": "generatedOn"})
 
 
 @dataclass

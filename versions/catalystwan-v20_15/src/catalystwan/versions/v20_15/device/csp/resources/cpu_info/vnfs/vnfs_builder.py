@@ -25,8 +25,5 @@ class VnfsBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/csp/resources/cpu-info/vnfs",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/csp/resources/cpu-info/vnfs", params=params, **kw
         )

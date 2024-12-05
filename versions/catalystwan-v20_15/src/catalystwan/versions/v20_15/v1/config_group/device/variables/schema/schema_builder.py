@@ -14,9 +14,7 @@ class SchemaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_config_group_device_variables_schema(
-        self, config_group_id: str, all: Optional[bool] = False, **kw
-    ) -> Any:
+    def get_config_group_device_variables_schema(self, config_group_id: str, all: Optional[bool] = False, **kw) -> Any:
         """
         get device variables schema
 
@@ -29,8 +27,5 @@ class SchemaBuilder:
             "all": all,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/config-group/{configGroupId}/device/variables/schema",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/config-group/{configGroupId}/device/variables/schema", params=params, **kw
         )

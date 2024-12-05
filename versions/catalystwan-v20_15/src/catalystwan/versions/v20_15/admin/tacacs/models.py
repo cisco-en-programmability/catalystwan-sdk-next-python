@@ -14,9 +14,7 @@ class TacacsServer:
     priority: Optional[int] = _field(default=None)
     secret_key: Optional[str] = _field(default=None, metadata={"alias": "secretKey"})
     vpn: Optional[int] = _field(default=None)
-    vpn_ip_subnet: Optional[str] = _field(
-        default=None, metadata={"alias": "vpnIpSubnet"}
-    )
+    vpn_ip_subnet: Optional[str] = _field(default=None, metadata={"alias": "vpnIpSubnet"})
 
 
 @dataclass

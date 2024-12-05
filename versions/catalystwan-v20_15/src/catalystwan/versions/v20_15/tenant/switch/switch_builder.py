@@ -27,6 +27,4 @@ class SwitchBuilder:
         params = {
             "tenantId": tenant_id,
         }
-        return self._request_adapter.request(
-            "POST", "/dataservice/tenant/{tenantId}/switch", params=params, **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/tenant/{tenantId}/switch", params=params, **kw)

@@ -42,6 +42,4 @@ class RoutetableBuilder:
             "protocol": protocol,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/ip/routetable", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/ip/routetable", params=params, **kw)

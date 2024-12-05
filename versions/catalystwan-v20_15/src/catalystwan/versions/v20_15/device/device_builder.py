@@ -152,11 +152,7 @@ class DeviceBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device",
-            return_type=List[DeviceData],
-            params=params,
-            **kw,
+            "GET", "/dataservice/device", return_type=List[DeviceData], params=params, **kw
         )
 
     @property

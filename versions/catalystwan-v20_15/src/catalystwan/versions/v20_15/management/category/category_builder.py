@@ -20,6 +20,4 @@ class CategoryBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/management/category", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/management/category", **kw)

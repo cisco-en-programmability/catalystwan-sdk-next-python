@@ -23,6 +23,4 @@ class ReplicateAndRebalanceBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "PUT", "/dataservice/clusterManagement/replicateAndRebalance", **kw
-        )
+        return self._request_adapter.request("PUT", "/dataservice/clusterManagement/replicateAndRebalance", **kw)

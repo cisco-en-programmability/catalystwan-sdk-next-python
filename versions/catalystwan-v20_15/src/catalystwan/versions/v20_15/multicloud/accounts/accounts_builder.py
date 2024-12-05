@@ -21,10 +21,7 @@ class AccountsBuilder:
         self._request_adapter = request_adapter
 
     def get_all_cloud_accounts(
-        self,
-        cloud_type: Optional[str] = None,
-        cloud_gateway_enabled: Optional[str] = None,
-        **kw,
+        self, cloud_type: Optional[str] = None, cloud_gateway_enabled: Optional[str] = None, **kw
     ) -> List[GetAccounts]:
         """
         Obtain all accounts for all clouds
@@ -38,11 +35,7 @@ class AccountsBuilder:
             "cloudGatewayEnabled": cloud_gateway_enabled,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/accounts",
-            return_type=List[GetAccounts],
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/accounts", return_type=List[GetAccounts], params=params, **kw
         )
 
     @property
@@ -51,9 +44,7 @@ class AccountsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[PostAccounts] = None, **kw
-            ) -> PostAccountsResponse:
+            def __call__(self, payload: Optional[PostAccounts] = None, **kw) -> PostAccountsResponse:
                 """
                 Add Cloud Account
 
@@ -61,11 +52,7 @@ class AccountsBuilder:
                 :returns: PostAccountsResponse
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/accounts",
-                    return_type=PostAccountsResponse,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/multicloud/accounts", return_type=PostAccountsResponse, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> PostAccounts:
@@ -88,11 +75,7 @@ class AccountsBuilder:
             "accountId": account_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/accounts/{accountId}",
-            return_type=GetAccounts,
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/accounts/{accountId}", return_type=GetAccounts, params=params, **kw
         )
 
     @property
@@ -101,9 +84,7 @@ class AccountsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, account_id: str, payload: Optional[PutAccounts] = None, **kw
-            ):
+            def __call__(self, account_id: str, payload: Optional[PutAccounts] = None, **kw):
                 """
                 Obtain all accounts for all clouds
 
@@ -115,11 +96,7 @@ class AccountsBuilder:
                     "accountId": account_id,
                 }
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/multicloud/accounts/{accountId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/multicloud/accounts/{accountId}", params=params, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> PutAccounts:
@@ -142,10 +119,7 @@ class AccountsBuilder:
             "accountId": account_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/multicloud/accounts/{accountId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/multicloud/accounts/{accountId}", params=params, **kw
         )
 
     @property

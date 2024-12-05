@@ -30,10 +30,7 @@ class DeleteBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "DELETE",
-                    "/dataservice/device/tools/admintech/delete",
-                    payload=payload,
-                    **kw,
+                    "DELETE", "/dataservice/device/tools/admintech/delete", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> AdminTechReq:

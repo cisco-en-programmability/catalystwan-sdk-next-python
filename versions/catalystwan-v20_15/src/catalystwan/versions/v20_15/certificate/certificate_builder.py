@@ -40,11 +40,7 @@ class CertificateBuilder:
         self._request_adapter = request_adapter
 
     def delete_configuration(
-        self,
-        uuid: str,
-        replace_controller: Optional[bool] = None,
-        device_id: Optional[str] = None,
-        **kw,
+        self, uuid: str, replace_controller: Optional[bool] = None, device_id: Optional[str] = None, **kw
     ) -> str:
         """
         invalid device
@@ -60,11 +56,7 @@ class CertificateBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/certificate/{uuid}",
-            return_type=str,
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/certificate/{uuid}", return_type=str, params=params, **kw
         )
 
     @property

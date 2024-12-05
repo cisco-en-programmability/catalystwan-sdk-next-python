@@ -16,9 +16,7 @@ class FinalizedDataBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_finalized_data(
-        self, trace_id: int, timestamp: int, **kw
-    ) -> NwpitraceFlowRespPayload:
+    def get_finalized_data(self, trace_id: int, timestamp: int, **kw) -> NwpitraceFlowRespPayload:
         """
         finalizedData for NWPI.
 

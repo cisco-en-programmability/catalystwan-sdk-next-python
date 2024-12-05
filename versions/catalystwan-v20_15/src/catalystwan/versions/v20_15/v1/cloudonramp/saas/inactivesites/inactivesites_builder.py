@@ -18,6 +18,4 @@ class InactivesitesBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/cloudonramp/saas/inactivesites", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/v1/cloudonramp/saas/inactivesites", **kw)

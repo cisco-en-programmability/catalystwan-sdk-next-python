@@ -6,9 +6,7 @@ from typing import Optional
 
 @dataclass
 class GenerateDeviceActionListInner:
-    is_cancel_enabled: Optional[bool] = _field(
-        default=None, metadata={"alias": "isCancelEnabled"}
-    )
+    is_cancel_enabled: Optional[bool] = _field(default=None, metadata={"alias": "isCancelEnabled"})
     is_parallel_execution_enabled: Optional[bool] = _field(
         default=None, metadata={"alias": "isParallelExecutionEnabled"}
     )

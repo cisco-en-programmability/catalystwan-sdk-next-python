@@ -14,9 +14,7 @@ class ActionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def report_action(
-        self, report_id: str, action: ActionParam, **kw
-    ) -> UpdateReportTemplateResponse:
+    def report_action(self, report_id: str, action: ActionParam, **kw) -> UpdateReportTemplateResponse:
         """
         User operations for specific report template, which includes activate,deactivate and run immediately
 

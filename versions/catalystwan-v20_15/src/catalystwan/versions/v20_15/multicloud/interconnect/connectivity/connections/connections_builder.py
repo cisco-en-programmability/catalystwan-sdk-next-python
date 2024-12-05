@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -46,41 +46,23 @@ class ConnectionsBuilder:
             "refresh": refresh,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/interconnect/connectivity/connections",
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/interconnect/connectivity/connections", params=params, **kw
         )
 
-    @property
-    def create_interconnect_connectivity(self):
-        class create_interconnect_connectivity_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_interconnect_connectivity(self, payload: Optional[Any] = None, **kw) -> ProcessResponse:
+        """
+        API to create a private transit or cloud connection on an Interconnect Gateway at an Interconnect Provider.
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> ProcessResponse:
-                """
-                API to create a private transit or cloud connection on an Interconnect Gateway at an Interconnect Provider.
-
-                :param payload: Request Payload for Multicloud Interconnect Connections
-                :returns: ProcessResponse
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/interconnect/connectivity/connections",
-                    return_type=ProcessResponse,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_interconnect_connectivity_(self._request_adapter)
+        :param payload: Request Payload for Multicloud Interconnect Connections
+        :returns: ProcessResponse
+        """
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/multicloud/interconnect/connectivity/connections",
+            return_type=ProcessResponse,
+            payload=payload,
+            **kw,
+        )
 
     def get_interconnect_connectivity(self, connection_name: str, **kw) -> Any:
         """
@@ -99,47 +81,27 @@ class ConnectionsBuilder:
             **kw,
         )
 
-    @property
-    def update_interconnect_connectivity(self):
-        class update_interconnect_connectivity_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def update_interconnect_connectivity(self, connection_name: str, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        API to update an Interconnect connectivity at an Interconnect provider.
 
-            def __call__(
-                self, connection_name: str, payload: Optional[Any] = None, **kw
-            ) -> Any:
-                """
-                API to update an Interconnect connectivity at an Interconnect provider.
-
-                :param connection_name: Interconnect connectivity name
-                :param payload: Request Payload for Multicloud Interconnect Connections
-                :returns: Any
-                """
-                params = {
-                    "connection-name": connection_name,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/multicloud/interconnect/connectivity/connections/{connection-name}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return update_interconnect_connectivity_(self._request_adapter)
+        :param connection_name: Interconnect connectivity name
+        :param payload: Request Payload for Multicloud Interconnect Connections
+        :returns: Any
+        """
+        params = {
+            "connection-name": connection_name,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/multicloud/interconnect/connectivity/connections/{connection-name}",
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_interconnect_connectivity(
-        self,
-        connection_name: str,
-        delete_cloud_resources: Optional[str] = "false",
-        **kw,
+        self, connection_name: str, delete_cloud_resources: Optional[str] = "false", **kw
     ) -> ProcessResponse:
         """
         API to delete an Interconnect connectivity at an Interconnect provider.

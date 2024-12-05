@@ -26,6 +26,4 @@ class CloudgatewaytypeBuilder:
         params = {
             "cloudType": cloud_type,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/cloudgatewaytype", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/multicloud/cloudgatewaytype", params=params, **kw)

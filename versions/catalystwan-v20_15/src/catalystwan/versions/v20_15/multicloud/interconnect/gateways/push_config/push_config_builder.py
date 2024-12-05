@@ -22,9 +22,7 @@ class PushConfigBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[GatewaysPushconfigBody] = None, **kw
-            ) -> ProcessResponse:
+            def __call__(self, payload: Optional[GatewaysPushconfigBody] = None, **kw) -> ProcessResponse:
                 """
                 API to initiate a configuration push for an Interconnect gateway.
 

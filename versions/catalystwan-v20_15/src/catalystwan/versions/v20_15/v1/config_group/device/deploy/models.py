@@ -9,6 +9,4 @@ ValueType = Literal["ARRAY", "FALSE", "NULL", "NUMBER", "OBJECT", "STRING", "TRU
 @dataclass
 class DeployConfigGroupPostRequest:
     empty: Optional[bool] = _field(default=None)
-    value_type: Optional[ValueType] = _field(
-        default=None, metadata={"alias": "valueType"}
-    )
+    value_type: Optional[ValueType] = _field(default=None, metadata={"alias": "valueType"})

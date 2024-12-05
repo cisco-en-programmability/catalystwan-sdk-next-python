@@ -16,9 +16,7 @@ class CandidatesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_rma_candidates(
-        self, device_type: str, uuid: Optional[str] = None, **kw
-    ) -> GetRmaCandidates:
+    def get_rma_candidates(self, device_type: str, uuid: Optional[str] = None, **kw) -> GetRmaCandidates:
         """
         Get RMA candidates by device type
 

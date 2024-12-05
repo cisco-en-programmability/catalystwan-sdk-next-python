@@ -22,9 +22,7 @@ class NetconfconfigBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, partner_id: str, payload: SdaConfigRequest, **kw
-            ) -> SdaDeviceConfigRes:
+            def __call__(self, partner_id: str, payload: SdaConfigRequest, **kw) -> SdaDeviceConfigRes:
                 """
                 Create SDA enabled device from Netconf
 

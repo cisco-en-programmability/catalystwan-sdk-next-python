@@ -24,6 +24,4 @@ class ZbfwstatisticsBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/policy/zbfwstatistics", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/policy/zbfwstatistics", params=params, **kw)

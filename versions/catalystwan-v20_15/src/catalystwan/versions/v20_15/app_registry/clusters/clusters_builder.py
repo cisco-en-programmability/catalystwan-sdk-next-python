@@ -17,11 +17,7 @@ class ClustersBuilder:
         self._request_adapter = request_adapter
 
     def get_kubernetes_cluster(
-        self,
-        is_cached: Optional[bool] = True,
-        offset: Optional[int] = 0,
-        limit: Optional[int] = 0,
-        **kw,
+        self, is_cached: Optional[bool] = True, offset: Optional[int] = 0, limit: Optional[int] = 0, **kw
     ) -> List[ClusterProperties]:
         """
         Obtain all clusters with associated cloud accounts
@@ -37,11 +33,7 @@ class ClustersBuilder:
             "limit": limit,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/app-registry/clusters",
-            return_type=List[ClusterProperties],
-            params=params,
-            **kw,
+            "GET", "/dataservice/app-registry/clusters", return_type=List[ClusterProperties], params=params, **kw
         )
 
     def post_cluster(self, **kw):
@@ -50,9 +42,7 @@ class ClustersBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "POST", "/dataservice/app-registry/clusters", **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/app-registry/clusters", **kw)
 
     @property
     def edit_kubernetes_cluster(self):
@@ -72,11 +62,7 @@ class ClustersBuilder:
                     "id": id,
                 }
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/app-registry/clusters/{id}",
-                    params=params,
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/app-registry/clusters/{id}", params=params, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> PutProperties:
@@ -98,6 +84,4 @@ class ClustersBuilder:
         params = {
             "id": id,
         }
-        return self._request_adapter.request(
-            "DELETE", "/dataservice/app-registry/clusters/{id}", params=params, **kw
-        )
+        return self._request_adapter.request("DELETE", "/dataservice/app-registry/clusters/{id}", params=params, **kw)

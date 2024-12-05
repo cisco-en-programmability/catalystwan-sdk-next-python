@@ -28,9 +28,7 @@ class FirmwareBuilder:
         :returns: None
         """
         logging.warning("Operation: %s is deprecated", "getFirmwareImages")
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/action/firmware", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/action/firmware", **kw)
 
     def process_firmware_image(self, **kw):
         """
@@ -39,9 +37,7 @@ class FirmwareBuilder:
         :returns: None
         """
         logging.warning("Operation: %s is deprecated", "processFirmwareImage")
-        return self._request_adapter.request(
-            "POST", "/dataservice/device/action/firmware", **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/device/action/firmware", **kw)
 
     def get_firmware_image_details(self, version_id: str, **kw):
         """
@@ -55,10 +51,7 @@ class FirmwareBuilder:
             "versionId": version_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/action/firmware/{versionId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/action/firmware/{versionId}", params=params, **kw
         )
 
     def delete_firmware_image(self, version_id: str, **kw):
@@ -73,10 +66,7 @@ class FirmwareBuilder:
             "versionId": version_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/device/action/firmware/{versionId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/device/action/firmware/{versionId}", params=params, **kw
         )
 
     @property

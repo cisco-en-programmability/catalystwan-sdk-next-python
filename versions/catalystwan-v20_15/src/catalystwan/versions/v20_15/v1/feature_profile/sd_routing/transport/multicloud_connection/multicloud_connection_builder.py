@@ -41,9 +41,7 @@ class MulticloudConnectionBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, transport_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, transport_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Associate a MultiCloudConnection Parcel for transport feature profile
 
@@ -101,11 +99,7 @@ class MulticloudConnectionBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                transport_id: str,
-                multi_cloud_connection_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, transport_id: str, multi_cloud_connection_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Update a multicloud connection parcel

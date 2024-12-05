@@ -27,9 +27,5 @@ class ListBuilder:
             "size": size,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/backup/list",
-            return_type=LocalBackupListResult,
-            params=params,
-            **kw,
+            "GET", "/dataservice/backup/list", return_type=LocalBackupListResult, params=params, **kw
         )

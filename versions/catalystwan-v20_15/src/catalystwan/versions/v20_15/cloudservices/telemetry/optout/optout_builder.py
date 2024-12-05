@@ -28,10 +28,7 @@ class OptoutBuilder:
                 :returns: Any
                 """
                 return self._request_adapter.request(
-                    "DELETE",
-                    "/dataservice/cloudservices/telemetry/optout",
-                    payload=payload,
-                    **kw,
+                    "DELETE", "/dataservice/cloudservices/telemetry/optout", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:

@@ -175,9 +175,7 @@ class MulticloudBuilder:
         return ConnectivitygatewayBuilder(self._request_adapter)
 
     @property
-    def connectivitygatewaycreationoptions(
-        self,
-    ) -> ConnectivitygatewaycreationoptionsBuilder:
+    def connectivitygatewaycreationoptions(self) -> ConnectivitygatewaycreationoptionsBuilder:
         """
         The connectivitygatewaycreationoptions property
         """

@@ -3,14 +3,7 @@ from dataclasses import dataclass
 from dataclasses import field as _field
 from typing import List, Literal, Optional
 
-Type = Literal[
-    "cellular",
-    "ethernet",
-    "globalSettings",
-    "networkProtocol",
-    "securityPolicy",
-    "wifi",
-]
+Type = Literal["cellular", "ethernet", "globalSettings", "networkProtocol", "securityPolicy", "wifi"]
 
 
 @dataclass
@@ -34,12 +27,8 @@ class SimSlotConfig:
     attach_profile_id: int = _field(metadata={"alias": "attachProfileId"})
     profile_list: List[CellularProfile] = _field(metadata={"alias": "profileList"})
     slot_number: int = _field(metadata={"alias": "slotNumber"})
-    carrier_name: Optional[str] = _field(
-        default=None, metadata={"alias": "carrierName"}
-    )
-    data_profile_id_list: Optional[List[int]] = _field(
-        default=None, metadata={"alias": "dataProfileIdList"}
-    )
+    carrier_name: Optional[str] = _field(default=None, metadata={"alias": "carrierName"})
+    data_profile_id_list: Optional[List[int]] = _field(default=None, metadata={"alias": "dataProfileIdList"})
 
 
 @dataclass
@@ -57,18 +46,10 @@ class EditCellularProfileParcelForMobilityPutRequest:
     # System generated unique identifier of the Profile Parcel in UUID format.
     id: Optional[str] = _field(default=None)
     # User who last updated this.
-    last_updated_by: Optional[str] = _field(
-        default=None, metadata={"alias": "lastUpdatedBy"}
-    )
+    last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
     # Timestamp of last update
-    last_updated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "lastUpdatedOn"}
-    )
-    sim_slot0: Optional[SimSlotConfig] = _field(
-        default=None, metadata={"alias": "simSlot0"}
-    )
-    sim_slot1: Optional[SimSlotConfig] = _field(
-        default=None, metadata={"alias": "simSlot1"}
-    )
+    last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
+    sim_slot0: Optional[SimSlotConfig] = _field(default=None, metadata={"alias": "simSlot0"})
+    sim_slot1: Optional[SimSlotConfig] = _field(default=None, metadata={"alias": "simSlot1"})
     variables: Optional[List[Variable]] = _field(default=None)
     wan_config: Optional[str] = _field(default=None, metadata={"alias": "wanConfig"})

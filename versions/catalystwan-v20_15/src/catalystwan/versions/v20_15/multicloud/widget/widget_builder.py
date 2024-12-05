@@ -40,11 +40,7 @@ class WidgetBuilder:
             "cloudType": cloud_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/widget/{cloudType}",
-            return_type=CloudWidget,
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/widget/{cloudType}", return_type=CloudWidget, params=params, **kw
         )
 
     @property

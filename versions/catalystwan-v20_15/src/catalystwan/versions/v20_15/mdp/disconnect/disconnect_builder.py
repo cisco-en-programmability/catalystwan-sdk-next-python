@@ -25,9 +25,5 @@ class DisconnectBuilder:
             "nmsId": nms_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/mdp/disconnect/{nmsId}",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/mdp/disconnect/{nmsId}", return_type=List[Any], params=params, **kw
         )

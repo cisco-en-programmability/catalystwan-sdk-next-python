@@ -21,8 +21,5 @@ class SummaryBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/policy/voice/summary",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/template/policy/voice/summary", return_type=List[Any], **kw
         )

@@ -23,9 +23,7 @@ class StopBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[NwpiMonitorReqPayload] = None, **kw
-            ) -> NwpiMonitorRespPayload:
+            def __call__(self, payload: Optional[NwpiMonitorReqPayload] = None, **kw) -> NwpiMonitorRespPayload:
                 """
                 CXP Monitor Action - Stop
 

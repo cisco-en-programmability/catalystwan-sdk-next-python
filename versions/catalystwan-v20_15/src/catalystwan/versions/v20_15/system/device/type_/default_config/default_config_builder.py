@@ -26,9 +26,7 @@ class DefaultConfigBuilder:
         :param device_category: Device category
         :returns: List[Any]
         """
-        logging.warning(
-            "Operation: %s is deprecated", "getCloudDockDefaultConfigBasedOnDeviceType"
-        )
+        logging.warning("Operation: %s is deprecated", "getCloudDockDefaultConfigBasedOnDeviceType")
         params = {
             "deviceCategory": device_category,
         }

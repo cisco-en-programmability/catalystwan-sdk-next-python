@@ -18,6 +18,4 @@ class BasesBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/sdavc/protocol-pack/base", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/sdavc/protocol-pack/base", **kw)

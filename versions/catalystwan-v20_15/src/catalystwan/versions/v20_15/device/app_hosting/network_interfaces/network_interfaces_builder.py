@@ -25,8 +25,5 @@ class NetworkInterfacesBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/app-hosting/network-interfaces",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/app-hosting/network-interfaces", params=params, **kw
         )

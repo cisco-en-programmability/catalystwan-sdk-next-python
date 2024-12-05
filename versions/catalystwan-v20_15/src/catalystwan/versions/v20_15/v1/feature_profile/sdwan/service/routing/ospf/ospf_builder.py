@@ -38,9 +38,7 @@ class OspfBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, service_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, service_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Routing Ospf Profile Parcel for Service feature profile
 
@@ -69,9 +67,7 @@ class OspfBuilder:
 
         return create_routing_ospf_profile_parcel_for_service_(self._request_adapter)
 
-    def get_routing_ospf_profile_parcel_by_parcel_id_for_service(
-        self, service_id: str, ospf_id: str, **kw
-    ) -> str:
+    def get_routing_ospf_profile_parcel_by_parcel_id_for_service(self, service_id: str, ospf_id: str, **kw) -> str:
         """
         Get Routing Ospf Profile Parcel by parcelId for Service feature profile
 
@@ -97,9 +93,7 @@ class OspfBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, service_id: str, ospf_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, service_id: str, ospf_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Routing Ospf Profile Parcel for Service feature profile
 
@@ -130,9 +124,7 @@ class OspfBuilder:
 
         return edit_routing_ospf_profile_parcel_for_service_(self._request_adapter)
 
-    def delete_routing_ospf_profile_parcel_for_service(
-        self, service_id: str, ospf_id: str, **kw
-    ):
+    def delete_routing_ospf_profile_parcel_for_service(self, service_id: str, ospf_id: str, **kw):
         """
         Delete a Routing Ospf Profile Parcel for Service feature profile
 

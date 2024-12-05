@@ -22,6 +22,4 @@ class SigTunnelsBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/cloudx/sig_tunnels", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/template/cloudx/sig_tunnels", params=params, **kw)

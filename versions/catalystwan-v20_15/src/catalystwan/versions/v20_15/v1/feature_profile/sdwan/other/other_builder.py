@@ -18,9 +18,7 @@ class OtherBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdwan_other_feature_profiles(
-        self, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
-    ) -> Any:
+    def get_sdwan_other_feature_profiles(self, offset: Optional[int] = None, limit: Optional[int] = 0, **kw) -> Any:
         """
         Get all SDWAN Feature Profiles with giving Family and profile type
 
@@ -32,9 +30,7 @@ class OtherBuilder:
             "offset": offset,
             "limit": limit,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/sdwan/other", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/v1/feature-profile/sdwan/other", params=params, **kw)
 
     @property
     def create_sdwan_other_feature_profile(self):
@@ -50,11 +46,7 @@ class OtherBuilder:
                 :returns: str
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/sdwan/other",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/feature-profile/sdwan/other", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -77,10 +69,7 @@ class OtherBuilder:
             "otherId": other_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/other/{otherId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/other/{otherId}", params=params, **kw
         )
 
     @property
@@ -89,9 +78,7 @@ class OtherBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, other_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, other_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a SDWAN Other Feature Profile
 
@@ -131,10 +118,7 @@ class OtherBuilder:
             "otherId": other_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/sdwan/other/{otherId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/sdwan/other/{otherId}", params=params, **kw
         )
 
     @property

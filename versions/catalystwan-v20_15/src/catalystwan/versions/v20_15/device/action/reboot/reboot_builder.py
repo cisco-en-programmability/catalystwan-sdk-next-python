@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -30,42 +30,19 @@ class RebootBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/action/reboot",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/action/reboot", return_type=List[Any], params=params, **kw
         )
 
-    @property
-    def process_reboot(self):
-        class process_reboot_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def process_reboot(self, payload: Optional[Any] = None, **kw) -> TaskId:
+        """
+        Process a reboot operation
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> TaskId:
-                """
-                Process a reboot operation
-
-                :param payload: Device reboot request payload
-                :returns: TaskId
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/device/action/reboot",
-                    return_type=TaskId,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return process_reboot_(self._request_adapter)
+        :param payload: Device reboot request payload
+        :returns: TaskId
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/reboot", return_type=TaskId, payload=payload, **kw
+        )
 
     @property
     def devices(self) -> DevicesBuilder:

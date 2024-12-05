@@ -7,9 +7,7 @@ from typing import Optional
 @dataclass
 class PostAccountsResponse:
     account_id: Optional[str] = _field(default=None, metadata={"alias": "accountId"})
-    account_name: Optional[str] = _field(
-        default=None, metadata={"alias": "accountName"}
-    )
+    account_name: Optional[str] = _field(default=None, metadata={"alias": "accountName"})
     cloud_type: Optional[str] = _field(default=None, metadata={"alias": "cloudType"})
     region_list: Optional[str] = _field(default=None, metadata={"alias": "regionList"})
 
@@ -55,22 +53,10 @@ class PostAccounts:
     cloud_type: str = _field(metadata={"alias": "cloudType"})
     gcp_credentials: GcpCredentials = _field(metadata={"alias": "gcpCredentials"})
     account_id: Optional[str] = _field(default=None, metadata={"alias": "accountId"})
-    aws_iam_credentials: Optional[AwsIamCredentials] = _field(
-        default=None, metadata={"alias": "awsIamCredentials"}
-    )
-    aws_key_credentials: Optional[AwsKeyCredentials] = _field(
-        default=None, metadata={"alias": "awsKeyCredentials"}
-    )
-    cloud_gateway_enabled: Optional[str] = _field(
-        default=None, metadata={"alias": "cloudGatewayEnabled"}
-    )
+    aws_iam_credentials: Optional[AwsIamCredentials] = _field(default=None, metadata={"alias": "awsIamCredentials"})
+    aws_key_credentials: Optional[AwsKeyCredentials] = _field(default=None, metadata={"alias": "awsKeyCredentials"})
+    cloud_gateway_enabled: Optional[str] = _field(default=None, metadata={"alias": "cloudGatewayEnabled"})
     description: Optional[str] = _field(default=None)
-    gcp_billing_id: Optional[str] = _field(
-        default=None, metadata={"alias": "gcpBillingId"}
-    )
-    kubernetes_discovery_enabled: Optional[str] = _field(
-        default=None, metadata={"alias": "kubernetesDiscoveryEnabled"}
-    )
-    service_discovery_enabled: Optional[str] = _field(
-        default=None, metadata={"alias": "serviceDiscoveryEnabled"}
-    )
+    gcp_billing_id: Optional[str] = _field(default=None, metadata={"alias": "gcpBillingId"})
+    kubernetes_discovery_enabled: Optional[str] = _field(default=None, metadata={"alias": "kubernetesDiscoveryEnabled"})
+    service_discovery_enabled: Optional[str] = _field(default=None, metadata={"alias": "serviceDiscoveryEnabled"})

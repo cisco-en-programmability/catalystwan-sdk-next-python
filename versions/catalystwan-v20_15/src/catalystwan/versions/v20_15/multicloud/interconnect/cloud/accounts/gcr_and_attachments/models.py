@@ -12,12 +12,8 @@ class GcpInterconnectAttachment:
     Google cloud Interconnect Attachment Object.
     """
 
-    cloud_router_ip_address: Optional[str] = _field(
-        default=None, metadata={"alias": "cloudRouterIpAddress"}
-    )
-    customer_ip_address: Optional[str] = _field(
-        default=None, metadata={"alias": "customerIpAddress"}
-    )
+    cloud_router_ip_address: Optional[str] = _field(default=None, metadata={"alias": "cloudRouterIpAddress"})
+    customer_ip_address: Optional[str] = _field(default=None, metadata={"alias": "customerIpAddress"})
     id: Optional[str] = _field(default=None)
     # MTU of the Interconnect attachment
     mtu: Optional[str] = _field(default=None)
@@ -25,9 +21,7 @@ class GcpInterconnectAttachment:
     pairing_key: Optional[str] = _field(default=None, metadata={"alias": "pairingKey"})
     region: Optional[str] = _field(default=None)
     # Option to create Interconnect attachment in secondary zone
-    secondary_zone: Optional[str] = _field(
-        default=None, metadata={"alias": "secondaryZone"}
-    )
+    secondary_zone: Optional[str] = _field(default=None, metadata={"alias": "secondaryZone"})
     state: Optional[str] = _field(default=None)
 
 
@@ -43,15 +37,11 @@ class GcpCloudRouter:
     attachment_details: Optional[List[GcpInterconnectAttachment]] = _field(
         default=None, metadata={"alias": "attachmentDetails"}
     )
-    cloud_router_asn: Optional[str] = _field(
-        default=None, metadata={"alias": "cloudRouterAsn"}
-    )
+    cloud_router_asn: Optional[str] = _field(default=None, metadata={"alias": "cloudRouterAsn"})
     id: Optional[str] = _field(default=None)
     region: Optional[str] = _field(default=None)
 
 
 @dataclass
 class InlineResponse20010:
-    gcp_cloud_routers: Optional[List[GcpCloudRouter]] = _field(
-        default=None, metadata={"alias": "gcpCloudRouters"}
-    )
+    gcp_cloud_routers: Optional[List[GcpCloudRouter]] = _field(default=None, metadata={"alias": "gcpCloudRouters"})

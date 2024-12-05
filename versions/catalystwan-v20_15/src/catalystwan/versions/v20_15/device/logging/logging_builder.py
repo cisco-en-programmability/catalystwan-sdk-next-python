@@ -25,9 +25,5 @@ class LoggingBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/logging",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/logging", return_type=List[Any], params=params, **kw
         )

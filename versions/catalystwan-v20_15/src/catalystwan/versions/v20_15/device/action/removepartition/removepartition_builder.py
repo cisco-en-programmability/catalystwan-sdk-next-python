@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional, Type
+from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -36,31 +36,13 @@ class RemovepartitionBuilder:
             **kw,
         )
 
-    @property
-    def process_remove_partition(self):
-        class process_remove_partition_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def process_remove_partition(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Process remove partition operation
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Process remove partition operation
-
-                :param payload: Device remove partition request payload
-                :returns: Any
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/device/action/removepartition",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return process_remove_partition_(self._request_adapter)
+        :param payload: Device remove partition request payload
+        :returns: Any
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/removepartition", payload=payload, **kw
+        )

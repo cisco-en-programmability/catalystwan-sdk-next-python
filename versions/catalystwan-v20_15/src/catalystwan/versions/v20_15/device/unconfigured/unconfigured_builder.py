@@ -22,6 +22,4 @@ class UnconfiguredBuilder:
 
         :returns: List[Device]
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/unconfigured", return_type=List[Device], **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/unconfigured", return_type=List[Device], **kw)

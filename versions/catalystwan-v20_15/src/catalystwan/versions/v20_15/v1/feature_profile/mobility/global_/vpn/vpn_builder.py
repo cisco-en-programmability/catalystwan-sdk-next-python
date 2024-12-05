@@ -38,9 +38,7 @@ class VpnBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, profile_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, profile_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a VPN Profile Parcel for Mobility Global Feature Profile
 
@@ -69,9 +67,7 @@ class VpnBuilder:
 
         return create_vpn_profile_parcel_for_mobility_(self._request_adapter)
 
-    def get_vpn_profile_parcel_by_parcel_id_for_mobility(
-        self, profile_id: str, vpn_id: str, **kw
-    ) -> str:
+    def get_vpn_profile_parcel_by_parcel_id_for_mobility(self, profile_id: str, vpn_id: str, **kw) -> str:
         """
         Get VPN Profile Parcel by parcelId for Mobility Global Feature Profile
 
@@ -97,9 +93,7 @@ class VpnBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, profile_id: str, vpn_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, profile_id: str, vpn_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a VPN Profile Parcel for Mobility Global Feature Profile
 
@@ -130,9 +124,7 @@ class VpnBuilder:
 
         return edit_vpn_profile_parcel_for_mobility_(self._request_adapter)
 
-    def delete_vpn_profile_parcel_for_mobility(
-        self, profile_id: str, vpn_id: str, **kw
-    ):
+    def delete_vpn_profile_parcel_for_mobility(self, profile_id: str, vpn_id: str, **kw):
         """
         Delete a VPN Profile Parcel for Mobility Global Feature Profile
 
@@ -145,8 +137,5 @@ class VpnBuilder:
             "vpnId": vpn_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/mobility/global/{profileId}/vpn/{vpnId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/mobility/global/{profileId}/vpn/{vpnId}", params=params, **kw
         )

@@ -3,17 +3,13 @@ from dataclasses import dataclass
 from dataclasses import field as _field
 from typing import Any, Dict, List, Literal, Optional, Union
 
-ReportStatus = Literal[
-    "completed", "failed", "in_progress", "not_scheduled", "scheduled"
-]
+ReportStatus = Literal["completed", "failed", "in_progress", "not_scheduled", "scheduled"]
 
 ActiveStatus = Literal["active", "cancelled"]
 
 FileType = Literal["csv", "pdf"]
 
-ScheduleType = Literal[
-    "on_demand", "reoccur_daily", "reoccur_monthly", "reoccur_onetime", "reoccur_weekly"
-]
+ScheduleType = Literal["on_demand", "reoccur_daily", "reoccur_monthly", "reoccur_onetime", "reoccur_weekly"]
 
 TemplateType = Literal[
     "app_usage",
@@ -59,9 +55,7 @@ class ReportSummaryInfo:
     # Report time frame(7 Days/30 Days)
     time_frame: str = _field(metadata={"alias": "timeFrame"})
     # Email address list to receive the report files
-    email_recipient: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "emailRecipient"}
-    )
+    email_recipient: Optional[List[str]] = _field(default=None, metadata={"alias": "emailRecipient"})
 
 
 @dataclass
@@ -141,24 +135,16 @@ class ExecutiveSummaryReport:
     report_name: str = _field(metadata={"alias": "reportName"})
     # schedule config
     schedule_config: Union[
-        ScheduleConfig,
-        ReportsScheduleConfig,
-        V1ReportsScheduleConfig,
-        ScheduleConfig1,
-        ScheduleConfig2,
+        ScheduleConfig, ReportsScheduleConfig, V1ReportsScheduleConfig, ScheduleConfig1, ScheduleConfig2
     ] = _field(metadata={"alias": "scheduleConfig"})
     # Time range for report(one_week/one_month)
     time_range: TimeRange = _field(metadata={"alias": "timeRange"})
     # Report business hours for data generating
-    business_hours: Optional[ReportBusinessHours] = _field(
-        default=None, metadata={"alias": "businessHours"}
-    )
+    business_hours: Optional[ReportBusinessHours] = _field(default=None, metadata={"alias": "businessHours"})
     file_type: Optional[FileType] = _field(default=None, metadata={"alias": "fileType"})
     # Filtering by Site ID list is optional, if no site Id is included, all site ID will be used for report generating.
     site_ids: Optional[List[int]] = _field(default=None, metadata={"alias": "siteIds"})
-    template_type: Optional[TemplateType] = _field(
-        default=None, metadata={"alias": "templateType"}
-    )
+    template_type: Optional[TemplateType] = _field(default=None, metadata={"alias": "templateType"})
 
 
 @dataclass
@@ -187,13 +173,9 @@ class ReportInfo:
     report_status: ReportStatus = _field(metadata={"alias": "reportStatus"})
     debug_info: Optional[str] = _field(default=None, metadata={"alias": "debugInfo"})
     file_type: Optional[FileType] = _field(default=None, metadata={"alias": "fileType"})
-    need_run_immediately: Optional[bool] = _field(
-        default=None, metadata={"alias": "needRunImmediately"}
-    )
+    need_run_immediately: Optional[bool] = _field(default=None, metadata={"alias": "needRunImmediately"})
     task_num: Optional[int] = _field(default=None, metadata={"alias": "taskNum"})
-    template_type: Optional[TemplateType] = _field(
-        default=None, metadata={"alias": "templateType"}
-    )
+    template_type: Optional[TemplateType] = _field(default=None, metadata={"alias": "templateType"})
 
 
 @dataclass

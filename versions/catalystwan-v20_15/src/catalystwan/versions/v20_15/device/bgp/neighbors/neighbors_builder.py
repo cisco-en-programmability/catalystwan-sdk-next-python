@@ -40,9 +40,5 @@ class NeighborsBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/bgp/neighbors",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/bgp/neighbors", return_type=List[Any], params=params, **kw
         )

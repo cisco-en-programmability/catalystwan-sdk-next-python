@@ -25,8 +25,5 @@ class IoxconfigBuilder:
             "deviceIP": device_ip,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/action/test/ioxconfig/{deviceIP}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/action/test/ioxconfig/{deviceIP}", params=params, **kw
         )

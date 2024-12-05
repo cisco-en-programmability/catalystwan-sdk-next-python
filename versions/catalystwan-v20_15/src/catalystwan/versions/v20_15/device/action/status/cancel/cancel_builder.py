@@ -23,8 +23,5 @@ class CancelBuilder:
             "processId": process_id,
         }
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/device/action/status/cancel/{processId}",
-            params=params,
-            **kw,
+            "POST", "/dataservice/device/action/status/cancel/{processId}", params=params, **kw
         )

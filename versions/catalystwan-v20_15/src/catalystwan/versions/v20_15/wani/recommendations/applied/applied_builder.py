@@ -16,17 +16,12 @@ class AppliedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_applied_wani_recommendations(
-        self, **kw
-    ) -> List[AppliedRecommendationsResEntry]:
+    def get_applied_wani_recommendations(self, **kw) -> List[AppliedRecommendationsResEntry]:
         """
         Per tenant api to check which Wani recommendations have been applied for a given tenant
 
         :returns: List[AppliedRecommendationsResEntry]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/wani/recommendations/applied",
-            return_type=List[AppliedRecommendationsResEntry],
-            **kw,
+            "GET", "/dataservice/wani/recommendations/applied", return_type=List[AppliedRecommendationsResEntry], **kw
         )

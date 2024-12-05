@@ -19,7 +19,5 @@ class InitiateDeviceComplianceBuilder:
         :returns: None
         """
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/sdavc/protocol-pack/compliance/initiate-device-compliance",
-            **kw,
+            "POST", "/dataservice/sdavc/protocol-pack/compliance/initiate-device-compliance", **kw
         )

@@ -20,9 +20,7 @@ class AaaBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create AAA Profile Parcel for System feature profile
 
@@ -77,9 +75,7 @@ class AaaBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, aaa_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, aaa_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a  AAA Profile Parcel for System feature profile
 
@@ -123,8 +119,5 @@ class AaaBuilder:
             "aaaId": aaa_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/nfvirtual/system/{systemId}/aaa/{aaaId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/nfvirtual/system/{systemId}/aaa/{aaaId}", params=params, **kw
         )

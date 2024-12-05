@@ -28,9 +28,7 @@ class CloudservicesBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/dca/cloudservices", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/dca/cloudservices", **kw)
 
     @property
     def accesstoken(self) -> AccesstokenBuilder:

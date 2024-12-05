@@ -28,10 +28,7 @@ class AuthtokenBuilder:
                 :returns: Any
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/cloudservices/authtoken",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/cloudservices/authtoken", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:

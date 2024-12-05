@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional, Type
+from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -23,63 +23,26 @@ class MonitorBuilder:
         :returns: List[UrlMonitoringInfoInner]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/url/monitor",
-            return_type=List[UrlMonitoringInfoInner],
-            **kw,
+            "GET", "/dataservice/url/monitor", return_type=List[UrlMonitoringInfoInner], **kw
         )
 
-    @property
-    def update_url_monitor(self):
-        class update_url_monitor_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def update_url_monitor(self, payload: Optional[Any] = None, **kw):
+        """
+        Update monitor configuration related to the url
 
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Update monitor configuration related to the url
+        :param payload: Payload
+        :returns: None
+        """
+        return self._request_adapter.request("PUT", "/dataservice/url/monitor", payload=payload, **kw)
 
-                :param payload: Payload
-                :returns: None
-                """
-                return self._request_adapter.request(
-                    "PUT", "/dataservice/url/monitor", payload=payload, **kw
-                )
+    def create_url_monitor(self, payload: Optional[Any] = None, **kw):
+        """
+        Monitor the url with specified configuration.
 
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return update_url_monitor_(self._request_adapter)
-
-    @property
-    def create_url_monitor(self):
-        class create_url_monitor_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Monitor the url with specified configuration.
-
-                :param payload: Payload
-                :returns: None
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/url/monitor", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_url_monitor_(self._request_adapter)
+        :param payload: Payload
+        :returns: None
+        """
+        return self._request_adapter.request("POST", "/dataservice/url/monitor", payload=payload, **kw)
 
     def delete_url_monitor(self, url: str, **kw):
         """
@@ -91,6 +54,4 @@ class MonitorBuilder:
         params = {
             "url": url,
         }
-        return self._request_adapter.request(
-            "DELETE", "/dataservice/url/monitor", params=params, **kw
-        )
+        return self._request_adapter.request("DELETE", "/dataservice/url/monitor", params=params, **kw)

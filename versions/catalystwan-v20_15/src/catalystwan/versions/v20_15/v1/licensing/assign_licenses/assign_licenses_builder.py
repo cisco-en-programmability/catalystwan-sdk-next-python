@@ -30,10 +30,7 @@ class AssignLicensesBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/licensing/assign-licenses",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/licensing/assign-licenses", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> AssignLicensesRequest:

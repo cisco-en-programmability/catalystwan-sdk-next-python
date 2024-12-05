@@ -25,8 +25,5 @@ class AttachedDevicesBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/app-hosting/attached-devices",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/app-hosting/attached-devices", params=params, **kw
         )

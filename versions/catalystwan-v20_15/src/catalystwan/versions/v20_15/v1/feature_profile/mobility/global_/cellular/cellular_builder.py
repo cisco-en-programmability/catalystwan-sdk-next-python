@@ -16,9 +16,7 @@ class CellularBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cellular_profile_parcel_list_for_mobility(
-        self, profile_id: str, **kw
-    ) -> str:
+    def get_cellular_profile_parcel_list_for_mobility(self, profile_id: str, **kw) -> str:
         """
         Get an Mobility Cellular Profile Parcel list for Mobility Global Feature Profile
 
@@ -42,9 +40,7 @@ class CellularBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, profile_id: str, payload: Optional[CellularProfile] = None, **kw
-            ) -> str:
+            def __call__(self, profile_id: str, payload: Optional[CellularProfile] = None, **kw) -> str:
                 """
                 Create an cellular Profile Parcel for Mobility Global Feature Profile
 
@@ -73,9 +69,7 @@ class CellularBuilder:
 
         return create_cellular_profile_parcel_for_mobility_(self._request_adapter)
 
-    def get_cellular_profile_parcel_for_mobility(
-        self, profile_id: str, cellular_id: str, **kw
-    ) -> str:
+    def get_cellular_profile_parcel_for_mobility(self, profile_id: str, cellular_id: str, **kw) -> str:
         """
         Get an Mobility Cellular Profile Parcel for Mobility Global Feature Profile
 
@@ -105,9 +99,7 @@ class CellularBuilder:
                 self,
                 profile_id: str,
                 cellular_id: str,
-                payload: Optional[
-                    EditCellularProfileParcelForMobilityPutRequest
-                ] = None,
+                payload: Optional[EditCellularProfileParcelForMobilityPutRequest] = None,
                 **kw,
             ):
                 """
@@ -130,22 +122,16 @@ class CellularBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> EditCellularProfileParcelForMobilityPutRequest:
+            def create_payload(self, *args, **kwargs) -> EditCellularProfileParcelForMobilityPutRequest:
                 return EditCellularProfileParcelForMobilityPutRequest(*args, **kwargs)
 
             @property
-            def payload_model(
-                self,
-            ) -> Type[EditCellularProfileParcelForMobilityPutRequest]:
+            def payload_model(self) -> Type[EditCellularProfileParcelForMobilityPutRequest]:
                 return EditCellularProfileParcelForMobilityPutRequest
 
         return edit_cellular_profile_parcel_for_mobility_(self._request_adapter)
 
-    def delete_a_cellular_profile_parcel_for_mobility(
-        self, profile_id: str, cellular_id: str, **kw
-    ):
+    def delete_a_cellular_profile_parcel_for_mobility(self, profile_id: str, cellular_id: str, **kw):
         """
         Delete a Cellular Profile Parcel for Mobility Global Feature Profile
 

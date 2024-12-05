@@ -11,17 +11,13 @@ class SdaDeviceConfigRes:
 
 @dataclass
 class DeviceConfig:
-    device_config: Optional[str] = _field(
-        default=None, metadata={"alias": "deviceConfig"}
-    )
+    device_config: Optional[str] = _field(default=None, metadata={"alias": "deviceConfig"})
     device_id: Optional[str] = _field(default=None, metadata={"alias": "deviceId"})
 
 
 @dataclass
 class VpnListResHeader:
-    generated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "generatedOn"}
-    )
+    generated_on: Optional[int] = _field(default=None, metadata={"alias": "generatedOn"})
 
 
 @dataclass

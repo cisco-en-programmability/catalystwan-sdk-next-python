@@ -28,11 +28,7 @@ class GlobalBuilder:
         self._request_adapter = request_adapter
 
     def get_mobility_global_feature_profile(
-        self,
-        offset: Optional[int] = None,
-        limit: Optional[int] = 0,
-        reference_count: Optional[bool] = False,
-        **kw,
+        self, offset: Optional[int] = None, limit: Optional[int] = 0, reference_count: Optional[bool] = False, **kw
     ) -> Any:
         """
         Get Mobility Global Feature Profiles
@@ -48,10 +44,7 @@ class GlobalBuilder:
             "referenceCount": reference_count,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/mobility/global",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/mobility/global", params=params, **kw
         )
 
     def get_mobility_feature_profile_by_global_id(self, global_id: str, **kw) -> Any:
@@ -65,10 +58,7 @@ class GlobalBuilder:
             "globalId": global_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/mobility/global/{globalId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/mobility/global/{globalId}", params=params, **kw
         )
 
     @property

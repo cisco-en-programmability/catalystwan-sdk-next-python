@@ -20,9 +20,7 @@ class SwitchBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, networks_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, networks_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create Switch Profile config for Networks feature profile
 
@@ -51,9 +49,7 @@ class SwitchBuilder:
 
         return create_nfvirtual_switch_parcel_(self._request_adapter)
 
-    def get_nfvirtual_switch_parcel(
-        self, networks_id: str, switch_id: str, **kw
-    ) -> str:
+    def get_nfvirtual_switch_parcel(self, networks_id: str, switch_id: str, **kw) -> str:
         """
         Get Switch Profile Parcels for Networks feature profile
 
@@ -79,13 +75,7 @@ class SwitchBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                networks_id: str,
-                switch_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, networks_id: str, switch_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a Switch Profile Parcel for networks feature profile
 

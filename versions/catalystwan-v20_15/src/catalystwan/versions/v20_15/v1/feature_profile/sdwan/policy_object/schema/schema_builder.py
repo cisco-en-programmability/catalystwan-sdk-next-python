@@ -15,10 +15,7 @@ class SchemaBuilder:
         self._request_adapter = request_adapter
 
     def get_sdwan_policy_object_data_prefix_parcel_schema_by_schema_type(
-        self,
-        schema_type: SchemaTypeParam,
-        policy_object_list_type: PolicyObjectListTypeParam,
-        **kw,
+        self, schema_type: SchemaTypeParam, policy_object_list_type: PolicyObjectListTypeParam, **kw
     ) -> str:
         """
         Get a SDWAN PolicyObject DataPrefix Parcel Schema by Schema Type

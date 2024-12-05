@@ -14,9 +14,7 @@ class EsimcellularControllerBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_esim_cellular_controller_profile_feature_for_transport(
-        self, transport_id: str, **kw
-    ) -> str:
+    def get_esim_cellular_controller_profile_feature_for_transport(self, transport_id: str, **kw) -> str:
         """
         Get eSim Cellular Controller Features for Transport feature profile
 
@@ -40,9 +38,7 @@ class EsimcellularControllerBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, transport_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, transport_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a eSim Cellular Controller Feature for Transport feature profile
 
@@ -69,9 +65,7 @@ class EsimcellularControllerBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return create_esim_cellular_controller_profile_feature_for_transport_(
-            self._request_adapter
-        )
+        return create_esim_cellular_controller_profile_feature_for_transport_(self._request_adapter)
 
     def get_esim_cellular_controller_profile_feature_by_feature_id_for_transport(
         self, transport_id: str, esim_cellular_controller_id: str, **kw
@@ -102,11 +96,7 @@ class EsimcellularControllerBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                transport_id: str,
-                esim_cellular_controller_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, transport_id: str, esim_cellular_controller_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Update a eSim Cellular Controller Feature for Transport feature profile
@@ -136,9 +126,7 @@ class EsimcellularControllerBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return edit_esim_cellular_controller_profile_feature_for_transport_(
-            self._request_adapter
-        )
+        return edit_esim_cellular_controller_profile_feature_for_transport_(self._request_adapter)
 
     def delete_esim_cellular_controller_profile_feature_for_transport(
         self, transport_id: str, esim_cellular_controller_id: str, **kw

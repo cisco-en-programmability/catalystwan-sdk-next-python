@@ -25,9 +25,7 @@ class ProcessBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/statistics/process", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/statistics/process", **kw)
 
     @property
     def counters(self) -> CountersBuilder:

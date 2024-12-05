@@ -42,6 +42,4 @@ class V4FibBuilder:
             "color": color,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/ip/v4fib", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/ip/v4fib", params=params, **kw)

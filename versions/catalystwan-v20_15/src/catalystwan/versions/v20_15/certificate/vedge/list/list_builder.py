@@ -25,11 +25,7 @@ class ListBuilder:
             "state": state,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/certificate/vedge/list",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/certificate/vedge/list", return_type=str, params=params, **kw
         )
 
     @property
@@ -38,9 +34,7 @@ class ListBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[str] = None, action: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, payload: Optional[str] = None, action: Optional[str] = None, **kw) -> str:
                 """
                 Save vEdge list (send to controller)
 
@@ -52,12 +46,7 @@ class ListBuilder:
                     "action": action,
                 }
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/certificate/vedge/list",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/certificate/vedge/list", return_type=str, params=params, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:

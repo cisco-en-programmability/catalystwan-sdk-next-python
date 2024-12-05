@@ -21,8 +21,5 @@ class DeviceBuilder:
         :returns: WanEdgeDevicesResponse
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/device",
-            return_type=WanEdgeDevicesResponse,
-            **kw,
+            "GET", "/dataservice/multicloud/device", return_type=WanEdgeDevicesResponse, **kw
         )

@@ -16,9 +16,7 @@ class GetMonitorStateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_monitor_state(
-        self, trace_id: int, state: str, **kw
-    ) -> NwpiDomainMonitorStateRespPayload:
+    def get_monitor_state(self, trace_id: int, state: str, **kw) -> NwpiDomainMonitorStateRespPayload:
         """
         getMonitorState
 

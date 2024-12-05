@@ -17,10 +17,7 @@ class ApplicationsBuilder:
         self._request_adapter = request_adapter
 
     def get_app_list(
-        self,
-        traffic_class: Optional[str] = None,
-        business_relevance: Optional[str] = None,
-        **kw,
+        self, traffic_class: Optional[str] = None, business_relevance: Optional[str] = None, **kw
     ) -> List[Any]:
         """
         Get All the App for the given conditions
@@ -34,11 +31,7 @@ class ApplicationsBuilder:
             "businessRelevance": business_relevance,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/app-registry/applications",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/app-registry/applications", return_type=List[Any], params=params, **kw
         )
 
     @property
@@ -47,9 +40,7 @@ class ApplicationsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[List[EditAppDetailsPutRequest]] = None, **kw
-            ) -> List[Any]:
+            def __call__(self, payload: Optional[List[EditAppDetailsPutRequest]] = None, **kw) -> List[Any]:
                 """
                 Edit App Details
 
@@ -57,11 +48,7 @@ class ApplicationsBuilder:
                 :returns: List[Any]
                 """
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/app-registry/applications",
-                    return_type=List[Any],
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/app-registry/applications", return_type=List[Any], payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> List[EditAppDetailsPutRequest]:
@@ -73,39 +60,22 @@ class ApplicationsBuilder:
 
         return edit_app_details_(self._request_adapter)
 
-    @property
-    def edit_app_details_with_uuid(self):
-        class edit_app_details_with_uuid_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_app_details_with_uuid(self, app_id: str, payload: Optional[Any] = None, **kw) -> PayloadItems:
+        """
+        Edit App Details
 
-            def __call__(
-                self, app_id: str, payload: Optional[Any] = None, **kw
-            ) -> PayloadItems:
-                """
-                Edit App Details
-
-                :param app_id: appId
-                :param payload: Request body
-                :returns: PayloadItems
-                """
-                params = {
-                    "appId": app_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/app-registry/applications/{appId}",
-                    return_type=PayloadItems,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_app_details_with_uuid_(self._request_adapter)
+        :param app_id: appId
+        :param payload: Request body
+        :returns: PayloadItems
+        """
+        params = {
+            "appId": app_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/app-registry/applications/{appId}",
+            return_type=PayloadItems,
+            params=params,
+            payload=payload,
+            **kw,
+        )

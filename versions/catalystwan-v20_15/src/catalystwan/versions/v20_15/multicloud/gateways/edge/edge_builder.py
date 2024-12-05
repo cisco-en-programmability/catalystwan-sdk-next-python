@@ -27,8 +27,5 @@ class EdgeBuilder:
             "edgeType": edge_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/gateways/edge/{edgeType}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/gateways/edge/{edgeType}", params=params, **kw
         )

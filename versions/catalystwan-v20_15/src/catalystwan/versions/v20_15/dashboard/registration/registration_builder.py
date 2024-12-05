@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -17,31 +17,14 @@ class RegistrationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def registration(self):
-        class registration_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def registration(self, payload: Optional[Any] = None, **kw):
+        """
+        Register Controller to BiFrost Dashboard (by Controller)
 
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Register Controller to BiFrost Dashboard (by Controller)
-
-                :param payload: CD profile to be registered
-                :returns: None
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/dashboard/registration", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return registration_(self._request_adapter)
+        :param payload: CD profile to be registered
+        :returns: None
+        """
+        return self._request_adapter.request("POST", "/dataservice/dashboard/registration", payload=payload, **kw)
 
     def deregistration(self, deregister_by_force: Optional[bool] = False, **kw):
         """
@@ -53,9 +36,7 @@ class RegistrationBuilder:
         params = {
             "deregisterByForce": deregister_by_force,
         }
-        return self._request_adapter.request(
-            "DELETE", "/dataservice/dashboard/registration", params=params, **kw
-        )
+        return self._request_adapter.request("DELETE", "/dataservice/dashboard/registration", params=params, **kw)
 
     @property
     def status(self) -> StatusBuilder:

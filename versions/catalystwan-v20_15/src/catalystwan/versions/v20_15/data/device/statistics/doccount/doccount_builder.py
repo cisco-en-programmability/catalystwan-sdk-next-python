@@ -15,12 +15,7 @@ class DoccountBuilder:
         self._request_adapter = request_adapter
 
     def get_count_with_state_data_type(
-        self,
-        state_data_type: str,
-        start_date: str,
-        end_date: str,
-        time_zone: Optional[str] = None,
-        **kw,
+        self, state_data_type: str, start_date: str, end_date: str, time_zone: Optional[str] = None, **kw
     ) -> Any:
         """
         Get response count of a query
@@ -38,8 +33,5 @@ class DoccountBuilder:
             "timeZone": time_zone,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/data/device/statistics/{state_data_type}/doccount",
-            params=params,
-            **kw,
+            "GET", "/dataservice/data/device/statistics/{state_data_type}/doccount", params=params, **kw
         )

@@ -21,10 +21,7 @@ class SyncstatusBuilder:
         :returns: SyncStatusResponse
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/webex/datacenter/syncstatus",
-            return_type=SyncStatusResponse,
-            **kw,
+            "GET", "/dataservice/webex/datacenter/syncstatus", return_type=SyncStatusResponse, **kw
         )
 
     def set_webex_data_centers_sync_status(self, **kw) -> bool:
@@ -33,6 +30,4 @@ class SyncstatusBuilder:
 
         :returns: bool
         """
-        return self._request_adapter.request(
-            "PUT", "/dataservice/webex/datacenter/syncstatus", return_type=bool, **kw
-        )
+        return self._request_adapter.request("PUT", "/dataservice/webex/datacenter/syncstatus", return_type=bool, **kw)

@@ -32,9 +32,7 @@ class CliBuilder:
             "offset": offset,
             "limit": limit,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/sdwan/cli", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/v1/feature-profile/sdwan/cli", params=params, **kw)
 
     @property
     def create_sdwan_feature_profile(self):
@@ -50,11 +48,7 @@ class CliBuilder:
                 :returns: str
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/sdwan/cli",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/feature-profile/sdwan/cli", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -77,10 +71,7 @@ class CliBuilder:
             "cliId": cli_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/cli/{cliId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/cli/{cliId}", params=params, **kw
         )
 
     @property
@@ -129,10 +120,7 @@ class CliBuilder:
             "cliId": cli_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/sdwan/cli/{cliId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/sdwan/cli/{cliId}", params=params, **kw
         )
 
     @property

@@ -54,39 +54,17 @@ class EdgeBuilder:
             "edgeGatewayName": edge_gateway_name,
             "billingAccountId": billing_account_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/gateway/edge", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/multicloud/gateway/edge", params=params, **kw)
 
-    @property
-    def create_icgw(self):
-        class create_icgw_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_icgw(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Create Interconnect Gateway
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Create Interconnect Gateway
-
-                :param payload: Interconnect Gateway
-                :returns: Any
-                """
-                logging.warning("Operation: %s is deprecated", "createIcgw")
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/gateway/edge",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_icgw_(self._request_adapter)
+        :param payload: Interconnect Gateway
+        :returns: Any
+        """
+        logging.warning("Operation: %s is deprecated", "createIcgw")
+        return self._request_adapter.request("POST", "/dataservice/multicloud/gateway/edge", payload=payload, **kw)
 
     def get_icgw_details(self, edge_gateway_name: str, **kw) -> Any:
         """
@@ -100,10 +78,7 @@ class EdgeBuilder:
             "edgeGatewayName": edge_gateway_name,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/gateway/edge/{edgeGatewayName}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/gateway/edge/{edgeGatewayName}", params=params, **kw
         )
 
     @property
@@ -112,12 +87,7 @@ class EdgeBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                edge_gateway_name: str,
-                payload: Optional[UpdateIcgwPutRequest] = None,
-                **kw,
-            ) -> Any:
+            def __call__(self, edge_gateway_name: str, payload: Optional[UpdateIcgwPutRequest] = None, **kw) -> Any:
                 """
                 Update Interconnect Gateway
 
@@ -158,10 +128,7 @@ class EdgeBuilder:
             "edgeGatewayName": edge_gateway_name,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/multicloud/gateway/edge/{edgeGatewayName}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/multicloud/gateway/edge/{edgeGatewayName}", params=params, **kw
         )
 
     @property

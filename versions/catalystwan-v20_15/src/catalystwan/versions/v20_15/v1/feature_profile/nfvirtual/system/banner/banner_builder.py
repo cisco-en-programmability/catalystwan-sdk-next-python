@@ -20,9 +20,7 @@ class BannerBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create Banner Profile Parcel for System feature profile
 
@@ -77,13 +75,7 @@ class BannerBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                system_id: str,
-                banner_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, system_id: str, banner_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a  Banner Profile Parcel for System feature profile
 

@@ -21,8 +21,5 @@ class FiltermapBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/app-registry/app/filtermap",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/app-registry/app/filtermap", return_type=List[Any], **kw
         )

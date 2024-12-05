@@ -8,9 +8,7 @@ from typing import List, Optional
 class NwpiTraceStartRespPayloadTraces:
     device_ip: Optional[str] = _field(default=None, metadata={"alias": "device-ip"})
     entry_time: Optional[int] = _field(default=None)
-    local_system_ip: Optional[str] = _field(
-        default=None, metadata={"alias": "local-system-ip"}
-    )
+    local_system_ip: Optional[str] = _field(default=None, metadata={"alias": "local-system-ip"})
     message: Optional[str] = _field(default=None)
     status: Optional[str] = _field(default=None)
     trace_id: Optional[int] = _field(default=None, metadata={"alias": "trace-id"})
@@ -27,18 +25,14 @@ class NwpiTraceStartRespPayload:
     domain_mon: Optional[bool] = _field(default=None, metadata={"alias": "domain-mon"})
     entry_time: Optional[int] = _field(default=None)
     expire_time: Optional[int] = _field(default=None, metadata={"alias": "expire-time"})
-    local_drop_rate_threshold: Optional[int] = _field(
-        default=None, metadata={"alias": "local-drop-rate-threshold"}
-    )
+    local_drop_rate_threshold: Optional[int] = _field(default=None, metadata={"alias": "local-drop-rate-threshold"})
     qos_mon: Optional[bool] = _field(default=None, metadata={"alias": "qos-mon"})
     source_site: Optional[str] = _field(default=None, metadata={"alias": "source-site"})
     state: Optional[str] = _field(default=None)
     trace_id: Optional[int] = _field(default=None, metadata={"alias": "trace-id"})
     trace_name: Optional[str] = _field(default=None, metadata={"alias": "trace-name"})
     traces: Optional[List[NwpiTraceStartRespPayloadTraces]] = _field(default=None)
-    wan_drop_rate_threshold: Optional[int] = _field(
-        default=None, metadata={"alias": "wan-drop-rate-threshold"}
-    )
+    wan_drop_rate_threshold: Optional[int] = _field(default=None, metadata={"alias": "wan-drop-rate-threshold"})
 
 
 @dataclass

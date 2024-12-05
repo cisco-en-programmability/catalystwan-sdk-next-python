@@ -24,6 +24,4 @@ class DpStatsBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/umbrella/dp-stats", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/umbrella/dp-stats", params=params, **kw)

@@ -38,9 +38,7 @@ class NgfirewallBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, security_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, security_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create Parcel for Ngfirewall Policy
 
@@ -98,11 +96,7 @@ class NgfirewallBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                security_id: str,
-                security_profile_parcel_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, security_id: str, security_profile_parcel_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Update a Ngfirewall Profile Parcel
@@ -134,9 +128,7 @@ class NgfirewallBuilder:
 
         return edit_ngfirewall_profile_parcel_(self._request_adapter)
 
-    def delete_ngfirewall_profile_parcel(
-        self, security_id: str, security_profile_parcel_id: str, **kw
-    ):
+    def delete_ngfirewall_profile_parcel(self, security_id: str, security_profile_parcel_id: str, **kw):
         """
         Delete a Ngfirewall Profile Parcel
 

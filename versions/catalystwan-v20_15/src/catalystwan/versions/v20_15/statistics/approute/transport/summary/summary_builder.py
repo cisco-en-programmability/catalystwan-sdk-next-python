@@ -17,12 +17,7 @@ class SummaryBuilder:
         self._request_adapter = request_adapter
 
     def get_app_route_transport_summary_type(
-        self,
-        type_: str,
-        limit: Optional[int] = 5,
-        query: Optional[str] = None,
-        site_id: Optional[str] = None,
-        **kw,
+        self, type_: str, limit: Optional[int] = 5, query: Optional[str] = None, site_id: Optional[str] = None, **kw
     ) -> List[AppRouteFecAggRespInner]:
         """
         Get application-aware routing statistics summary from device

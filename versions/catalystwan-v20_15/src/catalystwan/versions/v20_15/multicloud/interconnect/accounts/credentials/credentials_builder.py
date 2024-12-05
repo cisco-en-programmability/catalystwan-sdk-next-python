@@ -23,10 +23,7 @@ class CredentialsBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                interconnect_account_id: str,
-                payload: Optional[InterconnectAccount] = None,
-                **kw,
+                self, interconnect_account_id: str, payload: Optional[InterconnectAccount] = None, **kw
             ) -> InterconnectAccount:
                 """
                 API to edit associated Interconnect provider account credentials.

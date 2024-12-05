@@ -75,9 +75,7 @@ class ConfigBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, cli_id: str, config_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, cli_id: str, config_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit CLI Profile Parcel for CLI feature profile
 
@@ -121,8 +119,5 @@ class ConfigBuilder:
             "configId": config_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/nfvirtual/cli/{cliId}/config/{configId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/nfvirtual/cli/{cliId}/config/{configId}", params=params, **kw
         )

@@ -37,19 +37,13 @@ class CellularProfileBuilder:
         )
 
     @property
-    def create_cellular_controller_and_cellular_profile_parcel_association_for_transport(
-        self,
-    ):
+    def create_cellular_controller_and_cellular_profile_parcel_association_for_transport(self):
         class create_cellular_controller_and_cellular_profile_parcel_association_for_transport_:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                transport_id: str,
-                cellular_controller_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, transport_id: str, cellular_controller_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Associate a cellularcontroller parcel with a cellularprofile Parcel for transport feature profile
@@ -79,16 +73,10 @@ class CellularProfileBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return create_cellular_controller_and_cellular_profile_parcel_association_for_transport_(
-            self._request_adapter
-        )
+        return create_cellular_controller_and_cellular_profile_parcel_association_for_transport_(self._request_adapter)
 
     def get_cellular_controller_associated_cellular_profile_parcel_by_parcel_id_for_transport(
-        self,
-        transport_id: str,
-        cellular_controller_id: str,
-        cellular_profile_id: str,
-        **kw,
+        self, transport_id: str, cellular_controller_id: str, cellular_profile_id: str, **kw
     ) -> str:
         """
         Get CellularController parcel associated CellularProfile Parcel by cellularProfileId for transport feature profile
@@ -112,9 +100,7 @@ class CellularProfileBuilder:
         )
 
     @property
-    def edit_cellular_controller_and_cellular_profile_parcel_association_for_transport(
-        self,
-    ):
+    def edit_cellular_controller_and_cellular_profile_parcel_association_for_transport(self):
         class edit_cellular_controller_and_cellular_profile_parcel_association_for_transport_:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
@@ -157,16 +143,10 @@ class CellularProfileBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return edit_cellular_controller_and_cellular_profile_parcel_association_for_transport_(
-            self._request_adapter
-        )
+        return edit_cellular_controller_and_cellular_profile_parcel_association_for_transport_(self._request_adapter)
 
     def delete_cellular_controller_and_cellular_profile_association_for_transport(
-        self,
-        transport_id: str,
-        cellular_controller_id: str,
-        cellular_profile_id: str,
-        **kw,
+        self, transport_id: str, cellular_controller_id: str, cellular_profile_id: str, **kw
     ):
         """
         Delete a CellularController parcel and a CellularProfile Parcel association for transport feature profile

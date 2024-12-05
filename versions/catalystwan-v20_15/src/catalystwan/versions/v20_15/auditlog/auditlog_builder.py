@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -35,42 +35,19 @@ class AuditlogBuilder:
             "query": query,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/auditlog",
-            return_type=GetAuditLogData,
-            params=params,
-            **kw,
+            "GET", "/dataservice/auditlog", return_type=GetAuditLogData, params=params, **kw
         )
 
-    @property
-    def get_raw_property_data(self):
-        class get_raw_property_data_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def get_raw_property_data(self, payload: Optional[Any] = None, **kw) -> GetAuditLogData:
+        """
+        Get raw property data with post action
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> GetAuditLogData:
-                """
-                Get raw property data with post action
-
-                :param payload: Stats query string
-                :returns: GetAuditLogData
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/auditlog",
-                    return_type=GetAuditLogData,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return get_raw_property_data_(self._request_adapter)
+        :param payload: Stats query string
+        :returns: GetAuditLogData
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/auditlog", return_type=GetAuditLogData, payload=payload, **kw
+        )
 
     @property
     def aggregation(self) -> AggregationBuilder:

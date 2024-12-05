@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -26,38 +26,16 @@ class VpnBuilder:
             "tenantId": tenant_id,
             "tenantVpn": tenant_vpn,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/resourcepool/resource/vpn", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/resourcepool/resource/vpn", params=params, **kw)
 
-    @property
-    def create_resources(self):
-        class create_resources_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_resources(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Create Vpn resource pool and return tenant device vpn
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Create Vpn resource pool and return tenant device vpn
-
-                :param payload: create resources from resource pool
-                :returns: Any
-                """
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/resourcepool/resource/vpn",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_resources_(self._request_adapter)
+        :param payload: create resources from resource pool
+        :returns: Any
+        """
+        return self._request_adapter.request("PUT", "/dataservice/resourcepool/resource/vpn", payload=payload, **kw)
 
     def delete_resources(self, tenant_id: str, tenant_vpn: int, **kw):
         """
@@ -71,6 +49,4 @@ class VpnBuilder:
             "tenantId": tenant_id,
             "tenantVpn": tenant_vpn,
         }
-        return self._request_adapter.request(
-            "DELETE", "/dataservice/resourcepool/resource/vpn", params=params, **kw
-        )
+        return self._request_adapter.request("DELETE", "/dataservice/resourcepool/resource/vpn", params=params, **kw)

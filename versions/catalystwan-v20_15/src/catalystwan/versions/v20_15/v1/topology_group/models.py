@@ -3,15 +3,7 @@ from dataclasses import dataclass
 from dataclasses import field as _field
 from typing import Dict, List, Literal, Optional
 
-Solution = Literal[
-    "cellulargateway",
-    "common",
-    "mobility",
-    "nfvirtual",
-    "sd-routing",
-    "sdwan",
-    "service-insertion",
-]
+Solution = Literal["cellulargateway", "common", "mobility", "nfvirtual", "sd-routing", "sdwan", "service-insertion"]
 
 
 @dataclass
@@ -35,17 +27,11 @@ class FeatureProfile:
     # System generated unique identifier of the feature profile in UUID format.
     id: Optional[str] = _field(default=None)
     # User who last updated this.
-    last_updated_by: Optional[str] = _field(
-        default=None, metadata={"alias": "lastUpdatedBy"}
-    )
+    last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
     # Timestamp of last update
-    last_updated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "lastUpdatedOn"}
-    )
+    last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
     # Number of Parcels attached with Feature Profile
-    profile_parcel_count: Optional[int] = _field(
-        default=None, metadata={"alias": "profileParcelCount"}
-    )
+    profile_parcel_count: Optional[int] = _field(default=None, metadata={"alias": "profileParcelCount"})
 
 
 @dataclass
@@ -58,9 +44,7 @@ class TopologyGroup:
     state: str
     #  Group Version Flag
     version: int
-    active_status: Optional[bool] = _field(
-        default=None, metadata={"alias": "activeStatus"}
-    )
+    active_status: Optional[bool] = _field(default=None, metadata={"alias": "activeStatus"})
     # User who last created this.
     created_by: Optional[str] = _field(default=None, metadata={"alias": "createdBy"})
     # Timestamp of creation
@@ -71,23 +55,13 @@ class TopologyGroup:
     # System generated unique identifier of the  Group in UUID format.
     id: Optional[str] = _field(default=None)
     # User who last updated this.
-    last_updated_by: Optional[str] = _field(
-        default=None, metadata={"alias": "lastUpdatedBy"}
-    )
+    last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
     # Timestamp of last update
-    last_updated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "lastUpdatedOn"}
-    )
-    number_of_devices: Optional[int] = _field(
-        default=None, metadata={"alias": "numberOfDevices"}
-    )
-    number_of_devices_up_to_date: Optional[int] = _field(
-        default=None, metadata={"alias": "numberOfDevicesUpToDate"}
-    )
+    last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
+    number_of_devices: Optional[int] = _field(default=None, metadata={"alias": "numberOfDevices"})
+    number_of_devices_up_to_date: Optional[int] = _field(default=None, metadata={"alias": "numberOfDevicesUpToDate"})
     origin: Optional[str] = _field(default=None)
-    origin_info: Optional[Dict[str, str]] = _field(
-        default=None, metadata={"alias": "originInfo"}
-    )
+    origin_info: Optional[Dict[str, str]] = _field(default=None, metadata={"alias": "originInfo"})
     # List of devices UUIDs associated with this group
     profiles: Optional[List[FeatureProfile]] = _field(default=None)
     # Source of group

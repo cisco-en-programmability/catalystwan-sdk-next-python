@@ -18,9 +18,7 @@ class SviBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interface_svi_parcels_for_service_lan_vpn(
-        self, service_id: str, vpn_id: str, **kw
-    ) -> str:
+    def get_interface_svi_parcels_for_service_lan_vpn(self, service_id: str, vpn_id: str, **kw) -> str:
         """
         Get InterfaceSvi Parcels for service LanVpn Parcel
 
@@ -46,9 +44,7 @@ class SviBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a LanVpn InterfaceSvi parcel for service feature profile
 
@@ -109,14 +105,7 @@ class SviBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                service_id: str,
-                vpn_id: str,
-                svi_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, service_id: str, vpn_id: str, svi_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a LanVpn InterfaceSvi Parcel for service feature profile
 
@@ -149,9 +138,7 @@ class SviBuilder:
 
         return edit_lan_vpn_interface_svi_parcel_for_service_(self._request_adapter)
 
-    def delete_lan_vpn_interface_svi_for_service(
-        self, service_id: str, vpn_id: str, svi_id: str, **kw
-    ):
+    def delete_lan_vpn_interface_svi_for_service(self, service_id: str, vpn_id: str, svi_id: str, **kw):
         """
         Delete a  LanVpn InterfaceSvi Parcel for service feature profile
 

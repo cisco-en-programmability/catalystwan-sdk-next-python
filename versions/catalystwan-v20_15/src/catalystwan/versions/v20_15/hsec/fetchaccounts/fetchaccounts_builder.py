@@ -17,11 +17,7 @@ class FetchaccountsBuilder:
         self._request_adapter = request_adapter
 
     def fetch_sava_accounts(
-        self,
-        username: Optional[str] = None,
-        pwd: Optional[str] = None,
-        mode: Optional[str] = None,
-        **kw,
+        self, username: Optional[str] = None, pwd: Optional[str] = None, mode: Optional[str] = None, **kw
     ) -> SmartLicensingfetchAccountsResp:
         """
         Authenticate User and Sync Licenses
@@ -37,11 +33,7 @@ class FetchaccountsBuilder:
             "mode": mode,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/hsec/fetchaccounts",
-            return_type=SmartLicensingfetchAccountsResp,
-            params=params,
-            **kw,
+            "GET", "/dataservice/hsec/fetchaccounts", return_type=SmartLicensingfetchAccountsResp, params=params, **kw
         )
 
     @property

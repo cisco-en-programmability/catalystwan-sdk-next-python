@@ -22,6 +22,4 @@ class CountBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "getDeviceProfileTaskCount")
-        return self._request_adapter.request(
-            "GET", "/dataservice/networkdesign/profile/task/count", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/networkdesign/profile/task/count", **kw)

@@ -6,7 +6,5 @@ from typing import Optional
 
 @dataclass
 class Loggers:
-    is_debug_enabled: Optional[bool] = _field(
-        default=None, metadata={"alias": "isDebugEnabled"}
-    )
+    is_debug_enabled: Optional[bool] = _field(default=None, metadata={"alias": "isDebugEnabled"})
     name: Optional[str] = _field(default=None)

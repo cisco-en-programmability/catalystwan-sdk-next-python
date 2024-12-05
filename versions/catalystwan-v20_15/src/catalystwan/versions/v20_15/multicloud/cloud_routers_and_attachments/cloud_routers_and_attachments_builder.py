@@ -49,8 +49,5 @@ class CloudRoutersAndAttachmentsBuilder:
             "refresh": refresh,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/cloudRoutersAndAttachments",
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/cloudRoutersAndAttachments", params=params, **kw
         )

@@ -18,6 +18,4 @@ class MasterBuilder:
 
         :returns: str
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/alarms/master", return_type=str, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/alarms/master", return_type=str, **kw)

@@ -20,6 +20,4 @@ class TunnelDashboardBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/sig/tunnelDashboard", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/sig/tunnelDashboard", **kw)

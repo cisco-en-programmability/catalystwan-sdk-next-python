@@ -25,9 +25,7 @@ class CloudconnectorBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/sdavc/cloudconnector", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/sdavc/cloudconnector", **kw)
 
     @property
     def disable_cloud_connector(self):
@@ -35,22 +33,16 @@ class CloudconnectorBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[DisableCloudConnectorPutRequest] = None, **kw
-            ) -> Any:
+            def __call__(self, payload: Optional[DisableCloudConnectorPutRequest] = None, **kw) -> Any:
                 """
                 Disable SD_AVC Cloud Connector
 
                 :param payload: Payload
                 :returns: Any
                 """
-                return self._request_adapter.request(
-                    "PUT", "/dataservice/sdavc/cloudconnector", payload=payload, **kw
-                )
+                return self._request_adapter.request("PUT", "/dataservice/sdavc/cloudconnector", payload=payload, **kw)
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> DisableCloudConnectorPutRequest:
+            def create_payload(self, *args, **kwargs) -> DisableCloudConnectorPutRequest:
                 return DisableCloudConnectorPutRequest(*args, **kwargs)
 
             @property
@@ -65,22 +57,16 @@ class CloudconnectorBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[DisableCloudConnectorPutRequest] = None, **kw
-            ) -> Any:
+            def __call__(self, payload: Optional[DisableCloudConnectorPutRequest] = None, **kw) -> Any:
                 """
                 Enable SD_AVC Cloud Connector
 
                 :param payload: Payload
                 :returns: Any
                 """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/sdavc/cloudconnector", payload=payload, **kw
-                )
+                return self._request_adapter.request("POST", "/dataservice/sdavc/cloudconnector", payload=payload, **kw)
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> DisableCloudConnectorPutRequest:
+            def create_payload(self, *args, **kwargs) -> DisableCloudConnectorPutRequest:
                 return DisableCloudConnectorPutRequest(*args, **kwargs)
 
             @property

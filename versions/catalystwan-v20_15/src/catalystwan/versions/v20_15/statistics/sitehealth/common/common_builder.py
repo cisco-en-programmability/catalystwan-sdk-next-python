@@ -58,9 +58,5 @@ class CommonBuilder:
             "deviceType": device_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/statistics/sitehealth/common",
-            return_type=List[SiteHealthItem],
-            params=params,
-            **kw,
+            "GET", "/dataservice/statistics/sitehealth/common", return_type=List[SiteHealthItem], params=params, **kw
         )

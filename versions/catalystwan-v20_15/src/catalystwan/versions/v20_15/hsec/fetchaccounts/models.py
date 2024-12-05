@@ -17,14 +17,10 @@ class SmartLicensingfetchAccountsRespVirtualAccounts:
 class SmartLicensingfetchAccountsResp:
     account_id: Optional[str] = _field(default=None)
     name: Optional[str] = _field(default=None)
-    virtual_accounts: Optional[List[SmartLicensingfetchAccountsRespVirtualAccounts]] = (
-        _field(default=None)
-    )
+    virtual_accounts: Optional[List[SmartLicensingfetchAccountsRespVirtualAccounts]] = _field(default=None)
 
 
 @dataclass
 class FetchAccounts1PostRequest:
     empty: Optional[bool] = _field(default=None)
-    value_type: Optional[ValueType] = _field(
-        default=None, metadata={"alias": "valueType"}
-    )
+    value_type: Optional[ValueType] = _field(default=None, metadata={"alias": "valueType"})

@@ -25,8 +25,5 @@ class SdwanGlobalDropStatisticsBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/sdwan-global-drop-statistics",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/sdwan-global-drop-statistics", params=params, **kw
         )

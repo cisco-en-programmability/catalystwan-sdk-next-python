@@ -25,9 +25,7 @@ class RadiusBuilder:
 
         :returns: Radius
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/admin/radius", return_type=Radius, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/admin/radius", return_type=Radius, **kw)
 
     @property
     def update_radius_config(self):
@@ -45,9 +43,7 @@ class RadiusBuilder:
                 :param payload: radius
                 :returns: None
                 """
-                return self._request_adapter.request(
-                    "PUT", "/dataservice/admin/radius", payload=payload, **kw
-                )
+                return self._request_adapter.request("PUT", "/dataservice/admin/radius", payload=payload, **kw)
 
             def create_payload(self, *args, **kwargs) -> Radius:
                 return Radius(*args, **kwargs)
@@ -74,9 +70,7 @@ class RadiusBuilder:
                 :param payload: radius
                 :returns: None
                 """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/admin/radius", payload=payload, **kw
-                )
+                return self._request_adapter.request("POST", "/dataservice/admin/radius", payload=payload, **kw)
 
             def create_payload(self, *args, **kwargs) -> Radius:
                 return Radius(*args, **kwargs)
@@ -96,6 +90,4 @@ class RadiusBuilder:
 
         :returns: Radius
         """
-        return self._request_adapter.request(
-            "DELETE", "/dataservice/admin/radius", return_type=Radius, **kw
-        )
+        return self._request_adapter.request("DELETE", "/dataservice/admin/radius", return_type=Radius, **kw)

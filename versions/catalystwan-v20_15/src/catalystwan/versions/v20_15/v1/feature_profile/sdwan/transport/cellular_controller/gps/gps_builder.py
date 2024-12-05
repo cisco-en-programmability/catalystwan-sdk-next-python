@@ -43,11 +43,7 @@ class GpsBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                transport_id: str,
-                cellular_controller_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, transport_id: str, cellular_controller_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Associate a cellularcontroller parcel with a gps Parcel for transport feature profile
@@ -77,9 +73,7 @@ class GpsBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return create_cellular_controller_and_gps_parcel_association_for_transport_(
-            self._request_adapter
-        )
+        return create_cellular_controller_and_gps_parcel_association_for_transport_(self._request_adapter)
 
     def get_cellular_controller_associated_gps_parcel_by_parcel_id_for_transport(
         self, transport_id: str, cellular_controller_id: str, gps_id: str, **kw
@@ -112,12 +106,7 @@ class GpsBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                transport_id: str,
-                cellular_controller_id: str,
-                gps_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, transport_id: str, cellular_controller_id: str, gps_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Update a CellularController parcel and a Gps Parcel association for transport feature profile
@@ -149,9 +138,7 @@ class GpsBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return edit_cellular_controller_and_gps_parcel_association_for_transport_(
-            self._request_adapter
-        )
+        return edit_cellular_controller_and_gps_parcel_association_for_transport_(self._request_adapter)
 
     def delete_cellular_controller_and_gps_association_for_transport(
         self, transport_id: str, cellular_controller_id: str, gps_id: str, **kw

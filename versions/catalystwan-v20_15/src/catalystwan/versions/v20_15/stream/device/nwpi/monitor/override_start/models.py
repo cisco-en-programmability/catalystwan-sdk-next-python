@@ -11,9 +11,7 @@ class NwpiMonitorRespPayload:
     """
 
     message: Optional[str] = _field(default=None)
-    monitor_state: Optional[str] = _field(
-        default=None, metadata={"alias": "monitor-state"}
-    )
+    monitor_state: Optional[str] = _field(default=None, metadata={"alias": "monitor-state"})
 
 
 @dataclass
@@ -31,9 +29,7 @@ class NwpiMonitorReqPayloadDeviceToDomainId:
 @dataclass
 class NwpiMonitorReqPayloadDomainList:
     domain: Optional[str] = _field(default=None)
-    resolved_ip: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "resolvedIp"}
-    )
+    resolved_ip: Optional[List[str]] = _field(default=None, metadata={"alias": "resolvedIp"})
 
 
 @dataclass
@@ -46,12 +42,8 @@ class NwpiMonitorReqPayload:
     device_to_domain_id: Optional[List[NwpiMonitorReqPayloadDeviceToDomainId]] = _field(
         default=None, metadata={"alias": "deviceToDomainId"}
     )
-    domain_app_grp: Optional[str] = _field(
-        default=None, metadata={"alias": "domainAppGrp"}
-    )
-    domain_app_vis: Optional[str] = _field(
-        default=None, metadata={"alias": "domainAppVis"}
-    )
+    domain_app_grp: Optional[str] = _field(default=None, metadata={"alias": "domainAppGrp"})
+    domain_app_vis: Optional[str] = _field(default=None, metadata={"alias": "domainAppVis"})
     domain_list: Optional[List[NwpiMonitorReqPayloadDomainList]] = _field(
         default=None, metadata={"alias": "domainList"}
     )

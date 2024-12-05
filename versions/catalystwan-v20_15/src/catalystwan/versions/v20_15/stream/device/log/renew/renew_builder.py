@@ -25,8 +25,5 @@ class RenewBuilder:
             "sessionId": session_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/stream/device/log/renew/{sessionId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/stream/device/log/renew/{sessionId}", params=params, **kw
         )

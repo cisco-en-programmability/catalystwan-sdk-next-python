@@ -28,8 +28,5 @@ class ObjectBuilder:
             "templateId": template_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/feature/object/{templateId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/feature/object/{templateId}", params=params, **kw
         )

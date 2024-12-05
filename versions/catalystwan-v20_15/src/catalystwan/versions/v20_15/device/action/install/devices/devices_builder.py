@@ -16,9 +16,7 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_device_list(
-        self, device_type: str, group_id: Optional[str] = None, **kw
-    ) -> GenerateDeviceList:
+    def generate_device_list(self, device_type: str, group_id: Optional[str] = None, **kw) -> GenerateDeviceList:
         """
         Get list of installed devices
 

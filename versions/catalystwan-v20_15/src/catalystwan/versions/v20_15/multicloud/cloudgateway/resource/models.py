@@ -14,19 +14,13 @@ class CgwResourceResponseDetailsDevices:
 class CgwResourceResponseDetails:
     devices: Optional[List[CgwResourceResponseDetailsDevices]] = _field(default=None)
     vhub_name: Optional[str] = _field(default=None, metadata={"alias": "vhubName"})
-    virtual_router_asn: Optional[str] = _field(
-        default=None, metadata={"alias": "virtualRouterAsn"}
-    )
+    virtual_router_asn: Optional[str] = _field(default=None, metadata={"alias": "virtualRouterAsn"})
     vwan_name: Optional[str] = _field(default=None, metadata={"alias": "vwanName"})
 
 
 @dataclass
 class CgwResourceResponse:
-    creation_date: Optional[str] = _field(
-        default=None, metadata={"alias": "creationDate"}
-    )
+    creation_date: Optional[str] = _field(default=None, metadata={"alias": "creationDate"})
     details: Optional[CgwResourceResponseDetails] = _field(default=None)
     esource_id: Optional[str] = _field(default=None, metadata={"alias": "esourceId"})
-    resource_type: Optional[str] = _field(
-        default=None, metadata={"alias": "resourceType"}
-    )
+    resource_type: Optional[str] = _field(default=None, metadata={"alias": "resourceType"})

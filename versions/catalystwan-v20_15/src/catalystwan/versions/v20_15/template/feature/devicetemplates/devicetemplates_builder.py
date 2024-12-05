@@ -28,8 +28,5 @@ class DevicetemplatesBuilder:
             "templateId": template_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/feature/devicetemplates/{templateId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/feature/devicetemplates/{templateId}", params=params, **kw
         )

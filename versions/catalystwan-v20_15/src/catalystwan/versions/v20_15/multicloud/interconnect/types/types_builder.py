@@ -21,8 +21,5 @@ class TypesBuilder:
         :returns: InlineResponse200
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/interconnect/types",
-            return_type=InlineResponse200,
-            **kw,
+            "GET", "/dataservice/multicloud/interconnect/types", return_type=InlineResponse200, **kw
         )

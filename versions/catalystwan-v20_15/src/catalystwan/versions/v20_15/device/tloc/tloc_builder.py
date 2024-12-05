@@ -31,9 +31,5 @@ class TlocBuilder:
             "color": color,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/tloc",
-            return_type=DeviceTlocDataWithBfd,
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/tloc", return_type=DeviceTlocDataWithBfd, params=params, **kw
         )

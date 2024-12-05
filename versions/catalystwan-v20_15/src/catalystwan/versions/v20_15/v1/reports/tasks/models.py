@@ -19,9 +19,7 @@ class ReportTaskProcessStepInfo:
     # Email sent or not, if sending report via email is enabled
     email_sent: Optional[bool] = _field(default=None, metadata={"alias": "emailSent"})
     # Report file is all replicated or not when vManage is a cluster deployment
-    file_replicated: Optional[bool] = _field(
-        default=None, metadata={"alias": "fileReplicated"}
-    )
+    file_replicated: Optional[bool] = _field(default=None, metadata={"alias": "fileReplicated"})
 
 
 @dataclass
@@ -43,29 +41,21 @@ class ReportTaskUiInfo:
     # Report Task status
     task_status: TaskStatus = _field(metadata={"alias": "taskStatus"})
     # The detail status for each step of report generating task
-    task_step_detail: ReportTaskProcessStepInfo = _field(
-        metadata={"alias": "taskStepDetail"}
-    )
+    task_step_detail: ReportTaskProcessStepInfo = _field(metadata={"alias": "taskStepDetail"})
     # Report time frame (7 Days or 30 Days)
     time_frame: str = _field(metadata={"alias": "timeFrame"})
     # Email address to receive the report files
-    email_recipient: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "emailRecipient"}
-    )
+    email_recipient: Optional[List[str]] = _field(default=None, metadata={"alias": "emailRecipient"})
     # Report task end timestamp
     end_time: Optional[int] = _field(default=None, metadata={"alias": "endTime"})
     # Report file type
     file_type: Optional[str] = _field(default=None, metadata={"alias": "fileType"})
     # In Cluster deployment, the follower vManage IP address which needs to replicate the report file from source vManage which generated the report file.
-    follower_vmanages: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "followerVmanages"}
-    )
+    follower_vmanages: Optional[List[str]] = _field(default=None, metadata={"alias": "followerVmanages"})
     # IP address of the source vManage which is scheduled to generate report file. Default value is "localhost" for single node vManage deployment.
     on_vmanage: Optional[str] = _field(default=None, metadata={"alias": "onVmanage"})
     # Report file download URL
-    report_download_url: Optional[str] = _field(
-        default=None, metadata={"alias": "reportDownloadUrl"}
-    )
+    report_download_url: Optional[str] = _field(default=None, metadata={"alias": "reportDownloadUrl"})
 
 
 @dataclass

@@ -6,26 +6,14 @@ from typing import Optional
 
 @dataclass
 class InterconnectDeviceInfoExtended:
-    config_status_message: Optional[str] = _field(
-        default=None, metadata={"alias": "configStatusMessage"}
-    )
-    configured_system_ip: Optional[str] = _field(
-        default=None, metadata={"alias": "configuredSystemIP"}
-    )
-    device_model: Optional[str] = _field(
-        default=None, metadata={"alias": "device-model"}
-    )
+    config_status_message: Optional[str] = _field(default=None, metadata={"alias": "configStatusMessage"})
+    configured_system_ip: Optional[str] = _field(default=None, metadata={"alias": "configuredSystemIP"})
+    device_model: Optional[str] = _field(default=None, metadata={"alias": "device-model"})
     device_type: Optional[str] = _field(default=None, metadata={"alias": "device-type"})
-    edge_gateway_name: Optional[str] = _field(
-        default=None, metadata={"alias": "edgeGatewayName"}
-    )
+    edge_gateway_name: Optional[str] = _field(default=None, metadata={"alias": "edgeGatewayName"})
     host_name: Optional[str] = _field(default=None, metadata={"alias": "host-name"})
-    last_updated: Optional[int] = _field(
-        default=None, metadata={"alias": "lastUpdated"}
-    )
-    local_system_ip: Optional[str] = _field(
-        default=None, metadata={"alias": "local-system-ip"}
-    )
+    last_updated: Optional[int] = _field(default=None, metadata={"alias": "lastUpdated"})
+    local_system_ip: Optional[str] = _field(default=None, metadata={"alias": "local-system-ip"})
     reachability: Optional[str] = _field(default=None)
     site_id: Optional[str] = _field(default=None, metadata={"alias": "site-id"})
     status: Optional[str] = _field(default=None)

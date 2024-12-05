@@ -33,11 +33,7 @@ class TypesBuilder:
             "type": type_,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/feature/types",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/feature/types", return_type=List[Any], params=params, **kw
         )
 
     @property

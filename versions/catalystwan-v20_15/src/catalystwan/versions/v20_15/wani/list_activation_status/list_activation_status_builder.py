@@ -14,9 +14,7 @@ class ListActivationStatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_list_activation_status(
-        self, list_type: str, list_id: str, **kw
-    ) -> ActivationStatusRes:
+    def get_list_activation_status(self, list_type: str, list_id: str, **kw) -> ActivationStatusRes:
         """
         Get if specified list is apart of a activated centralized policy, if it is the response also gives the centralized policy id, the users original defined centralized policy id, and if current list is apart of a active wani policy.
 

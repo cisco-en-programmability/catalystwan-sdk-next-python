@@ -21,10 +21,7 @@ class AppBuilder:
         self._request_adapter = request_adapter
 
     def get_all_app_list(
-        self,
-        filter_attribute_type: Optional[str] = None,
-        filter_attribute_value: Optional[str] = None,
-        **kw,
+        self, filter_attribute_type: Optional[str] = None, filter_attribute_value: Optional[str] = None, **kw
     ) -> List[Any]:
         """
         Get All the App for the given conditions
@@ -38,11 +35,7 @@ class AppBuilder:
             "filterAttributeValue": filter_attribute_value,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/app-registry/app",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/app-registry/app", return_type=List[Any], params=params, **kw
         )
 
     @property

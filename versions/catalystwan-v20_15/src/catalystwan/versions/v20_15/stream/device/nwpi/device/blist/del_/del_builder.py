@@ -16,9 +16,7 @@ class DelBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def del_device_black(
-        self, system_ip: str, **kw
-    ) -> DeviceBlistDeleteResponsePayload:
+    def del_device_black(self, system_ip: str, **kw) -> DeviceBlistDeleteResponsePayload:
         """
         Delete Device BlackList for NWPI.
 

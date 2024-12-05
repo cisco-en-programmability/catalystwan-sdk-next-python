@@ -42,6 +42,4 @@ class VhubsBuilder:
             "vWanName": v_wan_name,
             "vNetTags": v_net_tags,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/vhubs", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/multicloud/vhubs", params=params, **kw)

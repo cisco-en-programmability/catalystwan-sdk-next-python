@@ -23,8 +23,5 @@ class FieldsBuilder:
         :returns: List[GetStatQueryFields]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/auditlog/query/fields",
-            return_type=List[GetStatQueryFields],
-            **kw,
+            "GET", "/dataservice/auditlog/query/fields", return_type=List[GetStatQueryFields], **kw
         )

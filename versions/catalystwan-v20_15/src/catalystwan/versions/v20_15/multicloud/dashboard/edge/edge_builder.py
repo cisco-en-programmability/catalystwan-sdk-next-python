@@ -22,6 +22,4 @@ class EdgeBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "getDashboardEdgeInfo")
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/dashboard/edge", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/multicloud/dashboard/edge", **kw)

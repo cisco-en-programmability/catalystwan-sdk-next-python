@@ -18,9 +18,7 @@ class StatusBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/sdavc/protocol-pack/maintenance/upgrade/status", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/sdavc/protocol-pack/maintenance/upgrade/status", **kw)
 
     def get_deploy_job_status(self, uuid: str, **kw):
         """
@@ -33,8 +31,5 @@ class StatusBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/sdavc/protocol-pack/maintenance/upgrade/status/{uuid}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/sdavc/protocol-pack/maintenance/upgrade/status/{uuid}", params=params, **kw
         )

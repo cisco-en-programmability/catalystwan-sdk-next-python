@@ -25,9 +25,5 @@ class AutonomousversionBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/autonomousversion",
-            return_type=SoftwareVersion,
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/autonomousversion", return_type=SoftwareVersion, params=params, **kw
         )

@@ -23,8 +23,5 @@ class StatusBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/sdavc/protocol-pack/maintenance/upload/status/{uuid}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/sdavc/protocol-pack/maintenance/upload/status/{uuid}", params=params, **kw
         )

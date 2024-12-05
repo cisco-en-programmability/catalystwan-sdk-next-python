@@ -10,9 +10,7 @@ class DeviceModel:
     This is the valid DeviceModel
     """
 
-    device_model: Optional[str] = _field(
-        default=None, metadata={"alias": "deviceModel"}
-    )
+    device_model: Optional[str] = _field(default=None, metadata={"alias": "deviceModel"})
 
 
 @dataclass

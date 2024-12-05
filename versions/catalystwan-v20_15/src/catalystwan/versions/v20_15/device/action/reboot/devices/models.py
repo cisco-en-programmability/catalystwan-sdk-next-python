@@ -6,21 +6,13 @@ from typing import List, Optional
 
 @dataclass
 class GenerateRebootDeviceListData:
-    available_services: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "availableServices"}
-    )
-    device_model: Optional[str] = _field(
-        default=None, metadata={"alias": "device-model"}
-    )
+    available_services: Optional[List[str]] = _field(default=None, metadata={"alias": "availableServices"})
+    device_model: Optional[str] = _field(default=None, metadata={"alias": "device-model"})
     device_os: Optional[str] = _field(default=None, metadata={"alias": "device-os"})
     device_type: Optional[str] = _field(default=None, metadata={"alias": "device-type"})
     host_name: Optional[str] = _field(default=None, metadata={"alias": "host-name"})
-    layout_level: Optional[int] = _field(
-        default=None, metadata={"alias": "layoutLevel"}
-    )
-    local_system_ip: Optional[str] = _field(
-        default=None, metadata={"alias": "local-system-ip"}
-    )
+    layout_level: Optional[int] = _field(default=None, metadata={"alias": "layoutLevel"})
+    local_system_ip: Optional[str] = _field(default=None, metadata={"alias": "local-system-ip"})
     personality: Optional[str] = _field(default=None)
     platform: Optional[str] = _field(default=None)
     reachability: Optional[str] = _field(default=None)

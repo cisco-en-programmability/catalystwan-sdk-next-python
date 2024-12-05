@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -25,44 +25,21 @@ class TranslationprofileBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/policy/list/translationprofile",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/template/policy/list/translationprofile", return_type=List[Any], **kw
         )
 
-    @property
-    def create_policy_list_1(self):
-        class create_policy_list_1_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_policy_list_1(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Create policy list
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Create policy list
+        :param payload: Policy list
+        :returns: Any
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/policy/list/translationprofile", payload=payload, **kw
+        )
 
-                :param payload: Policy list
-                :returns: Any
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/template/policy/list/translationprofile",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_policy_list_1_(self._request_adapter)
-
-    def delete_policy_lists_with_info_tag_1(
-        self, info_tag: Optional[str] = None, **kw
-    ) -> List[Any]:
+    def delete_policy_lists_with_info_tag_1(self, info_tag: Optional[str] = None, **kw) -> List[Any]:
         """
         Delete policy lists with specific info tag
 
@@ -73,11 +50,7 @@ class TranslationprofileBuilder:
             "infoTag": info_tag,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/template/policy/list/translationprofile",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/template/policy/list/translationprofile", return_type=List[Any], params=params, **kw
         )
 
     def get_lists_by_id_1(self, id: str, **kw) -> Any:
@@ -91,45 +64,23 @@ class TranslationprofileBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/policy/list/translationprofile/{id}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/policy/list/translationprofile/{id}", params=params, **kw
         )
 
-    @property
-    def edit_policy_list_1(self):
-        class edit_policy_list_1_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_policy_list_1(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Edit policy list entries for a specific type of policy list
 
-            def __call__(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Edit policy list entries for a specific type of policy list
-
-                :param id: Policy Id
-                :param payload: Policy list
-                :returns: Any
-                """
-                params = {
-                    "id": id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/template/policy/list/translationprofile/{id}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_policy_list_1_(self._request_adapter)
+        :param id: Policy Id
+        :param payload: Policy list
+        :returns: Any
+        """
+        params = {
+            "id": id,
+        }
+        return self._request_adapter.request(
+            "PUT", "/dataservice/template/policy/list/translationprofile/{id}", params=params, payload=payload, **kw
+        )
 
     def delete_policy_list_1(self, id: str, **kw):
         """
@@ -142,10 +93,7 @@ class TranslationprofileBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/template/policy/list/translationprofile/{id}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/template/policy/list/translationprofile/{id}", params=params, **kw
         )
 
     @property

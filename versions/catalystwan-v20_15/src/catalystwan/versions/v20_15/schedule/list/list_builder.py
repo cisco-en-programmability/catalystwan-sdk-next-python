@@ -24,6 +24,4 @@ class ListBuilder:
         params = {
             "limit": limit,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/schedule/list", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/schedule/list", params=params, **kw)

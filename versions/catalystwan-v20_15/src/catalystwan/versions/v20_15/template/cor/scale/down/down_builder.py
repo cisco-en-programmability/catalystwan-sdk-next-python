@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,32 +15,12 @@ class DownBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def scale_down(self):
-        class scale_down_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def scale_down(self, payload: Optional[Any] = None, **kw):
+        """
+        Scale down cloud on ramp
 
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Scale down cloud on ramp
-
-                :param payload: Update VPC
-                :returns: None
-                """
-                logging.warning("Operation: %s is deprecated", "scaleDown")
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/template/cor/scale/down",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return scale_down_(self._request_adapter)
+        :param payload: Update VPC
+        :returns: None
+        """
+        logging.warning("Operation: %s is deprecated", "scaleDown")
+        return self._request_adapter.request("POST", "/dataservice/template/cor/scale/down", payload=payload, **kw)

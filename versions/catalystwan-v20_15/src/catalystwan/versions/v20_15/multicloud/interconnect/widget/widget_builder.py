@@ -23,15 +23,10 @@ class WidgetBuilder:
         :returns: List[InterconnectWidget]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/interconnect/widget",
-            return_type=List[InterconnectWidget],
-            **kw,
+            "GET", "/dataservice/multicloud/interconnect/widget", return_type=List[InterconnectWidget], **kw
         )
 
-    def get_interconnect_widget(
-        self, interconnect_type: str, **kw
-    ) -> InterconnectWidget:
+    def get_interconnect_widget(self, interconnect_type: str, **kw) -> InterconnectWidget:
         """
         API to retrieve an Interconnect widget for an Interconnect type.
 

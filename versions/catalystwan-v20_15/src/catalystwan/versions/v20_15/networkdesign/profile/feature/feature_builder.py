@@ -21,12 +21,7 @@ class FeatureBuilder:
 
         :returns: List[Any]
         """
-        logging.warning(
-            "Operation: %s is deprecated", "getDeviceProfileFeatureTemplateList"
-        )
+        logging.warning("Operation: %s is deprecated", "getDeviceProfileFeatureTemplateList")
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/networkdesign/profile/feature",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/networkdesign/profile/feature", return_type=List[Any], **kw
         )

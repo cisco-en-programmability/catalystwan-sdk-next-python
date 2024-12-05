@@ -20,6 +20,4 @@ class SizeBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/util/configdb/size", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/util/configdb/size", **kw)

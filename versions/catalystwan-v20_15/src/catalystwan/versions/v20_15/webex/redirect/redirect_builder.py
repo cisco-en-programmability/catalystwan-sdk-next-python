@@ -25,9 +25,5 @@ class RedirectBuilder:
             "code": code,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/webex/redirect",
-            return_type=RedirectCodeResponse,
-            params=params,
-            **kw,
+            "GET", "/dataservice/webex/redirect", return_type=RedirectCodeResponse, params=params, **kw
         )

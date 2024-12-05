@@ -22,28 +22,19 @@ class StatusBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "getDeviceProfileConfigStatus")
-        return self._request_adapter.request(
-            "GET", "/dataservice/networkdesign/profile/status", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/networkdesign/profile/status", **kw)
 
-    def get_device_profile_config_status_by_profile_id(
-        self, profile_id: str, **kw
-    ) -> Any:
+    def get_device_profile_config_status_by_profile_id(self, profile_id: str, **kw) -> Any:
         """
         Get device profile configuration status by profile Id
 
         :param profile_id: Device profile Id
         :returns: Any
         """
-        logging.warning(
-            "Operation: %s is deprecated", "getDeviceProfileConfigStatusByProfileId"
-        )
+        logging.warning("Operation: %s is deprecated", "getDeviceProfileConfigStatusByProfileId")
         params = {
             "profileId": profile_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/networkdesign/profile/status/{profileId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/networkdesign/profile/status/{profileId}", params=params, **kw
         )

@@ -16,9 +16,7 @@ class BackupinfoBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def delete_schduled_backup(
-        self, task_id: Optional[str] = None, backup_info_id: Optional[str] = None, **kw
-    ) -> Any:
+    def delete_schduled_backup(self, task_id: Optional[str] = None, backup_info_id: Optional[str] = None, **kw) -> Any:
         """
         Delete all or a specific backup file stored in vManage
 
@@ -30,9 +28,7 @@ class BackupinfoBuilder:
             "taskId": task_id,
             "backupInfoId": backup_info_id,
         }
-        return self._request_adapter.request(
-            "DELETE", "/dataservice/backup/backupinfo", params=params, **kw
-        )
+        return self._request_adapter.request("DELETE", "/dataservice/backup/backupinfo", params=params, **kw)
 
     def get_local_backup_info(self, local_backup_info_id: str, **kw) -> LocalBackupInfo:
         """

@@ -23,8 +23,5 @@ class FieldsBuilder:
         :returns: List[AppRouteDocCountResponse]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/statistics/approute/fields",
-            return_type=List[AppRouteDocCountResponse],
-            **kw,
+            "GET", "/dataservice/statistics/approute/fields", return_type=List[AppRouteDocCountResponse], **kw
         )

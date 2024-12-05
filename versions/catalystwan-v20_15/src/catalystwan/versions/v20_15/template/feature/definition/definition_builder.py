@@ -28,8 +28,5 @@ class DefinitionBuilder:
             "templateId": template_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/feature/definition/{templateId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/feature/definition/{templateId}", params=params, **kw
         )

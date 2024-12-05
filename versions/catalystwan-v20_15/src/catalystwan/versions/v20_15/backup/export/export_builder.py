@@ -22,9 +22,7 @@ class ExportBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[LocalBackupInfo] = None, **kw
-            ) -> InlineResponse200:
+            def __call__(self, payload: Optional[LocalBackupInfo] = None, **kw) -> InlineResponse200:
                 """
                 Trigger a backup of configuration database and statstics database and store it in vManage
 
@@ -32,11 +30,7 @@ class ExportBuilder:
                 :returns: InlineResponse200
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/backup/export",
-                    return_type=InlineResponse200,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/backup/export", return_type=InlineResponse200, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> LocalBackupInfo:

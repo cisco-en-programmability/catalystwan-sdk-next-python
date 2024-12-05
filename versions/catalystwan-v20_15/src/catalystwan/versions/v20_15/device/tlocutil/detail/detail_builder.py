@@ -14,9 +14,7 @@ class DetailBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_tloc_util_details(
-        self, util: Optional[str] = None, site_id: Optional[str] = None, **kw
-    ) -> Any:
+    def get_device_tloc_util_details(self, util: Optional[str] = None, site_id: Optional[str] = None, **kw) -> Any:
         """
         Get detailed TLOC list
 
@@ -28,6 +26,4 @@ class DetailBuilder:
             "util": util,
             "site-id": site_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/tlocutil/detail", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/tlocutil/detail", params=params, **kw)

@@ -21,8 +21,5 @@ class FileprocessBuilder:
         :returns: GeneralSchema
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/event/enable/fileprocess",
-            return_type=GeneralSchema,
-            **kw,
+            "GET", "/dataservice/event/enable/fileprocess", return_type=GeneralSchema, **kw
         )

@@ -28,11 +28,7 @@ class ConfigBuilder:
             "cliId": cli_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/cli/{cliId}/config",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/cli/{cliId}/config", return_type=str, params=params, **kw
         )
 
     @property
@@ -70,9 +66,7 @@ class ConfigBuilder:
 
         return create_sdwan_config_profile_parcel_for_cli_(self._request_adapter)
 
-    def get_config_profile_parcel_by_parcel_id_for_cli(
-        self, cli_id: str, config_id: str, **kw
-    ) -> str:
+    def get_config_profile_parcel_by_parcel_id_for_cli(self, cli_id: str, config_id: str, **kw) -> str:
         """
         Get config Profile Parcel by configId for cli feature profile
 
@@ -98,9 +92,7 @@ class ConfigBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, cli_id: str, config_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, cli_id: str, config_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a config Profile Parcel for cli feature profile
 
@@ -144,10 +136,7 @@ class ConfigBuilder:
             "configId": config_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/sdwan/cli/{cliId}/config/{configId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/sdwan/cli/{cliId}/config/{configId}", params=params, **kw
         )
 
     @property

@@ -16,9 +16,7 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_msla_devices_1(
-        self, site_id: Optional[str] = None, **kw
-    ) -> GetMslaDevicesPayload:
+    def get_msla_devices_1(self, site_id: Optional[str] = None, **kw) -> GetMslaDevicesPayload:
         """
         Retrieve list of devices and their subscription information
 
@@ -29,11 +27,7 @@ class DevicesBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/msla/devices",
-            return_type=GetMslaDevicesPayload,
-            params=params,
-            **kw,
+            "GET", "/dataservice/msla/devices", return_type=GetMslaDevicesPayload, params=params, **kw
         )
 
     @property
@@ -49,9 +43,7 @@ class DevicesBuilder:
                 :param payload: List of devices for unassigning licenses
                 :returns: None
                 """
-                return self._request_adapter.request(
-                    "PUT", "/dataservice/msla/devices", payload=payload, **kw
-                )
+                return self._request_adapter.request("PUT", "/dataservice/msla/devices", payload=payload, **kw)
 
             def create_payload(self, *args, **kwargs) -> ReleaseLicensesRequest:
                 return ReleaseLicensesRequest(*args, **kwargs)
@@ -73,9 +65,5 @@ class DevicesBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/msla/devices/{uuid}",
-            return_type=List[GetDeviceLicensesInner],
-            params=params,
-            **kw,
+            "GET", "/dataservice/msla/devices/{uuid}", return_type=List[GetDeviceLicensesInner], params=params, **kw
         )

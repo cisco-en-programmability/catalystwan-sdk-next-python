@@ -25,9 +25,5 @@ class DevicebringupBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/troubleshooting/devicebringup",
-            return_type=GetDeviceConfiguration,
-            params=params,
-            **kw,
+            "GET", "/dataservice/troubleshooting/devicebringup", return_type=GetDeviceConfiguration, params=params, **kw
         )

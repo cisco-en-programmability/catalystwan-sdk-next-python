@@ -26,6 +26,4 @@ class ListBuilder:
             "config_id1": config_id1,
             "config_id2": config_id2,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/history/config/diff/list", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/history/config/diff/list", params=params, **kw)

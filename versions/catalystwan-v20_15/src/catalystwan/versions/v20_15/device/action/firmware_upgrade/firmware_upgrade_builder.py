@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -20,37 +20,20 @@ class FirmwareUpgradeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def remote_firmware_image_upgrade(self):
-        class remote_firmware_image_upgrade_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def remote_firmware_image_upgrade(self, payload: Optional[Any] = None, **kw) -> FirmwareImageRemoteUpgrade:
+        """
+        Eemote firmware on device
 
-            def __call__(
-                self, payload: Optional[Any] = None, **kw
-            ) -> FirmwareImageRemoteUpgrade:
-                """
-                Eemote firmware on device
-
-                :param payload: Request body
-                :returns: FirmwareImageRemoteUpgrade
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/device/action/firmware-upgrade",
-                    return_type=FirmwareImageRemoteUpgrade,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return remote_firmware_image_upgrade_(self._request_adapter)
+        :param payload: Request body
+        :returns: FirmwareImageRemoteUpgrade
+        """
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/device/action/firmware-upgrade",
+            return_type=FirmwareImageRemoteUpgrade,
+            payload=payload,
+            **kw,
+        )
 
     def delete_firmware_upgarde_remote_image(self, version_id: str, **kw):
         """
@@ -63,10 +46,7 @@ class FirmwareUpgradeBuilder:
             "versionId": version_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/device/action/firmware-upgrade/{versionId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/device/action/firmware-upgrade/{versionId}", params=params, **kw
         )
 
     @property

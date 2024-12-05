@@ -49,11 +49,7 @@ class CliBuilder:
                 :returns: str
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/nfvirtual/cli",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/feature-profile/nfvirtual/cli", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -76,10 +72,7 @@ class CliBuilder:
             "cliId": cli_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/nfvirtual/cli/{cliId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/nfvirtual/cli/{cliId}", params=params, **kw
         )
 
     @property
@@ -128,10 +121,7 @@ class CliBuilder:
             "cliId": cli_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/nfvirtual/cli/{cliId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/nfvirtual/cli/{cliId}", params=params, **kw
         )
 
     @property

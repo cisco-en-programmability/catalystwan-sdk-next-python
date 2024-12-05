@@ -36,9 +36,7 @@ class FlowlogDataObject:
 class FlowlogPaginationResponsePageInfo:
     count: Optional[int] = _field(default=None)
     end_time: Optional[str] = _field(default=None, metadata={"alias": "endTime"})
-    has_more_data: Optional[str] = _field(
-        default=None, metadata={"alias": "hasMoreData"}
-    )
+    has_more_data: Optional[str] = _field(default=None, metadata={"alias": "hasMoreData"})
     scroll_id: Optional[str] = _field(default=None, metadata={"alias": "scrollId"})
     start_time: Optional[str] = _field(default=None, metadata={"alias": "startTime"})
     total_count: Optional[int] = _field(default=None, metadata={"alias": "totalCount"})
@@ -47,6 +45,4 @@ class FlowlogPaginationResponsePageInfo:
 @dataclass
 class FlowlogPaginationResponse:
     data: Optional[List[FlowlogDataObject]] = _field(default=None)
-    page_info: Optional[FlowlogPaginationResponsePageInfo] = _field(
-        default=None, metadata={"alias": "pageInfo"}
-    )
+    page_info: Optional[FlowlogPaginationResponsePageInfo] = _field(default=None, metadata={"alias": "pageInfo"})

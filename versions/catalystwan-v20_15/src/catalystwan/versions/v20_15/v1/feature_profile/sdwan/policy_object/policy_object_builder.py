@@ -89,9 +89,7 @@ class PolicyObjectBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return create_data_prefix_profile_parcel_for_security_policy_object_(
-            self._request_adapter
-        )
+        return create_data_prefix_profile_parcel_for_security_policy_object_(self._request_adapter)
 
     def get_data_prefix_profile_parcel_by_parcel_id_for_policy_object(
         self,
@@ -171,11 +169,7 @@ class PolicyObjectBuilder:
         return edit_data_prefix_profile_parcel_for_policy_object_(self._request_adapter)
 
     def delete_data_prefix_profile_parcel_for_policy_object(
-        self,
-        policy_object_id: str,
-        policy_object_list_type: PolicyObjectListTypeParam,
-        list_object_id: str,
-        **kw,
+        self, policy_object_id: str, policy_object_list_type: PolicyObjectListTypeParam, list_object_id: str, **kw
     ):
         """
         Delete a Data Prefix Profile Parcel for Policy Object feature profile

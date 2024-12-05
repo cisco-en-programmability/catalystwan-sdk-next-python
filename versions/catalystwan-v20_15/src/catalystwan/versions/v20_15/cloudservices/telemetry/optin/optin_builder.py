@@ -28,10 +28,7 @@ class OptinBuilder:
                 :returns: Any
                 """
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/cloudservices/telemetry/optin",
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/cloudservices/telemetry/optin", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:

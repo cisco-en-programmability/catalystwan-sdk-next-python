@@ -26,9 +26,7 @@ class PreviewBuilder:
                 self,
                 config_group_id: str,
                 device_id: str,
-                payload: Optional[
-                    GetConfigGroupDeviceConfigurationPreviewPostRequest
-                ] = None,
+                payload: Optional[GetConfigGroupDeviceConfigurationPreviewPostRequest] = None,
                 **kw,
             ) -> Any:
                 """
@@ -51,17 +49,11 @@ class PreviewBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> GetConfigGroupDeviceConfigurationPreviewPostRequest:
-                return GetConfigGroupDeviceConfigurationPreviewPostRequest(
-                    *args, **kwargs
-                )
+            def create_payload(self, *args, **kwargs) -> GetConfigGroupDeviceConfigurationPreviewPostRequest:
+                return GetConfigGroupDeviceConfigurationPreviewPostRequest(*args, **kwargs)
 
             @property
-            def payload_model(
-                self,
-            ) -> Type[GetConfigGroupDeviceConfigurationPreviewPostRequest]:
+            def payload_model(self) -> Type[GetConfigGroupDeviceConfigurationPreviewPostRequest]:
                 return GetConfigGroupDeviceConfigurationPreviewPostRequest
 
         return get_config_group_device_configuration_preview_(self._request_adapter)

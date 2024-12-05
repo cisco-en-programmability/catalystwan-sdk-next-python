@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,34 +14,14 @@ class UserCredsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def add_or_update_user_credentials(self):
-        class add_or_update_user_credentials_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Add or update user credentials for cluster operations
+    def add_or_update_user_credentials(self, payload: Optional[Any] = None, **kw):
+        """
+        Add or update user credentials for cluster operations
 
 
-                Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Note: In a multitenant vManage system, this API is only available in the Provider view.
 
-                :param payload: User credential
-                :returns: None
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/clusterManagement/userCreds",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return add_or_update_user_credentials_(self._request_adapter)
+        :param payload: User credential
+        :returns: None
+        """
+        return self._request_adapter.request("POST", "/dataservice/clusterManagement/userCreds", payload=payload, **kw)

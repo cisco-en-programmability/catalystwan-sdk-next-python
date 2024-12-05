@@ -14,9 +14,7 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_hardware_health_summary(
-        self, vpn_id: List[str], is_cached: Optional[bool] = False, **kw
-    ) -> List[Any]:
+    def get_hardware_health_summary(self, vpn_id: List[str], is_cached: Optional[bool] = False, **kw) -> List[Any]:
         """
         Get hardware health summary for device
 
@@ -29,9 +27,5 @@ class SummaryBuilder:
             "vpnId": vpn_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/hardwarehealth/summary",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/hardwarehealth/summary", return_type=List[Any], params=params, **kw
         )

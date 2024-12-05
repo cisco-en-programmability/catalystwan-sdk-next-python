@@ -75,9 +75,7 @@ class GatewaysBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[InterconnectGatewayExtended] = None, **kw
-            ) -> ProcessResponse:
+            def __call__(self, payload: Optional[InterconnectGatewayExtended] = None, **kw) -> ProcessResponse:
                 """
                 API to create an Intercoonect gateway in an Interconnect provider.
 
@@ -101,9 +99,7 @@ class GatewaysBuilder:
 
         return create_interconnect_gateway_(self._request_adapter)
 
-    def get_interconnect_gateway(
-        self, interconnect_gateway_name: str, **kw
-    ) -> InterconnectGatewayExtended:
+    def get_interconnect_gateway(self, interconnect_gateway_name: str, **kw) -> InterconnectGatewayExtended:
         """
         API to retrieve the Interconnect Gateway Information from vManage.
 
@@ -128,10 +124,7 @@ class GatewaysBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                interconnect_gateway_name: str,
-                payload: Optional[InterconnectGatewayExtended] = None,
-                **kw,
+                self, interconnect_gateway_name: str, payload: Optional[InterconnectGatewayExtended] = None, **kw
             ) -> InterconnectGatewayExtended:
                 """
                 API to update the Interconnect Gateway Information in vManage.
@@ -161,9 +154,7 @@ class GatewaysBuilder:
 
         return update_interconnect_gateway_(self._request_adapter)
 
-    def delete_interconnect_gateway(
-        self, interconnect_gateway_name: str, **kw
-    ) -> ProcessResponse:
+    def delete_interconnect_gateway(self, interconnect_gateway_name: str, **kw) -> ProcessResponse:
         """
         API to delete an Interconnect Gateway from an Interconnect provider.
 

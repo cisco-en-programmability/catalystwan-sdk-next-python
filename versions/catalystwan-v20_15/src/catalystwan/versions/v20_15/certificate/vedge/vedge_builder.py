@@ -31,11 +31,7 @@ class VedgeBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/certificate/vedge",
-            return_type=List[InstalledCertsInner],
-            params=params,
-            **kw,
+            "GET", "/dataservice/certificate/vedge", return_type=List[InstalledCertsInner], params=params, **kw
         )
 
     @property

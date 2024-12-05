@@ -38,9 +38,7 @@ class SecurityBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create Security for System feature profile
 
@@ -69,9 +67,7 @@ class SecurityBuilder:
 
         return create_security_for_system_(self._request_adapter)
 
-    def get_security_by_security_id_for_system(
-        self, system_id: str, security_id: str, **kw
-    ) -> str:
+    def get_security_by_security_id_for_system(self, system_id: str, security_id: str, **kw) -> str:
         """
         Get Security by securityId for System feature profile
 
@@ -97,13 +93,7 @@ class SecurityBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                system_id: str,
-                security_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, system_id: str, security_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update Security for System feature profile
 

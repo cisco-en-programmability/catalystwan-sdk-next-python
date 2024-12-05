@@ -3,14 +3,7 @@ from dataclasses import dataclass
 from dataclasses import field as _field
 from typing import List, Literal, Optional
 
-Type = Literal[
-    "cellular",
-    "ethernet",
-    "globalSettings",
-    "networkProtocol",
-    "securityPolicy",
-    "wifi",
-]
+Type = Literal["cellular", "ethernet", "globalSettings", "networkProtocol", "securityPolicy", "wifi"]
 
 
 @dataclass
@@ -29,38 +22,20 @@ class AaaServerInfo:
 class EthernetInterface:
     interface_name: str = _field(metadata={"alias": "interfaceName"})
     port_type: str = _field(metadata={"alias": "portType"})
-    aaa_server_info: Optional[AaaServerInfo] = _field(
-        default=None, metadata={"alias": "aaaServerInfo"}
-    )
+    aaa_server_info: Optional[AaaServerInfo] = _field(default=None, metadata={"alias": "aaaServerInfo"})
     admin_state: Optional[str] = _field(default=None, metadata={"alias": "adminState"})
-    corporate_lan: Optional[bool] = _field(
-        default=None, metadata={"alias": "corporateLan"}
-    )
-    ip_assignment: Optional[str] = _field(
-        default=None, metadata={"alias": "ipAssignment"}
-    )
-    ipv6_assignment: Optional[str] = _field(
-        default=None, metadata={"alias": "ipv6Assignment"}
-    )
-    static_ip_address: Optional[str] = _field(
-        default=None, metadata={"alias": "staticIpAddress"}
-    )
-    static_ip_address_subnet_mask: Optional[str] = _field(
-        default=None, metadata={"alias": "staticIpAddressSubnetMask"}
-    )
-    static_route_ip: Optional[str] = _field(
-        default=None, metadata={"alias": "staticRouteIp"}
-    )
-    wan_configuration: Optional[str] = _field(
-        default=None, metadata={"alias": "wanConfiguration"}
-    )
+    corporate_lan: Optional[bool] = _field(default=None, metadata={"alias": "corporateLan"})
+    ip_assignment: Optional[str] = _field(default=None, metadata={"alias": "ipAssignment"})
+    ipv6_assignment: Optional[str] = _field(default=None, metadata={"alias": "ipv6Assignment"})
+    static_ip_address: Optional[str] = _field(default=None, metadata={"alias": "staticIpAddress"})
+    static_ip_address_subnet_mask: Optional[str] = _field(default=None, metadata={"alias": "staticIpAddressSubnetMask"})
+    static_route_ip: Optional[str] = _field(default=None, metadata={"alias": "staticRouteIp"})
+    wan_configuration: Optional[str] = _field(default=None, metadata={"alias": "wanConfiguration"})
 
 
 @dataclass
 class CreateEthernetProfileParcelForMobilityPostRequest:
-    ethernet_interface_list: List[EthernetInterface] = _field(
-        metadata={"alias": "ethernetInterfaceList"}
-    )
+    ethernet_interface_list: List[EthernetInterface] = _field(metadata={"alias": "ethernetInterfaceList"})
     # Name of the Profile Parcel. Must be unique.
     name: str
     type_: Type = _field(metadata={"alias": "type"})
@@ -73,11 +48,7 @@ class CreateEthernetProfileParcelForMobilityPostRequest:
     # System generated unique identifier of the Profile Parcel in UUID format.
     id: Optional[str] = _field(default=None)
     # User who last updated this.
-    last_updated_by: Optional[str] = _field(
-        default=None, metadata={"alias": "lastUpdatedBy"}
-    )
+    last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
     # Timestamp of last update
-    last_updated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "lastUpdatedOn"}
-    )
+    last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
     variables: Optional[List[Variable]] = _field(default=None)

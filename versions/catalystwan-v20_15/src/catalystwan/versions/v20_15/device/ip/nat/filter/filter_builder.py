@@ -42,6 +42,4 @@ class FilterBuilder:
             "proto": proto,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/ip/nat/filter", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/ip/nat/filter", params=params, **kw)

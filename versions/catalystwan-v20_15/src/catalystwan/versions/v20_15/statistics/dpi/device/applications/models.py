@@ -35,12 +35,8 @@ class DeviceAppResponseHeaderFields:
 
 @dataclass
 class DeviceAppResponseHeaderViewKeys:
-    preference_key: Optional[str] = _field(
-        default=None, metadata={"alias": "preferenceKey"}
-    )
-    unique_key: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "uniqueKey"}
-    )
+    preference_key: Optional[str] = _field(default=None, metadata={"alias": "preferenceKey"})
+    unique_key: Optional[List[str]] = _field(default=None, metadata={"alias": "uniqueKey"})
 
 
 @dataclass
@@ -48,12 +44,8 @@ class DeviceAppResponseHeader:
     chart: Optional[DeviceAppResponseHeaderChart] = _field(default=None)
     columns: Optional[List[DeviceAppResponseHeaderColumns]] = _field(default=None)
     fields: Optional[List[DeviceAppResponseHeaderFields]] = _field(default=None)
-    generated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "generatedOn"}
-    )
-    view_keys: Optional[DeviceAppResponseHeaderViewKeys] = _field(
-        default=None, metadata={"alias": "viewKeys"}
-    )
+    generated_on: Optional[int] = _field(default=None, metadata={"alias": "generatedOn"})
+    view_keys: Optional[DeviceAppResponseHeaderViewKeys] = _field(default=None, metadata={"alias": "viewKeys"})
 
 
 @dataclass

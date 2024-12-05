@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,34 +15,14 @@ class EdgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def get_device_link_metro_speed(self):
-        class get_device_link_metro_speed_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def get_device_link_metro_speed(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Get Device Link Metro Speed based on device link config
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Get Device Link Metro Speed based on device link config
-
-                :param payload: Device Link
-                :returns: Any
-                """
-                logging.warning(
-                    "Operation: %s is deprecated", "getDeviceLinkMetroSpeed"
-                )
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/devicelink/metroSpeed/edge",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return get_device_link_metro_speed_(self._request_adapter)
+        :param payload: Device Link
+        :returns: Any
+        """
+        logging.warning("Operation: %s is deprecated", "getDeviceLinkMetroSpeed")
+        return self._request_adapter.request(
+            "POST", "/dataservice/multicloud/devicelink/metroSpeed/edge", payload=payload, **kw
+        )

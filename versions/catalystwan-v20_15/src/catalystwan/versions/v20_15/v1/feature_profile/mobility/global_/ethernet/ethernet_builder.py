@@ -41,12 +41,7 @@ class EthernetBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                profile_id: str,
-                payload: Optional[
-                    CreateEthernetProfileParcelForMobilityPostRequest
-                ] = None,
-                **kw,
+                self, profile_id: str, payload: Optional[CreateEthernetProfileParcelForMobilityPostRequest] = None, **kw
             ) -> str:
                 """
                 Create an ethernet Profile Parcel for Mobility Global Feature Profile
@@ -67,24 +62,16 @@ class EthernetBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> CreateEthernetProfileParcelForMobilityPostRequest:
-                return CreateEthernetProfileParcelForMobilityPostRequest(
-                    *args, **kwargs
-                )
+            def create_payload(self, *args, **kwargs) -> CreateEthernetProfileParcelForMobilityPostRequest:
+                return CreateEthernetProfileParcelForMobilityPostRequest(*args, **kwargs)
 
             @property
-            def payload_model(
-                self,
-            ) -> Type[CreateEthernetProfileParcelForMobilityPostRequest]:
+            def payload_model(self) -> Type[CreateEthernetProfileParcelForMobilityPostRequest]:
                 return CreateEthernetProfileParcelForMobilityPostRequest
 
         return create_ethernet_profile_parcel_for_mobility_(self._request_adapter)
 
-    def get_ethernet_profile_parcel(
-        self, profile_id: str, ethernet_id: str, **kw
-    ) -> str:
+    def get_ethernet_profile_parcel(self, profile_id: str, ethernet_id: str, **kw) -> str:
         """
         Get Ethernet Profile Parcels for feature profile
 
@@ -110,13 +97,7 @@ class EthernetBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                profile_id: str,
-                ethernet_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ):
+            def __call__(self, profile_id: str, ethernet_id: str, payload: Optional[str] = None, **kw):
                 """
                 Update a Ethernet Profile Parcel for feature profile
 
@@ -146,9 +127,7 @@ class EthernetBuilder:
 
         return edit_ethernet_profile_parcel_for_system_(self._request_adapter)
 
-    def delete_ethernet_profile_parcel_for_system(
-        self, profile_id: str, ethernet_id: str, **kw
-    ):
+    def delete_ethernet_profile_parcel_for_system(self, profile_id: str, ethernet_id: str, **kw):
         """
         Delete a Ethernet Profile Parcel for feature profile
 

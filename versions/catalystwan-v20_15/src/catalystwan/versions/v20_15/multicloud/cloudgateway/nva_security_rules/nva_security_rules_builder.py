@@ -40,9 +40,7 @@ class NvaSecurityRulesBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, cloud_gateway_name: str, payload: NvaRulesListRequest, **kw
-            ) -> Taskid:
+            def __call__(self, cloud_gateway_name: str, payload: NvaRulesListRequest, **kw) -> Taskid:
                 """
                 Update NVA Security Rules
 

@@ -36,6 +36,4 @@ class Ikev1Builder:
             "remote-tloc-color": remote_tloc_color,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/ipsec/ikev1", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/ipsec/ikev1", params=params, **kw)

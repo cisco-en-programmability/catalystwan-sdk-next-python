@@ -20,6 +20,4 @@ class DefinitionBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/admin/usergroup/definition", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/admin/usergroup/definition", **kw)

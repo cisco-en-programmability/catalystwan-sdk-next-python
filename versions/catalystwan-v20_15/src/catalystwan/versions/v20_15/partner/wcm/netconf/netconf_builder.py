@@ -22,9 +22,7 @@ class NetconfBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, nms_id: str, payload: WcmNetconfConfigRequest, **kw
-            ) -> WcmNetconfConfigRes:
+            def __call__(self, nms_id: str, payload: WcmNetconfConfigRequest, **kw) -> WcmNetconfConfigRes:
                 """
                 Push device configs
 

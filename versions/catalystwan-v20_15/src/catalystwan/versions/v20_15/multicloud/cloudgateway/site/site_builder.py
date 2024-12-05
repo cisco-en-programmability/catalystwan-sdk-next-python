@@ -61,10 +61,7 @@ class SiteBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                cloud_gateway_name: str,
-                payload: Optional[TunnelScalingRequestPayload] = None,
-                **kw,
+                self, cloud_gateway_name: str, payload: Optional[TunnelScalingRequestPayload] = None, **kw
             ) -> Taskid:
                 """
                 Update tunnel scaling and accelerated vpn parameter for a branch endpoint
@@ -101,10 +98,7 @@ class SiteBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                cloud_gateway_name: str,
-                payload: Optional[List[AttachSitesRequestPayloadInner]] = None,
-                **kw,
+                self, cloud_gateway_name: str, payload: Optional[List[AttachSitesRequestPayloadInner]] = None, **kw
             ) -> Taskid:
                 """
                 Attach sites to Cloud Gateway
@@ -125,9 +119,7 @@ class SiteBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> List[AttachSitesRequestPayloadInner]:
+            def create_payload(self, *args, **kwargs) -> List[AttachSitesRequestPayloadInner]:
                 return List[AttachSitesRequestPayloadInner](*args, **kwargs)
 
             @property
@@ -143,10 +135,7 @@ class SiteBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                cloud_gateway_name: str,
-                payload: Optional[List[DetachSitesRequestPayloadInner]] = None,
-                **kw,
+                self, cloud_gateway_name: str, payload: Optional[List[DetachSitesRequestPayloadInner]] = None, **kw
             ) -> Taskid:
                 """
                 Detach sites from cloud gateway
@@ -167,9 +156,7 @@ class SiteBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> List[DetachSitesRequestPayloadInner]:
+            def create_payload(self, *args, **kwargs) -> List[DetachSitesRequestPayloadInner]:
                 return List[DetachSitesRequestPayloadInner](*args, **kwargs)
 
             @property

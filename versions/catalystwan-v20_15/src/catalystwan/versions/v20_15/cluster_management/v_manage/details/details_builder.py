@@ -28,8 +28,5 @@ class DetailsBuilder:
             "vmanageIP": vmanage_ip,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/clusterManagement/vManage/details/{vmanageIP}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/clusterManagement/vManage/details/{vmanageIP}", params=params, **kw
         )

@@ -20,6 +20,4 @@ class WebexBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/monitor/sdavccloudconnector/webex", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/monitor/sdavccloudconnector/webex", **kw)

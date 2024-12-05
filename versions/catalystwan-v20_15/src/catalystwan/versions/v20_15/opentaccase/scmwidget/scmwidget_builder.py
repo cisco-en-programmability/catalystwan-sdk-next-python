@@ -23,10 +23,7 @@ class ScmwidgetBuilder:
         """
         logging.warning("Operation: %s is deprecated", "getCall")
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/opentaccase/scmwidget/{var}",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/opentaccase/scmwidget/{var}", return_type=List[Any], **kw
         )
 
     def post_call(self, **kw) -> List[Any]:
@@ -37,10 +34,7 @@ class ScmwidgetBuilder:
         """
         logging.warning("Operation: %s is deprecated", "postCall")
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/opentaccase/scmwidget/{var}",
-            return_type=List[Any],
-            **kw,
+            "POST", "/dataservice/opentaccase/scmwidget/{var}", return_type=List[Any], **kw
         )
 
     def delete_call(self, **kw) -> List[Any]:
@@ -51,8 +45,5 @@ class ScmwidgetBuilder:
         """
         logging.warning("Operation: %s is deprecated", "deleteCall")
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/opentaccase/scmwidget/{var}",
-            return_type=List[Any],
-            **kw,
+            "DELETE", "/dataservice/opentaccase/scmwidget/{var}", return_type=List[Any], **kw
         )

@@ -53,11 +53,7 @@ class MetricsBuilder:
             "limit": limit,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/util/configdb/metrics",
-            return_type=Neo4JMetricsResponse,
-            params=params,
-            **kw,
+            "GET", "/dataservice/util/configdb/metrics", return_type=Neo4JMetricsResponse, params=params, **kw
         )
 
     @property

@@ -21,8 +21,5 @@ class KeyvalueBuilder:
         :returns: SimpleKeyValueMapping
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/event/types/keyvalue",
-            return_type=SimpleKeyValueMapping,
-            **kw,
+            "GET", "/dataservice/event/types/keyvalue", return_type=SimpleKeyValueMapping, **kw
         )

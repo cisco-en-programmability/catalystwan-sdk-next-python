@@ -22,9 +22,7 @@ class UsergroupsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[UserGroupsBody] = None, **kw
-            ) -> UserGroupsResponse:
+            def __call__(self, payload: Optional[UserGroupsBody] = None, **kw) -> UserGroupsResponse:
                 """
                 Get all identity user groups
 

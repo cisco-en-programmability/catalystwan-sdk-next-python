@@ -37,6 +37,4 @@ class GetSigTunnelListBuilder:
             "lastNHours": last_n_hours,
             "site-id": site_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/sig/getSigTunnelList", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/sig/getSigTunnelList", params=params, **kw)

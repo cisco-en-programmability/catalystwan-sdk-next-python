@@ -20,6 +20,4 @@ class ConnectBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/cloudservices/connect", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/cloudservices/connect", **kw)

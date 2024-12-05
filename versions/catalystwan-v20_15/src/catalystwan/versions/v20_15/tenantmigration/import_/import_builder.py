@@ -25,8 +25,5 @@ class ImportBuilder:
             "migrationKey": migration_key,
         }
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/tenantmigration/import/{migrationKey}",
-            params=params,
-            **kw,
+            "POST", "/dataservice/tenantmigration/import/{migrationKey}", params=params, **kw
         )

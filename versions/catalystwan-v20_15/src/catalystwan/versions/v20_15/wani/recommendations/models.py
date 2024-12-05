@@ -14,6 +14,4 @@ class RecommendationsResponseRecommendations:
 @dataclass
 class RecommendationsResponse:
     recommendations: List[RecommendationsResponseRecommendations]
-    total_recommendation_count: Optional[int] = _field(
-        default=None, metadata={"alias": "totalRecommendationCount"}
-    )
+    total_recommendation_count: Optional[int] = _field(default=None, metadata={"alias": "totalRecommendationCount"})

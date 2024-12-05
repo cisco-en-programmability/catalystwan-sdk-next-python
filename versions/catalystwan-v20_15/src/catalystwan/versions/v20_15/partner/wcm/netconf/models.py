@@ -11,9 +11,7 @@ class WcmNetconfConfigRes:
 
 @dataclass
 class NetconfConfig:
-    device_config: Optional[str] = _field(
-        default=None, metadata={"alias": "deviceConfig"}
-    )
+    device_config: Optional[str] = _field(default=None, metadata={"alias": "deviceConfig"})
     device_id: Optional[str] = _field(default=None, metadata={"alias": "deviceId"})
 
 

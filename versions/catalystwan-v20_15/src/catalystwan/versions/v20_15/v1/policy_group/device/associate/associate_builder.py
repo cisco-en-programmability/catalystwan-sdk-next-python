@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -25,116 +25,58 @@ class AssociateBuilder:
             "policyGroupId": policy_group_id,
         }
         return self._request_adapter.request(
-            "GET",
+            "GET", "/dataservice/v1/policy-group/{policyGroupId}/device/associate", params=params, **kw
+        )
+
+    def update_policy_group_association(self, policy_group_id: str, payload: Optional[Any] = None, **kw):
+        """
+        Move the devices from one policy group to another
+
+        :param policy_group_id: Policy group id
+        :param payload: Payload
+        :returns: None
+        """
+        params = {
+            "policyGroupId": policy_group_id,
+        }
+        return self._request_adapter.request(
+            "PUT", "/dataservice/v1/policy-group/{policyGroupId}/device/associate", params=params, payload=payload, **kw
+        )
+
+    def create_policy_group_association(self, policy_group_id: str, payload: Optional[Any] = None, **kw):
+        """
+        Create associations with device and a policy group
+
+        :param policy_group_id: Policy group id
+        :param payload: Payload
+        :returns: None
+        """
+        params = {
+            "policyGroupId": policy_group_id,
+        }
+        return self._request_adapter.request(
+            "POST",
             "/dataservice/v1/policy-group/{policyGroupId}/device/associate",
             params=params,
+            payload=payload,
             **kw,
         )
 
-    @property
-    def update_policy_group_association(self):
-        class update_policy_group_association_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def delete_policy_group_association(self, policy_group_id: str, payload: Optional[Any] = None, **kw):
+        """
+        Delete Policy Group Association from devices
 
-            def __call__(
-                self, policy_group_id: str, payload: Optional[Any] = None, **kw
-            ):
-                """
-                Move the devices from one policy group to another
-
-                :param policy_group_id: Policy group id
-                :param payload: Payload
-                :returns: None
-                """
-                params = {
-                    "policyGroupId": policy_group_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/policy-group/{policyGroupId}/device/associate",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return update_policy_group_association_(self._request_adapter)
-
-    @property
-    def create_policy_group_association(self):
-        class create_policy_group_association_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(
-                self, policy_group_id: str, payload: Optional[Any] = None, **kw
-            ):
-                """
-                Create associations with device and a policy group
-
-                :param policy_group_id: Policy group id
-                :param payload: Payload
-                :returns: None
-                """
-                params = {
-                    "policyGroupId": policy_group_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/policy-group/{policyGroupId}/device/associate",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_policy_group_association_(self._request_adapter)
-
-    @property
-    def delete_policy_group_association(self):
-        class delete_policy_group_association_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(
-                self, policy_group_id: str, payload: Optional[Any] = None, **kw
-            ):
-                """
-                Delete Policy Group Association from devices
-
-                :param policy_group_id: Policy group id
-                :param payload: Payload
-                :returns: None
-                """
-                params = {
-                    "policyGroupId": policy_group_id,
-                }
-                return self._request_adapter.request(
-                    "DELETE",
-                    "/dataservice/v1/policy-group/{policyGroupId}/device/associate",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return delete_policy_group_association_(self._request_adapter)
+        :param policy_group_id: Policy group id
+        :param payload: Payload
+        :returns: None
+        """
+        params = {
+            "policyGroupId": policy_group_id,
+        }
+        return self._request_adapter.request(
+            "DELETE",
+            "/dataservice/v1/policy-group/{policyGroupId}/device/associate",
+            params=params,
+            payload=payload,
+            **kw,
+        )

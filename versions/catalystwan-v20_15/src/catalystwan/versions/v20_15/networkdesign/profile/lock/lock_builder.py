@@ -27,8 +27,5 @@ class LockBuilder:
             "profileId": profile_id,
         }
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/networkdesign/profile/lock/{profileId}",
-            params=params,
-            **kw,
+            "POST", "/dataservice/networkdesign/profile/lock/{profileId}", params=params, **kw
         )

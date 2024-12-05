@@ -43,11 +43,7 @@ class SeverityBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/alarms/severity",
-            return_type=AlarmResponse,
-            params=params,
-            **kw,
+            "GET", "/dataservice/alarms/severity", return_type=AlarmResponse, params=params, **kw
         )
 
     @property

@@ -18,9 +18,7 @@ class IpsecBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_list_of_profile_parcels_1(
-        self, transport_id: str, vpn_id: str, **kw
-    ) -> str:
+    def get_list_of_profile_parcels_1(self, transport_id: str, vpn_id: str, **kw) -> str:
         """
         Get InterfaceIpsec Parcels for transport WanVpn Parcel
 
@@ -46,13 +44,7 @@ class IpsecBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                transport_id: str,
-                vpn_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, transport_id: str, vpn_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a WanVpn InterfaceIpsec parcel for transport feature profile
 
@@ -83,9 +75,7 @@ class IpsecBuilder:
 
         return create_ip_sec_profile_parcel_1_(self._request_adapter)
 
-    def get_profile_parcel_by_parcel_id_1(
-        self, transport_id: str, vpn_id: str, ipsec_id: str, **kw
-    ) -> str:
+    def get_profile_parcel_by_parcel_id_1(self, transport_id: str, vpn_id: str, ipsec_id: str, **kw) -> str:
         """
         Get WanVpn InterfaceIpsec Parcel by ethernetId for transport feature profile
 
@@ -114,12 +104,7 @@ class IpsecBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                transport_id: str,
-                vpn_id: str,
-                ipsec_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, transport_id: str, vpn_id: str, ipsec_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Update a WanVpn InterfaceIpsec Parcel for transport feature profile
@@ -153,9 +138,7 @@ class IpsecBuilder:
 
         return edit_profile_parcel_1_(self._request_adapter)
 
-    def delete_profile_parcel_1(
-        self, transport_id: str, vpn_id: str, ipsec_id: str, **kw
-    ):
+    def delete_profile_parcel_1(self, transport_id: str, vpn_id: str, ipsec_id: str, **kw):
         """
         Delete a  WanVpn InterfaceIpsec Parcel for transport feature profile
 

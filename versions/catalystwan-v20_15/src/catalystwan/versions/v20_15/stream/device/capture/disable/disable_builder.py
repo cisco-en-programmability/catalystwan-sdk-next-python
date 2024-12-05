@@ -14,9 +14,7 @@ class DisableBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def disable_packet_capture_session(
-        self, session_id: str, **kw
-    ) -> DisablePacketCaptureRes:
+    def disable_packet_capture_session(self, session_id: str, **kw) -> DisablePacketCaptureRes:
         """
         Disable packet capture session
 

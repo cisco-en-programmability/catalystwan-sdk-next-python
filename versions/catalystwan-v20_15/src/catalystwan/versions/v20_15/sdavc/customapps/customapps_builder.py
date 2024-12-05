@@ -20,6 +20,4 @@ class CustomappsBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/sdavc/customapps", return_type=List[Any], **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/sdavc/customapps", return_type=List[Any], **kw)

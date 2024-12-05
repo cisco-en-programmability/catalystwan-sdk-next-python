@@ -12,19 +12,9 @@ class IseServer:
     user_and_user_group: str = _field(metadata={"alias": "userAndUserGroup"})
     user_name: str = _field(metadata={"alias": "userName"})
     vpn: str
-    active_directory_domain: Optional[str] = _field(
-        default=None, metadata={"alias": "activeDirectoryDomain"}
-    )
-    ise_cert_name: Optional[str] = _field(
-        default=None, metadata={"alias": "iseCertName"}
-    )
-    ise_root_cert: Optional[str] = _field(
-        default=None, metadata={"alias": "iseRootCert"}
-    )
+    active_directory_domain: Optional[str] = _field(default=None, metadata={"alias": "activeDirectoryDomain"})
+    ise_cert_name: Optional[str] = _field(default=None, metadata={"alias": "iseCertName"})
+    ise_root_cert: Optional[str] = _field(default=None, metadata={"alias": "iseRootCert"})
     join_point: Optional[str] = _field(default=None, metadata={"alias": "joinPoint"})
-    px_grid_cert_name: Optional[str] = _field(
-        default=None, metadata={"alias": "pxGridCertName"}
-    )
-    px_grid_root_cert: Optional[str] = _field(
-        default=None, metadata={"alias": "pxGridRootCert"}
-    )
+    px_grid_cert_name: Optional[str] = _field(default=None, metadata={"alias": "pxGridCertName"})
+    px_grid_root_cert: Optional[str] = _field(default=None, metadata={"alias": "pxGridRootCert"})

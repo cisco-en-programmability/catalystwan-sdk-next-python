@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -28,46 +28,23 @@ class PoliciesBuilder:
             "nmsId": nms_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/mdp/policies/{nmsId}",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/mdp/policies/{nmsId}", return_type=List[Any], params=params, **kw
         )
 
-    @property
-    def update_policy_status(self):
-        class update_policy_status_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def update_policy_status(self, nms_id: str, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        update policy status
 
-            def __call__(self, nms_id: str, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                update policy status
-
-                :param nms_id: Nms id
-                :param payload: policyList
-                :returns: Any
-                """
-                params = {
-                    "nmsId": nms_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/mdp/policies/{nmsId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return update_policy_status_(self._request_adapter)
+        :param nms_id: Nms id
+        :param payload: policyList
+        :returns: Any
+        """
+        params = {
+            "nmsId": nms_id,
+        }
+        return self._request_adapter.request(
+            "PUT", "/dataservice/mdp/policies/{nmsId}", params=params, payload=payload, **kw
+        )
 
     @property
     def mdpconfig(self) -> MdpconfigBuilder:

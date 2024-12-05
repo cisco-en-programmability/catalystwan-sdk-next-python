@@ -41,9 +41,7 @@ class SwitchportBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, service_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, service_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a switchport Parcel to a service feature profile
 
@@ -70,13 +68,9 @@ class SwitchportBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return cedge_service_profile_switchport_parcel_restful_resource_(
-            self._request_adapter
-        )
+        return cedge_service_profile_switchport_parcel_restful_resource_(self._request_adapter)
 
-    def get_switchport_parcel_by_parcel_id_for_service(
-        self, service_id: str, switchport_id: str, **kw
-    ) -> str:
+    def get_switchport_parcel_by_parcel_id_for_service(self, service_id: str, switchport_id: str, **kw) -> str:
         """
         Get Switchport Parcel by switchportId for service feature profile
 
@@ -102,13 +96,7 @@ class SwitchportBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                service_id: str,
-                switchport_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, service_id: str, switchport_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Switchport Parcel association for service feature profile
 
@@ -139,9 +127,7 @@ class SwitchportBuilder:
 
         return edit_switchport_parcel_association_for_service_(self._request_adapter)
 
-    def delete_switchport_profile_parcel_for_service(
-        self, service_id: str, switchport_id: str, **kw
-    ):
+    def delete_switchport_profile_parcel_for_service(self, service_id: str, switchport_id: str, **kw):
         """
         Delete a Switchport Parcel for service feature profile
 

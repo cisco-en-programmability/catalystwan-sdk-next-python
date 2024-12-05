@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, List, Optional, Type
+from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -23,10 +23,7 @@ class TemplateBuilder:
         """
         logging.warning("Operation: %s is deprecated", "generateProfileTemplateList")
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/networkdesign/profile/template",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/networkdesign/profile/template", return_type=List[Any], **kw
         )
 
     def get_device_profile_template(self, template_id: str, **kw) -> Any:
@@ -41,45 +38,21 @@ class TemplateBuilder:
             "templateId": template_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/networkdesign/profile/template/{templateId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/networkdesign/profile/template/{templateId}", params=params, **kw
         )
 
-    @property
-    def edit_device_profile_template(self):
-        class edit_device_profile_template_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_device_profile_template(self, template_id: str, payload: Optional[Any] = None, **kw):
+        """
+        Edit device profile template
 
-            def __call__(self, template_id: str, payload: Optional[Any] = None, **kw):
-                """
-                Edit device profile template
-
-                :param template_id: Template Id
-                :param payload: Global template
-                :returns: None
-                """
-                logging.warning(
-                    "Operation: %s is deprecated", "editDeviceProfileTemplate"
-                )
-                params = {
-                    "templateId": template_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/networkdesign/profile/template/{templateId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_device_profile_template_(self._request_adapter)
+        :param template_id: Template Id
+        :param payload: Global template
+        :returns: None
+        """
+        logging.warning("Operation: %s is deprecated", "editDeviceProfileTemplate")
+        params = {
+            "templateId": template_id,
+        }
+        return self._request_adapter.request(
+            "PUT", "/dataservice/networkdesign/profile/template/{templateId}", params=params, payload=payload, **kw
+        )

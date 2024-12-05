@@ -28,6 +28,4 @@ class HostvpcBuilder:
             "transitVpcId": transit_vpc_id,
             "devicePairId": device_pair_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/cor/devicepair/hostvpc", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/template/cor/devicepair/hostvpc", params=params, **kw)

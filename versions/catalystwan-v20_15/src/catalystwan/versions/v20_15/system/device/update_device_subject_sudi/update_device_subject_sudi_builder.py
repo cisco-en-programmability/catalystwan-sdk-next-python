@@ -23,8 +23,5 @@ class UpdateDeviceSubjectSudiBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "PUT",
-            "/dataservice/system/device/updateDeviceSubjectSUDI/{uuid}",
-            params=params,
-            **kw,
+            "PUT", "/dataservice/system/device/updateDeviceSubjectSUDI/{uuid}", params=params, **kw
         )

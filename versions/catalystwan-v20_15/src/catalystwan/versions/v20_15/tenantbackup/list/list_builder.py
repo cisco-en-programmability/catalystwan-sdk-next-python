@@ -23,6 +23,4 @@ class ListBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/tenantbackup/list", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/tenantbackup/list", **kw)

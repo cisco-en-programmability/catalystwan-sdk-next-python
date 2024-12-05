@@ -20,9 +20,7 @@ class SystemSettingsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create System settings  Profile Parcel for System feature profile
 
@@ -51,9 +49,7 @@ class SystemSettingsBuilder:
 
         return create_nfvirtual_system_settings_parcel_(self._request_adapter)
 
-    def get_nfvirtual_system_settings_parcel(
-        self, system_id: str, system_settings_id: str, **kw
-    ) -> str:
+    def get_nfvirtual_system_settings_parcel(self, system_id: str, system_settings_id: str, **kw) -> str:
         """
         Get System Settings Profile Parcels for System feature profile
 
@@ -79,13 +75,7 @@ class SystemSettingsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                system_id: str,
-                system_settings_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, system_id: str, system_settings_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a System Settings Profile Parcel for System feature profile
 
@@ -116,9 +106,7 @@ class SystemSettingsBuilder:
 
         return edit_nfvirtual_system_settings_parcel_(self._request_adapter)
 
-    def delete_nfvirtual_system_settings_parcel(
-        self, system_id: str, system_settings_id: str, **kw
-    ):
+    def delete_nfvirtual_system_settings_parcel(self, system_id: str, system_settings_id: str, **kw):
         """
         Delete System settings Profile Parcel for System feature profile
 

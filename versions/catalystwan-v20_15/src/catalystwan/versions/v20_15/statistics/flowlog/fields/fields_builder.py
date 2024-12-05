@@ -23,8 +23,5 @@ class FieldsBuilder:
         :returns: List[GetStatDataFields]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/statistics/flowlog/fields",
-            return_type=List[GetStatDataFields],
-            **kw,
+            "GET", "/dataservice/statistics/flowlog/fields", return_type=List[GetStatDataFields], **kw
         )

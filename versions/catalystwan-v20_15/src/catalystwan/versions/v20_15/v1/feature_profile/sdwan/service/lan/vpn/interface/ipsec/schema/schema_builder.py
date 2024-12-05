@@ -14,9 +14,7 @@ class SchemaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdwan_profile_parcel_schema(
-        self, schema_type: SchemaTypeParam, **kw
-    ) -> str:
+    def get_sdwan_profile_parcel_schema(self, schema_type: SchemaTypeParam, **kw) -> str:
         """
         Get a SDWAN Service LanVpn InterfaceIpsec Schema by Schema Type
 

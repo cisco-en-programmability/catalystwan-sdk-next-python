@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -31,70 +31,32 @@ class SoftwareBuilder:
 
         :returns: Any
         """
+        return self._request_adapter.request("GET", "/dataservice/device/action/software", **kw)
+
+    def create_image_url(self, payload: Optional[Any] = None, **kw):
+        """
+        Create software image URL
+
+        :param payload: Request body for Device bootstrap configuration
+        :returns: None
+        """
+        return self._request_adapter.request("POST", "/dataservice/device/action/software", payload=payload, **kw)
+
+    def update_image_url(self, version_id: str, payload: Optional[Any] = None, **kw):
+        """
+        Update software image URL
+
+        :param version_id: Version
+        :param payload: Update software image request payload
+        :returns: None
+        """
+        logging.warning("Operation: %s is deprecated", "updateImageURL")
+        params = {
+            "versionId": version_id,
+        }
         return self._request_adapter.request(
-            "GET", "/dataservice/device/action/software", **kw
+            "PUT", "/dataservice/device/action/software/{versionId}", params=params, payload=payload, **kw
         )
-
-    @property
-    def create_image_url(self):
-        class create_image_url_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Create software image URL
-
-                :param payload: Request body for Device bootstrap configuration
-                :returns: None
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/device/action/software", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_image_url_(self._request_adapter)
-
-    @property
-    def update_image_url(self):
-        class update_image_url_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, version_id: str, payload: Optional[Any] = None, **kw):
-                """
-                Update software image URL
-
-                :param version_id: Version
-                :param payload: Update software image request payload
-                :returns: None
-                """
-                logging.warning("Operation: %s is deprecated", "updateImageURL")
-                params = {
-                    "versionId": version_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/device/action/software/{versionId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return update_image_url_(self._request_adapter)
 
     def delete_image_url(self, version_id: str, **kw):
         """
@@ -107,10 +69,7 @@ class SoftwareBuilder:
             "versionId": version_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/device/action/software/{versionId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/device/action/software/{versionId}", params=params, **kw
         )
 
     @property

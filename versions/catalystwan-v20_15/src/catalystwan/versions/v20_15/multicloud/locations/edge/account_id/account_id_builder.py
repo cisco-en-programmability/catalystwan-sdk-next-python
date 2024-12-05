@@ -17,9 +17,7 @@ class AccountIdBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def update_edge_locations_info(
-        self, edge_type: EdgeTypeParam, account_id: str, **kw
-    ) -> Any:
+    def update_edge_locations_info(self, edge_type: EdgeTypeParam, account_id: str, **kw) -> Any:
         """
         Update Edge Locations
 
@@ -33,8 +31,5 @@ class AccountIdBuilder:
             "accountId": account_id,
         }
         return self._request_adapter.request(
-            "PUT",
-            "/dataservice/multicloud/locations/edge/{edgeType}/accountId/{accountId}",
-            params=params,
-            **kw,
+            "PUT", "/dataservice/multicloud/locations/edge/{edgeType}/accountId/{accountId}", params=params, **kw
         )

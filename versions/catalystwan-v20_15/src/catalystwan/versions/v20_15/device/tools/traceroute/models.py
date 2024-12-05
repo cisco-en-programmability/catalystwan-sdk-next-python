@@ -10,17 +10,13 @@ class Hops:
     hop_name: Optional[str] = _field(default=None, metadata={"alias": "hopName"})
     hop_number: Optional[str] = _field(default=None, metadata={"alias": "hopNumber"})
     ip_address: Optional[str] = _field(default=None, metadata={"alias": "ipAddress"})
-    mean_latency: Optional[str] = _field(
-        default=None, metadata={"alias": "meanLatency"}
-    )
+    mean_latency: Optional[str] = _field(default=None, metadata={"alias": "meanLatency"})
 
 
 @dataclass
 class TracerouteResponse:
     nexthops: Optional[List[Hops]] = _field(default=None)
-    raw_output: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "rawOutput"}
-    )
+    raw_output: Optional[List[str]] = _field(default=None, metadata={"alias": "rawOutput"})
 
 
 @dataclass
@@ -28,8 +24,6 @@ class TracerouteRequest:
     device_ip: Optional[str] = _field(default=None, metadata={"alias": "deviceIp"})
     host: Optional[str] = _field(default=None)
     interface: Optional[str] = _field(default=None)
-    interface_ip: Optional[str] = _field(
-        default=None, metadata={"alias": "interfaceIP"}
-    )
+    interface_ip: Optional[str] = _field(default=None, metadata={"alias": "interfaceIP"})
     size: Optional[str] = _field(default=None)
     vpn: Optional[str] = _field(default=None)

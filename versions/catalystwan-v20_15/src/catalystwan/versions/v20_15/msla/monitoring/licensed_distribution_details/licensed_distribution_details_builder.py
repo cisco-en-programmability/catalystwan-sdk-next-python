@@ -21,8 +21,5 @@ class LicensedDistributionDetailsBuilder:
         :returns: LicenseDistribution
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/msla/monitoring/licensedDistributionDetails",
-            return_type=LicenseDistribution,
-            **kw,
+            "GET", "/dataservice/msla/monitoring/licensedDistributionDetails", return_type=LicenseDistribution, **kw
         )

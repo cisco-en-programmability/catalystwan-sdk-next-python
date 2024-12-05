@@ -59,10 +59,7 @@ class AdmintechBuilder:
             "requestID": request_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/device/tools/admintech/{requestID}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/device/tools/admintech/{requestID}", params=params, **kw
         )
 
     @property

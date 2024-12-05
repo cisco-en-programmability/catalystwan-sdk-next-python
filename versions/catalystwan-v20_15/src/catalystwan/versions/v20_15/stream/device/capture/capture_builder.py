@@ -31,9 +31,7 @@ class CaptureBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: CreatePacketCaptureReq, **kw
-            ) -> PacketCaptureInfo:
+            def __call__(self, payload: CreatePacketCaptureReq, **kw) -> PacketCaptureInfo:
                 """
                 Create packet capture session
 
@@ -41,11 +39,7 @@ class CaptureBuilder:
                 :returns: PacketCaptureInfo
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/stream/device/capture",
-                    return_type=PacketCaptureInfo,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/stream/device/capture", return_type=PacketCaptureInfo, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> CreatePacketCaptureReq:
@@ -57,9 +51,7 @@ class CaptureBuilder:
 
         return get_session_info_capture_(self._request_adapter)
 
-    def form_post_packet_capture(
-        self, device_uuid: str, session_id: str, **kw
-    ) -> FormPacketCaptureRes:
+    def form_post_packet_capture(self, device_uuid: str, session_id: str, **kw) -> FormPacketCaptureRes:
         """
         Form post packet capture
 

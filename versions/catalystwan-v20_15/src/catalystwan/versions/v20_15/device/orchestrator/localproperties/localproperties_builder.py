@@ -25,8 +25,5 @@ class LocalpropertiesBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/orchestrator/localproperties",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/orchestrator/localproperties", params=params, **kw
         )

@@ -24,6 +24,4 @@ class DiffBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/config/diff/{deviceId}", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/template/config/diff/{deviceId}", params=params, **kw)

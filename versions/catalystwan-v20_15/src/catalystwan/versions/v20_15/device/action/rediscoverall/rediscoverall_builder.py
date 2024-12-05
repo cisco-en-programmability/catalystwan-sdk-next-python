@@ -18,6 +18,4 @@ class RediscoverallBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "POST", "/dataservice/device/action/rediscoverall", **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/device/action/rediscoverall", **kw)

@@ -22,11 +22,7 @@ class CheckBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                payload: Optional[UpdatePreUpgradeCheckStatusPutRequest] = None,
-                **kw,
-            ):
+            def __call__(self, payload: Optional[UpdatePreUpgradeCheckStatusPutRequest] = None, **kw):
                 """
                 Update pre upgrade check status
 
@@ -34,15 +30,10 @@ class CheckBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/device/action/status/preupgrade/check",
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/device/action/status/preupgrade/check", payload=payload, **kw
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> UpdatePreUpgradeCheckStatusPutRequest:
+            def create_payload(self, *args, **kwargs) -> UpdatePreUpgradeCheckStatusPutRequest:
                 return UpdatePreUpgradeCheckStatusPutRequest(*args, **kwargs)
 
             @property

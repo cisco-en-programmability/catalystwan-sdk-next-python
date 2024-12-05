@@ -17,9 +17,7 @@ class MulticastBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_routing_multicast_profile_parcel_for_service(
-        self, service_id: str, **kw
-    ) -> str:
+    def get_routing_multicast_profile_parcel_for_service(self, service_id: str, **kw) -> str:
         """
         Get Routing Multicast Profile Parcels for Service feature profile
 
@@ -43,9 +41,7 @@ class MulticastBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, service_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, service_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Routing Multicast Profile Parcel for Service feature profile
 
@@ -72,9 +68,7 @@ class MulticastBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return create_routing_multicast_profile_parcel_for_service_(
-            self._request_adapter
-        )
+        return create_routing_multicast_profile_parcel_for_service_(self._request_adapter)
 
     def get_routing_multicast_profile_parcel_by_parcel_id_for_service(
         self, service_id: str, multicast_id: str, **kw
@@ -104,13 +98,7 @@ class MulticastBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                service_id: str,
-                multicast_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, service_id: str, multicast_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Routing Multicast Profile Parcel for Service feature profile
 
@@ -141,9 +129,7 @@ class MulticastBuilder:
 
         return edit_routing_multicast_profile_parcel_for_service_(self._request_adapter)
 
-    def delete_routing_multicast_profile_parcel_for_service(
-        self, service_id: str, multicast_id: str, **kw
-    ):
+    def delete_routing_multicast_profile_parcel_for_service(self, service_id: str, multicast_id: str, **kw):
         """
         Delete a Routing Multicast Profile Parcel for Service feature profile
 

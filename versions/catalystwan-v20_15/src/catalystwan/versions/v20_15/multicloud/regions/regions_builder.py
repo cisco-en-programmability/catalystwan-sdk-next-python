@@ -16,9 +16,7 @@ class RegionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_regions(
-        self, cloud_type: Optional[CloudTypeParam] = None, **kw
-    ) -> List[GetRegions]:
+    def get_cloud_regions(self, cloud_type: Optional[CloudTypeParam] = None, **kw) -> List[GetRegions]:
         """
         Obtain all supported Cloud Service Provider (CSP) types
 
@@ -29,9 +27,5 @@ class RegionsBuilder:
             "cloudType": cloud_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/regions",
-            return_type=List[GetRegions],
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/regions", return_type=List[GetRegions], params=params, **kw
         )

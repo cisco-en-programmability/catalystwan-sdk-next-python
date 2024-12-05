@@ -15,14 +15,7 @@ class FileBuilder:
         self._request_adapter = request_adapter
 
     def download(
-        self,
-        process_type: str,
-        file_type: str,
-        queue: str,
-        device_ip: str,
-        token: str,
-        file_name: str,
-        **kw,
+        self, process_type: str, file_type: str, queue: str, device_ip: str, token: str, file_name: str, **kw
     ) -> Any:
         """
         Downloading stats file

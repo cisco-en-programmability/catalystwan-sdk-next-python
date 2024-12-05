@@ -23,10 +23,7 @@ class ConfigGroupBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                cloud_type: str,
-                payload: Optional[MultiCloudGatewaysConfiggroupBody] = None,
-                **kw,
+                self, cloud_type: str, payload: Optional[MultiCloudGatewaysConfiggroupBody] = None, **kw
             ) -> PostCgwConfigGroupResponse:
                 """
                 API to initiate a config group creation for a cloud gateway.
@@ -47,9 +44,7 @@ class ConfigGroupBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> MultiCloudGatewaysConfiggroupBody:
+            def create_payload(self, *args, **kwargs) -> MultiCloudGatewaysConfiggroupBody:
                 return MultiCloudGatewaysConfiggroupBody(*args, **kwargs)
 
             @property

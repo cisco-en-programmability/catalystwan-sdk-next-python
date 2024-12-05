@@ -111,11 +111,7 @@ class TrackerBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return (
-            edit_wan_vpn_interface_ipsec_and_tracker_parcel_association_for_transport_(
-                self._request_adapter
-            )
-        )
+        return edit_wan_vpn_interface_ipsec_and_tracker_parcel_association_for_transport_(self._request_adapter)
 
     def delete_wan_vpn_interface_ipsec_and_tracker_association_for_transport(
         self, transport_id: str, vpn_id: str, ipsec_id: str, tracker_id: str, **kw
@@ -143,20 +139,13 @@ class TrackerBuilder:
         )
 
     @property
-    def create_wan_vpn_interface_ipsec_and_tracker_parcel_association_for_transport(
-        self,
-    ):
+    def create_wan_vpn_interface_ipsec_and_tracker_parcel_association_for_transport(self):
         class create_wan_vpn_interface_ipsec_and_tracker_parcel_association_for_transport_:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                transport_id: str,
-                vpn_parcel_id: str,
-                ipsec_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, transport_id: str, vpn_parcel_id: str, ipsec_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Associate a WanVpnInterfaceIpsec parcel with a Tracker Parcel for transport feature profile
@@ -188,6 +177,4 @@ class TrackerBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return create_wan_vpn_interface_ipsec_and_tracker_parcel_association_for_transport_(
-            self._request_adapter
-        )
+        return create_wan_vpn_interface_ipsec_and_tracker_parcel_association_for_transport_(self._request_adapter)

@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -29,35 +29,16 @@ class InstallBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/action/install", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/action/install", params=params, **kw)
 
-    @property
-    def process_install(self):
-        class process_install_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def process_install(self, payload: Optional[Any] = None, **kw):
+        """
+        Process an installation operation
 
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Process an installation operation
-
-                :param payload: Request body for Device bootstrap configuration
-                :returns: None
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/device/action/install", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return process_install_(self._request_adapter)
+        :param payload: Request body for Device bootstrap configuration
+        :returns: None
+        """
+        return self._request_adapter.request("POST", "/dataservice/device/action/install", payload=payload, **kw)
 
     @property
     def devices(self) -> DevicesBuilder:

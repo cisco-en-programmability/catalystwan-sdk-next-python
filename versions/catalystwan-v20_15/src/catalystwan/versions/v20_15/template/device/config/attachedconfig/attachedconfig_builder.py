@@ -14,9 +14,7 @@ class AttachedconfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_attached_config_to_device(
-        self, device_id: str, policy_id: Optional[str] = None, **kw
-    ) -> Any:
+    def get_attached_config_to_device(self, device_id: str, policy_id: Optional[str] = None, **kw) -> Any:
         """
         Get attached config to device
 
@@ -32,8 +30,5 @@ class AttachedconfigBuilder:
             "policyId": policy_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/device/config/attachedconfig",
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/device/config/attachedconfig", params=params, **kw
         )

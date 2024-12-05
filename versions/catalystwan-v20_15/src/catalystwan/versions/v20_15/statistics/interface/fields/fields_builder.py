@@ -23,8 +23,5 @@ class FieldsBuilder:
         :returns: List[InterfaceDocCountRequest]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/statistics/interface/fields",
-            return_type=List[InterfaceDocCountRequest],
-            **kw,
+            "GET", "/dataservice/statistics/interface/fields", return_type=List[InterfaceDocCountRequest], **kw
         )

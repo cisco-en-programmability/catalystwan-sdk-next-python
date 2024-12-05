@@ -27,8 +27,5 @@ class ApplicationsBuilder:
             "query": query,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/statistics/cflowd/device/applications",
-            params=params,
-            **kw,
+            "GET", "/dataservice/statistics/cflowd/device/applications", params=params, **kw
         )

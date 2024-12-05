@@ -29,9 +29,7 @@ class TransportBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdwan_transport_feature_profiles(
-        self, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
-    ) -> Any:
+    def get_sdwan_transport_feature_profiles(self, offset: Optional[int] = None, limit: Optional[int] = 0, **kw) -> Any:
         """
         Get all SDWAN Feature Profiles with giving Family and profile type
 
@@ -44,10 +42,7 @@ class TransportBuilder:
             "limit": limit,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/transport",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/transport", params=params, **kw
         )
 
     @property
@@ -64,11 +59,7 @@ class TransportBuilder:
                 :returns: str
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/sdwan/transport",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/feature-profile/sdwan/transport", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -80,9 +71,7 @@ class TransportBuilder:
 
         return create_sdwan_transport_feature_profile_(self._request_adapter)
 
-    def get_sdwan_transport_feature_profile_by_profile_id(
-        self, transport_id: str, **kw
-    ) -> Any:
+    def get_sdwan_transport_feature_profile_by_profile_id(self, transport_id: str, **kw) -> Any:
         """
         Get a SDWAN Transport Feature Profile with transportId
 
@@ -93,10 +82,7 @@ class TransportBuilder:
             "transportId": transport_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/transport/{transportId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/transport/{transportId}", params=params, **kw
         )
 
     @property
@@ -105,9 +91,7 @@ class TransportBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, transport_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, transport_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a SDWAN Transport Feature Profile
 
@@ -147,10 +131,7 @@ class TransportBuilder:
             "transportId": transport_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/sdwan/transport/{transportId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/sdwan/transport/{transportId}", params=params, **kw
         )
 
     @property

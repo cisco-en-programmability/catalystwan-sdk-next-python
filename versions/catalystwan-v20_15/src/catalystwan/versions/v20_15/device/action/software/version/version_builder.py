@@ -21,8 +21,5 @@ class VersionBuilder:
         :returns: FindSoftwareVersion
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/action/software/version",
-            return_type=FindSoftwareVersion,
-            **kw,
+            "GET", "/dataservice/device/action/software/version", return_type=FindSoftwareVersion, **kw
         )

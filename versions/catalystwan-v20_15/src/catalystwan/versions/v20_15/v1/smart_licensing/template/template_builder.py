@@ -22,9 +22,7 @@ class TemplateBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[SaveTemplateRequest] = None, **kw
-            ) -> Any:
+            def __call__(self, payload: Optional[SaveTemplateRequest] = None, **kw) -> Any:
                 """
                 Create and assign license template.
 
@@ -32,10 +30,7 @@ class TemplateBuilder:
                 :returns: Any
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/smart-licensing/template",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/smart-licensing/template", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> SaveTemplateRequest:
@@ -58,8 +53,5 @@ class TemplateBuilder:
             "templateId": template_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/smart-licensing/template/{templateId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/smart-licensing/template/{templateId}", params=params, **kw
         )

@@ -22,9 +22,7 @@ class SaVaDistributionBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[SaVaDistributionRequest] = None, **kw
-            ) -> SaVaDistributionResponse:
+            def __call__(self, payload: Optional[SaVaDistributionRequest] = None, **kw) -> SaVaDistributionResponse:
                 """
                 Get Smart account and virtual account distribution of selected licenses
 

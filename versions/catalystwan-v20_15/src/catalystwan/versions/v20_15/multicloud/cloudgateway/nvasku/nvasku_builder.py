@@ -25,9 +25,5 @@ class NvaskuBuilder:
             "cloudType": cloud_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/cloudgateway/nvasku",
-            return_type=NvaSkuListResponse,
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/cloudgateway/nvasku", return_type=NvaSkuListResponse, params=params, **kw
         )

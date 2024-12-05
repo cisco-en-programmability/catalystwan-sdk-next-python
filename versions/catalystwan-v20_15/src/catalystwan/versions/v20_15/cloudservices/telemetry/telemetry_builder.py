@@ -24,9 +24,7 @@ class TelemetryBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/cloudservices/telemetry", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/cloudservices/telemetry", **kw)
 
     @property
     def optin(self) -> OptinBuilder:

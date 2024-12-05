@@ -20,6 +20,4 @@ class ListBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/sslproxy/list", return_type=List[Any], **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/sslproxy/list", return_type=List[Any], **kw)

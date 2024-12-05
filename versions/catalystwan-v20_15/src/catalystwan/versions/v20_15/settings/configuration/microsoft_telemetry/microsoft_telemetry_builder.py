@@ -21,12 +21,8 @@ class MicrosoftTelemetryBuilder:
 
         :returns: Any
         """
-        logging.warning(
-            "Operation: %s is deprecated", "getMicrosoftTelemetryConfiguration"
-        )
-        return self._request_adapter.request(
-            "GET", "/dataservice/settings/configuration/microsoftTelemetry", **kw
-        )
+        logging.warning("Operation: %s is deprecated", "getMicrosoftTelemetryConfiguration")
+        return self._request_adapter.request("GET", "/dataservice/settings/configuration/microsoftTelemetry", **kw)
 
     @property
     def edit_microsoft_telemetry_configuration(self):
@@ -41,14 +37,9 @@ class MicrosoftTelemetryBuilder:
                 :param payload: Payload
                 :returns: Any
                 """
-                logging.warning(
-                    "Operation: %s is deprecated", "editMicrosoftTelemetryConfiguration"
-                )
+                logging.warning("Operation: %s is deprecated", "editMicrosoftTelemetryConfiguration")
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/settings/configuration/microsoftTelemetry",
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/settings/configuration/microsoftTelemetry", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -73,9 +64,7 @@ class MicrosoftTelemetryBuilder:
                 :param payload: Payload
                 :returns: str
                 """
-                logging.warning(
-                    "Operation: %s is deprecated", "newMicrosoftTelemetryConfiguration"
-                )
+                logging.warning("Operation: %s is deprecated", "newMicrosoftTelemetryConfiguration")
                 return self._request_adapter.request(
                     "POST",
                     "/dataservice/settings/configuration/microsoftTelemetry",

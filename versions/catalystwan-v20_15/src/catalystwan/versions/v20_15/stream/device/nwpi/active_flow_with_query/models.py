@@ -9,9 +9,7 @@ class FlowInfoResponseDataDownstreamDeviceList:
     device_name: Optional[str] = _field(default=None)
     device_system_ip: Optional[str] = _field(default=None)
     local_color: Optional[str] = _field(default=None, metadata={"alias": "localColor"})
-    remote_color: Optional[str] = _field(
-        default=None, metadata={"alias": "remoteColor"}
-    )
+    remote_color: Optional[str] = _field(default=None, metadata={"alias": "remoteColor"})
 
 
 @dataclass
@@ -49,13 +47,9 @@ class FlowInfoResponseData:
     domain: Optional[List[str]] = _field(default=None)
     domain_name: Optional[str] = _field(default=None)
     domain_src: Optional[str] = _field(default=None)
-    downstream_device_list: Optional[List[FlowInfoResponseDataDownstreamDeviceList]] = (
-        _field(default=None)
-    )
+    downstream_device_list: Optional[List[FlowInfoResponseDataDownstreamDeviceList]] = _field(default=None)
     downstream_dscp: Optional[str] = _field(default=None)
-    downstream_hop_list: Optional[FlowInfoResponseDataDownstreamHopList] = _field(
-        default=None
-    )
+    downstream_hop_list: Optional[FlowInfoResponseDataDownstreamHopList] = _field(default=None)
     dpi_policy_used: Optional[bool] = _field(default=None)
     dst_ip: Optional[str] = _field(default=None)
     dst_port: Optional[int] = _field(default=None)
@@ -84,13 +78,9 @@ class FlowInfoResponseData:
     start_timestamp: Optional[int] = _field(default=None)
     tcp_flow_reset: Optional[bool] = _field(default=None)
     timestamp: Optional[int] = _field(default=None)
-    upstream_device_list: Optional[List[FlowInfoResponseDataUpstreamDeviceList]] = (
-        _field(default=None)
-    )
+    upstream_device_list: Optional[List[FlowInfoResponseDataUpstreamDeviceList]] = _field(default=None)
     upstream_dscp: Optional[str] = _field(default=None)
-    upstream_hop_list: Optional[List[FlowInfoResponseDataUpstreamHopList]] = _field(
-        default=None
-    )
+    upstream_hop_list: Optional[List[FlowInfoResponseDataUpstreamHopList]] = _field(default=None)
     utd_diverted: Optional[bool] = _field(default=None)
     vpn_id: Optional[str] = _field(default=None)
     wan_color_asym: Optional[bool] = _field(default=None)

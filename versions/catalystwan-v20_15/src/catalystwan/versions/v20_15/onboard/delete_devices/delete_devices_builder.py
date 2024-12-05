@@ -22,9 +22,7 @@ class DeleteDevicesBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[DeleteDetails] = None, **kw
-            ) -> List[DeleteResponseInner]:
+            def __call__(self, payload: Optional[DeleteDetails] = None, **kw) -> List[DeleteResponseInner]:
                 """
                 Delete Manual Onboard Device details
 

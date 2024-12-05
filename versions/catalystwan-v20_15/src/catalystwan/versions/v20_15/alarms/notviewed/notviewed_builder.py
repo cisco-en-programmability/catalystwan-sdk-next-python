@@ -27,9 +27,5 @@ class NotviewedBuilder:
             "state": state,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/alarms/notviewed",
-            return_type=AlarmResponse,
-            params=params,
-            **kw,
+            "GET", "/dataservice/alarms/notviewed", return_type=AlarmResponse, params=params, **kw
         )

@@ -21,8 +21,5 @@ class InprogressBuilder:
         :returns: InProgressCount
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/tools/admintechs/inprogress",
-            return_type=InProgressCount,
-            **kw,
+            "GET", "/dataservice/device/tools/admintechs/inprogress", return_type=InProgressCount, **kw
         )

@@ -25,9 +25,5 @@ class TopicBuilder:
             "ip": ip,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/alarms/topic",
-            return_type=AlarmTopic,
-            params=params,
-            **kw,
+            "GET", "/dataservice/alarms/topic", return_type=AlarmTopic, params=params, **kw
         )

@@ -16,9 +16,7 @@ class DownloadBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def download_report_preview_file(
-        self, template_type: Optional[TemplateTypeParam] = None, **kw
-    ) -> str:
+    def download_report_preview_file(self, template_type: Optional[TemplateTypeParam] = None, **kw) -> str:
         """
         Download a report preview file
 
@@ -29,9 +27,5 @@ class DownloadBuilder:
             "templateType": template_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/reports/preview/download",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/reports/preview/download", return_type=str, params=params, **kw
         )

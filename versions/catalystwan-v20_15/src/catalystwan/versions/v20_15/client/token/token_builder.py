@@ -27,9 +27,5 @@ class TokenBuilder:
             "json": json,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/client/token",
-            return_type=ClientTokenResponse,
-            params=params,
-            **kw,
+            "GET", "/dataservice/client/token", return_type=ClientTokenResponse, params=params, **kw
         )

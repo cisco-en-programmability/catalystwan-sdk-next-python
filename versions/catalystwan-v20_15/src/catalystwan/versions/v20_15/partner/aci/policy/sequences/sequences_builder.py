@@ -21,8 +21,5 @@ class SequencesBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/partner/aci/policy/sequences",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/partner/aci/policy/sequences", return_type=List[Any], **kw
         )

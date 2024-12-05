@@ -14,9 +14,7 @@ class SchemaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cedge_service_lan_vpn_interface_gre_schema_by_schema(
-        self, schema_type: SchemaTypeParam, **kw
-    ) -> str:
+    def get_cedge_service_lan_vpn_interface_gre_schema_by_schema(self, schema_type: SchemaTypeParam, **kw) -> str:
         """
         Get a Cedge Service LanVpn InterfaceGre Schema by Schema Type
 

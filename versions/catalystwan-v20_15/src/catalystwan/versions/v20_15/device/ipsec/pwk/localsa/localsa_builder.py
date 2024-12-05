@@ -39,6 +39,4 @@ class LocalsaBuilder:
             "local-tloc-color": local_tloc_color,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/ipsec/pwk/localsa", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/ipsec/pwk/localsa", params=params, **kw)

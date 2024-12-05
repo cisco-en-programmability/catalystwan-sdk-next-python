@@ -49,9 +49,5 @@ class NvasBuilder:
             "vhubSource": vhub_source,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/cloudgateway/nvas",
-            return_type=List[NvasResponse],
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/cloudgateway/nvas", return_type=List[NvasResponse], params=params, **kw
         )

@@ -25,8 +25,5 @@ class CpusBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/csp/resources/cpu-info/cpus",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/csp/resources/cpu-info/cpus", params=params, **kw
         )

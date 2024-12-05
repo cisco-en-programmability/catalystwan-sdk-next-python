@@ -20,9 +20,7 @@ class RoutesBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, networks_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, networks_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create Routes Profile config for Networks feature profile
 
@@ -51,9 +49,7 @@ class RoutesBuilder:
 
         return create_nfvirtual_routes_parcel_(self._request_adapter)
 
-    def get_nfvirtual_routes_parcel(
-        self, networks_id: str, routes_id: str, **kw
-    ) -> str:
+    def get_nfvirtual_routes_parcel(self, networks_id: str, routes_id: str, **kw) -> str:
         """
         Get Routes Profile Parcels for Networks feature profile
 
@@ -79,13 +75,7 @@ class RoutesBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                networks_id: str,
-                routes_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, networks_id: str, routes_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a Routes Profile Parcel for networks feature profile
 

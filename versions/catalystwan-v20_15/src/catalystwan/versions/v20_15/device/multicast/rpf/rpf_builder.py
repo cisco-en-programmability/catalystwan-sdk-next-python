@@ -24,6 +24,4 @@ class RpfBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/multicast/rpf", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/multicast/rpf", params=params, **kw)

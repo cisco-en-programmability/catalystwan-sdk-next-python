@@ -16,6 +16,4 @@ class InterconnectSshKeyInfo:
 
 @dataclass
 class InlineResponse20016:
-    ssh_keys: Optional[List[InterconnectSshKeyInfo]] = _field(
-        default=None, metadata={"alias": "sshKeys"}
-    )
+    ssh_keys: Optional[List[InterconnectSshKeyInfo]] = _field(default=None, metadata={"alias": "sshKeys"})

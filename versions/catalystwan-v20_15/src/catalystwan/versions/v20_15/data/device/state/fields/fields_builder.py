@@ -16,9 +16,7 @@ class FieldsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_device_state_data_fields(
-        self, state_data_type: str, **kw
-    ) -> List[GenerateDeviceStateDataFieldsInner]:
+    def generate_device_state_data_fields(self, state_data_type: str, **kw) -> List[GenerateDeviceStateDataFieldsInner]:
         """
         Get device state data fileds
 

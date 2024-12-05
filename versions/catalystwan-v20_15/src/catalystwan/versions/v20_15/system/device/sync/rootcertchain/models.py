@@ -6,6 +6,4 @@ from typing import Optional
 
 @dataclass
 class SyncRootCertChain:
-    sync_root_cert_chain: Optional[str] = _field(
-        default=None, metadata={"alias": "syncRootCertChain"}
-    )
+    sync_root_cert_chain: Optional[str] = _field(default=None, metadata={"alias": "syncRootCertChain"})

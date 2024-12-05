@@ -23,8 +23,5 @@ class DownloadBuilder:
             "sessionId": session_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/stream/device/log/download/{sessionId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/stream/device/log/download/{sessionId}", params=params, **kw
         )

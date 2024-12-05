@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -41,36 +41,17 @@ class CorBuilder:
         :returns: List[Any]
         """
         logging.warning("Operation: %s is deprecated", "getCORStatus")
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/cor", return_type=List[Any], **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/template/cor", return_type=List[Any], **kw)
 
-    @property
-    def create_and_map(self):
-        class create_and_map_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_and_map(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Map Host to Transit VPC/VNet
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Map Host to Transit VPC/VNet
-
-                :param payload: Map host to transit VPC request
-                :returns: Any
-                """
-                logging.warning("Operation: %s is deprecated", "createAndMap")
-                return self._request_adapter.request(
-                    "POST", "/dataservice/template/cor", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_and_map_(self._request_adapter)
+        :param payload: Map host to transit VPC request
+        :returns: Any
+        """
+        logging.warning("Operation: %s is deprecated", "createAndMap")
+        return self._request_adapter.request("POST", "/dataservice/template/cor", payload=payload, **kw)
 
     @property
     def accountid(self) -> AccountidBuilder:
@@ -154,9 +135,7 @@ class CorBuilder:
         return ExternalIdBuilder(self._request_adapter)
 
     @property
-    def get_transit_device_pair_and_host_list(
-        self,
-    ) -> GetTransitDevicePairAndHostListBuilder:
+    def get_transit_device_pair_and_host_list(self) -> GetTransitDevicePairAndHostListBuilder:
         """
         The getTransitDevicePairAndHostList property
         """

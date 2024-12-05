@@ -25,8 +25,5 @@ class TlocInterfaceMapBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/bfd/state/device/tlocInterfaceMap",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/bfd/state/device/tlocInterfaceMap", params=params, **kw
         )

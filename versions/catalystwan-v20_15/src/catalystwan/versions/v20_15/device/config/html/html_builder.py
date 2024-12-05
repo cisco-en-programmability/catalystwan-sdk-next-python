@@ -27,9 +27,5 @@ class HtmlBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/config/html",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/config/html", return_type=str, params=params, **kw
         )

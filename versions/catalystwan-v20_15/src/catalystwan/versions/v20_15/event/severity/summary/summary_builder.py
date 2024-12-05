@@ -15,11 +15,7 @@ class SummaryBuilder:
         self._request_adapter = request_adapter
 
     def get_severity_histogram(
-        self,
-        device_id: List[str],
-        query: Optional[str] = None,
-        site_id: Optional[str] = None,
-        **kw,
+        self, device_id: List[str], query: Optional[str] = None, site_id: Optional[str] = None, **kw
     ) -> Any:
         """
         Get event severity histogram
@@ -34,6 +30,4 @@ class SummaryBuilder:
             "query": query,
             "site-id": site_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/event/severity/summary", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/event/severity/summary", params=params, **kw)

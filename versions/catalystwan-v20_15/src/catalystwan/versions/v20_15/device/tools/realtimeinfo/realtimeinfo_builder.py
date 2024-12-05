@@ -24,6 +24,4 @@ class RealtimeinfoBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/tools/realtimeinfo", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/tools/realtimeinfo", params=params, **kw)

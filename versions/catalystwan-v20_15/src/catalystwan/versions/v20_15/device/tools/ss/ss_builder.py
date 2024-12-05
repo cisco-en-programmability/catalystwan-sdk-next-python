@@ -17,11 +17,7 @@ class SsBuilder:
         self._request_adapter = request_adapter
 
     def get_device_tools_ss(
-        self,
-        device_id: str,
-        vpn: Optional[VpnParam] = None,
-        options: Optional[str] = None,
-        **kw,
+        self, device_id: str, vpn: Optional[VpnParam] = None, options: Optional[str] = None, **kw
     ) -> Any:
         """
         Get device tool ss
@@ -36,6 +32,4 @@ class SsBuilder:
             "options": options,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/tools/ss", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/tools/ss", params=params, **kw)

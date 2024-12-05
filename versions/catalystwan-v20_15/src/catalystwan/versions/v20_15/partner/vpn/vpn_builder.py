@@ -20,6 +20,4 @@ class VpnBuilder:
 
         :returns: VpnListRes
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/partner/vpn", return_type=VpnListRes, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/partner/vpn", return_type=VpnListRes, **kw)

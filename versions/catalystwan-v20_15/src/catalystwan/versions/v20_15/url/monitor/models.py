@@ -6,9 +6,7 @@ from typing import Optional
 
 @dataclass
 class UrlMonitoringInfoInner:
-    alarm_raised: Optional[bool] = _field(
-        default=None, metadata={"alias": "alarmRaised"}
-    )
+    alarm_raised: Optional[bool] = _field(default=None, metadata={"alias": "alarmRaised"})
     # VManage alarm is raised after reaching the threshold.
     threshold: Optional[int] = _field(default=None)
     # url registered for monitoring requests.

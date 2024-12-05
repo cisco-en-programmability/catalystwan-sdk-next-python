@@ -25,8 +25,5 @@ class AppqoeServicesStatusBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/appqoe/appqoe-services-status",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/appqoe/appqoe-services-status", params=params, **kw
         )

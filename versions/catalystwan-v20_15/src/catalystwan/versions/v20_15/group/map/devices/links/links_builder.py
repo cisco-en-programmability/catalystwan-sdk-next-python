@@ -14,9 +14,7 @@ class LinksBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_group_links_for_map(
-        self, group_id: Optional[str] = None, **kw
-    ) -> List[Any]:
+    def list_group_links_for_map(self, group_id: Optional[str] = None, **kw) -> List[Any]:
         """
         Retrieve devices in group for map
 
@@ -27,9 +25,5 @@ class LinksBuilder:
             "groupId": group_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/group/map/devices/links",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/group/map/devices/links", return_type=List[Any], params=params, **kw
         )

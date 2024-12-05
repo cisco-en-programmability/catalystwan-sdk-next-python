@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -27,39 +27,18 @@ class VoiceBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/voice", return_type=List[Any], **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/template/policy/voice", return_type=List[Any], **kw)
 
-    @property
-    def create_voice_template(self):
-        class create_voice_template_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_voice_template(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Create Template
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Create Template
+        :param payload: Policy template
+        :returns: Any
+        """
+        return self._request_adapter.request("POST", "/dataservice/template/policy/voice", payload=payload, **kw)
 
-                :param payload: Policy template
-                :returns: Any
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/template/policy/voice", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_voice_template_(self._request_adapter)
-
-    def get_voice_templates_for_device(
-        self, device_model: DeviceModel, **kw
-    ) -> List[Any]:
+    def get_voice_templates_for_device(self, device_model: DeviceModel, **kw) -> List[Any]:
         """
         Get templates that map a device model
 
@@ -70,48 +49,23 @@ class VoiceBuilder:
             "deviceModel": device_model,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/policy/voice/{deviceModel}",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/policy/voice/{deviceModel}", return_type=List[Any], params=params, **kw
         )
 
-    @property
-    def edit_voice_template(self):
-        class edit_voice_template_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_voice_template(self, policy_id: str, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Edit Template
 
-            def __call__(
-                self, policy_id: str, payload: Optional[Any] = None, **kw
-            ) -> Any:
-                """
-                Edit Template
-
-                :param policy_id: Policy Id
-                :param payload: Policy template
-                :returns: Any
-                """
-                params = {
-                    "policyId": policy_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/template/policy/voice/{policyId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_voice_template_(self._request_adapter)
+        :param policy_id: Policy Id
+        :param payload: Policy template
+        :returns: Any
+        """
+        params = {
+            "policyId": policy_id,
+        }
+        return self._request_adapter.request(
+            "PUT", "/dataservice/template/policy/voice/{policyId}", params=params, payload=payload, **kw
+        )
 
     def delete_voice_template(self, policy_id: str, **kw):
         """
@@ -124,10 +78,7 @@ class VoiceBuilder:
             "policyId": policy_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/template/policy/voice/{policyId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/template/policy/voice/{policyId}", params=params, **kw
         )
 
     @property

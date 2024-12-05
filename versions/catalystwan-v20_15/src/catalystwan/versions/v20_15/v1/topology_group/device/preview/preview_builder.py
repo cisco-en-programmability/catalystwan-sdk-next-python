@@ -26,9 +26,7 @@ class PreviewBuilder:
                 self,
                 topology_group_id: str,
                 device_id: str,
-                payload: Optional[
-                    GetTopologyGroupDeviceConfigurationPreviewPostRequest
-                ] = None,
+                payload: Optional[GetTopologyGroupDeviceConfigurationPreviewPostRequest] = None,
                 **kw,
             ) -> str:
                 """
@@ -52,17 +50,11 @@ class PreviewBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> GetTopologyGroupDeviceConfigurationPreviewPostRequest:
-                return GetTopologyGroupDeviceConfigurationPreviewPostRequest(
-                    *args, **kwargs
-                )
+            def create_payload(self, *args, **kwargs) -> GetTopologyGroupDeviceConfigurationPreviewPostRequest:
+                return GetTopologyGroupDeviceConfigurationPreviewPostRequest(*args, **kwargs)
 
             @property
-            def payload_model(
-                self,
-            ) -> Type[GetTopologyGroupDeviceConfigurationPreviewPostRequest]:
+            def payload_model(self) -> Type[GetTopologyGroupDeviceConfigurationPreviewPostRequest]:
                 return GetTopologyGroupDeviceConfigurationPreviewPostRequest
 
         return get_topology_group_device_configuration_preview_(self._request_adapter)

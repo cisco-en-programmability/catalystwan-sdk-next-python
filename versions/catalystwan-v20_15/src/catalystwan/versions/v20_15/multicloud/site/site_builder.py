@@ -17,11 +17,7 @@ class SiteBuilder:
         self._request_adapter = request_adapter
 
     def get_sites(
-        self,
-        color: Optional[str] = None,
-        attached: Optional[str] = None,
-        solution: Optional[str] = None,
-        **kw,
+        self, color: Optional[str] = None, attached: Optional[str] = None, solution: Optional[str] = None, **kw
     ) -> GetSitesResponse:
         """
         Get available sites
@@ -37,9 +33,5 @@ class SiteBuilder:
             "solution": solution,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/site",
-            return_type=GetSitesResponse,
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/site", return_type=GetSitesResponse, params=params, **kw
         )

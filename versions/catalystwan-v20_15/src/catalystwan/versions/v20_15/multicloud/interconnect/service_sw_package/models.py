@@ -17,9 +17,7 @@ class InterconnectServiceTypes:
     # Name of the service package
     name: Optional[str] = _field(default=None)
     # provider assigned service package code
-    package_code: Optional[str] = _field(
-        default=None, metadata={"alias": "packageCode"}
-    )
+    package_code: Optional[str] = _field(default=None, metadata={"alias": "packageCode"})
     service_sw_version: Optional[List[InterconnectServiceSwVersion]] = _field(
         default=None, metadata={"alias": "serviceSwVersion"}
     )
@@ -27,6 +25,4 @@ class InterconnectServiceTypes:
 
 @dataclass
 class InlineResponse20015:
-    sw_packages: Optional[List[InterconnectServiceTypes]] = _field(
-        default=None, metadata={"alias": "swPackages"}
-    )
+    sw_packages: Optional[List[InterconnectServiceTypes]] = _field(default=None, metadata={"alias": "swPackages"})

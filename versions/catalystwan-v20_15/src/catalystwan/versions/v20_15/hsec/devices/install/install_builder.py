@@ -23,8 +23,5 @@ class InstallBuilder:
         :returns: List[GetHsecDevicesPayloadInner]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/hsec/devices/install",
-            return_type=List[GetHsecDevicesPayloadInner],
-            **kw,
+            "GET", "/dataservice/hsec/devices/install", return_type=List[GetHsecDevicesPayloadInner], **kw
         )

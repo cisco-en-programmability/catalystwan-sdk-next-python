@@ -16,9 +16,7 @@ class NetworkProtocolBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_network_protocol_profile_parcel_list_for_mobility(
-        self, profile_id: str, **kw
-    ) -> str:
+    def get_network_protocol_profile_parcel_list_for_mobility(self, profile_id: str, **kw) -> str:
         """
         Get an Mobility NetworkProtocol Profile Parcel list for Mobility Global Feature Profile
 
@@ -45,9 +43,7 @@ class NetworkProtocolBuilder:
             def __call__(
                 self,
                 profile_id: str,
-                payload: Optional[
-                    CreateNetworkProtocolProfileParcelForMobilityPostRequest
-                ] = None,
+                payload: Optional[CreateNetworkProtocolProfileParcelForMobilityPostRequest] = None,
                 **kw,
             ) -> str:
                 """
@@ -69,26 +65,16 @@ class NetworkProtocolBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> CreateNetworkProtocolProfileParcelForMobilityPostRequest:
-                return CreateNetworkProtocolProfileParcelForMobilityPostRequest(
-                    *args, **kwargs
-                )
+            def create_payload(self, *args, **kwargs) -> CreateNetworkProtocolProfileParcelForMobilityPostRequest:
+                return CreateNetworkProtocolProfileParcelForMobilityPostRequest(*args, **kwargs)
 
             @property
-            def payload_model(
-                self,
-            ) -> Type[CreateNetworkProtocolProfileParcelForMobilityPostRequest]:
+            def payload_model(self) -> Type[CreateNetworkProtocolProfileParcelForMobilityPostRequest]:
                 return CreateNetworkProtocolProfileParcelForMobilityPostRequest
 
-        return create_network_protocol_profile_parcel_for_mobility_(
-            self._request_adapter
-        )
+        return create_network_protocol_profile_parcel_for_mobility_(self._request_adapter)
 
-    def get_network_protocol_profile_parcel_for_mobility(
-        self, profile_id: str, network_protocol_id: str, **kw
-    ) -> str:
+    def get_network_protocol_profile_parcel_for_mobility(self, profile_id: str, network_protocol_id: str, **kw) -> str:
         """
         Get an Mobility NetworkProtocol Profile Parcel for Mobility Global Feature Profile
 
@@ -118,9 +104,7 @@ class NetworkProtocolBuilder:
                 self,
                 profile_id: str,
                 network_protocol_id: str,
-                payload: Optional[
-                    CreateNetworkProtocolProfileParcelForMobilityPostRequest
-                ] = None,
+                payload: Optional[CreateNetworkProtocolProfileParcelForMobilityPostRequest] = None,
                 **kw,
             ):
                 """
@@ -143,24 +127,16 @@ class NetworkProtocolBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> CreateNetworkProtocolProfileParcelForMobilityPostRequest:
-                return CreateNetworkProtocolProfileParcelForMobilityPostRequest(
-                    *args, **kwargs
-                )
+            def create_payload(self, *args, **kwargs) -> CreateNetworkProtocolProfileParcelForMobilityPostRequest:
+                return CreateNetworkProtocolProfileParcelForMobilityPostRequest(*args, **kwargs)
 
             @property
-            def payload_model(
-                self,
-            ) -> Type[CreateNetworkProtocolProfileParcelForMobilityPostRequest]:
+            def payload_model(self) -> Type[CreateNetworkProtocolProfileParcelForMobilityPostRequest]:
                 return CreateNetworkProtocolProfileParcelForMobilityPostRequest
 
         return edit_network_protocol_profile_parcel_for_mobility_(self._request_adapter)
 
-    def delete_network_protocol_profile_parcel_for_mobility(
-        self, profile_id: str, network_protocol_id: str, **kw
-    ):
+    def delete_network_protocol_profile_parcel_for_mobility(self, profile_id: str, network_protocol_id: str, **kw):
         """
         Delete a Network Protocol Profile Parcel for Mobility Global Feature Profile
 

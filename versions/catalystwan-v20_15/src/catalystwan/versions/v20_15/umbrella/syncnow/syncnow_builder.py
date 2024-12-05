@@ -18,6 +18,4 @@ class SyncnowBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/umbrella/syncnow", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/umbrella/syncnow", **kw)

@@ -10,9 +10,7 @@ class ActivateResponse:
     Response from PxGrid node activation on ISE, account PENDING on activated ENABLED after approve
     """
 
-    account_state: Optional[str] = _field(
-        default=None, metadata={"alias": "accountState"}
-    )
+    account_state: Optional[str] = _field(default=None, metadata={"alias": "accountState"})
     version: Optional[str] = _field(default=None)
 
 
@@ -23,9 +21,5 @@ class ActivateBody:
     """
 
     description: Optional[str] = _field(default=None)
-    px_grid_password: Optional[str] = _field(
-        default=None, metadata={"alias": "pxGridPassword"}
-    )
-    px_grid_user_name: Optional[str] = _field(
-        default=None, metadata={"alias": "pxGridUserName"}
-    )
+    px_grid_password: Optional[str] = _field(default=None, metadata={"alias": "pxGridPassword"})
+    px_grid_user_name: Optional[str] = _field(default=None, metadata={"alias": "pxGridUserName"})

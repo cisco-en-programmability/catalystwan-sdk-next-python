@@ -14,9 +14,7 @@ class ForcedisbaleBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def force_stop_pcap_session(
-        self, session_id: str, **kw
-    ) -> ForceStopPacketCaptureRes:
+    def force_stop_pcap_session(self, session_id: str, **kw) -> ForceStopPacketCaptureRes:
         """
         Force stop packet capture session
 

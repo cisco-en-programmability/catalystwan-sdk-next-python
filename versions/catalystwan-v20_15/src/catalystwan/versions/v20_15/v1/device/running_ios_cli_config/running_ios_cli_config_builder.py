@@ -23,9 +23,5 @@ class RunningIosCliConfigBuilder:
             "deviceUUID": device_uuid,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/device/runningIosCliConfig/{deviceUUID}",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/device/runningIosCliConfig/{deviceUUID}", return_type=str, params=params, **kw
         )

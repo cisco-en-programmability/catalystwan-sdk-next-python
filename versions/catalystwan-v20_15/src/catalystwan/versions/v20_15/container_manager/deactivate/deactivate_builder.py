@@ -14,9 +14,7 @@ class DeactivateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def de_activate_container(
-        self, container_name: str, host_ip: Optional[str] = None, **kw
-    ):
+    def de_activate_container(self, container_name: str, host_ip: Optional[str] = None, **kw):
         """
         Deactivate container on remote host
 
@@ -29,8 +27,5 @@ class DeactivateBuilder:
             "hostIp": host_ip,
         }
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/container-manager/deactivate/{containerName}",
-            params=params,
-            **kw,
+            "POST", "/dataservice/container-manager/deactivate/{containerName}", params=params, **kw
         )

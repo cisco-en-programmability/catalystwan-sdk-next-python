@@ -21,8 +21,5 @@ class SyncBuilder:
         :returns: VsmartSyncResponse
         """
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/ise/credentials/vsmart/sync",
-            return_type=VsmartSyncResponse,
-            **kw,
+            "POST", "/dataservice/ise/credentials/vsmart/sync", return_type=VsmartSyncResponse, **kw
         )

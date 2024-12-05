@@ -24,6 +24,4 @@ class SystemBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/hardware/system", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/hardware/system", params=params, **kw)

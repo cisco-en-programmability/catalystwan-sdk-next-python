@@ -25,9 +25,5 @@ class CleanBuilder:
             "processId": process_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/action/status/tasks/clean",
-            return_type=DeviceTaskStatus,
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/action/status/tasks/clean", return_type=DeviceTaskStatus, params=params, **kw
         )

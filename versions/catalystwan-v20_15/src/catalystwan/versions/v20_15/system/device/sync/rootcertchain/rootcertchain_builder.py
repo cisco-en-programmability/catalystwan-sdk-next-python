@@ -21,8 +21,5 @@ class RootcertchainBuilder:
         :returns: SyncRootCertChain
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/system/device/sync/rootcertchain",
-            return_type=SyncRootCertChain,
-            **kw,
+            "GET", "/dataservice/system/device/sync/rootcertchain", return_type=SyncRootCertChain, **kw
         )

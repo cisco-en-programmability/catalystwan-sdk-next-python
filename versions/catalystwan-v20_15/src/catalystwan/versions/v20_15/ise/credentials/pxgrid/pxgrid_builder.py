@@ -25,9 +25,7 @@ class PxgridBuilder:
 
         :returns: PxGridInfo
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/ise/credentials/pxgrid", return_type=PxGridInfo, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/ise/credentials/pxgrid", return_type=PxGridInfo, **kw)
 
     def delete_px_grid(self, **kw) -> bool:
         """
@@ -35,9 +33,7 @@ class PxgridBuilder:
 
         :returns: bool
         """
-        return self._request_adapter.request(
-            "DELETE", "/dataservice/ise/credentials/pxgrid", return_type=bool, **kw
-        )
+        return self._request_adapter.request("DELETE", "/dataservice/ise/credentials/pxgrid", return_type=bool, **kw)
 
     @property
     def cert(self) -> CertBuilder:

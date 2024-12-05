@@ -19,9 +19,7 @@ class RecommendationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_wani_recommendations(
-        self, site_id: Optional[str] = None, **kw
-    ) -> RecommendationsResponse:
+    def get_wani_recommendations(self, site_id: Optional[str] = None, **kw) -> RecommendationsResponse:
         """
         API to get the recommendations obtained from WANI for a given tenant. This returns only valid recommendations based on expiry. It filters out recommendations that are inactive.
 
@@ -32,11 +30,7 @@ class RecommendationsBuilder:
             "siteId": site_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/wani/recommendations",
-            return_type=RecommendationsResponse,
-            params=params,
-            **kw,
+            "GET", "/dataservice/wani/recommendations", return_type=RecommendationsResponse, params=params, **kw
         )
 
     @property

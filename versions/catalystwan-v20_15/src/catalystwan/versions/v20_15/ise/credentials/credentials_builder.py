@@ -27,9 +27,7 @@ class CredentialsBuilder:
 
         :returns: IseServer
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/ise/credentials", return_type=IseServer, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/ise/credentials", return_type=IseServer, **kw)
 
     @property
     def update_ise_server_credentials(self):
@@ -45,11 +43,7 @@ class CredentialsBuilder:
                 :returns: bool
                 """
                 return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/ise/credentials",
-                    return_type=bool,
-                    payload=payload,
-                    **kw,
+                    "PUT", "/dataservice/ise/credentials", return_type=bool, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> IseServer:
@@ -75,11 +69,7 @@ class CredentialsBuilder:
                 :returns: bool
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/ise/credentials",
-                    return_type=bool,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/ise/credentials", return_type=bool, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> IseServer:

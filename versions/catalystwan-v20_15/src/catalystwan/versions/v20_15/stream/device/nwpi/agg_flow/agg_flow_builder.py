@@ -18,12 +18,7 @@ class AggFlowBuilder:
         self._request_adapter = request_adapter
 
     def get_agg_flow(
-        self,
-        trace_id: int,
-        timestamp: int,
-        trace_state: str,
-        query: Optional[str] = None,
-        **kw,
+        self, trace_id: int, timestamp: int, trace_state: str, query: Optional[str] = None, **kw
     ) -> List[AggFlowResponsePayloadInner]:
         """
         Get aggregated flow data for NWPI.

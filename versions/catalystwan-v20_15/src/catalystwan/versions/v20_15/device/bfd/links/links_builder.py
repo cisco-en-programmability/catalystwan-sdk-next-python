@@ -25,9 +25,5 @@ class LinksBuilder:
             "state": state,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/bfd/links",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/bfd/links", return_type=List[Any], params=params, **kw
         )

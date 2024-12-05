@@ -22,9 +22,7 @@ class NetworksBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_nfvirtual_networks_feature_profiles(
-        self, offset: int, limit: int, **kw
-    ) -> Any:
+    def get_all_nfvirtual_networks_feature_profiles(self, offset: int, limit: int, **kw) -> Any:
         """
         Get all Nfvirtual Feature Profiles
 
@@ -37,10 +35,7 @@ class NetworksBuilder:
             "limit": limit,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/nfvirtual/networks",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/nfvirtual/networks", params=params, **kw
         )
 
     @property
@@ -57,11 +52,7 @@ class NetworksBuilder:
                 :returns: str
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/nfvirtual/networks",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/feature-profile/nfvirtual/networks", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -73,9 +64,7 @@ class NetworksBuilder:
 
         return create_nfvirtual_networks_feature_profile_(self._request_adapter)
 
-    def get_nfvirtual_networks_feature_profile_by_profile_id(
-        self, network_id: str, details: bool, **kw
-    ) -> Any:
+    def get_nfvirtual_networks_feature_profile_by_profile_id(self, network_id: str, details: bool, **kw) -> Any:
         """
         Get a Nfvirtual Networks Feature Profile with networkId
 
@@ -88,10 +77,7 @@ class NetworksBuilder:
             "details": details,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/nfvirtual/networks/{networkId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/nfvirtual/networks/{networkId}", params=params, **kw
         )
 
     @property
@@ -100,9 +86,7 @@ class NetworksBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, network_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, network_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a Nfvirtual Networks Feature Profile
 
@@ -142,10 +126,7 @@ class NetworksBuilder:
             "networkId": network_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/nfvirtual/networks/{networkId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/nfvirtual/networks/{networkId}", params=params, **kw
         )
 
     @property

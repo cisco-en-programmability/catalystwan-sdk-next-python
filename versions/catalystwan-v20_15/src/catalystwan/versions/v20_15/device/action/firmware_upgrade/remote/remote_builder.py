@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -29,71 +29,39 @@ class RemoteBuilder:
             **kw,
         )
 
-    @property
-    def process_firmware_remote_image(self):
-        class process_firmware_remote_image_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def process_firmware_remote_image(self, payload: Optional[Any] = None, **kw) -> ProcessFirmwareRemoteImageReq:
+        """
+        firmware remote image package
 
-            def __call__(
-                self, payload: Optional[Any] = None, **kw
-            ) -> ProcessFirmwareRemoteImageReq:
-                """
-                firmware remote image package
+        :param payload: Request body for Device bootstrap configuration
+        :returns: ProcessFirmwareRemoteImageReq
+        """
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/device/action/firmware-upgrade/remote",
+            return_type=ProcessFirmwareRemoteImageReq,
+            payload=payload,
+            **kw,
+        )
 
-                :param payload: Request body for Device bootstrap configuration
-                :returns: ProcessFirmwareRemoteImageReq
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/device/action/firmware-upgrade/remote",
-                    return_type=ProcessFirmwareRemoteImageReq,
-                    payload=payload,
-                    **kw,
-                )
+    def edit_firmware_upgarde_remote_image(
+        self, version_id: str, payload: Optional[Any] = None, **kw
+    ) -> ProcessGetFirmwareRemoteImageReq:
+        """
+        Download software package file
 
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return process_firmware_remote_image_(self._request_adapter)
-
-    @property
-    def edit_firmware_upgarde_remote_image(self):
-        class edit_firmware_upgarde_remote_image_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(
-                self, version_id: str, payload: Optional[Any] = None, **kw
-            ) -> ProcessGetFirmwareRemoteImageReq:
-                """
-                Download software package file
-
-                :param version_id: Version id
-                :param payload: Request body
-                :returns: ProcessGetFirmwareRemoteImageReq
-                """
-                params = {
-                    "versionId": version_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/device/action/firmware-upgrade/remote/{versionId}",
-                    return_type=ProcessGetFirmwareRemoteImageReq,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_firmware_upgarde_remote_image_(self._request_adapter)
+        :param version_id: Version id
+        :param payload: Request body
+        :returns: ProcessGetFirmwareRemoteImageReq
+        """
+        params = {
+            "versionId": version_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/device/action/firmware-upgrade/remote/{versionId}",
+            return_type=ProcessGetFirmwareRemoteImageReq,
+            params=params,
+            payload=payload,
+            **kw,
+        )

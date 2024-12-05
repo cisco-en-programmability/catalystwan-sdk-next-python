@@ -32,11 +32,7 @@ class SearchBuilder:
                     "sessionId": session_id,
                 }
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/stream/device/log/search/{sessionId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/stream/device/log/search/{sessionId}", params=params, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:

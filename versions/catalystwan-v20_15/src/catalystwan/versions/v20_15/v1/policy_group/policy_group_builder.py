@@ -19,9 +19,7 @@ class PolicyGroupBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_policy_group_by_solution(
-        self, solution: Optional[str] = None, **kw
-    ) -> List[PolicyGroup]:
+    def get_policy_group_by_solution(self, solution: Optional[str] = None, **kw) -> List[PolicyGroup]:
         """
         Get a Policy Group by Solution
 
@@ -32,11 +30,7 @@ class PolicyGroupBuilder:
             "solution": solution,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/policy-group",
-            return_type=List[PolicyGroup],
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/policy-group", return_type=List[PolicyGroup], params=params, **kw
         )
 
     @property
@@ -53,11 +47,7 @@ class PolicyGroupBuilder:
                 :returns: str
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/policy-group",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/policy-group", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -80,11 +70,7 @@ class PolicyGroupBuilder:
             "policyGroupId": policy_group_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/policy-group/{policyGroupId}",
-            return_type=PolicyGroup,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/policy-group/{policyGroupId}", return_type=PolicyGroup, params=params, **kw
         )
 
     @property
@@ -93,9 +79,7 @@ class PolicyGroupBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, policy_group_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, policy_group_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a Policy Group
 
@@ -124,9 +108,7 @@ class PolicyGroupBuilder:
 
         return edit_policy_group_(self._request_adapter)
 
-    def delete_policy_group(
-        self, policy_group_id: str, delete_profiles: Optional[bool] = None, **kw
-    ):
+    def delete_policy_group(self, policy_group_id: str, delete_profiles: Optional[bool] = None, **kw):
         """
         Delete Policy Group
 
@@ -139,10 +121,7 @@ class PolicyGroupBuilder:
             "deleteProfiles": delete_profiles,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/policy-group/{policyGroupId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/policy-group/{policyGroupId}", params=params, **kw
         )
 
     @property

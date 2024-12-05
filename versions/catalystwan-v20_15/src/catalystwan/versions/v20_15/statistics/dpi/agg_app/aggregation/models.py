@@ -29,9 +29,7 @@ class DpiAggregationResponseHeaderFields:
 class DpiAggregationResponseHeader:
     columns: Optional[List[DpiAggregationResponseHeaderColumns]] = _field(default=None)
     fields: Optional[List[DpiAggregationResponseHeaderFields]] = _field(default=None)
-    generated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "generatedOn"}
-    )
+    generated_on: Optional[int] = _field(default=None, metadata={"alias": "generatedOn"})
 
 
 @dataclass

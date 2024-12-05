@@ -41,8 +41,5 @@ class FlowcountBuilder:
             "family": family,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/statistics/dpi/device/application/flowcount",
-            params=params,
-            **kw,
+            "GET", "/dataservice/statistics/dpi/device/application/flowcount", params=params, **kw
         )

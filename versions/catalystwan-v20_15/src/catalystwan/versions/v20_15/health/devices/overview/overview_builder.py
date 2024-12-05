@@ -24,6 +24,4 @@ class OverviewBuilder:
         params = {
             "vpnId": vpn_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/health/devices/overview", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/health/devices/overview", params=params, **kw)

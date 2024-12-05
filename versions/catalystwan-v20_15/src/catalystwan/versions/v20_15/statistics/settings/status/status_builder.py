@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -23,38 +23,16 @@ class StatusBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/statistics/settings/status", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/statistics/settings/status", **kw)
 
-    @property
-    def update_statistics_settings(self):
-        class update_statistics_settings_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def update_statistics_settings(self, payload: Optional[Any] = None, **kw):
+        """
+        Update statistics settings
 
-            def __call__(self, payload: Optional[Any] = None, **kw):
-                """
-                Update statistics settings
-
-                :param payload: Stats setting
-                :returns: None
-                """
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/statistics/settings/status",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return update_statistics_settings_(self._request_adapter)
+        :param payload: Stats setting
+        :returns: None
+        """
+        return self._request_adapter.request("PUT", "/dataservice/statistics/settings/status", payload=payload, **kw)
 
     @property
     def device(self) -> DeviceBuilder:

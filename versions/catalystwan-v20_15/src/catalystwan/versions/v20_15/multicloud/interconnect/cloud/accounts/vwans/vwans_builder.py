@@ -57,11 +57,7 @@ class VwansBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                cloud_type: str,
-                cloud_account_id: str,
-                payload: Optional[AzureVirtualWan] = None,
-                **kw,
+                self, cloud_type: str, cloud_account_id: str, payload: Optional[AzureVirtualWan] = None, **kw
             ) -> InlineResponse2009:
                 """
                 API to create an Azure Virtual Wan..

@@ -14,9 +14,7 @@ class ExpiredFlowIdBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_appqoe_flow_id_expired_details(
-        self, flow_id: str, device_id: str, **kw
-    ) -> Any:
+    def create_appqoe_flow_id_expired_details(self, flow_id: str, device_id: str, **kw) -> Any:
         """
         Get Appqoe Expired flow Id details from device
 
@@ -28,6 +26,4 @@ class ExpiredFlowIdBuilder:
             "flow-id": flow_id,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/appqoe/expired-flow-id", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/appqoe/expired-flow-id", params=params, **kw)

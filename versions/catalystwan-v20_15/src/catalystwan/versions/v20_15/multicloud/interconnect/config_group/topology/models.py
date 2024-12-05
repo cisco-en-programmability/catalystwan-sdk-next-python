@@ -23,8 +23,8 @@ class InlineResponse20013TopologyUnsupportedFeatures:
 @dataclass
 class InlineResponse20013TopologyDevices:
     criteria: Optional[InlineResponse20013TopologyCriteria] = _field(default=None)
-    unsupported_features: Optional[InlineResponse20013TopologyUnsupportedFeatures] = (
-        _field(default=None, metadata={"alias": "unsupportedFeatures"})
+    unsupported_features: Optional[InlineResponse20013TopologyUnsupportedFeatures] = _field(
+        default=None, metadata={"alias": "unsupportedFeatures"}
     )
 
 

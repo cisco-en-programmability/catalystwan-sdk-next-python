@@ -20,9 +20,7 @@ class WanBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, networks_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, networks_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a WAN Profile Parcel for Networks feature profile
 
@@ -77,9 +75,7 @@ class WanBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, networks_id: str, wan_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, networks_id: str, wan_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a WAN Profile Parcel for networks feature profile
 
@@ -123,8 +119,5 @@ class WanBuilder:
             "wanId": wan_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/wan/{wanId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/wan/{wanId}", params=params, **kw
         )

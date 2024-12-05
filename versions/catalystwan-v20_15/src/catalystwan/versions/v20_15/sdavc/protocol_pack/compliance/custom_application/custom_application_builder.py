@@ -19,7 +19,5 @@ class CustomApplicationBuilder:
         :returns: None
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/sdavc/protocol-pack/compliance/custom-application",
-            **kw,
+            "GET", "/dataservice/sdavc/protocol-pack/compliance/custom-application", **kw
         )

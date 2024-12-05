@@ -23,8 +23,5 @@ class DashboardBuilder:
         :returns: List[InterconnectDashboard]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/interconnect/dashboard",
-            return_type=List[InterconnectDashboard],
-            **kw,
+            "GET", "/dataservice/multicloud/interconnect/dashboard", return_type=List[InterconnectDashboard], **kw
         )

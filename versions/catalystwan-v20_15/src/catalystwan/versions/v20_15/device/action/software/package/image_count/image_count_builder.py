@@ -25,8 +25,5 @@ class ImageCountBuilder:
             "imageType": image_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/action/software/package/imageCount",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/action/software/package/imageCount", params=params, **kw
         )

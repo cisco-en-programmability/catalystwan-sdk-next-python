@@ -25,8 +25,5 @@ class ApproutepolicyfilterBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/policy/approutepolicyfilter",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/policy/approutepolicyfilter", params=params, **kw
         )

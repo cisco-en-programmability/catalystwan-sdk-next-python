@@ -18,6 +18,4 @@ class WebexsyncstatusBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/cloudonramp/saas/webexsyncstatus", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/v1/cloudonramp/saas/webexsyncstatus", **kw)

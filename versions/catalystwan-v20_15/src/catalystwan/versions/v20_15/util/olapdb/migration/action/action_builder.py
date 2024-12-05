@@ -25,9 +25,5 @@ class ActionBuilder:
             "action": action,
         }
         return self._request_adapter.request(
-            "POST",
-            "/dataservice/util/olapdb/migration/action/{action}",
-            return_type=str,
-            params=params,
-            **kw,
+            "POST", "/dataservice/util/olapdb/migration/action/{action}", return_type=str, params=params, **kw
         )

@@ -14,9 +14,7 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_stats_process_report(
-        self, process_queue: Optional[int] = None, **kw
-    ) -> List[Any]:
+    def generate_stats_process_report(self, process_queue: Optional[int] = None, **kw) -> List[Any]:
         """
         Get stats process report
 
@@ -27,9 +25,5 @@ class StatusBuilder:
             "processQueue": process_queue,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/statistics/process/status",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/statistics/process/status", return_type=List[Any], params=params, **kw
         )

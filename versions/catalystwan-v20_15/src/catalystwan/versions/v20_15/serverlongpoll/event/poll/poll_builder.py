@@ -40,8 +40,5 @@ class PollBuilder:
             "wait_time": wait_time,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/serverlongpoll/event/poll/{partnerId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/serverlongpoll/event/poll/{partnerId}", params=params, **kw
         )

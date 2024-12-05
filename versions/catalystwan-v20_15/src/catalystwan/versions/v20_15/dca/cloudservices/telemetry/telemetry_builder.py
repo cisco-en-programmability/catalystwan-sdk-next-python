@@ -20,6 +20,4 @@ class TelemetryBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/dca/cloudservices/telemetry", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/dca/cloudservices/telemetry", **kw)

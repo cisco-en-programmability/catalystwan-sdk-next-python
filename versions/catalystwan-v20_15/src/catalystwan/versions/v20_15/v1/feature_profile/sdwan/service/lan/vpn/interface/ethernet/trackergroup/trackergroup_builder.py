@@ -65,9 +65,7 @@ class TrackergroupBuilder:
         )
 
     @property
-    def edit_lan_vpn_interface_ethernet_and_tracker_group_parcel_association_for_transport(
-        self,
-    ):
+    def edit_lan_vpn_interface_ethernet_and_tracker_group_parcel_association_for_transport(self):
         class edit_lan_vpn_interface_ethernet_and_tracker_group_parcel_association_for_transport_:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
@@ -143,20 +141,13 @@ class TrackergroupBuilder:
         )
 
     @property
-    def create_lan_vpn_interface_ethernet_and_tracker_group_parcel_association_for_transport(
-        self,
-    ):
+    def create_lan_vpn_interface_ethernet_and_tracker_group_parcel_association_for_transport(self):
         class create_lan_vpn_interface_ethernet_and_tracker_group_parcel_association_for_transport_:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                service_id: str,
-                vpn_parcel_id: str,
-                ethernet_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, service_id: str, vpn_parcel_id: str, ethernet_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Associate a LanVpnInterfaceEthernet parcel with a TrackerGroup Parcel for service feature profile

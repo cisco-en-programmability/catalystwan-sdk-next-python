@@ -15,11 +15,7 @@ class FeaturesBuilder:
         self._request_adapter = request_adapter
 
     def get_sdwan_feature_profiles_by_family_and_type(
-        self,
-        offset: Optional[int] = None,
-        limit: Optional[int] = 0,
-        feature_type: Optional[str] = "config",
-        **kw,
+        self, offset: Optional[int] = None, limit: Optional[int] = 0, feature_type: Optional[str] = "config", **kw
     ) -> Any:
         """
         Get all SDWAN Feature Profiles with giving Family and profile type
@@ -35,8 +31,5 @@ class FeaturesBuilder:
             "featureType": feature_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/cli/features",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/cli/features", params=params, **kw
         )

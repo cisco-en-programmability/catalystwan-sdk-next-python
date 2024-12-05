@@ -6,11 +6,7 @@ from typing import Optional
 
 @dataclass
 class VnicInfo:
-    deployment_name: Optional[str] = _field(
-        default=None, metadata={"alias": "deploymentName"}
-    )
+    deployment_name: Optional[str] = _field(default=None, metadata={"alias": "deploymentName"})
     network: Optional[str] = _field(default=None)
     nic_id: Optional[str] = _field(default=None, metadata={"alias": "nicId"})
-    vm_group_name: Optional[str] = _field(
-        default=None, metadata={"alias": "vmGroupName"}
-    )
+    vm_group_name: Optional[str] = _field(default=None, metadata={"alias": "vmGroupName"})

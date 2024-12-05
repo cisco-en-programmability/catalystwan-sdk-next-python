@@ -9,9 +9,7 @@ OrderType = Literal["count", "key"]
 
 Type = Literal["day", "hour", "minute", "month", "quater", "second", "week", "year"]
 
-UniqueAggregationType = Literal[
-    "argMax", "avg", "cardinality", "count", "max", "min", "sum", "top_hits"
-]
+UniqueAggregationType = Literal["argMax", "avg", "cardinality", "count", "max", "min", "sum", "top_hits"]
 
 Condition = Literal["AND", "OR"]
 
@@ -33,15 +31,7 @@ Operator = Literal[
 ]
 
 EiolteUniqueAggregationType = Literal[
-    "array",
-    "boolean",
-    "date",
-    "double",
-    "int",
-    "long",
-    "number",
-    "specialString",
-    "string",
+    "array", "boolean", "date", "double", "int", "long", "number", "specialString", "string"
 ]
 
 
@@ -50,9 +40,7 @@ class DbQueryAggregationFieldObject:
     property: Any
     size: int
     order: Optional[Order] = _field(default=None)
-    order_type: Optional[OrderType] = _field(
-        default=None, metadata={"alias": "orderType"}
-    )
+    order_type: Optional[OrderType] = _field(default=None, metadata={"alias": "orderType"})
     sequence: Optional[int] = _field(default=None)
     type_: Optional[str] = _field(default=None, metadata={"alias": "type"})
 
@@ -88,9 +76,7 @@ class DbQueryRuleObject:
     field: Optional[Any] = _field(default=None)
     operator: Optional[Operator] = _field(default=None)
     rules: Optional[List["DbQueryRuleObject"]] = _field(default=None)
-    type_: Optional[EiolteUniqueAggregationType] = _field(
-        default=None, metadata={"alias": "type"}
-    )
+    type_: Optional[EiolteUniqueAggregationType] = _field(default=None, metadata={"alias": "type"})
     value: Optional[List[str]] = _field(default=None)
 
 
@@ -100,9 +86,7 @@ class DbQuerySpecObject:
     condition: Optional[Condition] = _field(default=None)
     field: Optional[Any] = _field(default=None)
     operator: Optional[Operator] = _field(default=None)
-    type_: Optional[EiolteUniqueAggregationType] = _field(
-        default=None, metadata={"alias": "type"}
-    )
+    type_: Optional[EiolteUniqueAggregationType] = _field(default=None, metadata={"alias": "type"})
     value: Optional[List[str]] = _field(default=None)
 
 
@@ -110,9 +94,7 @@ class DbQuerySpecObject:
 class DbQuerySortObject:
     field: Any
     order: Order
-    type_: Optional[EiolteUniqueAggregationType] = _field(
-        default=None, metadata={"alias": "type"}
-    )
+    type_: Optional[EiolteUniqueAggregationType] = _field(default=None, metadata={"alias": "type"})
 
 
 @dataclass

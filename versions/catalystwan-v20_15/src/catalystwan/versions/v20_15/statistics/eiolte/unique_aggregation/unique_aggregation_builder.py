@@ -22,9 +22,7 @@ class UniqueAggregationBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[StatisticsDbQueryParam] = None, **kw
-            ) -> Any:
+            def __call__(self, payload: Optional[StatisticsDbQueryParam] = None, **kw) -> Any:
                 """
                 Get unique aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
 
@@ -32,10 +30,7 @@ class UniqueAggregationBuilder:
                 :returns: Any
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/statistics/eiolte/uniqueAggregation",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/statistics/eiolte/uniqueAggregation", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> StatisticsDbQueryParam:

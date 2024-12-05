@@ -22,9 +22,7 @@ class CellularAggregationBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[StatisticsDbQueryParam] = None, **kw
-            ) -> Any:
+            def __call__(self, payload: Optional[StatisticsDbQueryParam] = None, **kw) -> Any:
                 """
                 Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
 
@@ -32,10 +30,7 @@ class CellularAggregationBuilder:
                 :returns: Any
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/statistics/eiolte/cellularAggregation",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/statistics/eiolte/cellularAggregation", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> StatisticsDbQueryParam:

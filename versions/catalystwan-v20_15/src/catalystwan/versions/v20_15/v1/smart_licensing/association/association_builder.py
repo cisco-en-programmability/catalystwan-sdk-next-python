@@ -24,6 +24,4 @@ class AssociationBuilder:
         params = {
             "templateId": template_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/smart-licensing/association", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/v1/smart-licensing/association", params=params, **kw)

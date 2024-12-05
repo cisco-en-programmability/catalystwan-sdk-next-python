@@ -20,6 +20,4 @@ class StatusBuilder:
 
         :returns: List[str]
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/certificate/list/status", return_type=List[str], **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/certificate/list/status", return_type=List[str], **kw)

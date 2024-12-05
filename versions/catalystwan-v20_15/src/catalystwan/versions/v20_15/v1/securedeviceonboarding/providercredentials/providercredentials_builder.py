@@ -30,10 +30,7 @@ class ProvidercredentialsBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/securedeviceonboarding/providercredentials",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/securedeviceonboarding/providercredentials", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> ProviderAccountDetails:
@@ -69,12 +66,7 @@ class ProvidercredentialsBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                account_id: str,
-                payload: Optional[ProviderAccountDetails] = None,
-                **kw,
-            ):
+            def __call__(self, account_id: str, payload: Optional[ProviderAccountDetails] = None, **kw):
                 """
                 Edit service provider credentials
 

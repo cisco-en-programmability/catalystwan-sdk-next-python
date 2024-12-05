@@ -29,9 +29,7 @@ class ConfigBuilder:
             "deviceId": device_id,
             "query": query,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/history/config", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/history/config", params=params, **kw)
 
     def get_device_config(self, config_id: str, **kw) -> Any:
         """

@@ -22,11 +22,7 @@ class FileGenerationStatusBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                payload: Optional[HandleFileGenerationStatusNotificationRequest] = None,
-                **kw,
-            ):
+            def __call__(self, payload: Optional[HandleFileGenerationStatusNotificationRequest] = None, **kw):
                 """
                 Device notify when file is ready and vManage has to download them
 
@@ -40,17 +36,11 @@ class FileGenerationStatusBuilder:
                     **kw,
                 )
 
-            def create_payload(
-                self, *args, **kwargs
-            ) -> HandleFileGenerationStatusNotificationRequest:
+            def create_payload(self, *args, **kwargs) -> HandleFileGenerationStatusNotificationRequest:
                 return HandleFileGenerationStatusNotificationRequest(*args, **kwargs)
 
             @property
-            def payload_model(
-                self,
-            ) -> Type[HandleFileGenerationStatusNotificationRequest]:
+            def payload_model(self) -> Type[HandleFileGenerationStatusNotificationRequest]:
                 return HandleFileGenerationStatusNotificationRequest
 
-        return handle_file_generation_status_response_from_device_(
-            self._request_adapter
-        )
+        return handle_file_generation_status_response_from_device_(self._request_adapter)

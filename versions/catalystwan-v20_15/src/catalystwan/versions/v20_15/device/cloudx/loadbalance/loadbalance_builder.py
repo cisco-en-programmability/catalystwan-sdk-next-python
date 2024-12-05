@@ -17,11 +17,7 @@ class LoadbalanceBuilder:
         self._request_adapter = request_adapter
 
     def create_lb_applications_list(
-        self,
-        vpn_id: Optional[VpnIdParam] = None,
-        application: Optional[str] = None,
-        query: Optional[str] = None,
-        **kw,
+        self, vpn_id: Optional[VpnIdParam] = None, application: Optional[str] = None, query: Optional[str] = None, **kw
     ) -> Any:
         """
         Get list of cloudexpress load balance applications from device (Real Time)
@@ -36,6 +32,4 @@ class LoadbalanceBuilder:
             "application": application,
             "query": query,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/cloudx/loadbalance", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/cloudx/loadbalance", params=params, **kw)

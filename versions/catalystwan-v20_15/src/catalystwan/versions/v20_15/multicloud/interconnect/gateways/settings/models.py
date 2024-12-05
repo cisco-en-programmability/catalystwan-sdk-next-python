@@ -17,10 +17,6 @@ class InterconnectGatewaySettings:
     )
     edge_type: Optional[EdgeType] = _field(default=None, metadata={"alias": "edgeType"})
     # Assigned name of the Interconnect Gateway Custom Settings
-    egw_custom_setting_name: Optional[str] = _field(
-        default=None, metadata={"alias": "egwCustomSettingName"}
-    )
+    egw_custom_setting_name: Optional[str] = _field(default=None, metadata={"alias": "egwCustomSettingName"})
     # Ip subnet pool assigned to the gateway
-    ip_subnet_pool: Optional[str] = _field(
-        default=None, metadata={"alias": "ipSubnetPool"}
-    )
+    ip_subnet_pool: Optional[str] = _field(default=None, metadata={"alias": "ipSubnetPool"})

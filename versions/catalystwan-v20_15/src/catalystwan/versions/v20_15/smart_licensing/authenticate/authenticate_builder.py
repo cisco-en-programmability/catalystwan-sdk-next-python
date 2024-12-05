@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,31 +14,11 @@ class AuthenticateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def sleauthenticate(self):
-        class sleauthenticate_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def sleauthenticate(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        authenticate user for sle
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                authenticate user for sle
-
-                :param payload: Partner
-                :returns: Any
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/smartLicensing/authenticate",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return sleauthenticate_(self._request_adapter)
+        :param payload: Partner
+        :returns: Any
+        """
+        return self._request_adapter.request("POST", "/dataservice/smartLicensing/authenticate", payload=payload, **kw)

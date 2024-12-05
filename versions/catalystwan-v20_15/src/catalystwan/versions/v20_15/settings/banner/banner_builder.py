@@ -20,6 +20,4 @@ class BannerBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/settings/banner", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/settings/banner", **kw)

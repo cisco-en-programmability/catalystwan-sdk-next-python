@@ -17,9 +17,7 @@ class Ipv6TrackerBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_ipv6_tracker_profile_parcel_for_transport(
-        self, transport_id: str, **kw
-    ) -> str:
+    def get_ipv6_tracker_profile_parcel_for_transport(self, transport_id: str, **kw) -> str:
         """
         Get IPv6 Tracker Profile Parcels for Transport feature profile
 
@@ -43,9 +41,7 @@ class Ipv6TrackerBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, transport_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, transport_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a IPv6 Tracker Profile Parcel for Transport feature profile
 
@@ -102,13 +98,7 @@ class Ipv6TrackerBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                transport_id: str,
-                ipv6_tracker_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, transport_id: str, ipv6_tracker_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a IPv6 Tracker Profile Parcel for Transport feature profile
 
@@ -139,9 +129,7 @@ class Ipv6TrackerBuilder:
 
         return edit_ipv6_tracker_profile_parcel_for_transport_(self._request_adapter)
 
-    def delete_ipv6_tracker_profile_parcel_for_transport(
-        self, transport_id: str, ipv6_tracker_id: str, **kw
-    ):
+    def delete_ipv6_tracker_profile_parcel_for_transport(self, transport_id: str, ipv6_tracker_id: str, **kw):
         """
         Delete a IPv6 Tracker Profile Parcel for Transport feature profile
 

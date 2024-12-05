@@ -16,9 +16,7 @@ class NslookupBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_tools_n_slookup(
-        self, vpn: VpnParam, dns: str, device_id: str, **kw
-    ) -> Any:
+    def get_device_tools_n_slookup(self, vpn: VpnParam, dns: str, device_id: str, **kw) -> Any:
         """
         Get device tool nslookup
 
@@ -32,6 +30,4 @@ class NslookupBuilder:
             "dns": dns,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/tools/nslookup", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/tools/nslookup", params=params, **kw)

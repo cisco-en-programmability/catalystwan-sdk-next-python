@@ -17,10 +17,7 @@ class SummaryBuilder:
         self._request_adapter = request_adapter
 
     def get_mapping_summary(
-        self,
-        cloud_type: Optional[CloudTypeParam] = None,
-        vpn_tunnel_status: Optional[str] = None,
-        **kw,
+        self, cloud_type: Optional[CloudTypeParam] = None, vpn_tunnel_status: Optional[str] = None, **kw
     ) -> List[MapSummary]:
         """
         Get mapping summary
@@ -34,9 +31,5 @@ class SummaryBuilder:
             "vpnTunnelStatus": vpn_tunnel_status,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/map/summary",
-            return_type=List[MapSummary],
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/map/summary", return_type=List[MapSummary], params=params, **kw
         )

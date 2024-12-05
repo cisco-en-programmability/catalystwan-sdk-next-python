@@ -29,9 +29,7 @@ class DeviceBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/topology/device", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/topology/device", params=params, **kw)
 
     @property
     def site(self) -> SiteBuilder:

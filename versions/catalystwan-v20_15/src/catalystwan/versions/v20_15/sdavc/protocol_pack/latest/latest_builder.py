@@ -18,6 +18,4 @@ class LatestBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/sdavc/protocol-pack/latest", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/sdavc/protocol-pack/latest", **kw)

@@ -35,9 +35,7 @@ class ConnectedDevicesBuilder:
             **kw,
         )
 
-    def get_connected_devices_per_tenant(
-        self, tenant_id: str, vmanage_ip: str, **kw
-    ) -> List[Any]:
+    def get_connected_devices_per_tenant(self, tenant_id: str, vmanage_ip: str, **kw) -> List[Any]:
         """
         Get connected device for vManage for a tenant
 

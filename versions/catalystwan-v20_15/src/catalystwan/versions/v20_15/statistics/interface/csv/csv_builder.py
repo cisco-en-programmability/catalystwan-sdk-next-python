@@ -23,9 +23,5 @@ class CsvBuilder:
             "query": query,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/statistics/interface/csv",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/statistics/interface/csv", return_type=str, params=params, **kw
         )

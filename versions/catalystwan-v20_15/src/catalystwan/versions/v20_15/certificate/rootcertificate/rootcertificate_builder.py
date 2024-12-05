@@ -21,8 +21,5 @@ class RootcertificateBuilder:
         :returns: List[str]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/certificate/rootcertificate",
-            return_type=List[str],
-            **kw,
+            "GET", "/dataservice/certificate/rootcertificate", return_type=List[str], **kw
         )

@@ -23,9 +23,7 @@ class LicensesBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[GetSubscriptions1PostRequest] = None, **kw
-            ) -> Any:
+            def __call__(self, payload: Optional[GetSubscriptions1PostRequest] = None, **kw) -> Any:
                 """
                 Retrieve MSLA subscription/licenses
 

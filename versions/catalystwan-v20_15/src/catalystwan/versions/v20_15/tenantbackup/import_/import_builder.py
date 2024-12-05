@@ -23,6 +23,4 @@ class ImportBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "POST", "/dataservice/tenantbackup/import", **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/tenantbackup/import", **kw)

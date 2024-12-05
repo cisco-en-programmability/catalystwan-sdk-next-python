@@ -21,8 +21,5 @@ class RemoteDcStateBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/disasterrecovery/remoteDcState",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/disasterrecovery/remoteDcState", return_type=List[Any], **kw
         )

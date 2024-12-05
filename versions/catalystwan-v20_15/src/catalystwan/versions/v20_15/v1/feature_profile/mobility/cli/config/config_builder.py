@@ -25,11 +25,7 @@ class ConfigBuilder:
             "cliId": cli_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/mobility/cli/{cliId}/config",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/mobility/cli/{cliId}/config", return_type=str, params=params, **kw
         )
 
     @property
@@ -67,9 +63,7 @@ class ConfigBuilder:
 
         return create_config_feature_for_mobility_(self._request_adapter)
 
-    def get_config_feature_for_mobility_by_parcel_id(
-        self, cli_id: str, config_id: str, **kw
-    ) -> str:
+    def get_config_feature_for_mobility_by_parcel_id(self, cli_id: str, config_id: str, **kw) -> str:
         """
         Get config Feature by configId for cli feature profile
 
@@ -95,9 +89,7 @@ class ConfigBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, cli_id: str, config_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, cli_id: str, config_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a config Feature for cli feature profile
 
@@ -141,8 +133,5 @@ class ConfigBuilder:
             "configId": config_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/mobility/cli/{cliId}/config/{configId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/mobility/cli/{cliId}/config/{configId}", params=params, **kw
         )

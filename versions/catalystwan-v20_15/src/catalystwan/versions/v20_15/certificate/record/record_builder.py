@@ -29,9 +29,5 @@ class RecordBuilder:
             "dataObject": data_object,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/certificate/record",
-            return_type=List[str],
-            params=params,
-            **kw,
+            "GET", "/dataservice/certificate/record", return_type=List[str], params=params, **kw
         )

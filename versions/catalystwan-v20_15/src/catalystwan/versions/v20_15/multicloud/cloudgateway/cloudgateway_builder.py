@@ -70,9 +70,7 @@ class CloudgatewayBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[CloudGatewayPost] = None, **kw
-            ) -> Taskid:
+            def __call__(self, payload: Optional[CloudGatewayPost] = None, **kw) -> Taskid:
                 """
                 Create cloud gateway
 
@@ -80,11 +78,7 @@ class CloudgatewayBuilder:
                 :returns: Taskid
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/cloudgateway",
-                    return_type=Taskid,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/multicloud/cloudgateway", return_type=Taskid, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> CloudGatewayPost:
@@ -120,9 +114,7 @@ class CloudgatewayBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, cloud_gateway_name: str, payload: Optional[UpdateCgw] = None, **kw
-            ) -> Taskid:
+            def __call__(self, cloud_gateway_name: str, payload: Optional[UpdateCgw] = None, **kw) -> Taskid:
                 """
                 Update cloud gateway
 
@@ -151,12 +143,7 @@ class CloudgatewayBuilder:
 
         return update_cgw_(self._request_adapter)
 
-    def delete_cgw(
-        self,
-        cloud_gateway_name: str,
-        delete_all_resources: Optional[str] = "true",
-        **kw,
-    ) -> Taskid:
+    def delete_cgw(self, cloud_gateway_name: str, delete_all_resources: Optional[str] = "true", **kw) -> Taskid:
         """
         Delete cloud gateway
 
@@ -169,11 +156,7 @@ class CloudgatewayBuilder:
             "deleteAllResources": delete_all_resources,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/multicloud/cloudgateway/{cloudGatewayName}",
-            return_type=Taskid,
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/multicloud/cloudgateway/{cloudGatewayName}", return_type=Taskid, params=params, **kw
         )
 
     @property

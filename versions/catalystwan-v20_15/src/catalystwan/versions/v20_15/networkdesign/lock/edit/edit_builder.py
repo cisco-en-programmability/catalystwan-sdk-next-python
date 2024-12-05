@@ -22,6 +22,4 @@ class EditBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "acquireEditLock")
-        return self._request_adapter.request(
-            "POST", "/dataservice/networkdesign/lock/edit", **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/networkdesign/lock/edit", **kw)

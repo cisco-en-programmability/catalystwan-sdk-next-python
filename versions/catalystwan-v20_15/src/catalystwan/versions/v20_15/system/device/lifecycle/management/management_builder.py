@@ -16,9 +16,7 @@ class ManagementBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def set_life_cycle(
-        self, uuid: str, enable: Optional[bool] = None, **kw
-    ) -> SetLifeCycle:
+    def set_life_cycle(self, uuid: str, enable: Optional[bool] = None, **kw) -> SetLifeCycle:
         """
         Set device lifecycle needed flag
 

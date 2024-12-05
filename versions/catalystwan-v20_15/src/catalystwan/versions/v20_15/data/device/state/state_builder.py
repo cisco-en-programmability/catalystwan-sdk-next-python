@@ -21,11 +21,7 @@ class StateBuilder:
         self._request_adapter = request_adapter
 
     def generate_device_state_data(
-        self,
-        state_data_type: str,
-        start_id: Optional[str] = None,
-        count: Optional[int] = 1000,
-        **kw,
+        self, state_data_type: str, start_id: Optional[str] = None, count: Optional[int] = 1000, **kw
     ) -> GenerateDeviceStateData:
         """
         Get device state data

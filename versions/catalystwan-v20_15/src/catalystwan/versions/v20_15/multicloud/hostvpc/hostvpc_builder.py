@@ -43,11 +43,7 @@ class HostvpcBuilder:
             "untagged": untagged,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/hostvpc",
-            return_type=List[HostVpcsResponse],
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/hostvpc", return_type=List[HostVpcsResponse], params=params, **kw
         )
 
     @property

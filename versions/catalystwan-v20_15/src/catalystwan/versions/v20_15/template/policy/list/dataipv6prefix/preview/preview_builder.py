@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,34 +14,16 @@ class PreviewBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def preview_policy_list_8(self):
-        class preview_policy_list_8_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def preview_policy_list_8(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Preview a policy list based on the policy list type
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Preview a policy list based on the policy list type
-
-                :param payload: Policy list
-                :returns: Any
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/template/policy/list/dataipv6prefix/preview",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return preview_policy_list_8_(self._request_adapter)
+        :param payload: Policy list
+        :returns: Any
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/policy/list/dataipv6prefix/preview", payload=payload, **kw
+        )
 
     def preview_policy_list_by_id_8(self, id: str, **kw) -> Any:
         """
@@ -54,8 +36,5 @@ class PreviewBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/policy/list/dataipv6prefix/preview/{id}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/policy/list/dataipv6prefix/preview/{id}", params=params, **kw
         )

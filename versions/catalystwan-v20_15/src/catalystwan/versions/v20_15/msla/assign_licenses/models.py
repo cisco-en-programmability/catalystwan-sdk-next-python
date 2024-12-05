@@ -27,9 +27,7 @@ class AssignMslaLicensesTenantLicense:
 
 @dataclass
 class AssignMslaLicenses:
-    base_license: Optional[AssignMslaLicensesBaseLicense] = _field(
-        default=None, metadata={"alias": "baseLicense"}
-    )
+    base_license: Optional[AssignMslaLicensesBaseLicense] = _field(default=None, metadata={"alias": "baseLicense"})
     tenant_license: Optional[List[AssignMslaLicensesTenantLicense]] = _field(
         default=None, metadata={"alias": "tenantLicense"}
     )

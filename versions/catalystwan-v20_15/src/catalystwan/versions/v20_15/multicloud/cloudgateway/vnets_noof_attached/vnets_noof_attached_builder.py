@@ -14,9 +14,7 @@ class VnetsNoofAttachedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_azure_virtual_vnets_attached(
-        self, cloud_type: str, cloud_gateway_name: str, **kw
-    ) -> IsVnetAttached:
+    def get_azure_virtual_vnets_attached(self, cloud_type: str, cloud_gateway_name: str, **kw) -> IsVnetAttached:
         """
         Discover Azure Virtual HUBs
 

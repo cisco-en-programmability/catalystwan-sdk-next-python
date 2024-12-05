@@ -37,10 +37,7 @@ class SystemBuilder:
             "limit": limit,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/nfvirtual/system",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/nfvirtual/system", params=params, **kw
         )
 
     @property
@@ -57,11 +54,7 @@ class SystemBuilder:
                 :returns: str
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/nfvirtual/system",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/feature-profile/nfvirtual/system", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -73,9 +66,7 @@ class SystemBuilder:
 
         return create_nfvirtual_system_feature_profile_(self._request_adapter)
 
-    def get_nfvirtual_system_feature_profile_by_profile_id(
-        self, system_id: str, **kw
-    ) -> Any:
+    def get_nfvirtual_system_feature_profile_by_profile_id(self, system_id: str, **kw) -> Any:
         """
         Get a Nfvirtual System Feature Profile with systemId
 
@@ -86,10 +77,7 @@ class SystemBuilder:
             "systemId": system_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/nfvirtual/system/{systemId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/nfvirtual/system/{systemId}", params=params, **kw
         )
 
     @property
@@ -98,9 +86,7 @@ class SystemBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a Nfvirtual System Feature Profile
 
@@ -140,10 +126,7 @@ class SystemBuilder:
             "systemId": system_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/nfvirtual/system/{systemId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/nfvirtual/system/{systemId}", params=params, **kw
         )
 
     @property

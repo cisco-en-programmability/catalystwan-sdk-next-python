@@ -150,9 +150,7 @@ class CertificateStates:
     This is valid Certificate States
     """
 
-    certificate_types: Optional[str] = _field(
-        default=None, metadata={"alias": "certificateTypes"}
-    )
+    certificate_types: Optional[str] = _field(default=None, metadata={"alias": "certificateTypes"})
 
 
 @dataclass
@@ -179,9 +177,7 @@ class CertificateValidity:
     This is Certificate Validity
     """
 
-    certificate_validity: Optional[str] = _field(
-        default=None, metadata={"alias": "certificateValidity"}
-    )
+    certificate_validity: Optional[str] = _field(default=None, metadata={"alias": "certificateValidity"})
 
 
 @dataclass

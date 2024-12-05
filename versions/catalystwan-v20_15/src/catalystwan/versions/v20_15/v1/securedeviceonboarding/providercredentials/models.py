@@ -35,9 +35,5 @@ class ProviderAccountDetails:
     # Boolean value which indicates whether the provider is the default provider .
     is_default: bool = _field(metadata={"alias": "isDefault"})
     # Boolean value which indicates if the account user accepts account provider's terms and conditions if they exist.
-    accept_terms_and_conditions: Optional[bool] = _field(
-        default=None, metadata={"alias": "acceptTermsAndConditions"}
-    )
-    account_data: Optional[AccountData] = _field(
-        default=None, metadata={"alias": "accountData"}
-    )
+    accept_terms_and_conditions: Optional[bool] = _field(default=None, metadata={"alias": "acceptTermsAndConditions"})
+    account_data: Optional[AccountData] = _field(default=None, metadata={"alias": "accountData"})

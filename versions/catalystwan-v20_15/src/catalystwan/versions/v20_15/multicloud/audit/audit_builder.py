@@ -16,9 +16,7 @@ class AuditBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def audit_dry_run(
-        self, cloud_type: CloudTypeParam, cloud_region: Optional[str] = None, **kw
-    ):
+    def audit_dry_run(self, cloud_type: CloudTypeParam, cloud_region: Optional[str] = None, **kw):
         """
         Call an audit with dry run
 
@@ -30,9 +28,7 @@ class AuditBuilder:
             "cloudType": cloud_type,
             "cloudRegion": cloud_region,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/audit", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/multicloud/audit", params=params, **kw)
 
     @property
     def audit(self):
@@ -48,11 +44,7 @@ class AuditBuilder:
                 :returns: Taskid
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/audit",
-                    return_type=Taskid,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/multicloud/audit", return_type=Taskid, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> AuditFix:

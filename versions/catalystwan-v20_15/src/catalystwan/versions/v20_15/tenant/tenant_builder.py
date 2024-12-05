@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -36,38 +36,19 @@ class TenantBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/tenant", return_type=List[Any], params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/tenant", return_type=List[Any], params=params, **kw)
 
-    @property
-    def create_tenant(self):
-        class create_tenant_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Create a new tenant in Multi-Tenant vManage
+    def create_tenant(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Create a new tenant in Multi-Tenant vManage
 
 
-                Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Note: In a multitenant vManage system, this API is only available in the Provider view.
 
-                :param payload: Tenant model
-                :returns: Any
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/tenant", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return create_tenant_(self._request_adapter)
+        :param payload: Tenant model
+        :returns: Any
+        """
+        return self._request_adapter.request("POST", "/dataservice/tenant", payload=payload, **kw)
 
     def get_tenant(self, tenant_id: str, **kw) -> Any:
         """
@@ -82,48 +63,25 @@ class TenantBuilder:
         params = {
             "tenantId": tenant_id,
         }
+        return self._request_adapter.request("GET", "/dataservice/tenant/{tenantId}", params=params, **kw)
+
+    def update_tenant(self, tenant_id: str, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Update a tenant in Multi-Tenant vManage
+
+
+        Note: In a multitenant vManage system, this API is only available in the Provider view.
+
+        :param tenant_id: Tenant Id
+        :param payload: Tenant model
+        :returns: Any
+        """
+        params = {
+            "tenantId": tenant_id,
+        }
         return self._request_adapter.request(
-            "GET", "/dataservice/tenant/{tenantId}", params=params, **kw
+            "PUT", "/dataservice/tenant/{tenantId}", params=params, payload=payload, **kw
         )
-
-    @property
-    def update_tenant(self):
-        class update_tenant_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(
-                self, tenant_id: str, payload: Optional[Any] = None, **kw
-            ) -> Any:
-                """
-                Update a tenant in Multi-Tenant vManage
-
-
-                Note: In a multitenant vManage system, this API is only available in the Provider view.
-
-                :param tenant_id: Tenant Id
-                :param payload: Tenant model
-                :returns: Any
-                """
-                params = {
-                    "tenantId": tenant_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/tenant/{tenantId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return update_tenant_(self._request_adapter)
 
     @property
     def async_(self) -> AsyncBuilder:

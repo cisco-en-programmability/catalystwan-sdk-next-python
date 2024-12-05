@@ -14,9 +14,7 @@ class LocalpropertiesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_local_properties_list_list_real_t_ime(
-        self, device_id: str, **kw
-    ) -> List[Any]:
+    def create_local_properties_list_list_real_t_ime(self, device_id: str, **kw) -> List[Any]:
         """
         Get local properties list (Real Time)
 
@@ -27,9 +25,5 @@ class LocalpropertiesBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/control/localproperties",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/control/localproperties", return_type=List[Any], params=params, **kw
         )

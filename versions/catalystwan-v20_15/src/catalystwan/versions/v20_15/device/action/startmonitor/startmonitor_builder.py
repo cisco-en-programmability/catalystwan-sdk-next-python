@@ -18,6 +18,4 @@ class StartmonitorBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/action/startmonitor", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/action/startmonitor", **kw)

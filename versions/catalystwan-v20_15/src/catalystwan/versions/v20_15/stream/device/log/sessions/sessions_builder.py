@@ -23,9 +23,7 @@ class SessionsBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/stream/device/log/sessions", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/stream/device/log/sessions", **kw)
 
     @property
     def clear(self) -> ClearBuilder:

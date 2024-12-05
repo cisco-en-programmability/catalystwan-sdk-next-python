@@ -28,11 +28,7 @@ class MrfBuilder:
             "systemId": system_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/mrf",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/system/{systemId}/mrf", return_type=str, params=params, **kw
         )
 
     @property
@@ -41,9 +37,7 @@ class MrfBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Mrf Profile Parcel for System feature profile
 
@@ -72,9 +66,7 @@ class MrfBuilder:
 
         return create_mrf_profile_parcel_for_system_(self._request_adapter)
 
-    def get_mrf_profile_parcel_by_parcel_id_for_system(
-        self, system_id: str, mrf_id: str, **kw
-    ) -> str:
+    def get_mrf_profile_parcel_by_parcel_id_for_system(self, system_id: str, mrf_id: str, **kw) -> str:
         """
         Get Mrf Profile Parcel by parcelId for System feature profile
 
@@ -100,9 +92,7 @@ class MrfBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, mrf_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, mrf_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Mrf Profile Parcel for System feature profile
 
@@ -146,10 +136,7 @@ class MrfBuilder:
             "mrfId": mrf_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/mrf/{mrfId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/sdwan/system/{systemId}/mrf/{mrfId}", params=params, **kw
         )
 
     @property

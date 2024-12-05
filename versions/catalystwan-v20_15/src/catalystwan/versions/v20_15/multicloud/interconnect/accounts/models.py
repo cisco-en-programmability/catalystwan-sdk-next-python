@@ -43,26 +43,16 @@ class InterconnectAccountMegaportCredentials:
 @dataclass
 class InterconnectAccount:
     # AT&T Credential information.
-    att_credentials: InterconnectAccountAttCredentials = _field(
-        metadata={"alias": "attCredentials"}
-    )
+    att_credentials: InterconnectAccountAttCredentials = _field(metadata={"alias": "attCredentials"})
     edge_account_id: str = _field(metadata={"alias": "edgeAccountId"})
     edge_account_name: str = _field(metadata={"alias": "edgeAccountName"})
     edge_type: str = _field(metadata={"alias": "edgeType"})
     # Equinix Credential information.
-    equinix_credentials: InterconnectAccountEquinixCredentials = _field(
-        metadata={"alias": "equinixCredentials"}
-    )
+    equinix_credentials: InterconnectAccountEquinixCredentials = _field(metadata={"alias": "equinixCredentials"})
     # Megaport Credential Information
-    megaport_credentials: InterconnectAccountMegaportCredentials = _field(
-        metadata={"alias": "megaportCredentials"}
-    )
-    billing_provider_type: Optional[str] = _field(
-        default=None, metadata={"alias": "billingProviderType"}
-    )
+    megaport_credentials: InterconnectAccountMegaportCredentials = _field(metadata={"alias": "megaportCredentials"})
+    billing_provider_type: Optional[str] = _field(default=None, metadata={"alias": "billingProviderType"})
     cred_type: Optional[str] = _field(default=None, metadata={"alias": "credType"})
     description: Optional[str] = _field(default=None)
     # List of regions
-    region_list: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "regionList"}
-    )
+    region_list: Optional[List[str]] = _field(default=None, metadata={"alias": "regionList"})

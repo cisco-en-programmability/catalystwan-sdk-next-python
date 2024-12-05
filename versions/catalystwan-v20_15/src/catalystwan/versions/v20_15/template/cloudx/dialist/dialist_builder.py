@@ -20,6 +20,4 @@ class DialistBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/cloudx/dialist", return_type=List[Any], **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/template/cloudx/dialist", return_type=List[Any], **kw)

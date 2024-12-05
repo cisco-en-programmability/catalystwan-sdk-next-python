@@ -23,6 +23,4 @@ class IsreadyBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/clusterManagement/isready", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/clusterManagement/isready", **kw)

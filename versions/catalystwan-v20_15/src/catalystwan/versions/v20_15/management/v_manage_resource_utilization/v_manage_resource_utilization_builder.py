@@ -20,6 +20,4 @@ class VManageResourceUtilizationBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/management/vManageResourceUtilization", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/management/vManageResourceUtilization", **kw)

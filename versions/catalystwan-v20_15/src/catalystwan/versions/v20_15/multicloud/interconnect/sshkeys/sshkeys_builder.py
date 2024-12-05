@@ -29,9 +29,5 @@ class SshkeysBuilder:
             "interconnect-account-id": interconnect_account_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/interconnect/sshkeys",
-            return_type=InlineResponse20016,
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/interconnect/sshkeys", return_type=InlineResponse20016, params=params, **kw
         )

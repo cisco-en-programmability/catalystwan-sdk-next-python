@@ -23,10 +23,7 @@ class ConfigGroupBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                interconnect_type: InterconnectTypeParam,
-                payload: Optional[GatewaysConfiggroupBody] = None,
-                **kw,
+                self, interconnect_type: InterconnectTypeParam, payload: Optional[GatewaysConfiggroupBody] = None, **kw
             ) -> Any:
                 """
                 API to initiate a config group creation for an Interconnect gateway.

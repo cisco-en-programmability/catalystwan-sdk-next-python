@@ -17,11 +17,7 @@ class BandwidthBuilder:
         self._request_adapter = request_adapter
 
     def get_interface_bandwidth(
-        self,
-        device_uuid: DeviceUuid,
-        circuit: Optional[str] = None,
-        source_interface: Optional[str] = None,
-        **kw,
+        self, device_uuid: DeviceUuid, circuit: Optional[str] = None, source_interface: Optional[str] = None, **kw
     ) -> SpeedTestInterfaceResponse:
         """
         Get interface bandwidth

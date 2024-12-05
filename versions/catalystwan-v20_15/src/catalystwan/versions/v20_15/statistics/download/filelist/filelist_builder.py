@@ -22,12 +22,7 @@ class FilelistBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                process_type: str,
-                payload: Optional[DownloadListPostRequest] = None,
-                **kw,
-            ):
+            def __call__(self, process_type: str, payload: Optional[DownloadListPostRequest] = None, **kw):
                 """
                 Downloading list of stats file
 

@@ -21,8 +21,5 @@ class ApplicationMappingBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/dpi/application-mapping",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/device/dpi/application-mapping", return_type=List[Any], **kw
         )

@@ -30,10 +30,7 @@ class ActivateBuilder:
                 """
                 logging.warning("Operation: %s is deprecated", "activateFirmwareImage")
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/device/action/firmware/activate",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/device/action/firmware/activate", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:

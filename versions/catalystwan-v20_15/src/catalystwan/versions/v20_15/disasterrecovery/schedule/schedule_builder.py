@@ -20,6 +20,4 @@ class ScheduleBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/disasterrecovery/schedule", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/disasterrecovery/schedule", **kw)

@@ -6,9 +6,7 @@ from typing import List, Optional
 
 @dataclass
 class MappingEntries:
-    city_country: Optional[str] = _field(
-        default=None, metadata={"alias": "CITY/COUNTRY"}
-    )
+    city_country: Optional[str] = _field(default=None, metadata={"alias": "CITY/COUNTRY"})
     fqdn: Optional[str] = _field(default=None, metadata={"alias": "FQDN"})
     ip: Optional[str] = _field(default=None, metadata={"alias": "IP"})
 

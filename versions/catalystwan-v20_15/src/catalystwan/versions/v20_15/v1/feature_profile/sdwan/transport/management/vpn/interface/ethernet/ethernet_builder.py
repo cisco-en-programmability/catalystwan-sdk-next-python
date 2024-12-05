@@ -17,9 +17,7 @@ class EthernetBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interface_ethernet_parcels_for_transport_management_vpn(
-        self, transport_id: str, vpn_id: str, **kw
-    ) -> str:
+    def get_interface_ethernet_parcels_for_transport_management_vpn(self, transport_id: str, vpn_id: str, **kw) -> str:
         """
         Get InterfaceEthernet Parcels for transport ManagementVpn Parcel
 
@@ -45,13 +43,7 @@ class EthernetBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                transport_id: str,
-                vpn_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, transport_id: str, vpn_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a ManagementVpn InterfaceEthernet parcel for transport feature profile
 
@@ -80,9 +72,7 @@ class EthernetBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return create_management_vpn_interface_ethernet_parcel_for_transport_(
-            self._request_adapter
-        )
+        return create_management_vpn_interface_ethernet_parcel_for_transport_(self._request_adapter)
 
     def get_management_vpn_interface_ethernet_parcel_by_parcel_id_for_transport(
         self, transport_id: str, vpn_id: str, ethernet_id: str, **kw
@@ -115,12 +105,7 @@ class EthernetBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                transport_id: str,
-                vpn_id: str,
-                ethernet_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, transport_id: str, vpn_id: str, ethernet_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Update a ManagementVpn InterfaceEthernet Parcel for transport feature profile
@@ -152,9 +137,7 @@ class EthernetBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return edit_management_vpn_interface_ethernet_parcel_for_transport_(
-            self._request_adapter
-        )
+        return edit_management_vpn_interface_ethernet_parcel_for_transport_(self._request_adapter)
 
     def delete_management_vpn_interface_ethernet_for_transport(
         self, transport_id: str, vpn_id: str, ethernet_id: str, **kw

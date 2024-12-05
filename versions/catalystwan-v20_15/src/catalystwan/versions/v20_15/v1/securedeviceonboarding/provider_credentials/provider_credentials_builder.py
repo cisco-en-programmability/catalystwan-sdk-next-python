@@ -23,8 +23,5 @@ class ProviderCredentialsBuilder:
             "accountId": account_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/securedeviceonboarding/{accountId}/providerCredentials",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/securedeviceonboarding/{accountId}/providerCredentials", params=params, **kw
         )

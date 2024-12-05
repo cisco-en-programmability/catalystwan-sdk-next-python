@@ -14,9 +14,7 @@ class ActiveFlowIdBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_appqoe_active_flow_id_details(
-        self, flow_id: str, device_id: str, **kw
-    ) -> Any:
+    def create_appqoe_active_flow_id_details(self, flow_id: str, device_id: str, **kw) -> Any:
         """
         Get Appqoe Active flow Id details from device
 
@@ -28,6 +26,4 @@ class ActiveFlowIdBuilder:
             "flow-id": flow_id,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/appqoe/active-flow-id", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/appqoe/active-flow-id", params=params, **kw)

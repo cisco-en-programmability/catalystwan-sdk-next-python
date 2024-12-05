@@ -19,9 +19,7 @@ class CellularControllerBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cellular_controller_profile_parcel_for_transport(
-        self, transport_id: str, **kw
-    ) -> str:
+    def get_cellular_controller_profile_parcel_for_transport(self, transport_id: str, **kw) -> str:
         """
         Get Cellular Controller Profile Parcels for Transport feature profile
 
@@ -45,9 +43,7 @@ class CellularControllerBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, transport_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, transport_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Cellular Controller Profile Parcel for Transport feature profile
 
@@ -74,9 +70,7 @@ class CellularControllerBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return create_cellular_controller_profile_parcel_for_transport_(
-            self._request_adapter
-        )
+        return create_cellular_controller_profile_parcel_for_transport_(self._request_adapter)
 
     def get_cellular_controller_profile_parcel_by_parcel_id_for_transport(
         self, transport_id: str, cellular_controller_id: str, **kw
@@ -107,11 +101,7 @@ class CellularControllerBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                transport_id: str,
-                cellular_controller_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, transport_id: str, cellular_controller_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Update a Cellular Controller Profile Parcel for Transport feature profile
@@ -141,9 +131,7 @@ class CellularControllerBuilder:
             def payload_model(self) -> Type[str]:
                 return str
 
-        return edit_cellular_controller_profile_parcel_for_transport_(
-            self._request_adapter
-        )
+        return edit_cellular_controller_profile_parcel_for_transport_(self._request_adapter)
 
     def delete_cellular_controller_profile_parcel_for_transport(
         self, transport_id: str, cellular_controller_id: str, **kw

@@ -52,11 +52,7 @@ class ComplianceBuilder:
             "order_by": order_by,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/compliance",
-            return_type=DeviceComplianceApiResponse,
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/compliance", return_type=DeviceComplianceApiResponse, params=params, **kw
         )
 
     @property

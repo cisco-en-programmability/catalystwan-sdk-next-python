@@ -40,6 +40,4 @@ class VpnIdBuilder:
             "server-port": server_port,
             "deviceId": device_id,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/appqoe/vpn-id", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/device/appqoe/vpn-id", params=params, **kw)

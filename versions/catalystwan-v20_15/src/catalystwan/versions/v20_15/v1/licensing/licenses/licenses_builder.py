@@ -22,9 +22,7 @@ class LicensesBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[LicensesRequest] = None, **kw
-            ) -> LicensesResponse:
+            def __call__(self, payload: Optional[LicensesRequest] = None, **kw) -> LicensesResponse:
                 """
                 Get applicable licenses based on platform class
 
@@ -32,11 +30,7 @@ class LicensesBuilder:
                 :returns: LicensesResponse
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/licensing/licenses",
-                    return_type=LicensesResponse,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/licensing/licenses", return_type=LicensesResponse, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> LicensesRequest:

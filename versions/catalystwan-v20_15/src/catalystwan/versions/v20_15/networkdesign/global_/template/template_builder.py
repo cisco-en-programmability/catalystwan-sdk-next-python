@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -27,43 +27,21 @@ class TemplateBuilder:
             "templateId": template_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/networkdesign/global/template/{templateId}",
-            params=params,
-            **kw,
+            "GET", "/dataservice/networkdesign/global/template/{templateId}", params=params, **kw
         )
 
-    @property
-    def edit_global_template(self):
-        class edit_global_template_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_global_template(self, template_id: str, payload: Optional[Any] = None, **kw):
+        """
+        Edit global template
 
-            def __call__(self, template_id: str, payload: Optional[Any] = None, **kw):
-                """
-                Edit global template
-
-                :param template_id: Template Id
-                :param payload: Global template
-                :returns: None
-                """
-                logging.warning("Operation: %s is deprecated", "editGlobalTemplate")
-                params = {
-                    "templateId": template_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/networkdesign/global/template/{templateId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return edit_global_template_(self._request_adapter)
+        :param template_id: Template Id
+        :param payload: Global template
+        :returns: None
+        """
+        logging.warning("Operation: %s is deprecated", "editGlobalTemplate")
+        params = {
+            "templateId": template_id,
+        }
+        return self._request_adapter.request(
+            "PUT", "/dataservice/networkdesign/global/template/{templateId}", params=params, payload=payload, **kw
+        )

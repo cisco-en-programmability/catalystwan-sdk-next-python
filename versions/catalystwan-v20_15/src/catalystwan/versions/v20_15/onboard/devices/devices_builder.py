@@ -27,11 +27,7 @@ class DevicesBuilder:
             "status": status,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/onboard/devices",
-            return_type=List[DeviceDetailsData],
-            params=params,
-            **kw,
+            "GET", "/dataservice/onboard/devices", return_type=List[DeviceDetailsData], params=params, **kw
         )
 
     @property
@@ -40,18 +36,14 @@ class DevicesBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[DeviceDetailsData] = None, **kw
-            ) -> Any:
+            def __call__(self, payload: Optional[DeviceDetailsData] = None, **kw) -> Any:
                 """
                 Manual Onboard added Device details
 
                 :param payload: On board Devices
                 :returns: Any
                 """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/onboard/devices", payload=payload, **kw
-                )
+                return self._request_adapter.request("POST", "/dataservice/onboard/devices", payload=payload, **kw)
 
             def create_payload(self, *args, **kwargs) -> DeviceDetailsData:
                 return DeviceDetailsData(*args, **kwargs)

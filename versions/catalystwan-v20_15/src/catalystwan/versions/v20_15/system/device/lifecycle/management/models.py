@@ -6,6 +6,4 @@ from typing import Optional
 
 @dataclass
 class SetLifeCycle:
-    device_life_cycle_needed: Optional[bool] = _field(
-        default=None, metadata={"alias": "DeviceLifeCycleNeeded"}
-    )
+    device_life_cycle_needed: Optional[bool] = _field(default=None, metadata={"alias": "DeviceLifeCycleNeeded"})

@@ -35,11 +35,7 @@ class ConfigGroupBuilder:
             "name": name,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/config-group",
-            return_type=List[ConfigGroup],
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/config-group", return_type=List[ConfigGroup], params=params, **kw
         )
 
     @property
@@ -56,11 +52,7 @@ class ConfigGroupBuilder:
                 :returns: str
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/config-group",
-                    return_type=str,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/config-group", return_type=str, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> str:
@@ -72,9 +64,7 @@ class ConfigGroupBuilder:
 
         return create_config_group_(self._request_adapter)
 
-    def get_config_group(
-        self, config_group_id: str, device_list: Optional[bool] = True, **kw
-    ) -> ConfigGroup:
+    def get_config_group(self, config_group_id: str, device_list: Optional[bool] = True, **kw) -> ConfigGroup:
         """
         Get a Configuration Group by ID
 
@@ -87,11 +77,7 @@ class ConfigGroupBuilder:
             "deviceList": device_list,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/config-group/{configGroupId}",
-            return_type=ConfigGroup,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/config-group/{configGroupId}", return_type=ConfigGroup, params=params, **kw
         )
 
     @property
@@ -100,9 +86,7 @@ class ConfigGroupBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, config_group_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, config_group_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Edit a Configuration Group
 
@@ -131,9 +115,7 @@ class ConfigGroupBuilder:
 
         return edit_config_group_(self._request_adapter)
 
-    def delete_config_group(
-        self, config_group_id: str, delete_profiles: Optional[bool] = None, **kw
-    ):
+    def delete_config_group(self, config_group_id: str, delete_profiles: Optional[bool] = None, **kw):
         """
         Delete Config Group
 
@@ -146,10 +128,7 @@ class ConfigGroupBuilder:
             "deleteProfiles": delete_profiles,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/config-group/{configGroupId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/config-group/{configGroupId}", params=params, **kw
         )
 
     @property

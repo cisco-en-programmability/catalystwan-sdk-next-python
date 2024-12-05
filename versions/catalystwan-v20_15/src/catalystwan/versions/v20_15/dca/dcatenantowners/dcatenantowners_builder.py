@@ -20,6 +20,4 @@ class DcatenantownersBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "GET", "/dataservice/dca/dcatenantowners", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/dca/dcatenantowners", **kw)

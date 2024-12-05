@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Any, List, Optional, Type
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,9 +19,7 @@ class TransitvpcBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_transit_vp_cs(
-        self, accountid: str, cloudregion: str, cloudtype: Optional[str] = "AWS", **kw
-    ) -> List[Any]:
+    def get_transit_vp_cs(self, accountid: str, cloudregion: str, cloudtype: Optional[str] = "AWS", **kw) -> List[Any]:
         """
         Get transit VPC/VNet list
 
@@ -37,69 +35,28 @@ class TransitvpcBuilder:
             "cloudtype": cloudtype,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/cor/transitvpc",
-            return_type=List[Any],
-            params=params,
-            **kw,
+            "GET", "/dataservice/template/cor/transitvpc", return_type=List[Any], params=params, **kw
         )
 
-    @property
-    def update_transit_vpc(self):
-        class update_transit_vpc_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def update_transit_vpc(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Update transit VPC/VNet
 
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Update transit VPC/VNet
+        :param payload: VPC
+        :returns: Any
+        """
+        logging.warning("Operation: %s is deprecated", "updateTransitVPC")
+        return self._request_adapter.request("PUT", "/dataservice/template/cor/transitvpc", payload=payload, **kw)
 
-                :param payload: VPC
-                :returns: Any
-                """
-                logging.warning("Operation: %s is deprecated", "updateTransitVPC")
-                return self._request_adapter.request(
-                    "PUT", "/dataservice/template/cor/transitvpc", payload=payload, **kw
-                )
+    def add_transit_vpc(self, payload: Optional[Any] = None, **kw) -> Any:
+        """
+        Create transit VPC/VNet
 
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return update_transit_vpc_(self._request_adapter)
-
-    @property
-    def add_transit_vpc(self):
-        class add_transit_vpc_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[Any] = None, **kw) -> Any:
-                """
-                Create transit VPC/VNet
-
-                :param payload: VPC
-                :returns: Any
-                """
-                logging.warning("Operation: %s is deprecated", "addTransitVPC")
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/template/cor/transitvpc",
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Any:
-                return Any(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Any]:
-                return Any
-
-        return add_transit_vpc_(self._request_adapter)
+        :param payload: VPC
+        :returns: Any
+        """
+        logging.warning("Operation: %s is deprecated", "addTransitVPC")
+        return self._request_adapter.request("POST", "/dataservice/template/cor/transitvpc", payload=payload, **kw)
 
     @property
     def autoscale_properties(self) -> AutoscalePropertiesBuilder:

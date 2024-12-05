@@ -7,9 +7,5 @@ from typing import Optional
 @dataclass
 class VpnGatewayResponse:
     source: Optional[str] = _field(default=None)
-    vpn_gateway_id: Optional[str] = _field(
-        default=None, metadata={"alias": "vpnGatewayId"}
-    )
-    vpn_gateway_name: Optional[str] = _field(
-        default=None, metadata={"alias": "vpnGatewayName"}
-    )
+    vpn_gateway_id: Optional[str] = _field(default=None, metadata={"alias": "vpnGatewayId"})
+    vpn_gateway_name: Optional[str] = _field(default=None, metadata={"alias": "vpnGatewayName"})

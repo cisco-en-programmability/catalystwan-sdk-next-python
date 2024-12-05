@@ -21,8 +21,5 @@ class AttachedgatewayBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/cloudx/attachedgateway",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/template/cloudx/attachedgateway", return_type=List[Any], **kw
         )

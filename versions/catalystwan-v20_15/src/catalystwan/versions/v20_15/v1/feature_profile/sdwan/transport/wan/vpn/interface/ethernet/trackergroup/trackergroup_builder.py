@@ -39,12 +39,7 @@ class TrackergroupBuilder:
         )
 
     def get_wan_vpn_interface_ethernet_associated_tracker_group_parcel_by_parcel_id_for_transport(
-        self,
-        transport_id: str,
-        vpn_id: str,
-        ethernet_id: str,
-        trackergroup_id: str,
-        **kw,
+        self, transport_id: str, vpn_id: str, ethernet_id: str, trackergroup_id: str, **kw
     ) -> str:
         """
         Get WanVpnInterfaceEthernet associated TrackerGroup Parcel by trackergroupId for transport feature profile
@@ -70,9 +65,7 @@ class TrackergroupBuilder:
         )
 
     @property
-    def edit_wan_vpn_interface_ethernet_and_tracker_group_parcel_association_for_transport(
-        self,
-    ):
+    def edit_wan_vpn_interface_ethernet_and_tracker_group_parcel_association_for_transport(self):
         class edit_wan_vpn_interface_ethernet_and_tracker_group_parcel_association_for_transport_:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
@@ -123,12 +116,7 @@ class TrackergroupBuilder:
         )
 
     def delete_wan_vpn_interface_ethernet_and_tracker_group_association_for_transport(
-        self,
-        transport_id: str,
-        vpn_id: str,
-        ethernet_id: str,
-        trackergroup_id: str,
-        **kw,
+        self, transport_id: str, vpn_id: str, ethernet_id: str, trackergroup_id: str, **kw
     ):
         """
         Delete a WanVpnInterfaceEthernet and a TrackerGroup Parcel association for transport feature profile
@@ -153,20 +141,13 @@ class TrackergroupBuilder:
         )
 
     @property
-    def create_wan_vpn_interface_ethernet_and_tracker_group_parcel_association_for_transport(
-        self,
-    ):
+    def create_wan_vpn_interface_ethernet_and_tracker_group_parcel_association_for_transport(self):
         class create_wan_vpn_interface_ethernet_and_tracker_group_parcel_association_for_transport_:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self,
-                transport_id: str,
-                vpn_parcel_id: str,
-                ethernet_id: str,
-                payload: Optional[str] = None,
-                **kw,
+                self, transport_id: str, vpn_parcel_id: str, ethernet_id: str, payload: Optional[str] = None, **kw
             ) -> str:
                 """
                 Associate a WanVpnInterfaceEthernet parcel with a TrackerGroup Parcel for transport feature profile

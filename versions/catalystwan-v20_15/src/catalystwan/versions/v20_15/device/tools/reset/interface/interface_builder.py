@@ -22,9 +22,7 @@ class InterfaceBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, device_ip: str, payload: Optional[ResetInterfaceReq] = None, **kw
-            ):
+            def __call__(self, device_ip: str, payload: Optional[ResetInterfaceReq] = None, **kw):
                 """
                 Reset device interface
 
@@ -36,11 +34,7 @@ class InterfaceBuilder:
                     "deviceIP": device_ip,
                 }
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/device/tools/reset/interface/{deviceIP}",
-                    params=params,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/device/tools/reset/interface/{deviceIP}", params=params, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> ResetInterfaceReq:

@@ -22,9 +22,7 @@ class EdgeBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "getAllEdgeWidgets")
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/widget/edge", **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/multicloud/widget/edge", **kw)
 
     def get_edge_widget(self, edge_type: str, **kw) -> Any:
         """

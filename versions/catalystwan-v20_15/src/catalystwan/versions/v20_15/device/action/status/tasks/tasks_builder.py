@@ -27,10 +27,7 @@ class TasksBuilder:
         :returns: InlineResponse200
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/action/status/tasks",
-            return_type=InlineResponse200,
-            **kw,
+            "GET", "/dataservice/device/action/status/tasks", return_type=InlineResponse200, **kw
         )
 
     @property

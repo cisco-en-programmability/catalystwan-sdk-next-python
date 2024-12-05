@@ -41,9 +41,5 @@ class DownloadfilesBuilder:
             "end": end,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/util/configdb/metrics/downloadfiles",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/util/configdb/metrics/downloadfiles", return_type=str, params=params, **kw
         )

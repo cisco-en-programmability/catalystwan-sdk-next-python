@@ -21,9 +21,7 @@ class EventReadoutsResponsePayloadTimeInfo:
 @dataclass
 class EventReadoutsResponsePayloadEventHopTimeInfo:
     event_hop: Optional[str] = _field(default=None, metadata={"alias": "eventHop"})
-    event_hop_with_edge: Optional[str] = _field(
-        default=None, metadata={"alias": "eventHopWithEdge"}
-    )
+    event_hop_with_edge: Optional[str] = _field(default=None, metadata={"alias": "eventHopWithEdge"})
     time_info: Optional[List[EventReadoutsResponsePayloadTimeInfo]] = _field(
         default=None, metadata={"alias": "timeInfo"}
     )
@@ -41,9 +39,7 @@ class EventReadoutsResponsePayloadHopStatistics:
     )
     event_num: Optional[str] = _field(default=None, metadata={"alias": "eventNum"})
     hop: Optional[str] = _field(default=None)
-    hop_with_edge: Optional[str] = _field(
-        default=None, metadata={"alias": "hopWithEdge"}
-    )
+    hop_with_edge: Optional[str] = _field(default=None, metadata={"alias": "hopWithEdge"})
 
 
 @dataclass
@@ -57,9 +53,7 @@ class EventReadoutsResponsePayloadEventHopStatistics:
 @dataclass
 class EventReadoutsResponsePayloadEventImpactedFlowNum:
     event: Optional[str] = _field(default=None)
-    impacted_flow_num: Optional[str] = _field(
-        default=None, metadata={"alias": "impactedFlowNum"}
-    )
+    impacted_flow_num: Optional[str] = _field(default=None, metadata={"alias": "impactedFlowNum"})
 
 
 @dataclass
@@ -74,27 +68,23 @@ class EventReadoutsResponsePayloadDetail:
     drop_send_pkts: Optional[List[EventReadoutsResponsePayloadDropSendPkts]] = _field(
         default=None, metadata={"alias": "dropSendPkts"}
     )
-    event_hop_policy_info: Optional[
-        List[EventReadoutsResponsePayloadEventHopTimeInfo]
-    ] = _field(default=None, metadata={"alias": "eventHopPolicyInfo"})
-    event_hop_statistics: Optional[
-        List[EventReadoutsResponsePayloadEventHopStatistics]
-    ] = _field(default=None, metadata={"alias": "eventHopStatistics"})
-    event_hop_time_info: Optional[
-        List[EventReadoutsResponsePayloadEventHopTimeInfo]
-    ] = _field(default=None, metadata={"alias": "eventHopTimeInfo"})
-    event_impacted_flow_num: Optional[
-        List[EventReadoutsResponsePayloadEventImpactedFlowNum]
-    ] = _field(default=None, metadata={"alias": "eventImpactedFlowNum"})
-    event_list: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "eventList"}
+    event_hop_policy_info: Optional[List[EventReadoutsResponsePayloadEventHopTimeInfo]] = _field(
+        default=None, metadata={"alias": "eventHopPolicyInfo"}
     )
+    event_hop_statistics: Optional[List[EventReadoutsResponsePayloadEventHopStatistics]] = _field(
+        default=None, metadata={"alias": "eventHopStatistics"}
+    )
+    event_hop_time_info: Optional[List[EventReadoutsResponsePayloadEventHopTimeInfo]] = _field(
+        default=None, metadata={"alias": "eventHopTimeInfo"}
+    )
+    event_impacted_flow_num: Optional[List[EventReadoutsResponsePayloadEventImpactedFlowNum]] = _field(
+        default=None, metadata={"alias": "eventImpactedFlowNum"}
+    )
+    event_list: Optional[List[str]] = _field(default=None, metadata={"alias": "eventList"})
     event_num: Optional[List[EventReadoutsResponsePayloadEventNum]] = _field(
         default=None, metadata={"alias": "eventNum"}
     )
-    total_flow_num: Optional[int] = _field(
-        default=None, metadata={"alias": "totalFlowNum"}
-    )
+    total_flow_num: Optional[int] = _field(default=None, metadata={"alias": "totalFlowNum"})
 
 
 @dataclass

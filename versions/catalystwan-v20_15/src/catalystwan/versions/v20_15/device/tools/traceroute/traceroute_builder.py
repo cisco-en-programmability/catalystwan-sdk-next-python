@@ -22,9 +22,7 @@ class TracerouteBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, device_ip: str, payload: Optional[TracerouteRequest] = None, **kw
-            ) -> TracerouteResponse:
+            def __call__(self, device_ip: str, payload: Optional[TracerouteRequest] = None, **kw) -> TracerouteResponse:
                 """
                 Traceroute
 

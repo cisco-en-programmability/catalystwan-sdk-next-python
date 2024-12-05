@@ -21,8 +21,5 @@ class DevicesWithoutSubjectSudiBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/system/device/devicesWithoutSubjectSudi",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/system/device/devicesWithoutSubjectSudi", return_type=List[Any], **kw
         )

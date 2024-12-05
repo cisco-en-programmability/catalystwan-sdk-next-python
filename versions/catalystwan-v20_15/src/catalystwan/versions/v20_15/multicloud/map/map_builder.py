@@ -23,9 +23,7 @@ class MapBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_mapping_matrix(
-        self, cloud_type: CloudTypeParam, **kw
-    ) -> List[GetMapResponse]:
+    def get_mapping_matrix(self, cloud_type: CloudTypeParam, **kw) -> List[GetMapResponse]:
         """
         Get Mapping details for cloudType
 
@@ -36,11 +34,7 @@ class MapBuilder:
             "cloudType": cloud_type,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/map",
-            return_type=List[GetMapResponse],
-            params=params,
-            **kw,
+            "GET", "/dataservice/multicloud/map", return_type=List[GetMapResponse], params=params, **kw
         )
 
     @property
@@ -49,9 +43,7 @@ class MapBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, payload: Optional[PostMapRequest] = None, **kw
-            ) -> Taskid:
+            def __call__(self, payload: Optional[PostMapRequest] = None, **kw) -> Taskid:
                 """
                 Enable Mapping for cloudType
 
@@ -59,11 +51,7 @@ class MapBuilder:
                 :returns: Taskid
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/map",
-                    return_type=Taskid,
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/multicloud/map", return_type=Taskid, payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> PostMapRequest:

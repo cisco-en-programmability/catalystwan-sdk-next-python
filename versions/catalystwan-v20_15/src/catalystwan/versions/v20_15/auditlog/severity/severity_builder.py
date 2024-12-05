@@ -49,11 +49,7 @@ class SeverityBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/auditlog/severity",
-            return_type=GetAuditLogBySeverity,
-            params=params,
-            **kw,
+            "GET", "/dataservice/auditlog/severity", return_type=GetAuditLogBySeverity, params=params, **kw
         )
 
     @property

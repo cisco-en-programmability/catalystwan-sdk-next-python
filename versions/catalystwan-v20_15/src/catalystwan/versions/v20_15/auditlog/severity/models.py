@@ -37,13 +37,9 @@ class AuditLogHeaderColumns:
     data_type: str = _field(metadata={"alias": "dataType"})
     property: str
     title: str
-    display_format: Optional[str] = _field(
-        default=None, metadata={"alias": "displayFormat"}
-    )
+    display_format: Optional[str] = _field(default=None, metadata={"alias": "displayFormat"})
     hideable: Optional[bool] = _field(default=None)
-    input_format: Optional[str] = _field(
-        default=None, metadata={"alias": "inputFormat"}
-    )
+    input_format: Optional[str] = _field(default=None, metadata={"alias": "inputFormat"})
     is_display: Optional[bool] = _field(default=None, metadata={"alias": "isDisplay"})
     min_width: Optional[int] = _field(default=None, metadata={"alias": "minWidth"})
     width: Optional[int] = _field(default=None)
@@ -57,12 +53,8 @@ class GetStatDataFields:
 
 @dataclass
 class AuditLogHeaderViewKeys:
-    preference_key: Optional[str] = _field(
-        default=None, metadata={"alias": "preferenceKey"}
-    )
-    unique_key: Optional[List[str]] = _field(
-        default=None, metadata={"alias": "uniqueKey"}
-    )
+    preference_key: Optional[str] = _field(default=None, metadata={"alias": "preferenceKey"})
+    unique_key: Optional[List[str]] = _field(default=None, metadata={"alias": "uniqueKey"})
 
 
 @dataclass
@@ -70,12 +62,8 @@ class AuditLogHeader:
     chart: Optional[ChartObject] = _field(default=None)
     columns: Optional[AuditLogHeaderColumns] = _field(default=None)
     fields: Optional[GetStatDataFields] = _field(default=None)
-    generated_on: Optional[int] = _field(
-        default=None, metadata={"alias": "generatedOn"}
-    )
-    view_keys: Optional[AuditLogHeaderViewKeys] = _field(
-        default=None, metadata={"alias": "viewKeys"}
-    )
+    generated_on: Optional[int] = _field(default=None, metadata={"alias": "generatedOn"})
+    view_keys: Optional[AuditLogHeaderViewKeys] = _field(default=None, metadata={"alias": "viewKeys"})
 
 
 @dataclass

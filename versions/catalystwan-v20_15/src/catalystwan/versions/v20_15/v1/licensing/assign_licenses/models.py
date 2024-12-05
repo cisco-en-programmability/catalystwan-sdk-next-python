@@ -7,16 +7,10 @@ from typing import List, Optional
 @dataclass
 class AssignLicensesRequestAssignLicenses:
     allocated: Optional[int] = _field(default=None)
-    billing_type: Optional[str] = _field(
-        default=None, metadata={"alias": "billingType"}
-    )
-    display_name: Optional[str] = _field(
-        default=None, metadata={"alias": "displayName"}
-    )
+    billing_type: Optional[str] = _field(default=None, metadata={"alias": "billingType"})
+    display_name: Optional[str] = _field(default=None, metadata={"alias": "displayName"})
     sa_name: Optional[str] = _field(default=None, metadata={"alias": "saName"})
-    subscription_id: Optional[str] = _field(
-        default=None, metadata={"alias": "subscriptionId"}
-    )
+    subscription_id: Optional[str] = _field(default=None, metadata={"alias": "subscriptionId"})
     tag: Optional[str] = _field(default=None)
     va_name: Optional[str] = _field(default=None, metadata={"alias": "vaName"})
 

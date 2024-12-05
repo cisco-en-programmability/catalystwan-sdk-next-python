@@ -30,10 +30,7 @@ class SyncBuilder:
                 :returns: None
                 """
                 return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/smart-licensing/sync",
-                    payload=payload,
-                    **kw,
+                    "POST", "/dataservice/v1/smart-licensing/sync", payload=payload, **kw
                 )
 
             def create_payload(self, *args, **kwargs) -> SyncRequest:

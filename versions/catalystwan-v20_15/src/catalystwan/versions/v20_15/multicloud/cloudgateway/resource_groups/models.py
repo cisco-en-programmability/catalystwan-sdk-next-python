@@ -6,7 +6,5 @@ from typing import Optional
 
 @dataclass
 class ResourceGroupsResponse:
-    resource_group_id: Optional[str] = _field(
-        default=None, metadata={"alias": "resourceGroupId"}
-    )
+    resource_group_id: Optional[str] = _field(default=None, metadata={"alias": "resourceGroupId"})
     source: Optional[str] = _field(default=None)

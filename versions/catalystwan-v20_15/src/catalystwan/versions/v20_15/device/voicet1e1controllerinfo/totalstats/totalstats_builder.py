@@ -25,8 +25,5 @@ class TotalstatsBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/voicet1e1controllerinfo/totalstats",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/voicet1e1controllerinfo/totalstats", params=params, **kw
         )

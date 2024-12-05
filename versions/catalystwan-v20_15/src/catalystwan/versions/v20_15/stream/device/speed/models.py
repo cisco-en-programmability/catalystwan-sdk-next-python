@@ -10,13 +10,9 @@ class SpeedTestResponse:
     This is valid speedTestResponse
     """
 
-    is_new_session: Optional[bool] = _field(
-        default=None, metadata={"alias": "isNewSession"}
-    )
+    is_new_session: Optional[bool] = _field(default=None, metadata={"alias": "isNewSession"})
     is_owner: Optional[bool] = _field(default=None, metadata={"alias": "isOwner"})
-    renewal_time: Optional[int] = _field(
-        default=None, metadata={"alias": "renewalTime"}
-    )
+    renewal_time: Optional[int] = _field(default=None, metadata={"alias": "renewalTime"})
     session_id: Optional[str] = _field(default=None, metadata={"alias": "sessionId"})
     start_time: Optional[int] = _field(default=None, metadata={"alias": "startTime"})
     type_: Optional[str] = _field(default=None, metadata={"alias": "type"})
@@ -27,9 +23,7 @@ class SpeedTestResponse:
 @dataclass
 class ServerList:
     server_name: Optional[str] = _field(default=None, metadata={"alias": "server-name"})
-    server_ports: Optional[str] = _field(
-        default=None, metadata={"alias": "server-ports"}
-    )
+    server_ports: Optional[str] = _field(default=None, metadata={"alias": "server-ports"})
 
 
 @dataclass
@@ -38,23 +32,13 @@ class SpeedTestSession:
     This is valid SpeedTestSession
     """
 
-    destination_color: Optional[str] = _field(
-        default=None, metadata={"alias": "destinationColor"}
-    )
-    destination_ip: Optional[str] = _field(
-        default=None, metadata={"alias": "destinationIp"}
-    )
+    destination_color: Optional[str] = _field(default=None, metadata={"alias": "destinationColor"})
+    destination_ip: Optional[str] = _field(default=None, metadata={"alias": "destinationIp"})
     device_uuid: Optional[str] = _field(default=None, metadata={"alias": "deviceUUID"})
     port: Optional[str] = _field(default=None)
-    server_list: Optional[List[ServerList]] = _field(
-        default=None, metadata={"alias": "server-list"}
-    )
-    source_color: Optional[str] = _field(
-        default=None, metadata={"alias": "sourceColor"}
-    )
-    source_interface: Optional[str] = _field(
-        default=None, metadata={"alias": "sourceInterface"}
-    )
+    server_list: Optional[List[ServerList]] = _field(default=None, metadata={"alias": "server-list"})
+    source_color: Optional[str] = _field(default=None, metadata={"alias": "sourceColor"})
+    source_interface: Optional[str] = _field(default=None, metadata={"alias": "sourceInterface"})
     source_ip: Optional[str] = _field(default=None, metadata={"alias": "sourceIp"})
 
 

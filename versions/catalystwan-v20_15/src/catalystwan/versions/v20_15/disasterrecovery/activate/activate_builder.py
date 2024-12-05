@@ -20,6 +20,4 @@ class ActivateBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request(
-            "POST", "/dataservice/disasterrecovery/activate", **kw
-        )
+        return self._request_adapter.request("POST", "/dataservice/disasterrecovery/activate", **kw)

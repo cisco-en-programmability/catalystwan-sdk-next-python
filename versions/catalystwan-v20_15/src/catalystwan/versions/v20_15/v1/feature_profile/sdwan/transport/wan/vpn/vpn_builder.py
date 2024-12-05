@@ -43,9 +43,7 @@ class VpnBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, transport_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, transport_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Wan Vpn Profile Parcel for Transport feature profile
 
@@ -74,9 +72,7 @@ class VpnBuilder:
 
         return create_wan_vpn_profile_parcel_for_transport_(self._request_adapter)
 
-    def get_wan_vpn_profile_parcel_by_parcel_id_for_transport(
-        self, transport_id: str, vpn_id: str, **kw
-    ) -> str:
+    def get_wan_vpn_profile_parcel_by_parcel_id_for_transport(self, transport_id: str, vpn_id: str, **kw) -> str:
         """
         Get Wan Vpn Profile Parcel by parcelId for Transport feature profile
 
@@ -102,13 +98,7 @@ class VpnBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self,
-                transport_id: str,
-                vpn_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
+            def __call__(self, transport_id: str, vpn_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Wan Vpn Profile Parcel for Transport feature profile
 
@@ -139,9 +129,7 @@ class VpnBuilder:
 
         return edit_wan_vpn_profile_parcel_for_transport_(self._request_adapter)
 
-    def delete_wan_vpn_profile_parcel_for_transport(
-        self, transport_id: str, vpn_id: str, **kw
-    ):
+    def delete_wan_vpn_profile_parcel_for_transport(self, transport_id: str, vpn_id: str, **kw):
         """
         Delete a Wan Vpn Profile Parcel for Transport feature profile
 

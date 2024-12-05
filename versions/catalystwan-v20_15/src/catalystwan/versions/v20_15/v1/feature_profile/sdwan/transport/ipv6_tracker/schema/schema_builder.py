@@ -14,9 +14,7 @@ class SchemaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdwan_transport_ipv6_tracker_parcel_schema_by_schema_type(
-        self, schema_type: SchemaTypeParam, **kw
-    ) -> str:
+    def get_sdwan_transport_ipv6_tracker_parcel_schema_by_schema_type(self, schema_type: SchemaTypeParam, **kw) -> str:
         """
         Get a SDWAN Transport IPv6 Tracker Parcel Schema by Schema Type
 

@@ -25,8 +25,5 @@ class EnvironmentBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/hardware/synced/environment",
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/hardware/synced/environment", params=params, **kw
         )

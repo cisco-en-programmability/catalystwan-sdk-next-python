@@ -21,8 +21,5 @@ class ServiceChainMappingBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/service-insertion/service-chain-mapping",
-            return_type=List[Any],
-            **kw,
+            "GET", "/dataservice/v1/service-insertion/service-chain-mapping", return_type=List[Any], **kw
         )

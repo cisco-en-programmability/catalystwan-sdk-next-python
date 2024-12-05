@@ -43,9 +43,7 @@ class VpnBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, service_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, service_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Lan Vpn Profile Parcel for Service feature profile
 
@@ -74,9 +72,7 @@ class VpnBuilder:
 
         return create_lan_vpn_profile_parcel_for_service_(self._request_adapter)
 
-    def get_lan_vpn_profile_parcel_by_parcel_id_for_service(
-        self, service_id: str, vpn_id: str, **kw
-    ) -> str:
+    def get_lan_vpn_profile_parcel_by_parcel_id_for_service(self, service_id: str, vpn_id: str, **kw) -> str:
         """
         Get Lan Vpn Profile Parcel by parcelId for Service feature profile
 
@@ -102,9 +98,7 @@ class VpnBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Lan Vpn Profile Parcel for Service feature profile
 
@@ -135,9 +129,7 @@ class VpnBuilder:
 
         return edit_lan_vpn_profile_parcel_for_service_(self._request_adapter)
 
-    def delete_lan_vpn_profile_parcel_for_service(
-        self, service_id: str, vpn_id: str, **kw
-    ):
+    def delete_lan_vpn_profile_parcel_for_service(self, service_id: str, vpn_id: str, **kw):
         """
         Delete a Lan Vpn Profile Parcel for Service feature profile
 
@@ -150,10 +142,7 @@ class VpnBuilder:
             "vpnId": vpn_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}", params=params, **kw
         )
 
     @property

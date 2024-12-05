@@ -6,14 +6,10 @@ from typing import Optional
 
 @dataclass
 class PackagingDistributionData:
-    available_cssm: Optional[int] = _field(
-        default=None, metadata={"alias": "availableCssm"}
-    )
+    available_cssm: Optional[int] = _field(default=None, metadata={"alias": "availableCssm"})
     license: Optional[str] = _field(default=None)
     used_cssm: Optional[str] = _field(default=None, metadata={"alias": "usedCssm"})
-    used_vmanage: Optional[int] = _field(
-        default=None, metadata={"alias": "usedVmanage"}
-    )
+    used_vmanage: Optional[int] = _field(default=None, metadata={"alias": "usedVmanage"})
 
 
 @dataclass

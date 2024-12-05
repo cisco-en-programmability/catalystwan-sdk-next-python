@@ -28,6 +28,4 @@ class TypesBuilder:
         params = {
             "edgeType": edge_type,
         }
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/gateway/edge/types", params=params, **kw
-        )
+        return self._request_adapter.request("GET", "/dataservice/multicloud/gateway/edge/types", params=params, **kw)

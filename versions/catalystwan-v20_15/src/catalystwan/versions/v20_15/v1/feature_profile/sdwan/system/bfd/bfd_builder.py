@@ -28,11 +28,7 @@ class BfdBuilder:
             "systemId": system_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/bfd",
-            return_type=str,
-            params=params,
-            **kw,
+            "GET", "/dataservice/v1/feature-profile/sdwan/system/{systemId}/bfd", return_type=str, params=params, **kw
         )
 
     @property
@@ -41,9 +37,7 @@ class BfdBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Create a Bfd Profile Parcel for System feature profile
 
@@ -72,9 +66,7 @@ class BfdBuilder:
 
         return create_bfd_profile_parcel_for_system_(self._request_adapter)
 
-    def get_bfd_profile_parcel_by_parcel_id_for_system(
-        self, system_id: str, bfd_id: str, **kw
-    ) -> str:
+    def get_bfd_profile_parcel_by_parcel_id_for_system(self, system_id: str, bfd_id: str, **kw) -> str:
         """
         Get Bfd Profile Parcel by parcelId for System feature profile
 
@@ -100,9 +92,7 @@ class BfdBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(
-                self, system_id: str, bfd_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
+            def __call__(self, system_id: str, bfd_id: str, payload: Optional[str] = None, **kw) -> str:
                 """
                 Update a Bfd Profile Parcel for System feature profile
 
@@ -146,10 +136,7 @@ class BfdBuilder:
             "bfdId": bfd_id,
         }
         return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/bfd/{bfdId}",
-            params=params,
-            **kw,
+            "DELETE", "/dataservice/v1/feature-profile/sdwan/system/{systemId}/bfd/{bfdId}", params=params, **kw
         )
 
     @property
