@@ -9,7 +9,8 @@ from catalystwan.abc.types import HTTP_METHOD, JSON
 if TYPE_CHECKING:
     from catalystwan.abc.session_interface import SessionInterface
 
-T = TypeVar("T")
+ReturnType = TypeVar("ReturnType")
+Payload = TypeVar("Payload")
 
 
 class RequestAdapterInterface(Protocol):
@@ -19,9 +20,9 @@ class RequestAdapterInterface(Protocol):
         self,
         method: HTTP_METHOD,
         url: str,
-        payload: Optional[JSON] = None,
+        payload: Union[Payload, JSON] = None,
         params: Optional[dict] = None,
-        return_type: Optional[Type[T]] = None,
+        return_type: Optional[Type[ReturnType]] = None,
         headers: Optional[dict] = None,
         *args,
         **kwargs,
