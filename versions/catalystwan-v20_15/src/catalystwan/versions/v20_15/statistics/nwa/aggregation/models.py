@@ -8,7 +8,7 @@ Health = Literal["fair", "good", "poor"]
 
 @dataclass
 class NetworkAvailabilityResp:
-    health: Health
+    health: Health  # pytype: disable=annotation-type-mismatch
     jitter: int
     latency: int
     loss: int

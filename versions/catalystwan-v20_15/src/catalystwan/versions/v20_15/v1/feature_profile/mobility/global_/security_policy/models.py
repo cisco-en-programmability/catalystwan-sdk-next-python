@@ -26,7 +26,7 @@ class PolicyRule:
 class CreateSecurityPolicyProfileParcelForMobilityPostRequest:
     # Name of the Profile Parcel. Must be unique.
     name: str
-    type_: Type = _field(metadata={"alias": "type"})
+    type_: Type = _field(metadata={"alias": "type"})  # pytype: disable=annotation-type-mismatch
     # User who last created this.
     created_by: Optional[str] = _field(default=None, metadata={"alias": "createdBy"})
     # Timestamp of creation

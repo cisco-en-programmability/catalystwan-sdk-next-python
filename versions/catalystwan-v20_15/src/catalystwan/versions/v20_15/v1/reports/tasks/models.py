@@ -39,7 +39,7 @@ class ReportTaskUiInfo:
     # Task UUID
     task_id: str = _field(metadata={"alias": "taskId"})
     # Report Task status
-    task_status: TaskStatus = _field(metadata={"alias": "taskStatus"})
+    task_status: TaskStatus = _field(metadata={"alias": "taskStatus"})  # pytype: disable=annotation-type-mismatch
     # The detail status for each step of report generating task
     task_step_detail: ReportTaskProcessStepInfo = _field(metadata={"alias": "taskStepDetail"})
     # Report time frame (7 Days or 30 Days)

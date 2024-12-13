@@ -11,9 +11,9 @@ DeviceTypeParam = Literal["all", "controller", "vedge"]
 
 @dataclass
 class SiteHealthItem:
-    apps_health: AppsHealth
+    apps_health: AppsHealth  # pytype: disable=annotation-type-mismatch
     apps_usage: int
-    devices_health: AppsHealth
-    site_health: AppsHealth
+    devices_health: AppsHealth  # pytype: disable=annotation-type-mismatch
+    site_health: AppsHealth  # pytype: disable=annotation-type-mismatch
     site_id: str
-    tunnels_health: AppsHealth
+    tunnels_health: AppsHealth  # pytype: disable=annotation-type-mismatch

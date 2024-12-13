@@ -39,7 +39,7 @@ class TopologyGroup:
     # Name of the  Group. Must be unique.
     name: str
     # Specify one of the device platform solution
-    solution: Solution
+    solution: Solution  # pytype: disable=annotation-type-mismatch
     #  Group Deployment state
     state: str
     #  Group Version Flag

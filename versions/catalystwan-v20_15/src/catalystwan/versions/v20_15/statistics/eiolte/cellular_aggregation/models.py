@@ -47,9 +47,9 @@ class DbQueryAggregationFieldObject:
 
 @dataclass
 class DbQueryAggregationHistogramObject:
-    order: Order
+    order: Order  # pytype: disable=annotation-type-mismatch
     property: Any
-    type_: Type = _field(metadata={"alias": "type"})
+    type_: Type = _field(metadata={"alias": "type"})  # pytype: disable=annotation-type-mismatch
     interval: Optional[int] = _field(default=None)
     mindoccount: Optional[int] = _field(default=None)
 
@@ -57,7 +57,7 @@ class DbQueryAggregationHistogramObject:
 @dataclass
 class DbQueryAggregationMetricObject:
     property: Any
-    type_: CellularAggregationType = _field(metadata={"alias": "type"})
+    type_: CellularAggregationType = _field(metadata={"alias": "type"})  # pytype: disable=annotation-type-mismatch
     order: Optional[str] = _field(default=None)
     sequence: Optional[str] = _field(default=None)
     size: Optional[str] = _field(default=None)
@@ -93,7 +93,7 @@ class DbQuerySpecObject:
 @dataclass
 class DbQuerySortObject:
     field: Any
-    order: Order
+    order: Order  # pytype: disable=annotation-type-mismatch
     type_: Optional[EiolteCellularAggregationType] = _field(default=None, metadata={"alias": "type"})
 
 

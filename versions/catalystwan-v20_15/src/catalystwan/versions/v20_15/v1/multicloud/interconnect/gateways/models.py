@@ -58,7 +58,7 @@ class InterconnectGatewayExtended:
     edge_gateway_name: str = _field(metadata={"alias": "edgeGatewayName"})
     edge_type: str = _field(metadata={"alias": "edgeType"})
     ip_transit: str = _field(metadata={"alias": "ipTransit"})
-    license_type: LicenseType = _field(metadata={"alias": "licenseType"})
+    license_type: LicenseType = _field(metadata={"alias": "licenseType"})  # pytype: disable=annotation-type-mismatch
     region: str
     region_id: str = _field(metadata={"alias": "regionId"})
     site_name: str = _field(metadata={"alias": "siteName"})

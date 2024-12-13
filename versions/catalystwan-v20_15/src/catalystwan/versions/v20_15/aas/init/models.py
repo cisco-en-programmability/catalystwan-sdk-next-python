@@ -45,7 +45,7 @@ class InitBlobVmanageInitBlob:
     internal_credentials: InitBlobVmanageInitBlobInternalCredentials = _field(metadata={"alias": "internalCredentials"})
     jwt_credentials: InitBlobVmanageInitBlobJwtCredentials = _field(metadata={"alias": "jwtCredentials"})
     # vManage Mode
-    mode: Mode
+    mode: Mode  # pytype: disable=annotation-type-mismatch
     pnp: InitBlobVmanageInitBlobPnp
     # SDWAN Portal Url
     sdwan_portal_url: Optional[str] = _field(default=None, metadata={"alias": "sdwanPortalUrl"})

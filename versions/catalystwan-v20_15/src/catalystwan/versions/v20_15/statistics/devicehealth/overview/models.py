@@ -11,7 +11,7 @@ PersonalityParam = Literal["vbond", "vedge", "vmanage", "vsmart"]
 @dataclass
 class DeviceHealthDetailItem:
     cpu_load: int
-    health: Health
+    health: Health  # pytype: disable=annotation-type-mismatch
     health_score: int
     host_name: str
     memory_utilization: int

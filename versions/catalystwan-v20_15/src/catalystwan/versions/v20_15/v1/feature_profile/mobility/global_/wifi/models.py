@@ -95,7 +95,7 @@ class AdvancedRadioSetting:
 class CreateWifiProfileParcelForMobilityPostRequest:
     # Name of the Profile Parcel. Must be unique.
     name: str
-    type_: Type = _field(metadata={"alias": "type"})
+    type_: Type = _field(metadata={"alias": "type"})  # pytype: disable=annotation-type-mismatch
     advanced_radio_setting: Optional[AdvancedRadioSetting] = _field(
         default=None, metadata={"alias": "advancedRadioSetting"}
     )
