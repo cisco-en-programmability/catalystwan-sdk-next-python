@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import Literal, Optional, List, Union, Dict, Any
+    from typing import List, Dict, Union, Literal, Optional, Any
 
     AppsHealth = Literal["fair", "good", "poor"]
 
@@ -15,11 +15,19 @@ Models
 
 
     class SiteHealthItem:
-        apps_health: AppsHealth
+        apps_health: (
+            AppsHealth  # pytype: disable=annotation-type-mismatch
+        )
         apps_usage: int
-        devices_health: AppsHealth
-        site_health: AppsHealth
+        devices_health: (
+            AppsHealth  # pytype: disable=annotation-type-mismatch
+        )
+        site_health: (
+            AppsHealth  # pytype: disable=annotation-type-mismatch
+        )
         site_id: str
-        tunnels_health: AppsHealth
+        tunnels_health: (
+            AppsHealth  # pytype: disable=annotation-type-mismatch
+        )
 
 

@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import Literal, Optional, List, Union, Dict, Any
+    from typing import List, Dict, Union, Literal, Optional, Any
 
     Health = Literal["fair", "good", "n/a", "poor"]
 
@@ -14,7 +14,7 @@ Models
 
     class DeviceHealthDetailItem:
         cpu_load: int
-        health: Health
+        health: Health  # pytype: disable=annotation-type-mismatch
         health_score: int
         host_name: str
         memory_utilization: int

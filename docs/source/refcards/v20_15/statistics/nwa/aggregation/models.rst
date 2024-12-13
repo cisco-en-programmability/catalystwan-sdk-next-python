@@ -5,13 +5,13 @@ Models
 
 .. code:: python
 
-    from typing import Literal, Optional, List, Union, Dict, Any
+    from typing import List, Dict, Union, Literal, Optional, Any
 
     Health = Literal["fair", "good", "poor"]
 
 
     class NetworkAvailabilityResp:
-        health: Health
+        health: Health  # pytype: disable=annotation-type-mismatch
         jitter: int
         latency: int
         loss: int

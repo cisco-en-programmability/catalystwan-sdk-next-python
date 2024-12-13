@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import Literal, Optional, List, Union, Dict, Any
+    from typing import List, Dict, Union, Literal, Optional, Any
 
     Order = Literal["asc", "desc"]
 
@@ -75,7 +75,7 @@ Models
 
 
     class DbQueryAggregationHistogramObject:
-        order: Order
+        order: Order  # pytype: disable=annotation-type-mismatch
         property: Any
         type_: Type
         interval: Optional[int]
@@ -116,7 +116,7 @@ Models
 
     class DbQuerySortObject:
         field: Any
-        order: Order
+        order: Order  # pytype: disable=annotation-type-mismatch
         type_: Optional[EiolteUniqueAggregationType]
 
 

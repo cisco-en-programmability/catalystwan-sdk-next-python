@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import Literal, Optional, List, Union, Dict, Any
+    from typing import List, Dict, Union, Literal, Optional, Any
 
     RequestStatus = Literal["IN_PROGRESS", "NOT_STARTED", "START", "STOP"]
 
