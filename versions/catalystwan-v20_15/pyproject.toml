@@ -31,3 +31,12 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+# for nox
+[dependency-groups]
+dev = [
+  { include-group = "typing" },
+]
+typing = [
+    "mypy",
+    "pytype",
+]

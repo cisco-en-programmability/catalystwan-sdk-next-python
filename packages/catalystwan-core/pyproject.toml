@@ -44,6 +44,23 @@ test = [
 "ver-2015" = [
     "catalystwan-v20-15 == 2.0.0a1",
 ]
+# for nox
+[dependency-groups]
+dev = [
+  { include-group = "test" },
+  { include-group = "typing" },
+]
+typing = [
+    "mypy",
+    "pytype",
+]
+test = [
+  "coverage[toml]>=7.2",
+  "pytest",
+  "pytest-cov",
+  "pytest-snapshot",
+]
+
 
 [build-system]
 requires = ["setuptools"]
