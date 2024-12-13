@@ -26,50 +26,50 @@ class RequestAdapterInterface(Protocol):
         headers: Optional[dict] = None,
         *args,
         **kwargs,
-    ) -> Union[T, Any]: ...
+    ) -> Union[ReturnType, Any]: ...
 
     def get(
         self,
         url: str,
         payload: Optional[dict] = None,
         params: Optional[dict] = None,
-        return_type: Optional[Type[T]] = None,
+        return_type: Optional[Type[ReturnType]] = None,
         headers: Optional[dict] = None,
         *args,
         **kwargs,
-    ) -> Union[T, Any]: ...
+    ) -> Union[ReturnType, Any]: ...
 
     def put(
         self,
         url: str,
         payload: Optional[dict] = None,
         params: Optional[dict] = None,
-        return_type: Optional[Type[T]] = None,
+        return_type: Optional[Type[ReturnType]] = None,
         headers: Optional[dict] = None,
         *args,
         **kwargs,
-    ) -> Union[T, Any]: ...
+    ) -> Union[ReturnType, Any]: ...
 
     def post(
         self,
         url: str,
         payload: Optional[dict] = None,
         params: Optional[dict] = None,
-        return_type: Optional[Type[T]] = None,
+        return_type: Optional[Type[ReturnType]] = None,
         headers: Optional[dict] = None,
         *args,
         **kwargs,
-    ) -> Union[T, Any]: ...
+    ) -> Union[ReturnType, Any]: ...
 
     def delete(
         self,
         url: str,
         payload: Optional[dict] = None,
         params: Optional[dict] = None,
-        return_type: Optional[Type[T]] = None,
+        return_type: Optional[Type[ReturnType]] = None,
         headers: Optional[dict] = None,
         *args,
         **kwargs,
-    ) -> Union[T, Any]: ...
+    ) -> Union[ReturnType, Any]: ...
 
     def __copy__(self) -> Self: ...
