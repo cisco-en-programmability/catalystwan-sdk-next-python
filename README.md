@@ -3,10 +3,6 @@ Cisco Catalyst WAN SDK 2.0
 
 Welcome to the official documentation for the Cisco Catalyst WAN SDK, a package designed for creating simple and parallel automatic requests via the official SD-WAN Manager API.
 
-.. contents:: Table of Contents
-   :depth: 2
-   :local:
-
 Overview
 --------
 
