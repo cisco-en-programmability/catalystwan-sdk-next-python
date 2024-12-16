@@ -1,0 +1,29 @@
+---
+name: CI
+
+on:
+  push:
+    branches: "main"
+  pull_request:
+    paths:
+      - '.github/workflows/ci.yml'
+      - '.github/workflows/ci_core.yml'
+      - 'packages/**'
+  workflow_dispatch:  # Allows to trigger the workflow manually in GitHub UI
+
+jobs:
+  ci-core:
+    uses:
+      ./.github/workflows/ci_core.yml
+    with:
+      working-directory: packages/catalystwan-core
+  ci-types:
+    uses:
+      ./.github/workflows/ci_types.yml
+    with:
+      working-directory: packages/catalystwan-types
+  ci-version-20-15:
+    uses:
+      ./.github/workflows/ci_version.yml
+    with:
+      working-directory: versions/catalystwan-v20_15
