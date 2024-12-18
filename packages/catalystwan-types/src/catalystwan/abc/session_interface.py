@@ -1,3 +1,4 @@
+from contextlib import AbstractContextManager
 from enum import Enum, auto
 from typing import Optional, Protocol
 
@@ -15,7 +16,7 @@ class SessionType(Enum):
     NOT_DEFINED = auto()
 
 
-class SessionInterface(Protocol):
+class SessionInterface(AbstractContextManager, Protocol):
     """
     Interface to client object.
     We only need a 'request' function and few vmanage session properties obtained from server.
@@ -26,7 +27,7 @@ class SessionInterface(Protocol):
     def request(self, method: str, url: str, **kwargs) -> ResponseInterface: ...
 
     @property
-    def api_version(self) -> Optional[Version]: ...
+    def api_version(self) -> Version: ...
 
     @property
     def session_type(self) -> Optional[SessionType]: ...

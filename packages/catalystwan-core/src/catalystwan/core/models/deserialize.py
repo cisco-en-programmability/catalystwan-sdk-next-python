@@ -3,7 +3,7 @@ from copy import deepcopy
 from dataclasses import fields, is_dataclass
 from functools import reduce
 from inspect import isclass, unwrap
-from typing import Any, Dict, List, Literal, Protocol, Tuple, Type, TypeVar, Union
+from typing import Any, Dict, Generic, List, Literal, Protocol, Tuple, Type, TypeVar, Union, cast
 
 from typing_extensions import Annotated, get_args, get_origin, get_type_hints
 
@@ -21,11 +21,11 @@ class ModelDeserializer:
     def __init__(self, model: Type[T]) -> None:
         self.model = model
         try:
-            self.model_type: MODEL_TYPES = model._catalystwan_model_type
+            self.model_type: MODEL_TYPES = model._catalystwan_model_type # type: ignore[attr-defined]
         except AttributeError:
-            self.model_type: MODEL_TYPES = "base"
+            self.model_type = "base"
         self._exceptions: List[
-            CatalystwanModelInputException, CatalystwanModelValidationError
+            Union[CatalystwanModelInputException, CatalystwanModelValidationError]
         ] = []
         # different models wrap their values in different ways, hence
         # the need for multiple extractors
@@ -73,6 +73,7 @@ class ModelDeserializer:
             if isinstance(field_value, field_type):
                 return field_value
             elif is_dataclass(field_type):
+                assert isinstance(field_type, type)
                 return deserialize(field_type, **field_value)
             elif isclass(unwrap(field_type)):
                 if isinstance(field_value, dict):
@@ -158,7 +159,7 @@ class ModelDeserializer:
             alias_path = alias if isinstance(alias, AliasPath) else [alias]
             try:
                 # get value from given dict path
-                field_value = reduce(dict.get, alias_path, kwargs_copy)
+                field_value = reduce(dict.get, alias_path, kwargs_copy) #type: ignore[arg-type]
             except TypeError:
                 field_value = None
             if field_value is None:

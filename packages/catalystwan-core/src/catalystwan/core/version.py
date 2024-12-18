@@ -1,7 +1,7 @@
 import re
 
-from packaging._structures import NegativeInfinity  # type: ignore
-from packaging.version import InvalidVersion, Version  # type: ignore
+from packaging._structures import NegativeInfinity
+from packaging.version import InvalidVersion, Version
 
 
 class NullVersion(Version):
@@ -14,7 +14,7 @@ class NullVersion(Version):
     def __init__(self):
         """Initialize a NullVersion object."""
         super().__init__("0")
-        self._key = (
+        self._key = ( # type: ignore
             NegativeInfinity,
             NegativeInfinity,
             NegativeInfinity,

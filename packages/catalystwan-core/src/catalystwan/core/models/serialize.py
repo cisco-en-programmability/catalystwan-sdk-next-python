@@ -1,5 +1,5 @@
 from dataclasses import Field, fields, is_dataclass
-from typing import Any, Dict, List, Optional, Protocol, Union
+from typing import Any, Dict, List, Optional, Protocol, Union, cast
 
 from catalystwan.core.encoder import serialize_model_value
 from catalystwan.core.types import MODEL_TYPES, AliasPath, DataclassInstance, is_variable
@@ -13,9 +13,9 @@ class ModelSerializer:
     def __init__(self, model: DataclassInstance):
         self.model = model
         try:
-            self.model_type: MODEL_TYPES = model._catalystwan_model_type
+            self.model_type: MODEL_TYPES = model._catalystwan_model_type # type: ignore[attr-defined]
         except AttributeError:
-            self.model_type: MODEL_TYPES = "base"
+            self.model_type = "base"
         # Values need to be wrapped in a specific form, depending on the model type
         self.VALUE_WRAPPERS: Dict[MODEL_TYPES, ValueWrapperCallable] = {
             "base": self.__value_wrapper_base,
@@ -26,7 +26,7 @@ class ModelSerializer:
     def serialize(
         self, by_alias: bool = True, to_json: bool = False, exclude_none: bool = True
     ) -> Dict[str, Any]:
-        return_dict = {}
+        return_dict: Dict[str, Any] = {}
         for field in fields(self.model):
             return_value = getattr(self.model, field.name)
             # skip None values, if needed
@@ -55,9 +55,10 @@ class ModelSerializer:
         to_json: bool,
         exclude_none: bool,
     ) -> Any:
+        return_value: Any
         if is_dataclass(field_value):
             return_value = serialize(
-                model=field_value,
+                model=cast(DataclassInstance, field_value),
                 by_alias=by_alias,
                 to_json=to_json,
                 exclude_none=exclude_none,

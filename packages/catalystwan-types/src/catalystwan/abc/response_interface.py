@@ -1,4 +1,5 @@
 from typing import Protocol
+from collections.abc import Mapping
 
 
 class ResponseInterface(Protocol):
@@ -7,7 +8,8 @@ class ResponseInterface(Protocol):
     but set of methods is minimal to allow easy migration to another client if needed
     """
 
-    headers: dict
+    @property
+    def headers(self) -> Mapping: ...
 
     @property
     def text(self) -> str: ...

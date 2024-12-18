@@ -1,3 +1,3 @@
-from catalystwan.abc.request_adapter_interface import RequestAdapterInterface
-from catalystwan.abc.response_interface import ResponseInterface
-from catalystwan.abc.session_interface import SessionInterface, SessionType
+from catalystwan.abc.request_adapter_interface import RequestAdapterInterface as RequestAdapterInterface
+from catalystwan.abc.response_interface import ResponseInterface as ResponseInterface
+from catalystwan.abc.session_interface import SessionInterface as SessionInterface, SessionType as SessionType
