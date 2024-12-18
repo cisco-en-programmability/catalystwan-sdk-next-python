@@ -7,6 +7,7 @@ from typing import Callable, List, Optional, Union
 from urllib.parse import urljoin, urlparse, urlunparse
 
 from catalystwan.abc import SessionInterface, SessionType
+from catalystwan.core.abstractions import AuthProtocol
 from packaging.version import Version  # type: ignore
 from requests import PreparedRequest, Request, Response, Session, get, head
 from requests.exceptions import ConnectionError, HTTPError, RequestException
@@ -264,10 +265,6 @@ class ManagerSession(ManagerResponseAdapter, SessionInterface):
     def state(self) -> ManagerSessionState:
         return self._state
 
-    @property
-    def state(self) -> ManagerSessionState:
-        return self._state
-
     @state.setter
     def state(self, state: ManagerSessionState) -> None:
         """Resets the session to given state and manages transition to desired OPERATIONAL state"""
@@ -331,7 +328,7 @@ class ManagerSession(ManagerResponseAdapter, SessionInterface):
 
     def _finalize_login(self, server_info: dict) -> None:
         self.server_name = server_info.get("server")
-        self.platform_version = server_info.get("platformVersion")
+        self.platform_version = server_info.get("platformVersion") #type: ignore[assignment]
 
         tenancy_mode = server_info.get("tenancyMode")
         user_mode = server_info.get("userMode")
@@ -511,10 +508,10 @@ class ManagerSession(ManagerResponseAdapter, SessionInterface):
         Returns:
             Tenant UUID.
         """
-        tenants: List[dict] = filter(
+        tenants: List[dict] = list(filter(
             lambda x: x["subdomain"] == self.subdomain,
             self.get("dataservice/tenant").json(),
-        )
+        ))
         try:
             tenant = tenants[0]
         except IndexError:
@@ -531,7 +528,7 @@ class ManagerSession(ManagerResponseAdapter, SessionInterface):
             self._auth.decrease_session_count()
         self._auth.logout(self)
 
-    def close(self) -> None:
+    def close(self, *args) -> None:
         """Closes the ManagerSession.
 
         This method is overrided from requests.Session.

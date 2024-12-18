@@ -129,6 +129,6 @@ dmypy.json
 .pyre/
 
 #Ignore local versions
-packages/catalystwan-core/src/catalystwan/versions/*/
+packages/catalystwan-core/src/catalystwan/versions/
 packages/catalystwan-core/src/catalystwan/abc/
 packages/catalystwan-core/src/catalystwan/workflows/

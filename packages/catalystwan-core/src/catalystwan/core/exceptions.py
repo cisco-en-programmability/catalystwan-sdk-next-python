@@ -9,7 +9,7 @@ class ManagerErrorInfo:
     message: Union[str, None]
     details: Union[str, None]
     code: Union[str, None]
-    type: str
+    type: Union[str, None]
 
 
 class CatalystwanException(Exception):
@@ -224,3 +224,8 @@ class CatalystwanModelInputException(CatalystwanException): ...
 
 
 class CatalystwanModelValidationError(CatalystwanException): ...
+
+
+class CatalystwanResponseTypeError(CatalystwanException):
+    """ Raised when SDWAN response does not match expected type."""
+    ...
