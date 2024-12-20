@@ -41,4 +41,5 @@ dev = [
 typing = [
     "mypy",
     "pytype",
+    "packaging >= 23.0",
 ]
