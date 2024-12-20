@@ -5,7 +5,6 @@ from contextlib import contextmanager
 from copy import copy
 from typing import TYPE_CHECKING, Optional, Union
 
-from catalystwan.core.abstractions import AuthProtocol
 from catalystwan.core.apigw_auth import ApiGwAuth
 from catalystwan.core.loader import load_client
 from catalystwan.core.request_adapter import RequestAdapter
@@ -54,9 +53,7 @@ def create_client(
 ):
     if logger is None:
         logger = logging.getLogger(__name__)
-    with create_manager_session(
-        url, username, password, port, subdomain, logger
-    ) as session:
+    with create_manager_session(url, username, password, port, subdomain, logger) as session:
         version = session.api_version.base_version
         logger.debug(f"Choosing client for version {version}...")
         client = load_client(session.api_version.base_version)

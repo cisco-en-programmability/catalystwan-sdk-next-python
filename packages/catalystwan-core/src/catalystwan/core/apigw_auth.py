@@ -5,13 +5,12 @@ from typing import Literal, Optional
 from urllib.parse import urlparse
 
 from catalystwan.abc import SessionInterface
-from requests import HTTPError, PreparedRequest, post
-from requests.auth import AuthBase
-from requests.exceptions import JSONDecodeError
-
 from catalystwan.core.abstractions import AuthProtocol
 from catalystwan.core.exceptions import CatalystwanException
 from catalystwan.core.response import auth_response_debug
+from requests import HTTPError, PreparedRequest, post
+from requests.auth import AuthBase
+from requests.exceptions import JSONDecodeError
 
 LoginMode = Literal["machine", "user", "session"]
 
@@ -104,9 +103,7 @@ class ApiGwAuth(AuthBase, AuthProtocol):
                 f"Problem with connection to ApiGateway login endpoint, ({ex})"
             )
         except KeyError as ex:
-            raise CatalystwanException(
-                f"Not found token in login response from ApiGateway, ({ex})"
-            )
+            raise CatalystwanException(f"Not found token in login response from ApiGateway, ({ex})")
         else:
             if not token or not isinstance(token, str):
                 raise CatalystwanException("Failed to get bearer token")

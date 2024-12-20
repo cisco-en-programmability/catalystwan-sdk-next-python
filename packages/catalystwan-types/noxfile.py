@@ -2,7 +2,6 @@ import pathlib
 
 import nox
 
-
 PYPROJECT = nox.project.load_toml("pyproject.toml")
 
 ALL_PYTHONS = [

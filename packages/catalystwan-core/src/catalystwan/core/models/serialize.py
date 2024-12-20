@@ -13,7 +13,7 @@ class ModelSerializer:
     def __init__(self, model: DataclassInstance):
         self.model = model
         try:
-            self.model_type: MODEL_TYPES = model._catalystwan_model_type # type: ignore[attr-defined]
+            self.model_type: MODEL_TYPES = model._catalystwan_model_type  # type: ignore[attr-defined]
         except AttributeError:
             self.model_type = "base"
         # Values need to be wrapped in a specific form, depending on the model type
@@ -39,9 +39,7 @@ class ModelSerializer:
             if by_alias:
                 alias: Optional[Union[str, AliasPath]] = field.metadata.get("alias")
                 field_name = alias or field.name
-                key_path = (
-                    field_name if isinstance(field_name, AliasPath) else [field_name]
-                )
+                key_path = field_name if isinstance(field_name, AliasPath) else [field_name]
                 self.__insert_key(return_dict, key_path, return_value)
             else:
                 return_dict[field.name] = return_value
@@ -79,9 +77,7 @@ class ModelSerializer:
         else:
             return_value = serialize_model_value(field_value, to_json)
 
-        return self.__value_wrapper(
-            field=field, field_value=return_value, to_json=to_json
-        )
+        return self.__value_wrapper(field=field, field_value=return_value, to_json=to_json)
 
     @property
     def __value_wrapper(self) -> ValueWrapperCallable:
@@ -106,9 +102,7 @@ class ModelSerializer:
                 "vipObjectType": field.metadata.get("object_type"),
             }
 
-    def __value_wrapper_parcel(
-        self, field: Field, field_value: Any, to_json: bool
-    ) -> Any:
+    def __value_wrapper_parcel(self, field: Field, field_value: Any, to_json: bool) -> Any:
         if (
             not field.metadata.get("wrap", True)
             or (isinstance(field_value, (list, dict)) or is_dataclass(field_value))

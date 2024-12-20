@@ -1,7 +1,7 @@
 from dataclasses import Field
 from typing import Any, ClassVar, Dict, Literal, Protocol, Union
 
-from typing_extensions import Annotated, TypeGuard
+from typing_extensions import Annotated
 
 
 def is_variable(s: Any):

@@ -1,9 +1,7 @@
 import pathlib
-import shutil
 import sys
 
 import nox
-
 
 PYPROJECT = nox.project.load_toml("pyproject.toml")
 
@@ -46,7 +44,6 @@ def units(session):
             "COVERAGE_FILE": coverage_file,
         },
     )
-
 
     """Run the unit test suite."""
 

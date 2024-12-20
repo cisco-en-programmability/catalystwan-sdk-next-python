@@ -6,13 +6,11 @@ from pprint import pformat
 from typing import Any, Dict, Optional, TypeVar, Union
 from urllib.parse import urlparse
 
-from catalystwan.abc import ResponseInterface
+from catalystwan.core.exceptions import ManagerErrorInfo
+from catalystwan.core.metadata import with_proc_info_header
 from requests import PreparedRequest, Request, Response
 from requests.cookies import RequestsCookieJar
 from requests.exceptions import JSONDecodeError
-
-from catalystwan.core.exceptions import ManagerErrorInfo
-from catalystwan.core.metadata import with_proc_info_header
 
 T = TypeVar("T")
 PRINTABLE_CONTENT = re.compile(
@@ -51,9 +49,7 @@ def response_debug(
         "body": getattr(_request, "body", None),
         "json": getattr(_request, "json", None),
     }
-    if content_type := {k.lower(): v for k, v in _request.headers.items()}.get(
-        "content-type"
-    ):
+    if content_type := {k.lower(): v for k, v in _request.headers.items()}.get("content-type"):
         if not re.search(PRINTABLE_CONTENT, content_type):
             del request_debug["body"]
     if urlparse(_request.url).path in SENSITIVE_URL_PATHS:
@@ -81,9 +77,7 @@ def response_debug(
                 else:
                     response_debug.update({"text(trimmed)": response.text[:1024]})
             else:
-                response_debug.update(
-                    {"text(cannot convert to string: unknown encoding)": None}
-                )
+                response_debug.update({"text(cannot convert to string: unknown encoding)": None})
         debug_dict["response"] = response_debug
     return pformat(debug_dict, width=80, sort_dicts=False)
 
@@ -151,8 +145,8 @@ class JsonPayload:
 
 
 class ManagerResponse(
-        Response
-        # ResponseInterface
+    Response
+    # ResponseInterface
 ):
     """Extends Response object with methods specific to vManage.
     Object is meant to be created from aready received requests.Response"""
@@ -193,8 +187,7 @@ class ManagerResponse(
     def _detect_apigw_unauthorized(self) -> bool:
         """Determines if server sent unauthorized response"""
         return (
-            self.status_code == 401
-            and self.json().get("message", "") == "failed to validate user"
+            self.status_code == 401 and self.json().get("message", "") == "failed to validate user"
         )
 
     def info(self, history: bool = False) -> str:

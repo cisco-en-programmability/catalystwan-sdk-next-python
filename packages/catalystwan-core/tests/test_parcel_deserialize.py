@@ -7,7 +7,6 @@ from catalystwan.core.types import AliasPath, Variable
 
 
 def test_simple_deserialize():
-
     @dataclass
     class Model:
         _catalystwan_model_type: ClassVar[str] = "parcel"
@@ -51,7 +50,6 @@ def test_simple_deserialize():
 
 
 def test_simple_payload_deserialize():
-
     @dataclass
     class Model:
         _catalystwan_model_type: ClassVar[str] = "parcel"
@@ -97,7 +95,6 @@ def test_simple_payload_deserialize():
 
 
 def test_submodel():
-
     @dataclass
     class Submodel:
         _catalystwan_model_type: ClassVar[str] = "parcel"
@@ -108,9 +105,7 @@ def test_submodel():
     class Model:
         _catalystwan_model_type: ClassVar[str] = "parcel"
 
-        submodel_field: Submodel = field(
-            metadata={"alias": AliasPath(["data", "submodel_field"])}
-        )
+        submodel_field: Submodel = field(metadata={"alias": AliasPath(["data", "submodel_field"])})
         parcel_name: str = field(metadata={"alias": "name", "wrap": False})
         parcel_description: Optional[str] = field(
             default=None, metadata={"alias": "description", "wrap": False}
@@ -131,7 +126,6 @@ def test_submodel():
 
 
 def test_submodel_payload():
-
     @dataclass
     class Submodel:
         _catalystwan_model_type: ClassVar[str] = "parcel"
@@ -142,9 +136,7 @@ def test_submodel_payload():
     class Model:
         _catalystwan_model_type: ClassVar[str] = "parcel"
 
-        submodel_field: Submodel = field(
-            metadata={"alias": AliasPath(["data", "submodel_field"])}
-        )
+        submodel_field: Submodel = field(metadata={"alias": AliasPath(["data", "submodel_field"])})
         parcel_name: str = field(metadata={"alias": "name", "wrap": False})
         parcel_description: Optional[str] = field(
             default=None, metadata={"alias": "description", "wrap": False}

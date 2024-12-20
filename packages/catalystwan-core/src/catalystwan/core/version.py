@@ -14,7 +14,7 @@ class NullVersion(Version):
     def __init__(self):
         """Initialize a NullVersion object."""
         super().__init__("0")
-        self._key = ( # type: ignore
+        self._key = (  # type: ignore
             NegativeInfinity,
             NegativeInfinity,
             NegativeInfinity,

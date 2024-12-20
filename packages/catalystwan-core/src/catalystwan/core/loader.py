@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Literal, Type, Union, overload
+from typing import TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from catalystwan.versions.v20_15.api_client import ApiClient as ApiClientV20_15

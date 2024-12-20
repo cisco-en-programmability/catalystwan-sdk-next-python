@@ -3,12 +3,14 @@ from copy import deepcopy
 from dataclasses import fields, is_dataclass
 from functools import reduce
 from inspect import isclass, unwrap
-from typing import Any, Dict, Generic, List, Literal, Protocol, Tuple, Type, TypeVar, Union, cast
+from typing import Any, Dict, List, Literal, Protocol, Tuple, Type, TypeVar, Union
 
-from typing_extensions import Annotated, get_args, get_origin, get_type_hints
-
-from catalystwan.core.exceptions import CatalystwanModelInputException, CatalystwanModelValidationError
+from catalystwan.core.exceptions import (
+    CatalystwanModelInputException,
+    CatalystwanModelValidationError,
+)
 from catalystwan.core.types import MODEL_TYPES, AliasPath, DataclassInstance
+from typing_extensions import Annotated, get_args, get_origin, get_type_hints
 
 T = TypeVar("T", bound=DataclassInstance)
 
@@ -21,7 +23,7 @@ class ModelDeserializer:
     def __init__(self, model: Type[T]) -> None:
         self.model = model
         try:
-            self.model_type: MODEL_TYPES = model._catalystwan_model_type # type: ignore[attr-defined]
+            self.model_type: MODEL_TYPES = model._catalystwan_model_type  # type: ignore[attr-defined]
         except AttributeError:
             self.model_type = "base"
         self._exceptions: List[
@@ -46,15 +48,11 @@ class ModelDeserializer:
     def __check_errors(self):
         if self._exceptions:
             # Put exceptions from current model first
-            self._exceptions.sort(
-                key=lambda x: isinstance(x, CatalystwanModelValidationError)
-            )
+            self._exceptions.sort(key=lambda x: isinstance(x, CatalystwanModelValidationError))
             current_model_errors = sum(
                 isinstance(x, CatalystwanModelInputException) for x in self._exceptions
             )
-            message = (
-                f"{current_model_errors} validation errors for {self.model.__name__}\n"
-            )
+            message = f"{current_model_errors} validation errors for {self.model.__name__}\n"
             for exc in self._exceptions:
                 message += f"{exc}\n"
             raise CatalystwanModelValidationError(message)
@@ -96,9 +94,7 @@ class ModelDeserializer:
                 return None
             else:
                 try:
-                    return self.__extract_type(
-                        get_args(field_type)[0], field_value, field_name
-                    )
+                    return self.__extract_type(get_args(field_type)[0], field_value, field_name)
                 except CatalystwanModelInputException as e:
                     if not field_value:
                         return None
@@ -108,7 +104,7 @@ class ModelDeserializer:
                 try:
                     if type(arg)(field_value) == arg:
                         return type(arg)(field_value)
-                except:
+                except Exception:
                     continue
         elif origin is Annotated:
             validator, caster = field_type.__metadata__
@@ -120,7 +116,7 @@ class ModelDeserializer:
             for arg in get_args(field_type):
                 try:
                     return self.__extract_type(arg, field_value, field_name)
-                except:
+                except Exception:
                     continue
         # Correct type not found, add exception
         raise CatalystwanModelInputException(
@@ -144,9 +140,7 @@ class ModelDeserializer:
                 field_value = args_copy.popleft()
                 try:
                     new_args.append(
-                        self.__extract_type(
-                            field_type, value_extractor(field_value), field.name
-                        )
+                        self.__extract_type(field_type, value_extractor(field_value), field.name)
                     )
                 except (
                     CatalystwanModelInputException,
@@ -159,7 +153,7 @@ class ModelDeserializer:
             alias_path = alias if isinstance(alias, AliasPath) else [alias]
             try:
                 # get value from given dict path
-                field_value = reduce(dict.get, alias_path, kwargs_copy) #type: ignore[arg-type]
+                field_value = reduce(dict.get, alias_path, kwargs_copy)  # type: ignore[arg-type]
             except TypeError:
                 field_value = None
             if field_value is None:
@@ -204,8 +198,6 @@ class ModelDeserializer:
 
 
 def deserialize(catalystwan_model: Type[T], *args, **kwargs) -> T:
-    new_args, new_kwargs = ModelDeserializer(catalystwan_model).deserialize(
-        *args, **kwargs
-    )
+    new_args, new_kwargs = ModelDeserializer(catalystwan_model).deserialize(*args, **kwargs)
 
     return catalystwan_model(*new_args, **new_kwargs)

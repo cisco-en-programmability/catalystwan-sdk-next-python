@@ -5,16 +5,15 @@ from typing import Optional
 from urllib.parse import urlparse
 
 from catalystwan.abc import SessionInterface
-from packaging.version import Version  # type: ignore
-from requests import PreparedRequest, Response, get, post
-from requests.auth import AuthBase
-from requests.cookies import RequestsCookieJar, merge_cookies
-
 from catalystwan.core.abstractions import AuthProtocol
 from catalystwan.core.exceptions import CatalystwanException, TenantSubdomainNotFound
 from catalystwan.core.metadata import USER_AGENT
 from catalystwan.core.response import auth_response_debug
 from catalystwan.core.version import NullVersion
+from packaging.version import Version  # type: ignore
+from requests import PreparedRequest, Response, get, post
+from requests.auth import AuthBase
+from requests.cookies import RequestsCookieJar, merge_cookies
 
 
 class UnauthorizedAccessError(CatalystwanException):
@@ -121,11 +120,7 @@ class vManageAuth(AuthBase, AuthProtocol):
         )
         self.sync_cookies(response.cookies)
         self.logger.debug(auth_response_debug(response, str(self)))
-        if (
-            response.text != ""
-            or not isinstance(self.jsessionid, str)
-            or self.jsessionid == ""
-        ):
+        if response.text != "" or not isinstance(self.jsessionid, str) or self.jsessionid == "":
             raise UnauthorizedAccessError(self.username, self.password)
         return self.jsessionid
 
@@ -145,7 +140,9 @@ class vManageAuth(AuthBase, AuthProtocol):
         return response.text
 
     def authenticate(self, request: PreparedRequest):
-        self._base_url = f"{str(urlparse(request.url).scheme)}://{str(urlparse(request.url).netloc)}"  # noqa: E231
+        self._base_url = (
+            f"{str(urlparse(request.url).scheme)}://{str(urlparse(request.url).netloc)}"  # noqa: E231
+        )
         self.get_jsessionid()
         self.xsrftoken = self.get_xsrftoken()
 
@@ -258,14 +255,10 @@ class vSessionAuth(vManageAuth):
         self.sync_cookies(response.cookies)
         self.logger.debug(auth_response_debug(response, str(self)))
         tenants = response.json()
-        tenant = next(
-            (t for t in tenants if t.get("subDomain") == self.subdomain), None
-        )
+        tenant = next((t for t in tenants if t.get("subDomain") == self.subdomain), None)
 
         if not tenant or not tenant.tenant_id:
-            raise TenantSubdomainNotFound(
-                f"Tenant ID for sub-domain: {self.subdomain} not found"
-            )
+            raise TenantSubdomainNotFound(f"Tenant ID for sub-domain: {self.subdomain} not found")
         return tenant["tenantId"]
 
     def get_vsessionid(self, tenantid: str) -> str:

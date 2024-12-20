@@ -1,6 +1,6 @@
 import abc
-from typing import Protocol
 from collections.abc import Mapping
+from typing import Protocol
 
 
 class ResponseInterface(Protocol):

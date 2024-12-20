@@ -7,19 +7,23 @@ from typing import Callable, List, Optional, Union
 from urllib.parse import urljoin, urlparse, urlunparse
 
 from catalystwan.abc import SessionInterface, SessionType
-from catalystwan.core.abstractions import AuthProtocol
-from packaging.version import Version  # type: ignore
-from requests import PreparedRequest, Request, Response, Session, get, head
-from requests.exceptions import ConnectionError, HTTPError, RequestException
-
 from catalystwan.core.apigw_auth import ApiGwAuth, ApiGwLogin, LoginMode
-from catalystwan.core.exceptions import (DefaultPasswordError, ManagerHTTPError, ManagerReadyTimeout,
-                                         ManagerRequestException, SessionNotCreatedError, TenantSubdomainNotFound)
+from catalystwan.core.exceptions import (
+    DefaultPasswordError,
+    ManagerHTTPError,
+    ManagerReadyTimeout,
+    ManagerRequestException,
+    SessionNotCreatedError,
+    TenantSubdomainNotFound,
+)
 from catalystwan.core.metadata import USER_AGENT
 from catalystwan.core.request_limiter import RequestLimiter
 from catalystwan.core.response import ManagerResponse, response_history_debug
 from catalystwan.core.version import NullVersion, parse_api_version
 from catalystwan.core.vmanage_auth import create_vmanage_auth, vManageAuth
+from packaging.version import Version  # type: ignore
+from requests import PreparedRequest, Request, Response, Session, get, head
+from requests.exceptions import ConnectionError, HTTPError, RequestException
 
 
 class UserMode(str, Enum):
@@ -328,7 +332,7 @@ class ManagerSession(ManagerResponseAdapter, SessionInterface):
 
     def _finalize_login(self, server_info: dict) -> None:
         self.server_name = server_info.get("server")
-        self.platform_version = server_info.get("platformVersion") #type: ignore[assignment]
+        self.platform_version = server_info.get("platformVersion")  # type: ignore[assignment]
 
         tenancy_mode = server_info.get("tenancyMode")
         user_mode = server_info.get("userMode")
@@ -405,21 +409,15 @@ class ManagerSession(ManagerResponseAdapter, SessionInterface):
                 self.logger.debug(self.response_trace(resp, None))
                 if resp.status_code == 200:
                     if resp.json().get("isServerReady") is True:
-                        self.logger.debug(
-                            f"Waiting for server ready took: {elapsed()} seconds."
-                        )
+                        self.logger.debug(f"Waiting for server ready took: {elapsed()} seconds.")
                         return
                 sleep(poll_period)
                 continue
             except RequestException as exception:
-                self.logger.debug(
-                    self.response_trace(exception.response, exception.request)
-                )
+                self.logger.debug(self.response_trace(exception.response, exception.request))
                 raise ManagerRequestException(*exception.args)
 
-        raise ManagerReadyTimeout(
-            f"Waiting for server ready took longer than {timeout} seconds."
-        )
+        raise ManagerReadyTimeout(f"Waiting for server ready took longer than {timeout} seconds.")
 
     def request(self, method, url, *args, **kwargs) -> ManagerResponse:
         full_url = self.get_full_url(url)
@@ -430,19 +428,12 @@ class ManagerSession(ManagerResponseAdapter, SessionInterface):
             _kwargs.update(timeout=self.request_timeout)
         try:
             with self._limiter:
-                response = super(ManagerSession, self).request(
-                    method, full_url, *args, **_kwargs
-                )
+                response = super(ManagerSession, self).request(method, full_url, *args, **_kwargs)
             self.logger.debug(self.response_trace(response, None))
-            if (
-                self.state == ManagerSessionState.RESTART_IMMINENT
-                and response.status_code == 503
-            ):
+            if self.state == ManagerSessionState.RESTART_IMMINENT and response.status_code == 503:
                 self.state = ManagerSessionState.WAIT_SERVER_READY_AFTER_RESTART
         except RequestException as exception:
-            self.logger.debug(
-                self.response_trace(exception.response, exception.request)
-            )
+            self.logger.debug(self.response_trace(exception.response, exception.request))
             if self.state == ManagerSessionState.RESTART_IMMINENT and isinstance(
                 exception, ConnectionError
             ):
@@ -508,18 +499,18 @@ class ManagerSession(ManagerResponseAdapter, SessionInterface):
         Returns:
             Tenant UUID.
         """
-        tenants: List[dict] = list(filter(
-            lambda x: x["subdomain"] == self.subdomain,
-            self.get("dataservice/tenant").json(),
-        ))
+        tenants: List[dict] = list(
+            filter(
+                lambda x: x["subdomain"] == self.subdomain,
+                self.get("dataservice/tenant").json(),
+            )
+        )
         try:
             tenant = tenants[0]
         except IndexError:
             tenant = None
         if tenant is None or tenant.get("tenantId") is None:
-            raise TenantSubdomainNotFound(
-                f"Tenant ID for sub-domain: {self.subdomain} not found"
-            )
+            raise TenantSubdomainNotFound(f"Tenant ID for sub-domain: {self.subdomain} not found")
 
         return tenant["tenantId"]
 

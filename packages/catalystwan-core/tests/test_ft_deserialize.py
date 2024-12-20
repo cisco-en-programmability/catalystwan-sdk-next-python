@@ -7,7 +7,6 @@ from catalystwan.core.types import AliasPath, Variable
 
 
 def test_simple_deserialize():
-
     @dataclass
     class Model:
         int_field: int = field(
@@ -41,9 +40,7 @@ def test_simple_deserialize():
             }
         )
         template_name: str = field(metadata={"alias": "templateName", "wrap": False})
-        template_description: str = field(
-            metadata={"alias": "templateDescription", "wrap": False}
-        )
+        template_description: str = field(metadata={"alias": "templateDescription", "wrap": False})
         template_type: str = field(
             default="type",
             init=False,
@@ -85,7 +82,6 @@ def test_simple_deserialize():
 
 
 def test_simple_payload_deserialize():
-
     @dataclass
     class Model:
         _catalystwan_model_type: ClassVar[str] = "feature_template"
@@ -121,9 +117,7 @@ def test_simple_payload_deserialize():
             }
         )
         template_name: str = field(metadata={"alias": "templateName", "wrap": False})
-        template_description: str = field(
-            metadata={"alias": "templateDescription", "wrap": False}
-        )
+        template_description: str = field(metadata={"alias": "templateDescription", "wrap": False})
         template_type: str = field(
             default="type",
             init=False,
@@ -193,7 +187,6 @@ def test_simple_payload_deserialize():
 
 
 def test_submodel():
-
     @dataclass
     class Submodel:
         _catalystwan_model_type: ClassVar[str] = "feature_template"
@@ -212,9 +205,7 @@ def test_submodel():
         )
 
         template_name: str = field(metadata={"alias": "templateName", "wrap": False})
-        template_description: str = field(
-            metadata={"alias": "templateDescription", "wrap": False}
-        )
+        template_description: str = field(metadata={"alias": "templateDescription", "wrap": False})
         template_type: str = field(
             default="type",
             init=False,
@@ -241,7 +232,6 @@ def test_submodel():
 
 
 def test_submodel_payload():
-
     @dataclass
     class Submodel:
         _catalystwan_model_type: ClassVar[str] = "feature_template"
@@ -260,9 +250,7 @@ def test_submodel_payload():
         )
 
         template_name: str = field(metadata={"alias": "templateName", "wrap": False})
-        template_description: str = field(
-            metadata={"alias": "templateDescription", "wrap": False}
-        )
+        template_description: str = field(metadata={"alias": "templateDescription", "wrap": False})
         template_type: str = field(
             default="type",
             init=False,

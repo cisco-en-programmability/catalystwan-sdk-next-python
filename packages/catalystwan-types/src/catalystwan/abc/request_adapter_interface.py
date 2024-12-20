@@ -2,9 +2,8 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Any, Optional, Protocol, Type, TypeVar, Union
 
-from typing_extensions import Self
-
 from catalystwan.abc.types import HTTP_METHOD, JSON
+from typing_extensions import Self
 
 if TYPE_CHECKING:
     from catalystwan.abc.session_interface import SessionInterface

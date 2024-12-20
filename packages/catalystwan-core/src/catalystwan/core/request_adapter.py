@@ -8,15 +8,15 @@ from typing import Any, Dict, List, Optional, Tuple, Type, TypeVar, Union, cast
 from catalystwan.abc import RequestAdapterInterface, ResponseInterface, SessionInterface
 from catalystwan.abc.types import HTTP_METHOD, JSON
 from catalystwan.core.exceptions import CatalystwanResponseTypeError
-from typing_extensions import get_args, get_origin
-
 from catalystwan.core.models.deserialize import deserialize
 from catalystwan.core.models.serialize import serialize
 from catalystwan.core.types import DataclassInstance, get_alias
+from typing_extensions import get_args, get_origin
 
 T = TypeVar("T")
 ReturnType = TypeVar("ReturnType")
 Payload = TypeVar("Payload")
+
 
 @dataclass
 class ResponseDataPath:
@@ -56,9 +56,7 @@ class RequestAdapter(RequestAdapterInterface):
                 for _, field_name, _, _ in Formatter().parse(url)
                 if field_name is not None
             ]
-            url = url.format_map(
-                {path_key: params.pop(path_key) for path_key in path_keys}
-            )
+            url = url.format_map({path_key: params.pop(path_key) for path_key in path_keys})
         if is_dataclass(payload):
             payload = serialize(cast(DataclassInstance, payload), to_json=True)
         response = self.session.request(
@@ -162,19 +160,23 @@ class RequestAdapter(RequestAdapterInterface):
         elif is_dataclass(return_type):
             model_payload = self.__extract_json_data(response.json(), fields=fields(return_type))
             if not isinstance(model_payload, dict):
-                raise CatalystwanResponseTypeError(f"Expected data for {return_type} model. Data received: {model_payload}")
-            return cast(ReturnType, deserialize(
-                return_type,
-                **model_payload,
-            ))
+                raise CatalystwanResponseTypeError(
+                    f"Expected data for {return_type} model. Data received: {model_payload}"
+                )
+            return cast(
+                ReturnType,
+                deserialize(
+                    return_type,
+                    **model_payload,
+                ),
+            )
         elif get_origin(return_type) is list:
             args = self.__extract_json_data(response.json())
             if not isinstance(args, list):
-                raise CatalystwanResponseTypeError(f"Expected type: list. Type received: {type(args)}")
-            return [
-                self.__parse_list(get_args(return_type)[0], value)
-                for value in args
-            ]
+                raise CatalystwanResponseTypeError(
+                    f"Expected type: list. Type received: {type(args)}"
+                )
+            return [self.__parse_list(get_args(return_type)[0], value) for value in args]
         else:
             return None
 
@@ -195,12 +197,16 @@ class RequestAdapter(RequestAdapterInterface):
     def __parse_list(self, arg_type: Type[T], values: Union[T, JSON]) -> T:
         if get_origin(arg_type) is list:
             if not isinstance(values, list):
-                raise CatalystwanResponseTypeError(f"Expected type: list. Type received: {type(values)}")
+                raise CatalystwanResponseTypeError(
+                    f"Expected type: list. Type received: {type(values)}"
+                )
             return cast(T, [self.__parse_list(get_args(arg_type)[0], value) for value in values])
         elif is_dataclass(arg_type):
             model_payload = self.__extract_json_data(cast(JSON, values), fields=fields(arg_type))
             if not isinstance(model_payload, dict):
-                raise CatalystwanResponseTypeError(f"Expected data for {arg_type} model. Data received: {model_payload}")
+                raise CatalystwanResponseTypeError(
+                    f"Expected data for {arg_type} model. Data received: {model_payload}"
+                )
             return cast(T, deserialize(arg_type, **model_payload))
         else:
             return cast(T, values)
@@ -210,9 +216,7 @@ class RequestAdapter(RequestAdapterInterface):
             return data
         # If we expect a model, see if necessary data is on the top-level of the json
         if fields is not None:
-            field_names = [
-                get_alias(field.metadata.get("alias", field.name)) for field in fields
-            ]
+            field_names = [get_alias(field.metadata.get("alias", field.name)) for field in fields]
         else:
             field_names = []
         if field_names and all(key in data for key in field_names):
