@@ -5,27 +5,14 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, Literal, Type, Union, overload
 
 if TYPE_CHECKING:
-    from catalystwan.versions.v20_14.api_client import ApiClient as ApiClientV20_14
     from catalystwan.versions.v20_15.api_client import ApiClient as ApiClientV20_15
 
-    ApiClient = Union[ApiClientV20_14, ApiClientV20_15]
+    ApiClient = Union[ApiClientV20_15]
 
-VERSIONS = ["20.14", "20.15"]
-
-
-@overload
-def load_client(version: Literal["20.14"]) -> Type[ApiClientV20_14]: ...
-
-
-@overload
-def load_client(version: Literal["20.15"]) -> Type[ApiClientV20_15]: ...
+VERSIONS = ["20.15"]
 
 
 def load_client(version: str):
-    if version == "20.14":
-        from catalystwan.versions.v20_14.api_client import ApiClient as ApiClientV20_14
-
-        return ApiClientV20_14
     if version == "20.15":
         from catalystwan.versions.v20_15.api_client import ApiClient as ApiClientV20_15
 
