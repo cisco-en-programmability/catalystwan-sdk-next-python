@@ -6,7 +6,6 @@ from pprint import pformat
 from typing import Any, Dict, Optional, TypeVar, Union
 from urllib.parse import urlparse
 
-# from catalystwan2 import with_proc_info_header
 from catalystwan.abc import ResponseInterface
 from requests import PreparedRequest, Request, Response
 from requests.cookies import RequestsCookieJar
@@ -151,11 +150,15 @@ class JsonPayload:
             self.headers = json.get("headers", None)
 
 
-class ManagerResponse(Response, ResponseInterface):
+class ManagerResponse(
+        Response
+        # ResponseInterface
+):
     """Extends Response object with methods specific to vManage.
     Object is meant to be created from aready received requests.Response"""
 
     def __init__(self, response: Response):
+        # @todo find better way to copy response
         self.__dict__.update(response.__dict__)
         self.jsessionid_expired = self._detect_expired_jsessionid()
         self.api_gw_unauthorized = self._detect_apigw_unauthorized()
