@@ -71,7 +71,7 @@ where = ["src"]
 
 [tool.mypy]
 files = "src"
+exclude="loader\\.py$"
 mypy_path = "$MYPY_CONFIG_FILE_DIR/src/"
 namespace_packages = true
 explicit_package_bases = true
-
