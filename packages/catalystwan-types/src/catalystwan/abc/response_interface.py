@@ -1,3 +1,4 @@
+import abc
 from typing import Protocol
 from collections.abc import Mapping
 
@@ -9,12 +10,16 @@ class ResponseInterface(Protocol):
     """
 
     @property
+    @abc.abstractmethod
     def headers(self) -> Mapping: ...
 
     @property
+    @abc.abstractmethod
     def text(self) -> str: ...
 
     @property
+    @abc.abstractmethod
     def content(self) -> bytes: ...
 
+    @abc.abstractmethod
     def json(self) -> dict: ...
