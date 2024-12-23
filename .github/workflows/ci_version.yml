@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Setup uv
-        uses: astral-sh/setup-uv@v3
+        uses: astral-sh/setup-uv@v5
       - name: Install Catalystwan WAN SDK Types (uv)
         run:  uv pip install --system ../../packages/catalystwan-types
       - name: Install Catalystwan WAN SDK Self (uv)
@@ -47,7 +47,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Setup uv
-        uses: astral-sh/setup-uv@v3
+        uses: astral-sh/setup-uv@v5
       - name: Install Nox
         run:  uv pip install --system nox==2024.10.*
       - name: Run linting on ${{ matrix.os }} )
