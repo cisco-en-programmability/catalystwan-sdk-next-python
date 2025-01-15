@@ -39,7 +39,7 @@ def create_thread_client(
         logger.debug(f"Choosing client for version {version}...")
         client = load_client(session.api_version.base_version)
         logger.debug(f"Client for version {version} loaded")
-        yield client(RequestAdapter(session=session))
+        yield client(RequestAdapter(session=session, logger=logger))
 
 
 @contextmanager
@@ -58,7 +58,7 @@ def create_client(
         logger.debug(f"Choosing client for version {version}...")
         client = load_client(session.api_version.base_version)
         logger.debug(f"Client for version {version} loaded")
-        yield client(RequestAdapter(session=session))
+        yield client(RequestAdapter(session=session, logger=logger))
 
 
 @contextmanager

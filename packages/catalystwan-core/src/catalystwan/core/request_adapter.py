@@ -137,10 +137,10 @@ class RequestAdapter(RequestAdapterInterface):
     ) -> DataclassType:
         if not isinstance(model_payload, dict):
             raise CatalystwanResponseTypeError(
-                f"Expected data for {return_type} model. Data received: {model_payload}"
+                f"Expected data for {return_type} model. Received data of type {type(model_payload)} instead."
             )
 
         return deserialize(return_type, **model_payload)
 
     def __copy__(self) -> RequestAdapter:
-        return RequestAdapter(session=copy(self.session))
+        return RequestAdapter(session=copy(self.session), logger=self.logger)
