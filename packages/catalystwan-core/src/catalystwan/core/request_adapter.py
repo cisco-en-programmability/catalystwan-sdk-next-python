@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 from copy import copy
 from dataclasses import Field, dataclass, field, fields, is_dataclass
 from string import Formatter
@@ -13,7 +14,7 @@ from catalystwan.core.models.serialize import serialize
 from catalystwan.core.types import DataclassInstance, get_alias
 from typing_extensions import get_args, get_origin
 
-T = TypeVar("T")
+DataclassType = TypeVar("DataclassType", bound=DataclassInstance)
 ReturnType = TypeVar("ReturnType")
 Payload = TypeVar("Payload")
 
@@ -37,8 +38,9 @@ class RequestAdapter(RequestAdapterInterface):
         ResponseDataPath(data_key="devices", required_keys=["header"]),
     ]
 
-    def __init__(self, session: SessionInterface):
+    def __init__(self, session: SessionInterface, logger: Optional[logging.Logger] = None):
         self.session = session
+        self.logger = logger or logging.getLogger(__name__)
 
     def request(
         self,
@@ -49,7 +51,7 @@ class RequestAdapter(RequestAdapterInterface):
         return_type: Optional[Type[ReturnType]] = None,
         headers: Optional[dict] = None,
         **kwargs,
-    ) -> Union[ReturnType, str, JSON, bytes, list, None]:
+    ) -> Union[ReturnType, JSON, bytes, None]:
         if params:
             path_keys = [
                 field_name
@@ -68,121 +70,26 @@ class RequestAdapter(RequestAdapterInterface):
             **kwargs,
         )
 
-        return self.__prepare_return_type(return_type, response)
-
-    def get(
-        self,
-        url: str,
-        payload: Union[Payload, JSON] = None,
-        params: Optional[dict] = None,
-        return_type: Optional[Type[ReturnType]] = None,
-        headers: Optional[dict] = None,
-        **kwargs,
-    ) -> Union[ReturnType, str, JSON, bytes, list, None]:
-        return self.request(
-            method="GET",
-            url=url,
-            payload=payload,
-            params=params,
-            return_type=return_type,
-            headers=headers,
-            **kwargs,
-        )
-
-    def put(
-        self,
-        url: str,
-        payload: Union[Payload, JSON] = None,
-        params: Optional[dict] = None,
-        return_type: Optional[Type[ReturnType]] = None,
-        headers: Optional[dict] = None,
-        **kwargs,
-    ) -> Union[ReturnType, str, JSON, bytes, list, None]:
-        return self.request(
-            method="PUT",
-            url=url,
-            payload=payload,
-            params=params,
-            return_type=return_type,
-            headers=headers,
-            **kwargs,
-        )
-
-    def post(
-        self,
-        url: str,
-        payload: Union[Payload, JSON] = None,
-        params: Optional[dict] = None,
-        return_type: Optional[Type[ReturnType]] = None,
-        headers: Optional[dict] = None,
-        **kwargs,
-    ) -> Union[ReturnType, str, JSON, bytes, list, None]:
-        return self.request(
-            method="POST",
-            url=url,
-            payload=payload,
-            params=params,
-            return_type=return_type,
-            headers=headers,
-            **kwargs,
-        )
-
-    def delete(
-        self,
-        url: str,
-        payload: Union[Payload, JSON] = None,
-        params: Optional[dict] = None,
-        return_type: Optional[Type[ReturnType]] = None,
-        headers: Optional[dict] = None,
-        **kwargs,
-    ) -> Union[ReturnType, str, JSON, bytes, list, None]:
-        return self.request(
-            method="DELETE",
-            url=url,
-            payload=payload,
-            params=params,
-            return_type=return_type,
-            headers=headers,
-            **kwargs,
-        )
+        content = self.__get_content(response)
+        return self.__prepare_return_type(return_type, content)
 
     def __prepare_return_type(
-        self, return_type: Optional[Type[ReturnType]], response: ResponseInterface
-    ) -> Union[ReturnType, str, JSON, bytes, list, None]:
-        if return_type is None:
-            return self.__get_return_type_from_content_type(response)
-        elif return_type is dict:
-            return self.__extract_json_data(response.json())
-        elif return_type is str:
-            return response.text
-        elif return_type is bytes:
-            return response.content
-        elif is_dataclass(return_type):
-            model_payload = self.__extract_json_data(response.json(), fields=fields(return_type))
-            if not isinstance(model_payload, dict):
-                raise CatalystwanResponseTypeError(
-                    f"Expected data for {return_type} model. Data received: {model_payload}"
-                )
+        self, return_type: Optional[Type[ReturnType]], content: Union[JSON, str, bytes, None]
+    ) -> Union[ReturnType, JSON, bytes, None]:
+        if is_dataclass(return_type):
             return cast(
-                ReturnType,
-                deserialize(
-                    return_type,
-                    **model_payload,
-                ),
+                ReturnType, self.__get_dataclass(return_type=return_type, model_payload=content)
             )
-        elif get_origin(return_type) is list:
-            args = self.__extract_json_data(response.json())
-            if not isinstance(args, list):
-                raise CatalystwanResponseTypeError(
-                    f"Expected type: list. Type received: {type(args)}"
-                )
-            return [self.__parse_list(get_args(return_type)[0], value) for value in args]
+        elif get_origin(return_type) is list and type(content) is list:
+            return [self.__parse_list(get_args(return_type)[0], value) for value in content]
         else:
-            return None
+            if type(content) is not return_type and return_type is not None:
+                self.logger.warning(
+                    f"Server returned unexpected data. Expected: {return_type}, received {type(content)}"
+                )
+            return content
 
-    def __get_return_type_from_content_type(
-        self, response: ResponseInterface
-    ) -> Union[str, JSON, bytes, None]:
+    def __get_content(self, response: ResponseInterface) -> Union[JSON, str, bytes, None]:
         content_type: str = response.headers.get("content-type", "")
         if not content_type:
             return None
@@ -193,23 +100,22 @@ class RequestAdapter(RequestAdapterInterface):
         else:
             return response.content
 
-    # TODO: Review and potentially fix typing in this function
-    def __parse_list(self, arg_type: Type[T], values: Union[T, JSON]) -> T:
-        if get_origin(arg_type) is list:
+    def __parse_list(
+        self, arg_type: Type[ReturnType], values: Union[JSON]
+    ) -> Union[ReturnType, JSON]:
+        if is_dataclass(arg_type):
+            model_payload = self.__extract_json_data(values, fields=fields(arg_type))
+            return cast(
+                ReturnType, self.__get_dataclass(return_type=arg_type, model_payload=model_payload)
+            )
+        elif get_origin(arg_type) is list:
             if not isinstance(values, list):
                 raise CatalystwanResponseTypeError(
                     f"Expected type: list. Type received: {type(values)}"
                 )
-            return cast(T, [self.__parse_list(get_args(arg_type)[0], value) for value in values])
-        elif is_dataclass(arg_type):
-            model_payload = self.__extract_json_data(cast(JSON, values), fields=fields(arg_type))
-            if not isinstance(model_payload, dict):
-                raise CatalystwanResponseTypeError(
-                    f"Expected data for {arg_type} model. Data received: {model_payload}"
-                )
-            return cast(T, deserialize(arg_type, **model_payload))
+            return [self.__parse_list(get_args(arg_type)[0], value) for value in values]
         else:
-            return cast(T, values)
+            return values
 
     def __extract_json_data(self, data: JSON, fields: Optional[Tuple[Field, ...]] = None) -> JSON:
         if not isinstance(data, dict):
@@ -225,6 +131,16 @@ class RequestAdapter(RequestAdapterInterface):
             if known_data_path.is_data_available(data):
                 return known_data_path.get_data(data)
         return data
+
+    def __get_dataclass(
+        self, return_type: Type[DataclassType], model_payload: Union[JSON, str, bytes, None]
+    ) -> DataclassType:
+        if not isinstance(model_payload, dict):
+            raise CatalystwanResponseTypeError(
+                f"Expected data for {return_type} model. Data received: {model_payload}"
+            )
+
+        return deserialize(return_type, **model_payload)
 
     def __copy__(self) -> RequestAdapter:
         return RequestAdapter(session=copy(self.session))
