@@ -5,11 +5,16 @@ from typing import Optional, Type
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
+from .models import CreateNgfirewallProfileParcelPostResponse, Default
+
 
 class NgfirewallBuilder:
     """
     Builds and executes requests for operations under /v1/feature-profile/sdwan/embedded-security/{securityId}/unified/ngfirewall
     """
+
+    models = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -38,13 +43,15 @@ class NgfirewallBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(self, security_id: str, payload: Optional[str] = None, **kw) -> str:
+            def __call__(
+                self, security_id: str, payload: Optional[Default] = None, **kw
+            ) -> CreateNgfirewallProfileParcelPostResponse:
                 """
                 Create Parcel for Ngfirewall Policy
 
                 :param security_id: Feature Profile ID
                 :param payload: Ngfirewall Profile Parcel
-                :returns: str
+                :returns: CreateNgfirewallProfileParcelPostResponse
                 """
                 params = {
                     "securityId": security_id,
@@ -52,18 +59,18 @@ class NgfirewallBuilder:
                 return self._request_adapter.request(
                     "POST",
                     "/dataservice/v1/feature-profile/sdwan/embedded-security/{securityId}/unified/ngfirewall",
-                    return_type=str,
+                    return_type=CreateNgfirewallProfileParcelPostResponse,
                     params=params,
                     payload=payload,
                     **kw,
                 )
 
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
+            def create_payload(self, *args, **kwargs) -> Default:
+                return Default(*args, **kwargs)
 
             @property
-            def payload_model(self) -> Type[str]:
-                return str
+            def payload_model(self) -> Type[Default]:
+                return Default
 
         return create_ngfirewall_profile_parcel_(self._request_adapter)
 
@@ -96,7 +103,11 @@ class NgfirewallBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self, security_id: str, security_profile_parcel_id: str, payload: Optional[str] = None, **kw
+                self,
+                security_id: str,
+                security_profile_parcel_id: str,
+                payload: Optional[str] = None,
+                **kw,
             ) -> str:
                 """
                 Update a Ngfirewall Profile Parcel
@@ -128,7 +139,9 @@ class NgfirewallBuilder:
 
         return edit_ngfirewall_profile_parcel_(self._request_adapter)
 
-    def delete_ngfirewall_profile_parcel(self, security_id: str, security_profile_parcel_id: str, **kw):
+    def delete_ngfirewall_profile_parcel(
+        self, security_id: str, security_profile_parcel_id: str, **kw
+    ):
         """
         Delete a Ngfirewall Profile Parcel
 

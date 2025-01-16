@@ -1,9 +1,15 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from dataclasses import dataclass
 from dataclasses import field as _field
-from typing import Dict, List, Literal, Optional
+from typing import Any, Dict, List, Literal, Optional
 
-Solution = Literal["cellulargateway", "common", "mobility", "nfvirtual", "sd-routing", "sdwan", "service-insertion"]
+Solution = Literal[
+    "cellulargateway", "common", "mobility", "nfvirtual", "sd-routing", "sdwan", "service-insertion"
+]
+
+ProfileType = Literal["global"]
+
+PolicyGroupSolution = Literal["sd-routing", "sdwan"]
 
 
 @dataclass
@@ -31,7 +37,9 @@ class FeatureProfile:
     # Timestamp of last update
     last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
     # Number of Parcels attached with Feature Profile
-    profile_parcel_count: Optional[int] = _field(default=None, metadata={"alias": "profileParcelCount"})
+    profile_parcel_count: Optional[int] = _field(
+        default=None, metadata={"alias": "profileParcelCount"}
+    )
 
 
 @dataclass
@@ -58,10 +66,61 @@ class PolicyGroup:
     # Timestamp of last update
     last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
     number_of_devices: Optional[int] = _field(default=None, metadata={"alias": "numberOfDevices"})
-    number_of_devices_up_to_date: Optional[int] = _field(default=None, metadata={"alias": "numberOfDevicesUpToDate"})
+    number_of_devices_up_to_date: Optional[int] = _field(
+        default=None, metadata={"alias": "numberOfDevicesUpToDate"}
+    )
     origin: Optional[str] = _field(default=None)
     origin_info: Optional[Dict[str, str]] = _field(default=None, metadata={"alias": "originInfo"})
     # List of devices UUIDs associated with this group
     profiles: Optional[List[FeatureProfile]] = _field(default=None)
     # Source of group
     source: Optional[str] = _field(default=None)
+
+
+@dataclass
+class ProfileObjDef:
+    id: str
+    profile_type: ProfileType = _field(
+        metadata={"alias": "profileType"}
+    )  # pytype: disable=annotation-type-mismatch
+
+
+@dataclass
+class Default:
+    """
+    Policy Group POST Response schema
+    """
+
+    id: str
+    # This is the documentation for POST response schema for policy group.
+    documentation: Optional[Any] = _field(default=None)
+    # (Optional - only applicable for AON) List of profile ids that belongs to the policy group
+    profiles: Optional[List[ProfileObjDef]] = _field(default=None)
+
+
+@dataclass
+class ProfileIdObjDef:
+    id: str
+
+
+@dataclass
+class FromPolicyGroupDef:
+    copy: str
+
+
+@dataclass
+class PolicyGroupDefault:
+    """
+    Policy Group POST Request schema
+    """
+
+    description: str
+    name: str
+    solution: PolicyGroupSolution  # pytype: disable=annotation-type-mismatch
+    # This is the documentation for POST request api schema for policy group
+    documentation: Optional[Any] = _field(default=None)
+    from_policy_group: Optional[FromPolicyGroupDef] = _field(
+        default=None, metadata={"alias": "fromPolicyGroup"}
+    )
+    # list of profile ids that belongs to the policy group
+    profiles: Optional[List[ProfileIdObjDef]] = _field(default=None)

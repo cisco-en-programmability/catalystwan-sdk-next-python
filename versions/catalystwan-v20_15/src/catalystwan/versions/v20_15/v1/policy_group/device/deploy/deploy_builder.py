@@ -5,7 +5,7 @@ from typing import Any, Optional, Type
 
 from catalystwan.abc import RequestAdapterInterface
 
-from .models import DeployPolicyGroupPostRequest
+from .models import Default
 
 
 class DeployBuilder:
@@ -23,7 +23,7 @@ class DeployBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self, policy_group_id: str, payload: Optional[DeployPolicyGroupPostRequest] = None, **kw
+                self, policy_group_id: str, payload: Optional[Default] = None, **kw
             ) -> Any:
                 """
                 deploy policy group to devices
@@ -43,11 +43,11 @@ class DeployBuilder:
                     **kw,
                 )
 
-            def create_payload(self, *args, **kwargs) -> DeployPolicyGroupPostRequest:
-                return DeployPolicyGroupPostRequest(*args, **kwargs)
+            def create_payload(self, *args, **kwargs) -> Default:
+                return Default(*args, **kwargs)
 
             @property
-            def payload_model(self) -> Type[DeployPolicyGroupPostRequest]:
-                return DeployPolicyGroupPostRequest
+            def payload_model(self) -> Type[Default]:
+                return Default
 
         return deploy_policy_group_(self._request_adapter)

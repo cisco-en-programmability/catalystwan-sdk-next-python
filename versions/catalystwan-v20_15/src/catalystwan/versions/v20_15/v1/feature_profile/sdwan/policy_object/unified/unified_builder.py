@@ -1,11 +1,23 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional, Type
+from typing import TYPE_CHECKING, Optional, Type
 
 from catalystwan.abc import RequestAdapterInterface
 
 from .models import SecurityProfileParcelTypeParam
+
+if TYPE_CHECKING:
+    from .advanced_inspection_profile.advanced_inspection_profile_builder import (
+        AdvancedInspectionProfileBuilder,
+    )
+    from .advanced_malware_protection.advanced_malware_protection_builder import (
+        AdvancedMalwareProtectionBuilder,
+    )
+    from .intrusion_prevention.intrusion_prevention_builder import IntrusionPreventionBuilder
+    from .ssl_decryption.ssl_decryption_builder import SslDecryptionBuilder
+    from .ssl_decryption_profile.ssl_decryption_profile_builder import SslDecryptionProfileBuilder
+    from .url_filtering.url_filtering_builder import UrlFilteringBuilder
 
 
 class UnifiedBuilder:
@@ -190,3 +202,63 @@ class UnifiedBuilder:
             params=params,
             **kw,
         )
+
+    @property
+    def advanced_inspection_profile(self) -> AdvancedInspectionProfileBuilder:
+        """
+        The advanced-inspection-profile property
+        """
+        from .advanced_inspection_profile.advanced_inspection_profile_builder import (
+            AdvancedInspectionProfileBuilder,
+        )
+
+        return AdvancedInspectionProfileBuilder(self._request_adapter)
+
+    @property
+    def advanced_malware_protection(self) -> AdvancedMalwareProtectionBuilder:
+        """
+        The advanced-malware-protection property
+        """
+        from .advanced_malware_protection.advanced_malware_protection_builder import (
+            AdvancedMalwareProtectionBuilder,
+        )
+
+        return AdvancedMalwareProtectionBuilder(self._request_adapter)
+
+    @property
+    def intrusion_prevention(self) -> IntrusionPreventionBuilder:
+        """
+        The intrusion-prevention property
+        """
+        from .intrusion_prevention.intrusion_prevention_builder import IntrusionPreventionBuilder
+
+        return IntrusionPreventionBuilder(self._request_adapter)
+
+    @property
+    def ssl_decryption(self) -> SslDecryptionBuilder:
+        """
+        The ssl-decryption property
+        """
+        from .ssl_decryption.ssl_decryption_builder import SslDecryptionBuilder
+
+        return SslDecryptionBuilder(self._request_adapter)
+
+    @property
+    def ssl_decryption_profile(self) -> SslDecryptionProfileBuilder:
+        """
+        The ssl-decryption-profile property
+        """
+        from .ssl_decryption_profile.ssl_decryption_profile_builder import (
+            SslDecryptionProfileBuilder,
+        )
+
+        return SslDecryptionProfileBuilder(self._request_adapter)
+
+    @property
+    def url_filtering(self) -> UrlFilteringBuilder:
+        """
+        The url-filtering property
+        """
+        from .url_filtering.url_filtering_builder import UrlFilteringBuilder
+
+        return UrlFilteringBuilder(self._request_adapter)

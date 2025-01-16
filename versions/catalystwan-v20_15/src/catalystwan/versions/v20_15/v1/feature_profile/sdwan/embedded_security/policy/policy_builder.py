@@ -5,11 +5,16 @@ from typing import Optional, Type
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
+from .models import Default
+
 
 class PolicyBuilder:
     """
     Builds and executes requests for operations under /v1/feature-profile/sdwan/embedded-security/{securityId}/policy
     """
+
+    models = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -38,7 +43,7 @@ class PolicyBuilder:
             def __init__(self, request_adapter: RequestAdapterInterface) -> None:
                 self._request_adapter = request_adapter
 
-            def __call__(self, security_id: str, payload: Optional[str] = None, **kw) -> str:
+            def __call__(self, security_id: str, payload: Optional[Default] = None, **kw) -> str:
                 """
                 Create Parcel for Security Policy
 
@@ -58,12 +63,12 @@ class PolicyBuilder:
                     **kw,
                 )
 
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
+            def create_payload(self, *args, **kwargs) -> Default:
+                return Default(*args, **kwargs)
 
             @property
-            def payload_model(self) -> Type[str]:
-                return str
+            def payload_model(self) -> Type[Default]:
+                return Default
 
         return create_embedded_security_profile_parcel_(self._request_adapter)
 
@@ -96,7 +101,11 @@ class PolicyBuilder:
                 self._request_adapter = request_adapter
 
             def __call__(
-                self, security_id: str, security_profile_parcel_id: str, payload: Optional[str] = None, **kw
+                self,
+                security_id: str,
+                security_profile_parcel_id: str,
+                payload: Optional[str] = None,
+                **kw,
             ) -> str:
                 """
                 Update a Security Profile Parcel
@@ -128,7 +137,9 @@ class PolicyBuilder:
 
         return edit_security_profile_parcel_1_(self._request_adapter)
 
-    def delete_security_profile_parcel_1(self, security_id: str, security_profile_parcel_id: str, **kw):
+    def delete_security_profile_parcel_1(
+        self, security_id: str, security_profile_parcel_id: str, **kw
+    ):
         """
         Delete a Security Profile Parcel
 
