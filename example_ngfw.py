@@ -35,7 +35,6 @@ def main():
         ps = pg_api.get_policy_group_by_solution()
         for p in ps:
             print(p)
-        __import__("ipdb").set_trace()
         pg_api.delete_policy_group(policy_group.id)
         return
 
