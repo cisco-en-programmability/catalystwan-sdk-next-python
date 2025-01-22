@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AdminTechsRes
 
 if TYPE_CHECKING:
@@ -16,6 +17,8 @@ class AdmintechsBuilder:
     """
     Builds and executes requests for operations under /device/tools/admintechs
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

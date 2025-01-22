@@ -5,6 +5,7 @@ from typing import Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import PolicyTypeParam
 
 
@@ -13,10 +14,14 @@ class PolicyNameBuilder:
     Builds and executes requests for operations under /statistics/sul/connections/filter/policy_name
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_filter_policy_name_list(self, policy_type: PolicyTypeParam, query: str, **kw) -> List[Any]:
+    def get_filter_policy_name_list(
+        self, policy_type: PolicyTypeParam, query: str, **kw
+    ) -> List[Any]:
         """
         Get filter Policy Name list
 

@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InterconnectLocations
 
 
@@ -13,11 +14,17 @@ class LocationsBuilder:
     Builds and executes requests for operations under /multicloud/interconnect/{interconnect-type}/accounts/{interconnect-account-id}/locations
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_interconnect_location_info(
-        self, interconnect_type: str, interconnect_account_id: str, region: Optional[str] = None, **kw
+        self,
+        interconnect_type: str,
+        interconnect_account_id: str,
+        region: Optional[str] = None,
+        **kw,
     ) -> InterconnectLocations:
         """
         API to retrieve list of available regions for an Interconnect provider and account.
@@ -62,7 +69,9 @@ class LocationsBuilder:
             **kw,
         )
 
-    def delete_interconnect_location_info(self, interconnect_type: str, interconnect_account_id: str, **kw):
+    def delete_interconnect_location_info(
+        self, interconnect_type: str, interconnect_account_id: str, **kw
+    ):
         """
         API to delete the stored regions for an Interconnect provider and account from vManage.
 

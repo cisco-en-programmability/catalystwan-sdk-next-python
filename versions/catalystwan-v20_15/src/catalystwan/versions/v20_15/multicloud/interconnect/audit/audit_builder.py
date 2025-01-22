@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AuditReport
 
 
@@ -12,6 +13,8 @@ class AuditBuilder:
     """
     Builds and executes requests for operations under /multicloud/interconnect/audit
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -43,5 +46,9 @@ class AuditBuilder:
             "refresh": refresh,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/interconnect/audit", return_type=AuditReport, params=params, **kw
+            "GET",
+            "/dataservice/multicloud/interconnect/audit",
+            return_type=AuditReport,
+            params=params,
+            **kw,
         )

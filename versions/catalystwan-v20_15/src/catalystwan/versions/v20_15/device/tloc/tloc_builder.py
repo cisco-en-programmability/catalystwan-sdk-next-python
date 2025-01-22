@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceTlocDataWithBfd
 
 
@@ -12,6 +13,8 @@ class TlocBuilder:
     """
     Builds and executes requests for operations under /device/tloc
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -31,5 +34,9 @@ class TlocBuilder:
             "color": color,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/device/tloc", return_type=DeviceTlocDataWithBfd, params=params, **kw
+            "GET",
+            "/dataservice/device/tloc",
+            return_type=DeviceTlocDataWithBfd,
+            params=params,
+            **kw,
         )

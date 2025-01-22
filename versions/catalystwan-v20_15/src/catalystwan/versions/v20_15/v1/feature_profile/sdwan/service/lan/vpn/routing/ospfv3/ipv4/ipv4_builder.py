@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional, Type
+from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -36,42 +36,29 @@ class Ipv4Builder:
             **kw,
         )
 
-    @property
-    def create_lan_vpn_and_routing_ospfv3_i_pv4_parcel_association_for_service(self):
-        class create_lan_vpn_and_routing_ospfv3_i_pv4_parcel_association_for_service_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_lan_vpn_and_routing_ospfv3_i_pv4_parcel_association_for_service(
+        self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Associate a LAN VPN parcel with a IPv4 address family OSPFv3 Parcel for service feature profile
 
-            def __call__(self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Associate a LAN VPN parcel with a IPv4 address family OSPFv3 Parcel for service feature profile
-
-                :param service_id: Feature Profile ID
-                :param vpn_id: Lan Vpn Profile Parcel ID
-                :param payload: IPv4 address family OSPFv3 Profile Parcel Id
-                :returns: str
-                """
-                params = {
-                    "serviceId": service_id,
-                    "vpnId": vpn_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/routing/ospfv3/ipv4",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_lan_vpn_and_routing_ospfv3_i_pv4_parcel_association_for_service_(self._request_adapter)
+        :param service_id: Feature Profile ID
+        :param vpn_id: Lan Vpn Profile Parcel ID
+        :param payload: IPv4 address family OSPFv3 Profile Parcel Id
+        :returns: str
+        """
+        params = {
+            "serviceId": service_id,
+            "vpnId": vpn_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/routing/ospfv3/ipv4",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def get_lan_vpn_associated_routing_ospfv3_i_pv4_parcel_by_parcel_id_for_service(
         self, service_id: str, vpn_id: str, ospfv3_id: str, **kw
@@ -97,46 +84,31 @@ class Ipv4Builder:
             **kw,
         )
 
-    @property
-    def edit_lan_vpn_and_routing_ospfv3_i_pv4_parcel_association_for_service(self):
-        class edit_lan_vpn_and_routing_ospfv3_i_pv4_parcel_association_for_service_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_lan_vpn_and_routing_ospfv3_i_pv4_parcel_association_for_service(
+        self, service_id: str, vpn_id: str, ospfv3_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Update a LAN VPN parcel and a routing OSPFv3 IPv4 Parcel association for service feature profile
 
-            def __call__(
-                self, service_id: str, vpn_id: str, ospfv3_id: str, payload: Optional[str] = None, **kw
-            ) -> str:
-                """
-                Update a LAN VPN parcel and a routing OSPFv3 IPv4 Parcel association for service feature profile
-
-                :param service_id: Feature Profile ID
-                :param vpn_id: Profile Parcel ID
-                :param ospfv3_id: IPv4 address family OSPFv3 ID
-                :param payload: IPv4 address family OSPFv3 Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "serviceId": service_id,
-                    "vpnId": vpn_id,
-                    "ospfv3Id": ospfv3_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/routing/ospfv3/ipv4/{ospfv3Id}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_lan_vpn_and_routing_ospfv3_i_pv4_parcel_association_for_service_(self._request_adapter)
+        :param service_id: Feature Profile ID
+        :param vpn_id: Profile Parcel ID
+        :param ospfv3_id: IPv4 address family OSPFv3 ID
+        :param payload: IPv4 address family OSPFv3 Profile Parcel
+        :returns: str
+        """
+        params = {
+            "serviceId": service_id,
+            "vpnId": vpn_id,
+            "ospfv3Id": ospfv3_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/routing/ospfv3/ipv4/{ospfv3Id}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_lan_vpn_and_routing_ospfv3_association_for_service(
         self, service_id: str, vpn_id: str, ospfv3_id: str, **kw

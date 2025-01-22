@@ -5,6 +5,7 @@ from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AlarmCount
 
 
@@ -12,6 +13,8 @@ class MarkviewedBuilder:
     """
     Builds and executes requests for operations under /alarms/markviewed
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -24,5 +27,9 @@ class MarkviewedBuilder:
         :returns: List[AlarmCount]
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/alarms/markviewed", return_type=List[AlarmCount], payload=payload, **kw
+            "POST",
+            "/dataservice/alarms/markviewed",
+            return_type=List[AlarmCount],
+            payload=payload,
+            **kw,
         )

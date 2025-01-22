@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import CgwVpnsResponse
 
 
@@ -12,6 +13,8 @@ class MappingBuilder:
     """
     Builds and executes requests for operations under /multicloud/mapping
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -33,5 +36,9 @@ class MappingBuilder:
             "siteUuid": site_uuid,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/mapping/{cloudType}", return_type=CgwVpnsResponse, params=params, **kw
+            "GET",
+            "/dataservice/multicloud/mapping/{cloudType}",
+            return_type=CgwVpnsResponse,
+            params=params,
+            **kw,
         )

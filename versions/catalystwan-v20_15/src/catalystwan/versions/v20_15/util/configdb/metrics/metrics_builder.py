@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import Neo4JMetricsResponse
 
 if TYPE_CHECKING:
@@ -16,6 +17,8 @@ class MetricsBuilder:
     """
     Builds and executes requests for operations under /util/configdb/metrics
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -53,7 +56,11 @@ class MetricsBuilder:
             "limit": limit,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/util/configdb/metrics", return_type=Neo4JMetricsResponse, params=params, **kw
+            "GET",
+            "/dataservice/util/configdb/metrics",
+            return_type=Neo4JMetricsResponse,
+            params=params,
+            **kw,
         )
 
     @property

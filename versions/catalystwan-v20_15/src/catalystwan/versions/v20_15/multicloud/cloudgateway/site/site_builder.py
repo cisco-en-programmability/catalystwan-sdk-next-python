@@ -1,18 +1,26 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import List, Optional, Type
+from typing import List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
-from .models import (AttachSitesRequestPayloadInner, DetachSitesRequestPayloadInner, GetSitesResponse, Taskid,
-                     TunnelScalingRequestPayload)
+from . import models
+from .models import (
+    AttachSitesRequestPayloadInner,
+    DetachSitesRequestPayloadInner,
+    GetSitesResponse,
+    Taskid,
+    TunnelScalingRequestPayload,
+)
 
 
 class SiteBuilder:
     """
     Builds and executes requests for operations under /multicloud/cloudgateway/{cloudGatewayName}/site
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -54,113 +62,74 @@ class SiteBuilder:
             **kw,
         )
 
-    @property
-    def tunnel_scaling(self):
-        class tunnel_scaling_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def tunnel_scaling(
+        self, cloud_gateway_name: str, payload: Optional[TunnelScalingRequestPayload] = None, **kw
+    ) -> Taskid:
+        """
+        Update tunnel scaling and accelerated vpn parameter for a branch endpoint
 
-            def __call__(
-                self, cloud_gateway_name: str, payload: Optional[TunnelScalingRequestPayload] = None, **kw
-            ) -> Taskid:
-                """
-                Update tunnel scaling and accelerated vpn parameter for a branch endpoint
+        :param cloud_gateway_name: Name of Cloud Gateway to attach site
+        :param payload: Site Information
+        :returns: Taskid
+        """
+        params = {
+            "cloudGatewayName": cloud_gateway_name,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/multicloud/cloudgateway/{cloudGatewayName}/site",
+            return_type=Taskid,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
-                :param cloud_gateway_name: Name of Cloud Gateway to attach site
-                :param payload: Site Information
-                :returns: Taskid
-                """
-                params = {
-                    "cloudGatewayName": cloud_gateway_name,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/multicloud/cloudgateway/{cloudGatewayName}/site",
-                    return_type=Taskid,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
+    def attach_sites(
+        self,
+        cloud_gateway_name: str,
+        payload: Optional[List[AttachSitesRequestPayloadInner]] = None,
+        **kw,
+    ) -> Taskid:
+        """
+        Attach sites to Cloud Gateway
 
-            def create_payload(self, *args, **kwargs) -> TunnelScalingRequestPayload:
-                return TunnelScalingRequestPayload(*args, **kwargs)
+        :param cloud_gateway_name: Name of Cloud Gateway to attach site
+        :param payload: Site Information
+        :returns: Taskid
+        """
+        params = {
+            "cloudGatewayName": cloud_gateway_name,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/multicloud/cloudgateway/{cloudGatewayName}/site",
+            return_type=Taskid,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
-            @property
-            def payload_model(self) -> Type[TunnelScalingRequestPayload]:
-                return TunnelScalingRequestPayload
+    def detach_sites_1(
+        self,
+        cloud_gateway_name: str,
+        payload: Optional[List[DetachSitesRequestPayloadInner]] = None,
+        **kw,
+    ) -> Taskid:
+        """
+        Detach sites from cloud gateway
 
-        return tunnel_scaling_(self._request_adapter)
-
-    @property
-    def attach_sites(self):
-        class attach_sites_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(
-                self, cloud_gateway_name: str, payload: Optional[List[AttachSitesRequestPayloadInner]] = None, **kw
-            ) -> Taskid:
-                """
-                Attach sites to Cloud Gateway
-
-                :param cloud_gateway_name: Name of Cloud Gateway to attach site
-                :param payload: Site Information
-                :returns: Taskid
-                """
-                params = {
-                    "cloudGatewayName": cloud_gateway_name,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/cloudgateway/{cloudGatewayName}/site",
-                    return_type=Taskid,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> List[AttachSitesRequestPayloadInner]:
-                return List[AttachSitesRequestPayloadInner](*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[List[AttachSitesRequestPayloadInner]]:
-                return List[AttachSitesRequestPayloadInner]
-
-        return attach_sites_(self._request_adapter)
-
-    @property
-    def detach_sites_1(self):
-        class detach_sites_1_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(
-                self, cloud_gateway_name: str, payload: Optional[List[DetachSitesRequestPayloadInner]] = None, **kw
-            ) -> Taskid:
-                """
-                Detach sites from cloud gateway
-
-                :param cloud_gateway_name: Name of Cloud Gateway to attach site
-                :param payload: Site Information
-                :returns: Taskid
-                """
-                params = {
-                    "cloudGatewayName": cloud_gateway_name,
-                }
-                return self._request_adapter.request(
-                    "DELETE",
-                    "/dataservice/multicloud/cloudgateway/{cloudGatewayName}/site",
-                    return_type=Taskid,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> List[DetachSitesRequestPayloadInner]:
-                return List[DetachSitesRequestPayloadInner](*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[List[DetachSitesRequestPayloadInner]]:
-                return List[DetachSitesRequestPayloadInner]
-
-        return detach_sites_1_(self._request_adapter)
+        :param cloud_gateway_name: Name of Cloud Gateway to attach site
+        :param payload: Site Information
+        :returns: Taskid
+        """
+        params = {
+            "cloudGatewayName": cloud_gateway_name,
+        }
+        return self._request_adapter.request(
+            "DELETE",
+            "/dataservice/multicloud/cloudgateway/{cloudGatewayName}/site",
+            return_type=Taskid,
+            params=params,
+            payload=payload,
+            **kw,
+        )

@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import VpnIdParam
 
 
@@ -13,11 +14,17 @@ class DetailBuilder:
     Builds and executes requests for operations under /device/cloudx/application/detail
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def create_applications_detail_list(
-        self, vpn_id: Optional[VpnIdParam] = None, application: Optional[str] = None, query: Optional[str] = None, **kw
+        self,
+        vpn_id: Optional[VpnIdParam] = None,
+        application: Optional[str] = None,
+        query: Optional[str] = None,
+        **kw,
     ) -> Any:
         """
         Get list of cloudexpress applications from device (Real Time)

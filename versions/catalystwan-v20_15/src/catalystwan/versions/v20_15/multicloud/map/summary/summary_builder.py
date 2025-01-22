@@ -5,6 +5,7 @@ from typing import List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import CloudTypeParam, MapSummary
 
 
@@ -13,11 +14,16 @@ class SummaryBuilder:
     Builds and executes requests for operations under /multicloud/map/summary
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_mapping_summary(
-        self, cloud_type: Optional[CloudTypeParam] = None, vpn_tunnel_status: Optional[str] = None, **kw
+        self,
+        cloud_type: Optional[CloudTypeParam] = None,
+        vpn_tunnel_status: Optional[str] = None,
+        **kw,
     ) -> List[MapSummary]:
         """
         Get mapping summary
@@ -31,5 +37,9 @@ class SummaryBuilder:
             "vpnTunnelStatus": vpn_tunnel_status,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/map/summary", return_type=List[MapSummary], params=params, **kw
+            "GET",
+            "/dataservice/multicloud/map/summary",
+            return_type=List[MapSummary],
+            params=params,
+            **kw,
         )

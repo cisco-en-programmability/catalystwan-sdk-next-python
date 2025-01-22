@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Optional, Type
+from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import HostVpcTagPost, HostVpcTagPut, HostVpcTagResponse, Taskid
 
 if TYPE_CHECKING:
@@ -16,11 +17,17 @@ class TagsBuilder:
     Builds and executes requests for operations under /multicloud/hostvpc/tags
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_vpc_tags(
-        self, cloud_type: Optional[str] = None, region: Optional[str] = None, tag_name: Optional[str] = None, **kw
+        self,
+        cloud_type: Optional[str] = None,
+        region: Optional[str] = None,
+        tag_name: Optional[str] = None,
+        **kw,
     ) -> List[HostVpcTagResponse]:
         """
         Get VPC Tags
@@ -36,60 +43,38 @@ class TagsBuilder:
             "tagName": tag_name,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/hostvpc/tags", return_type=List[HostVpcTagResponse], params=params, **kw
+            "GET",
+            "/dataservice/multicloud/hostvpc/tags",
+            return_type=List[HostVpcTagResponse],
+            params=params,
+            **kw,
         )
 
-    @property
-    def edit_tag(self):
-        class edit_tag_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_tag(self, payload: Optional[HostVpcTagPut] = None, **kw) -> Taskid:
+        """
+        Edit VPCs for a Tag
 
-            def __call__(self, payload: Optional[HostVpcTagPut] = None, **kw) -> Taskid:
-                """
-                Edit VPCs for a Tag
+        :param payload: Payload for updating VPCs for a Tag
+        :returns: Taskid
+        """
+        return self._request_adapter.request(
+            "PUT", "/dataservice/multicloud/hostvpc/tags", return_type=Taskid, payload=payload, **kw
+        )
 
-                :param payload: Payload for updating VPCs for a Tag
-                :returns: Taskid
-                """
-                return self._request_adapter.request(
-                    "PUT", "/dataservice/multicloud/hostvpc/tags", return_type=Taskid, payload=payload, **kw
-                )
+    def host_vpc_tagging(self, payload: Optional[HostVpcTagPost] = None, **kw) -> Taskid:
+        """
+        Tag a VPC
 
-            def create_payload(self, *args, **kwargs) -> HostVpcTagPut:
-                return HostVpcTagPut(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[HostVpcTagPut]:
-                return HostVpcTagPut
-
-        return edit_tag_(self._request_adapter)
-
-    @property
-    def host_vpc_tagging(self):
-        class host_vpc_tagging_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[HostVpcTagPost] = None, **kw) -> Taskid:
-                """
-                Tag a VPC
-
-                :param payload: Payload for tagging a VPC
-                :returns: Taskid
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/multicloud/hostvpc/tags", return_type=Taskid, payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> HostVpcTagPost:
-                return HostVpcTagPost(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[HostVpcTagPost]:
-                return HostVpcTagPost
-
-        return host_vpc_tagging_(self._request_adapter)
+        :param payload: Payload for tagging a VPC
+        :returns: Taskid
+        """
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/multicloud/hostvpc/tags",
+            return_type=Taskid,
+            payload=payload,
+            **kw,
+        )
 
     def un_tag(self, tag_name: str, **kw) -> Taskid:
         """
@@ -102,7 +87,11 @@ class TagsBuilder:
             "tagName": tag_name,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/multicloud/hostvpc/tags/{tagName}", return_type=Taskid, params=params, **kw
+            "DELETE",
+            "/dataservice/multicloud/hostvpc/tags/{tagName}",
+            return_type=Taskid,
+            params=params,
+            **kw,
         )
 
     @property

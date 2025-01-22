@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import MslaLicensesInner
 
 if TYPE_CHECKING:
@@ -16,6 +17,8 @@ class LicensesBuilder:
     """
     Builds and executes requests for operations under /msla/licenses
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -31,7 +34,11 @@ class LicensesBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/msla/licenses", return_type=List[MslaLicensesInner], params=params, **kw
+            "GET",
+            "/dataservice/msla/licenses",
+            return_type=List[MslaLicensesInner],
+            params=params,
+            **kw,
         )
 
     @property

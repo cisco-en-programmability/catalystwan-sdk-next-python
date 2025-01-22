@@ -5,6 +5,7 @@ from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import UrlMonitoringInfoInner
 
 
@@ -12,6 +13,8 @@ class MonitorBuilder:
     """
     Builds and executes requests for operations under /url/monitor
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -33,7 +36,9 @@ class MonitorBuilder:
         :param payload: Payload
         :returns: None
         """
-        return self._request_adapter.request("PUT", "/dataservice/url/monitor", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/url/monitor", payload=payload, **kw
+        )
 
     def create_url_monitor(self, payload: Optional[Any] = None, **kw):
         """
@@ -42,7 +47,9 @@ class MonitorBuilder:
         :param payload: Payload
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/url/monitor", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/url/monitor", payload=payload, **kw
+        )
 
     def delete_url_monitor(self, url: str, **kw):
         """
@@ -54,4 +61,6 @@ class MonitorBuilder:
         params = {
             "url": url,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/url/monitor", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/url/monitor", params=params, **kw
+        )

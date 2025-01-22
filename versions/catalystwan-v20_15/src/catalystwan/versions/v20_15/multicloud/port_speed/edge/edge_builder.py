@@ -6,6 +6,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import CloudTypeParam, EdgeTypeParam
 
 
@@ -13,6 +14,8 @@ class EdgeBuilder:
     """
     Builds and executes requests for operations under /multicloud/portSpeed/edge
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

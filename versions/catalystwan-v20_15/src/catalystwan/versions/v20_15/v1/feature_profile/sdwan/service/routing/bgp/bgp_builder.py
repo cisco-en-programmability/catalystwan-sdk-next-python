@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional, Type
+from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -35,42 +35,31 @@ class BgpBuilder:
             **kw,
         )
 
-    @property
-    def create_routing_bgp_profile_parcel_for_service(self):
-        class create_routing_bgp_profile_parcel_for_service_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_routing_bgp_profile_parcel_for_service(
+        self, service_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Create a Routing Bgp Profile Parcel for Service feature profile
 
-            def __call__(self, service_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Create a Routing Bgp Profile Parcel for Service feature profile
+        :param service_id: Feature Profile ID
+        :param payload: Routing Bgp Profile Parcel
+        :returns: str
+        """
+        params = {
+            "serviceId": service_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/bgp",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
-                :param service_id: Feature Profile ID
-                :param payload: Routing Bgp Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "serviceId": service_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/bgp",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_routing_bgp_profile_parcel_for_service_(self._request_adapter)
-
-    def get_routing_bgp_profile_parcel_by_parcel_id_for_service(self, service_id: str, bgp_id: str, **kw) -> str:
+    def get_routing_bgp_profile_parcel_by_parcel_id_for_service(
+        self, service_id: str, bgp_id: str, **kw
+    ) -> str:
         """
         Get Routing Bgp Profile Parcel by parcelId for Service feature profile
 
@@ -90,42 +79,29 @@ class BgpBuilder:
             **kw,
         )
 
-    @property
-    def edit_routing_bgp_profile_parcel_for_service(self):
-        class edit_routing_bgp_profile_parcel_for_service_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_routing_bgp_profile_parcel_for_service(
+        self, service_id: str, bgp_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Update a Routing Bgp Profile Parcel for Service feature profile
 
-            def __call__(self, service_id: str, bgp_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Update a Routing Bgp Profile Parcel for Service feature profile
-
-                :param service_id: Feature Profile ID
-                :param bgp_id: Profile Parcel ID
-                :param payload: Routing Bgp Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "serviceId": service_id,
-                    "bgpId": bgp_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/bgp/{bgpId}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_routing_bgp_profile_parcel_for_service_(self._request_adapter)
+        :param service_id: Feature Profile ID
+        :param bgp_id: Profile Parcel ID
+        :param payload: Routing Bgp Profile Parcel
+        :returns: str
+        """
+        params = {
+            "serviceId": service_id,
+            "bgpId": bgp_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/bgp/{bgpId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_routing_bgp_profile_parcel_for_service(self, service_id: str, bgp_id: str, **kw):
         """

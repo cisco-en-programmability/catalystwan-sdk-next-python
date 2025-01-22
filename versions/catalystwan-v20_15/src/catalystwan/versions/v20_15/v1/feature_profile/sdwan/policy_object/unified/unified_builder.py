@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional, Type
+from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import SecurityProfileParcelTypeParam
 
 if TYPE_CHECKING:
@@ -24,6 +25,8 @@ class UnifiedBuilder:
     """
     Builds and executes requests for operations under /v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -56,48 +59,33 @@ class UnifiedBuilder:
             **kw,
         )
 
-    @property
-    def create_security_profile_parcel(self):
-        class create_security_profile_parcel_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_security_profile_parcel(
+        self,
+        policy_object_id: str,
+        security_profile_parcel_type: SecurityProfileParcelTypeParam,
+        payload: Optional[str] = None,
+        **kw,
+    ) -> str:
+        """
+        Create Parcel for Security Policy
 
-            def __call__(
-                self,
-                policy_object_id: str,
-                security_profile_parcel_type: SecurityProfileParcelTypeParam,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
-                """
-                Create Parcel for Security Policy
-
-                :param policy_object_id: Feature Profile ID
-                :param security_profile_parcel_type: Policy Object ListType
-                :param payload: Security Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "policyObjectId": policy_object_id,
-                    "securityProfileParcelType": security_profile_parcel_type,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_security_profile_parcel_(self._request_adapter)
+        :param policy_object_id: Feature Profile ID
+        :param security_profile_parcel_type: Policy Object ListType
+        :param payload: Security Profile Parcel
+        :returns: str
+        """
+        params = {
+            "policyObjectId": policy_object_id,
+            "securityProfileParcelType": security_profile_parcel_type,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def get_security_profile_parcel_by_parcel_id(
         self,
@@ -130,51 +118,36 @@ class UnifiedBuilder:
             **kw,
         )
 
-    @property
-    def edit_security_profile_parcel(self):
-        class edit_security_profile_parcel_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_security_profile_parcel(
+        self,
+        policy_object_id: str,
+        security_profile_parcel_type: SecurityProfileParcelTypeParam,
+        security_profile_parcel_id: str,
+        payload: Optional[str] = None,
+        **kw,
+    ) -> str:
+        """
+        Update a Security Profile Parcel
 
-            def __call__(
-                self,
-                policy_object_id: str,
-                security_profile_parcel_type: SecurityProfileParcelTypeParam,
-                security_profile_parcel_id: str,
-                payload: Optional[str] = None,
-                **kw,
-            ) -> str:
-                """
-                Update a Security Profile Parcel
-
-                :param policy_object_id: Feature Profile ID
-                :param security_profile_parcel_type: Policy Object ListType
-                :param security_profile_parcel_id: Profile Parcel ID
-                :param payload: Security Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "policyObjectId": policy_object_id,
-                    "securityProfileParcelType": security_profile_parcel_type,
-                    "securityProfileParcelId": security_profile_parcel_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}/{securityProfileParcelId}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_security_profile_parcel_(self._request_adapter)
+        :param policy_object_id: Feature Profile ID
+        :param security_profile_parcel_type: Policy Object ListType
+        :param security_profile_parcel_id: Profile Parcel ID
+        :param payload: Security Profile Parcel
+        :returns: str
+        """
+        params = {
+            "policyObjectId": policy_object_id,
+            "securityProfileParcelType": security_profile_parcel_type,
+            "securityProfileParcelId": security_profile_parcel_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}/{securityProfileParcelId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_security_profile_parcel(
         self,

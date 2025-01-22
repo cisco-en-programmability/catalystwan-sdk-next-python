@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InterconnectTypeParam
 
 
@@ -13,10 +14,14 @@ class TypesBuilder:
     Builds and executes requests for operations under /multicloud/interconnect/gateways/types
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnet_gateway_types(self, interconnect_type: InterconnectTypeParam, **kw) -> List[str]:
+    def get_interconnet_gateway_types(
+        self, interconnect_type: InterconnectTypeParam, **kw
+    ) -> List[str]:
         """
         API to retrieve the supported Interconnect Gateway solution types.
 
@@ -27,5 +32,9 @@ class TypesBuilder:
             "interconnect-type": interconnect_type,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/interconnect/gateways/types", return_type=List[str], params=params, **kw
+            "GET",
+            "/dataservice/multicloud/interconnect/gateways/types",
+            return_type=List[str],
+            params=params,
+            **kw,
         )

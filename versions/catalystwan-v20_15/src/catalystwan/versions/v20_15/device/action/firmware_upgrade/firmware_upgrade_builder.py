@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import FirmwareImageRemoteUpgrade
 
 if TYPE_CHECKING:
@@ -17,10 +18,14 @@ class FirmwareUpgradeBuilder:
     Builds and executes requests for operations under /device/action/firmware-upgrade
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def remote_firmware_image_upgrade(self, payload: Optional[Any] = None, **kw) -> FirmwareImageRemoteUpgrade:
+    def remote_firmware_image_upgrade(
+        self, payload: Optional[Any] = None, **kw
+    ) -> FirmwareImageRemoteUpgrade:
         """
         Eemote firmware on device
 

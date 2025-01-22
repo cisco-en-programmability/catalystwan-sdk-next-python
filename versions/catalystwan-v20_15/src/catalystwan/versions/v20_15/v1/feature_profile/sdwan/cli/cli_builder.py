@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -32,33 +32,24 @@ class CliBuilder:
             "offset": offset,
             "limit": limit,
         }
-        return self._request_adapter.request("GET", "/dataservice/v1/feature-profile/sdwan/cli", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/v1/feature-profile/sdwan/cli", params=params, **kw
+        )
 
-    @property
-    def create_sdwan_feature_profile(self):
-        class create_sdwan_feature_profile_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_sdwan_feature_profile(self, payload: Optional[str] = None, **kw) -> str:
+        """
+        Create a SDWAN  Feature Profile with profile type
 
-            def __call__(self, payload: Optional[str] = None, **kw) -> str:
-                """
-                Create a SDWAN  Feature Profile with profile type
-
-                :param payload: SDWAN Feature profile
-                :returns: str
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/v1/feature-profile/sdwan/cli", return_type=str, payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_sdwan_feature_profile_(self._request_adapter)
+        :param payload: SDWAN Feature profile
+        :returns: str
+        """
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/feature-profile/sdwan/cli",
+            return_type=str,
+            payload=payload,
+            **kw,
+        )
 
     def get_sdwan_feature_profile_by_profile_id(self, cli_id: str, **kw) -> Any:
         """
@@ -74,40 +65,25 @@ class CliBuilder:
             "GET", "/dataservice/v1/feature-profile/sdwan/cli/{cliId}", params=params, **kw
         )
 
-    @property
-    def edit_sdwan_feature_profile(self):
-        class edit_sdwan_feature_profile_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_sdwan_feature_profile(self, cli_id: str, payload: Optional[str] = None, **kw) -> str:
+        """
+        Edit a SDWAN Feature Profile
 
-            def __call__(self, cli_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Edit a SDWAN Feature Profile
-
-                :param cli_id: Feature Profile Id
-                :param payload: SDWAN Feature profile
-                :returns: str
-                """
-                params = {
-                    "cliId": cli_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/feature-profile/sdwan/cli/{cliId}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_sdwan_feature_profile_(self._request_adapter)
+        :param cli_id: Feature Profile Id
+        :param payload: SDWAN Feature profile
+        :returns: str
+        """
+        params = {
+            "cliId": cli_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/feature-profile/sdwan/cli/{cliId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_sdwan_feature_profile_for_cli(self, cli_id: str, **kw):
         """

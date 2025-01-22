@@ -5,6 +5,7 @@ from typing import List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DisabledAlarmDetails
 
 
@@ -12,6 +13,8 @@ class DisabledBuilder:
     """
     Builds and executes requests for operations under /alarms/disabled
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -26,7 +29,9 @@ class DisabledBuilder:
             "GET", "/dataservice/alarms/disabled", return_type=List[DisabledAlarmDetails], **kw
         )
 
-    def disable_enable_alarm(self, event_name: str, disable: Optional[bool] = None, time: Optional[int] = None, **kw):
+    def disable_enable_alarm(
+        self, event_name: str, disable: Optional[bool] = None, time: Optional[int] = None, **kw
+    ):
         """
         Enable/Disable alarms by event name
 
@@ -40,4 +45,6 @@ class DisabledBuilder:
             "disable": disable,
             "time": time,
         }
-        return self._request_adapter.request("POST", "/dataservice/alarms/disabled", params=params, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/alarms/disabled", params=params, **kw
+        )

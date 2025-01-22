@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import UserSettingsResponse
 
 
@@ -10,6 +11,8 @@ class UserSettingsBuilder:
     """
     Builds and executes requests for operations under /v1/smart-licensing/user-settings
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -21,5 +24,8 @@ class UserSettingsBuilder:
         :returns: UserSettingsResponse
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/smart-licensing/user-settings", return_type=UserSettingsResponse, **kw
+            "GET",
+            "/dataservice/v1/smart-licensing/user-settings",
+            return_type=UserSettingsResponse,
+            **kw,
         )

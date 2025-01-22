@@ -6,6 +6,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import EdgeTypeParam
 
 
@@ -13,6 +14,8 @@ class ConnectivitygatewayBuilder:
     """
     Builds and executes requests for operations under /multicloud/connectivitygateway
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -56,7 +59,9 @@ class ConnectivitygatewayBuilder:
             "refresh": refresh,
             "edgeType": edge_type,
         }
-        return self._request_adapter.request("GET", "/dataservice/multicloud/connectivitygateway", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/multicloud/connectivitygateway", params=params, **kw
+        )
 
     def create_connectivity_gateway(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -70,7 +75,9 @@ class ConnectivitygatewayBuilder:
             "POST", "/dataservice/multicloud/connectivitygateway", payload=payload, **kw
         )
 
-    def clean_up_all_connectivity_gateways_in_local_db(self, deletion_type: Optional[str] = None, **kw) -> Any:
+    def clean_up_all_connectivity_gateways_in_local_db(
+        self, deletion_type: Optional[str] = None, **kw
+    ) -> Any:
         """
         Delete all Connectivity Gateways in local DB
 
@@ -86,7 +93,11 @@ class ConnectivitygatewayBuilder:
         )
 
     def delete_connectivity_gateway(
-        self, cloud_provider: str, connectivity_gateway_name: str, connectivity_type: Optional[str] = None, **kw
+        self,
+        cloud_provider: str,
+        connectivity_gateway_name: str,
+        connectivity_type: Optional[str] = None,
+        **kw,
     ) -> Any:
         """
         Delete Connectivity Gateway

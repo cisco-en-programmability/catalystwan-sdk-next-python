@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AfTypeParam, IfnameParam
 
 
@@ -12,6 +13,8 @@ class SyncedBuilder:
     """
     Builds and executes requests for operations under /device/interface/synced
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -39,4 +42,6 @@ class SyncedBuilder:
             "af-type": af_type,
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/interface/synced", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/interface/synced", params=params, **kw
+        )

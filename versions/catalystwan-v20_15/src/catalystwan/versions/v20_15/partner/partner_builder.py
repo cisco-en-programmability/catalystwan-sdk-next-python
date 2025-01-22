@@ -1,11 +1,18 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Type
+from typing import TYPE_CHECKING, List
 
 from catalystwan.abc import RequestAdapterInterface
 
-from .models import PartnerRes, RegisterPartnerRequest, RegisterPartnerRes, StatusResponse, UpdatePartnerRequest
+from . import models
+from .models import (
+    PartnerRes,
+    RegisterPartnerRequest,
+    RegisterPartnerRes,
+    StatusResponse,
+    UpdatePartnerRequest,
+)
 
 if TYPE_CHECKING:
     from .aci.aci_builder import AciBuilder
@@ -21,6 +28,8 @@ class PartnerBuilder:
     Builds and executes requests for operations under /partner
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
@@ -30,7 +39,9 @@ class PartnerBuilder:
 
         :returns: List[PartnerRes]
         """
-        return self._request_adapter.request("GET", "/dataservice/partner", return_type=List[PartnerRes], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/partner", return_type=List[PartnerRes], **kw
+        )
 
     def get_partners_by_partner_type(self, partner_type: str, **kw) -> List[PartnerRes]:
         """
@@ -43,43 +54,34 @@ class PartnerBuilder:
             "partnerType": partner_type,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/partner/{partnerType}", return_type=List[PartnerRes], params=params, **kw
+            "GET",
+            "/dataservice/partner/{partnerType}",
+            return_type=List[PartnerRes],
+            params=params,
+            **kw,
         )
 
-    @property
-    def register_partner(self):
-        class register_partner_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def register_partner(
+        self, partner_type: str, payload: RegisterPartnerRequest, **kw
+    ) -> RegisterPartnerRes:
+        """
+        Register NMS partner
 
-            def __call__(self, partner_type: str, payload: RegisterPartnerRequest, **kw) -> RegisterPartnerRes:
-                """
-                Register NMS partner
-
-                :param partner_type: Partner type
-                :param payload: Partner
-                :returns: RegisterPartnerRes
-                """
-                params = {
-                    "partnerType": partner_type,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/partner/{partnerType}",
-                    return_type=RegisterPartnerRes,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> RegisterPartnerRequest:
-                return RegisterPartnerRequest(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[RegisterPartnerRequest]:
-                return RegisterPartnerRequest
-
-        return register_partner_(self._request_adapter)
+        :param partner_type: Partner type
+        :param payload: Partner
+        :returns: RegisterPartnerRes
+        """
+        params = {
+            "partnerType": partner_type,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/partner/{partnerType}",
+            return_type=RegisterPartnerRes,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def get_partner(self, partner_type: str, nms_id: str, **kw) -> PartnerRes:
         """
@@ -94,40 +96,33 @@ class PartnerBuilder:
             "nmsId": nms_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/partner/{partnerType}/{nmsId}", return_type=PartnerRes, params=params, **kw
+            "GET",
+            "/dataservice/partner/{partnerType}/{nmsId}",
+            return_type=PartnerRes,
+            params=params,
+            **kw,
         )
 
-    @property
-    def update_partner(self):
-        class update_partner_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def update_partner(self, partner_type: str, nms_id: str, payload: UpdatePartnerRequest, **kw):
+        """
+        Update NMS partner details
 
-            def __call__(self, partner_type: str, nms_id: str, payload: UpdatePartnerRequest, **kw):
-                """
-                Update NMS partner details
-
-                :param partner_type: Partner type
-                :param nms_id: Nms id
-                :param payload: Partner
-                :returns: None
-                """
-                params = {
-                    "partnerType": partner_type,
-                    "nmsId": nms_id,
-                }
-                return self._request_adapter.request(
-                    "PUT", "/dataservice/partner/{partnerType}/{nmsId}", params=params, payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> UpdatePartnerRequest:
-                return UpdatePartnerRequest(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[UpdatePartnerRequest]:
-                return UpdatePartnerRequest
-
-        return update_partner_(self._request_adapter)
+        :param partner_type: Partner type
+        :param nms_id: Nms id
+        :param payload: Partner
+        :returns: None
+        """
+        params = {
+            "partnerType": partner_type,
+            "nmsId": nms_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/partner/{partnerType}/{nmsId}",
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_partner(self, partner_type: str, nms_id: str, **kw) -> StatusResponse:
         """
@@ -142,7 +137,11 @@ class PartnerBuilder:
             "nmsId": nms_id,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/partner/{partnerType}/{nmsId}", return_type=StatusResponse, params=params, **kw
+            "DELETE",
+            "/dataservice/partner/{partnerType}/{nmsId}",
+            return_type=StatusResponse,
+            params=params,
+            **kw,
         )
 
     @property

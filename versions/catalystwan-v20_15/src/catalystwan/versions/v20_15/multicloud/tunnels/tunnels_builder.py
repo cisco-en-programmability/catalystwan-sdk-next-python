@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import CloudTypeParam, GetTunnelsResponse
 
 
@@ -13,10 +14,14 @@ class TunnelsBuilder:
     Builds and executes requests for operations under /multicloud/tunnels
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_tunnel_names(self, cloud_type: CloudTypeParam, cloud_gateway_name: str, **kw) -> List[GetTunnelsResponse]:
+    def get_tunnel_names(
+        self, cloud_type: CloudTypeParam, cloud_gateway_name: str, **kw
+    ) -> List[GetTunnelsResponse]:
         """
         Get the tunnels for cloudType
 

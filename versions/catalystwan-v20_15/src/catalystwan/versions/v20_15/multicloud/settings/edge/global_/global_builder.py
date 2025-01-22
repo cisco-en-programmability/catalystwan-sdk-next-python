@@ -6,6 +6,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import EdgeTypeParam
 
 
@@ -13,6 +14,8 @@ class GlobalBuilder:
     """
     Builds and executes requests for operations under /multicloud/settings/edge/global
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -28,7 +31,9 @@ class GlobalBuilder:
         params = {
             "edgeType": edge_type,
         }
-        return self._request_adapter.request("GET", "/dataservice/multicloud/settings/edge/global", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/multicloud/settings/edge/global", params=params, **kw
+        )
 
     def update_edge_global_settings(self, payload: Optional[Any] = None, **kw):
         """

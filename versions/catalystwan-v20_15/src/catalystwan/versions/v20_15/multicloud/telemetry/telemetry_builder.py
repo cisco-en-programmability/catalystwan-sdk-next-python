@@ -1,10 +1,9 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Type
-
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import Taskid, TelemetryRequests
 
 
@@ -13,31 +12,18 @@ class TelemetryBuilder:
     Builds and executes requests for operations under /multicloud/telemetry
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def telemetry(self):
-        class telemetry_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def telemetry(self, payload: TelemetryRequests, **kw) -> Taskid:
+        """
+        Reports telemetry data
 
-            def __call__(self, payload: TelemetryRequests, **kw) -> Taskid:
-                """
-                Reports telemetry data
-
-                :param payload: telemetry
-                :returns: Taskid
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/multicloud/telemetry", return_type=Taskid, payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> TelemetryRequests:
-                return TelemetryRequests(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[TelemetryRequests]:
-                return TelemetryRequests
-
-        return telemetry_(self._request_adapter)
+        :param payload: telemetry
+        :returns: Taskid
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/multicloud/telemetry", return_type=Taskid, payload=payload, **kw
+        )

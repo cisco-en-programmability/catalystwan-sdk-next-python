@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import SmartLicensingfetchAccountsResp
 
 
@@ -13,10 +14,14 @@ class FetchAccountsBuilder:
     Builds and executes requests for operations under /smartLicensing/fetchAccounts
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def fetch_accounts(self, mode: str, payload: Optional[Any] = None, **kw) -> SmartLicensingfetchAccountsResp:
+    def fetch_accounts(
+        self, mode: str, payload: Optional[Any] = None, **kw
+    ) -> SmartLicensingfetchAccountsResp:
         """
         fetch sava for sle
 

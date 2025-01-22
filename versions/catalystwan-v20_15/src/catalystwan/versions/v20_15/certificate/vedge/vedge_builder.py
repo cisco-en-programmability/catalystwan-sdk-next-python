@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InstalledCertsInner
 
 if TYPE_CHECKING:
@@ -16,6 +17,8 @@ class VedgeBuilder:
     """
     Builds and executes requests for operations under /certificate/vedge
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -31,7 +34,11 @@ class VedgeBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/certificate/vedge", return_type=List[InstalledCertsInner], params=params, **kw
+            "GET",
+            "/dataservice/certificate/vedge",
+            return_type=List[InstalledCertsInner],
+            params=params,
+            **kw,
         )
 
     @property

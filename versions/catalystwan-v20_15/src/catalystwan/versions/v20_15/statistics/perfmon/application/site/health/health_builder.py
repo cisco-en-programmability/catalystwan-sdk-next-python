@@ -5,6 +5,7 @@ from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ApplicationSiteItem, HealthParam
 
 
@@ -12,6 +13,8 @@ class HealthBuilder:
     """
     Builds and executes requests for operations under /statistics/perfmon/application/site/health
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

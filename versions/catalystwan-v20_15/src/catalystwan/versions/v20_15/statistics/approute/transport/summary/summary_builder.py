@@ -5,6 +5,7 @@ from typing import List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AppRouteFecAggRespInner
 
 
@@ -13,11 +14,18 @@ class SummaryBuilder:
     Builds and executes requests for operations under /statistics/approute/transport/summary
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_app_route_transport_summary_type(
-        self, type_: str, limit: Optional[int] = 5, query: Optional[str] = None, site_id: Optional[str] = None, **kw
+        self,
+        type_: str,
+        limit: Optional[int] = 5,
+        query: Optional[str] = None,
+        site_id: Optional[str] = None,
+        **kw,
     ) -> List[AppRouteFecAggRespInner]:
         """
         Get application-aware routing statistics summary from device

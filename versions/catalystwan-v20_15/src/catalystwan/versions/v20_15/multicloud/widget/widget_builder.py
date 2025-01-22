@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import CloudWidget
 
 if TYPE_CHECKING:
@@ -15,6 +16,8 @@ class WidgetBuilder:
     """
     Builds and executes requests for operations under /multicloud/widget
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -40,7 +43,11 @@ class WidgetBuilder:
             "cloudType": cloud_type,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/widget/{cloudType}", return_type=CloudWidget, params=params, **kw
+            "GET",
+            "/dataservice/multicloud/widget/{cloudType}",
+            return_type=CloudWidget,
+            params=params,
+            **kw,
         )
 
     @property

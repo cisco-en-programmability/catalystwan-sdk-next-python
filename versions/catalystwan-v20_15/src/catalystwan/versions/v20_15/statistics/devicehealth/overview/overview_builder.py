@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceHealthOverview, PersonalityParam
 
 
@@ -12,6 +13,8 @@ class OverviewBuilder:
     """
     Builds and executes requests for operations under /statistics/devicehealth/overview
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

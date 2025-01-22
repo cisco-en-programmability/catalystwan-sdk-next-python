@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import EventsBySeverity
 
 if TYPE_CHECKING:
@@ -15,6 +16,8 @@ class SeverityBuilder:
     """
     Builds and executes requests for operations under /event/severity
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -43,7 +46,11 @@ class SeverityBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/event/severity", return_type=List[EventsBySeverity], params=params, **kw
+            "GET",
+            "/dataservice/event/severity",
+            return_type=List[EventsBySeverity],
+            params=params,
+            **kw,
         )
 
     @property

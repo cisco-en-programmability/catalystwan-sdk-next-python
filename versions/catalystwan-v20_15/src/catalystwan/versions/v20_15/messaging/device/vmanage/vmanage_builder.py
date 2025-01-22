@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import MessagingResp
 
 
@@ -12,6 +13,8 @@ class VmanageBuilder:
     """
     Builds and executes requests for operations under /messaging/device/vmanage
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

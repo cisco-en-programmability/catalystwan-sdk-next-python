@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DpiResponse, SortOrderParam
 
 if TYPE_CHECKING:
@@ -25,6 +26,8 @@ class DpiBuilder:
     """
     Builds and executes requests for operations under /statistics/dpi
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -85,7 +88,12 @@ class DpiBuilder:
             "sortOrder": sort_order,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/statistics/dpi", return_type=DpiResponse, params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/statistics/dpi",
+            return_type=DpiResponse,
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     @property

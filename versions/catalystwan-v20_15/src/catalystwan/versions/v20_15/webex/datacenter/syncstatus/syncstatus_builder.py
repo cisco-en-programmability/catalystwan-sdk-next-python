@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import SyncStatusResponse
 
 
@@ -10,6 +11,8 @@ class SyncstatusBuilder:
     """
     Builds and executes requests for operations under /webex/datacenter/syncstatus
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -30,4 +33,6 @@ class SyncstatusBuilder:
 
         :returns: bool
         """
-        return self._request_adapter.request("PUT", "/dataservice/webex/datacenter/syncstatus", return_type=bool, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/webex/datacenter/syncstatus", return_type=bool, **kw
+        )

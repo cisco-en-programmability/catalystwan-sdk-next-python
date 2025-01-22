@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import CountResponse
 
 
@@ -12,6 +13,8 @@ class DoccountBuilder:
     """
     Builds and executes requests for operations under /statistics/flowlog/doccount
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -27,7 +30,11 @@ class DoccountBuilder:
             "query": query,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/statistics/flowlog/doccount", return_type=CountResponse, params=params, **kw
+            "GET",
+            "/dataservice/statistics/flowlog/doccount",
+            return_type=CountResponse,
+            params=params,
+            **kw,
         )
 
     def get_flowlog_count_post(self, payload: Optional[Any] = None, **kw) -> CountResponse:
@@ -38,5 +45,9 @@ class DoccountBuilder:
         :returns: CountResponse
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/statistics/flowlog/doccount", return_type=CountResponse, payload=payload, **kw
+            "POST",
+            "/dataservice/statistics/flowlog/doccount",
+            return_type=CountResponse,
+            payload=payload,
+            **kw,
         )

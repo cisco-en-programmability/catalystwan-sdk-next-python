@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InterfaceQuery, InterfaceRespWithPageInfo, SortOrderParam
 
 if TYPE_CHECKING:
@@ -23,6 +24,8 @@ class InterfaceBuilder:
     """
     Builds and executes requests for operations under /statistics/interface
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -54,7 +57,11 @@ class InterfaceBuilder:
             "sortOrder": sort_order,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/statistics/interface", return_type=InterfaceQuery, params=params, **kw
+            "GET",
+            "/dataservice/statistics/interface",
+            return_type=InterfaceQuery,
+            params=params,
+            **kw,
         )
 
     def get_stats_raw_data_11(

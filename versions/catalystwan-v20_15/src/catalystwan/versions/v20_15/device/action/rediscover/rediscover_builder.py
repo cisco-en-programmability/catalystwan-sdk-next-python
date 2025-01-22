@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import GenerateRediscoverInfo
 
 
@@ -12,6 +13,8 @@ class RediscoverBuilder:
     """
     Builds and executes requests for operations under /device/action/rediscover
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -33,4 +36,6 @@ class RediscoverBuilder:
         :param payload: Rediscover device request payload
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/device/action/rediscover", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/rediscover", payload=payload, **kw
+        )

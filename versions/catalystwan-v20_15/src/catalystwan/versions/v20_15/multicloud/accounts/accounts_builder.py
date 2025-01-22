@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Optional, Type
+from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import GetAccounts, PostAccounts, PostAccountsResponse, PutAccounts
 
 if TYPE_CHECKING:
@@ -16,6 +17,8 @@ class AccountsBuilder:
     """
     Builds and executes requests for operations under /multicloud/accounts
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -35,34 +38,29 @@ class AccountsBuilder:
             "cloudGatewayEnabled": cloud_gateway_enabled,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/accounts", return_type=List[GetAccounts], params=params, **kw
+            "GET",
+            "/dataservice/multicloud/accounts",
+            return_type=List[GetAccounts],
+            params=params,
+            **kw,
         )
 
-    @property
-    def validate_account_add(self):
-        class validate_account_add_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def validate_account_add(
+        self, payload: Optional[PostAccounts] = None, **kw
+    ) -> PostAccountsResponse:
+        """
+        Add Cloud Account
 
-            def __call__(self, payload: Optional[PostAccounts] = None, **kw) -> PostAccountsResponse:
-                """
-                Add Cloud Account
-
-                :param payload: Payloads for updating Cloud Gateway based on CloudType
-                :returns: PostAccountsResponse
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/multicloud/accounts", return_type=PostAccountsResponse, payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> PostAccounts:
-                return PostAccounts(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[PostAccounts]:
-                return PostAccounts
-
-        return validate_account_add_(self._request_adapter)
+        :param payload: Payloads for updating Cloud Gateway based on CloudType
+        :returns: PostAccountsResponse
+        """
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/multicloud/accounts",
+            return_type=PostAccountsResponse,
+            payload=payload,
+            **kw,
+        )
 
     def get_cloud_account_details(self, account_id: str, **kw) -> GetAccounts:
         """
@@ -75,38 +73,31 @@ class AccountsBuilder:
             "accountId": account_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/accounts/{accountId}", return_type=GetAccounts, params=params, **kw
+            "GET",
+            "/dataservice/multicloud/accounts/{accountId}",
+            return_type=GetAccounts,
+            params=params,
+            **kw,
         )
 
-    @property
-    def update_account(self):
-        class update_account_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def update_account(self, account_id: str, payload: Optional[PutAccounts] = None, **kw):
+        """
+        Obtain all accounts for all clouds
 
-            def __call__(self, account_id: str, payload: Optional[PutAccounts] = None, **kw):
-                """
-                Obtain all accounts for all clouds
-
-                :param account_id: Account id
-                :param payload: Payloads for updating Cloud Gateway based on CloudType
-                :returns: None
-                """
-                params = {
-                    "accountId": account_id,
-                }
-                return self._request_adapter.request(
-                    "PUT", "/dataservice/multicloud/accounts/{accountId}", params=params, payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> PutAccounts:
-                return PutAccounts(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[PutAccounts]:
-                return PutAccounts
-
-        return update_account_(self._request_adapter)
+        :param account_id: Account id
+        :param payload: Payloads for updating Cloud Gateway based on CloudType
+        :returns: None
+        """
+        params = {
+            "accountId": account_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/multicloud/accounts/{accountId}",
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_account(self, account_id: str, **kw):
         """

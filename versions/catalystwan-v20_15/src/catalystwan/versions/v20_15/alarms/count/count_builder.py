@@ -5,6 +5,7 @@ from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AlarmCountPost
 
 
@@ -12,6 +13,8 @@ class CountBuilder:
     """
     Builds and executes requests for operations under /alarms/count
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -24,7 +27,9 @@ class CountBuilder:
         """
         return self._request_adapter.request("GET", "/dataservice/alarms/count", **kw)
 
-    def post_count(self, payload: Optional[Any] = None, site_id: Optional[str] = None, **kw) -> List[AlarmCountPost]:
+    def post_count(
+        self, payload: Optional[Any] = None, site_id: Optional[str] = None, **kw
+    ) -> List[AlarmCountPost]:
         """
         Get the count of alarms as per the query passed.
 
@@ -36,5 +41,10 @@ class CountBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/alarms/count", return_type=List[AlarmCountPost], params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/alarms/count",
+            return_type=List[AlarmCountPost],
+            params=params,
+            payload=payload,
+            **kw,
         )

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import SyncRootCertChain
 
 
@@ -10,6 +11,8 @@ class RootcertchainBuilder:
     """
     Builds and executes requests for operations under /system/device/sync/rootcertchain
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -21,5 +24,8 @@ class RootcertchainBuilder:
         :returns: SyncRootCertChain
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/system/device/sync/rootcertchain", return_type=SyncRootCertChain, **kw
+            "GET",
+            "/dataservice/system/device/sync/rootcertchain",
+            return_type=SyncRootCertChain,
+            **kw,
         )

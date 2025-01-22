@@ -6,6 +6,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceUuid
 
 
@@ -13,6 +14,8 @@ class ActionBuilder:
     """
     Builds and executes requests for operations under /colocation/monitor/vnf/action
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -32,4 +35,6 @@ class ActionBuilder:
             "action": action,
             "deviceId": device_id,
         }
-        return self._request_adapter.request("POST", "/dataservice/colocation/monitor/vnf/action", params=params, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/colocation/monitor/vnf/action", params=params, **kw
+        )

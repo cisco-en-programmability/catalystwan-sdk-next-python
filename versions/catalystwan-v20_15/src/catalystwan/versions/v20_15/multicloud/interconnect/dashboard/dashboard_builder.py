@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InterconnectDashboard
 
 
@@ -12,6 +13,8 @@ class DashboardBuilder:
     """
     Builds and executes requests for operations under /multicloud/interconnect/dashboard
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -23,5 +26,8 @@ class DashboardBuilder:
         :returns: List[InterconnectDashboard]
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/interconnect/dashboard", return_type=List[InterconnectDashboard], **kw
+            "GET",
+            "/dataservice/multicloud/interconnect/dashboard",
+            return_type=List[InterconnectDashboard],
+            **kw,
         )

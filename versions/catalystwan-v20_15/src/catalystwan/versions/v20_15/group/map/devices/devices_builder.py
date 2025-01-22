@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import Vpnid
 
 if TYPE_CHECKING:
@@ -16,10 +17,14 @@ class DevicesBuilder:
     Builds and executes requests for operations under /group/map/devices
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_group_devices_for_map(self, group_id: Optional[str] = None, vpn_id: Optional[List[Vpnid]] = None, **kw):
+    def list_group_devices_for_map(
+        self, group_id: Optional[str] = None, vpn_id: Optional[List[Vpnid]] = None, **kw
+    ):
         """
         Retrieve group devices for map
 
@@ -31,7 +36,9 @@ class DevicesBuilder:
             "groupId": group_id,
             "vpnId": vpn_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/group/map/devices", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/group/map/devices", params=params, **kw
+        )
 
     @property
     def links(self) -> LinksBuilder:

@@ -5,6 +5,7 @@ from typing import Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import GroupId, PolicyTypeParam
 
 
@@ -13,10 +14,14 @@ class DevicesBuilder:
     Builds and executes requests for operations under /device/action/security/devices
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_security_devices_list(self, policy_type: PolicyTypeParam, group_id: GroupId, **kw) -> List[Any]:
+    def generate_security_devices_list(
+        self, policy_type: PolicyTypeParam, group_id: GroupId, **kw
+    ) -> List[Any]:
         """
         Get list of devices by security policy type
 

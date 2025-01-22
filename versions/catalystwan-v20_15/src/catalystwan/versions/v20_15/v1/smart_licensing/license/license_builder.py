@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import GetLicenseResponseInner
 
 
@@ -13,10 +14,14 @@ class LicenseBuilder:
     Builds and executes requests for operations under /v1/smart-licensing/license
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def license(self, virtual_account_id: str, license_type: str, **kw) -> List[GetLicenseResponseInner]:
+    def license(
+        self, virtual_account_id: str, license_type: str, **kw
+    ) -> List[GetLicenseResponseInner]:
         """
         Get licenses from vManage db
 

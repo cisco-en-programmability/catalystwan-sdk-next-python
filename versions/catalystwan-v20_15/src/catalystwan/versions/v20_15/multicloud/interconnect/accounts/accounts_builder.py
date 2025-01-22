@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Optional, Type
+from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InterconnectAccount
 
 if TYPE_CHECKING:
@@ -20,10 +21,14 @@ class AccountsBuilder:
     Builds and executes requests for operations under /multicloud/interconnect/accounts
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_accounts(self, interconnect_type: Optional[str] = None, **kw) -> List[InterconnectAccount]:
+    def get_interconnect_accounts(
+        self, interconnect_type: Optional[str] = None, **kw
+    ) -> List[InterconnectAccount]:
         """
         API to retrieve Interconnect provider accounts.
 
@@ -41,35 +46,22 @@ class AccountsBuilder:
             **kw,
         )
 
-    @property
-    def add_interconnect_account(self):
-        class add_interconnect_account_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def add_interconnect_account(
+        self, payload: Optional[InterconnectAccount] = None, **kw
+    ) -> InterconnectAccount:
+        """
+        API to associate an Interconnect provider account to vManage.
 
-            def __call__(self, payload: Optional[InterconnectAccount] = None, **kw) -> InterconnectAccount:
-                """
-                API to associate an Interconnect provider account to vManage.
-
-                :param payload: Request Payload for Multicloud Interconnect Accounts
-                :returns: InterconnectAccount
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/interconnect/accounts",
-                    return_type=InterconnectAccount,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> InterconnectAccount:
-                return InterconnectAccount(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[InterconnectAccount]:
-                return InterconnectAccount
-
-        return add_interconnect_account_(self._request_adapter)
+        :param payload: Request Payload for Multicloud Interconnect Accounts
+        :returns: InterconnectAccount
+        """
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/multicloud/interconnect/accounts",
+            return_type=InterconnectAccount,
+            payload=payload,
+            **kw,
+        )
 
     def get_interconnect_account(self, interconnect_account_id: str, **kw) -> InterconnectAccount:
         """
@@ -89,39 +81,26 @@ class AccountsBuilder:
             **kw,
         )
 
-    @property
-    def update_interconnect_account(self):
-        class update_interconnect_account_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def update_interconnect_account(
+        self, interconnect_account_id: str, payload: Optional[InterconnectAccount] = None, **kw
+    ):
+        """
+        API to edit associated Interconnect provider account name and description.
 
-            def __call__(self, interconnect_account_id: str, payload: Optional[InterconnectAccount] = None, **kw):
-                """
-                API to edit associated Interconnect provider account name and description.
-
-                :param interconnect_account_id: Interconnect provider account id
-                :param payload: Request Payload for Multicloud Interconnect Accounts
-                :returns: None
-                """
-                params = {
-                    "interconnect-account-id": interconnect_account_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/multicloud/interconnect/accounts/{interconnect-account-id}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> InterconnectAccount:
-                return InterconnectAccount(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[InterconnectAccount]:
-                return InterconnectAccount
-
-        return update_interconnect_account_(self._request_adapter)
+        :param interconnect_account_id: Interconnect provider account id
+        :param payload: Request Payload for Multicloud Interconnect Accounts
+        :returns: None
+        """
+        params = {
+            "interconnect-account-id": interconnect_account_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/multicloud/interconnect/accounts/{interconnect-account-id}",
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_interconnect_account(self, interconnect_account_id: str, **kw):
         """
@@ -134,7 +113,10 @@ class AccountsBuilder:
             "interconnect-account-id": interconnect_account_id,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/multicloud/interconnect/accounts/{interconnect-account-id}", params=params, **kw
+            "DELETE",
+            "/dataservice/multicloud/interconnect/accounts/{interconnect-account-id}",
+            params=params,
+            **kw,
         )
 
     @property

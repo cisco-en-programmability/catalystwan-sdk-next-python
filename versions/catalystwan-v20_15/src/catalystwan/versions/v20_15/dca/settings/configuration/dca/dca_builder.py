@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import TypeParam
 
 
@@ -13,10 +14,14 @@ class DcaBuilder:
     Builds and executes requests for operations under /dca/settings/configuration/{type}/dca
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_dca_analytics_data_file(self, type_: TypeParam, payload: Optional[Any] = None, **kw) -> Any:
+    def create_dca_analytics_data_file(
+        self, type_: TypeParam, payload: Optional[Any] = None, **kw
+    ) -> Any:
         """
         Create analytics config data
 
@@ -28,5 +33,9 @@ class DcaBuilder:
             "type": type_,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/dca/settings/configuration/{type}/dca", params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/dca/settings/configuration/{type}/dca",
+            params=params,
+            payload=payload,
+            **kw,
         )

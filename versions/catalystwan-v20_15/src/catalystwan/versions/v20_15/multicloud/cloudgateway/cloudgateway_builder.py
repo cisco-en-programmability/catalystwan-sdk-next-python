@@ -1,11 +1,18 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Optional, Type
+from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
-from .models import CloudGatewayAdjusted, CloudGatewayListResponse, CloudGatewayPost, Taskid, UpdateCgw
+from . import models
+from .models import (
+    CloudGatewayAdjusted,
+    CloudGatewayListResponse,
+    CloudGatewayPost,
+    Taskid,
+    UpdateCgw,
+)
 
 if TYPE_CHECKING:
     from .config_group.config_group_builder import ConfigGroupBuilder
@@ -26,6 +33,8 @@ class CloudgatewayBuilder:
     """
     Builds and executes requests for operations under /multicloud/cloudgateway
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -64,31 +73,20 @@ class CloudgatewayBuilder:
             **kw,
         )
 
-    @property
-    def create_cgw(self):
-        class create_cgw_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_cgw(self, payload: Optional[CloudGatewayPost] = None, **kw) -> Taskid:
+        """
+        Create cloud gateway
 
-            def __call__(self, payload: Optional[CloudGatewayPost] = None, **kw) -> Taskid:
-                """
-                Create cloud gateway
-
-                :param payload: Payloads for updating Cloud Gateway based on CloudType
-                :returns: Taskid
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/multicloud/cloudgateway", return_type=Taskid, payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> CloudGatewayPost:
-                return CloudGatewayPost(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[CloudGatewayPost]:
-                return CloudGatewayPost
-
-        return create_cgw_(self._request_adapter)
+        :param payload: Payloads for updating Cloud Gateway based on CloudType
+        :returns: Taskid
+        """
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/multicloud/cloudgateway",
+            return_type=Taskid,
+            payload=payload,
+            **kw,
+        )
 
     def get_cgw_details(self, cloud_gateway_name: str, **kw) -> CloudGatewayAdjusted:
         """
@@ -108,42 +106,31 @@ class CloudgatewayBuilder:
             **kw,
         )
 
-    @property
-    def update_cgw(self):
-        class update_cgw_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def update_cgw(
+        self, cloud_gateway_name: str, payload: Optional[UpdateCgw] = None, **kw
+    ) -> Taskid:
+        """
+        Update cloud gateway
 
-            def __call__(self, cloud_gateway_name: str, payload: Optional[UpdateCgw] = None, **kw) -> Taskid:
-                """
-                Update cloud gateway
+        :param cloud_gateway_name: Cloud gateway name
+        :param payload: Payloads for updating Cloud Gateway based on CloudType
+        :returns: Taskid
+        """
+        params = {
+            "cloudGatewayName": cloud_gateway_name,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/multicloud/cloudgateway/{cloudGatewayName}",
+            return_type=Taskid,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
-                :param cloud_gateway_name: Cloud gateway name
-                :param payload: Payloads for updating Cloud Gateway based on CloudType
-                :returns: Taskid
-                """
-                params = {
-                    "cloudGatewayName": cloud_gateway_name,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/multicloud/cloudgateway/{cloudGatewayName}",
-                    return_type=Taskid,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> UpdateCgw:
-                return UpdateCgw(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[UpdateCgw]:
-                return UpdateCgw
-
-        return update_cgw_(self._request_adapter)
-
-    def delete_cgw(self, cloud_gateway_name: str, delete_all_resources: Optional[str] = "true", **kw) -> Taskid:
+    def delete_cgw(
+        self, cloud_gateway_name: str, delete_all_resources: Optional[str] = "true", **kw
+    ) -> Taskid:
         """
         Delete cloud gateway
 
@@ -156,7 +143,11 @@ class CloudgatewayBuilder:
             "deleteAllResources": delete_all_resources,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/multicloud/cloudgateway/{cloudGatewayName}", return_type=Taskid, params=params, **kw
+            "DELETE",
+            "/dataservice/multicloud/cloudgateway/{cloudGatewayName}",
+            return_type=Taskid,
+            params=params,
+            **kw,
         )
 
     @property

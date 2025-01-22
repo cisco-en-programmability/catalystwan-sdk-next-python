@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import GetAuditLogAggregation
 
 
@@ -12,6 +13,8 @@ class AggregationBuilder:
     """
     Builds and executes requests for operations under /auditlog/aggregation
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -27,10 +30,16 @@ class AggregationBuilder:
             "query": query,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/auditlog/aggregation", return_type=GetAuditLogAggregation, params=params, **kw
+            "GET",
+            "/dataservice/auditlog/aggregation",
+            return_type=GetAuditLogAggregation,
+            params=params,
+            **kw,
         )
 
-    def get_post_property_aggregation_data(self, payload: Optional[Any] = None, **kw) -> GetAuditLogAggregation:
+    def get_post_property_aggregation_data(
+        self, payload: Optional[Any] = None, **kw
+    ) -> GetAuditLogAggregation:
         """
         Get raw property data aggregated with post action
 
@@ -38,5 +47,9 @@ class AggregationBuilder:
         :returns: GetAuditLogAggregation
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/auditlog/aggregation", return_type=GetAuditLogAggregation, payload=payload, **kw
+            "POST",
+            "/dataservice/auditlog/aggregation",
+            return_type=GetAuditLogAggregation,
+            payload=payload,
+            **kw,
         )

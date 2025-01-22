@@ -5,6 +5,7 @@ import logging
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import NwpipacketRespPayload
 
 
@@ -13,10 +14,14 @@ class PacketFeaturesBuilder:
     Builds and executes requests for operations under /stream/device/nwpi/packetFeatures
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_packet_features(self, trace_id: int, timestamp: int, flow_id: int, **kw) -> NwpipacketRespPayload:
+    def get_packet_features(
+        self, trace_id: int, timestamp: int, flow_id: int, **kw
+    ) -> NwpipacketRespPayload:
         """
         packetFeatures for NWPI.
 

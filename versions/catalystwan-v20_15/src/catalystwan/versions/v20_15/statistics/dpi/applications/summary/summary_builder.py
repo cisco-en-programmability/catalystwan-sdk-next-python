@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DpiAppResponse
 
 
@@ -12,6 +13,8 @@ class SummaryBuilder:
     """
     Builds and executes requests for operations under /statistics/dpi/applications/summary
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -33,5 +36,9 @@ class SummaryBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/statistics/dpi/applications/summary", return_type=DpiAppResponse, params=params, **kw
+            "GET",
+            "/dataservice/statistics/dpi/applications/summary",
+            return_type=DpiAppResponse,
+            params=params,
+            **kw,
         )

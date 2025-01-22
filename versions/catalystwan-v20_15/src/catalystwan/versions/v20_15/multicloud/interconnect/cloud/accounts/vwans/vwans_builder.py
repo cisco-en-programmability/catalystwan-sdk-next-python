@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AzureVirtualWan, CloudTypeParam, InlineResponse2009
 
 
@@ -12,6 +13,8 @@ class VwansBuilder:
     """
     Builds and executes requests for operations under /multicloud/interconnect/cloud/{cloud-type}/accounts/{cloud-account-id}/vwans
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -50,44 +53,33 @@ class VwansBuilder:
             **kw,
         )
 
-    @property
-    def create_az_virtual_wan(self):
-        class create_az_virtual_wan_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_az_virtual_wan(
+        self,
+        cloud_type: str,
+        cloud_account_id: str,
+        payload: Optional[AzureVirtualWan] = None,
+        **kw,
+    ) -> InlineResponse2009:
+        """
+        API to create an Azure Virtual Wan..
 
-            def __call__(
-                self, cloud_type: str, cloud_account_id: str, payload: Optional[AzureVirtualWan] = None, **kw
-            ) -> InlineResponse2009:
-                """
-                API to create an Azure Virtual Wan..
-
-                :param cloud_type: Cloud Provider Type
-                :param cloud_account_id: Cloud account id
-                :param payload: Request Payload for Multicloud Interconnect Azure Vwan
-                :returns: InlineResponse2009
-                """
-                params = {
-                    "cloud-type": cloud_type,
-                    "cloud-account-id": cloud_account_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/interconnect/cloud/{cloud-type}/accounts/{cloud-account-id}/vwans",
-                    return_type=InlineResponse2009,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> AzureVirtualWan:
-                return AzureVirtualWan(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[AzureVirtualWan]:
-                return AzureVirtualWan
-
-        return create_az_virtual_wan_(self._request_adapter)
+        :param cloud_type: Cloud Provider Type
+        :param cloud_account_id: Cloud account id
+        :param payload: Request Payload for Multicloud Interconnect Azure Vwan
+        :returns: InlineResponse2009
+        """
+        params = {
+            "cloud-type": cloud_type,
+            "cloud-account-id": cloud_account_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/multicloud/interconnect/cloud/{cloud-type}/accounts/{cloud-account-id}/vwans",
+            return_type=InlineResponse2009,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_az_virtual_wan(
         self,

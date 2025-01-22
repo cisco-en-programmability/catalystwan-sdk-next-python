@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import FindSoftwareVersion
 
 
@@ -10,6 +11,8 @@ class VersionBuilder:
     """
     Builds and executes requests for operations under /device/action/software/version
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -21,5 +24,8 @@ class VersionBuilder:
         :returns: FindSoftwareVersion
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/device/action/software/version", return_type=FindSoftwareVersion, **kw
+            "GET",
+            "/dataservice/device/action/software/version",
+            return_type=FindSoftwareVersion,
+            **kw,
         )

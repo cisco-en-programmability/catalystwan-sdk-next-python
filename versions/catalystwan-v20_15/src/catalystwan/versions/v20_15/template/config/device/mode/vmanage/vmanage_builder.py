@@ -5,6 +5,7 @@ from typing import Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import TypeParam
 
 
@@ -12,6 +13,8 @@ class VmanageBuilder:
     """
     Builds and executes requests for operations under /template/config/device/mode/vmanage
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -27,5 +30,9 @@ class VmanageBuilder:
             "type": type_,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/config/device/mode/vmanage", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/template/config/device/mode/vmanage",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )

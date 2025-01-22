@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InlineResponse2001
 
 
@@ -13,11 +14,17 @@ class BillingAccountsBuilder:
     Builds and executes requests for operations under /multicloud/interconnect/{interconnect-type}/accounts/{interconnect-account-id}/billing-accounts
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_interconnect_billing_accounts(
-        self, interconnect_type: str, interconnect_account_id: str, region: Optional[str] = None, **kw
+        self,
+        interconnect_type: str,
+        interconnect_account_id: str,
+        region: Optional[str] = None,
+        **kw,
     ) -> InlineResponse2001:
         """
         API to retrieve billing accounts for an Interconnect provider type and account.

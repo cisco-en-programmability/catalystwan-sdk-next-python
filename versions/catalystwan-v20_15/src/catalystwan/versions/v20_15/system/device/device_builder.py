@@ -5,15 +5,26 @@ from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
-from .models import (CertificateStates, CertificateValidity, DeleteDevice, DeviceIp, DeviceUuid, FamilyParam,
-                     ModelParam, TopologyParam)
+from . import models
+from .models import (
+    CertificateStates,
+    CertificateValidity,
+    DeleteDevice,
+    DeviceIp,
+    DeviceUuid,
+    FamilyParam,
+    ModelParam,
+    TopologyParam,
+)
 
 if TYPE_CHECKING:
     from .bootstrap.bootstrap_builder import BootstrapBuilder
     from .claim_devices.claim_devices_builder import ClaimDevicesBuilder
     from .controllers.controllers_builder import ControllersBuilder
     from .decommission.decommission_builder import DecommissionBuilder
-    from .devices_without_subject_sudi.devices_without_subject_sudi_builder import DevicesWithoutSubjectSudiBuilder
+    from .devices_without_subject_sudi.devices_without_subject_sudi_builder import (
+        DevicesWithoutSubjectSudiBuilder,
+    )
     from .fileupload.fileupload_builder import FileuploadBuilder
     from .generate_payg.generate_payg_builder import GeneratePaygBuilder
     from .lifecycle.lifecycle_builder import LifecycleBuilder
@@ -30,7 +41,9 @@ if TYPE_CHECKING:
     from .type_.type_builder import TypeBuilder
     from .unclaimed_devices.unclaimed_devices_builder import UnclaimedDevicesBuilder
     from .unlock.unlock_builder import UnlockBuilder
-    from .update_device_subject_sudi.update_device_subject_sudi_builder import UpdateDeviceSubjectSudiBuilder
+    from .update_device_subject_sudi.update_device_subject_sudi_builder import (
+        UpdateDeviceSubjectSudiBuilder,
+    )
     from .vedgedetection.vedgedetection_builder import VedgedetectionBuilder
     from .vmanagerootca.vmanagerootca_builder import VmanagerootcaBuilder
 
@@ -39,6 +52,8 @@ class DeviceBuilder:
     """
     Builds and executes requests for operations under /system/device
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -53,7 +68,9 @@ class DeviceBuilder:
         :param payload: Create device request
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/system/device", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/system/device", payload=payload, **kw
+        )
 
     def get_devices_details(
         self,
@@ -96,7 +113,9 @@ class DeviceBuilder:
             "topology": topology,
             "tag": tag,
         }
-        return self._request_adapter.request("GET", "/dataservice/system/device/{deviceCategory}", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/system/device/{deviceCategory}", params=params, **kw
+        )
 
     def edit_device(self, uuid: str, payload: Optional[Any] = None, **kw):
         """
@@ -124,7 +143,11 @@ class DeviceBuilder:
             "uuid": uuid,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/system/device/{uuid}", return_type=DeleteDevice, params=params, **kw
+            "DELETE",
+            "/dataservice/system/device/{uuid}",
+            return_type=DeleteDevice,
+            params=params,
+            **kw,
         )
 
     @property
@@ -168,7 +191,9 @@ class DeviceBuilder:
         """
         The devicesWithoutSubjectSudi property
         """
-        from .devices_without_subject_sudi.devices_without_subject_sudi_builder import DevicesWithoutSubjectSudiBuilder
+        from .devices_without_subject_sudi.devices_without_subject_sudi_builder import (
+            DevicesWithoutSubjectSudiBuilder,
+        )
 
         return DevicesWithoutSubjectSudiBuilder(self._request_adapter)
 
@@ -321,7 +346,9 @@ class DeviceBuilder:
         """
         The updateDeviceSubjectSUDI property
         """
-        from .update_device_subject_sudi.update_device_subject_sudi_builder import UpdateDeviceSubjectSudiBuilder
+        from .update_device_subject_sudi.update_device_subject_sudi_builder import (
+            UpdateDeviceSubjectSudiBuilder,
+        )
 
         return UpdateDeviceSubjectSudiBuilder(self._request_adapter)
 

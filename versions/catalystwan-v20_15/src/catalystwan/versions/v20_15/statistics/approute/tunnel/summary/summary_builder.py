@@ -5,6 +5,7 @@ from typing import List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AppRouteRespWithPageInfo
 
 
@@ -12,6 +13,8 @@ class SummaryBuilder:
     """
     Builds and executes requests for operations under /statistics/approute/tunnel/{type}/summary
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

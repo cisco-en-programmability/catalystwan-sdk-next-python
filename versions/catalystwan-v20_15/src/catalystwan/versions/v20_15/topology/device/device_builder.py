@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceIp
 
 if TYPE_CHECKING:
@@ -15,6 +16,8 @@ class DeviceBuilder:
     """
     Builds and executes requests for operations under /topology/device
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -29,7 +32,9 @@ class DeviceBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/topology/device", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/topology/device", params=params, **kw
+        )
 
     @property
     def site(self) -> SiteBuilder:

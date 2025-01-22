@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import IsVnetAttached
 
 
@@ -11,10 +12,14 @@ class VnetsNoofAttachedBuilder:
     Builds and executes requests for operations under /multicloud/cloudgateway/vnetsNoofAttached
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_azure_virtual_vnets_attached(self, cloud_type: str, cloud_gateway_name: str, **kw) -> IsVnetAttached:
+    def get_azure_virtual_vnets_attached(
+        self, cloud_type: str, cloud_gateway_name: str, **kw
+    ) -> IsVnetAttached:
         """
         Discover Azure Virtual HUBs
 

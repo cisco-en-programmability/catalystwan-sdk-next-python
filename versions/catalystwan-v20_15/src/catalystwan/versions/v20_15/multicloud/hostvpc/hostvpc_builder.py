@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import HostVpcsResponse
 
 if TYPE_CHECKING:
@@ -15,6 +16,8 @@ class HostvpcBuilder:
     """
     Builds and executes requests for operations under /multicloud/hostvpc
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -43,7 +46,11 @@ class HostvpcBuilder:
             "untagged": untagged,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/hostvpc", return_type=List[HostVpcsResponse], params=params, **kw
+            "GET",
+            "/dataservice/multicloud/hostvpc",
+            return_type=List[HostVpcsResponse],
+            params=params,
+            **kw,
         )
 
     @property

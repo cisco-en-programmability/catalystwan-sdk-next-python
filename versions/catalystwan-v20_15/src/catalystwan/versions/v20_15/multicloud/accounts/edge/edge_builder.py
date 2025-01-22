@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import EdgeTypeParam
 
 if TYPE_CHECKING:
@@ -16,6 +17,8 @@ class EdgeBuilder:
     """
     Builds and executes requests for operations under /multicloud/accounts/edge
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -31,7 +34,9 @@ class EdgeBuilder:
         params = {
             "edgeType": edge_type,
         }
-        return self._request_adapter.request("GET", "/dataservice/multicloud/accounts/edge", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/multicloud/accounts/edge", params=params, **kw
+        )
 
     def validate_edge_account_add(self, payload: Optional[Any] = None, **kw):
         """
@@ -41,7 +46,9 @@ class EdgeBuilder:
         :returns: None
         """
         logging.warning("Operation: %s is deprecated", "validateEdgeAccountAdd")
-        return self._request_adapter.request("POST", "/dataservice/multicloud/accounts/edge", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/multicloud/accounts/edge", payload=payload, **kw
+        )
 
     def get_edge_account_details(self, account_id: str, **kw) -> Any:
         """
@@ -71,7 +78,11 @@ class EdgeBuilder:
             "accountId": account_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/multicloud/accounts/edge/{accountId}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/multicloud/accounts/edge/{accountId}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_edge_account(self, account_id: str, **kw):

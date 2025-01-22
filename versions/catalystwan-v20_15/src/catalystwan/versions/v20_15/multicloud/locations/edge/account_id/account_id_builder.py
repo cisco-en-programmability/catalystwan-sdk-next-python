@@ -6,6 +6,7 @@ from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import EdgeTypeParam
 
 
@@ -13,6 +14,8 @@ class AccountIdBuilder:
     """
     Builds and executes requests for operations under /multicloud/locations/edge/{edgeType}/accountId
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -31,5 +34,8 @@ class AccountIdBuilder:
             "accountId": account_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/multicloud/locations/edge/{edgeType}/accountId/{accountId}", params=params, **kw
+            "PUT",
+            "/dataservice/multicloud/locations/edge/{edgeType}/accountId/{accountId}",
+            params=params,
+            **kw,
         )

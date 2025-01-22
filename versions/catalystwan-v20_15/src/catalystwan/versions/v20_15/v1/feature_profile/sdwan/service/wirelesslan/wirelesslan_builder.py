@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional, Type
+from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -35,40 +35,27 @@ class WirelesslanBuilder:
             **kw,
         )
 
-    @property
-    def create_wirelesslan_profile_parcel_for_service(self):
-        class create_wirelesslan_profile_parcel_for_service_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_wirelesslan_profile_parcel_for_service(
+        self, service_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Create a Wirelesslan Profile Parcel for Service feature profile
 
-            def __call__(self, service_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Create a Wirelesslan Profile Parcel for Service feature profile
-
-                :param service_id: Feature Profile ID
-                :param payload: Wirelesslan Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "serviceId": service_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/wirelesslan",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_wirelesslan_profile_parcel_for_service_(self._request_adapter)
+        :param service_id: Feature Profile ID
+        :param payload: Wirelesslan Profile Parcel
+        :returns: str
+        """
+        params = {
+            "serviceId": service_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/wirelesslan",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def get_wirelesslan_profile_parcel_by_parcel_id_for_service(
         self, service_id: str, wirelesslan_id: str, **kw
@@ -92,44 +79,33 @@ class WirelesslanBuilder:
             **kw,
         )
 
-    @property
-    def edit_wirelesslan_profile_parcel_for_service(self):
-        class edit_wirelesslan_profile_parcel_for_service_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_wirelesslan_profile_parcel_for_service(
+        self, service_id: str, wirelesslan_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Update a Wirelesslan Profile Parcel for Service feature profile
 
-            def __call__(self, service_id: str, wirelesslan_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Update a Wirelesslan Profile Parcel for Service feature profile
+        :param service_id: Feature Profile ID
+        :param wirelesslan_id: Profile Parcel ID
+        :param payload: Wirelesslan Profile Parcel
+        :returns: str
+        """
+        params = {
+            "serviceId": service_id,
+            "wirelesslanId": wirelesslan_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/wirelesslan/{wirelesslanId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
-                :param service_id: Feature Profile ID
-                :param wirelesslan_id: Profile Parcel ID
-                :param payload: Wirelesslan Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "serviceId": service_id,
-                    "wirelesslanId": wirelesslan_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/wirelesslan/{wirelesslanId}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_wirelesslan_profile_parcel_for_service_(self._request_adapter)
-
-    def delete_wirelesslan_profile_parcel_for_service(self, service_id: str, wirelesslan_id: str, **kw):
+    def delete_wirelesslan_profile_parcel_for_service(
+        self, service_id: str, wirelesslan_id: str, **kw
+    ):
         """
         Delete a Wirelesslan Profile Parcel for Service feature profile
 

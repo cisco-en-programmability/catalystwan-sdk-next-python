@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import TemplateTypeParam
 
 
@@ -13,10 +14,14 @@ class DownloadBuilder:
     Builds and executes requests for operations under /v1/reports/preview/download
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def download_report_preview_file(self, template_type: Optional[TemplateTypeParam] = None, **kw) -> str:
+    def download_report_preview_file(
+        self, template_type: Optional[TemplateTypeParam] = None, **kw
+    ) -> str:
         """
         Download a report preview file
 

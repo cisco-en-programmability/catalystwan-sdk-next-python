@@ -5,6 +5,7 @@ from typing import List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceHealthHistoryItem
 
 
@@ -13,11 +14,17 @@ class HistoryBuilder:
     Builds and executes requests for operations under /statistics/devicehealth/history
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_device_health_history(
-        self, last_n_hours: Optional[int] = 12, site: Optional[str] = None, limit: Optional[int] = 30, **kw
+        self,
+        last_n_hours: Optional[int] = 12,
+        site: Optional[str] = None,
+        limit: Optional[int] = 30,
+        **kw,
     ) -> List[DeviceHealthHistoryItem]:
         """
         Get all device health history

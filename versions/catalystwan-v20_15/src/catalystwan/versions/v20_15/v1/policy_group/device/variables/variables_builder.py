@@ -1,11 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
-from .models import CreatePolicyGroupDeviceVariablesPutRequest
+from . import models
+from .models import Default, VariablesDefault
 
 if TYPE_CHECKING:
     from .schema.schema_builder import SchemaBuilder
@@ -16,11 +17,17 @@ class VariablesBuilder:
     Builds and executes requests for operations under /v1/policy-group/{policyGroupId}/device/variables
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_policy_group_device_variables(
-        self, policy_group_id: str, device_id: Optional[str] = None, suggestions: Optional[bool] = None, **kw
+        self,
+        policy_group_id: str,
+        device_id: Optional[str] = None,
+        suggestions: Optional[bool] = None,
+        **kw,
     ) -> Any:
         """
         Get device variables
@@ -36,80 +43,53 @@ class VariablesBuilder:
             "suggestions": suggestions,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/policy-group/{policyGroupId}/device/variables", params=params, **kw
+            "GET",
+            "/dataservice/v1/policy-group/{policyGroupId}/device/variables",
+            params=params,
+            **kw,
         )
 
-    @property
-    def create_policy_group_device_variables(self):
-        class create_policy_group_device_variables_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_policy_group_device_variables(
+        self, policy_group_id: str, payload: Optional[Default] = None, **kw
+    ) -> Any:
+        """
+        assign values to device variables
 
-            def __call__(
-                self, policy_group_id: str, payload: Optional[CreatePolicyGroupDeviceVariablesPutRequest] = None, **kw
-            ) -> Any:
-                """
-                assign values to device variables
+        :param policy_group_id: Policy Group Id
+        :param payload: Payload
+        :returns: Any
+        """
+        params = {
+            "policyGroupId": policy_group_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/policy-group/{policyGroupId}/device/variables",
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
-                :param policy_group_id: Policy Group Id
-                :param payload: Payload
-                :returns: Any
-                """
-                params = {
-                    "policyGroupId": policy_group_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/policy-group/{policyGroupId}/device/variables",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
+    def fetch_policy_group_device_variables(
+        self, policy_group_id: str, payload: Optional[VariablesDefault] = None, **kw
+    ) -> Any:
+        """
+        Fetch device variables
 
-            def create_payload(self, *args, **kwargs) -> CreatePolicyGroupDeviceVariablesPutRequest:
-                return CreatePolicyGroupDeviceVariablesPutRequest(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[CreatePolicyGroupDeviceVariablesPutRequest]:
-                return CreatePolicyGroupDeviceVariablesPutRequest
-
-        return create_policy_group_device_variables_(self._request_adapter)
-
-    @property
-    def fetch_policy_group_device_variables(self):
-        class fetch_policy_group_device_variables_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(
-                self, policy_group_id: str, payload: Optional[CreatePolicyGroupDeviceVariablesPutRequest] = None, **kw
-            ) -> Any:
-                """
-                Fetch device variables
-
-                :param policy_group_id: Policy Group Id
-                :param payload: Payload
-                :returns: Any
-                """
-                params = {
-                    "policyGroupId": policy_group_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/policy-group/{policyGroupId}/device/variables",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> CreatePolicyGroupDeviceVariablesPutRequest:
-                return CreatePolicyGroupDeviceVariablesPutRequest(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[CreatePolicyGroupDeviceVariablesPutRequest]:
-                return CreatePolicyGroupDeviceVariablesPutRequest
-
-        return fetch_policy_group_device_variables_(self._request_adapter)
+        :param policy_group_id: Policy Group Id
+        :param payload: Payload
+        :returns: Any
+        """
+        params = {
+            "policyGroupId": policy_group_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/policy-group/{policyGroupId}/device/variables",
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     @property
     def schema(self) -> SchemaBuilder:

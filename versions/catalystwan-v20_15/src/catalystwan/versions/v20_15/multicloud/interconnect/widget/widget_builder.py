@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InterconnectWidget
 
 
@@ -12,6 +13,8 @@ class WidgetBuilder:
     """
     Builds and executes requests for operations under /multicloud/interconnect/widget
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -23,7 +26,10 @@ class WidgetBuilder:
         :returns: List[InterconnectWidget]
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/interconnect/widget", return_type=List[InterconnectWidget], **kw
+            "GET",
+            "/dataservice/multicloud/interconnect/widget",
+            return_type=List[InterconnectWidget],
+            **kw,
         )
 
     def get_interconnect_widget(self, interconnect_type: str, **kw) -> InterconnectWidget:

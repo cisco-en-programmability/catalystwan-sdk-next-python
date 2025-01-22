@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import NotificationsRulesResponse
 
 
@@ -12,6 +13,8 @@ class RulesBuilder:
     """
     Builds and executes requests for operations under /notifications/rules
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -31,7 +34,11 @@ class RulesBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/notifications/rules", return_type=NotificationsRulesResponse, params=params, **kw
+            "GET",
+            "/dataservice/notifications/rules",
+            return_type=NotificationsRulesResponse,
+            params=params,
+            **kw,
         )
 
     def delete_notification_rule(self, rule_id: str, **kw):
@@ -44,4 +51,6 @@ class RulesBuilder:
         params = {
             "ruleId": rule_id,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/notifications/rules", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/notifications/rules", params=params, **kw
+        )

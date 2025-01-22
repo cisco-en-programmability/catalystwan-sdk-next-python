@@ -5,6 +5,7 @@ from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import Vpnid
 
 
@@ -13,11 +14,17 @@ class DevicesBuilder:
     Builds and executes requests for operations under /group/devices
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def list_group_devices(
-        self, group_id: Optional[str] = None, ssh: Optional[bool] = False, vpn_id: Optional[List[Vpnid]] = None, **kw
+        self,
+        group_id: Optional[str] = None,
+        ssh: Optional[bool] = False,
+        vpn_id: Optional[List[Vpnid]] = None,
+        **kw,
     ) -> List[Any]:
         """
         Retrieve devices in group

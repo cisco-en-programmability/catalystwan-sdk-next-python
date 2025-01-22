@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import VwanListResponse
 
 
@@ -13,11 +14,18 @@ class VwansBuilder:
     Builds and executes requests for operations under /multicloud/cloudgateway/vwans
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_azure_virtual_wans(
-        self, cloud_type: str, account_id: str, resource_group_name: str, resource_group_source: str, **kw
+        self,
+        cloud_type: str,
+        account_id: str,
+        resource_group_name: str,
+        resource_group_source: str,
+        **kw,
     ) -> List[VwanListResponse]:
         """
         Discover Azure Virtual WANS
@@ -35,5 +43,9 @@ class VwansBuilder:
             "resourceGroupSource": resource_group_source,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/cloudgateway/vwans", return_type=List[VwanListResponse], params=params, **kw
+            "GET",
+            "/dataservice/multicloud/cloudgateway/vwans",
+            return_type=List[VwanListResponse],
+            params=params,
+            **kw,
         )

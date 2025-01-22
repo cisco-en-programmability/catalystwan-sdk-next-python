@@ -1,17 +1,20 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
-from .models import Default
+from . import models
+from .models import AssociateDefault, Default
 
 
 class AssociateBuilder:
     """
     Builds and executes requests for operations under /v1/policy-group/{policyGroupId}/device/associate
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -34,7 +37,7 @@ class AssociateBuilder:
         )
 
     def update_policy_group_association(
-        self, policy_group_id: str, payload: Optional[Any] = None, **kw
+        self, policy_group_id: str, payload: Optional[Default] = None, **kw
     ):
         """
         Move the devices from one policy group to another
@@ -54,39 +57,26 @@ class AssociateBuilder:
             **kw,
         )
 
-    @property
-    def create_policy_group_association(self):
-        class create_policy_group_association_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_policy_group_association(
+        self, policy_group_id: str, payload: Optional[AssociateDefault] = None, **kw
+    ):
+        """
+        Create associations with device and a policy group
 
-            def __call__(self, policy_group_id: str, payload: Optional[Default] = None, **kw):
-                """
-                Create associations with device and a policy group
-
-                :param policy_group_id: Policy group id
-                :param payload: Payload
-                :returns: None
-                """
-                params = {
-                    "policyGroupId": policy_group_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/policy-group/{policyGroupId}/device/associate",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Default:
-                return Default(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Default]:
-                return Default
-
-        return create_policy_group_association_(self._request_adapter)
+        :param policy_group_id: Policy group id
+        :param payload: Payload
+        :returns: None
+        """
+        params = {
+            "policyGroupId": policy_group_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/policy-group/{policyGroupId}/device/associate",
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_policy_group_association(
         self, policy_group_id: str, payload: Optional[Any] = None, **kw

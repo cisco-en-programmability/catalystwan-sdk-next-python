@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import QoSRespWithPageInfo, SortOrderParam
 
 if TYPE_CHECKING:
@@ -21,6 +22,8 @@ class QosBuilder:
     """
     Builds and executes requests for operations under /statistics/qos
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -52,7 +55,11 @@ class QosBuilder:
             "sortOrder": sort_order,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/statistics/qos", return_type=List[QoSRespWithPageInfo], params=params, **kw
+            "GET",
+            "/dataservice/statistics/qos",
+            return_type=List[QoSRespWithPageInfo],
+            params=params,
+            **kw,
         )
 
     def get_stats_raw_data12(

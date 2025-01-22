@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceTaskStatus
 
 
@@ -10,6 +11,8 @@ class CleanBuilder:
     """
     Builds and executes requests for operations under /device/action/status/tasks/clean
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -25,5 +28,9 @@ class CleanBuilder:
             "processId": process_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/device/action/status/tasks/clean", return_type=DeviceTaskStatus, params=params, **kw
+            "GET",
+            "/dataservice/device/action/status/tasks/clean",
+            return_type=DeviceTaskStatus,
+            params=params,
+            **kw,
         )

@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import CloudTypeParam, MapDefaults
 
 
@@ -12,6 +13,8 @@ class DefaultsBuilder:
     """
     Builds and executes requests for operations under /multicloud/map/defaults
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -27,5 +30,9 @@ class DefaultsBuilder:
             "cloudType": cloud_type,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/map/defaults", return_type=List[MapDefaults], params=params, **kw
+            "GET",
+            "/dataservice/multicloud/map/defaults",
+            return_type=List[MapDefaults],
+            params=params,
+            **kw,
         )

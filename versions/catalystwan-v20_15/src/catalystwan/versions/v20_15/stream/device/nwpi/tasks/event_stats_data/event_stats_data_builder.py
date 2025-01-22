@@ -5,6 +5,7 @@ import logging
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import EventStatsDataResponsePayload
 
 
@@ -12,6 +13,8 @@ class EventStatsDataBuilder:
     """
     Builds and executes requests for operations under /stream/device/nwpi/tasks/eventStatsData
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

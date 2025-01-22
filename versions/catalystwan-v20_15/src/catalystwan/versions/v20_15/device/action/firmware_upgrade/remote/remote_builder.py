@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ProcessFirmwareRemoteImageReq, ProcessGetFirmwareRemoteImageReq
 
 
@@ -12,6 +13,8 @@ class RemoteBuilder:
     """
     Builds and executes requests for operations under /device/action/firmware-upgrade/remote
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -29,7 +32,9 @@ class RemoteBuilder:
             **kw,
         )
 
-    def process_firmware_remote_image(self, payload: Optional[Any] = None, **kw) -> ProcessFirmwareRemoteImageReq:
+    def process_firmware_remote_image(
+        self, payload: Optional[Any] = None, **kw
+    ) -> ProcessFirmwareRemoteImageReq:
         """
         firmware remote image package
 

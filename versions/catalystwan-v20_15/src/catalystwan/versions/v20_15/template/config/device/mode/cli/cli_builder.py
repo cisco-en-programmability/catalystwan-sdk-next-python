@@ -5,6 +5,7 @@ from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import TypeParam
 
 
@@ -12,6 +13,8 @@ class CliBuilder:
     """
     Builds and executes requests for operations under /template/config/device/mode/cli
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -27,7 +30,11 @@ class CliBuilder:
             "type": type_,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/config/device/mode/cli", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/template/config/device/mode/cli",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def update_device_to_cli_mode(self, payload: Optional[Any] = None, **kw) -> Any:

@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import CloudTypeParam, DeviceInfoExtendedResponse
 
 if TYPE_CHECKING:
@@ -15,6 +16,8 @@ class DevicesBuilder:
     """
     Builds and executes requests for operations under /multicloud/devices
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

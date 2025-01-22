@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import GetHsecDevicesPayloadInner
 
 
@@ -12,6 +13,8 @@ class InstallBuilder:
     """
     Builds and executes requests for operations under /hsec/devices/install
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -23,5 +26,8 @@ class InstallBuilder:
         :returns: List[GetHsecDevicesPayloadInner]
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/hsec/devices/install", return_type=List[GetHsecDevicesPayloadInner], **kw
+            "GET",
+            "/dataservice/hsec/devices/install",
+            return_type=List[GetHsecDevicesPayloadInner],
+            **kw,
         )

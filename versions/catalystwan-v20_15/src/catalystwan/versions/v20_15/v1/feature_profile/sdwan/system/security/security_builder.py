@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional, Type
+from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -32,40 +32,27 @@ class SecurityBuilder:
             **kw,
         )
 
-    @property
-    def create_security_for_system(self):
-        class create_security_for_system_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_security_for_system(
+        self, system_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Create Security for System feature profile
 
-            def __call__(self, system_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Create Security for System feature profile
-
-                :param system_id: Feature Profile ID
-                :param payload: Security Feature
-                :returns: str
-                """
-                params = {
-                    "systemId": system_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/sdwan/system/{systemId}/security",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_security_for_system_(self._request_adapter)
+        :param system_id: Feature Profile ID
+        :param payload: Security Feature
+        :returns: str
+        """
+        params = {
+            "systemId": system_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/security",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def get_security_by_security_id_for_system(self, system_id: str, security_id: str, **kw) -> str:
         """
@@ -87,42 +74,29 @@ class SecurityBuilder:
             **kw,
         )
 
-    @property
-    def edit_security_for_system(self):
-        class edit_security_for_system_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_security_for_system(
+        self, system_id: str, security_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Update Security for System feature profile
 
-            def __call__(self, system_id: str, security_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Update Security for System feature profile
-
-                :param system_id: Feature Profile ID
-                :param security_id: Security ID
-                :param payload: Security Feature
-                :returns: str
-                """
-                params = {
-                    "systemId": system_id,
-                    "securityId": security_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/feature-profile/sdwan/system/{systemId}/security/{securityId}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_security_for_system_(self._request_adapter)
+        :param system_id: Feature Profile ID
+        :param security_id: Security ID
+        :param payload: Security Feature
+        :returns: str
+        """
+        params = {
+            "systemId": system_id,
+            "securityId": security_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/feature-profile/sdwan/system/{systemId}/security/{securityId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_security_for_system(self, system_id: str, security_id: str, **kw):
         """

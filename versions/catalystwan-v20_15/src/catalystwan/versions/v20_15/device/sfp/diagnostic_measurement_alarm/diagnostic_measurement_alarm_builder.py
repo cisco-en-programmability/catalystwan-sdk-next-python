@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import IfnameParam
 
 
@@ -13,10 +14,14 @@ class DiagnosticMeasurementAlarmBuilder:
     Builds and executes requests for operations under /device/sfp/diagnosticMeasurementAlarm
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_diagnostic_measurement_alarm(self, device_id: str, ifname: Optional[IfnameParam] = None, **kw) -> Any:
+    def get_diagnostic_measurement_alarm(
+        self, device_id: str, ifname: Optional[IfnameParam] = None, **kw
+    ) -> Any:
         """
         Get SFP diagnostic measurement alarm
 

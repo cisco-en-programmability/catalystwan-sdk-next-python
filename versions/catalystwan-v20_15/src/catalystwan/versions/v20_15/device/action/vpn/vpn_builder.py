@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import CreateVpnList
 
 
@@ -10,6 +11,8 @@ class VpnBuilder:
     """
     Builds and executes requests for operations under /device/action/vpn
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -20,4 +23,6 @@ class VpnBuilder:
 
         :returns: CreateVpnList
         """
-        return self._request_adapter.request("GET", "/dataservice/device/action/vpn", return_type=CreateVpnList, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/action/vpn", return_type=CreateVpnList, **kw
+        )

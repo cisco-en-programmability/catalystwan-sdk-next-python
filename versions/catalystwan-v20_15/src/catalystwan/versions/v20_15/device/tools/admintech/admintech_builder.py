@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional, Type
+from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AdminTechCreateReq
 
 if TYPE_CHECKING:
@@ -19,34 +20,21 @@ class AdmintechBuilder:
     Builds and executes requests for operations under /device/tools/admintech
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def create_admin_tech(self):
-        class create_admin_tech_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_admin_tech(self, payload: Optional[AdminTechCreateReq] = None, **kw):
+        """
+        Generate admin tech logs
 
-            def __call__(self, payload: Optional[AdminTechCreateReq] = None, **kw):
-                """
-                Generate admin tech logs
-
-                :param payload: Admin tech generation request
-                :returns: None
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/device/tools/admintech", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> AdminTechCreateReq:
-                return AdminTechCreateReq(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[AdminTechCreateReq]:
-                return AdminTechCreateReq
-
-        return create_admin_tech_(self._request_adapter)
+        :param payload: Admin tech generation request
+        :returns: None
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/tools/admintech", payload=payload, **kw
+        )
 
     def delete_admin_tech_file(self, request_id: str, **kw):
         """

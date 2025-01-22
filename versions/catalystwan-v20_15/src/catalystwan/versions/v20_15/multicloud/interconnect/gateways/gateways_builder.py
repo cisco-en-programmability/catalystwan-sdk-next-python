@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Optional, Type
+from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InterconnectGatewayExtended, InterconnectTypeParam, ProcessResponse
 
 if TYPE_CHECKING:
@@ -22,6 +23,8 @@ class GatewaysBuilder:
     """
     Builds and executes requests for operations under /multicloud/interconnect/gateways
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -69,37 +72,26 @@ class GatewaysBuilder:
             **kw,
         )
 
-    @property
-    def create_interconnect_gateway(self):
-        class create_interconnect_gateway_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_interconnect_gateway(
+        self, payload: Optional[InterconnectGatewayExtended] = None, **kw
+    ) -> ProcessResponse:
+        """
+        API to create an Intercoonect gateway in an Interconnect provider.
 
-            def __call__(self, payload: Optional[InterconnectGatewayExtended] = None, **kw) -> ProcessResponse:
-                """
-                API to create an Intercoonect gateway in an Interconnect provider.
+        :param payload: Request Payload for Multicloud Interconnect Gateways
+        :returns: ProcessResponse
+        """
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/multicloud/interconnect/gateways",
+            return_type=ProcessResponse,
+            payload=payload,
+            **kw,
+        )
 
-                :param payload: Request Payload for Multicloud Interconnect Gateways
-                :returns: ProcessResponse
-                """
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/interconnect/gateways",
-                    return_type=ProcessResponse,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> InterconnectGatewayExtended:
-                return InterconnectGatewayExtended(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[InterconnectGatewayExtended]:
-                return InterconnectGatewayExtended
-
-        return create_interconnect_gateway_(self._request_adapter)
-
-    def get_interconnect_gateway(self, interconnect_gateway_name: str, **kw) -> InterconnectGatewayExtended:
+    def get_interconnect_gateway(
+        self, interconnect_gateway_name: str, **kw
+    ) -> InterconnectGatewayExtended:
         """
         API to retrieve the Interconnect Gateway Information from vManage.
 
@@ -117,42 +109,30 @@ class GatewaysBuilder:
             **kw,
         )
 
-    @property
-    def update_interconnect_gateway(self):
-        class update_interconnect_gateway_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def update_interconnect_gateway(
+        self,
+        interconnect_gateway_name: str,
+        payload: Optional[InterconnectGatewayExtended] = None,
+        **kw,
+    ) -> InterconnectGatewayExtended:
+        """
+        API to update the Interconnect Gateway Information in vManage.
 
-            def __call__(
-                self, interconnect_gateway_name: str, payload: Optional[InterconnectGatewayExtended] = None, **kw
-            ) -> InterconnectGatewayExtended:
-                """
-                API to update the Interconnect Gateway Information in vManage.
-
-                :param interconnect_gateway_name: Interconnect gateway name
-                :param payload: Request Payload for Multicloud Interconnect Gateways
-                :returns: InterconnectGatewayExtended
-                """
-                params = {
-                    "interconnect-gateway-name": interconnect_gateway_name,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/multicloud/interconnect/gateways/{interconnect-gateway-name}",
-                    return_type=InterconnectGatewayExtended,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> InterconnectGatewayExtended:
-                return InterconnectGatewayExtended(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[InterconnectGatewayExtended]:
-                return InterconnectGatewayExtended
-
-        return update_interconnect_gateway_(self._request_adapter)
+        :param interconnect_gateway_name: Interconnect gateway name
+        :param payload: Request Payload for Multicloud Interconnect Gateways
+        :returns: InterconnectGatewayExtended
+        """
+        params = {
+            "interconnect-gateway-name": interconnect_gateway_name,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/multicloud/interconnect/gateways/{interconnect-gateway-name}",
+            return_type=InterconnectGatewayExtended,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_interconnect_gateway(self, interconnect_gateway_name: str, **kw) -> ProcessResponse:
         """
@@ -186,7 +166,9 @@ class GatewaysBuilder:
         """
         The device-chassis-numbers property
         """
-        from .device_chassis_numbers.device_chassis_numbers_builder import DeviceChassisNumbersBuilder
+        from .device_chassis_numbers.device_chassis_numbers_builder import (
+            DeviceChassisNumbersBuilder,
+        )
 
         return DeviceChassisNumbersBuilder(self._request_adapter)
 

@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional, Type
+from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import (
     CreateSecurityProfileParcelPostResponse,
     Default,
@@ -17,45 +18,32 @@ class IntrusionPreventionBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/intrusion-prevention
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def create_security_profile_parcel(self):
-        class create_security_profile_parcel_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_security_profile_parcel(
+        self, policy_object_id: str, payload: Optional[Default] = None, **kw
+    ) -> CreateSecurityProfileParcelPostResponse:
+        """
+        Create Parcel for Security Policy
 
-            def __call__(
-                self, policy_object_id: str, payload: Optional[Default] = None, **kw
-            ) -> CreateSecurityProfileParcelPostResponse:
-                """
-                Create Parcel for Security Policy
-
-                :param policy_object_id: Feature Profile ID
-                :param payload: Security Profile Parcel
-                :returns: CreateSecurityProfileParcelPostResponse
-                """
-                params = {
-                    "policyObjectId": policy_object_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/intrusion-prevention",
-                    return_type=CreateSecurityProfileParcelPostResponse,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> Default:
-                return Default(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[Default]:
-                return Default
-
-        return create_security_profile_parcel_(self._request_adapter)
+        :param policy_object_id: Feature Profile ID
+        :param payload: Security Profile Parcel
+        :returns: CreateSecurityProfileParcelPostResponse
+        """
+        params = {
+            "policyObjectId": policy_object_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/intrusion-prevention",
+            return_type=CreateSecurityProfileParcelPostResponse,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def get_security_profile_parcel(
         self, policy_object_id: str, parcel_id: str, reference_count: Optional[bool] = False, **kw

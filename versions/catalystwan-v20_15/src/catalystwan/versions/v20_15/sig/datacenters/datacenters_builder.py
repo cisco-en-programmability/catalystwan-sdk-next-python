@@ -5,6 +5,7 @@ from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import GetDataCenters
 
 
@@ -12,6 +13,8 @@ class DatacentersBuilder:
     """
     Builds and executes requests for operations under /sig/datacenters
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -29,7 +32,11 @@ class DatacentersBuilder:
             "tunneltype": tunneltype,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/sig/datacenters/{type}/{tunneltype}", return_type=GetDataCenters, params=params, **kw
+            "GET",
+            "/dataservice/sig/datacenters/{type}/{tunneltype}",
+            return_type=GetDataCenters,
+            params=params,
+            **kw,
         )
 
     def get_sig_data_center_list(self, type_: str, tunneltype: str, devicetype: str, **kw) -> Any:
@@ -47,5 +54,8 @@ class DatacentersBuilder:
             "devicetype": devicetype,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/sig/datacenters/{type}/{tunneltype}/{devicetype}", params=params, **kw
+            "GET",
+            "/dataservice/sig/datacenters/{type}/{tunneltype}/{devicetype}",
+            params=params,
+            **kw,
         )

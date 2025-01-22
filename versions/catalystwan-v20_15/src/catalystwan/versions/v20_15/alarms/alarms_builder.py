@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AlarmResponse
 
 if TYPE_CHECKING:
@@ -41,10 +42,14 @@ class AlarmsBuilder:
     Builds and executes requests for operations under /alarms
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_raw_alarm_data(self, query: Optional[str] = None, site_id: Optional[str] = None, **kw) -> AlarmResponse:
+    def get_raw_alarm_data(
+        self, query: Optional[str] = None, site_id: Optional[str] = None, **kw
+    ) -> AlarmResponse:
         """
         Get alarms for given query. If query is empty then last 30 mins data will be returned.
 
@@ -89,7 +94,12 @@ class AlarmsBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/alarms", return_type=AlarmResponse, params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/alarms",
+            return_type=AlarmResponse,
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     @property

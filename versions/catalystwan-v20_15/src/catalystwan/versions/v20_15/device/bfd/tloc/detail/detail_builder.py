@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import StateParam
 
 
@@ -12,6 +13,8 @@ class DetailBuilder:
     """
     Builds and executes requests for operations under /device/bfd/tloc/detail
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -26,4 +29,6 @@ class DetailBuilder:
         params = {
             "state": state,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/bfd/tloc/detail", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/bfd/tloc/detail", params=params, **kw
+        )

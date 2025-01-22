@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import EdgeTypeParam
 
 if TYPE_CHECKING:
@@ -17,11 +18,17 @@ class EdgeBuilder:
     Builds and executes requests for operations under /multicloud/locations/edge
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_edge_locations_info(
-        self, edge_type: EdgeTypeParam, account_id: Optional[str] = None, region: Optional[str] = None, **kw
+        self,
+        edge_type: EdgeTypeParam,
+        account_id: Optional[str] = None,
+        region: Optional[str] = None,
+        **kw,
     ) -> Any:
         """
         Get Edge Locations

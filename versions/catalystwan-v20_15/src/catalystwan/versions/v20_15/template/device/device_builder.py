@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import FeatureParam
 
 if TYPE_CHECKING:
@@ -24,6 +25,8 @@ class DeviceBuilder:
     """
     Builds and executes requests for operations under /template/device
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -76,7 +79,9 @@ class DeviceBuilder:
         params = {
             "templateId": template_id,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/template/device/{templateId}", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/template/device/{templateId}", params=params, **kw
+        )
 
     @property
     def cli(self) -> CliBuilder:

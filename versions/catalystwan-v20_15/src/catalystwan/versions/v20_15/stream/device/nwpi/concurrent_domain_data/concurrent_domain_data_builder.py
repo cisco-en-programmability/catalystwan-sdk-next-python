@@ -6,6 +6,7 @@ from typing import List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ConcurrentDomainDataResponsePayloadInner
 
 
@@ -13,6 +14,8 @@ class ConcurrentDomainDataBuilder:
     """
     Builds and executes requests for operations under /stream/device/nwpi/concurrentDomainData
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

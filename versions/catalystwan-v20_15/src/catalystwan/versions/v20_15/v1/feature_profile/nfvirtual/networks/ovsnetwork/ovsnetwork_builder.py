@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,7 +14,9 @@ class OvsnetworkBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_nfvirtual_ovs_networks_feature_profile_by_profile_id(self, network_id: str, details: bool, **kw) -> Any:
+    def get_all_nfvirtual_ovs_networks_feature_profile_by_profile_id(
+        self, network_id: str, details: bool, **kw
+    ) -> Any:
         """
         Get all Nfvirtual OVS Networks Feature Profile with networkId
 
@@ -27,43 +29,33 @@ class OvsnetworkBuilder:
             "details": details,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/nfvirtual/networks/ovsnetwork/{networkId}", params=params, **kw
+            "GET",
+            "/dataservice/v1/feature-profile/nfvirtual/networks/ovsnetwork/{networkId}",
+            params=params,
+            **kw,
         )
 
-    @property
-    def create_nfvirtual_ovs_network_parcel(self):
-        class create_nfvirtual_ovs_network_parcel_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_nfvirtual_ovs_network_parcel(
+        self, networks_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Create OVS Network Profile Parcel for Networks feature profile
 
-            def __call__(self, networks_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Create OVS Network Profile Parcel for Networks feature profile
-
-                :param networks_id: Feature Profile ID
-                :param payload: OVS Network Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "networksId": networks_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/ovsnetwork",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_nfvirtual_ovs_network_parcel_(self._request_adapter)
+        :param networks_id: Feature Profile ID
+        :param payload: OVS Network Profile Parcel
+        :returns: str
+        """
+        params = {
+            "networksId": networks_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/ovsnetwork",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def get_nfvirtual_ovs_network_parcel(self, networks_id: str, ovs_network_id: str, **kw) -> str:
         """
@@ -85,42 +77,29 @@ class OvsnetworkBuilder:
             **kw,
         )
 
-    @property
-    def edit_nfvirtual_ovs_network_parcel(self):
-        class edit_nfvirtual_ovs_network_parcel_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_nfvirtual_ovs_network_parcel(
+        self, networks_id: str, ovs_network_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Edit a OVS Network Profile Parcel for Networks feature profile
 
-            def __call__(self, networks_id: str, ovs_network_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Edit a OVS Network Profile Parcel for Networks feature profile
-
-                :param networks_id: Feature Profile ID
-                :param ovs_network_id: Profile Parcel ID
-                :param payload: OVS Network Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "networksId": networks_id,
-                    "ovsNetworkId": ovs_network_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/ovsnetwork/{ovsNetworkId}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_nfvirtual_ovs_network_parcel_(self._request_adapter)
+        :param networks_id: Feature Profile ID
+        :param ovs_network_id: Profile Parcel ID
+        :param payload: OVS Network Profile Parcel
+        :returns: str
+        """
+        params = {
+            "networksId": networks_id,
+            "ovsNetworkId": ovs_network_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/ovsnetwork/{ovsNetworkId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_nfvirtual_ovs_network_parcel(self, networks_id: str, ovs_network_id: str, **kw):
         """
