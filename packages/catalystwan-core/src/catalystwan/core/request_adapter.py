@@ -93,7 +93,7 @@ class RequestAdapter(RequestAdapterInterface):
         content_type: str = response.headers.get("content-type", "")
         if not content_type:
             return None
-        if content_type == "application/json":
+        if content_type.startswith("application/json"):
             return self.__extract_json_data(response.json())
         if content_type.startswith("text"):
             return response.text
