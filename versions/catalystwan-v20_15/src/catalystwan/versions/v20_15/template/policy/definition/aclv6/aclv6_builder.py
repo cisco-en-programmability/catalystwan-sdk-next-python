@@ -25,7 +25,9 @@ class Aclv6Builder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/definition/aclv6", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/definition/aclv6", **kw
+        )
 
     def create_policy_definition_9(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -64,7 +66,11 @@ class Aclv6Builder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/definition/aclv6/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/definition/aclv6/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_definition_9(self, id: str, **kw):

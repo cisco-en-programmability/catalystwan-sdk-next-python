@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ConnectivityGatewayTypeParam, InlineResponse20014
 
 
@@ -12,6 +13,8 @@ class CreateOptionsBuilder:
     """
     Builds and executes requests for operations under /multicloud/interconnect/cloud/{cloud-type}/cloud-connectivity-gateways/create-options
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

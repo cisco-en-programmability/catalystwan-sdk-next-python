@@ -18,4 +18,6 @@ class SyncBuilder:
 
         :returns: bool
         """
-        return self._request_adapter.request("POST", "/dataservice/webex/datacenter/sync", return_type=bool, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/webex/datacenter/sync", return_type=bool, **kw
+        )

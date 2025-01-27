@@ -20,4 +20,6 @@ class LocalLatestHistoryBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/disasterrecovery/localLatestHistory", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/disasterrecovery/localLatestHistory", **kw
+        )

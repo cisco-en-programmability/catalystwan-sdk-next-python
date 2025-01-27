@@ -25,5 +25,9 @@ class VpnBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/config/vpn/{deviceId}", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/template/config/vpn/{deviceId}",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )

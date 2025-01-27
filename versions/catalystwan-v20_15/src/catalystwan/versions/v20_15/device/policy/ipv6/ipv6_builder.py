@@ -25,7 +25,9 @@ class Ipv6Builder:
         """
         The accesslistassociations property
         """
-        from .accesslistassociations.accesslistassociations_builder import AccesslistassociationsBuilder
+        from .accesslistassociations.accesslistassociations_builder import (
+            AccesslistassociationsBuilder,
+        )
 
         return AccesslistassociationsBuilder(self._request_adapter)
 

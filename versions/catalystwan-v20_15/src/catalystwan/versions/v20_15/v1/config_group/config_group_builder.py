@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Optional, Type
+from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ConfigGroup
 
 if TYPE_CHECKING:
@@ -16,6 +17,8 @@ class ConfigGroupBuilder:
     """
     Builds and executes requests for operations under /v1/config-group
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -35,36 +38,27 @@ class ConfigGroupBuilder:
             "name": name,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/config-group", return_type=List[ConfigGroup], params=params, **kw
+            "GET",
+            "/dataservice/v1/config-group",
+            return_type=List[ConfigGroup],
+            params=params,
+            **kw,
         )
 
-    @property
-    def create_config_group(self):
-        class create_config_group_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_config_group(self, payload: Optional[str] = None, **kw) -> str:
+        """
+        Create a new Configuration Group
 
-            def __call__(self, payload: Optional[str] = None, **kw) -> str:
-                """
-                Create a new Configuration Group
+        :param payload: Config Group
+        :returns: str
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/v1/config-group", return_type=str, payload=payload, **kw
+        )
 
-                :param payload: Config Group
-                :returns: str
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/v1/config-group", return_type=str, payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_config_group_(self._request_adapter)
-
-    def get_config_group(self, config_group_id: str, device_list: Optional[bool] = True, **kw) -> ConfigGroup:
+    def get_config_group(
+        self, config_group_id: str, device_list: Optional[bool] = True, **kw
+    ) -> ConfigGroup:
         """
         Get a Configuration Group by ID
 
@@ -77,45 +71,36 @@ class ConfigGroupBuilder:
             "deviceList": device_list,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/config-group/{configGroupId}", return_type=ConfigGroup, params=params, **kw
+            "GET",
+            "/dataservice/v1/config-group/{configGroupId}",
+            return_type=ConfigGroup,
+            params=params,
+            **kw,
         )
 
-    @property
-    def edit_config_group(self):
-        class edit_config_group_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_config_group(self, config_group_id: str, payload: Optional[str] = None, **kw) -> str:
+        """
+        Edit a Configuration Group
 
-            def __call__(self, config_group_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Edit a Configuration Group
+        :param config_group_id: Config group id
+        :param payload: Config Group
+        :returns: str
+        """
+        params = {
+            "configGroupId": config_group_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/config-group/{configGroupId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
-                :param config_group_id: Config group id
-                :param payload: Config Group
-                :returns: str
-                """
-                params = {
-                    "configGroupId": config_group_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/config-group/{configGroupId}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_config_group_(self._request_adapter)
-
-    def delete_config_group(self, config_group_id: str, delete_profiles: Optional[bool] = None, **kw):
+    def delete_config_group(
+        self, config_group_id: str, delete_profiles: Optional[bool] = None, **kw
+    ):
         """
         Delete Config Group
 

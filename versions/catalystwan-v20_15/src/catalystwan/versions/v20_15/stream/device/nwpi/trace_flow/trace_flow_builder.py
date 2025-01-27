@@ -5,6 +5,7 @@ import logging
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import NwpitraceFlowRespPayload
 
 
@@ -13,10 +14,14 @@ class TraceFlowBuilder:
     Builds and executes requests for operations under /stream/device/nwpi/traceFlow
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_trace_flow(self, trace_id: int, timestamp: int, state: str, **kw) -> NwpitraceFlowRespPayload:
+    def get_trace_flow(
+        self, trace_id: int, timestamp: int, state: str, **kw
+    ) -> NwpitraceFlowRespPayload:
         """
         getTraceFlow
 

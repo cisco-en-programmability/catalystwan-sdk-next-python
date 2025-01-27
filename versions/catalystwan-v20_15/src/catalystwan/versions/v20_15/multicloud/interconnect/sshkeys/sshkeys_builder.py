@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InlineResponse20016
 
 
@@ -10,6 +11,8 @@ class SshkeysBuilder:
     """
     Builds and executes requests for operations under /multicloud/interconnect/sshkeys
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -29,5 +32,9 @@ class SshkeysBuilder:
             "interconnect-account-id": interconnect_account_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/interconnect/sshkeys", return_type=InlineResponse20016, params=params, **kw
+            "GET",
+            "/dataservice/multicloud/interconnect/sshkeys",
+            return_type=InlineResponse20016,
+            params=params,
+            **kw,
         )

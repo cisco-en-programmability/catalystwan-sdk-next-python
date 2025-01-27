@@ -5,6 +5,7 @@ import logging
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import CurrentTimestampResponsePayload
 
 
@@ -12,6 +13,8 @@ class CurrentTimestampBuilder:
     """
     Builds and executes requests for operations under /stream/device/nwpi/currentTimestamp
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -24,5 +27,8 @@ class CurrentTimestampBuilder:
         """
         logging.warning("Operation: %s is deprecated", "getCurrentTimestamp")
         return self._request_adapter.request(
-            "GET", "/dataservice/stream/device/nwpi/currentTimestamp", return_type=CurrentTimestampResponsePayload, **kw
+            "GET",
+            "/dataservice/stream/device/nwpi/currentTimestamp",
+            return_type=CurrentTimestampResponsePayload,
+            **kw,
         )

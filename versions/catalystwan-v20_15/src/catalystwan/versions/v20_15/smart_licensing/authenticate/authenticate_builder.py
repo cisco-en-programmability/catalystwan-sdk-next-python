@@ -21,4 +21,6 @@ class AuthenticateBuilder:
         :param payload: Partner
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/smartLicensing/authenticate", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/smartLicensing/authenticate", payload=payload, **kw
+        )

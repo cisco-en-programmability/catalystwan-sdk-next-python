@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InlineResponse20013
 
 
@@ -10,6 +11,8 @@ class TopologyBuilder:
     """
     Builds and executes requests for operations under /multicloud/interconnect/{interconnect-type}/config-group/{config-group-id}/topology
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

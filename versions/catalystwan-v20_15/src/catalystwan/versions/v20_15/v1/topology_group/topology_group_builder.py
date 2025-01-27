@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Optional, Type
+from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import TopologyGroup
 
 if TYPE_CHECKING:
@@ -16,10 +17,14 @@ class TopologyGroupBuilder:
     Builds and executes requests for operations under /v1/topology-group
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_topology_group_by_solution(self, solution: Optional[str] = None, **kw) -> List[TopologyGroup]:
+    def get_topology_group_by_solution(
+        self, solution: Optional[str] = None, **kw
+    ) -> List[TopologyGroup]:
         """
         Get a Topology Group by Solution
 
@@ -30,34 +35,23 @@ class TopologyGroupBuilder:
             "solution": solution,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/topology-group", return_type=List[TopologyGroup], params=params, **kw
+            "GET",
+            "/dataservice/v1/topology-group",
+            return_type=List[TopologyGroup],
+            params=params,
+            **kw,
         )
 
-    @property
-    def create_topology_group(self):
-        class create_topology_group_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_topology_group(self, payload: Optional[str] = None, **kw) -> str:
+        """
+        Create a new Topology Group
 
-            def __call__(self, payload: Optional[str] = None, **kw) -> str:
-                """
-                Create a new Topology Group
-
-                :param payload: Topology Group
-                :returns: str
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/v1/topology-group", return_type=str, payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_topology_group_(self._request_adapter)
+        :param payload: Topology Group
+        :returns: str
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/v1/topology-group", return_type=str, payload=payload, **kw
+        )
 
     def get_topology_group(self, topology_group_id: str, **kw) -> TopologyGroup:
         """
@@ -70,43 +64,34 @@ class TopologyGroupBuilder:
             "topologyGroupId": topology_group_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/topology-group/{topologyGroupId}", return_type=TopologyGroup, params=params, **kw
+            "GET",
+            "/dataservice/v1/topology-group/{topologyGroupId}",
+            return_type=TopologyGroup,
+            params=params,
+            **kw,
         )
 
-    @property
-    def edit_topology_group(self):
-        class edit_topology_group_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_topology_group(
+        self, topology_group_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Edit a Topology Group
 
-            def __call__(self, topology_group_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Edit a Topology Group
-
-                :param topology_group_id: Topology group id
-                :param payload: Topology Group
-                :returns: str
-                """
-                params = {
-                    "topologyGroupId": topology_group_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/topology-group/{topologyGroupId}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_topology_group_(self._request_adapter)
+        :param topology_group_id: Topology group id
+        :param payload: Topology Group
+        :returns: str
+        """
+        params = {
+            "topologyGroupId": topology_group_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/topology-group/{topologyGroupId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_topology_group(self, topology_group_id: str, **kw):
         """

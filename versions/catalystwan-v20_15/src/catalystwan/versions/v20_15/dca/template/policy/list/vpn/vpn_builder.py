@@ -22,5 +22,9 @@ class VpnBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/dca/template/policy/list/vpn", return_type=List[Any], payload=payload, **kw
+            "POST",
+            "/dataservice/dca/template/policy/list/vpn",
+            return_type=List[Any],
+            payload=payload,
+            **kw,
         )

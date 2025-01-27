@@ -20,4 +20,6 @@ class FieldsBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/device/dpi/devicedetails/fields", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/dpi/devicedetails/fields", **kw
+        )

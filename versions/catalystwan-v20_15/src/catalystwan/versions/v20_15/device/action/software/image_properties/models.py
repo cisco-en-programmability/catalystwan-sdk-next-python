@@ -6,9 +6,15 @@ from typing import List, Optional
 
 @dataclass
 class GetImagePropertiesImagePropertiesJsonImageProperties:
-    application_description: Optional[str] = _field(default=None, metadata={"alias": "applicationDescription"})
-    application_max_instances: Optional[int] = _field(default=None, metadata={"alias": "applicationMaxInstances"})
-    application_vendor: Optional[str] = _field(default=None, metadata={"alias": "applicationVendor"})
+    application_description: Optional[str] = _field(
+        default=None, metadata={"alias": "applicationDescription"}
+    )
+    application_max_instances: Optional[int] = _field(
+        default=None, metadata={"alias": "applicationMaxInstances"}
+    )
+    application_vendor: Optional[str] = _field(
+        default=None, metadata={"alias": "applicationVendor"}
+    )
     arch: Optional[str] = _field(default=None)
     image_type: Optional[str] = _field(default=None, metadata={"alias": "imageType"})
     name: Optional[str] = _field(default=None)
@@ -18,7 +24,9 @@ class GetImagePropertiesImagePropertiesJsonImageProperties:
 
 @dataclass
 class GetImagePropertiesImagePropertiesJson:
-    image_properties: Optional[GetImagePropertiesImagePropertiesJsonImageProperties] = _field(default=None)
+    image_properties: Optional[GetImagePropertiesImagePropertiesJsonImageProperties] = _field(
+        default=None
+    )
 
 
 @dataclass

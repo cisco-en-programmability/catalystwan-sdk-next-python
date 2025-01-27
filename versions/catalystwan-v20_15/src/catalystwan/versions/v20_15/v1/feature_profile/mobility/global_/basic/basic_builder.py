@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional, Type
+from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -35,42 +35,31 @@ class BasicBuilder:
             **kw,
         )
 
-    @property
-    def create_basic_profile_parcel_for_mobility(self):
-        class create_basic_profile_parcel_for_mobility_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_basic_profile_parcel_for_mobility(
+        self, profile_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Create a Basic Profile Parcel for Mobility Global Feature Profile
 
-            def __call__(self, profile_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Create a Basic Profile Parcel for Mobility Global Feature Profile
+        :param profile_id: Feature Profile ID
+        :param payload: Basic Profile Parcel
+        :returns: str
+        """
+        params = {
+            "profileId": profile_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/feature-profile/mobility/global/{profileId}/basic",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
-                :param profile_id: Feature Profile ID
-                :param payload: Basic Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "profileId": profile_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/mobility/global/{profileId}/basic",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_basic_profile_parcel_for_mobility_(self._request_adapter)
-
-    def get_basic_profile_parcel_by_parcel_id_for_mobility(self, profile_id: str, parcel_id: str, **kw) -> str:
+    def get_basic_profile_parcel_by_parcel_id_for_mobility(
+        self, profile_id: str, parcel_id: str, **kw
+    ) -> str:
         """
         Get Basic Profile Parcel by parcelId for Mobility Global Feature Profile
 
@@ -90,42 +79,29 @@ class BasicBuilder:
             **kw,
         )
 
-    @property
-    def edit_basic_profile_parcel_for_mobility(self):
-        class edit_basic_profile_parcel_for_mobility_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_basic_profile_parcel_for_mobility(
+        self, profile_id: str, parcel_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Update a Basic Profile Parcel for Mobility Global Feature Profile
 
-            def __call__(self, profile_id: str, parcel_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Update a Basic Profile Parcel for Mobility Global Feature Profile
-
-                :param profile_id: Feature Profile ID
-                :param parcel_id: Profile Parcel ID
-                :param payload: Basic Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "profileId": profile_id,
-                    "parcelId": parcel_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/feature-profile/mobility/global/{profileId}/basic/{parcelId}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_basic_profile_parcel_for_mobility_(self._request_adapter)
+        :param profile_id: Feature Profile ID
+        :param parcel_id: Profile Parcel ID
+        :param payload: Basic Profile Parcel
+        :returns: str
+        """
+        params = {
+            "profileId": profile_id,
+            "parcelId": parcel_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/feature-profile/mobility/global/{profileId}/basic/{parcelId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_basic_profile_parcel_for_mobility(self, profile_id: str, parcel_id: str, **kw):
         """

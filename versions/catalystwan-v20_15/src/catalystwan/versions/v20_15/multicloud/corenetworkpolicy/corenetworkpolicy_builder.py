@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import CoreNetworkPolicyResponse
 
 
@@ -10,6 +11,8 @@ class CorenetworkpolicyBuilder:
     """
     Builds and executes requests for operations under /multicloud/corenetworkpolicy
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -21,5 +24,8 @@ class CorenetworkpolicyBuilder:
         :returns: CoreNetworkPolicyResponse
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/corenetworkpolicy", return_type=CoreNetworkPolicyResponse, **kw
+            "GET",
+            "/dataservice/multicloud/corenetworkpolicy",
+            return_type=CoreNetworkPolicyResponse,
+            **kw,
         )

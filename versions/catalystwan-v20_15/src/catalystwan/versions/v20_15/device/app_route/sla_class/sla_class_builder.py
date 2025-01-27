@@ -24,4 +24,6 @@ class SlaClassBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/app-route/sla-class", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/app-route/sla-class", params=params, **kw
+        )

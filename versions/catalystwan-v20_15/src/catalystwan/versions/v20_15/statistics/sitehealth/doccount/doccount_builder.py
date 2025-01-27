@@ -24,7 +24,9 @@ class DoccountBuilder:
         params = {
             "query": query,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/sitehealth/doccount", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/sitehealth/doccount", params=params, **kw
+        )
 
     def get_count_post_3(self, payload: Optional[Any] = None, **kw) -> Any:
         """

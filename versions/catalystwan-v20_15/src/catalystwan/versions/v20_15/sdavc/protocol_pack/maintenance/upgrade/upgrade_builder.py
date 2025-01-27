@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional, Type
+from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ProtocolPackUpgradeRequest
 
 if TYPE_CHECKING:
@@ -17,34 +18,21 @@ class UpgradeBuilder:
     Builds and executes requests for operations under /sdavc/protocol-pack/maintenance/upgrade
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def upgrade_protocol_pack(self):
-        class upgrade_protocol_pack_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def upgrade_protocol_pack(self, payload: Optional[ProtocolPackUpgradeRequest] = None, **kw):
+        """
+        Deploy protocol pack to devices
 
-            def __call__(self, payload: Optional[ProtocolPackUpgradeRequest] = None, **kw):
-                """
-                Deploy protocol pack to devices
-
-                :param payload: Request Payload
-                :returns: None
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/sdavc/protocol-pack/maintenance/upgrade", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> ProtocolPackUpgradeRequest:
-                return ProtocolPackUpgradeRequest(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[ProtocolPackUpgradeRequest]:
-                return ProtocolPackUpgradeRequest
-
-        return upgrade_protocol_pack_(self._request_adapter)
+        :param payload: Request Payload
+        :returns: None
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/sdavc/protocol-pack/maintenance/upgrade", payload=payload, **kw
+        )
 
     @property
     def cancel(self) -> CancelBuilder:

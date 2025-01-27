@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import SdraHeadendSummary
 
 
@@ -12,6 +13,8 @@ class HeadendsBuilder:
     """
     Builds and executes requests for operations under /statistics/sdra/headends
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -27,5 +30,9 @@ class HeadendsBuilder:
             "site": site,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/statistics/sdra/headends", return_type=SdraHeadendSummary, params=params, **kw
+            "GET",
+            "/dataservice/statistics/sdra/headends",
+            return_type=SdraHeadendSummary,
+            params=params,
+            **kw,
         )

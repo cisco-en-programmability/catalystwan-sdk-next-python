@@ -6,6 +6,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import EdgeTypeParam, ProductTypeParam
 
 
@@ -13,6 +14,8 @@ class EdgeBuilder:
     """
     Builds and executes requests for operations under /multicloud/license/edge
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -41,4 +44,6 @@ class EdgeBuilder:
             "productType": product_type,
             "refresh": refresh,
         }
-        return self._request_adapter.request("GET", "/dataservice/multicloud/license/edge", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/multicloud/license/edge", params=params, **kw
+        )

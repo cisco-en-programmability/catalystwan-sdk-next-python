@@ -30,7 +30,9 @@ class TierBuilder:
         params = {
             "addTier": add_tier,
         }
-        return self._request_adapter.request("POST", "/dataservice/device/tier", params=params, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/tier", params=params, **kw
+        )
 
     def delete_tier(self, tier_name: str, **kw):
         """
@@ -42,4 +44,6 @@ class TierBuilder:
         params = {
             "tierName": tier_name,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/device/tier/{tierName}", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/device/tier/{tierName}", params=params, **kw
+        )

@@ -12,7 +12,9 @@ class SimpleKeyValueMapping:
 
 @dataclass
 class TimeOptions:
-    enable_date_fields: Optional[bool] = _field(default=None, metadata={"alias": "enableDateFields"})
+    enable_date_fields: Optional[bool] = _field(
+        default=None, metadata={"alias": "enableDateFields"}
+    )
     key: Optional[str] = _field(default=None)
     value: Optional[str] = _field(default=None)
 
@@ -23,4 +25,6 @@ class AlarmQueryInputResponse:
     severity_options: Optional[List[SimpleKeyValueMapping]] = _field(
         default=None, metadata={"alias": "severityOptions"}
     )
-    time_options: Optional[List[TimeOptions]] = _field(default=None, metadata={"alias": "timeOptions"})
+    time_options: Optional[List[TimeOptions]] = _field(
+        default=None, metadata={"alias": "timeOptions"}
+    )

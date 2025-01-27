@@ -24,4 +24,6 @@ class KeyvalueBuilder:
         params = {
             "site-id": site_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/keyvalue", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/keyvalue", params=params, **kw
+        )

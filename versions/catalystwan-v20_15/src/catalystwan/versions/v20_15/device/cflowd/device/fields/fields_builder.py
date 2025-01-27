@@ -24,4 +24,6 @@ class FieldsBuilder:
         params = {
             "isDeviceDashBoard": is_device_dash_board,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/cflowd/device/fields", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/cflowd/device/fields", params=params, **kw
+        )

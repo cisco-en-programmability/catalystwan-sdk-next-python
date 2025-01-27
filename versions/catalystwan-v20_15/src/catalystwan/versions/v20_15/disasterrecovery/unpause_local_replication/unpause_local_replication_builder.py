@@ -20,4 +20,6 @@ class UnpauseLocalReplicationBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/disasterrecovery/unpauseLocalReplication", **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/disasterrecovery/unpauseLocalReplication", **kw
+        )

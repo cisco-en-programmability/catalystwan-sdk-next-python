@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceModel
 
 if TYPE_CHECKING:
@@ -18,6 +19,8 @@ class SecurityBuilder:
     """
     Builds and executes requests for operations under /template/policy/security
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -33,7 +36,11 @@ class SecurityBuilder:
             "mode": mode,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/security", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/template/policy/security",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def create_security_template(self, payload: Optional[Any] = None, **kw):
@@ -43,7 +50,9 @@ class SecurityBuilder:
         :param payload: Policy template
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/template/policy/security", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/policy/security", payload=payload, **kw
+        )
 
     def get_security_templates_for_device(self, device_model: DeviceModel, **kw) -> Any:
         """
@@ -71,7 +80,11 @@ class SecurityBuilder:
             "policyId": policy_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/security/{policyId}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/security/{policyId}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_security_template(self, policy_id: str, **kw):

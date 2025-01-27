@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import GetTenantManagementSystemIPsInner
 
 
@@ -12,6 +13,8 @@ class SystemipBuilder:
     """
     Builds and executes requests for operations under /system/device/tenant/management/systemip
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

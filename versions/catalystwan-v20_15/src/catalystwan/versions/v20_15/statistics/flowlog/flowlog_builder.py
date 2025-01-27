@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import SortOrderParam
 
 if TYPE_CHECKING:
@@ -20,6 +21,8 @@ class FlowlogBuilder:
     """
     Builds and executes requests for operations under /statistics/flowlog
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -53,7 +56,9 @@ class FlowlogBuilder:
             "sortOrder": sort_order,
             "site-id": site_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/flowlog", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/flowlog", params=params, **kw
+        )
 
     def get_stat_data_raw_data_post(
         self,

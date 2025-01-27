@@ -24,4 +24,6 @@ class RemoveBuilder:
         :param payload: vManage server info
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/clusterManagement/remove", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/clusterManagement/remove", payload=payload, **kw
+        )

@@ -25,7 +25,11 @@ class AttachDevicesBuilder:
             "nmsId": nms_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/mdp/attachDevices/{nmsId}", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/mdp/attachDevices/{nmsId}",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def edit_attached_devices(self, nms_id: str, payload: Optional[Any] = None, **kw) -> Any:

@@ -21,4 +21,6 @@ class PasswordBuilder:
         :param payload: Datacenter/vBond password update request
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/disasterrecovery/password", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/disasterrecovery/password", payload=payload, **kw
+        )

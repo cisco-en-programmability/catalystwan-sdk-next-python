@@ -23,4 +23,6 @@ class StatusBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/clusterManagement/health/status", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/clusterManagement/health/status", **kw
+        )

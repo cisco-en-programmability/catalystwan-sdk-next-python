@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import SchemaTypeParam
 
 
@@ -11,10 +12,14 @@ class SchemaBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sdwan/transport/trackergroup/schema
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cedge_transport_tracker_group_parcel_schema_by_schema_type(self, schema_type: SchemaTypeParam, **kw) -> str:
+    def get_cedge_transport_tracker_group_parcel_schema_by_schema_type(
+        self, schema_type: SchemaTypeParam, **kw
+    ) -> str:
         """
         Get a Cedge Transport TrackerGroup Parcel Schema by Schema Type
 

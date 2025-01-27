@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceData
 
 if TYPE_CHECKING:
@@ -42,7 +43,9 @@ if TYPE_CHECKING:
     from .downloaded_images.downloaded_images_builder import DownloadedImagesBuilder
     from .dpi.dpi_builder import DpiBuilder
     from .dre.dre_builder import DreBuilder
-    from .dual_static_route_tracker.dual_static_route_tracker_builder import DualStaticRouteTrackerBuilder
+    from .dual_static_route_tracker.dual_static_route_tracker_builder import (
+        DualStaticRouteTrackerBuilder,
+    )
     from .eigrp.eigrp_builder import EigrpBuilder
     from .enable_sdavc.enable_sdavc_builder import EnableSdavcBuilder
     from .endpoint_tracker.endpoint_tracker_builder import EndpointTrackerBuilder
@@ -84,11 +87,17 @@ if TYPE_CHECKING:
     from .reboothistory.reboothistory_builder import ReboothistoryBuilder
     from .redundancy_group.redundancy_group_builder import RedundancyGroupBuilder
     from .role_based_counters.role_based_counters_builder import RoleBasedCountersBuilder
-    from .role_based_ipv6_counters.role_based_ipv6_counters_builder import RoleBasedIpv6CountersBuilder
-    from .role_based_ipv6_permissions.role_based_ipv6_permissions_builder import RoleBasedIpv6PermissionsBuilder
+    from .role_based_ipv6_counters.role_based_ipv6_counters_builder import (
+        RoleBasedIpv6CountersBuilder,
+    )
+    from .role_based_ipv6_permissions.role_based_ipv6_permissions_builder import (
+        RoleBasedIpv6PermissionsBuilder,
+    )
     from .role_based_permissions.role_based_permissions_builder import RoleBasedPermissionsBuilder
     from .role_based_sgt_map.role_based_sgt_map_builder import RoleBasedSgtMapBuilder
-    from .sdwan_global_drop_statistics.sdwan_global_drop_statistics_builder import SdwanGlobalDropStatisticsBuilder
+    from .sdwan_global_drop_statistics.sdwan_global_drop_statistics_builder import (
+        SdwanGlobalDropStatisticsBuilder,
+    )
     from .sdwan_stats.sdwan_stats_builder import SdwanStatsBuilder
     from .security.security_builder import SecurityBuilder
     from .sfp.sfp_builder import SfpBuilder
@@ -126,7 +135,9 @@ if TYPE_CHECKING:
     from .vmanage.vmanage_builder import VmanageBuilder
     from .voice.voice_builder import VoiceBuilder
     from .voiceisdninfo.voiceisdninfo_builder import VoiceisdninfoBuilder
-    from .voicet1e1controllerinfo.voicet1_e1_controllerinfo_builder import Voicet1E1ControllerinfoBuilder
+    from .voicet1e1controllerinfo.voicet1_e1_controllerinfo_builder import (
+        Voicet1E1ControllerinfoBuilder,
+    )
     from .vpn.vpn_builder import VpnBuilder
     from .vrrp.vrrp_builder import VrrpBuilder
     from .wireless.wireless_builder import WirelessBuilder
@@ -137,6 +148,8 @@ class DeviceBuilder:
     """
     Builds and executes requests for operations under /device
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -466,7 +479,9 @@ class DeviceBuilder:
         """
         The dualStaticRouteTracker property
         """
-        from .dual_static_route_tracker.dual_static_route_tracker_builder import DualStaticRouteTrackerBuilder
+        from .dual_static_route_tracker.dual_static_route_tracker_builder import (
+            DualStaticRouteTrackerBuilder,
+        )
 
         return DualStaticRouteTrackerBuilder(self._request_adapter)
 
@@ -502,7 +517,9 @@ class DeviceBuilder:
         """
         The endpointTrackerGroup property
         """
-        from .endpoint_tracker_group.endpoint_tracker_group_builder import EndpointTrackerGroupBuilder
+        from .endpoint_tracker_group.endpoint_tracker_group_builder import (
+            EndpointTrackerGroupBuilder,
+        )
 
         return EndpointTrackerGroupBuilder(self._request_adapter)
 
@@ -844,7 +861,9 @@ class DeviceBuilder:
         """
         The roleBasedIpv6Counters property
         """
-        from .role_based_ipv6_counters.role_based_ipv6_counters_builder import RoleBasedIpv6CountersBuilder
+        from .role_based_ipv6_counters.role_based_ipv6_counters_builder import (
+            RoleBasedIpv6CountersBuilder,
+        )
 
         return RoleBasedIpv6CountersBuilder(self._request_adapter)
 
@@ -853,7 +872,9 @@ class DeviceBuilder:
         """
         The roleBasedIpv6Permissions property
         """
-        from .role_based_ipv6_permissions.role_based_ipv6_permissions_builder import RoleBasedIpv6PermissionsBuilder
+        from .role_based_ipv6_permissions.role_based_ipv6_permissions_builder import (
+            RoleBasedIpv6PermissionsBuilder,
+        )
 
         return RoleBasedIpv6PermissionsBuilder(self._request_adapter)
 
@@ -862,7 +883,9 @@ class DeviceBuilder:
         """
         The roleBasedPermissions property
         """
-        from .role_based_permissions.role_based_permissions_builder import RoleBasedPermissionsBuilder
+        from .role_based_permissions.role_based_permissions_builder import (
+            RoleBasedPermissionsBuilder,
+        )
 
         return RoleBasedPermissionsBuilder(self._request_adapter)
 
@@ -880,7 +903,9 @@ class DeviceBuilder:
         """
         The sdwan-global-drop-statistics property
         """
-        from .sdwan_global_drop_statistics.sdwan_global_drop_statistics_builder import SdwanGlobalDropStatisticsBuilder
+        from .sdwan_global_drop_statistics.sdwan_global_drop_statistics_builder import (
+            SdwanGlobalDropStatisticsBuilder,
+        )
 
         return SdwanGlobalDropStatisticsBuilder(self._request_adapter)
 
@@ -1222,7 +1247,9 @@ class DeviceBuilder:
         """
         The voicet1e1controllerinfo property
         """
-        from .voicet1e1controllerinfo.voicet1_e1_controllerinfo_builder import Voicet1E1ControllerinfoBuilder
+        from .voicet1e1controllerinfo.voicet1_e1_controllerinfo_builder import (
+            Voicet1E1ControllerinfoBuilder,
+        )
 
         return Voicet1E1ControllerinfoBuilder(self._request_adapter)
 

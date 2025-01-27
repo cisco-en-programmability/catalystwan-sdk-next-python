@@ -33,7 +33,9 @@ class VedgeBuilder:
         :param payload: Template policy
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/policy/vedge", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/policy/vedge", payload=payload, **kw
+        )
 
     def edit_v_edge_template(self, policy_id: str, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -47,7 +49,11 @@ class VedgeBuilder:
             "policyId": policy_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/vedge/{policyId}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/vedge/{policyId}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_v_edge_template(self, policy_id: str, **kw):
@@ -77,7 +83,10 @@ class VedgeBuilder:
             "resourceGroupName": resource_group_name,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/template/policy/vedge/{resourceGroupName}/{policyId}", params=params, **kw
+            "POST",
+            "/dataservice/template/policy/vedge/{resourceGroupName}/{policyId}",
+            params=params,
+            **kw,
         )
 
     @property

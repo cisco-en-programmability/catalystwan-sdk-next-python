@@ -23,5 +23,9 @@ class RulesBuilder:
             "configGroupId": config_group_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/config-group/{configGroupId}/rules", return_type=str, params=params, **kw
+            "GET",
+            "/dataservice/v1/config-group/{configGroupId}/rules",
+            return_type=str,
+            params=params,
+            **kw,
         )

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InlineResponse20011
 
 
@@ -11,10 +12,14 @@ class PortSpeedsBuilder:
     Builds and executes requests for operations under /multicloud/interconnect/{interconnect-type}/connectivity/device-links/port-speeds
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_device_link_port_speeds(self, interconnect_type: str, **kw) -> InlineResponse20011:
+    def get_interconnect_device_link_port_speeds(
+        self, interconnect_type: str, **kw
+    ) -> InlineResponse20011:
         """
         API to get supported port speeds for Device-Link by Interconnect provider.
 

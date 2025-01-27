@@ -5,6 +5,7 @@ from typing import List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AppRouteRespWithPageInfo
 
 
@@ -13,10 +14,14 @@ class TunnelsBuilder:
     Builds and executes requests for operations under /statistics/approute/device/tunnels
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stats_app_route_device_tunnels(self, query: Optional[str] = None, **kw) -> List[AppRouteRespWithPageInfo]:
+    def get_stats_app_route_device_tunnels(
+        self, query: Optional[str] = None, **kw
+    ) -> List[AppRouteRespWithPageInfo]:
         """
         Get statistics for top applications per tunnel in a grid table
 

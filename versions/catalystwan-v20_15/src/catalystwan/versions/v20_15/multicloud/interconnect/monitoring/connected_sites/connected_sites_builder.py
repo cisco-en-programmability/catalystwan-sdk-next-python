@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InterconnectConnectedSite
 
 
@@ -12,6 +13,8 @@ class ConnectedSitesBuilder:
     """
     Builds and executes requests for operations under /multicloud/interconnect/{interconnect-type}/monitoring/connected-sites
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

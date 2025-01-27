@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ProcessResponse
 
 if TYPE_CHECKING:
@@ -15,6 +16,8 @@ class ConnectionsBuilder:
     """
     Builds and executes requests for operations under /multicloud/interconnect/connectivity/connections
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -46,10 +49,15 @@ class ConnectionsBuilder:
             "refresh": refresh,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/interconnect/connectivity/connections", params=params, **kw
+            "GET",
+            "/dataservice/multicloud/interconnect/connectivity/connections",
+            params=params,
+            **kw,
         )
 
-    def create_interconnect_connectivity(self, payload: Optional[Any] = None, **kw) -> ProcessResponse:
+    def create_interconnect_connectivity(
+        self, payload: Optional[Any] = None, **kw
+    ) -> ProcessResponse:
         """
         API to create a private transit or cloud connection on an Interconnect Gateway at an Interconnect Provider.
 
@@ -81,7 +89,9 @@ class ConnectionsBuilder:
             **kw,
         )
 
-    def update_interconnect_connectivity(self, connection_name: str, payload: Optional[Any] = None, **kw) -> Any:
+    def update_interconnect_connectivity(
+        self, connection_name: str, payload: Optional[Any] = None, **kw
+    ) -> Any:
         """
         API to update an Interconnect connectivity at an Interconnect provider.
 

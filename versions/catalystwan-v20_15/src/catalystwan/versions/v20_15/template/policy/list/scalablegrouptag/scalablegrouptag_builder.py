@@ -39,7 +39,9 @@ class ScalablegrouptagBuilder:
             "POST", "/dataservice/template/policy/list/scalablegrouptag", payload=payload, **kw
         )
 
-    def delete_policy_lists_with_info_tag_32(self, info_tag: Optional[str] = None, **kw) -> List[Any]:
+    def delete_policy_lists_with_info_tag_32(
+        self, info_tag: Optional[str] = None, **kw
+    ) -> List[Any]:
         """
         Delete policy lists with specific info tag
 
@@ -50,7 +52,11 @@ class ScalablegrouptagBuilder:
             "infoTag": info_tag,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/list/scalablegrouptag", return_type=List[Any], params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/list/scalablegrouptag",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def get_lists_by_id_32(self, id: str, **kw) -> Any:
@@ -79,7 +85,11 @@ class ScalablegrouptagBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/list/scalablegrouptag/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/list/scalablegrouptag/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_list_32(self, id: str, **kw):

@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Type
+from typing import TYPE_CHECKING
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import CreatePacketCaptureReq, FormPacketCaptureRes, PacketCaptureInfo
 
 if TYPE_CHECKING:
@@ -22,36 +23,29 @@ class CaptureBuilder:
     Builds and executes requests for operations under /stream/device/capture
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def get_session_info_capture(self):
-        class get_session_info_capture_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def get_session_info_capture(self, payload: CreatePacketCaptureReq, **kw) -> PacketCaptureInfo:
+        """
+        Create packet capture session
 
-            def __call__(self, payload: CreatePacketCaptureReq, **kw) -> PacketCaptureInfo:
-                """
-                Create packet capture session
+        :param payload: Packet Capture Parameters
+        :returns: PacketCaptureInfo
+        """
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/stream/device/capture",
+            return_type=PacketCaptureInfo,
+            payload=payload,
+            **kw,
+        )
 
-                :param payload: Packet Capture Parameters
-                :returns: PacketCaptureInfo
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/stream/device/capture", return_type=PacketCaptureInfo, payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> CreatePacketCaptureReq:
-                return CreatePacketCaptureReq(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[CreatePacketCaptureReq]:
-                return CreatePacketCaptureReq
-
-        return get_session_info_capture_(self._request_adapter)
-
-    def form_post_packet_capture(self, device_uuid: str, session_id: str, **kw) -> FormPacketCaptureRes:
+    def form_post_packet_capture(
+        self, device_uuid: str, session_id: str, **kw
+    ) -> FormPacketCaptureRes:
         """
         Form post packet capture
 

@@ -21,4 +21,6 @@ class AlarmBuilder:
         :param payload: DCA alarm message
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/dca/cloudservices/alarm", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/dca/cloudservices/alarm", payload=payload, **kw
+        )

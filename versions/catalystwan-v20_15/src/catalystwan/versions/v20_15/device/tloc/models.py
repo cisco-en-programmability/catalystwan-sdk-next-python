@@ -9,6 +9,10 @@ class DeviceTlocDataWithBfd:
     bfd_sessions_down: Optional[int] = _field(default=None, metadata={"alias": "bfdSessionsDown"})
     bfd_sessions_up: Optional[int] = _field(default=None, metadata={"alias": "bfdSessionsUp"})
     color: Optional[str] = _field(default=None)
-    control_connections_down: Optional[str] = _field(default=None, metadata={"alias": "controlConnectionsDown"})
-    control_connections_up: Optional[int] = _field(default=None, metadata={"alias": "controlConnectionsUp"})
+    control_connections_down: Optional[str] = _field(
+        default=None, metadata={"alias": "controlConnectionsDown"}
+    )
+    control_connections_up: Optional[int] = _field(
+        default=None, metadata={"alias": "controlConnectionsUp"}
+    )
     system_ip: Optional[str] = _field(default=None, metadata={"alias": "system-ip"})

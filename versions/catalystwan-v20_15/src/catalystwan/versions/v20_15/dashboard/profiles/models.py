@@ -46,6 +46,10 @@ class SigningKeyCdtrustfed:
 
 @dataclass
 class SigningKey:
-    cd_end_points: Optional[SigningKeyCdendpoints] = _field(default=None, metadata={"alias": "cd-end-points"})
+    cd_end_points: Optional[SigningKeyCdendpoints] = _field(
+        default=None, metadata={"alias": "cd-end-points"}
+    )
     cd_fqdn: Optional[str] = _field(default=None, metadata={"alias": "cd-fqdn"})
-    cd_trust_fed: Optional[SigningKeyCdtrustfed] = _field(default=None, metadata={"alias": "cd-trust-fed"})
+    cd_trust_fed: Optional[SigningKeyCdtrustfed] = _field(
+        default=None, metadata={"alias": "cd-trust-fed"}
+    )

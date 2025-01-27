@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import SmartAccountAuthenticateResponse
 
 
@@ -13,10 +14,14 @@ class AuthenticateBuilder:
     Builds and executes requests for operations under /system/device/smartaccount/authenticate
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def smart_account_authenticate(self, payload: Optional[Any] = None, **kw) -> SmartAccountAuthenticateResponse:
+    def smart_account_authenticate(
+        self, payload: Optional[Any] = None, **kw
+    ) -> SmartAccountAuthenticateResponse:
         """
         Authenticate vSmart user account
 

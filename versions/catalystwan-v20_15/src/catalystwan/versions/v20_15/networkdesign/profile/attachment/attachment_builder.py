@@ -15,7 +15,9 @@ class AttachmentBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def push_device_profile_template(self, profile_id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def push_device_profile_template(
+        self, profile_id: str, payload: Optional[Any] = None, **kw
+    ) -> Any:
         """
         Attach to device profile
 
@@ -28,5 +30,9 @@ class AttachmentBuilder:
             "profileId": profile_id,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/networkdesign/profile/attachment/{profileId}", params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/networkdesign/profile/attachment/{profileId}",
+            params=params,
+            payload=payload,
+            **kw,
         )

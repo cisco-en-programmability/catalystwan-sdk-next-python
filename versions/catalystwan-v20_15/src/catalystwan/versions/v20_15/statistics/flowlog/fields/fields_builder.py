@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import GetStatDataFields
 
 
@@ -12,6 +13,8 @@ class FieldsBuilder:
     """
     Builds and executes requests for operations under /statistics/flowlog/fields
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -23,5 +26,8 @@ class FieldsBuilder:
         :returns: List[GetStatDataFields]
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/statistics/flowlog/fields", return_type=List[GetStatDataFields], **kw
+            "GET",
+            "/dataservice/statistics/flowlog/fields",
+            return_type=List[GetStatDataFields],
+            **kw,
         )

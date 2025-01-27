@@ -22,6 +22,8 @@ class GatewaysBuilder:
         """
         The device-chassis-numbers property
         """
-        from .device_chassis_numbers.device_chassis_numbers_builder import DeviceChassisNumbersBuilder
+        from .device_chassis_numbers.device_chassis_numbers_builder import (
+            DeviceChassisNumbersBuilder,
+        )
 
         return DeviceChassisNumbersBuilder(self._request_adapter)

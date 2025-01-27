@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceIp
 
 if TYPE_CHECKING:
@@ -15,6 +16,8 @@ class InstallBuilder:
     """
     Builds and executes requests for operations under /device/action/install
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -29,7 +32,9 @@ class InstallBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/action/install", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/action/install", params=params, **kw
+        )
 
     def process_install(self, payload: Optional[Any] = None, **kw):
         """
@@ -38,7 +43,9 @@ class InstallBuilder:
         :param payload: Request body for Device bootstrap configuration
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/device/action/install", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/install", payload=payload, **kw
+        )
 
     @property
     def devices(self) -> DevicesBuilder:

@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import LocalBackupListResult
 
 
@@ -12,6 +13,8 @@ class ListBuilder:
     """
     Builds and executes requests for operations under /backup/list
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -27,5 +30,9 @@ class ListBuilder:
             "size": size,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/backup/list", return_type=LocalBackupListResult, params=params, **kw
+            "GET",
+            "/dataservice/backup/list",
+            return_type=LocalBackupListResult,
+            params=params,
+            **kw,
         )

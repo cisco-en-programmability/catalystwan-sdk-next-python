@@ -25,10 +25,15 @@ class AssociateBuilder:
             "configGroupId": config_group_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/config-group/{configGroupId}/device/associate", params=params, **kw
+            "GET",
+            "/dataservice/v1/config-group/{configGroupId}/device/associate",
+            params=params,
+            **kw,
         )
 
-    def update_config_group_association(self, config_group_id: str, payload: Optional[Any] = None, **kw):
+    def update_config_group_association(
+        self, config_group_id: str, payload: Optional[Any] = None, **kw
+    ):
         """
         Move the devices from one config group to another
 
@@ -40,10 +45,16 @@ class AssociateBuilder:
             "configGroupId": config_group_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/v1/config-group/{configGroupId}/device/associate", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/v1/config-group/{configGroupId}/device/associate",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
-    def create_config_group_association(self, config_group_id: str, payload: Optional[Any] = None, **kw):
+    def create_config_group_association(
+        self, config_group_id: str, payload: Optional[Any] = None, **kw
+    ):
         """
         Create associations with device and a config group
 
@@ -62,7 +73,9 @@ class AssociateBuilder:
             **kw,
         )
 
-    def delete_config_group_association(self, config_group_id: str, payload: Optional[Any] = None, **kw):
+    def delete_config_group_association(
+        self, config_group_id: str, payload: Optional[Any] = None, **kw
+    ):
         """
         Delete Config Group Association from devices
 

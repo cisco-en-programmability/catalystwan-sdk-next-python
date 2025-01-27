@@ -14,7 +14,9 @@ class InfoBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_lacp_interface_list(self, device_id: str, channel_group: Optional[str] = None, **kw) -> Any:
+    def get_lacp_interface_list(
+        self, device_id: str, channel_group: Optional[str] = None, **kw
+    ) -> Any:
         """
         Get device lacp port channel info list (Real Time)
 
@@ -26,4 +28,6 @@ class InfoBuilder:
             "channel-group": channel_group,
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/lacp/info", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/lacp/info", params=params, **kw
+        )

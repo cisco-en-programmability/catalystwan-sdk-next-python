@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional, Type
+from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -35,40 +35,27 @@ class T1E1ControllerBuilder:
             **kw,
         )
 
-    @property
-    def create_t1e1controller_profile_parcel_for_transport(self):
-        class create_t1e1controller_profile_parcel_for_transport_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_t1e1controller_profile_parcel_for_transport(
+        self, transport_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Create a T1e1controller Profile Parcel for Transport feature profile
 
-            def __call__(self, transport_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Create a T1e1controller Profile Parcel for Transport feature profile
-
-                :param transport_id: Feature Profile ID
-                :param payload: T1e1controller Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "transportId": transport_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/t1-e1-controller",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_t1e1controller_profile_parcel_for_transport_(self._request_adapter)
+        :param transport_id: Feature Profile ID
+        :param payload: T1e1controller Profile Parcel
+        :returns: str
+        """
+        params = {
+            "transportId": transport_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/t1-e1-controller",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def get_t1e1controller_profile_parcel_by_parcel_id_for_transport(
         self, transport_id: str, t1e1controller_id: str, **kw
@@ -92,44 +79,33 @@ class T1E1ControllerBuilder:
             **kw,
         )
 
-    @property
-    def edit_t1e1controller_profile_parcel_for_transport(self):
-        class edit_t1e1controller_profile_parcel_for_transport_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_t1e1controller_profile_parcel_for_transport(
+        self, transport_id: str, t1e1controller_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Update a T1e1controller Profile Parcel for Transport feature profile
 
-            def __call__(self, transport_id: str, t1e1controller_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Update a T1e1controller Profile Parcel for Transport feature profile
+        :param transport_id: Feature Profile ID
+        :param t1e1controller_id: Profile Parcel ID
+        :param payload: T1e1controller Profile Parcel
+        :returns: str
+        """
+        params = {
+            "transportId": transport_id,
+            "t1e1controllerId": t1e1controller_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/t1-e1-controller/{t1e1controllerId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
-                :param transport_id: Feature Profile ID
-                :param t1e1controller_id: Profile Parcel ID
-                :param payload: T1e1controller Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "transportId": transport_id,
-                    "t1e1controllerId": t1e1controller_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/t1-e1-controller/{t1e1controllerId}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_t1e1controller_profile_parcel_for_transport_(self._request_adapter)
-
-    def delete_t1e1controller_profile_parcel_for_transport(self, transport_id: str, t1e1controller_id: str, **kw):
+    def delete_t1e1controller_profile_parcel_for_transport(
+        self, transport_id: str, t1e1controller_id: str, **kw
+    ):
         """
         Delete a T1e1controller Profile Parcel for Transport feature profile
 

@@ -25,7 +25,9 @@ class FxsdidportBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/definition/fxsdidport", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/definition/fxsdidport", **kw
+        )
 
     def create_policy_definition_28(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -64,7 +66,11 @@ class FxsdidportBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/definition/fxsdidport/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/definition/fxsdidport/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_definition_28(self, id: str, **kw):

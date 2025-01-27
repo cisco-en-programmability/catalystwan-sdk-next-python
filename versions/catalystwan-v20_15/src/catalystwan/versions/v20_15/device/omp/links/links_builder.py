@@ -24,4 +24,6 @@ class LinksBuilder:
         params = {
             "state": state,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/omp/links", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/omp/links", params=params, **kw
+        )

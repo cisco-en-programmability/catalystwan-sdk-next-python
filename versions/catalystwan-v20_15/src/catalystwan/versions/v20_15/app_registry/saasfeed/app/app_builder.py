@@ -28,7 +28,11 @@ class AppBuilder:
             "feedId": feed_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/app-registry/saasfeed/app/{feedId}", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/app-registry/saasfeed/app/{feedId}",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     @property

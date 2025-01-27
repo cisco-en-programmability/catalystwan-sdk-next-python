@@ -45,7 +45,9 @@ class NetworkdesignBuilder:
         params = {
             "id": id,
         }
-        return self._request_adapter.request("PUT", "/dataservice/networkdesign", params=params, payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/networkdesign", params=params, payload=payload, **kw
+        )
 
     def create_network_design(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -55,7 +57,9 @@ class NetworkdesignBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "createNetworkDesign")
-        return self._request_adapter.request("POST", "/dataservice/networkdesign", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/networkdesign", payload=payload, **kw
+        )
 
     @property
     def attachment(self) -> AttachmentBuilder:
@@ -116,6 +120,8 @@ class NetworkdesignBuilder:
         """
         The serviceProfileConfig property
         """
-        from .service_profile_config.service_profile_config_builder import ServiceProfileConfigBuilder
+        from .service_profile_config.service_profile_config_builder import (
+            ServiceProfileConfigBuilder,
+        )
 
         return ServiceProfileConfigBuilder(self._request_adapter)

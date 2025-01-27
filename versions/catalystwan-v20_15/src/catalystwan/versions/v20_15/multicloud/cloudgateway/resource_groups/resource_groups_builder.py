@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ResourceGroupsResponse
 
 
@@ -13,10 +14,14 @@ class ResourceGroupsBuilder:
     Builds and executes requests for operations under /multicloud/cloudgateway/resourceGroups
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_azure_resource_groups(self, cloud_type: str, account_id: str, **kw) -> List[ResourceGroupsResponse]:
+    def get_azure_resource_groups(
+        self, cloud_type: str, account_id: str, **kw
+    ) -> List[ResourceGroupsResponse]:
         """
         Discover Azure Resource Groups
 

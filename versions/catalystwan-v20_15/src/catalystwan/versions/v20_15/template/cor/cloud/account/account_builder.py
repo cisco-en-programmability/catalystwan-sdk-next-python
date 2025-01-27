@@ -28,4 +28,6 @@ class AccountBuilder:
             "cloudtype": cloudtype,
             "cloudEnvironment": cloud_environment,
         }
-        return self._request_adapter.request("GET", "/dataservice/template/cor/cloud/account", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/cor/cloud/account", params=params, **kw
+        )

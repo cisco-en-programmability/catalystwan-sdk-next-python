@@ -22,5 +22,8 @@ class BulkBuilder:
         :returns: Any
         """
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/definition/deviceaccesspolicyv6/bulk", payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/definition/deviceaccesspolicyv6/bulk",
+            payload=payload,
+            **kw,
         )

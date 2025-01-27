@@ -30,4 +30,6 @@ class SummaryBuilder:
             "query": query,
             "site-id": site_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/event/severity/summary", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/event/severity/summary", params=params, **kw
+        )

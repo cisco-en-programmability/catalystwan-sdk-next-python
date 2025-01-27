@@ -20,4 +20,6 @@ class StatusBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/util/olapdb/migration/status", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/util/olapdb/migration/status", **kw
+        )

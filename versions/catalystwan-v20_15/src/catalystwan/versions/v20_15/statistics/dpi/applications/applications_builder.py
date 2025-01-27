@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DpiAppResponse
 
 if TYPE_CHECKING:
@@ -15,6 +16,8 @@ class ApplicationsBuilder:
     """
     Builds and executes requests for operations under /statistics/dpi/applications
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -32,7 +35,11 @@ class ApplicationsBuilder:
             "limit": limit,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/statistics/dpi/applications", return_type=DpiAppResponse, params=params, **kw
+            "GET",
+            "/dataservice/statistics/dpi/applications",
+            return_type=DpiAppResponse,
+            params=params,
+            **kw,
         )
 
     @property

@@ -28,7 +28,9 @@ class VdslServiceBuilder:
         """
         The coLineSpecificStats property
         """
-        from .co_line_specific_stats.co_line_specific_stats_builder import CoLineSpecificStatsBuilder
+        from .co_line_specific_stats.co_line_specific_stats_builder import (
+            CoLineSpecificStatsBuilder,
+        )
 
         return CoLineSpecificStatsBuilder(self._request_adapter)
 
@@ -46,7 +48,9 @@ class VdslServiceBuilder:
         """
         The cpeLineSpecificStats property
         """
-        from .cpe_line_specific_stats.cpe_line_specific_stats_builder import CpeLineSpecificStatsBuilder
+        from .cpe_line_specific_stats.cpe_line_specific_stats_builder import (
+            CpeLineSpecificStatsBuilder,
+        )
 
         return CpeLineSpecificStatsBuilder(self._request_adapter)
 

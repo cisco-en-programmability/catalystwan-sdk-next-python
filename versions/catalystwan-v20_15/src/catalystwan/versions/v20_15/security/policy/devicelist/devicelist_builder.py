@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import SecurityPolicyDeviceList
 
 
@@ -12,6 +13,8 @@ class DevicelistBuilder:
     """
     Builds and executes requests for operations under /security/policy/devicelist
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -23,5 +26,8 @@ class DevicelistBuilder:
         :returns: List[SecurityPolicyDeviceList]
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/security/policy/devicelist", return_type=List[SecurityPolicyDeviceList], **kw
+            "GET",
+            "/dataservice/security/policy/devicelist",
+            return_type=List[SecurityPolicyDeviceList],
+            **kw,
         )

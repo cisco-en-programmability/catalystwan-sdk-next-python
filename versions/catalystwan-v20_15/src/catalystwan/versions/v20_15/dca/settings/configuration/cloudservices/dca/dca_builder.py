@@ -20,4 +20,6 @@ class DcaBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/dca/settings/configuration/cloudservices/dca", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/dca/settings/configuration/cloudservices/dca", **kw
+        )

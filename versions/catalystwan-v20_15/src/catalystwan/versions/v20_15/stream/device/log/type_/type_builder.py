@@ -22,4 +22,6 @@ class TypeBuilder:
         params = {
             "uuid": uuid,
         }
-        return self._request_adapter.request("GET", "/dataservice/stream/device/log/type", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/stream/device/log/type", params=params, **kw
+        )

@@ -5,6 +5,7 @@ from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceIp
 
 
@@ -12,6 +13,8 @@ class ChangepartitionBuilder:
     """
     Builds and executes requests for operations under /device/action/changepartition
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -26,7 +29,9 @@ class ChangepartitionBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/action/changepartition", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/action/changepartition", params=params, **kw
+        )
 
     def process_change_partition(self, payload: Optional[Any] = None, **kw) -> Any:
         """

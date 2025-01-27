@@ -30,7 +30,9 @@ class FirmwareImageRemoteUpgrade:
     action_end_millis: Optional[int] = _field(default=None, metadata={"alias": "actionEndMillis"})
     action_name: Optional[str] = _field(default=None, metadata={"alias": "actionName"})
     action_start: Optional[str] = _field(default=None, metadata={"alias": "actionStart"})
-    action_start_millis: Optional[int] = _field(default=None, metadata={"alias": "actionStartMillis"})
+    action_start_millis: Optional[int] = _field(
+        default=None, metadata={"alias": "actionStartMillis"}
+    )
     device_type: Optional[str] = _field(default=None, metadata={"alias": "deviceType"})
     devices: Optional[List[FirmwareImageRemoteUpgradeDevices]] = _field(default=None)
     input: Optional[FirmwareImageRemoteUpgradeInput] = _field(default=None)

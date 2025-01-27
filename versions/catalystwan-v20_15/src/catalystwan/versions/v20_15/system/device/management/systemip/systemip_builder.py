@@ -20,4 +20,6 @@ class SystemipBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/system/device/management/systemip", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/system/device/management/systemip", **kw
+        )

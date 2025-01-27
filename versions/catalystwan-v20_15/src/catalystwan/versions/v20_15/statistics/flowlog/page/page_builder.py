@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import FlowlogPaginationResponse
 
 
@@ -13,11 +14,17 @@ class PageBuilder:
     Builds and executes requests for operations under /statistics/flowlog/page
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_stats_pagination_raw_data_23(
-        self, query: Optional[str] = None, scroll_id: Optional[str] = None, count: Optional[int] = None, **kw
+        self,
+        query: Optional[str] = None,
+        scroll_id: Optional[str] = None,
+        count: Optional[int] = None,
+        **kw,
     ) -> FlowlogPaginationResponse:
         """
         Get stats pagination raw data
@@ -33,11 +40,19 @@ class PageBuilder:
             "count": count,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/statistics/flowlog/page", return_type=FlowlogPaginationResponse, params=params, **kw
+            "GET",
+            "/dataservice/statistics/flowlog/page",
+            return_type=FlowlogPaginationResponse,
+            params=params,
+            **kw,
         )
 
     def get_stats_pagination_raw_data_post(
-        self, payload: Optional[Any] = None, scroll_id: Optional[str] = None, count: Optional[int] = None, **kw
+        self,
+        payload: Optional[Any] = None,
+        scroll_id: Optional[str] = None,
+        count: Optional[int] = None,
+        **kw,
     ) -> FlowlogPaginationResponse:
         """
         Get stats pagination raw data

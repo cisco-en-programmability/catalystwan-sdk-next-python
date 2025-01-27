@@ -9,7 +9,9 @@ OrderType = Literal["count", "key"]
 
 Type = Literal["day", "hour", "minute", "month", "quater", "second", "week", "year"]
 
-UniqueAggregationType = Literal["argMax", "avg", "cardinality", "count", "max", "min", "sum", "top_hits"]
+UniqueAggregationType = Literal[
+    "argMax", "avg", "cardinality", "count", "max", "min", "sum", "top_hits"
+]
 
 Condition = Literal["AND", "OR"]
 
@@ -57,7 +59,9 @@ class DbQueryAggregationHistogramObject:
 @dataclass
 class DbQueryAggregationMetricObject:
     property: Any
-    type_: UniqueAggregationType = _field(metadata={"alias": "type"})  # pytype: disable=annotation-type-mismatch
+    type_: UniqueAggregationType = _field(
+        metadata={"alias": "type"}
+    )  # pytype: disable=annotation-type-mismatch
     order: Optional[str] = _field(default=None)
     sequence: Optional[str] = _field(default=None)
     size: Optional[str] = _field(default=None)

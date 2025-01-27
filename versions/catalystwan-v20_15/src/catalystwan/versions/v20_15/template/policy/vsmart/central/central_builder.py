@@ -14,7 +14,9 @@ class CentralBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def edit_template_without_lock_checks(self, policy_id: str, payload: Optional[Any] = None, **kw) -> List[Any]:
+    def edit_template_without_lock_checks(
+        self, policy_id: str, payload: Optional[Any] = None, **kw
+    ) -> List[Any]:
         """
         Edit template for given policy id to allow for multiple component edits
 

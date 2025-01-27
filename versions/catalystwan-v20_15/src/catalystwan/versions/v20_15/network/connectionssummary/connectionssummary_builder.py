@@ -5,6 +5,7 @@ from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import Vpnid
 
 
@@ -12,6 +13,8 @@ class ConnectionssummaryBuilder:
     """
     Builds and executes requests for operations under /network/connectionssummary
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -36,4 +39,6 @@ class ConnectionssummaryBuilder:
             "vpnId": vpn_id,
             "site-id": site_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/network/connectionssummary", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/network/connectionssummary", params=params, **kw
+        )

@@ -23,4 +23,6 @@ class ClusterLockedBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/clusterManagement/clusterLocked", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/clusterManagement/clusterLocked", **kw
+        )

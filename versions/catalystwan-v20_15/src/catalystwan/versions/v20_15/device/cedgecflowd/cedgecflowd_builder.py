@@ -32,6 +32,8 @@ class CedgecflowdBuilder:
         """
         The app-fwd-cflowd-v6-flows property
         """
-        from .app_fwd_cflowd_v6_flows.app_fwd_cflowd_v6_flows_builder import AppFwdCflowdV6FlowsBuilder
+        from .app_fwd_cflowd_v6_flows.app_fwd_cflowd_v6_flows_builder import (
+            AppFwdCflowdV6FlowsBuilder,
+        )
 
         return AppFwdCflowdV6FlowsBuilder(self._request_adapter)

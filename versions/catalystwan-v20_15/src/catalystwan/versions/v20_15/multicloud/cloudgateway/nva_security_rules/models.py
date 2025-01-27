@@ -25,9 +25,13 @@ class NvaRulesResponse:
     cloud_type: Optional[str] = _field(default=None, metadata={"alias": "cloudType"})
     expiration_time: Optional[str] = _field(default=None, metadata={"alias": "expirationTime"})
     nva_id: Optional[str] = _field(default=None, metadata={"alias": "nvaId"})
-    resource_group_name: Optional[str] = _field(default=None, metadata={"alias": "resourceGroupName"})
+    resource_group_name: Optional[str] = _field(
+        default=None, metadata={"alias": "resourceGroupName"}
+    )
     rule_name: Optional[str] = _field(default=None, metadata={"alias": "ruleName"})
-    security_rules_list: Optional[NvaRulesListRequest] = _field(default=None, metadata={"alias": "securityRulesList"})
+    security_rules_list: Optional[NvaRulesListRequest] = _field(
+        default=None, metadata={"alias": "securityRulesList"}
+    )
 
 
 @dataclass

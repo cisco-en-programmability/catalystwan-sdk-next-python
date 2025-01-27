@@ -24,4 +24,6 @@ class FlowMonitorBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/cflowd/fnf/flow-monitor", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/cflowd/fnf/flow-monitor", params=params, **kw
+        )

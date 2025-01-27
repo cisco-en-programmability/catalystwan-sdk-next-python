@@ -18,8 +18,12 @@ class Loopback:
 
 @dataclass
 class PartnerDevice:
-    chassis_serial_number: Optional[str] = _field(default=None, metadata={"alias": "chassis-serial-number"})
-    configured_aaa_user: Optional[List[str]] = _field(default=None, metadata={"alias": "configuredAaaUser"})
+    chassis_serial_number: Optional[str] = _field(
+        default=None, metadata={"alias": "chassis-serial-number"}
+    )
+    configured_aaa_user: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "configuredAaaUser"}
+    )
     device_id: Optional[str] = _field(default=None, metadata={"alias": "deviceId"})
     device_model: Optional[str] = _field(default=None, metadata={"alias": "device-model"})
     device_os: Optional[str] = _field(default=None, metadata={"alias": "device-os"})

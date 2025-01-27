@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Optional, Type
+from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import CloudTypeParam, GetMapResponse, PostMapRequest, Taskid
 
 if TYPE_CHECKING:
@@ -20,6 +21,8 @@ class MapBuilder:
     Builds and executes requests for operations under /multicloud/map
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
@@ -34,34 +37,23 @@ class MapBuilder:
             "cloudType": cloud_type,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/map", return_type=List[GetMapResponse], params=params, **kw
+            "GET",
+            "/dataservice/multicloud/map",
+            return_type=List[GetMapResponse],
+            params=params,
+            **kw,
         )
 
-    @property
-    def process_mapping(self):
-        class process_mapping_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def process_mapping(self, payload: Optional[PostMapRequest] = None, **kw) -> Taskid:
+        """
+        Enable Mapping for cloudType
 
-            def __call__(self, payload: Optional[PostMapRequest] = None, **kw) -> Taskid:
-                """
-                Enable Mapping for cloudType
-
-                :param payload: Payloads for enable mapping
-                :returns: Taskid
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/multicloud/map", return_type=Taskid, payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> PostMapRequest:
-                return PostMapRequest(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[PostMapRequest]:
-                return PostMapRequest
-
-        return process_mapping_(self._request_adapter)
+        :param payload: Payloads for enable mapping
+        :returns: Taskid
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/multicloud/map", return_type=Taskid, payload=payload, **kw
+        )
 
     @property
     def defaults(self) -> DefaultsBuilder:

@@ -27,5 +27,8 @@ class DoesValidImageExistBuilder:
             "containerName": container_name,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/container-manager/doesValidImageExist/{containerName}", params=params, **kw
+            "GET",
+            "/dataservice/container-manager/doesValidImageExist/{containerName}",
+            params=params,
+            **kw,
         )

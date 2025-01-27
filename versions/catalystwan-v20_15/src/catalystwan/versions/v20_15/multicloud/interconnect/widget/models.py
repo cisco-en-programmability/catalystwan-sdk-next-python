@@ -20,7 +20,9 @@ class StatusObject:
 class GwDeviceStatus:
     count: Optional[int] = _field(default=None)
     name: Optional[str] = _field(default=None)
-    status_list: Optional[List[StatusObject]] = _field(default=None, metadata={"alias": "statusList"})
+    status_list: Optional[List[StatusObject]] = _field(
+        default=None, metadata={"alias": "statusList"}
+    )
     unreachable_count: Optional[int] = _field(default=None, metadata={"alias": "unreachableCount"})
 
 
@@ -28,14 +30,18 @@ class GwDeviceStatus:
 class GwSiteStatus:
     count: Optional[int] = _field(default=None)
     name: Optional[str] = _field(default=None)
-    status_list: Optional[List[StatusObject]] = _field(default=None, metadata={"alias": "statusList"})
+    status_list: Optional[List[StatusObject]] = _field(
+        default=None, metadata={"alias": "statusList"}
+    )
 
 
 @dataclass
 class GwStatus:
     count: Optional[int] = _field(default=None)
     name: Optional[str] = _field(default=None)
-    status_list: Optional[List[StatusObject]] = _field(default=None, metadata={"alias": "statusList"})
+    status_list: Optional[List[StatusObject]] = _field(
+        default=None, metadata={"alias": "statusList"}
+    )
 
 
 @dataclass
@@ -44,8 +50,12 @@ class InterconnectWidget:
         default=None, metadata={"alias": "edgeGatewaySolution"}
     )
     edge_type: Optional[EdgeType] = _field(default=None, metadata={"alias": "edgeType"})
-    gw_device_site_ids: Optional[List[int]] = _field(default=None, metadata={"alias": "gwDeviceSiteIds"})
-    gw_device_status: Optional[GwDeviceStatus] = _field(default=None, metadata={"alias": "gwDeviceStatus"})
+    gw_device_site_ids: Optional[List[int]] = _field(
+        default=None, metadata={"alias": "gwDeviceSiteIds"}
+    )
+    gw_device_status: Optional[GwDeviceStatus] = _field(
+        default=None, metadata={"alias": "gwDeviceStatus"}
+    )
     gw_sitestatus: Optional[GwSiteStatus] = _field(default=None, metadata={"alias": "gwSitestatus"})
     gw_status: Optional[GwStatus] = _field(default=None, metadata={"alias": "gwStatus"})
     num_accounts: Optional[int] = _field(default=None, metadata={"alias": "numAccounts"})

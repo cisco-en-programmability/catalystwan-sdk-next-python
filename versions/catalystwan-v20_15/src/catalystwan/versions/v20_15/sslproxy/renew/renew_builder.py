@@ -21,4 +21,6 @@ class RenewBuilder:
         :param payload: Renew device certificate request
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/sslproxy/renew", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/sslproxy/renew", payload=payload, **kw
+        )

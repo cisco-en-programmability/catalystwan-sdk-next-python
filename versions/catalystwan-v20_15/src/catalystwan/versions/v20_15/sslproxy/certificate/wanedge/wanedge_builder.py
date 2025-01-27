@@ -26,5 +26,9 @@ class WanedgeBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/sslproxy/certificate/wanedge/{deviceId}", params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/sslproxy/certificate/wanedge/{deviceId}",
+            params=params,
+            payload=payload,
+            **kw,
         )

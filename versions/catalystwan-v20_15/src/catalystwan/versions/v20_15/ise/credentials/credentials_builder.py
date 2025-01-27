@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional, Type
+from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import IseServer
 
 if TYPE_CHECKING:
@@ -18,6 +19,8 @@ class CredentialsBuilder:
     Builds and executes requests for operations under /ise/credentials
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
@@ -27,59 +30,31 @@ class CredentialsBuilder:
 
         :returns: IseServer
         """
-        return self._request_adapter.request("GET", "/dataservice/ise/credentials", return_type=IseServer, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/ise/credentials", return_type=IseServer, **kw
+        )
 
-    @property
-    def update_ise_server_credentials(self):
-        class update_ise_server_credentials_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def update_ise_server_credentials(self, payload: Optional[IseServer] = None, **kw) -> bool:
+        """
+        update Ise server credentials
 
-            def __call__(self, payload: Optional[IseServer] = None, **kw) -> bool:
-                """
-                update Ise server credentials
+        :param payload: Ise Server with possibly new values for properties
+        :returns: bool
+        """
+        return self._request_adapter.request(
+            "PUT", "/dataservice/ise/credentials", return_type=bool, payload=payload, **kw
+        )
 
-                :param payload: Ise Server with possibly new values for properties
-                :returns: bool
-                """
-                return self._request_adapter.request(
-                    "PUT", "/dataservice/ise/credentials", return_type=bool, payload=payload, **kw
-                )
+    def add_ise_server_credentials(self, payload: Optional[IseServer] = None, **kw) -> bool:
+        """
+        Add Ise server credentials
 
-            def create_payload(self, *args, **kwargs) -> IseServer:
-                return IseServer(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[IseServer]:
-                return IseServer
-
-        return update_ise_server_credentials_(self._request_adapter)
-
-    @property
-    def add_ise_server_credentials(self):
-        class add_ise_server_credentials_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[IseServer] = None, **kw) -> bool:
-                """
-                Add Ise server credentials
-
-                :param payload: Ise Server
-                :returns: bool
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/ise/credentials", return_type=bool, payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> IseServer:
-                return IseServer(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[IseServer]:
-                return IseServer
-
-        return add_ise_server_credentials_(self._request_adapter)
+        :param payload: Ise Server
+        :returns: bool
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/ise/credentials", return_type=bool, payload=payload, **kw
+        )
 
     @property
     def iseandpxgrid(self) -> IseandpxgridBuilder:

@@ -20,4 +20,6 @@ class DashboardlistBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/cloudservices/vanalytics/dashboardlist", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/cloudservices/vanalytics/dashboardlist", **kw
+        )

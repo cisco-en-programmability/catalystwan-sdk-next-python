@@ -6,6 +6,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceInfoResponsePayloadData
 
 
@@ -13,6 +14,8 @@ class DeviceInfoBySiteBuilder:
     """
     Builds and executes requests for operations under /stream/device/nwpi/deviceInfoBySite
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

@@ -3,7 +3,9 @@ from dataclasses import dataclass
 from dataclasses import field as _field
 from typing import List, Literal, Optional
 
-Operation = Literal["ControlPlane", "DataPlane", "RouterConfiguration", "SoftwareImageUpdate", "vBondAuth"]
+Operation = Literal[
+    "ControlPlane", "DataPlane", "RouterConfiguration", "SoftwareImageUpdate", "vBondAuth"
+]
 
 Status = Literal["Error", "NA", "Success", "Unknown"]
 

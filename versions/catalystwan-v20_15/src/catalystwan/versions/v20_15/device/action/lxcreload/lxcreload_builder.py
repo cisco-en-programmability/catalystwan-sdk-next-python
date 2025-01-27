@@ -21,4 +21,6 @@ class LxcreloadBuilder:
         :param payload: Reload request payload
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/device/action/lxcreload", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/lxcreload", payload=payload, **kw
+        )

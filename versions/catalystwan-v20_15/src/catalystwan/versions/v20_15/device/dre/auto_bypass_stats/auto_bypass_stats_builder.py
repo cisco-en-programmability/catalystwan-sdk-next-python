@@ -34,4 +34,6 @@ class AutoBypassStatsBuilder:
             "appqoe-dre-auto-bypass-port": appqoe_dre_auto_bypass_port,
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/dre/auto-bypass-stats", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/dre/auto-bypass-stats", params=params, **kw
+        )

@@ -21,4 +21,6 @@ class DevicecsrBuilder:
         :param payload: Device list
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/sslproxy/devicecsr", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/sslproxy/devicecsr", payload=payload, **kw
+        )

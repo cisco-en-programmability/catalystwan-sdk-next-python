@@ -24,4 +24,6 @@ class TopologyBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/eigrp/topology", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/eigrp/topology", params=params, **kw
+        )

@@ -17,7 +17,9 @@ class SmartLicensingfetchAccountsRespVirtualAccounts:
 class SmartLicensingfetchAccountsResp:
     account_id: Optional[str] = _field(default=None)
     name: Optional[str] = _field(default=None)
-    virtual_accounts: Optional[List[SmartLicensingfetchAccountsRespVirtualAccounts]] = _field(default=None)
+    virtual_accounts: Optional[List[SmartLicensingfetchAccountsRespVirtualAccounts]] = _field(
+        default=None
+    )
 
 
 @dataclass

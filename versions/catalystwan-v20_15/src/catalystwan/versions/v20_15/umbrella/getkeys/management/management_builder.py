@@ -18,4 +18,6 @@ class ManagementBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request("GET", "/dataservice/umbrella/getkeys/management", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/umbrella/getkeys/management", **kw
+        )

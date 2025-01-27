@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AfTypeParam, IfnameParam
 
 if TYPE_CHECKING:
@@ -26,6 +27,8 @@ class InterfaceBuilder:
     """
     Builds and executes requests for operations under /device/interface
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -53,7 +56,9 @@ class InterfaceBuilder:
             "af-type": af_type,
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/interface", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/interface", params=params, **kw
+        )
 
     @property
     def arp_stats(self) -> ArpStatsBuilder:

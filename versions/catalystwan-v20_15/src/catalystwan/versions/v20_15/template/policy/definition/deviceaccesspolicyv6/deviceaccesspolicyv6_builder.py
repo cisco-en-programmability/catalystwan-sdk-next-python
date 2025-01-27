@@ -37,7 +37,10 @@ class Deviceaccesspolicyv6Builder:
         :returns: Any
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/template/policy/definition/deviceaccesspolicyv6", payload=payload, **kw
+            "POST",
+            "/dataservice/template/policy/definition/deviceaccesspolicyv6",
+            payload=payload,
+            **kw,
         )
 
     def get_policy_definition_17(self, id: str, **kw) -> Any:
@@ -51,7 +54,10 @@ class Deviceaccesspolicyv6Builder:
             "id": id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/definition/deviceaccesspolicyv6/{id}", params=params, **kw
+            "GET",
+            "/dataservice/template/policy/definition/deviceaccesspolicyv6/{id}",
+            params=params,
+            **kw,
         )
 
     def edit_policy_definition_17(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
@@ -84,7 +90,10 @@ class Deviceaccesspolicyv6Builder:
             "id": id,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/definition/deviceaccesspolicyv6/{id}", params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/definition/deviceaccesspolicyv6/{id}",
+            params=params,
+            **kw,
         )
 
     @property

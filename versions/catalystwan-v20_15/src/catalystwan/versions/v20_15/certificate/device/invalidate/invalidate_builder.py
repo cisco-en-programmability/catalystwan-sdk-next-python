@@ -22,5 +22,9 @@ class InvalidateBuilder:
         :returns: str
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/certificate/device/invalidate", return_type=str, payload=payload, **kw
+            "POST",
+            "/dataservice/certificate/device/invalidate",
+            return_type=str,
+            payload=payload,
+            **kw,
         )

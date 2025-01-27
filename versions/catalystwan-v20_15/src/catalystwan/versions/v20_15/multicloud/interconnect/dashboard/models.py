@@ -27,7 +27,11 @@ class InterconnectDashboard:
     edge_gateway_id: Optional[str] = _field(default=None, metadata={"alias": "edgeGatewayId"})
     edge_gateway_name: Optional[str] = _field(default=None, metadata={"alias": "edgeGatewayName"})
     edge_type: Optional[EdgeType] = _field(default=None, metadata={"alias": "edgeType"})
-    link_list: Optional[List[InterconnectDashboardLinkList]] = _field(default=None, metadata={"alias": "linkList"})
+    link_list: Optional[List[InterconnectDashboardLinkList]] = _field(
+        default=None, metadata={"alias": "linkList"}
+    )
     region: Optional[str] = _field(default=None)
     resource_state: Optional[str] = _field(default=None, metadata={"alias": "resourceState"})
-    resource_state_update_ts: Optional[str] = _field(default=None, metadata={"alias": "resourceStateUpdateTs"})
+    resource_state_update_ts: Optional[str] = _field(
+        default=None, metadata={"alias": "resourceStateUpdateTs"}
+    )

@@ -5,6 +5,7 @@ from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import VpnParam
 
 
@@ -12,6 +13,8 @@ class NslookupBuilder:
     """
     Builds and executes requests for operations under /device/tools/nslookup
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -30,4 +33,6 @@ class NslookupBuilder:
             "dns": dns,
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/tools/nslookup", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/tools/nslookup", params=params, **kw
+        )

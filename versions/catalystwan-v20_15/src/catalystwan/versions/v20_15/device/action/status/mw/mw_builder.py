@@ -29,4 +29,6 @@ class MwBuilder:
         :param payload: Update maintenance window flag
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/device/action/status/mw", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/status/mw", payload=payload, **kw
+        )

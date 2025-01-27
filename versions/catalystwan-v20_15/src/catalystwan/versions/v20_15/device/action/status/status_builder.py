@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceTaskStatus
 
 if TYPE_CHECKING:
@@ -21,6 +22,8 @@ class StatusBuilder:
     Builds and executes requests for operations under /device/action/status
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
@@ -31,7 +34,9 @@ class StatusBuilder:
         :param payload: Update device action status
         :returns: None
         """
-        return self._request_adapter.request("PUT", "/dataservice/device/action/status", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/device/action/status", payload=payload, **kw
+        )
 
     def find_status(self, process_id: str, **kw) -> DeviceTaskStatus:
         """
@@ -44,7 +49,11 @@ class StatusBuilder:
             "processId": process_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/device/action/status/{processId}", return_type=DeviceTaskStatus, params=params, **kw
+            "GET",
+            "/dataservice/device/action/status/{processId}",
+            return_type=DeviceTaskStatus,
+            params=params,
+            **kw,
         )
 
     @property

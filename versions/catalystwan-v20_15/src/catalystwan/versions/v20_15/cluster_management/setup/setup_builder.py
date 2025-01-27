@@ -24,7 +24,9 @@ class SetupBuilder:
         :param payload: vManage cluster config
         :returns: None
         """
-        return self._request_adapter.request("PUT", "/dataservice/clusterManagement/setup", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/clusterManagement/setup", payload=payload, **kw
+        )
 
     def add_vmanage(self, payload: Optional[Any] = None, **kw):
         """
@@ -33,4 +35,6 @@ class SetupBuilder:
         :param payload: vManage cluster config
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/clusterManagement/setup", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/clusterManagement/setup", payload=payload, **kw
+        )

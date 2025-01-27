@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Optional, Type
+from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import PolicyGroup
 
 if TYPE_CHECKING:
@@ -16,10 +17,14 @@ class PolicyGroupBuilder:
     Builds and executes requests for operations under /v1/policy-group
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_policy_group_by_solution(self, solution: Optional[str] = None, **kw) -> List[PolicyGroup]:
+    def get_policy_group_by_solution(
+        self, solution: Optional[str] = None, **kw
+    ) -> List[PolicyGroup]:
         """
         Get a Policy Group by Solution
 
@@ -30,34 +35,23 @@ class PolicyGroupBuilder:
             "solution": solution,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/policy-group", return_type=List[PolicyGroup], params=params, **kw
+            "GET",
+            "/dataservice/v1/policy-group",
+            return_type=List[PolicyGroup],
+            params=params,
+            **kw,
         )
 
-    @property
-    def create_policy_group(self):
-        class create_policy_group_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_policy_group(self, payload: Optional[str] = None, **kw) -> str:
+        """
+        Create a new Policy Group
 
-            def __call__(self, payload: Optional[str] = None, **kw) -> str:
-                """
-                Create a new Policy Group
-
-                :param payload: Policy Group
-                :returns: str
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/v1/policy-group", return_type=str, payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_policy_group_(self._request_adapter)
+        :param payload: Policy Group
+        :returns: str
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/v1/policy-group", return_type=str, payload=payload, **kw
+        )
 
     def get_policy_group(self, policy_group_id: str, **kw) -> PolicyGroup:
         """
@@ -70,45 +64,36 @@ class PolicyGroupBuilder:
             "policyGroupId": policy_group_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/policy-group/{policyGroupId}", return_type=PolicyGroup, params=params, **kw
+            "GET",
+            "/dataservice/v1/policy-group/{policyGroupId}",
+            return_type=PolicyGroup,
+            params=params,
+            **kw,
         )
 
-    @property
-    def edit_policy_group(self):
-        class edit_policy_group_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_policy_group(self, policy_group_id: str, payload: Optional[str] = None, **kw) -> str:
+        """
+        Edit a Policy Group
 
-            def __call__(self, policy_group_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Edit a Policy Group
+        :param policy_group_id: Policy group id
+        :param payload: Policy Group
+        :returns: str
+        """
+        params = {
+            "policyGroupId": policy_group_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/policy-group/{policyGroupId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
-                :param policy_group_id: Policy group id
-                :param payload: Policy Group
-                :returns: str
-                """
-                params = {
-                    "policyGroupId": policy_group_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/policy-group/{policyGroupId}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_policy_group_(self._request_adapter)
-
-    def delete_policy_group(self, policy_group_id: str, delete_profiles: Optional[bool] = None, **kw):
+    def delete_policy_group(
+        self, policy_group_id: str, delete_profiles: Optional[bool] = None, **kw
+    ):
         """
         Delete Policy Group
 

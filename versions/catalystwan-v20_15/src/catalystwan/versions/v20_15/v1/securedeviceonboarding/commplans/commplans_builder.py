@@ -23,5 +23,8 @@ class CommplansBuilder:
             "accountId": account_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/securedeviceonboarding/{accountId}/commplans", params=params, **kw
+            "GET",
+            "/dataservice/v1/securedeviceonboarding/{accountId}/commplans",
+            params=params,
+            **kw,
         )

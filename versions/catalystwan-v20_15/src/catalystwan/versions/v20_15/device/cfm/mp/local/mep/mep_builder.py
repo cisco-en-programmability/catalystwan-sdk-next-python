@@ -37,4 +37,6 @@ class MepBuilder:
             "mep-id": mep_id,
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/cfm/mp/local/mep", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/cfm/mp/local/mep", params=params, **kw
+        )

@@ -22,7 +22,9 @@ class MapStatus:
     dest_id: Optional[str] = _field(default=None, metadata={"alias": "destId"})
     dest_type: Optional[str] = _field(default=None, metadata={"alias": "destType"})
     mapped: Optional[List[MapStatusMapped]] = _field(default=None)
-    outstanding_mapping: Optional[str] = _field(default=None, metadata={"alias": "outstandingMapping"})
+    outstanding_mapping: Optional[str] = _field(
+        default=None, metadata={"alias": "outstandingMapping"}
+    )
     src_id: Optional[str] = _field(default=None, metadata={"alias": "srcId"})
     src_type: Optional[str] = _field(default=None, metadata={"alias": "srcType"})
     unmapped: Optional[str] = _field(default=None)

@@ -14,7 +14,9 @@ class StatisticsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_dca_device_statistics_data(self, stats_data_type: str, payload: Optional[Any] = None, **kw) -> Any:
+    def generate_dca_device_statistics_data(
+        self, stats_data_type: str, payload: Optional[Any] = None, **kw
+    ) -> Any:
         """
         Get device statistics data
 
@@ -26,5 +28,9 @@ class StatisticsBuilder:
             "stats_data_type": stats_data_type,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/dca/data/device/statistics/{stats_data_type}", params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/dca/data/device/statistics/{stats_data_type}",
+            params=params,
+            payload=payload,
+            **kw,
         )

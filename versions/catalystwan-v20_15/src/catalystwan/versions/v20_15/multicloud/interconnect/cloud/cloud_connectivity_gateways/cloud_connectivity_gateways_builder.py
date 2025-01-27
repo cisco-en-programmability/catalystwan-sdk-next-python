@@ -1,12 +1,18 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
-from .models import (CloudConnectivityGateway, CloudTypeParam, ConnectivityGatewayTypeParam, InlineResponse2008,
-                     InterconnectTypeParam)
+from . import models
+from .models import (
+    CloudConnectivityGateway,
+    CloudTypeParam,
+    ConnectivityGatewayTypeParam,
+    InlineResponse2008,
+    InterconnectTypeParam,
+)
 
 if TYPE_CHECKING:
     from .create_options.create_options_builder import CreateOptionsBuilder
@@ -16,6 +22,8 @@ class CloudConnectivityGatewaysBuilder:
     """
     Builds and executes requests for operations under /multicloud/interconnect/cloud/{cloud-type}/cloud-connectivity-gateways
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -66,44 +74,32 @@ class CloudConnectivityGatewaysBuilder:
             **kw,
         )
 
-    @property
-    def add_cloud_connectivity_gateway(self):
-        class add_cloud_connectivity_gateway_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def add_cloud_connectivity_gateway(
+        self, cloud_type: CloudTypeParam, payload: Optional[CloudConnectivityGateway] = None, **kw
+    ) -> Any:
+        """
+        API to create a Cloud Connectivity Gateway such as Direct Connect Gateway, Express Route Circuit or Google Cloud routers.
 
-            def __call__(
-                self, cloud_type: CloudTypeParam, payload: Optional[CloudConnectivityGateway] = None, **kw
-            ) -> Any:
-                """
-                API to create a Cloud Connectivity Gateway such as Direct Connect Gateway, Express Route Circuit or Google Cloud routers.
-
-                :param cloud_type: Cloud Provider Type
-                :param payload: Request Payload for Multicloud Interconnect Cloud Connectivity Gateways
-                :returns: Any
-                """
-                params = {
-                    "cloud-type": cloud_type,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/multicloud/interconnect/cloud/{cloud-type}/cloud-connectivity-gateways",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> CloudConnectivityGateway:
-                return CloudConnectivityGateway(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[CloudConnectivityGateway]:
-                return CloudConnectivityGateway
-
-        return add_cloud_connectivity_gateway_(self._request_adapter)
+        :param cloud_type: Cloud Provider Type
+        :param payload: Request Payload for Multicloud Interconnect Cloud Connectivity Gateways
+        :returns: Any
+        """
+        params = {
+            "cloud-type": cloud_type,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/multicloud/interconnect/cloud/{cloud-type}/cloud-connectivity-gateways",
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_cloud_connectivity_gateways(
-        self, cloud_type: CloudTypeParam, connectivity_gateway_type: Optional[ConnectivityGatewayTypeParam] = None, **kw
+        self,
+        cloud_type: CloudTypeParam,
+        connectivity_gateway_type: Optional[ConnectivityGatewayTypeParam] = None,
+        **kw,
     ) -> Any:
         """
         API to delete Cloud Connectivity Gateways by type.

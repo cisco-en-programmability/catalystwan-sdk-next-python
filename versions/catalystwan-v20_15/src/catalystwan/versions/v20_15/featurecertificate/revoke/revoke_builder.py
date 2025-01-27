@@ -24,4 +24,6 @@ class RevokeBuilder:
         :param payload: Revoking feature cert request for cEdge
         :returns: Any
         """
-        return self._request_adapter.request("PUT", "/dataservice/featurecertificate/revoke", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/featurecertificate/revoke", payload=payload, **kw
+        )

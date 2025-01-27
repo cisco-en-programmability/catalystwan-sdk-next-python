@@ -6,6 +6,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceIp
 
 
@@ -14,11 +15,17 @@ class InterfaceBuilder:
     Builds and executes requests for operations under /colocation/monitor/vnf/interface
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_vnf_interface_detail(
-        self, vnf_name: str, device_ip: Optional[DeviceIp] = None, device_class: Optional[str] = None, **kw
+        self,
+        vnf_name: str,
+        device_ip: Optional[DeviceIp] = None,
+        device_class: Optional[str] = None,
+        **kw,
     ):
         """
         Get interface detail of VNF

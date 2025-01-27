@@ -27,7 +27,9 @@ class CertificateBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/featurecertificate/certificate", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/featurecertificate/certificate", params=params, **kw
+        )
 
     def install_feature_certificate(self, payload: Optional[Any] = None, **kw) -> Any:
         """

@@ -29,4 +29,6 @@ class OtpBuilder:
         :param payload: Cloud service OTP value
         :returns: None
         """
-        return self._request_adapter.request("PUT", "/dataservice/dca/cloudservices/otp", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/dca/cloudservices/otp", payload=payload, **kw
+        )

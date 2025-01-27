@@ -20,7 +20,9 @@ class SettingBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request("GET", "/dataservice/device/action/ztp/upgrade/setting", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/action/ztp/upgrade/setting", **kw
+        )
 
     def process_ztp_upgrade_config_setting(self, payload: Optional[Any] = None, **kw):
         """

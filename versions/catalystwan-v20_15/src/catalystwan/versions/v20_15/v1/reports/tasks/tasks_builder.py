@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ReportTaskQueryResponse, TaskIdResponse
 
 if TYPE_CHECKING:
@@ -15,6 +16,8 @@ class TasksBuilder:
     """
     Builds and executes requests for operations under /v1/reports/{reportId}/tasks
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -30,7 +33,11 @@ class TasksBuilder:
             "reportId": report_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/reports/{reportId}/tasks", return_type=ReportTaskQueryResponse, params=params, **kw
+            "GET",
+            "/dataservice/v1/reports/{reportId}/tasks",
+            return_type=ReportTaskQueryResponse,
+            params=params,
+            **kw,
         )
 
     def delete_report_task_by_task_id(self, report_id: str, task_id: str, **kw) -> TaskIdResponse:

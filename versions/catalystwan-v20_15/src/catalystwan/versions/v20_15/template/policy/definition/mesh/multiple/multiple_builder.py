@@ -14,7 +14,9 @@ class MultipleBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def edit_multiple_policy_definition_5(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def edit_multiple_policy_definition_5(
+        self, id: str, payload: Optional[Any] = None, **kw
+    ) -> Any:
         """
         Edit multiple policy definitions
 
@@ -26,5 +28,9 @@ class MultipleBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/definition/mesh/multiple/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/definition/mesh/multiple/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )

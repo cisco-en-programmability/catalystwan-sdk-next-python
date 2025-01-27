@@ -43,7 +43,9 @@ class PolicyBuilder:
         """
         The accesslistassociations property
         """
-        from .accesslistassociations.accesslistassociations_builder import AccesslistassociationsBuilder
+        from .accesslistassociations.accesslistassociations_builder import (
+            AccesslistassociationsBuilder,
+        )
 
         return AccesslistassociationsBuilder(self._request_adapter)
 
@@ -178,7 +180,9 @@ class PolicyBuilder:
         """
         The userusergroupbindings property
         """
-        from .userusergroupbindings.userusergroupbindings_builder import UserusergroupbindingsBuilder
+        from .userusergroupbindings.userusergroupbindings_builder import (
+            UserusergroupbindingsBuilder,
+        )
 
         return UserusergroupbindingsBuilder(self._request_adapter)
 

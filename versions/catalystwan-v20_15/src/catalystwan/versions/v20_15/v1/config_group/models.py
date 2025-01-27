@@ -3,7 +3,9 @@ from dataclasses import dataclass
 from dataclasses import field as _field
 from typing import Dict, List, Literal, Optional
 
-Solution = Literal["cellulargateway", "common", "mobility", "nfvirtual", "sd-routing", "sdwan", "service-insertion"]
+Solution = Literal[
+    "cellulargateway", "common", "mobility", "nfvirtual", "sd-routing", "sdwan", "service-insertion"
+]
 
 Attribute = Literal["rule", "tag"]
 
@@ -60,7 +62,9 @@ class FeatureProfile:
     # Timestamp of last update
     last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
     # Number of Parcels attached with Feature Profile
-    profile_parcel_count: Optional[int] = _field(default=None, metadata={"alias": "profileParcelCount"})
+    profile_parcel_count: Optional[int] = _field(
+        default=None, metadata={"alias": "profileParcelCount"}
+    )
 
 
 @dataclass
@@ -115,7 +119,9 @@ class ConfigGroup:
     # Timestamp of last update
     last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
     number_of_devices: Optional[int] = _field(default=None, metadata={"alias": "numberOfDevices"})
-    number_of_devices_up_to_date: Optional[int] = _field(default=None, metadata={"alias": "numberOfDevicesUpToDate"})
+    number_of_devices_up_to_date: Optional[int] = _field(
+        default=None, metadata={"alias": "numberOfDevicesUpToDate"}
+    )
     origin: Optional[str] = _field(default=None)
     origin_info: Optional[Dict[str, str]] = _field(default=None, metadata={"alias": "originInfo"})
     # List of devices UUIDs associated with this group
@@ -123,4 +129,6 @@ class ConfigGroup:
     # Source of group
     source: Optional[str] = _field(default=None)
     topology: Optional[Topology] = _field(default=None)
-    version_increment_reason: Optional[str] = _field(default=None, metadata={"alias": "versionIncrementReason"})
+    version_increment_reason: Optional[str] = _field(
+        default=None, metadata={"alias": "versionIncrementReason"}
+    )

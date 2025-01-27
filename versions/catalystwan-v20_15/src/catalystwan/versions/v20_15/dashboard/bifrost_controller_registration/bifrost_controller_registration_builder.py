@@ -18,4 +18,6 @@ class BifrostControllerRegistrationBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/dashboard/bifrostControllerRegistration", **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/dashboard/bifrostControllerRegistration", **kw
+        )

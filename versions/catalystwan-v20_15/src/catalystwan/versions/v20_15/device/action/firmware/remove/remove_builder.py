@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Optional, Type
+from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,29 +15,14 @@ class RemoveBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def remove_firmware_image(self):
-        class remove_firmware_image_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def remove_firmware_image(self, payload: Optional[str] = None, **kw):
+        """
+        Remove firmware on device
 
-            def __call__(self, payload: Optional[str] = None, **kw):
-                """
-                Remove firmware on device
-
-                :param payload: Payload
-                :returns: None
-                """
-                logging.warning("Operation: %s is deprecated", "removeFirmwareImage")
-                return self._request_adapter.request(
-                    "POST", "/dataservice/device/action/firmware/remove", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return remove_firmware_image_(self._request_adapter)
+        :param payload: Payload
+        :returns: None
+        """
+        logging.warning("Operation: %s is deprecated", "removeFirmwareImage")
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/firmware/remove", payload=payload, **kw
+        )

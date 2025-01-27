@@ -122,6 +122,8 @@ class DpiBuilder:
         """
         The supported-applications property
         """
-        from .supported_applications.supported_applications_builder import SupportedApplicationsBuilder
+        from .supported_applications.supported_applications_builder import (
+            SupportedApplicationsBuilder,
+        )
 
         return SupportedApplicationsBuilder(self._request_adapter)

@@ -24,4 +24,6 @@ class ActionsBuilder:
         params = {
             "action": action,
         }
-        return self._request_adapter.request("GET", "/dataservice/fedramp/dnssec/actions", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/fedramp/dnssec/actions", params=params, **kw
+        )

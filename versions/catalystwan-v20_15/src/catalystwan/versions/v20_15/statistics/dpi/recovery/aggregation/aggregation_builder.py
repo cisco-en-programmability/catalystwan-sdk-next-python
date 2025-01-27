@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import FecAndPktDupResponse
 
 
@@ -13,10 +14,14 @@ class AggregationBuilder:
     Builds and executes requests for operations under /statistics/dpi/recovery/aggregation
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dpi_stats_aggregation_data_for_fec(self, payload: Optional[Any] = None, **kw) -> FecAndPktDupResponse:
+    def get_dpi_stats_aggregation_data_for_fec(
+        self, payload: Optional[Any] = None, **kw
+    ) -> FecAndPktDupResponse:
         """
         Get aggregation data and fec recovery rate if available
 

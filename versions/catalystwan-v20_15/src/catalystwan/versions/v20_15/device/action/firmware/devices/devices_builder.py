@@ -21,4 +21,6 @@ class DevicesBuilder:
         :returns: None
         """
         logging.warning("Operation: %s is deprecated", "getDevicesFWUpgrade")
-        return self._request_adapter.request("GET", "/dataservice/device/action/firmware/devices", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/action/firmware/devices", **kw
+        )

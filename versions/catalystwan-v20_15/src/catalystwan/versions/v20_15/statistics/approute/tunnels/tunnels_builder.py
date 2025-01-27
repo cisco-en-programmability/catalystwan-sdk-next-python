@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AppRouteRespWithPageInfo
 
 if TYPE_CHECKING:
@@ -16,6 +17,8 @@ class TunnelsBuilder:
     """
     Builds and executes requests for operations under /statistics/approute/tunnels
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

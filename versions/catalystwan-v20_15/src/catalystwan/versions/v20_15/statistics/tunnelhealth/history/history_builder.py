@@ -5,6 +5,7 @@ from typing import List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import TunnelHealthHistoryItem
 
 
@@ -13,11 +14,17 @@ class HistoryBuilder:
     Builds and executes requests for operations under /statistics/tunnelhealth/history
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def statistics_approute_tunnelhealth_history_get(
-        self, last_n_hours: Optional[int] = 12, site: Optional[str] = None, limit: Optional[int] = 30, **kw
+        self,
+        last_n_hours: Optional[int] = 12,
+        site: Optional[str] = None,
+        limit: Optional[int] = 30,
+        **kw,
     ) -> List[TunnelHealthHistoryItem]:
         """
         Get all tunnel health history

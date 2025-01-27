@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import TypeParam
 
 if TYPE_CHECKING:
@@ -15,6 +16,8 @@ class TypesBuilder:
     """
     Builds and executes requests for operations under /template/feature/types
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

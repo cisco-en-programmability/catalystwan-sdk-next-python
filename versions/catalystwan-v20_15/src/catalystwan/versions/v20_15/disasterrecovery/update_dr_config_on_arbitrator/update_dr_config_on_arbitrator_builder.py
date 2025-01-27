@@ -20,4 +20,6 @@ class UpdateDrConfigOnArbitratorBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/disasterrecovery/updateDRConfigOnArbitrator", **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/disasterrecovery/updateDRConfigOnArbitrator", **kw
+        )

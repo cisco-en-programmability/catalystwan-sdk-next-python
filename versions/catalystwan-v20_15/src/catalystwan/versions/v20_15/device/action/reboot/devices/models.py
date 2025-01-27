@@ -6,7 +6,9 @@ from typing import List, Optional
 
 @dataclass
 class GenerateRebootDeviceListData:
-    available_services: Optional[List[str]] = _field(default=None, metadata={"alias": "availableServices"})
+    available_services: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "availableServices"}
+    )
     device_model: Optional[str] = _field(default=None, metadata={"alias": "device-model"})
     device_os: Optional[str] = _field(default=None, metadata={"alias": "device-os"})
     device_type: Optional[str] = _field(default=None, metadata={"alias": "device-type"})

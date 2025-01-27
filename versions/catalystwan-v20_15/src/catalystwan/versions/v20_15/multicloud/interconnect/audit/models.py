@@ -15,5 +15,7 @@ class AuditReportAuditReport:
 
 @dataclass
 class AuditReport:
-    audit_report: Optional[List[AuditReportAuditReport]] = _field(default=None, metadata={"alias": "auditReport"})
+    audit_report: Optional[List[AuditReportAuditReport]] = _field(
+        default=None, metadata={"alias": "auditReport"}
+    )
     audit_status: Optional[str] = _field(default=None, metadata={"alias": "auditStatus"})

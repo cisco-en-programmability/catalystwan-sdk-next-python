@@ -28,5 +28,9 @@ class FetchReportsForSaBuilder:
             "saId": sa_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/smartLicensing/fetchReportsForSa", params=params, payload=payload, **kw
+            "GET",
+            "/dataservice/smartLicensing/fetchReportsForSa",
+            params=params,
+            payload=payload,
+            **kw,
         )

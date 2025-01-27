@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ImageData, UtdsignatureParam
 
 
@@ -11,10 +12,14 @@ class SignatureBuilder:
     Builds and executes requests for operations under /device/action/software/package/signature
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_utd_image_data(self, utdsignature: UtdsignatureParam, type_: str, **kw) -> ImageData:
+    def generate_utd_image_data(
+        self, utdsignature: UtdsignatureParam, type_: str, **kw
+    ) -> ImageData:
         """
         Get list of Utd images
 

@@ -9,7 +9,9 @@ OrderType = Literal["count", "key"]
 
 Type = Literal["day", "hour", "minute", "month", "quater", "second", "week", "year"]
 
-CellularAggregationType = Literal["argMax", "avg", "cardinality", "count", "max", "min", "sum", "top_hits"]
+CellularAggregationType = Literal[
+    "argMax", "avg", "cardinality", "count", "max", "min", "sum", "top_hits"
+]
 
 Condition = Literal["AND", "OR"]
 
@@ -57,7 +59,9 @@ class DbQueryAggregationHistogramObject:
 @dataclass
 class DbQueryAggregationMetricObject:
     property: Any
-    type_: CellularAggregationType = _field(metadata={"alias": "type"})  # pytype: disable=annotation-type-mismatch
+    type_: CellularAggregationType = _field(
+        metadata={"alias": "type"}
+    )  # pytype: disable=annotation-type-mismatch
     order: Optional[str] = _field(default=None)
     sequence: Optional[str] = _field(default=None)
     size: Optional[str] = _field(default=None)
@@ -76,7 +80,9 @@ class DbQueryRuleObject:
     field: Optional[Any] = _field(default=None)
     operator: Optional[Operator] = _field(default=None)
     rules: Optional[List["DbQueryRuleObject"]] = _field(default=None)
-    type_: Optional[EiolteCellularAggregationType] = _field(default=None, metadata={"alias": "type"})
+    type_: Optional[EiolteCellularAggregationType] = _field(
+        default=None, metadata={"alias": "type"}
+    )
     value: Optional[List[str]] = _field(default=None)
 
 
@@ -86,7 +92,9 @@ class DbQuerySpecObject:
     condition: Optional[Condition] = _field(default=None)
     field: Optional[Any] = _field(default=None)
     operator: Optional[Operator] = _field(default=None)
-    type_: Optional[EiolteCellularAggregationType] = _field(default=None, metadata={"alias": "type"})
+    type_: Optional[EiolteCellularAggregationType] = _field(
+        default=None, metadata={"alias": "type"}
+    )
     value: Optional[List[str]] = _field(default=None)
 
 
@@ -94,7 +102,9 @@ class DbQuerySpecObject:
 class DbQuerySortObject:
     field: Any
     order: Order  # pytype: disable=annotation-type-mismatch
-    type_: Optional[EiolteCellularAggregationType] = _field(default=None, metadata={"alias": "type"})
+    type_: Optional[EiolteCellularAggregationType] = _field(
+        default=None, metadata={"alias": "type"}
+    )
 
 
 @dataclass

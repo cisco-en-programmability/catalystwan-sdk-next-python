@@ -25,7 +25,10 @@ class MetadataBuilder:
             "versionId": version_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/device/action/software/package/{versionId}/metadata", params=params, **kw
+            "GET",
+            "/dataservice/device/action/software/package/{versionId}/metadata",
+            params=params,
+            **kw,
         )
 
     def edit_image_metadata(self, version_id: str, payload: Optional[Any] = None, **kw):

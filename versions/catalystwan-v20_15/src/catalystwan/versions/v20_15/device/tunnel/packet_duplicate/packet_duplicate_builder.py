@@ -24,4 +24,6 @@ class PacketDuplicateBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/tunnel/packet-duplicate", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/tunnel/packet-duplicate", params=params, **kw
+        )

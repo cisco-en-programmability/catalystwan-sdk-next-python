@@ -27,7 +27,9 @@ class FeaturelistBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/featurelist", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/featurelist", params=params, **kw
+        )
 
     @property
     def synced(self) -> SyncedBuilder:

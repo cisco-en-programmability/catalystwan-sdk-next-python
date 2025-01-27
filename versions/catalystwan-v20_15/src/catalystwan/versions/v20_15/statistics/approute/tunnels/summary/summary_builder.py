@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AppRouteTransportResp
 
 
@@ -13,11 +14,18 @@ class SummaryBuilder:
     Builds and executes requests for operations under /statistics/approute/tunnels/summary
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_app_route_tunnels_summary_type(
-        self, type_: str, query: Optional[str] = None, limit: Optional[int] = 10, site_id: Optional[str] = None, **kw
+        self,
+        type_: str,
+        query: Optional[str] = None,
+        limit: Optional[int] = 10,
+        site_id: Optional[str] = None,
+        **kw,
     ) -> AppRouteTransportResp:
         """
         Get tunnel top statistics from device

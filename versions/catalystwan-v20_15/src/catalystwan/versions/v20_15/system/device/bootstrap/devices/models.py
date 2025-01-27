@@ -11,5 +11,7 @@ class GenerateBootstrapConfigForVedgesResponse:
 
 @dataclass
 class VEdgeBootstrapConfig:
-    bootstrap_config_type: Optional[str] = _field(default=None, metadata={"alias": "bootstrapConfigType"})
+    bootstrap_config_type: Optional[str] = _field(
+        default=None, metadata={"alias": "bootstrapConfigType"}
+    )
     uuid: Optional[List[str]] = _field(default=None)

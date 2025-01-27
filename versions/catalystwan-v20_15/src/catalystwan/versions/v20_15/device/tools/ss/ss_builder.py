@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import VpnParam
 
 
@@ -12,6 +13,8 @@ class SsBuilder:
     """
     Builds and executes requests for operations under /device/tools/ss
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -32,4 +35,6 @@ class SsBuilder:
             "options": options,
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/tools/ss", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/tools/ss", params=params, **kw
+        )

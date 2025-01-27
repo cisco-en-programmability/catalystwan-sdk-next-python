@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import GetAuditLogData
 
 
@@ -12,6 +13,8 @@ class PageBuilder:
     """
     Builds and executes requests for operations under /auditlog/page
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -52,5 +55,10 @@ class PageBuilder:
             "count": count,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/auditlog/page", return_type=GetAuditLogData, params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/auditlog/page",
+            return_type=GetAuditLogData,
+            params=params,
+            payload=payload,
+            **kw,
         )

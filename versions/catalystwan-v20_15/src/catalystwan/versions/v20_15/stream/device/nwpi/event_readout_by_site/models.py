@@ -21,7 +21,9 @@ class EventReadoutsResponsePayloadTimeInfo:
 @dataclass
 class EventReadoutsResponsePayloadEventHopTimeInfo:
     event_hop: Optional[str] = _field(default=None, metadata={"alias": "eventHop"})
-    event_hop_with_edge: Optional[str] = _field(default=None, metadata={"alias": "eventHopWithEdge"})
+    event_hop_with_edge: Optional[str] = _field(
+        default=None, metadata={"alias": "eventHopWithEdge"}
+    )
     time_info: Optional[List[EventReadoutsResponsePayloadTimeInfo]] = _field(
         default=None, metadata={"alias": "timeInfo"}
     )
@@ -77,8 +79,8 @@ class EventReadoutsResponsePayloadDetail:
     event_hop_time_info: Optional[List[EventReadoutsResponsePayloadEventHopTimeInfo]] = _field(
         default=None, metadata={"alias": "eventHopTimeInfo"}
     )
-    event_impacted_flow_num: Optional[List[EventReadoutsResponsePayloadEventImpactedFlowNum]] = _field(
-        default=None, metadata={"alias": "eventImpactedFlowNum"}
+    event_impacted_flow_num: Optional[List[EventReadoutsResponsePayloadEventImpactedFlowNum]] = (
+        _field(default=None, metadata={"alias": "eventImpactedFlowNum"})
     )
     event_list: Optional[List[str]] = _field(default=None, metadata={"alias": "eventList"})
     event_num: Optional[List[EventReadoutsResponsePayloadEventNum]] = _field(

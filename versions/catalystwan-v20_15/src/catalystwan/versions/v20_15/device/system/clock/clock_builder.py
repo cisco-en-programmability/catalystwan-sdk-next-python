@@ -24,4 +24,6 @@ class ClockBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/system/clock", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/system/clock", params=params, **kw
+        )

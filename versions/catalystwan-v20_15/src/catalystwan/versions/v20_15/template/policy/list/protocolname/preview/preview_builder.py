@@ -36,5 +36,8 @@ class PreviewBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/list/protocolname/preview/{id}", params=params, **kw
+            "GET",
+            "/dataservice/template/policy/list/protocolname/preview/{id}",
+            params=params,
+            **kw,
         )

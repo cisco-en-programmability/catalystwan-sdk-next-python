@@ -31,5 +31,9 @@ class SupportedApplicationsBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/device/dpi/supported-applications", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/device/dpi/supported-applications",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )

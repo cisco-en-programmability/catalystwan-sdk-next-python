@@ -6,7 +6,9 @@ from typing import List, Optional
 
 @dataclass
 class GenerateDeviceListData:
-    available_versions: Optional[List[str]] = _field(default=None, metadata={"alias": "availableVersions"})
+    available_versions: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "availableVersions"}
+    )
     current_partition: Optional[str] = _field(default=None, metadata={"alias": "current-partition"})
     default_version: Optional[str] = _field(default=None, metadata={"alias": "defaultVersion"})
     device_model: Optional[str] = _field(default=None, metadata={"alias": "device-model"})

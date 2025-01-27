@@ -22,4 +22,6 @@ class EdgeBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "getSupportedLoopbackTransportColors")
-        return self._request_adapter.request("GET", "/dataservice/multicloud/loopbacktransportcolor/edge", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/multicloud/loopbacktransportcolor/edge", **kw
+        )

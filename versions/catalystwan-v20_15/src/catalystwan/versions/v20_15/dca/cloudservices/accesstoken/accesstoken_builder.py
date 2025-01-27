@@ -20,7 +20,9 @@ class AccesstokenBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/dca/cloudservices/accesstoken", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/dca/cloudservices/accesstoken", **kw
+        )
 
     def store_access_token(self, payload: Optional[Any] = None, **kw):
         """

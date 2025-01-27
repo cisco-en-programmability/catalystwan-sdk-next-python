@@ -24,4 +24,6 @@ class GetBiFrostSigningKeyBuilder:
         params = {
             "cdClientToken": cd_client_token,
         }
-        return self._request_adapter.request("GET", "/dataservice/dashboard/getBiFrostSigningKey", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/dashboard/getBiFrostSigningKey", params=params, **kw
+        )

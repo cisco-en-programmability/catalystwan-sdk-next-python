@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AlarmAggregationResponse
 
 
@@ -13,10 +14,14 @@ class AggregationBuilder:
     Builds and executes requests for operations under /alarms/aggregation
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_aggregation_data(self, query: str, site_id: Optional[str] = None, **kw) -> AlarmAggregationResponse:
+    def get_aggregation_data(
+        self, query: str, site_id: Optional[str] = None, **kw
+    ) -> AlarmAggregationResponse:
         """
         Get aggregated count of alarms based on given query.
 
@@ -29,7 +34,11 @@ class AggregationBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/alarms/aggregation", return_type=AlarmAggregationResponse, params=params, **kw
+            "GET",
+            "/dataservice/alarms/aggregation",
+            return_type=AlarmAggregationResponse,
+            params=params,
+            **kw,
         )
 
     def post_aggregation_data(

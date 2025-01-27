@@ -14,7 +14,9 @@ class ConfigureBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def disableor_enable_saas_feed_for_selected_app(self, payload: Optional[Any] = None, **kw) -> Any:
+    def disableor_enable_saas_feed_for_selected_app(
+        self, payload: Optional[Any] = None, **kw
+    ) -> Any:
         """
         Get All the App for the given conditions
 

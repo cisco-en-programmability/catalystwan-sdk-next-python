@@ -36,4 +36,6 @@ class RuleBuilder:
         :param payload: Notification rule
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/notifications/rule", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/notifications/rule", payload=payload, **kw
+        )

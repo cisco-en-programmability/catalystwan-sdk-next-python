@@ -22,5 +22,8 @@ class QuickconnectvariableBuilder:
         :returns: Any
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/template/device/config/quickconnectvariable", payload=payload, **kw
+            "POST",
+            "/dataservice/template/device/config/quickconnectvariable",
+            payload=payload,
+            **kw,
         )

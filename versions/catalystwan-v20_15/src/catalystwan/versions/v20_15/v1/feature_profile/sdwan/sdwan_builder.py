@@ -40,7 +40,9 @@ class SdwanBuilder:
             "offset": offset,
             "limit": limit,
         }
-        return self._request_adapter.request("GET", "/dataservice/v1/feature-profile/sdwan", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/v1/feature-profile/sdwan", params=params, **kw
+        )
 
     @property
     def application_priority(self) -> ApplicationPriorityBuilder:

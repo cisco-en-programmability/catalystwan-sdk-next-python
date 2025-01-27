@@ -11,7 +11,9 @@ if TYPE_CHECKING:
     from .connectivity.connectivity_builder import ConnectivityBuilder
     from .deactivate.deactivate_builder import DeactivateBuilder
     from .definition.definition_builder import DefinitionBuilder
-    from .qosmos_nbar_migration_warning.qosmos_nbar_migration_warning_builder import QosmosNbarMigrationWarningBuilder
+    from .qosmos_nbar_migration_warning.qosmos_nbar_migration_warning_builder import (
+        QosmosNbarMigrationWarningBuilder,
+    )
 
 
 class VsmartBuilder:
@@ -28,7 +30,9 @@ class VsmartBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/vsmart", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/vsmart", return_type=List[Any], **kw
+        )
 
     def create_v_smart_template(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -37,9 +41,13 @@ class VsmartBuilder:
         :param payload: Template policy
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/policy/vsmart", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/policy/vsmart", payload=payload, **kw
+        )
 
-    def edit_v_smart_template(self, policy_id: str, payload: Optional[Any] = None, **kw) -> List[Any]:
+    def edit_v_smart_template(
+        self, policy_id: str, payload: Optional[Any] = None, **kw
+    ) -> List[Any]:
         """
         Edit template for given policy id
 
@@ -123,7 +131,8 @@ class VsmartBuilder:
         """
         The qosmos_nbar_migration_warning property
         """
-        from .qosmos_nbar_migration_warning.qosmos_nbar_migration_warning_builder import \
-            QosmosNbarMigrationWarningBuilder
+        from .qosmos_nbar_migration_warning.qosmos_nbar_migration_warning_builder import (
+            QosmosNbarMigrationWarningBuilder,
+        )
 
         return QosmosNbarMigrationWarningBuilder(self._request_adapter)

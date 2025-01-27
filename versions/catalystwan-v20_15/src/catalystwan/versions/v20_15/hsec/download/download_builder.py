@@ -21,4 +21,6 @@ class DownloadBuilder:
         :param payload: Device List
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/hsec/download", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/hsec/download", payload=payload, **kw
+        )

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ActionParam, UpdateReportTemplateResponse
 
 
@@ -11,10 +12,14 @@ class ActionBuilder:
     Builds and executes requests for operations under /v1/reports/{reportId}/action
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def report_action(self, report_id: str, action: ActionParam, **kw) -> UpdateReportTemplateResponse:
+    def report_action(
+        self, report_id: str, action: ActionParam, **kw
+    ) -> UpdateReportTemplateResponse:
         """
         User operations for specific report template, which includes activate,deactivate and run immediately
 

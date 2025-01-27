@@ -7,4 +7,6 @@ from typing import Optional
 @dataclass
 class InstalledCertsInner:
     certificate: Optional[str] = _field(default=None)
-    signer_vmanage_uuid: Optional[str] = _field(default=None, metadata={"alias": "signerVmanageUUID"})
+    signer_vmanage_uuid: Optional[str] = _field(
+        default=None, metadata={"alias": "signerVmanageUUID"}
+    )

@@ -42,8 +42,12 @@ class InitBlobVmanageInitBlobPnp:
 
 @dataclass
 class InitBlobVmanageInitBlob:
-    internal_credentials: InitBlobVmanageInitBlobInternalCredentials = _field(metadata={"alias": "internalCredentials"})
-    jwt_credentials: InitBlobVmanageInitBlobJwtCredentials = _field(metadata={"alias": "jwtCredentials"})
+    internal_credentials: InitBlobVmanageInitBlobInternalCredentials = _field(
+        metadata={"alias": "internalCredentials"}
+    )
+    jwt_credentials: InitBlobVmanageInitBlobJwtCredentials = _field(
+        metadata={"alias": "jwtCredentials"}
+    )
     # vManage Mode
     mode: Mode  # pytype: disable=annotation-type-mismatch
     pnp: InitBlobVmanageInitBlobPnp

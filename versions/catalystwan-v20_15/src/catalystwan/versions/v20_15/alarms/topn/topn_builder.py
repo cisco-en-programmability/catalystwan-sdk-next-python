@@ -25,4 +25,6 @@ class TopnBuilder:
         params = {
             "site-id": site_id,
         }
-        return self._request_adapter.request("POST", "/dataservice/alarms/topn", params=params, payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/alarms/topn", params=params, payload=payload, **kw
+        )

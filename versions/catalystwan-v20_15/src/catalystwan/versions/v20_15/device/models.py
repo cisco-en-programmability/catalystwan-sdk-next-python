@@ -7,9 +7,15 @@ from typing import List, Optional
 @dataclass
 class DeviceData:
     board_serial: Optional[str] = _field(default=None, metadata={"alias": "board-serial"})
-    certificate_validity: Optional[str] = _field(default=None, metadata={"alias": "certificate-validity"})
-    connected_v_manages: Optional[List[str]] = _field(default=None, metadata={"alias": "connectedVManages"})
-    control_connections: Optional[str] = _field(default=None, metadata={"alias": "controlConnections"})
+    certificate_validity: Optional[str] = _field(
+        default=None, metadata={"alias": "certificate-validity"}
+    )
+    connected_v_manages: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "connectedVManages"}
+    )
+    control_connections: Optional[str] = _field(
+        default=None, metadata={"alias": "controlConnections"}
+    )
     device_groups: Optional[List[str]] = _field(default=None, metadata={"alias": "device-groups"})
     device_id: Optional[str] = _field(default=None, metadata={"alias": "deviceId"})
     device_model: Optional[str] = _field(default=None, metadata={"alias": "device-model"})

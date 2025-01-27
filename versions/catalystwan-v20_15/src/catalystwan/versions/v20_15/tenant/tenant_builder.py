@@ -36,7 +36,9 @@ class TenantBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/tenant", return_type=List[Any], params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/tenant", return_type=List[Any], params=params, **kw
+        )
 
     def create_tenant(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -63,7 +65,9 @@ class TenantBuilder:
         params = {
             "tenantId": tenant_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/tenant/{tenantId}", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/tenant/{tenantId}", params=params, **kw
+        )
 
     def update_tenant(self, tenant_id: str, payload: Optional[Any] = None, **kw) -> Any:
         """

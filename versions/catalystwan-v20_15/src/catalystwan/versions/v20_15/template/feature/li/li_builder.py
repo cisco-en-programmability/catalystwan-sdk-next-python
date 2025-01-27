@@ -20,7 +20,9 @@ class LiBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request("GET", "/dataservice/template/feature/li", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/feature/li", return_type=List[Any], **kw
+        )
 
     def create_li_template(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -32,7 +34,9 @@ class LiBuilder:
         :param payload: LI template
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/feature/li", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/feature/li", payload=payload, **kw
+        )
 
     def edit_li_template(self, template_id: str, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -49,5 +53,9 @@ class LiBuilder:
             "templateId": template_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/feature/li/{templateId}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/feature/li/{templateId}",
+            params=params,
+            payload=payload,
+            **kw,
         )

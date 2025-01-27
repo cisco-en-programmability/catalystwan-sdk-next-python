@@ -25,7 +25,9 @@ class QosmapBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/definition/qosmap", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/definition/qosmap", **kw
+        )
 
     def create_policy_definition_1(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -64,7 +66,11 @@ class QosmapBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/definition/qosmap/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/definition/qosmap/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_definition_1(self, id: str, **kw):

@@ -8,5 +8,7 @@ from typing import Optional
 class GetTenantManagementSystemIPsInner:
     chasis_number: Optional[str] = _field(default=None, metadata={"alias": "chasisNumber"})
     device_type: Optional[str] = _field(default=None, metadata={"alias": "deviceType"})
-    management_system_ip: Optional[str] = _field(default=None, metadata={"alias": "managementSystemIP"})
+    management_system_ip: Optional[str] = _field(
+        default=None, metadata={"alias": "managementSystemIP"}
+    )
     serial_number: Optional[str] = _field(default=None, metadata={"alias": "serialNumber"})

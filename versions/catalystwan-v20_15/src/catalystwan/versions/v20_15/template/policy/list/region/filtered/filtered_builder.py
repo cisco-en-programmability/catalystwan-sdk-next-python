@@ -25,5 +25,9 @@ class FilteredBuilder:
             "infoTag": info_tag,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/list/region/filtered", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/template/policy/list/region/filtered",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )

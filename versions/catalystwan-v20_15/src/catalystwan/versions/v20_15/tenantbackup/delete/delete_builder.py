@@ -27,4 +27,6 @@ class DeleteBuilder:
         params = {
             "fileName": file_name,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/tenantbackup/delete", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/tenantbackup/delete", params=params, **kw
+        )

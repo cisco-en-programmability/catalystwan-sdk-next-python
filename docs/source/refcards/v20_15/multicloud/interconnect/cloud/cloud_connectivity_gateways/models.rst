@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import List, Dict, Union, Literal, Optional, Any
+    from typing import List, Dict, Optional, Union, Any, Literal
 
     CloudType = Literal[
         "AWS", "AWS_GOVCLOUD", "AZURE", "AZURE_GOVCLOUD", "GCP"

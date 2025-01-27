@@ -21,4 +21,6 @@ class CertificatesBuilder:
         :param payload: Certificate file
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/sslproxy/certificates", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/sslproxy/certificates", payload=payload, **kw
+        )

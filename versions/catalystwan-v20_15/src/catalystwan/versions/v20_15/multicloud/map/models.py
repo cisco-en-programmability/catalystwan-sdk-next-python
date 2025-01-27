@@ -57,4 +57,6 @@ class PostMapRequestConnMatrix:
 @dataclass
 class PostMapRequest:
     cloud_type: str = _field(metadata={"alias": "cloudType"})
-    conn_matrix: Optional[List[PostMapRequestConnMatrix]] = _field(default=None, metadata={"alias": "connMatrix"})
+    conn_matrix: Optional[List[PostMapRequestConnMatrix]] = _field(
+        default=None, metadata={"alias": "connMatrix"}
+    )

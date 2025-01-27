@@ -5,6 +5,7 @@ from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import RemoteTlocColorParam
 
 
@@ -12,6 +13,8 @@ class InboundBuilder:
     """
     Builds and executes requests for operations under /device/ipsec/inbound
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

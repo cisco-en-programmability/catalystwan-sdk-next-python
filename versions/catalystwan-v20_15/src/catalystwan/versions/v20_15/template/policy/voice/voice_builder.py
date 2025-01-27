@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceModel
 
 if TYPE_CHECKING:
@@ -18,6 +19,8 @@ class VoiceBuilder:
     Builds and executes requests for operations under /template/policy/voice
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
@@ -27,7 +30,9 @@ class VoiceBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/voice", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/voice", return_type=List[Any], **kw
+        )
 
     def create_voice_template(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -36,7 +41,9 @@ class VoiceBuilder:
         :param payload: Policy template
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/policy/voice", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/policy/voice", payload=payload, **kw
+        )
 
     def get_voice_templates_for_device(self, device_model: DeviceModel, **kw) -> List[Any]:
         """
@@ -49,7 +56,11 @@ class VoiceBuilder:
             "deviceModel": device_model,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/voice/{deviceModel}", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/template/policy/voice/{deviceModel}",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def edit_voice_template(self, policy_id: str, payload: Optional[Any] = None, **kw) -> Any:
@@ -64,7 +75,11 @@ class VoiceBuilder:
             "policyId": policy_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/voice/{policyId}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/voice/{policyId}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_voice_template(self, policy_id: str, **kw):

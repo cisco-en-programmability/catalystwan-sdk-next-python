@@ -5,6 +5,7 @@ from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ColorParam
 
 
@@ -12,6 +13,8 @@ class SessionsBuilder:
     """
     Builds and executes requests for operations under /device/bfd/synced/sessions
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -40,5 +43,9 @@ class SessionsBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/device/bfd/synced/sessions", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/device/bfd/synced/sessions",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )

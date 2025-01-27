@@ -22,7 +22,10 @@ class PreviewBuilder:
         :returns: Any
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/template/policy/definition/dnssecurity/preview", payload=payload, **kw
+            "POST",
+            "/dataservice/template/policy/definition/dnssecurity/preview",
+            payload=payload,
+            **kw,
         )
 
     def preview_policy_definition_by_id(self, id: str, **kw) -> Any:
@@ -36,5 +39,8 @@ class PreviewBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/definition/dnssecurity/preview/{id}", params=params, **kw
+            "GET",
+            "/dataservice/template/policy/definition/dnssecurity/preview/{id}",
+            params=params,
+            **kw,
         )

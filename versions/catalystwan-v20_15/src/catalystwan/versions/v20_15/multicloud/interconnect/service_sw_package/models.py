@@ -25,4 +25,6 @@ class InterconnectServiceTypes:
 
 @dataclass
 class InlineResponse20015:
-    sw_packages: Optional[List[InterconnectServiceTypes]] = _field(default=None, metadata={"alias": "swPackages"})
+    sw_packages: Optional[List[InterconnectServiceTypes]] = _field(
+        default=None, metadata={"alias": "swPackages"}
+    )

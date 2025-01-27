@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AppRouteRespWithPageInfo, SortOrderParam
 
 if TYPE_CHECKING:
@@ -27,6 +28,8 @@ class ApprouteBuilder:
     """
     Builds and executes requests for operations under /statistics/approute
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -57,7 +60,9 @@ class ApprouteBuilder:
             "sortBy": sort_by,
             "sortOrder": sort_order,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/approute", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/approute", params=params, **kw
+        )
 
     def get_stats_raw_data_2(
         self,

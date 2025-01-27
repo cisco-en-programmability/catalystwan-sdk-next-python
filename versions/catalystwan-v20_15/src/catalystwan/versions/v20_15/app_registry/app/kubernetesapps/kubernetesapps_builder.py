@@ -5,6 +5,7 @@ from typing import List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DiscoveredServices
 
 
@@ -13,11 +14,17 @@ class KubernetesappsBuilder:
     Builds and executes requests for operations under /app-registry/app/kubernetesapps
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_kubernetes_services(
-        self, is_cached: Optional[bool] = False, offset: Optional[int] = 0, limit: Optional[int] = 0, **kw
+        self,
+        is_cached: Optional[bool] = False,
+        offset: Optional[int] = 0,
+        limit: Optional[int] = 0,
+        **kw,
     ) -> List[DiscoveredServices]:
         """
         Obtain all services associated with clusters

@@ -85,7 +85,9 @@ class EventBuilder:
             "sortOrder": sort_order,
             "site-id": site_id,
         }
-        return self._request_adapter.request("POST", "/dataservice/event", params=params, payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/event", params=params, payload=payload, **kw
+        )
 
     @property
     def aggregation(self) -> AggregationBuilder:
@@ -128,7 +130,9 @@ class EventBuilder:
         """
         The getEventsByComponent property
         """
-        from .get_events_by_component.get_events_by_component_builder import GetEventsByComponentBuilder
+        from .get_events_by_component.get_events_by_component_builder import (
+            GetEventsByComponentBuilder,
+        )
 
         return GetEventsByComponentBuilder(self._request_adapter)
 

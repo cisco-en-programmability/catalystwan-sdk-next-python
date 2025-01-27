@@ -23,7 +23,9 @@ class VwanBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "createVirtualWan")
-        return self._request_adapter.request("POST", "/dataservice/multicloud/vwan", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/multicloud/vwan", payload=payload, **kw
+        )
 
     def delete_virtual_wan(
         self,

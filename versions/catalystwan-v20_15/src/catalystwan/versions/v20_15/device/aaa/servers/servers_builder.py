@@ -24,4 +24,6 @@ class ServersBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/aaa/servers", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/aaa/servers", params=params, **kw
+        )

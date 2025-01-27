@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import PxGridInfo
 
 if TYPE_CHECKING:
@@ -16,6 +17,8 @@ class PxgridBuilder:
     Builds and executes requests for operations under /ise/credentials/pxgrid
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
@@ -25,7 +28,9 @@ class PxgridBuilder:
 
         :returns: PxGridInfo
         """
-        return self._request_adapter.request("GET", "/dataservice/ise/credentials/pxgrid", return_type=PxGridInfo, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/ise/credentials/pxgrid", return_type=PxGridInfo, **kw
+        )
 
     def delete_px_grid(self, **kw) -> bool:
         """
@@ -33,7 +38,9 @@ class PxgridBuilder:
 
         :returns: bool
         """
-        return self._request_adapter.request("DELETE", "/dataservice/ise/credentials/pxgrid", return_type=bool, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/ise/credentials/pxgrid", return_type=bool, **kw
+        )
 
     @property
     def cert(self) -> CertBuilder:

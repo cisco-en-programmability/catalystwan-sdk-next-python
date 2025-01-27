@@ -8,8 +8,12 @@ from catalystwan.abc import RequestAdapterInterface
 if TYPE_CHECKING:
     from .detail.detail_builder import DetailBuilder
     from .diagnostic.diagnostic_builder import DiagnosticBuilder
-    from .diagnostic_measurement_alarm.diagnostic_measurement_alarm_builder import DiagnosticMeasurementAlarmBuilder
-    from .diagnostic_measurement_value.diagnostic_measurement_value_builder import DiagnosticMeasurementValueBuilder
+    from .diagnostic_measurement_alarm.diagnostic_measurement_alarm_builder import (
+        DiagnosticMeasurementAlarmBuilder,
+    )
+    from .diagnostic_measurement_value.diagnostic_measurement_value_builder import (
+        DiagnosticMeasurementValueBuilder,
+    )
 
 
 class SfpBuilder:
@@ -43,7 +47,9 @@ class SfpBuilder:
         """
         The diagnosticMeasurementAlarm property
         """
-        from .diagnostic_measurement_alarm.diagnostic_measurement_alarm_builder import DiagnosticMeasurementAlarmBuilder
+        from .diagnostic_measurement_alarm.diagnostic_measurement_alarm_builder import (
+            DiagnosticMeasurementAlarmBuilder,
+        )
 
         return DiagnosticMeasurementAlarmBuilder(self._request_adapter)
 
@@ -52,6 +58,8 @@ class SfpBuilder:
         """
         The diagnosticMeasurementValue property
         """
-        from .diagnostic_measurement_value.diagnostic_measurement_value_builder import DiagnosticMeasurementValueBuilder
+        from .diagnostic_measurement_value.diagnostic_measurement_value_builder import (
+            DiagnosticMeasurementValueBuilder,
+        )
 
         return DiagnosticMeasurementValueBuilder(self._request_adapter)

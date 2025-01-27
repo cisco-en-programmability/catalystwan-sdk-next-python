@@ -20,4 +20,6 @@ class DefaultsiteBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/policy/list/site/defaultsite", **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/policy/list/site/defaultsite", **kw
+        )

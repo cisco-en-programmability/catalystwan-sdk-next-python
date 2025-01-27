@@ -11,7 +11,9 @@ class LocalDestination:
     # Location where the database backup file on a storage type.
     backup_dir: Optional[str] = _field(default=None, metadata={"alias": "backupDir"})
     # Size of the database backup allowed to the stored at a backup destination
-    backup_storage_in_gb: Optional[int] = _field(default=None, metadata={"alias": "backupStorageInGB"})
+    backup_storage_in_gb: Optional[int] = _field(
+        default=None, metadata={"alias": "backupStorageInGB"}
+    )
     # Time to live for a database backup copy in the backup destination in days
     backup_ttl_in_days: Optional[int] = _field(default=None, metadata={"alias": "backupTTLInDays"})
     # Number of replicas of the database backup file
@@ -36,9 +38,13 @@ class LocalBackupInfo:
     # Destination to download database backup from
     download_url: Optional[str] = _field(default=None, metadata={"alias": "downloadURL"})
     # List of vManage servers IP address who are running in follower mode
-    follower_ip_address_list: Optional[List[str]] = _field(default=None, metadata={"alias": "followerIpAddressList"})
+    follower_ip_address_list: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "followerIpAddressList"}
+    )
     # A unique UUID per database back up request
-    local_backup_info_id: Optional[str] = _field(default=None, metadata={"alias": "localBackupInfoId"})
+    local_backup_info_id: Optional[str] = _field(
+        default=None, metadata={"alias": "localBackupInfoId"}
+    )
     # A unique UUID for scheduled database backup task
     schedule_id: Optional[str] = _field(default=None, metadata={"alias": "scheduleId"})
     # IP address of the source vmanage server for database backup

@@ -26,7 +26,9 @@ class VpnBuilder:
             "tenantId": tenant_id,
             "tenantVpn": tenant_vpn,
         }
-        return self._request_adapter.request("GET", "/dataservice/resourcepool/resource/vpn", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/resourcepool/resource/vpn", params=params, **kw
+        )
 
     def create_resources(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -35,7 +37,9 @@ class VpnBuilder:
         :param payload: create resources from resource pool
         :returns: Any
         """
-        return self._request_adapter.request("PUT", "/dataservice/resourcepool/resource/vpn", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/resourcepool/resource/vpn", payload=payload, **kw
+        )
 
     def delete_resources(self, tenant_id: str, tenant_vpn: int, **kw):
         """
@@ -49,4 +53,6 @@ class VpnBuilder:
             "tenantId": tenant_id,
             "tenantVpn": tenant_vpn,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/resourcepool/resource/vpn", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/resourcepool/resource/vpn", params=params, **kw
+        )

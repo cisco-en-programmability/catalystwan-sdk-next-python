@@ -7,7 +7,9 @@ from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .accounts.accounts_builder import AccountsBuilder
-    from .cloud_connectivity_gateways.cloud_connectivity_gateways_builder import CloudConnectivityGatewaysBuilder
+    from .cloud_connectivity_gateways.cloud_connectivity_gateways_builder import (
+        CloudConnectivityGatewaysBuilder,
+    )
 
 
 class CloudBuilder:
@@ -32,6 +34,8 @@ class CloudBuilder:
         """
         The cloud-connectivity-gateways property
         """
-        from .cloud_connectivity_gateways.cloud_connectivity_gateways_builder import CloudConnectivityGatewaysBuilder
+        from .cloud_connectivity_gateways.cloud_connectivity_gateways_builder import (
+            CloudConnectivityGatewaysBuilder,
+        )
 
         return CloudConnectivityGatewaysBuilder(self._request_adapter)

@@ -2,10 +2,11 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Any, Optional, Type
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import EdgeTypeParam, UpdateIcgwPutRequest
 
 if TYPE_CHECKING:
@@ -17,6 +18,8 @@ class EdgeBuilder:
     """
     Builds and executes requests for operations under /multicloud/gateway/edge
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -54,7 +57,9 @@ class EdgeBuilder:
             "edgeGatewayName": edge_gateway_name,
             "billingAccountId": billing_account_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/multicloud/gateway/edge", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/multicloud/gateway/edge", params=params, **kw
+        )
 
     def create_icgw(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -64,7 +69,9 @@ class EdgeBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "createIcgw")
-        return self._request_adapter.request("POST", "/dataservice/multicloud/gateway/edge", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/multicloud/gateway/edge", payload=payload, **kw
+        )
 
     def get_icgw_details(self, edge_gateway_name: str, **kw) -> Any:
         """
@@ -81,40 +88,27 @@ class EdgeBuilder:
             "GET", "/dataservice/multicloud/gateway/edge/{edgeGatewayName}", params=params, **kw
         )
 
-    @property
-    def update_icgw(self):
-        class update_icgw_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def update_icgw(
+        self, edge_gateway_name: str, payload: Optional[UpdateIcgwPutRequest] = None, **kw
+    ) -> Any:
+        """
+        Update Interconnect Gateway
 
-            def __call__(self, edge_gateway_name: str, payload: Optional[UpdateIcgwPutRequest] = None, **kw) -> Any:
-                """
-                Update Interconnect Gateway
-
-                :param edge_gateway_name: Edge gateway name
-                :param payload: Payload
-                :returns: Any
-                """
-                logging.warning("Operation: %s is deprecated", "updateIcgw")
-                params = {
-                    "edgeGatewayName": edge_gateway_name,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/multicloud/gateway/edge/{edgeGatewayName}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> UpdateIcgwPutRequest:
-                return UpdateIcgwPutRequest(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[UpdateIcgwPutRequest]:
-                return UpdateIcgwPutRequest
-
-        return update_icgw_(self._request_adapter)
+        :param edge_gateway_name: Edge gateway name
+        :param payload: Payload
+        :returns: Any
+        """
+        logging.warning("Operation: %s is deprecated", "updateIcgw")
+        params = {
+            "edgeGatewayName": edge_gateway_name,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/multicloud/gateway/edge/{edgeGatewayName}",
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_icgw(self, edge_gateway_name: str, **kw) -> Any:
         """

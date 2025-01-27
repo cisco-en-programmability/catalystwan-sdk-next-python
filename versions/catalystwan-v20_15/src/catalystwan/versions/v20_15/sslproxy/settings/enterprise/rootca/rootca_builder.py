@@ -20,7 +20,9 @@ class RootcaBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/sslproxy/settings/enterprise/rootca", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/sslproxy/settings/enterprise/rootca", **kw
+        )
 
     def set_enterprise_root_ca_cert(self, payload: Optional[Any] = None, **kw) -> Any:
         """

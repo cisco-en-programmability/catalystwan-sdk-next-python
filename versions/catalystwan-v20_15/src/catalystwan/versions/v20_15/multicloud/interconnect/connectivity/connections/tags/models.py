@@ -6,5 +6,9 @@ from typing import List, Optional
 
 @dataclass
 class InlineResponse2002:
-    loopback_cgw_color: Optional[List[str]] = _field(default=None, metadata={"alias": "loopbackCgwColor"})
-    loopback_tunnel_color: Optional[List[str]] = _field(default=None, metadata={"alias": "loopbackTunnelColor"})
+    loopback_cgw_color: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "loopbackCgwColor"}
+    )
+    loopback_tunnel_color: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "loopbackTunnelColor"}
+    )

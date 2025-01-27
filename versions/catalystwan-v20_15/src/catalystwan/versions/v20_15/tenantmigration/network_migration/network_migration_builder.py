@@ -20,7 +20,9 @@ class NetworkMigrationBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/tenantmigration/networkMigration", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/tenantmigration/networkMigration", **kw
+        )
 
     def migrate_network(self, payload: Optional[Any] = None, **kw) -> Any:
         """

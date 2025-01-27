@@ -25,5 +25,8 @@ class ResourceGroupBuilder:
             "resourceGroupName": resource_group_name,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/template/feature/resource-group/{resourceGroupName}/{templateId}", params=params, **kw
+            "POST",
+            "/dataservice/template/feature/resource-group/{resourceGroupName}/{templateId}",
+            params=params,
+            **kw,
         )

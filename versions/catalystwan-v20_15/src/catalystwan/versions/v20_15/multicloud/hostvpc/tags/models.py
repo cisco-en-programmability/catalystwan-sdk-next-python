@@ -49,7 +49,9 @@ class AllOfhostVpcTagPutHostVpcsItems:
     vnet_id: str = _field(metadata={"alias": "vnetId"})
     account_name: Optional[str] = _field(default=None, metadata={"alias": "accountName"})
     cgw_attachment: Optional[str] = _field(default=None, metadata={"alias": "cgwAttachment"})
-    cgw_auto_attachment_flag: Optional[bool] = _field(default=None, metadata={"alias": "cgwAutoAttachmentFlag"})
+    cgw_auto_attachment_flag: Optional[bool] = _field(
+        default=None, metadata={"alias": "cgwAutoAttachmentFlag"}
+    )
     # Used for AWS, AWS GovCloud and GCP cloud types
     host_vpc_name: Optional[str] = _field(default=None, metadata={"alias": "hostVpcName"})
     id: Optional[str] = _field(default=None)
@@ -79,7 +81,9 @@ class AllOfhostVpcTagPutVnetsItems:
     vnet_id: str = _field(metadata={"alias": "vnetId"})
     account_name: Optional[str] = _field(default=None, metadata={"alias": "accountName"})
     cgw_attachment: Optional[str] = _field(default=None, metadata={"alias": "cgwAttachment"})
-    cgw_auto_attachment_flag: Optional[bool] = _field(default=None, metadata={"alias": "cgwAutoAttachmentFlag"})
+    cgw_auto_attachment_flag: Optional[bool] = _field(
+        default=None, metadata={"alias": "cgwAutoAttachmentFlag"}
+    )
     # Used for AWS, AWS GovCloud and GCP cloud types
     host_vpc_name: Optional[str] = _field(default=None, metadata={"alias": "hostVpcName"})
     id: Optional[str] = _field(default=None)
@@ -97,7 +101,9 @@ class AllOfhostVpcTagPutVnetsItems:
 @dataclass
 class HostVpcTagPut:
     # Used for AWS, AWS GovCloud and GCP cloud types
-    host_vpcs: Optional[List[AllOfhostVpcTagPutHostVpcsItems]] = _field(default=None, metadata={"alias": "hostVpcs"})
+    host_vpcs: Optional[List[AllOfhostVpcTagPutHostVpcsItems]] = _field(
+        default=None, metadata={"alias": "hostVpcs"}
+    )
     interconnect_tag: Optional[bool] = _field(default=None, metadata={"alias": "interconnectTag"})
     tag_name: Optional[str] = _field(default=None, metadata={"alias": "tagName"})
     # Used for Azure and Azure GovCloud cloud types
@@ -145,7 +151,9 @@ class AllOfhostVpcTagPostVnetsItems:
     vnet_id: str = _field(metadata={"alias": "vnetId"})
     account_name: Optional[str] = _field(default=None, metadata={"alias": "accountName"})
     cgw_attachment: Optional[str] = _field(default=None, metadata={"alias": "cgwAttachment"})
-    cgw_auto_attachment_flag: Optional[bool] = _field(default=None, metadata={"alias": "cgwAutoAttachmentFlag"})
+    cgw_auto_attachment_flag: Optional[bool] = _field(
+        default=None, metadata={"alias": "cgwAutoAttachmentFlag"}
+    )
     # Used for AWS, AWS GovCloud and GCP cloud types
     host_vpc_name: Optional[str] = _field(default=None, metadata={"alias": "hostVpcName"})
     id: Optional[str] = _field(default=None)
@@ -161,7 +169,9 @@ class AllOfhostVpcTagPostVnetsItems:
 @dataclass
 class HostVpcTagPost:
     # Used for AWS, AWS GovCloud and GCP cloud types
-    host_vpcs: Optional[List[AllOfhostVpcTagPostHostVpcsItems]] = _field(default=None, metadata={"alias": "hostVpcs"})
+    host_vpcs: Optional[List[AllOfhostVpcTagPostHostVpcsItems]] = _field(
+        default=None, metadata={"alias": "hostVpcs"}
+    )
     interconnect_tag: Optional[bool] = _field(default=None, metadata={"alias": "interconnectTag"})
     tag_name: Optional[str] = _field(default=None, metadata={"alias": "tagName"})
     # Used for Azure and Azure GovCloud cloud types

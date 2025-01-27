@@ -26,5 +26,9 @@ class AttachBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/config/attach/{deviceId}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/config/attach/{deviceId}",
+            params=params,
+            payload=payload,
+            **kw,
         )

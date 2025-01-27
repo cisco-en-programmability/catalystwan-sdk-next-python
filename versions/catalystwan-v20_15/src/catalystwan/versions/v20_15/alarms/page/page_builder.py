@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AlarmResponse
 
 
@@ -12,6 +13,8 @@ class PageBuilder:
     """
     Builds and executes requests for operations under /alarms/page
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -66,5 +69,10 @@ class PageBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/alarms/page", return_type=AlarmResponse, params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/alarms/page",
+            return_type=AlarmResponse,
+            params=params,
+            payload=payload,
+            **kw,
         )

@@ -31,4 +31,6 @@ class CloneBuilder:
             "name": name,
             "desc": desc,
         }
-        return self._request_adapter.request("POST", "/dataservice/template/feature/clone", params=params, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/feature/clone", params=params, **kw
+        )

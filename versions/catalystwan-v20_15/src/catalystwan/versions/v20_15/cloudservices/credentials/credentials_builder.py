@@ -29,4 +29,6 @@ class CredentialsBuilder:
         :param payload: Cloud service credentials
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/cloudservices/credentials", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/cloudservices/credentials", payload=payload, **kw
+        )

@@ -23,5 +23,8 @@ class FetchvManageListBuilder:
             "processType": process_type,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/statistics/download/{processType}/fetchvManageList", params=params, **kw
+            "GET",
+            "/dataservice/statistics/download/{processType}/fetchvManageList",
+            params=params,
+            **kw,
         )

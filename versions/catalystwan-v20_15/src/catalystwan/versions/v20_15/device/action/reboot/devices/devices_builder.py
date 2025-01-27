@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import GenerateRebootDeviceList
 
 
@@ -11,10 +12,14 @@ class DevicesBuilder:
     Builds and executes requests for operations under /device/action/reboot/devices
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_reboot_device_list(self, device_type: str, group_id: str, **kw) -> GenerateRebootDeviceList:
+    def generate_reboot_device_list(
+        self, device_type: str, group_id: str, **kw
+    ) -> GenerateRebootDeviceList:
         """
         Get list of rebooted devices
 

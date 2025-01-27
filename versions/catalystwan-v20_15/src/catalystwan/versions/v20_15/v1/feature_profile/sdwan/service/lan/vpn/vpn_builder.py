@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional, Type
+from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -37,42 +37,31 @@ class VpnBuilder:
             **kw,
         )
 
-    @property
-    def create_lan_vpn_profile_parcel_for_service(self):
-        class create_lan_vpn_profile_parcel_for_service_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_lan_vpn_profile_parcel_for_service(
+        self, service_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Create a Lan Vpn Profile Parcel for Service feature profile
 
-            def __call__(self, service_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Create a Lan Vpn Profile Parcel for Service feature profile
+        :param service_id: Feature Profile ID
+        :param payload: Lan Vpn Profile Parcel
+        :returns: str
+        """
+        params = {
+            "serviceId": service_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
-                :param service_id: Feature Profile ID
-                :param payload: Lan Vpn Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "serviceId": service_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_lan_vpn_profile_parcel_for_service_(self._request_adapter)
-
-    def get_lan_vpn_profile_parcel_by_parcel_id_for_service(self, service_id: str, vpn_id: str, **kw) -> str:
+    def get_lan_vpn_profile_parcel_by_parcel_id_for_service(
+        self, service_id: str, vpn_id: str, **kw
+    ) -> str:
         """
         Get Lan Vpn Profile Parcel by parcelId for Service feature profile
 
@@ -92,42 +81,29 @@ class VpnBuilder:
             **kw,
         )
 
-    @property
-    def edit_lan_vpn_profile_parcel_for_service(self):
-        class edit_lan_vpn_profile_parcel_for_service_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_lan_vpn_profile_parcel_for_service(
+        self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Update a Lan Vpn Profile Parcel for Service feature profile
 
-            def __call__(self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Update a Lan Vpn Profile Parcel for Service feature profile
-
-                :param service_id: Feature Profile ID
-                :param vpn_id: Profile Parcel ID
-                :param payload: Lan Vpn Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "serviceId": service_id,
-                    "vpnId": vpn_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_lan_vpn_profile_parcel_for_service_(self._request_adapter)
+        :param service_id: Feature Profile ID
+        :param vpn_id: Profile Parcel ID
+        :param payload: Lan Vpn Profile Parcel
+        :returns: str
+        """
+        params = {
+            "serviceId": service_id,
+            "vpnId": vpn_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_lan_vpn_profile_parcel_for_service(self, service_id: str, vpn_id: str, **kw):
         """
@@ -142,7 +118,10 @@ class VpnBuilder:
             "vpnId": vpn_id,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}", params=params, **kw
+            "DELETE",
+            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}",
+            params=params,
+            **kw,
         )
 
     @property

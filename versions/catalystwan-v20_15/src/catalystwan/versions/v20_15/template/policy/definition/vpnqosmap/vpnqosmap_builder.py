@@ -25,7 +25,9 @@ class VpnqosmapBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/definition/vpnqosmap", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/definition/vpnqosmap", **kw
+        )
 
     def create_policy_definition_2(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -64,7 +66,11 @@ class VpnqosmapBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/definition/vpnqosmap/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/definition/vpnqosmap/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_definition_2(self, id: str, **kw):

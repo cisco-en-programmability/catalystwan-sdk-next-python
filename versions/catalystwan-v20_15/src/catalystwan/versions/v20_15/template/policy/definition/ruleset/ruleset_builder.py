@@ -25,7 +25,9 @@ class RulesetBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/definition/ruleset", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/definition/ruleset", **kw
+        )
 
     def create_policy_definition_20(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -64,7 +66,11 @@ class RulesetBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/definition/ruleset/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/definition/ruleset/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_definition_20(self, id: str, **kw):

@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional, Type
+from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -18,7 +18,9 @@ class SviBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interface_svi_parcels_for_service_lan_vpn(self, service_id: str, vpn_id: str, **kw) -> str:
+    def get_interface_svi_parcels_for_service_lan_vpn(
+        self, service_id: str, vpn_id: str, **kw
+    ) -> str:
         """
         Get InterfaceSvi Parcels for service LanVpn Parcel
 
@@ -38,42 +40,29 @@ class SviBuilder:
             **kw,
         )
 
-    @property
-    def create_lan_vpn_interface_svi_parcel_for_service(self):
-        class create_lan_vpn_interface_svi_parcel_for_service_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_lan_vpn_interface_svi_parcel_for_service(
+        self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Create a LanVpn InterfaceSvi parcel for service feature profile
 
-            def __call__(self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Create a LanVpn InterfaceSvi parcel for service feature profile
-
-                :param service_id: Feature Profile ID
-                :param vpn_id: Profile Parcel ID
-                :param payload: Lan Vpn Interface Svi Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "serviceId": service_id,
-                    "vpnId": vpn_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_lan_vpn_interface_svi_parcel_for_service_(self._request_adapter)
+        :param service_id: Feature Profile ID
+        :param vpn_id: Profile Parcel ID
+        :param payload: Lan Vpn Interface Svi Profile Parcel
+        :returns: str
+        """
+        params = {
+            "serviceId": service_id,
+            "vpnId": vpn_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def get_lan_vpn_interface_svi_parcel_by_parcel_id_for_service(
         self, service_id: str, vpn_id: str, svi_id: str, **kw
@@ -99,46 +88,35 @@ class SviBuilder:
             **kw,
         )
 
-    @property
-    def edit_lan_vpn_interface_svi_parcel_for_service(self):
-        class edit_lan_vpn_interface_svi_parcel_for_service_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_lan_vpn_interface_svi_parcel_for_service(
+        self, service_id: str, vpn_id: str, svi_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Update a LanVpn InterfaceSvi Parcel for service feature profile
 
-            def __call__(self, service_id: str, vpn_id: str, svi_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Update a LanVpn InterfaceSvi Parcel for service feature profile
+        :param service_id: Feature Profile ID
+        :param vpn_id: Profile Parcel ID
+        :param svi_id: Interface ID
+        :param payload: Lan Vpn Interface Svi Profile Parcel
+        :returns: str
+        """
+        params = {
+            "serviceId": service_id,
+            "vpnId": vpn_id,
+            "sviId": svi_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
-                :param service_id: Feature Profile ID
-                :param vpn_id: Profile Parcel ID
-                :param svi_id: Interface ID
-                :param payload: Lan Vpn Interface Svi Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "serviceId": service_id,
-                    "vpnId": vpn_id,
-                    "sviId": svi_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_lan_vpn_interface_svi_parcel_for_service_(self._request_adapter)
-
-    def delete_lan_vpn_interface_svi_for_service(self, service_id: str, vpn_id: str, svi_id: str, **kw):
+    def delete_lan_vpn_interface_svi_for_service(
+        self, service_id: str, vpn_id: str, svi_id: str, **kw
+    ):
         """
         Delete a  LanVpn InterfaceSvi Parcel for service feature profile
 

@@ -14,8 +14,12 @@ Validity = Literal["invalid", "prestaging", "staging", "valid"]
 class ClaimDevicesResponse:
     activity_list: Optional[str] = _field(default=None, metadata={"alias": "activityList"})
     id: Optional[str] = _field(default=None)
-    vedge_list_upload_msg: Optional[str] = _field(default=None, metadata={"alias": "vedgeListUploadMsg"})
-    vedge_list_upload_status: Optional[str] = _field(default=None, metadata={"alias": "vedgeListUploadStatus"})
+    vedge_list_upload_msg: Optional[str] = _field(
+        default=None, metadata={"alias": "vedgeListUploadMsg"}
+    )
+    vedge_list_upload_status: Optional[str] = _field(
+        default=None, metadata={"alias": "vedgeListUploadStatus"}
+    )
 
 
 @dataclass
@@ -26,8 +30,12 @@ class Loopback:
 
 @dataclass
 class Device:
-    chassis_serial_number: Optional[str] = _field(default=None, metadata={"alias": "chassis-serial-number"})
-    configured_aaa_user: Optional[List[str]] = _field(default=None, metadata={"alias": "configuredAaaUser"})
+    chassis_serial_number: Optional[str] = _field(
+        default=None, metadata={"alias": "chassis-serial-number"}
+    )
+    configured_aaa_user: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "configuredAaaUser"}
+    )
     device_id: Optional[str] = _field(default=None, metadata={"alias": "deviceId"})
     device_model: Optional[str] = _field(default=None, metadata={"alias": "device-model"})
     device_os: Optional[str] = _field(default=None, metadata={"alias": "device-os"})

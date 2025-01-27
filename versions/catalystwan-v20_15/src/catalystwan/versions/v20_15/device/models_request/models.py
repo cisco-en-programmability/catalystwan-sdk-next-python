@@ -20,7 +20,9 @@ class DeviceInterface:
 
 @dataclass
 class DeviceModelsData:
-    cpu_count_attribute: Optional[DeviceCpuCount] = _field(default=None, metadata={"alias": "cpuCountAttribute"})
+    cpu_count_attribute: Optional[DeviceCpuCount] = _field(
+        default=None, metadata={"alias": "cpuCountAttribute"}
+    )
     device_class: Optional[str] = _field(default=None, metadata={"alias": "deviceClass"})
     device_type: Optional[str] = _field(default=None, metadata={"alias": "deviceType"})
     display_name: Optional[str] = _field(default=None, metadata={"alias": "displayName"})
@@ -29,7 +31,9 @@ class DeviceModelsData:
     name: Optional[str] = _field(default=None)
     onboard_cert: Optional[bool] = _field(default=None, metadata={"alias": "onboardCert"})
     template_class: Optional[str] = _field(default=None, metadata={"alias": "templateClass"})
-    template_supported: Optional[bool] = _field(default=None, metadata={"alias": "templateSupported"})
+    template_supported: Optional[bool] = _field(
+        default=None, metadata={"alias": "templateSupported"}
+    )
 
 
 @dataclass

@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import GenerateDeviceStateData
 
 if TYPE_CHECKING:
@@ -17,11 +18,17 @@ class StateBuilder:
     Builds and executes requests for operations under /data/device/state
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def generate_device_state_data(
-        self, state_data_type: str, start_id: Optional[str] = None, count: Optional[int] = 1000, **kw
+        self,
+        state_data_type: str,
+        start_id: Optional[str] = None,
+        count: Optional[int] = 1000,
+        **kw,
     ) -> GenerateDeviceStateData:
         """
         Get device state data

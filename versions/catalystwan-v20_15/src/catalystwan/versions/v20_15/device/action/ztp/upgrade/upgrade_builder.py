@@ -32,7 +32,9 @@ class UpgradeBuilder:
         :param payload: Request body for Device bootstrap configuration
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/device/action/ztp/upgrade", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/ztp/upgrade", payload=payload, **kw
+        )
 
     @property
     def setting(self) -> SettingBuilder:

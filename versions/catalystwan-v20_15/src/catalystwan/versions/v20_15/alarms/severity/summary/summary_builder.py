@@ -14,7 +14,9 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_alarm_severity_custom_histogram(self, query: str, site_id: Optional[str] = None, **kw) -> Any:
+    def get_alarm_severity_custom_histogram(
+        self, query: str, site_id: Optional[str] = None, **kw
+    ) -> Any:
         """
         Get alarm severity histogram
 
@@ -26,4 +28,6 @@ class SummaryBuilder:
             "query": query,
             "site-id": site_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/alarms/severity/summary", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/alarms/severity/summary", params=params, **kw
+        )

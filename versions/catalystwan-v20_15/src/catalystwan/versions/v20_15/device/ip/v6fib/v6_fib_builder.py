@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ColorParam, VpnIdParam
 
 
@@ -12,6 +13,8 @@ class V6FibBuilder:
     """
     Builds and executes requests for operations under /device/ip/v6fib
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -42,4 +45,6 @@ class V6FibBuilder:
             "color": color,
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/ip/v6fib", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/ip/v6fib", params=params, **kw
+        )

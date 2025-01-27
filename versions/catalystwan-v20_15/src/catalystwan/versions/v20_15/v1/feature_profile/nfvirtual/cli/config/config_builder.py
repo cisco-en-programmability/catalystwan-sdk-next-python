@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional, Type
+from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,40 +14,25 @@ class ConfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def create_nfvirtual_cli_parcel(self):
-        class create_nfvirtual_cli_parcel_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def create_nfvirtual_cli_parcel(self, cli_id: str, payload: Optional[str] = None, **kw) -> str:
+        """
+        Create CLI Profile Parcel for CLI feature profile
 
-            def __call__(self, cli_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Create CLI Profile Parcel for CLI feature profile
-
-                :param cli_id: CLI Feature Profile ID
-                :param payload: CLI Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "cliId": cli_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/v1/feature-profile/nfvirtual/cli/{cliId}/config",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return create_nfvirtual_cli_parcel_(self._request_adapter)
+        :param cli_id: CLI Feature Profile ID
+        :param payload: CLI Profile Parcel
+        :returns: str
+        """
+        params = {
+            "cliId": cli_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/v1/feature-profile/nfvirtual/cli/{cliId}/config",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def get_nfvirtual_cli_parcel(self, cli_id: str, config_id: str, **kw) -> str:
         """
@@ -69,42 +54,29 @@ class ConfigBuilder:
             **kw,
         )
 
-    @property
-    def edit_nfvirtual_cli_parcel(self):
-        class edit_nfvirtual_cli_parcel_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def edit_nfvirtual_cli_parcel(
+        self, cli_id: str, config_id: str, payload: Optional[str] = None, **kw
+    ) -> str:
+        """
+        Edit CLI Profile Parcel for CLI feature profile
 
-            def __call__(self, cli_id: str, config_id: str, payload: Optional[str] = None, **kw) -> str:
-                """
-                Edit CLI Profile Parcel for CLI feature profile
-
-                :param cli_id: CLI Feature Profile ID
-                :param config_id: CLI Parcel ID
-                :param payload: CLI Profile Parcel
-                :returns: str
-                """
-                params = {
-                    "cliId": cli_id,
-                    "configId": config_id,
-                }
-                return self._request_adapter.request(
-                    "PUT",
-                    "/dataservice/v1/feature-profile/nfvirtual/cli/{cliId}/config/{configId}",
-                    return_type=str,
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return edit_nfvirtual_cli_parcel_(self._request_adapter)
+        :param cli_id: CLI Feature Profile ID
+        :param config_id: CLI Parcel ID
+        :param payload: CLI Profile Parcel
+        :returns: str
+        """
+        params = {
+            "cliId": cli_id,
+            "configId": config_id,
+        }
+        return self._request_adapter.request(
+            "PUT",
+            "/dataservice/v1/feature-profile/nfvirtual/cli/{cliId}/config/{configId}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def delete_nfvirtual_cli_parcel(self, cli_id: str, config_id: str, **kw):
         """
@@ -119,5 +91,8 @@ class ConfigBuilder:
             "configId": config_id,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/v1/feature-profile/nfvirtual/cli/{cliId}/config/{configId}", params=params, **kw
+            "DELETE",
+            "/dataservice/v1/feature-profile/nfvirtual/cli/{cliId}/config/{configId}",
+            params=params,
+            **kw,
         )

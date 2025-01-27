@@ -28,4 +28,6 @@ class CountBuilder:
             "isCached": is_cached,
             "site-id": site_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/control/count", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/control/count", params=params, **kw
+        )

@@ -30,8 +30,12 @@ class DeviceApiDetails:
 
 @dataclass
 class DeviceComplianceApiData:
-    check_list: Optional[List[DeviceCheckList]] = _field(default=None, metadata={"alias": "checkList"})
-    device_details: Optional[DeviceApiDetails] = _field(default=None, metadata={"alias": "deviceDetails"})
+    check_list: Optional[List[DeviceCheckList]] = _field(
+        default=None, metadata={"alias": "checkList"}
+    )
+    device_details: Optional[DeviceApiDetails] = _field(
+        default=None, metadata={"alias": "deviceDetails"}
+    )
     status: Optional[str] = _field(default=None)
 
 

@@ -3,7 +3,9 @@ from dataclasses import dataclass
 from dataclasses import field as _field
 from typing import List, Literal, Optional
 
-Type = Literal["cellular", "ethernet", "globalSettings", "networkProtocol", "securityPolicy", "wifi"]
+Type = Literal[
+    "cellular", "ethernet", "globalSettings", "networkProtocol", "securityPolicy", "wifi"
+]
 
 
 @dataclass
@@ -28,7 +30,9 @@ class SimSlotConfig:
     profile_list: List[CellularProfile] = _field(metadata={"alias": "profileList"})
     slot_number: int = _field(metadata={"alias": "slotNumber"})
     carrier_name: Optional[str] = _field(default=None, metadata={"alias": "carrierName"})
-    data_profile_id_list: Optional[List[int]] = _field(default=None, metadata={"alias": "dataProfileIdList"})
+    data_profile_id_list: Optional[List[int]] = _field(
+        default=None, metadata={"alias": "dataProfileIdList"}
+    )
 
 
 @dataclass

@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import NetworkAvailabilityResp
 
 if TYPE_CHECKING:
@@ -16,6 +17,8 @@ class NwaBuilder:
     """
     Builds and executes requests for operations under /statistics/nwa
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -47,7 +50,11 @@ class NwaBuilder:
             "sortOrder": sort_order,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/statistics/nwa", return_type=List[NetworkAvailabilityResp], params=params, **kw
+            "POST",
+            "/dataservice/statistics/nwa",
+            return_type=List[NetworkAvailabilityResp],
+            params=params,
+            **kw,
         )
 
     @property

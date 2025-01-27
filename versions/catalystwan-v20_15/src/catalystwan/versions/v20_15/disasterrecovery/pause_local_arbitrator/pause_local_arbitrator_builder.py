@@ -20,4 +20,6 @@ class PauseLocalArbitratorBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/disasterrecovery/pauseLocalArbitrator", **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/disasterrecovery/pauseLocalArbitrator", **kw
+        )

@@ -5,6 +5,7 @@ from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceIp
 
 
@@ -12,6 +13,8 @@ class Nd6Builder:
     """
     Builds and executes requests for operations under /device/ipv6/nd6
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -26,4 +29,6 @@ class Nd6Builder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/ipv6/nd6", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/ipv6/nd6", params=params, **kw
+        )

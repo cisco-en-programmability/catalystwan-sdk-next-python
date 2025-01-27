@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import TestbedMode
 
 
@@ -10,6 +11,8 @@ class TestbedModeBuilder:
     """
     Builds and executes requests for operations under /hsec/testbedMode
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -20,4 +23,6 @@ class TestbedModeBuilder:
 
         :returns: TestbedMode
         """
-        return self._request_adapter.request("GET", "/dataservice/hsec/testbedMode", return_type=TestbedMode, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/hsec/testbedMode", return_type=TestbedMode, **kw
+        )

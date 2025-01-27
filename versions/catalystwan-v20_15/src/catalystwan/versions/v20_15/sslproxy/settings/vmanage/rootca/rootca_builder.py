@@ -20,7 +20,9 @@ class RootcaBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/sslproxy/settings/vmanage/rootca", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/sslproxy/settings/vmanage/rootca", **kw
+        )
 
     def setv_manage_root_ca(self, payload: Optional[Any] = None, **kw) -> Any:
         """

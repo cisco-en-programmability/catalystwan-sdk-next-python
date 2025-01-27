@@ -5,6 +5,7 @@ from typing import List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import SecurityDeviceHealth
 
 
@@ -13,10 +14,14 @@ class HealthBuilder:
     Builds and executes requests for operations under /security/device/health
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_security_device_health(self, device_ip: Optional[str] = None, **kw) -> List[SecurityDeviceHealth]:
+    def get_security_device_health(
+        self, device_ip: Optional[str] = None, **kw
+    ) -> List[SecurityDeviceHealth]:
         """
         Get security device health
 
@@ -27,5 +32,9 @@ class HealthBuilder:
             "deviceIp": device_ip,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/security/device/health", return_type=List[SecurityDeviceHealth], params=params, **kw
+            "GET",
+            "/dataservice/security/device/health",
+            return_type=List[SecurityDeviceHealth],
+            params=params,
+            **kw,
         )

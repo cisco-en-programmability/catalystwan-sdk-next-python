@@ -30,4 +30,6 @@ class LicenseBuilder:
             "virtual_account_id": virtual_account_id,
             "licenseType": license_type,
         }
-        return self._request_adapter.request("GET", "/dataservice/msla/va/License", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/msla/va/License", params=params, **kw
+        )

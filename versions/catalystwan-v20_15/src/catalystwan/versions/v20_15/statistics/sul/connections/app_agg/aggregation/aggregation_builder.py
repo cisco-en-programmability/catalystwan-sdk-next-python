@@ -22,5 +22,8 @@ class AggregationBuilder:
         :returns: Any
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/statistics/sul/connections/app-agg/aggregation", payload=payload, **kw
+            "POST",
+            "/dataservice/statistics/sul/connections/app-agg/aggregation",
+            payload=payload,
+            **kw,
         )

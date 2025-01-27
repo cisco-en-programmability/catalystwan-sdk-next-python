@@ -24,4 +24,6 @@ class BlockSyncBuilder:
         params = {
             "blockSync": block_sync,
         }
-        return self._request_adapter.request("POST", "/dataservice/device/blockSync", params=params, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/blockSync", params=params, **kw
+        )

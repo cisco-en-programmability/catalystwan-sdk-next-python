@@ -7,9 +7,15 @@ from typing import Optional
 @dataclass
 class SupportedResponseUuid:
     device_mødel: Optional[str] = _field(default=None, metadata={"alias": "deviceMødel"})
-    is_autonomous_supported: Optional[bool] = _field(default=None, metadata={"alias": "isAutonomousSupported"})
-    is_software_device: Optional[bool] = _field(default=None, metadata={"alias": "isSoftwareDevice"})
-    is_system_ip_pool_needed: Optional[bool] = _field(default=None, metadata={"alias": "isSystemIpPoolNeeded"})
+    is_autonomous_supported: Optional[bool] = _field(
+        default=None, metadata={"alias": "isAutonomousSupported"}
+    )
+    is_software_device: Optional[bool] = _field(
+        default=None, metadata={"alias": "isSoftwareDevice"}
+    )
+    is_system_ip_pool_needed: Optional[bool] = _field(
+        default=None, metadata={"alias": "isSystemIpPoolNeeded"}
+    )
 
 
 @dataclass

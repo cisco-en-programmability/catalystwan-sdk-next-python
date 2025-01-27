@@ -13,4 +13,6 @@ class DeviceComplianceCheckListData:
 
 @dataclass
 class DeviceComplianceSummaryResponse:
-    check_list: Optional[List[DeviceComplianceCheckListData]] = _field(default=None, metadata={"alias": "checkList"})
+    check_list: Optional[List[DeviceComplianceCheckListData]] = _field(
+        default=None, metadata={"alias": "checkList"}
+    )

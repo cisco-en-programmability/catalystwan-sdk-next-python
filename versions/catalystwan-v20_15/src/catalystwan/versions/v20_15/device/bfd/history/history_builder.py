@@ -5,6 +5,7 @@ from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ColorParam
 
 
@@ -13,11 +14,17 @@ class HistoryBuilder:
     Builds and executes requests for operations under /device/bfd/history
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def create_bfd_history_list(
-        self, device_id: str, system_ip: Optional[str] = None, color: Optional[ColorParam] = None, **kw
+        self,
+        device_id: str,
+        system_ip: Optional[str] = None,
+        color: Optional[ColorParam] = None,
+        **kw,
     ) -> List[Any]:
         """
         Get BFD session history from device (Real Time)

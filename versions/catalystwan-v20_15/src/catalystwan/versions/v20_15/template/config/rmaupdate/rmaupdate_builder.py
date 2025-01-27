@@ -21,4 +21,6 @@ class RmaupdateBuilder:
         :param payload: Template config
         :returns: None
         """
-        return self._request_adapter.request("PUT", "/dataservice/template/config/rmaupdate", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/template/config/rmaupdate", payload=payload, **kw
+        )

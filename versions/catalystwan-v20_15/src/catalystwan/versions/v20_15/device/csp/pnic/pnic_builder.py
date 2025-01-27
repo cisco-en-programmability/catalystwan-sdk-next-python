@@ -27,7 +27,9 @@ class PnicBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/csp/pnic", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/csp/pnic", params=params, **kw
+        )
 
     @property
     def synced(self) -> SyncedBuilder:

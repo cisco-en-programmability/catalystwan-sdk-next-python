@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import CgwResourceResponse
 
 
@@ -12,6 +13,8 @@ class ResourceBuilder:
     """
     Builds and executes requests for operations under /multicloud/cloudgateway/resource
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

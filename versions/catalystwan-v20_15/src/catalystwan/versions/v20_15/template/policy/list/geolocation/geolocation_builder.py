@@ -40,7 +40,9 @@ class GeolocationBuilder:
             "POST", "/dataservice/template/policy/list/geolocation", payload=payload, **kw
         )
 
-    def delete_policy_lists_with_info_tag_17(self, info_tag: Optional[str] = None, **kw) -> List[Any]:
+    def delete_policy_lists_with_info_tag_17(
+        self, info_tag: Optional[str] = None, **kw
+    ) -> List[Any]:
         """
         Delete policy lists with specific info tag
 
@@ -51,7 +53,11 @@ class GeolocationBuilder:
             "infoTag": info_tag,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/list/geolocation", return_type=List[Any], params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/list/geolocation",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def get_lists_by_id_17(self, id: str, **kw) -> Any:
@@ -80,7 +86,11 @@ class GeolocationBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/list/geolocation/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/list/geolocation/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_list_17(self, id: str, **kw):

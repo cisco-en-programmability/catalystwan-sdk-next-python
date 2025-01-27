@@ -24,5 +24,8 @@ class AutoscalePropertiesBuilder:
         """
         logging.warning("Operation: %s is deprecated", "updateTransitVpcAutoscaleProperties")
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/cor/transitvpc/autoscale-properties", payload=payload, **kw
+            "PUT",
+            "/dataservice/template/cor/transitvpc/autoscale-properties",
+            payload=payload,
+            **kw,
         )

@@ -21,4 +21,6 @@ class GeneratePaygBuilder:
         :param payload: Request body
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/system/device/generate-payg", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/system/device/generate-payg", payload=payload, **kw
+        )

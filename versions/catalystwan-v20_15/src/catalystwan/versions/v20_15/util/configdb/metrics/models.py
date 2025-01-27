@@ -20,7 +20,9 @@ class Neo4JMetricsResponse:
     # Page Number given in request. By default - 1
     page_no: Optional[int] = _field(default=None, metadata={"alias": "pageNo"})
     # Records present on the current page
-    records_current_page: Optional[int] = _field(default=None, metadata={"alias": "recordsCurrentPage"})
+    records_current_page: Optional[int] = _field(
+        default=None, metadata={"alias": "recordsCurrentPage"}
+    )
     # Total Pages calculates based on limit and totalRecords values
     total_pages: Optional[int] = _field(default=None, metadata={"alias": "totalPages"})
     # Total count of metrics records ignoring limit

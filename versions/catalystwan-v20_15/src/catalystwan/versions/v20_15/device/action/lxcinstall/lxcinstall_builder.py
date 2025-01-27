@@ -21,4 +21,6 @@ class LxcinstallBuilder:
         :param payload: Installation request payload
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/device/action/lxcinstall", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/lxcinstall", payload=payload, **kw
+        )

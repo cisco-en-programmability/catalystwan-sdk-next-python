@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import Tokens
 
 
@@ -10,6 +11,8 @@ class TokenBuilder:
     """
     Builds and executes requests for operations under /token
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -27,5 +30,9 @@ class TokenBuilder:
             "regionBaseUri": region_base_uri,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/token/{regionBaseUri}/{clientId}", return_type=Tokens, params=params, **kw
+            "POST",
+            "/dataservice/token/{regionBaseUri}/{clientId}",
+            return_type=Tokens,
+            params=params,
+            **kw,
         )

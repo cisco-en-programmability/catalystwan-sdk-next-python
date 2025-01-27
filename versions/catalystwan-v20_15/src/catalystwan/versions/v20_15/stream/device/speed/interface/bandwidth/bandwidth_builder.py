@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceUuid, SpeedTestInterfaceResponse
 
 
@@ -13,11 +14,17 @@ class BandwidthBuilder:
     Builds and executes requests for operations under /stream/device/speed/interface/bandwidth
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_interface_bandwidth(
-        self, device_uuid: DeviceUuid, circuit: Optional[str] = None, source_interface: Optional[str] = None, **kw
+        self,
+        device_uuid: DeviceUuid,
+        circuit: Optional[str] = None,
+        source_interface: Optional[str] = None,
+        **kw,
     ) -> SpeedTestInterfaceResponse:
         """
         Get interface bandwidth

@@ -25,7 +25,9 @@ class IntrusionpreventionBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/definition/intrusionprevention", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/definition/intrusionprevention", **kw
+        )
 
     def create_policy_definition_18(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -35,7 +37,10 @@ class IntrusionpreventionBuilder:
         :returns: Any
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/template/policy/definition/intrusionprevention", payload=payload, **kw
+            "POST",
+            "/dataservice/template/policy/definition/intrusionprevention",
+            payload=payload,
+            **kw,
         )
 
     def get_policy_definition_18(self, id: str, **kw) -> Any:
@@ -49,7 +54,10 @@ class IntrusionpreventionBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/definition/intrusionprevention/{id}", params=params, **kw
+            "GET",
+            "/dataservice/template/policy/definition/intrusionprevention/{id}",
+            params=params,
+            **kw,
         )
 
     def edit_policy_definition_18(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
@@ -82,7 +90,10 @@ class IntrusionpreventionBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/definition/intrusionprevention/{id}", params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/definition/intrusionprevention/{id}",
+            params=params,
+            **kw,
         )
 
     @property

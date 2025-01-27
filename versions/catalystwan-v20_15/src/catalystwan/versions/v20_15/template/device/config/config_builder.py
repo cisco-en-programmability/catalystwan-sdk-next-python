@@ -148,7 +148,9 @@ class ConfigBuilder:
         """
         The duplicatelocationname property
         """
-        from .duplicatelocationname.duplicatelocationname_builder import DuplicatelocationnameBuilder
+        from .duplicatelocationname.duplicatelocationname_builder import (
+            DuplicatelocationnameBuilder,
+        )
 
         return DuplicatelocationnameBuilder(self._request_adapter)
 

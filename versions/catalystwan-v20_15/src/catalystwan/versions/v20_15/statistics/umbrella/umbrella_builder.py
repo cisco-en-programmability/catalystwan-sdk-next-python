@@ -48,7 +48,9 @@ class UmbrellaBuilder:
             "sortBy": sort_by,
             "sortOrder": sort_order,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/umbrella", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/umbrella", params=params, **kw
+        )
 
     def get_stats_raw_data_24(
         self,

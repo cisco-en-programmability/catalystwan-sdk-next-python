@@ -24,7 +24,9 @@ class ReverseproxyBuilder:
         params = {
             "uuid": uuid,
         }
-        return self._request_adapter.request("GET", "/dataservice/system/reverseproxy/{uuid}", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/system/reverseproxy/{uuid}", params=params, **kw
+        )
 
     def create_reverse_proxy_mappings(self, uuid: str, payload: Optional[Any] = None, **kw):
         """

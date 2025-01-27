@@ -24,4 +24,6 @@ class AsyncBuilder:
         :param payload: Tenant model
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/tenant/async", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/tenant/async", payload=payload, **kw
+        )

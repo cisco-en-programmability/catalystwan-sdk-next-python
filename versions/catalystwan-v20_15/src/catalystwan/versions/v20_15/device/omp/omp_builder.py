@@ -52,7 +52,9 @@ class OmpBuilder:
         """
         The mcastautodiscoveradvt property
         """
-        from .mcastautodiscoveradvt.mcastautodiscoveradvt_builder import McastautodiscoveradvtBuilder
+        from .mcastautodiscoveradvt.mcastautodiscoveradvt_builder import (
+            McastautodiscoveradvtBuilder,
+        )
 
         return McastautodiscoveradvtBuilder(self._request_adapter)
 
@@ -61,7 +63,9 @@ class OmpBuilder:
         """
         The mcastautodiscoverrecv property
         """
-        from .mcastautodiscoverrecv.mcastautodiscoverrecv_builder import McastautodiscoverrecvBuilder
+        from .mcastautodiscoverrecv.mcastautodiscoverrecv_builder import (
+            McastautodiscoverrecvBuilder,
+        )
 
         return McastautodiscoverrecvBuilder(self._request_adapter)
 

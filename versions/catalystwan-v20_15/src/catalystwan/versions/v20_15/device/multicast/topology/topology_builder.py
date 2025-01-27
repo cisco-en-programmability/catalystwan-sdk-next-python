@@ -24,4 +24,6 @@ class TopologyBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/multicast/topology", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/multicast/topology", params=params, **kw
+        )

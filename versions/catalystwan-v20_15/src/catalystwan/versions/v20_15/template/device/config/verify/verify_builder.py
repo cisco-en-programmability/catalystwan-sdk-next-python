@@ -2,10 +2,11 @@
 from __future__ import annotations
 
 import logging
-from typing import Optional, Type
+from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import ValidateTemplatePostRequest
 
 
@@ -14,36 +15,23 @@ class VerifyBuilder:
     Builds and executes requests for operations under /template/device/config/verify
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def validate_template(self):
-        class validate_template_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, payload: Optional[ValidateTemplatePostRequest] = None, **kw):
-                """
-                Validate full template"
+    def validate_template(self, payload: Optional[ValidateTemplatePostRequest] = None, **kw):
+        """
+        Validate full template"
 
 
 
-                Note: In a multitenant vManage system, this API is only available in the Provider view.
+        Note: In a multitenant vManage system, this API is only available in the Provider view.
 
-                :param payload: Payload
-                :returns: None
-                """
-                logging.warning("Operation: %s is deprecated", "validateTemplate")
-                return self._request_adapter.request(
-                    "POST", "/dataservice/template/device/config/verify", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> ValidateTemplatePostRequest:
-                return ValidateTemplatePostRequest(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[ValidateTemplatePostRequest]:
-                return ValidateTemplatePostRequest
-
-        return validate_template_(self._request_adapter)
+        :param payload: Payload
+        :returns: None
+        """
+        logging.warning("Operation: %s is deprecated", "validateTemplate")
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/device/config/verify", payload=payload, **kw
+        )

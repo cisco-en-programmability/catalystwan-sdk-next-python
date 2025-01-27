@@ -54,7 +54,9 @@ class CloudGatewayPostConfigGroupSettings:
 
 @dataclass
 class AllOfcloudGatewayPostSettings:
-    cloud_gateway_solution: Optional[str] = _field(default=None, metadata={"alias": "cloudGatewaySolution"})
+    cloud_gateway_solution: Optional[str] = _field(
+        default=None, metadata={"alias": "cloudGatewaySolution"}
+    )
     cloud_type: Optional[str] = _field(default=None, metadata={"alias": "cloudType"})
     instance_size: Optional[str] = _field(default=None, metadata={"alias": "instanceSize"})
     ip_subnet_pool: Optional[str] = _field(default=None, metadata={"alias": "ipSubnetPool"})
@@ -72,11 +74,15 @@ class AllOfcloudGatewayPostSettings:
 class CloudGatewayPost:
     account_id: str = _field(metadata={"alias": "accountId"})
     # Used in Azure/Azure GovCloud CGW creation
-    azure_properties: CloudGatewayPostAzureProperties = _field(metadata={"alias": "azureProperties"})
+    azure_properties: CloudGatewayPostAzureProperties = _field(
+        metadata={"alias": "azureProperties"}
+    )
     cloud_gateway_name: str = _field(metadata={"alias": "cloudGatewayName"})
     cloud_type: str = _field(metadata={"alias": "cloudType"})
     cloud_gateway_mode: Optional[str] = _field(default=None, metadata={"alias": "cloudGatewayMode"})
-    cloud_gateway_solution: Optional[str] = _field(default=None, metadata={"alias": "cloudGatewaySolution"})
+    cloud_gateway_solution: Optional[str] = _field(
+        default=None, metadata={"alias": "cloudGatewaySolution"}
+    )
     cloud_gateway_tag: Optional[str] = _field(default=None, metadata={"alias": "cloudGatewayTag"})
     # Used in Azure/Azure GovCloud CGW creation
     config_group_settings: Optional[CloudGatewayPostConfigGroupSettings] = _field(
@@ -94,7 +100,9 @@ class CloudGatewayPost:
 
 @dataclass
 class CustomSettings:
-    cloud_gateway_solution: Optional[str] = _field(default=None, metadata={"alias": "cloudGatewaySolution"})
+    cloud_gateway_solution: Optional[str] = _field(
+        default=None, metadata={"alias": "cloudGatewaySolution"}
+    )
     cloud_type: Optional[str] = _field(default=None, metadata={"alias": "cloudType"})
     instance_size: Optional[str] = _field(default=None, metadata={"alias": "instanceSize"})
     ip_subnet_pool: Optional[str] = _field(default=None, metadata={"alias": "ipSubnetPool"})
@@ -114,8 +122,12 @@ class TunnelsInner:
     CGW details relevant to AWS/AWS_GOVCLOUD
     """
 
-    accepted_route_count: Optional[int] = _field(default=None, metadata={"alias": "acceptedRouteCount"})
-    last_status_change_timestamp: Optional[str] = _field(default=None, metadata={"alias": "lastStatusChangeTimestamp"})
+    accepted_route_count: Optional[int] = _field(
+        default=None, metadata={"alias": "acceptedRouteCount"}
+    )
+    last_status_change_timestamp: Optional[str] = _field(
+        default=None, metadata={"alias": "lastStatusChangeTimestamp"}
+    )
     outer_ip_addr: Optional[str] = _field(default=None, metadata={"alias": "outerIpAddr"})
     status: Optional[str] = _field(default=None)
     status_message: Optional[str] = _field(default=None, metadata={"alias": "statusMessage"})
@@ -130,7 +142,9 @@ class CloudGatewayAdjusted:
     # Only applicable to AWS/AWS_GOVCLOUD CloudTypes
     cloud_gateway_mode: Optional[str] = _field(default=None, metadata={"alias": "cloudGatewayMode"})
     cloud_gateway_name: Optional[str] = _field(default=None, metadata={"alias": "cloudGatewayName"})
-    cloud_gateway_solution: Optional[str] = _field(default=None, metadata={"alias": "cloudGatewaySolution"})
+    cloud_gateway_solution: Optional[str] = _field(
+        default=None, metadata={"alias": "cloudGatewaySolution"}
+    )
     # CGW details relevant to AWS/AWS_GOVCLOUD
     cloud_provider_asn: Optional[int] = _field(default=None, metadata={"alias": "cloudProviderASN"})
     # CGW details relevant to AWS/AWS_GOVCLOUD
@@ -139,15 +153,21 @@ class CloudGatewayAdjusted:
     )
     cloud_type: Optional[str] = _field(default=None, metadata={"alias": "cloudType"})
     connected_sites: Optional[int] = _field(default=None, metadata={"alias": "connectedSites"})
-    connectivity_state: Optional[str] = _field(default=None, metadata={"alias": "connectivityState"})
-    connectivity_state_update_ts: Optional[int] = _field(default=None, metadata={"alias": "connectivityStateUpdateTs"})
+    connectivity_state: Optional[str] = _field(
+        default=None, metadata={"alias": "connectivityState"}
+    )
+    connectivity_state_update_ts: Optional[int] = _field(
+        default=None, metadata={"alias": "connectivityStateUpdateTs"}
+    )
     custom_settings: Optional[bool] = _field(default=None, metadata={"alias": "customSettings"})
     description: Optional[str] = _field(default=None)
     devices: Optional[List[str]] = _field(default=None)
     mrf_router_role: Optional[str] = _field(default=None, metadata={"alias": "mrfRouterRole"})
     region: Optional[str] = _field(default=None)
     # CGW details relevant to AZURE/AZURE_GOVCLOUD CloudTypes
-    resource_group_name: Optional[str] = _field(default=None, metadata={"alias": "resourceGroupName"})
+    resource_group_name: Optional[str] = _field(
+        default=None, metadata={"alias": "resourceGroupName"}
+    )
     # CGW details relevant to AWS/AWS_GOVCLOUD
     route_table_count: Optional[str] = _field(default=None, metadata={"alias": "routeTableCount"})
     # Only applicable to GCP CloudGateways
@@ -156,7 +176,9 @@ class CloudGatewayAdjusted:
     site_name: Optional[str] = _field(default=None, metadata={"alias": "siteName"})
     status: Optional[str] = _field(default=None)
     # CGW details relevant to AWS/AWS_GOVCLOUD
-    tunnel_cidr_blocks: Optional[List[Any]] = _field(default=None, metadata={"alias": "tunnelCidrBlocks"})
+    tunnel_cidr_blocks: Optional[List[Any]] = _field(
+        default=None, metadata={"alias": "tunnelCidrBlocks"}
+    )
     # CGW details relevant to AWS/AWS_GOVCLOUD
     tunnels: Optional[List[TunnelsInner]] = _field(default=None)
     # CGW details relevant to AZURE/AZURE_GOVCLOUD CloudTypes
@@ -175,12 +197,16 @@ class UpdateCgwDeviceChanges:
     """
 
     devices_added: Optional[List[str]] = _field(default=None, metadata={"alias": "devicesAdded"})
-    devices_deleted: Optional[List[str]] = _field(default=None, metadata={"alias": "devicesDeleted"})
+    devices_deleted: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "devicesDeleted"}
+    )
 
 
 @dataclass
 class AllOfupdateCgwSettings:
-    cloud_gateway_solution: Optional[str] = _field(default=None, metadata={"alias": "cloudGatewaySolution"})
+    cloud_gateway_solution: Optional[str] = _field(
+        default=None, metadata={"alias": "cloudGatewaySolution"}
+    )
     cloud_type: Optional[str] = _field(default=None, metadata={"alias": "cloudType"})
     instance_size: Optional[str] = _field(default=None, metadata={"alias": "instanceSize"})
     ip_subnet_pool: Optional[str] = _field(default=None, metadata={"alias": "ipSubnetPool"})
@@ -207,7 +233,9 @@ class UpdateCgw:
     vhub_id: str = _field(metadata={"alias": "vhubId"})
     description: Optional[str] = _field(default=None)
     # Used for GCP updateCgw
-    device_changes: Optional[UpdateCgwDeviceChanges] = _field(default=None, metadata={"alias": "deviceChanges"})
+    device_changes: Optional[UpdateCgwDeviceChanges] = _field(
+        default=None, metadata={"alias": "deviceChanges"}
+    )
     # Used for AZURE updateCgw
     devices: Optional[List[str]] = _field(default=None)
     mrf_router_role: Optional[str] = _field(default=None, metadata={"alias": "mrfRouterRole"})

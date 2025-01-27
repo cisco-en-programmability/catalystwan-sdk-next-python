@@ -24,7 +24,9 @@ class RegistrationBuilder:
         :param payload: CD profile to be registered
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/dashboard/registration", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/dashboard/registration", payload=payload, **kw
+        )
 
     def deregistration(self, deregister_by_force: Optional[bool] = False, **kw):
         """
@@ -36,7 +38,9 @@ class RegistrationBuilder:
         params = {
             "deregisterByForce": deregister_by_force,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/dashboard/registration", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/dashboard/registration", params=params, **kw
+        )
 
     @property
     def status(self) -> StatusBuilder:

@@ -20,4 +20,6 @@ class ListmetricsBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/util/configdb/metrics/listmetrics", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/util/configdb/metrics/listmetrics", **kw
+        )

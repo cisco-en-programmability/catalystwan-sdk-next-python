@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InlineResponse2002, TunnelTypeParam
 
 
@@ -10,6 +11,8 @@ class ColorsBuilder:
     """
     Builds and executes requests for operations under /multicloud/interconnect/colors
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

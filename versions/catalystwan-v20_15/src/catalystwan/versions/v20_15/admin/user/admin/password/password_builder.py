@@ -21,4 +21,6 @@ class PasswordBuilder:
         :param payload: User
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/admin/user/admin/password", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/admin/user/admin/password", payload=payload, **kw
+        )

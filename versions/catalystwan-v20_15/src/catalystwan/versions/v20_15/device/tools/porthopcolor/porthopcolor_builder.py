@@ -26,5 +26,9 @@ class PorthopcolorBuilder:
             "deviceIP": device_ip,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/device/tools/porthopcolor/{deviceIP}", params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/device/tools/porthopcolor/{deviceIP}",
+            params=params,
+            payload=payload,
+            **kw,
         )

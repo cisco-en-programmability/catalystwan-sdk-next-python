@@ -6,6 +6,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import EdgeTypeParam
 
 
@@ -13,6 +14,8 @@ class TypesBuilder:
     """
     Builds and executes requests for operations under /multicloud/gateway/edge/types
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -28,4 +31,6 @@ class TypesBuilder:
         params = {
             "edgeType": edge_type,
         }
-        return self._request_adapter.request("GET", "/dataservice/multicloud/gateway/edge/types", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/multicloud/gateway/edge/types", params=params, **kw
+        )

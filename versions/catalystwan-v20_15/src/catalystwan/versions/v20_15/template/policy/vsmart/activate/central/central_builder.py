@@ -14,7 +14,9 @@ class CentralBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def activate_policy_for_cloud_services(self, policy_id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def activate_policy_for_cloud_services(
+        self, policy_id: str, payload: Optional[Any] = None, **kw
+    ) -> Any:
         """
         Activate vsmart policy for a given policy id
 

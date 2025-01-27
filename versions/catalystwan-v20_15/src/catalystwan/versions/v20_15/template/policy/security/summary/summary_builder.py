@@ -20,4 +20,6 @@ class SummaryBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/security/summary", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/security/summary", **kw
+        )

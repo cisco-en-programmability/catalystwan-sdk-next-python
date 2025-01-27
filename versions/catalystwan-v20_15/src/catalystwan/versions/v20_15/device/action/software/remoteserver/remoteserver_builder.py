@@ -25,7 +25,10 @@ class RemoteserverBuilder:
             "versionId": version_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/device/action/software/remoteserver/{versionId}", params=params, **kw
+            "GET",
+            "/dataservice/device/action/software/remoteserver/{versionId}",
+            params=params,
+            **kw,
         )
 
     def edit_image_remote_server(self, version_id: str, payload: Optional[Any] = None, **kw):
@@ -40,5 +43,9 @@ class RemoteserverBuilder:
             "versionId": version_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/device/action/software/remoteserver/{versionId}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/device/action/software/remoteserver/{versionId}",
+            params=params,
+            payload=payload,
+            **kw,
         )

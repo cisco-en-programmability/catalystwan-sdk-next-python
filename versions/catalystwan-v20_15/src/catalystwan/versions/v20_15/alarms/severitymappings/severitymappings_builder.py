@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import AlarmSeverityMapping
 
 
@@ -12,6 +13,8 @@ class SeveritymappingsBuilder:
     """
     Builds and executes requests for operations under /alarms/severitymappings
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -23,5 +26,8 @@ class SeveritymappingsBuilder:
         :returns: List[AlarmSeverityMapping]
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/alarms/severitymappings", return_type=List[AlarmSeverityMapping], **kw
+            "GET",
+            "/dataservice/alarms/severitymappings",
+            return_type=List[AlarmSeverityMapping],
+            **kw,
         )

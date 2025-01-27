@@ -65,9 +65,13 @@ class NwpitraceFlowRespPayloadDataDownstreamHopList:
 @dataclass
 class NwpitraceFlowRespPayloadDataFlowReadout:
     application: Optional[str] = _field(default=None)
-    flow_last_update_time: Optional[str] = _field(default=None, metadata={"alias": "flowLastUpdateTime"})
+    flow_last_update_time: Optional[str] = _field(
+        default=None, metadata={"alias": "flowLastUpdateTime"}
+    )
     flow_start_time: Optional[str] = _field(default=None, metadata={"alias": "flowStartTime"})
-    total_flow_num_counted: Optional[bool] = _field(default=None, metadata={"alias": "totalFlowNumCounted"})
+    total_flow_num_counted: Optional[bool] = _field(
+        default=None, metadata={"alias": "totalFlowNumCounted"}
+    )
     total_flow_num_last15_mins_counted: Optional[bool] = _field(
         default=None, metadata={"alias": "totalFlowNumLast15MinsCounted"}
     )
@@ -105,9 +109,13 @@ class NwpitraceFlowRespPayloadData:
     device_trace_id: Optional[int] = _field(default=None)
     domain_name: Optional[str] = _field(default=None)
     domain_src: Optional[str] = _field(default=None)
-    downstream_device_list: Optional[List[NwpitraceFlowRespPayloadDataDownstreamDeviceList]] = _field(default=None)
+    downstream_device_list: Optional[List[NwpitraceFlowRespPayloadDataDownstreamDeviceList]] = (
+        _field(default=None)
+    )
     downstream_dscp: Optional[str] = _field(default=None)
-    downstream_hop_list: Optional[List[NwpitraceFlowRespPayloadDataDownstreamHopList]] = _field(default=None)
+    downstream_hop_list: Optional[List[NwpitraceFlowRespPayloadDataDownstreamHopList]] = _field(
+        default=None
+    )
     dpi_policy_used: Optional[bool] = _field(default=None)
     dst_ip: Optional[str] = _field(default=None)
     dst_port: Optional[int] = _field(default=None)
@@ -137,9 +145,13 @@ class NwpitraceFlowRespPayloadData:
     tcp_flow_reset: Optional[bool] = _field(default=None)
     test_id: Optional[int] = _field(default=None)
     timestamp: Optional[int] = _field(default=None)
-    upstream_device_list: Optional[List[NwpitraceFlowRespPayloadDataUpstreamDeviceList]] = _field(default=None)
+    upstream_device_list: Optional[List[NwpitraceFlowRespPayloadDataUpstreamDeviceList]] = _field(
+        default=None
+    )
     upstream_dscp: Optional[str] = _field(default=None)
-    upstream_hop_list: Optional[List[NwpitraceFlowRespPayloadDataDownstreamHopList]] = _field(default=None)
+    upstream_hop_list: Optional[List[NwpitraceFlowRespPayloadDataDownstreamHopList]] = _field(
+        default=None
+    )
     user_group: Optional[str] = _field(default=None)
     user_name: Optional[str] = _field(default=None)
     utd_diverted: Optional[bool] = _field(default=None)

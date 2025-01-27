@@ -67,7 +67,9 @@ class StatisticsBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request("GET", "/dataservice/statistics", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics", return_type=List[Any], **kw
+        )
 
     def get_stats_raw_data_13(
         self,
@@ -94,7 +96,9 @@ class StatisticsBuilder:
             "sortBy": sort_by,
             "sortOrder": sort_order,
         }
-        return self._request_adapter.request("POST", "/dataservice/statistics", params=params, payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/statistics", params=params, payload=payload, **kw
+        )
 
     @property
     def aggregation(self) -> AggregationBuilder:

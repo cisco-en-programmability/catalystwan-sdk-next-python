@@ -18,4 +18,6 @@ class CertBuilder:
 
         :returns: str
         """
-        return self._request_adapter.request("GET", "/dataservice/ise/credentials/pxgrid/cert", return_type=str, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/ise/credentials/pxgrid/cert", return_type=str, **kw
+        )

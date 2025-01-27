@@ -25,5 +25,9 @@ class RmalistBuilder:
             "oldDeviceId": old_device_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/config/rmalist/{oldDeviceId}", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/template/config/rmalist/{oldDeviceId}",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )

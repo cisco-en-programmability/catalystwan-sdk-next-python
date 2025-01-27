@@ -2,10 +2,11 @@
 from __future__ import annotations
 
 import logging
-from typing import Optional, Type
+from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import NwpiSettingDataPayload
 
 
@@ -14,32 +15,19 @@ class UpsertSettingBuilder:
     Builds and executes requests for operations under /stream/device/nwpi/upsertSetting
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def upsert_setting(self):
-        class upsert_setting_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def upsert_setting(self, payload: Optional[NwpiSettingDataPayload] = None, **kw):
+        """
+        insert or update setting
 
-            def __call__(self, payload: Optional[NwpiSettingDataPayload] = None, **kw):
-                """
-                insert or update setting
-
-                :param payload: Payload
-                :returns: None
-                """
-                logging.warning("Operation: %s is deprecated", "upsertSetting")
-                return self._request_adapter.request(
-                    "POST", "/dataservice/stream/device/nwpi/upsertSetting", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> NwpiSettingDataPayload:
-                return NwpiSettingDataPayload(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[NwpiSettingDataPayload]:
-                return NwpiSettingDataPayload
-
-        return upsert_setting_(self._request_adapter)
+        :param payload: Payload
+        :returns: None
+        """
+        logging.warning("Operation: %s is deprecated", "upsertSetting")
+        return self._request_adapter.request(
+            "POST", "/dataservice/stream/device/nwpi/upsertSetting", payload=payload, **kw
+        )

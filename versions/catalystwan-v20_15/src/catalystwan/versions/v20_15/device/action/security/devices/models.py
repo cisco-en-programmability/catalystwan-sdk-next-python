@@ -4,7 +4,12 @@ from dataclasses import field as _field
 from typing import Literal, Optional
 
 PolicyTypeParam = Literal[
-    "advancedMalwareProtection", "dnsSecurity", "intrusionPrevention", "sslDecryption", "urlFiltering", "zoneBasedFW"
+    "advancedMalwareProtection",
+    "dnsSecurity",
+    "intrusionPrevention",
+    "sslDecryption",
+    "urlFiltering",
+    "zoneBasedFW",
 ]
 
 

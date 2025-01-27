@@ -1,4 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from typing import Literal
 
-PolicyTypeParam = Literal["advancedMalwareProtection", "intrusionPrevention", "urlFiltering", "zoneBasedFW"]
+PolicyTypeParam = Literal[
+    "advancedMalwareProtection", "intrusionPrevention", "urlFiltering", "zoneBasedFW"
+]

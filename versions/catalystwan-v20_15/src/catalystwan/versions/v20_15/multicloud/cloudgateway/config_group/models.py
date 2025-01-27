@@ -13,7 +13,9 @@ class PostCgwConfigGroupResponseProfiles:
     last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
     last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
     name: Optional[str] = _field(default=None)
-    profile_parcel_count: Optional[str] = _field(default=None, metadata={"alias": "profileParcelCount"})
+    profile_parcel_count: Optional[str] = _field(
+        default=None, metadata={"alias": "profileParcelCount"}
+    )
     solution: Optional[str] = _field(default=None)
     type_: Optional[str] = _field(default=None, metadata={"alias": "type"})
 
@@ -31,7 +33,9 @@ class PostCgwConfigGroupResponse:
     last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
     name: Optional[str] = _field(default=None)
     number_of_devices: Optional[int] = _field(default=None, metadata={"alias": "numberOfDevices"})
-    number_of_devices_up_to_date: Optional[int] = _field(default=None, metadata={"alias": "numberOfDevicesUpToDate"})
+    number_of_devices_up_to_date: Optional[int] = _field(
+        default=None, metadata={"alias": "numberOfDevicesUpToDate"}
+    )
     origin: Optional[str] = _field(default=None)
     profiles: Optional[List[PostCgwConfigGroupResponseProfiles]] = _field(default=None)
     solution: Optional[str] = _field(default=None)
@@ -44,4 +48,6 @@ class PostCgwConfigGroupResponse:
 @dataclass
 class MultiCloudGatewaysConfiggroupBody:
     config_group_name: str = _field(metadata={"alias": "configGroupName"})
-    config_group_solution: Optional[str] = _field(default=None, metadata={"alias": "configGroupSolution"})
+    config_group_solution: Optional[str] = _field(
+        default=None, metadata={"alias": "configGroupSolution"}
+    )

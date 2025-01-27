@@ -25,5 +25,9 @@ class DuplicateipBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/template/device/config/duplicateip", return_type=List[Any], payload=payload, **kw
+            "POST",
+            "/dataservice/template/device/config/duplicateip",
+            return_type=List[Any],
+            payload=payload,
+            **kw,
         )

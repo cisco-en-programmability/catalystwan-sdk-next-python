@@ -7,7 +7,9 @@ from typing import List, Optional
 @dataclass
 class DeviceCountersData:
     crash_count: Optional[int] = _field(default=None, metadata={"alias": "crashCount"})
-    expected_control_connections: Optional[int] = _field(default=None, metadata={"alias": "expectedControlConnections"})
+    expected_control_connections: Optional[int] = _field(
+        default=None, metadata={"alias": "expectedControlConnections"}
+    )
     number_vsmart_control_connections: Optional[int] = _field(
         default=None, metadata={"alias": "number-vsmart-control-connections"}
     )

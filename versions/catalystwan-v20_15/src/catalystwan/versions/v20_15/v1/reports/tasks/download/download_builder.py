@@ -25,5 +25,9 @@ class DownloadBuilder:
             "taskId": task_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/reports/{reportId}/tasks/{taskId}/download", return_type=str, params=params, **kw
+            "GET",
+            "/dataservice/v1/reports/{reportId}/tasks/{taskId}/download",
+            return_type=str,
+            params=params,
+            **kw,
         )

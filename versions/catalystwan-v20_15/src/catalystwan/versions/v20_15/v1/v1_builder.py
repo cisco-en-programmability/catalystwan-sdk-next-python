@@ -105,7 +105,9 @@ class V1Builder:
         """
         The securedeviceonboarding property
         """
-        from .securedeviceonboarding.securedeviceonboarding_builder import SecuredeviceonboardingBuilder
+        from .securedeviceonboarding.securedeviceonboarding_builder import (
+            SecuredeviceonboardingBuilder,
+        )
 
         return SecuredeviceonboardingBuilder(self._request_adapter)
 

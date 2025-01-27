@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import GenerateDeviceActionListInner
 
 
@@ -12,6 +13,8 @@ class ListBuilder:
     """
     Builds and executes requests for operations under /device/action/list
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -23,5 +26,8 @@ class ListBuilder:
         :returns: List[GenerateDeviceActionListInner]
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/device/action/list", return_type=List[GenerateDeviceActionListInner], **kw
+            "GET",
+            "/dataservice/device/action/list",
+            return_type=List[GenerateDeviceActionListInner],
+            **kw,
         )

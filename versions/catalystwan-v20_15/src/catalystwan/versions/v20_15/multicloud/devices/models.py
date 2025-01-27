@@ -9,8 +9,12 @@ CloudTypeParam = Literal["AWS", "AWS_GOVCLOUD", "AZURE", "AZURE_GOVCLOUD", "GCP"
 @dataclass
 class DeviceInfoExtendedResponse:
     cloud_gateway_name: Optional[str] = _field(default=None, metadata={"alias": "cloudGatewayName"})
-    config_status_message: Optional[str] = _field(default=None, metadata={"alias": "configStatusMessage"})
-    configured_system_ip: Optional[str] = _field(default=None, metadata={"alias": "configuredSystemIP"})
+    config_status_message: Optional[str] = _field(
+        default=None, metadata={"alias": "configStatusMessage"}
+    )
+    configured_system_ip: Optional[str] = _field(
+        default=None, metadata={"alias": "configuredSystemIP"}
+    )
     device_model: Optional[str] = _field(default=None, metadata={"alias": "device-model"})
     device_type: Optional[str] = _field(default=None, metadata={"alias": "device-type"})
     host_name: Optional[str] = _field(default=None, metadata={"alias": "host-name"})

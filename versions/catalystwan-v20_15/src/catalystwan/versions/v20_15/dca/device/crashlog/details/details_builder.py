@@ -21,4 +21,6 @@ class DetailsBuilder:
         :param payload: Query string
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/dca/device/crashlog/details", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/dca/device/crashlog/details", payload=payload, **kw
+        )

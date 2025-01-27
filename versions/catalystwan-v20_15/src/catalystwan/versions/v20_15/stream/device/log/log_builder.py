@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional, Type
+from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import Uuid
 
 if TYPE_CHECKING:
@@ -21,70 +22,46 @@ class LogBuilder:
     Builds and executes requests for operations under /stream/device/log
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def get_session_info_log(self):
-        class get_session_info_log_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def get_session_info_log(self, payload: Optional[str] = None, **kw):
+        """
+        Get session info log
 
-            def __call__(self, payload: Optional[str] = None, **kw):
-                """
-                Get session info log
+        :param payload: Payload
+        :returns: None
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/stream/device/log", payload=payload, **kw
+        )
 
-                :param payload: Payload
-                :returns: None
-                """
-                return self._request_adapter.request("POST", "/dataservice/stream/device/log", payload=payload, **kw)
+    def stream_log(
+        self, log_type: str, device_uuid: str, session_id: str, payload: Optional[str] = None, **kw
+    ):
+        """
+        Stream log
 
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return get_session_info_log_(self._request_adapter)
-
-    @property
-    def stream_log(self):
-        class stream_log_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
-
-            def __call__(self, log_type: str, device_uuid: str, session_id: str, payload: Optional[str] = None, **kw):
-                """
-                Stream log
-
-                :param log_type: Log type
-                :param device_uuid: Device uuid
-                :param session_id: Session Id
-                :param payload: Payload
-                :returns: None
-                """
-                params = {
-                    "logType": log_type,
-                    "deviceUUID": device_uuid,
-                    "sessionId": session_id,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/stream/device/log/{logType}/{deviceUUID}/{sessionId}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> str:
-                return str(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[str]:
-                return str
-
-        return stream_log_(self._request_adapter)
+        :param log_type: Log type
+        :param device_uuid: Device uuid
+        :param session_id: Session Id
+        :param payload: Payload
+        :returns: None
+        """
+        params = {
+            "logType": log_type,
+            "deviceUUID": device_uuid,
+            "sessionId": session_id,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/stream/device/log/{logType}/{deviceUUID}/{sessionId}",
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     def get_device_log(self, session_id: Uuid, log_id: Optional[int] = -1, **kw):
         """
@@ -98,7 +75,9 @@ class LogBuilder:
             "sessionId": session_id,
             "logId": log_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/stream/device/log/{sessionId}", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/stream/device/log/{sessionId}", params=params, **kw
+        )
 
     @property
     def disable(self) -> DisableBuilder:

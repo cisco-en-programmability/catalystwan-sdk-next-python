@@ -1,10 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional, Type
+from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import InstallPkg
 
 if TYPE_CHECKING:
@@ -19,36 +20,25 @@ class PackageBuilder:
     Builds and executes requests for operations under /device/action/software/package
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    @property
-    def install_pkg(self):
-        class install_pkg_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def install_pkg(self, payload: Optional[InstallPkg] = None, **kw):
+        """
+        Install software package
 
-            def __call__(self, payload: Optional[InstallPkg] = None, **kw):
-                """
-                Install software package
+        :param payload: software Package File
+        :returns: None
+        """
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/software/package", payload=payload, **kw
+        )
 
-                :param payload: software Package File
-                :returns: None
-                """
-                return self._request_adapter.request(
-                    "POST", "/dataservice/device/action/software/package", payload=payload, **kw
-                )
-
-            def create_payload(self, *args, **kwargs) -> InstallPkg:
-                return InstallPkg(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[InstallPkg]:
-                return InstallPkg
-
-        return install_pkg_(self._request_adapter)
-
-    def download_package_file(self, file_name: str, image_type: Optional[str] = "software", **kw) -> str:
+    def download_package_file(
+        self, file_name: str, image_type: Optional[str] = "software", **kw
+    ) -> str:
         """
         Download software package file
 
@@ -61,42 +51,31 @@ class PackageBuilder:
             "imageType": image_type,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/device/action/software/package/{fileName}", return_type=str, params=params, **kw
+            "GET",
+            "/dataservice/device/action/software/package/{fileName}",
+            return_type=str,
+            params=params,
+            **kw,
         )
 
-    @property
-    def process_software_image(self):
-        class process_software_image_:
-            def __init__(self, request_adapter: RequestAdapterInterface) -> None:
-                self._request_adapter = request_adapter
+    def process_software_image(self, image_type: str, payload: Optional[InstallPkg] = None, **kw):
+        """
+        Install software image package
 
-            def __call__(self, image_type: str, payload: Optional[InstallPkg] = None, **kw):
-                """
-                Install software image package
-
-                :param image_type: Image type
-                :param payload: image File
-                :returns: None
-                """
-                params = {
-                    "imageType": image_type,
-                }
-                return self._request_adapter.request(
-                    "POST",
-                    "/dataservice/device/action/software/package/{imageType}",
-                    params=params,
-                    payload=payload,
-                    **kw,
-                )
-
-            def create_payload(self, *args, **kwargs) -> InstallPkg:
-                return InstallPkg(*args, **kwargs)
-
-            @property
-            def payload_model(self) -> Type[InstallPkg]:
-                return InstallPkg
-
-        return process_software_image_(self._request_adapter)
+        :param image_type: Image type
+        :param payload: image File
+        :returns: None
+        """
+        params = {
+            "imageType": image_type,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/device/action/software/package/{imageType}",
+            params=params,
+            payload=payload,
+            **kw,
+        )
 
     @property
     def image_count(self) -> ImageCountBuilder:

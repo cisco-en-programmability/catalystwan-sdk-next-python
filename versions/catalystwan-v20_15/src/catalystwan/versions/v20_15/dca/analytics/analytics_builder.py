@@ -24,7 +24,9 @@ class AnalyticsBuilder:
         :param payload: Stats query
         :returns: None
         """
-        return self._request_adapter.request("PUT", "/dataservice/dca/analytics", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/dca/analytics", payload=payload, **kw
+        )
 
     @property
     def all(self) -> AllBuilder:

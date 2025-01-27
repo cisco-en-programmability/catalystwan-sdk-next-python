@@ -54,5 +54,9 @@ class TemplateBuilder:
             "templateId": template_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/networkdesign/profile/template/{templateId}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/networkdesign/profile/template/{templateId}",
+            params=params,
+            payload=payload,
+            **kw,
         )

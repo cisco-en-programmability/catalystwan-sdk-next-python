@@ -26,4 +26,6 @@ class MapBuilder:
             "accountid": accountid,
             "cloudregion": cloudregion,
         }
-        return self._request_adapter.request("GET", "/dataservice/template/cortex/map", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/cortex/map", params=params, **kw
+        )

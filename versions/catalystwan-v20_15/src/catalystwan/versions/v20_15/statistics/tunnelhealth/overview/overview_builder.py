@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import TunnelHealthOverview
 
 
@@ -13,11 +14,18 @@ class OverviewBuilder:
     Builds and executes requests for operations under /statistics/tunnelhealth/overview
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def statistics_approute_tunnelhealth_overview_type_get(
-        self, type_: str, last_n_hours: Optional[int] = 12, site: Optional[str] = None, limit: Optional[int] = 30, **kw
+        self,
+        type_: str,
+        last_n_hours: Optional[int] = 12,
+        site: Optional[str] = None,
+        limit: Optional[int] = 30,
+        **kw,
     ) -> TunnelHealthOverview:
         """
         Get all tunnel health overview

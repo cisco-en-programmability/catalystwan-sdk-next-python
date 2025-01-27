@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceComplianceApiResponse, OrderByParam
 
 if TYPE_CHECKING:
@@ -15,6 +16,8 @@ class ComplianceBuilder:
     """
     Builds and executes requests for operations under /device/compliance
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -52,7 +55,11 @@ class ComplianceBuilder:
             "order_by": order_by,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/device/compliance", return_type=DeviceComplianceApiResponse, params=params, **kw
+            "GET",
+            "/dataservice/device/compliance",
+            return_type=DeviceComplianceApiResponse,
+            params=params,
+            **kw,
         )
 
     @property

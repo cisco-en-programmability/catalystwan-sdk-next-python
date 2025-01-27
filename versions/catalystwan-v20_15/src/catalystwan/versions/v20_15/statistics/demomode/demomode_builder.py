@@ -24,4 +24,6 @@ class DemomodeBuilder:
         params = {
             "enable": enable,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/demomode", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/demomode", params=params, **kw
+        )

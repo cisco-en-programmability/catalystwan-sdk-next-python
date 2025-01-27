@@ -21,4 +21,6 @@ class SyncBuilder:
         :param payload: Sync license
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/msla/licenses/sync", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/msla/licenses/sync", payload=payload, **kw
+        )

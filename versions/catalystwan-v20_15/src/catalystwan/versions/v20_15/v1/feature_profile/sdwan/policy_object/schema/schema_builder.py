@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import PolicyObjectListTypeParam, SchemaTypeParam
 
 
@@ -10,6 +11,8 @@ class SchemaBuilder:
     """
     Builds and executes requests for operations under /v1/feature-profile/sdwan/policy-object/{policyObjectListType}/schema
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter

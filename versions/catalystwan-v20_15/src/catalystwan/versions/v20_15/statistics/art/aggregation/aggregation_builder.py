@@ -24,7 +24,9 @@ class AggregationBuilder:
         params = {
             "query": query,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/art/aggregation", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/art/aggregation", params=params, **kw
+        )
 
     def get_post_aggregation_data_by_query_4(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -33,4 +35,6 @@ class AggregationBuilder:
         :param payload: Stats query string
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/statistics/art/aggregation", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/statistics/art/aggregation", payload=payload, **kw
+        )

@@ -18,4 +18,6 @@ class ConfigurationBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request("GET", "/dataservice/v1/cloudonramp/saas/configuration", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/v1/cloudonramp/saas/configuration", **kw
+        )

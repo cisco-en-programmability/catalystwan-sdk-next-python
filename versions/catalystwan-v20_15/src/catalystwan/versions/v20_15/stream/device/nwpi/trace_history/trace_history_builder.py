@@ -5,6 +5,7 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import NwpiTraceHistoryRespPayload
 
 
@@ -13,10 +14,14 @@ class TraceHistoryBuilder:
     Builds and executes requests for operations under /stream/device/nwpi/traceHistory
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_trace_history(self, trace_model: Optional[str] = None, **kw) -> NwpiTraceHistoryRespPayload:
+    def get_trace_history(
+        self, trace_model: Optional[str] = None, **kw
+    ) -> NwpiTraceHistoryRespPayload:
         """
         Get historical traces
 

@@ -5,6 +5,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import SshKeyList
 
 
@@ -13,10 +14,14 @@ class SshkeysBuilder:
     Builds and executes requests for operations under /multicloud/sshkeys
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_ssh_key_list(self, cloud_type: str, account_id: str, cloud_region: str, **kw) -> List[SshKeyList]:
+    def get_ssh_key_list(
+        self, cloud_type: str, account_id: str, cloud_region: str, **kw
+    ) -> List[SshKeyList]:
         """
         Get ssh keyList for cloud type
 
@@ -31,5 +36,9 @@ class SshkeysBuilder:
             "cloudRegion": cloud_region,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/sshkeys", return_type=List[SshKeyList], params=params, **kw
+            "GET",
+            "/dataservice/multicloud/sshkeys",
+            return_type=List[SshKeyList],
+            params=params,
+            **kw,
         )

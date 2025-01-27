@@ -13,7 +13,9 @@ class GetStatQueryFieldsFieldData:
 class GetStatQueryFieldOptions:
     key: str
     value: str
-    enable_date_fields: Optional[bool] = _field(default=None, metadata={"alias": "enableDateFields"})
+    enable_date_fields: Optional[bool] = _field(
+        default=None, metadata={"alias": "enableDateFields"}
+    )
     is_selected: Optional[bool] = _field(default=None, metadata={"alias": "isSelected"})
     number: Optional[str] = _field(default=None)
 
@@ -25,5 +27,7 @@ class GetStatQueryFields:
     multi_select: bool = _field(metadata={"alias": "multiSelect"})
     name: str
     property: str
-    field_data: Optional[GetStatQueryFieldsFieldData] = _field(default=None, metadata={"alias": "fieldData"})
+    field_data: Optional[GetStatQueryFieldsFieldData] = _field(
+        default=None, metadata={"alias": "fieldData"}
+    )
     options: Optional[List[GetStatQueryFieldOptions]] = _field(default=None)

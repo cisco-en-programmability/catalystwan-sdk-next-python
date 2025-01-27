@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import GetAuditLogBySeverity, SortOrderParam
 
 if TYPE_CHECKING:
@@ -15,6 +16,8 @@ class SeverityBuilder:
     """
     Builds and executes requests for operations under /auditlog/severity
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -49,7 +52,11 @@ class SeverityBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/auditlog/severity", return_type=GetAuditLogBySeverity, params=params, **kw
+            "GET",
+            "/dataservice/auditlog/severity",
+            return_type=GetAuditLogBySeverity,
+            params=params,
+            **kw,
         )
 
     @property

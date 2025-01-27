@@ -26,7 +26,9 @@ class DevicepairBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "addDevicePair")
-        return self._request_adapter.request("POST", "/dataservice/template/cor/devicepair", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/cor/devicepair", payload=payload, **kw
+        )
 
     @property
     def hostvpc(self) -> HostvpcBuilder:

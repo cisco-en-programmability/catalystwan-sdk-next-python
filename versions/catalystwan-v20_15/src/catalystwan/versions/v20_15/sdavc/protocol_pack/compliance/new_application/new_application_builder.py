@@ -23,5 +23,8 @@ class NewApplicationBuilder:
             "deviceUUID": device_uuid,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/sdavc/protocol-pack/compliance/new-application/{deviceUUID}", params=params, **kw
+            "GET",
+            "/dataservice/sdavc/protocol-pack/compliance/new-application/{deviceUUID}",
+            params=params,
+            **kw,
         )

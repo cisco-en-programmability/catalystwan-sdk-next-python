@@ -21,4 +21,6 @@ class DevicecertificatesBuilder:
         :param payload: Device list
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/sslproxy/devicecertificates", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/sslproxy/devicecertificates", payload=payload, **kw
+        )

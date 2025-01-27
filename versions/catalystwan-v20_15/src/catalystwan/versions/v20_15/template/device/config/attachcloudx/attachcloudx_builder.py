@@ -25,7 +25,11 @@ class AttachcloudxBuilder:
         :returns: str
         """
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/device/config/attachcloudx", return_type=str, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/device/config/attachcloudx",
+            return_type=str,
+            payload=payload,
+            **kw,
         )
 
     def push_cloudx_config(self, payload: Optional[Any] = None, **kw) -> str:
@@ -36,5 +40,9 @@ class AttachcloudxBuilder:
         :returns: str
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/template/device/config/attachcloudx", return_type=str, payload=payload, **kw
+            "POST",
+            "/dataservice/template/device/config/attachcloudx",
+            return_type=str,
+            payload=payload,
+            **kw,
         )

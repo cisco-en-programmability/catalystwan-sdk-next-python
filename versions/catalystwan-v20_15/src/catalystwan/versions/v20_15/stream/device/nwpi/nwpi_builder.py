@@ -17,7 +17,9 @@ if TYPE_CHECKING:
     from .device_info_by_site.device_info_by_site_builder import DeviceInfoBySiteBuilder
     from .domain_metric.domain_metric_builder import DomainMetricBuilder
     from .event_app_hop_list.event_app_hop_list_builder import EventAppHopListBuilder
-    from .event_app_score_bandwidth.event_app_score_bandwidth_builder import EventAppScoreBandwidthBuilder
+    from .event_app_score_bandwidth.event_app_score_bandwidth_builder import (
+        EventAppScoreBandwidthBuilder,
+    )
     from .event_flow_from_app_hop.event_flow_from_app_hop_builder import EventFlowFromAppHopBuilder
     from .event_readout.event_readout_builder import EventReadoutBuilder
     from .event_readout_by_site.event_readout_by_site_builder import EventReadoutBySiteBuilder
@@ -42,8 +44,12 @@ if TYPE_CHECKING:
     from .trace.trace_builder import TraceBuilder
     from .trace_cft_record.trace_cft_record_builder import TraceCftRecordBuilder
     from .trace_fin_flow_count.trace_fin_flow_count_builder import TraceFinFlowCountBuilder
-    from .trace_fin_flow_time_range.trace_fin_flow_time_range_builder import TraceFinFlowTimeRangeBuilder
-    from .trace_fin_flow_with_query.trace_fin_flow_with_query_builder import TraceFinFlowWithQueryBuilder
+    from .trace_fin_flow_time_range.trace_fin_flow_time_range_builder import (
+        TraceFinFlowTimeRangeBuilder,
+    )
+    from .trace_fin_flow_with_query.trace_fin_flow_with_query_builder import (
+        TraceFinFlowWithQueryBuilder,
+    )
     from .trace_flow.trace_flow_builder import TraceFlowBuilder
     from .trace_history.trace_history_builder import TraceHistoryBuilder
     from .trace_info_by_base_key.trace_info_by_base_key_builder import TraceInfoByBaseKeyBuilder
@@ -64,7 +70,9 @@ class NwpiBuilder:
         """
         The activeFlowWithQuery property
         """
-        from .active_flow_with_query.active_flow_with_query_builder import ActiveFlowWithQueryBuilder
+        from .active_flow_with_query.active_flow_with_query_builder import (
+            ActiveFlowWithQueryBuilder,
+        )
 
         return ActiveFlowWithQueryBuilder(self._request_adapter)
 
@@ -109,7 +117,9 @@ class NwpiBuilder:
         """
         The concurrentDomainData property
         """
-        from .concurrent_domain_data.concurrent_domain_data_builder import ConcurrentDomainDataBuilder
+        from .concurrent_domain_data.concurrent_domain_data_builder import (
+            ConcurrentDomainDataBuilder,
+        )
 
         return ConcurrentDomainDataBuilder(self._request_adapter)
 
@@ -163,7 +173,9 @@ class NwpiBuilder:
         """
         The eventAppScoreBandwidth property
         """
-        from .event_app_score_bandwidth.event_app_score_bandwidth_builder import EventAppScoreBandwidthBuilder
+        from .event_app_score_bandwidth.event_app_score_bandwidth_builder import (
+            EventAppScoreBandwidthBuilder,
+        )
 
         return EventAppScoreBandwidthBuilder(self._request_adapter)
 
@@ -172,7 +184,9 @@ class NwpiBuilder:
         """
         The eventFlowFromAppHop property
         """
-        from .event_flow_from_app_hop.event_flow_from_app_hop_builder import EventFlowFromAppHopBuilder
+        from .event_flow_from_app_hop.event_flow_from_app_hop_builder import (
+            EventFlowFromAppHopBuilder,
+        )
 
         return EventFlowFromAppHopBuilder(self._request_adapter)
 
@@ -199,7 +213,9 @@ class NwpiBuilder:
         """
         The eventReadoutByTraces property
         """
-        from .event_readout_by_traces.event_readout_by_traces_builder import EventReadoutByTracesBuilder
+        from .event_readout_by_traces.event_readout_by_traces_builder import (
+            EventReadoutByTracesBuilder,
+        )
 
         return EventReadoutByTracesBuilder(self._request_adapter)
 
@@ -388,7 +404,9 @@ class NwpiBuilder:
         """
         The traceFinFlowTimeRange property
         """
-        from .trace_fin_flow_time_range.trace_fin_flow_time_range_builder import TraceFinFlowTimeRangeBuilder
+        from .trace_fin_flow_time_range.trace_fin_flow_time_range_builder import (
+            TraceFinFlowTimeRangeBuilder,
+        )
 
         return TraceFinFlowTimeRangeBuilder(self._request_adapter)
 
@@ -397,7 +415,9 @@ class NwpiBuilder:
         """
         The traceFinFlowWithQuery property
         """
-        from .trace_fin_flow_with_query.trace_fin_flow_with_query_builder import TraceFinFlowWithQueryBuilder
+        from .trace_fin_flow_with_query.trace_fin_flow_with_query_builder import (
+            TraceFinFlowWithQueryBuilder,
+        )
 
         return TraceFinFlowWithQueryBuilder(self._request_adapter)
 

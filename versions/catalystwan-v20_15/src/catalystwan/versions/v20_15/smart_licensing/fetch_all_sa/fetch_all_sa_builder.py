@@ -21,4 +21,6 @@ class FetchAllSaBuilder:
         :param payload: Partner
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/smartLicensing/fetchAllSa", payload=payload, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/smartLicensing/fetchAllSa", payload=payload, **kw
+        )

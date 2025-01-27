@@ -20,7 +20,9 @@ class VpngroupBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request("GET", "/dataservice/admin/vpngroup", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/admin/vpngroup", return_type=List[Any], **kw
+        )
 
     def create_vpn_group(self, payload: Optional[Any] = None, **kw):
         """
@@ -29,7 +31,9 @@ class VpngroupBuilder:
         :param payload: VPN group
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/admin/vpngroup", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/admin/vpngroup", payload=payload, **kw
+        )
 
     def edit_vpn_group(self, id: str, payload: Optional[Any] = None, **kw):
         """
@@ -56,4 +60,6 @@ class VpngroupBuilder:
         params = {
             "id": id,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/admin/vpngroup/{id}", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/admin/vpngroup/{id}", params=params, **kw
+        )

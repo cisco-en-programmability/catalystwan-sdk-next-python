@@ -5,6 +5,7 @@ from typing import List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import DeviceTypeParam, HealthParam, SiteHealthItem
 
 
@@ -12,6 +13,8 @@ class CommonBuilder:
     """
     Builds and executes requests for operations under /statistics/sitehealth/common
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -58,5 +61,9 @@ class CommonBuilder:
             "deviceType": device_type,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/statistics/sitehealth/common", return_type=List[SiteHealthItem], params=params, **kw
+            "GET",
+            "/dataservice/statistics/sitehealth/common",
+            return_type=List[SiteHealthItem],
+            params=params,
+            **kw,
         )

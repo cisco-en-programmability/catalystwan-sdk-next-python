@@ -21,4 +21,6 @@ class ValidateBuilder:
         :param payload: User password
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/admin/user/password/validate", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/admin/user/password/validate", payload=payload, **kw
+        )

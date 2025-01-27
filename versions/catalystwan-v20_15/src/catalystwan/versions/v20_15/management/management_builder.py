@@ -7,7 +7,9 @@ from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
     from .category.category_builder import CategoryBuilder
-    from .v_manage_resource_utilization.v_manage_resource_utilization_builder import VManageResourceUtilizationBuilder
+    from .v_manage_resource_utilization.v_manage_resource_utilization_builder import (
+        VManageResourceUtilizationBuilder,
+    )
 
 
 class ManagementBuilder:
@@ -32,7 +34,8 @@ class ManagementBuilder:
         """
         The vManageResourceUtilization property
         """
-        from .v_manage_resource_utilization.v_manage_resource_utilization_builder import \
-            VManageResourceUtilizationBuilder
+        from .v_manage_resource_utilization.v_manage_resource_utilization_builder import (
+            VManageResourceUtilizationBuilder,
+        )
 
         return VManageResourceUtilizationBuilder(self._request_adapter)

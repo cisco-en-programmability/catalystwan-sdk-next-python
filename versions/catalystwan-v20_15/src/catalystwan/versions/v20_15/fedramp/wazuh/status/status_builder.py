@@ -20,4 +20,6 @@ class StatusBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request("GET", "/dataservice/fedramp/wazuh/status", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/fedramp/wazuh/status", return_type=List[Any], **kw
+        )

@@ -7,7 +7,9 @@ from typing import List, Optional
 @dataclass
 class AppliedFilters:
     billing_type: Optional[str] = _field(default=None, metadata={"alias": "billingType"})
-    license_classification: Optional[str] = _field(default=None, metadata={"alias": "licenseClassification"})
+    license_classification: Optional[str] = _field(
+        default=None, metadata={"alias": "licenseClassification"}
+    )
 
 
 @dataclass
@@ -28,13 +30,19 @@ class EditLicenseResponseBaseLicenses:
 @dataclass
 class EditLicenseResponseTenantLicenses:
     licenses: Optional[List[EditLicenseResponseLicenses]] = _field(default=None)
-    total_tenant_lic_required: Optional[int] = _field(default=None, metadata={"alias": "totalTenantLicRequired"})
+    total_tenant_lic_required: Optional[int] = _field(
+        default=None, metadata={"alias": "totalTenantLicRequired"}
+    )
 
 
 @dataclass
 class EditLicenseResponse:
-    applied_filters: Optional[AppliedFilters] = _field(default=None, metadata={"alias": "appliedFilters"})
-    base_licenses: Optional[EditLicenseResponseBaseLicenses] = _field(default=None, metadata={"alias": "baseLicenses"})
+    applied_filters: Optional[AppliedFilters] = _field(
+        default=None, metadata={"alias": "appliedFilters"}
+    )
+    base_licenses: Optional[EditLicenseResponseBaseLicenses] = _field(
+        default=None, metadata={"alias": "baseLicenses"}
+    )
     tenant_licenses: Optional[EditLicenseResponseTenantLicenses] = _field(
         default=None, metadata={"alias": "tenantLicenses"}
     )

@@ -26,5 +26,9 @@ class ServicepathBuilder:
             "deviceIP": device_ip,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/device/tools/servicepath/{deviceIP}", params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/device/tools/servicepath/{deviceIP}",
+            params=params,
+            payload=payload,
+            **kw,
         )

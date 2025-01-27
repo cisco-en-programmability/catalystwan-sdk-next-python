@@ -40,7 +40,11 @@ class DscpmappingBuilder:
             "partnerId": partner_id,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/partner/aci/policy/dscpmapping/{partnerId}", params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/partner/aci/policy/dscpmapping/{partnerId}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_dscp_mappings(self, partner_id: str, **kw) -> Any:

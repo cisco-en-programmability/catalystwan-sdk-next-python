@@ -14,7 +14,9 @@ class StagingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def edit_template_with_lenient_lock(self, policy_id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def edit_template_with_lenient_lock(
+        self, policy_id: str, payload: Optional[Any] = None, **kw
+    ) -> Any:
         """
         Edit Template
 
@@ -26,5 +28,9 @@ class StagingBuilder:
             "policyId": policy_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/security/staging/{policyId}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/security/staging/{policyId}",
+            params=params,
+            payload=payload,
+            **kw,
         )

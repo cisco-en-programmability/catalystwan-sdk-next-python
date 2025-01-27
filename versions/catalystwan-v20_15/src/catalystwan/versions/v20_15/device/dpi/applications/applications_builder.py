@@ -5,6 +5,7 @@ from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import VpnIdParam
 
 
@@ -12,6 +13,8 @@ class ApplicationsBuilder:
     """
     Builds and executes requests for operations under /device/dpi/applications
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -40,5 +43,9 @@ class ApplicationsBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/device/dpi/applications", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/device/dpi/applications",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )

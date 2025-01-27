@@ -6,6 +6,7 @@ from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import NwpiflowMetricRespPayloadInner
 
 
@@ -14,11 +15,19 @@ class FlowMetricBuilder:
     Builds and executes requests for operations under /stream/device/nwpi/flowMetric
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_flow_metric(
-        self, trace_id: int, timestamp: int, flow_id: int, first_timestamp: int, last_timestamp: int, **kw
+        self,
+        trace_id: int,
+        timestamp: int,
+        flow_id: int,
+        first_timestamp: int,
+        last_timestamp: int,
+        **kw,
     ) -> List[NwpiflowMetricRespPayloadInner]:
         """
         flowMetric for NWPI.

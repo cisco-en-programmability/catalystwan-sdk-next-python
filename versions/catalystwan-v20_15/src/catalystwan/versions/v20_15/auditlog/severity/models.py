@@ -63,7 +63,9 @@ class AuditLogHeader:
     columns: Optional[AuditLogHeaderColumns] = _field(default=None)
     fields: Optional[GetStatDataFields] = _field(default=None)
     generated_on: Optional[int] = _field(default=None, metadata={"alias": "generatedOn"})
-    view_keys: Optional[AuditLogHeaderViewKeys] = _field(default=None, metadata={"alias": "viewKeys"})
+    view_keys: Optional[AuditLogHeaderViewKeys] = _field(
+        default=None, metadata={"alias": "viewKeys"}
+    )
 
 
 @dataclass

@@ -40,7 +40,9 @@ class SoftwareBuilder:
         :param payload: Request body for Device bootstrap configuration
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/device/action/software", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/software", payload=payload, **kw
+        )
 
     def update_image_url(self, version_id: str, payload: Optional[Any] = None, **kw):
         """
@@ -55,7 +57,11 @@ class SoftwareBuilder:
             "versionId": version_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/device/action/software/{versionId}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/device/action/software/{versionId}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_image_url(self, version_id: str, **kw):

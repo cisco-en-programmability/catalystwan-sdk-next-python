@@ -5,6 +5,7 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
 from .models import FormPostResp
 
 
@@ -12,6 +13,8 @@ class FileuploadBuilder:
     """
     Builds and executes requests for operations under /system/device/fileupload
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -24,5 +27,9 @@ class FileuploadBuilder:
         :returns: FormPostResp
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/system/device/fileupload", return_type=FormPostResp, payload=payload, **kw
+            "POST",
+            "/dataservice/system/device/fileupload",
+            return_type=FormPostResp,
+            payload=payload,
+            **kw,
         )

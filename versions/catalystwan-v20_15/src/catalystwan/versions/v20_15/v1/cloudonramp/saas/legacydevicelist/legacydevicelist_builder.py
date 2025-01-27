@@ -18,4 +18,6 @@ class LegacydevicelistBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request("GET", "/dataservice/v1/cloudonramp/saas/legacydevicelist", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/v1/cloudonramp/saas/legacydevicelist", **kw
+        )

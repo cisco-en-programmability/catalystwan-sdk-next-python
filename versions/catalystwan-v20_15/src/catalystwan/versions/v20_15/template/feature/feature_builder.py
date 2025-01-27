@@ -27,7 +27,11 @@ class FeatureBuilder:
         self._request_adapter = request_adapter
 
     def generate_feature_template_list(
-        self, summary: Optional[bool] = False, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
+        self,
+        summary: Optional[bool] = False,
+        offset: Optional[int] = None,
+        limit: Optional[int] = 0,
+        **kw,
     ) -> List[Any]:
         """
         Get feature template list
@@ -56,7 +60,9 @@ class FeatureBuilder:
         :param payload: Feature template
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/feature", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/feature", payload=payload, **kw
+        )
 
     def generate_template_by_device_type(self, device_type: str, **kw) -> List[Any]:
         """
@@ -72,7 +78,11 @@ class FeatureBuilder:
             "deviceType": device_type,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/feature/{deviceType}", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/template/feature/{deviceType}",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def edit_feature_template(self, template_id: str, payload: Optional[Any] = None, **kw) -> Any:
@@ -90,7 +100,11 @@ class FeatureBuilder:
             "templateId": template_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/feature/{templateId}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/feature/{templateId}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_general_template(self, template_id: str, **kw):

@@ -25,5 +25,9 @@ class ConfigBuilder1:
         :returns: str
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/template/device/config/config", return_type=str, payload=payload, **kw
+            "POST",
+            "/dataservice/template/device/config/config",
+            return_type=str,
+            payload=payload,
+            **kw,
         )
