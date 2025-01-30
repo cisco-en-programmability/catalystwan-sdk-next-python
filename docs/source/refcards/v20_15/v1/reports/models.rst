@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import List, Dict, Optional, Union, Any, Literal
+    from typing import Literal, Any, Union, Dict, Optional, List
 
     ReportStatus = Literal[
         "completed", "failed", "in_progress", "not_scheduled", "scheduled"
@@ -88,7 +88,7 @@ Models
         start_time: str
 
 
-    class ScheduleConfig:
+    class ScheduleConfig1:
         """
         On-demand schedule
         """
@@ -97,21 +97,21 @@ Models
         schedule_type: ScheduleType
 
 
-    class ReportsScheduleConfig:
+    class ScheduleConfig2:
         # Schedule type
         schedule_type: ScheduleType
         # startTime string format is yyyy-MM-dd HH:mm:ss,UTC timezone
         start_time: str
 
 
-    class V1ReportsScheduleConfig:
+    class ScheduleConfig3:
         # Schedule type
         schedule_type: ScheduleType
         # startTime string format is HH:mm:ss
         start_time: str
 
 
-    class ScheduleConfig1:
+    class ScheduleConfig4:
         # The day number of a week, mapping is as 1 - Sun, 2 - Mon, 3 - Tus, 4 - Wed, 5 - Thu, 6 - Fri, 7 - Sat
         day_of_week: int
         # Schedule type
@@ -120,7 +120,7 @@ Models
         start_time: str
 
 
-    class ScheduleConfig2:
+    class ScheduleConfig5:
         # Schedule type
         schedule_type: ScheduleType
         # startTime string format is (yyyy-MM-dd HH:mm:ss), time zone is UTC
@@ -138,11 +138,11 @@ Models
         report_name: str
         # schedule config
         schedule_config: Union[
-            ScheduleConfig,
-            ReportsScheduleConfig,
-            V1ReportsScheduleConfig,
             ScheduleConfig1,
             ScheduleConfig2,
+            ScheduleConfig3,
+            ScheduleConfig4,
+            ScheduleConfig5,
         ]
         # Time range for report(one_week/one_month)
         time_range: TimeRange

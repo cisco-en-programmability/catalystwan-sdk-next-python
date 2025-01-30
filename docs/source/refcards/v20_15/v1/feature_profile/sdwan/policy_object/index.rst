@@ -174,6 +174,38 @@ Example:
     :maxdepth: 1
 
     unified/index
+    security_data_ip_prefix/index
+    security_fqdn/index
+    security_port/index
+    security_localapp/index
+    security_localdomain/index
+    security_ipssignature/index
+    security_urllist/index
+    security_protocolname/index
+    security_geolocation/index
+    security_identity/index
+    security_scalablegrouptag/index
+    security_zone/index
+    app_list/index
+    sla_class/index
+    as_path/index
+    class_/index
+    data_ipv6_prefix/index
+    data_prefix/index
+    expanded_community/index
+    ext_community/index
+    ipv4_network_object_group/index
+    ipv4_service_object_group/index
+    ipv6_prefix/index
+    mirror/index
+    policer/index
+    prefix/index
+    standard_community/index
+    vpn_group/index
+    app_probe/index
+    tloc/index
+    color/index
+    preferred_color_group/index
     schema/index
     models
 

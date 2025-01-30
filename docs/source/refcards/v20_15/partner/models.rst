@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import List, Dict, Optional, Union, Any, Literal
+    from typing import Literal, Any, Union, Dict, Optional, List
 
     Type = Literal["aci", "dnac", "mdp", "wcm"]
 

@@ -41,8 +41,11 @@ Create Parcel for Security Policy
 .. code:: python
 
     def create_embedded_security_profile_parcel(
-        security_id: str, payload: Optional[str] = None
-    ) -> str: ...
+        security_id: str,
+        payload: Optional[
+            CreateEmbeddedSecurityProfileParcelPostRequest
+        ] = None,
+    ) -> CreateEmbeddedSecurityProfileParcelPostResponse: ...
 
 
 Example:
@@ -157,4 +160,9 @@ Example:
     ) as client:
         client.v1.feature_profile.sdwan.embedded_security.policy.delete_security_profile_parcel_1()
 
+
+.. toctree::
+    :maxdepth: 1
+
+    models
 

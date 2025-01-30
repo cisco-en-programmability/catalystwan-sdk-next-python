@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import List, Dict, Optional, Union, Any, Literal
+    from typing import Literal, Any, Union, Dict, Optional, List
 
     ConnectType = Literal[
         "AWS", "AWSHC", "INTERCONNECT_ATTACHMENT", "PRIMARY", "SECONDARY"

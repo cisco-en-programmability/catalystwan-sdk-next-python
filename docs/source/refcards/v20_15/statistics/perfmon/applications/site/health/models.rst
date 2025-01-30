@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import List, Dict, Optional, Union, Any, Literal
+    from typing import Literal, Any, Union, Dict, Optional, List
 
     LastNHoursParam = Literal["1", "12", "24", "3", "6"]
 

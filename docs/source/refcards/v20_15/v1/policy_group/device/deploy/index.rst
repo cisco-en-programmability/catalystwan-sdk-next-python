@@ -14,7 +14,7 @@ deploy policy group to devices
     def deploy_policy_group(
         policy_group_id: str,
         payload: Optional[DeployPolicyGroupPostRequest] = None,
-    ) -> Any: ...
+    ) -> DeployPolicyGroupPostResponse: ...
 
 
 Example:

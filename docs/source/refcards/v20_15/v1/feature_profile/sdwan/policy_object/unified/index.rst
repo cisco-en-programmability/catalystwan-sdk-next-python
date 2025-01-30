@@ -173,5 +173,11 @@ Example:
 .. toctree::
     :maxdepth: 1
 
+    advanced_inspection_profile/index
+    intrusion_prevention/index
+    url_filtering/index
+    advanced_malware_protection/index
+    ssl_decryption_profile/index
+    ssl_decryption/index
     models
 

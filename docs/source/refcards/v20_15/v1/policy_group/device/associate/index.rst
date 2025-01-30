@@ -41,7 +41,8 @@ Move the devices from one policy group to another
 .. code:: python
 
     def update_policy_group_association(
-        policy_group_id: str, payload: Optional[Any] = None
+        policy_group_id: str,
+        payload: Optional[UpdatePolicyGroupAssociationPutRequest] = None,
     ) -> None: ...
 
 
@@ -72,7 +73,8 @@ Create associations with device and a policy group
 .. code:: python
 
     def create_policy_group_association(
-        policy_group_id: str, payload: Optional[Any] = None
+        policy_group_id: str,
+        payload: Optional[CreatePolicyGroupAssociationPostRequest] = None,
     ) -> None: ...
 
 
@@ -124,4 +126,9 @@ Example:
     ) as client:
         client.v1.policy_group.device.associate.delete_policy_group_association()
 
+
+.. toctree::
+    :maxdepth: 1
+
+    models
 

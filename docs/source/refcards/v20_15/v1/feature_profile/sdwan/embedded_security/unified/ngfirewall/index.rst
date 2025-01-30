@@ -41,8 +41,11 @@ Create Parcel for Ngfirewall Policy
 .. code:: python
 
     def create_ngfirewall_profile_parcel(
-        security_id: str, payload: Optional[str] = None
-    ) -> str: ...
+        security_id: str,
+        payload: Optional[
+            CreateNgfirewallProfileParcelPostRequest
+        ] = None,
+    ) -> CreateNgfirewallProfileParcelPostResponse: ...
 
 
 Example:
@@ -157,4 +160,9 @@ Example:
     ) as client:
         client.v1.feature_profile.sdwan.embedded_security.unified.ngfirewall.delete_ngfirewall_profile_parcel()
 
+
+.. toctree::
+    :maxdepth: 1
+
+    models
 
