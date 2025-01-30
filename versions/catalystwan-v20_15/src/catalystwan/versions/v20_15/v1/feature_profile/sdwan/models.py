@@ -9,7 +9,7 @@ Solution = Literal["sdwan"]
 @dataclass
 class GetSdwanFeatureProfileBySdwanFamilyGetResponse:
     description: Optional[str] = _field(default=None)
+    profile_id: Optional[str] = _field(default=None, metadata={"alias": "profileId"})
     profile_name: Optional[str] = _field(default=None, metadata={"alias": "profileName"})
     profile_type: Optional[str] = _field(default=None, metadata={"alias": "profileType"})
-    profole_id: Optional[str] = _field(default=None, metadata={"alias": "profoleId"})
     solution: Optional[Solution] = _field(default=None)
