@@ -8,6 +8,7 @@ from catalystwan.abc import RequestAdapterInterface
 from . import models
 from .models import (
     CreatePolicyGroupDeviceVariablesPutRequest,
+    FetchPolicyGroupDeviceVariablesPostRequest,
     FetchPolicyGroupDeviceVariablesPostResponse,
 )
 
@@ -79,7 +80,7 @@ class VariablesBuilder:
     def fetch_policy_group_device_variables(
         self,
         policy_group_id: str,
-        payload: Optional[FetchPolicyGroupDeviceVariablesPostResponse] = None,
+        payload: Optional[FetchPolicyGroupDeviceVariablesPostRequest] = None,
         **kw,
     ) -> FetchPolicyGroupDeviceVariablesPostResponse:
         """
