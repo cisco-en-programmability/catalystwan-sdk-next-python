@@ -3,7 +3,9 @@ from dataclasses import dataclass
 from dataclasses import field as _field
 from typing import List, Literal, Optional
 
-Type = Literal["cellular", "ethernet", "globalSettings", "networkProtocol", "securityPolicy", "wifi"]
+Type = Literal[
+    "cellular", "ethernet", "globalSettings", "networkProtocol", "securityPolicy", "wifi"
+]
 
 
 @dataclass
@@ -45,7 +47,9 @@ class RadiusServer:
 @dataclass
 class CorporateWifi:
     security_auth_type: str = _field(metadata={"alias": "securityAuthType"})
-    aaa_server_info: Optional[AaaServerInfo] = _field(default=None, metadata={"alias": "aaaServerInfo"})
+    aaa_server_info: Optional[AaaServerInfo] = _field(
+        default=None, metadata={"alias": "aaaServerInfo"}
+    )
     corporate_wlan: Optional[bool] = _field(default=None, metadata={"alias": "corporateWlan"})
     radius_server: Optional[RadiusServer] = _field(default=None, metadata={"alias": "radiusServer"})
     ssid: Optional[str] = _field(default=None)
@@ -71,8 +75,12 @@ class RadioBandSetting5G:
 
 @dataclass
 class ChannelPowerSettings:
-    radio_band2_dot4_ghz: Optional[RadioBandSetting24G] = _field(default=None, metadata={"alias": "radioBand2Dot4Ghz"})
-    radio_band5_ghz: Optional[RadioBandSetting5G] = _field(default=None, metadata={"alias": "radioBand5Ghz"})
+    radio_band2_dot4_ghz: Optional[RadioBandSetting24G] = _field(
+        default=None, metadata={"alias": "radioBand2Dot4Ghz"}
+    )
+    radio_band5_ghz: Optional[RadioBandSetting5G] = _field(
+        default=None, metadata={"alias": "radioBand5Ghz"}
+    )
 
 
 @dataclass
@@ -99,7 +107,9 @@ class CreateWifiProfileParcelForMobilityPostRequest:
     advanced_radio_setting: Optional[AdvancedRadioSetting] = _field(
         default=None, metadata={"alias": "advancedRadioSetting"}
     )
-    corporate_wifi: Optional[CorporateWifi] = _field(default=None, metadata={"alias": "corporateWifi"})
+    corporate_wifi: Optional[CorporateWifi] = _field(
+        default=None, metadata={"alias": "corporateWifi"}
+    )
     # User who last created this.
     created_by: Optional[str] = _field(default=None, metadata={"alias": "createdBy"})
     # Timestamp of creation
@@ -113,5 +123,7 @@ class CreateWifiProfileParcelForMobilityPostRequest:
     last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
     # Timestamp of last update
     last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
-    ssid_config_list: Optional[List[SsidConfig]] = _field(default=None, metadata={"alias": "ssidConfigList"})
+    ssid_config_list: Optional[List[SsidConfig]] = _field(
+        default=None, metadata={"alias": "ssidConfigList"}
+    )
     variables: Optional[List[Variable]] = _field(default=None)

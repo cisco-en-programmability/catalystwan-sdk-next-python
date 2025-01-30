@@ -25,5 +25,9 @@ class LinksBuilder:
             "groupId": group_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/group/map/devices/links", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/group/map/devices/links",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )

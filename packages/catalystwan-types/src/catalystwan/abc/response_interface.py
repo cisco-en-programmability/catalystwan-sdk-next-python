@@ -2,6 +2,8 @@ import abc
 from collections.abc import Mapping
 from typing import Protocol
 
+from catalystwan.abc.types import JSON
+
 
 class ResponseInterface(Protocol):
     """
@@ -22,4 +24,4 @@ class ResponseInterface(Protocol):
     def content(self) -> bytes: ...
 
     @abc.abstractmethod
-    def json(self) -> dict: ...
+    def json(self) -> JSON: ...

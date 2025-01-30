@@ -9,7 +9,9 @@ if TYPE_CHECKING:
     from .accounts.accounts_builder import AccountsBuilder
     from .audit.audit_builder import AuditBuilder
     from .billingaccounts.billingaccounts_builder import BillingaccountsBuilder
-    from .cloud_routers_and_attachments.cloud_routers_and_attachments_builder import CloudRoutersAndAttachmentsBuilder
+    from .cloud_routers_and_attachments.cloud_routers_and_attachments_builder import (
+        CloudRoutersAndAttachmentsBuilder,
+    )
     from .cloudgateway.cloudgateway_builder import CloudgatewayBuilder
     from .cloudgateways.cloudgateways_builder import CloudgatewaysBuilder
     from .cloudgatewaysetting.cloudgatewaysetting_builder import CloudgatewaysettingBuilder
@@ -18,8 +20,9 @@ if TYPE_CHECKING:
     from .connected_sites.connected_sites_builder import ConnectedSitesBuilder
     from .connectivity.connectivity_builder import ConnectivityBuilder
     from .connectivitygateway.connectivitygateway_builder import ConnectivitygatewayBuilder
-    from .connectivitygatewaycreationoptions.connectivitygatewaycreationoptions_builder import \
-        ConnectivitygatewaycreationoptionsBuilder
+    from .connectivitygatewaycreationoptions.connectivitygatewaycreationoptions_builder import (
+        ConnectivitygatewaycreationoptionsBuilder,
+    )
     from .corenetworkpolicy.corenetworkpolicy_builder import CorenetworkpolicyBuilder
     from .dashboard.dashboard_builder import DashboardBuilder
     from .device.device_builder import DeviceBuilder
@@ -97,8 +100,9 @@ class MulticloudBuilder:
         """
         The cloudRoutersAndAttachments property
         """
-        from .cloud_routers_and_attachments.cloud_routers_and_attachments_builder import \
-            CloudRoutersAndAttachmentsBuilder
+        from .cloud_routers_and_attachments.cloud_routers_and_attachments_builder import (
+            CloudRoutersAndAttachmentsBuilder,
+        )
 
         return CloudRoutersAndAttachmentsBuilder(self._request_adapter)
 
@@ -179,8 +183,9 @@ class MulticloudBuilder:
         """
         The connectivitygatewaycreationoptions property
         """
-        from .connectivitygatewaycreationoptions.connectivitygatewaycreationoptions_builder import \
-            ConnectivitygatewaycreationoptionsBuilder
+        from .connectivitygatewaycreationoptions.connectivitygatewaycreationoptions_builder import (
+            ConnectivitygatewaycreationoptionsBuilder,
+        )
 
         return ConnectivitygatewaycreationoptionsBuilder(self._request_adapter)
 
@@ -333,7 +338,9 @@ class MulticloudBuilder:
         """
         The loopbacktransportcolor property
         """
-        from .loopbacktransportcolor.loopbacktransportcolor_builder import LoopbacktransportcolorBuilder
+        from .loopbacktransportcolor.loopbacktransportcolor_builder import (
+            LoopbacktransportcolorBuilder,
+        )
 
         return LoopbacktransportcolorBuilder(self._request_adapter)
 

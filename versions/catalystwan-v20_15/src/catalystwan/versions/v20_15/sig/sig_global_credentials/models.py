@@ -22,7 +22,9 @@ class ApiSecret:
     API key information
     """
 
-    vip_needs_encryption: Optional[bool] = _field(default=None, metadata={"alias": "vipNeedsEncryption"})
+    vip_needs_encryption: Optional[bool] = _field(
+        default=None, metadata={"alias": "vipNeedsEncryption"}
+    )
     vip_object_type: Optional[str] = _field(default=None, metadata={"alias": "vipObjectType"})
     vip_type: Optional[str] = _field(default=None, metadata={"alias": "vipType"})
     vip_value: Optional[str] = _field(default=None, metadata={"alias": "vipValue"})

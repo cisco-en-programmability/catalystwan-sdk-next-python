@@ -20,4 +20,6 @@ class SwversionBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/disasterrecovery/remotedc/swversion", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/disasterrecovery/remotedc/swversion", **kw
+        )

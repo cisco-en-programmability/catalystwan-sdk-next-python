@@ -14,7 +14,9 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def health_summary(self, is_cached: Optional[bool] = False, site_id: Optional[str] = None, **kw) -> Any:
+    def health_summary(
+        self, is_cached: Optional[bool] = False, site_id: Optional[str] = None, **kw
+    ) -> Any:
         """
         Get cluster health check summary
 

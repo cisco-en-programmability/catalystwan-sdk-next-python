@@ -23,4 +23,6 @@ class DownBuilder:
         :returns: None
         """
         logging.warning("Operation: %s is deprecated", "scaleDown")
-        return self._request_adapter.request("POST", "/dataservice/template/cor/scale/down", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/cor/scale/down", payload=payload, **kw
+        )

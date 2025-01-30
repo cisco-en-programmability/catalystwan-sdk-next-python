@@ -24,4 +24,6 @@ class SccpConnectionsBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/voice/sccpConnections", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/voice/sccpConnections", params=params, **kw
+        )

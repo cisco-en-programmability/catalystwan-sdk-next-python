@@ -14,7 +14,9 @@ class DuplicatelocationnameBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_devices_with_duplicate_location_name(self, payload: Optional[Any] = None, **kw) -> List[Any]:
+    def get_devices_with_duplicate_location_name(
+        self, payload: Optional[Any] = None, **kw
+    ) -> List[Any]:
         """
         Detects duplicate system IP from a list of devices
 

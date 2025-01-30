@@ -29,7 +29,11 @@ class PasswordBuilder:
             "userName": user_name,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/admin/user/password/{userName}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/admin/user/password/{userName}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     @property

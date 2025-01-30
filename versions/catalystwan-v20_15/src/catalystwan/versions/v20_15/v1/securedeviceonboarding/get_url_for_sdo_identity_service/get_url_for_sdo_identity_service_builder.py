@@ -19,5 +19,8 @@ class GetUrlForSdoIdentityServiceBuilder:
         :returns: str
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/securedeviceonboarding/getUrlForSdoIdentityService", return_type=str, **kw
+            "GET",
+            "/dataservice/v1/securedeviceonboarding/getUrlForSdoIdentityService",
+            return_type=str,
+            **kw,
         )

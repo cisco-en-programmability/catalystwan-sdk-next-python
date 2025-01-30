@@ -20,7 +20,9 @@ class SegmentBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request("GET", "/dataservice/segment", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/segment", return_type=List[Any], **kw
+        )
 
     def create_segment(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -56,7 +58,9 @@ class SegmentBuilder:
         params = {
             "id": id,
         }
-        return self._request_adapter.request("PUT", "/dataservice/segment/{id}", params=params, payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/segment/{id}", params=params, payload=payload, **kw
+        )
 
     def delete_segment(self, id: str, **kw):
         """
@@ -68,4 +72,6 @@ class SegmentBuilder:
         params = {
             "id": id,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/segment/{id}", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/segment/{id}", params=params, **kw
+        )

@@ -3,7 +3,9 @@ from dataclasses import dataclass
 from dataclasses import field as _field
 from typing import List, Literal, Optional
 
-Type = Literal["cellular", "ethernet", "globalSettings", "networkProtocol", "securityPolicy", "wifi"]
+Type = Literal[
+    "cellular", "ethernet", "globalSettings", "networkProtocol", "securityPolicy", "wifi"
+]
 
 
 @dataclass

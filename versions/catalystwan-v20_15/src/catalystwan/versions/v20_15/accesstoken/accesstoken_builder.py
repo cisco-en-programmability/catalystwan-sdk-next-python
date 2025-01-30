@@ -25,5 +25,9 @@ class AccesstokenBuilder:
             "regionBaseUri": region_base_uri,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/accesstoken/{regionBaseUri}/{clientId}", return_type=str, params=params, **kw
+            "GET",
+            "/dataservice/accesstoken/{regionBaseUri}/{clientId}",
+            return_type=str,
+            params=params,
+            **kw,
         )

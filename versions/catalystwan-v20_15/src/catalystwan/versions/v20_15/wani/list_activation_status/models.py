@@ -14,4 +14,6 @@ class ActivationStatusRes:
     referred_in_active_wani_policy: Optional[bool] = _field(
         default=None, metadata={"alias": "referredInActiveWaniPolicy"}
     )
-    user_defined_policy_id: Optional[str] = _field(default=None, metadata={"alias": "userDefinedPolicyId"})
+    user_defined_policy_id: Optional[str] = _field(
+        default=None, metadata={"alias": "userDefinedPolicyId"}
+    )

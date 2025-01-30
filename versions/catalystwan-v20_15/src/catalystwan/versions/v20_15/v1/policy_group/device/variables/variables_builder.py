@@ -6,7 +6,10 @@ from typing import TYPE_CHECKING, Any, Optional
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import Default, VariablesDefault
+from .models import (
+    CreatePolicyGroupDeviceVariablesPutRequest,
+    FetchPolicyGroupDeviceVariablesPostResponse,
+)
 
 if TYPE_CHECKING:
     from .schema.schema_builder import SchemaBuilder
@@ -50,7 +53,10 @@ class VariablesBuilder:
         )
 
     def create_policy_group_device_variables(
-        self, policy_group_id: str, payload: Optional[Default] = None, **kw
+        self,
+        policy_group_id: str,
+        payload: Optional[CreatePolicyGroupDeviceVariablesPutRequest] = None,
+        **kw,
     ) -> Any:
         """
         assign values to device variables
@@ -71,14 +77,17 @@ class VariablesBuilder:
         )
 
     def fetch_policy_group_device_variables(
-        self, policy_group_id: str, payload: Optional[VariablesDefault] = None, **kw
-    ) -> Any:
+        self,
+        policy_group_id: str,
+        payload: Optional[FetchPolicyGroupDeviceVariablesPostResponse] = None,
+        **kw,
+    ) -> FetchPolicyGroupDeviceVariablesPostResponse:
         """
         Fetch device variables
 
         :param policy_group_id: Policy Group Id
         :param payload: Payload
-        :returns: Any
+        :returns: FetchPolicyGroupDeviceVariablesPostResponse
         """
         params = {
             "policyGroupId": policy_group_id,
@@ -86,6 +95,7 @@ class VariablesBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/policy-group/{policyGroupId}/device/variables",
+            return_type=FetchPolicyGroupDeviceVariablesPostResponse,
             params=params,
             payload=payload,
             **kw,

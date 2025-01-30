@@ -21,4 +21,6 @@ class RevokerenewBuilder:
         :param payload: Revoke device certificate request
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/sslproxy/revokerenew", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/sslproxy/revokerenew", payload=payload, **kw
+        )

@@ -40,4 +40,6 @@ class RemotemepBuilder:
             "remote-mep-id": remote_mep_id,
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/cfm/mp/remotemep", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/cfm/mp/remotemep", params=params, **kw
+        )

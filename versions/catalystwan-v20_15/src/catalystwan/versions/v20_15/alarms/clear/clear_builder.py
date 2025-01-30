@@ -21,4 +21,6 @@ class ClearBuilder:
         :param payload: Clear Alarm
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/alarms/clear", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/alarms/clear", payload=payload, **kw
+        )

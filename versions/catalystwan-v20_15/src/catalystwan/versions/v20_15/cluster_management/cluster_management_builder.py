@@ -17,7 +17,9 @@ if TYPE_CHECKING:
     from .list.list_builder import ListBuilder
     from .node_properties.node_properties_builder import NodePropertiesBuilder
     from .remove.remove_builder import RemoveBuilder
-    from .replicate_and_rebalance.replicate_and_rebalance_builder import ReplicateAndRebalanceBuilder
+    from .replicate_and_rebalance.replicate_and_rebalance_builder import (
+        ReplicateAndRebalanceBuilder,
+    )
     from .setup.setup_builder import SetupBuilder
     from .tenancy.tenancy_builder import TenancyBuilder
     from .tenant_list.tenant_list_builder import TenantListBuilder
@@ -137,7 +139,9 @@ class ClusterManagementBuilder:
         """
         The replicateAndRebalance property
         """
-        from .replicate_and_rebalance.replicate_and_rebalance_builder import ReplicateAndRebalanceBuilder
+        from .replicate_and_rebalance.replicate_and_rebalance_builder import (
+            ReplicateAndRebalanceBuilder,
+        )
 
         return ReplicateAndRebalanceBuilder(self._request_adapter)
 

@@ -7,8 +7,8 @@ from catalystwan.abc import RequestAdapterInterface
 
 from . import models
 from .models import (
+    CreateSecurityProfileParcelPostRequest,
     CreateSecurityProfileParcelPostResponse,
-    Default,
     GetSecurityProfileParcelGetResponse,
 )
 
@@ -24,7 +24,10 @@ class IntrusionPreventionBuilder:
         self._request_adapter = request_adapter
 
     def create_security_profile_parcel(
-        self, policy_object_id: str, payload: Optional[Default] = None, **kw
+        self,
+        policy_object_id: str,
+        payload: Optional[CreateSecurityProfileParcelPostRequest] = None,
+        **kw,
     ) -> CreateSecurityProfileParcelPostResponse:
         """
         Create Parcel for Security Policy

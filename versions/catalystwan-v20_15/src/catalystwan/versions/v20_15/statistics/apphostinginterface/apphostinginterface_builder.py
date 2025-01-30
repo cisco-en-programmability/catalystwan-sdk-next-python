@@ -48,7 +48,9 @@ class ApphostinginterfaceBuilder:
             "sortBy": sort_by,
             "sortOrder": sort_order,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/apphostinginterface", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/apphostinginterface", params=params, **kw
+        )
 
     def get_stats_raw_data(
         self,
@@ -76,7 +78,11 @@ class ApphostinginterfaceBuilder:
             "sortOrder": sort_order,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/statistics/apphostinginterface", params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/statistics/apphostinginterface",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     @property

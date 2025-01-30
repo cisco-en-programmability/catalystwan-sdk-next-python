@@ -18,5 +18,7 @@ class DeviceStatusData:
     details_url: Optional[str] = _field(default=None, metadata={"alias": "detailsURL"})
     image: Optional[str] = _field(default=None)
     name: Optional[str] = _field(default=None)
-    status_list: Optional[List[StatusObject]] = _field(default=None, metadata={"alias": "statusList"})
+    status_list: Optional[List[StatusObject]] = _field(
+        default=None, metadata={"alias": "statusList"}
+    )
     type_: Optional[str] = _field(default=None, metadata={"alias": "type"})

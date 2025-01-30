@@ -7,8 +7,8 @@ from catalystwan.abc import RequestAdapterInterface
 
 from . import models
 from .models import (
-    Default,
-    EmbeddedSecurityDefault,
+    CreateSdwanEmbeddedSecurityFeatureProfilePostRequest,
+    CreateSdwanEmbeddedSecurityFeatureProfilePostResponse,
     GetSdwanEmbeddedSecurityFeatureProfilesGetResponse,
     GetSingleSdwanEmbeddedSecurityPayload,
 )
@@ -51,18 +51,18 @@ class EmbeddedSecurityBuilder:
         )
 
     def create_sdwan_embedded_security_feature_profile(
-        self, payload: Optional[EmbeddedSecurityDefault] = None, **kw
-    ) -> Default:
+        self, payload: Optional[CreateSdwanEmbeddedSecurityFeatureProfilePostRequest] = None, **kw
+    ) -> CreateSdwanEmbeddedSecurityFeatureProfilePostResponse:
         """
         Create a SDWAN Embedded Security Feature Profile
 
         :param payload: SDWAN Feature profile
-        :returns: Default
+        :returns: CreateSdwanEmbeddedSecurityFeatureProfilePostResponse
         """
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/embedded-security",
-            return_type=Default,
+            return_type=CreateSdwanEmbeddedSecurityFeatureProfilePostResponse,
             payload=payload,
             **kw,
         )
@@ -90,14 +90,17 @@ class EmbeddedSecurityBuilder:
         )
 
     def edit_sdwan_embedded_security_feature_profile(
-        self, embedded_security_id: str, payload: Optional[EmbeddedSecurityDefault] = None, **kw
-    ) -> Default:
+        self,
+        embedded_security_id: str,
+        payload: Optional[CreateSdwanEmbeddedSecurityFeatureProfilePostRequest] = None,
+        **kw,
+    ) -> CreateSdwanEmbeddedSecurityFeatureProfilePostResponse:
         """
         Edit a SDWAN Embedded Security Feature Profile
 
         :param embedded_security_id: Feature Profile Id
         :param payload: SDWAN Feature profile
-        :returns: Default
+        :returns: CreateSdwanEmbeddedSecurityFeatureProfilePostResponse
         """
         params = {
             "embeddedSecurityId": embedded_security_id,
@@ -105,7 +108,7 @@ class EmbeddedSecurityBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sdwan/embedded-security/{embeddedSecurityId}",
-            return_type=Default,
+            return_type=CreateSdwanEmbeddedSecurityFeatureProfilePostResponse,
             params=params,
             payload=payload,
             **kw,

@@ -20,7 +20,9 @@ class CertificateBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/sslproxy/settings/enterprise/certificate", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/sslproxy/settings/enterprise/certificate", **kw
+        )
 
     def set_enterprise_cert(self, payload: Optional[Any] = None, **kw) -> Any:
         """

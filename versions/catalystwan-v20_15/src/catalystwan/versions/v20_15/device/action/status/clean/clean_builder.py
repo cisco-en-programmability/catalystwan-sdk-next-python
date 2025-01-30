@@ -26,4 +26,6 @@ class CleanBuilder:
         params = {
             "cleanStatus": clean_status,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/action/status/clean", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/action/status/clean", params=params, **kw
+        )

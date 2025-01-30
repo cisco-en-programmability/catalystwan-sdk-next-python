@@ -27,4 +27,6 @@ class VsessionidBuilder:
         params = {
             "tenantId": tenant_id,
         }
-        return self._request_adapter.request("POST", "/dataservice/tenant/{tenantId}/vsessionid", params=params, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/tenant/{tenantId}/vsessionid", params=params, **kw
+        )

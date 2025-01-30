@@ -24,4 +24,6 @@ class ClearBuilder:
         params = {
             "processId": process_id,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/device/action/status/clear", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/device/action/status/clear", params=params, **kw
+        )

@@ -8,8 +8,12 @@ from catalystwan.abc import RequestAdapterInterface
 if TYPE_CHECKING:
     from .acl.acl_builder import AclBuilder
     from .aclv6.aclv6_builder import Aclv6Builder
-    from .advanced_malware_protection.advanced_malware_protection_builder import AdvancedMalwareProtectionBuilder
-    from .advancedinspectionprofile.advancedinspectionprofile_builder import AdvancedinspectionprofileBuilder
+    from .advanced_malware_protection.advanced_malware_protection_builder import (
+        AdvancedMalwareProtectionBuilder,
+    )
+    from .advancedinspectionprofile.advancedinspectionprofile_builder import (
+        AdvancedinspectionprofileBuilder,
+    )
     from .approute.approute_builder import ApprouteBuilder
     from .cflowd.cflowd_builder import CflowdBuilder
     from .control.control_builder import ControlBuilder
@@ -70,7 +74,9 @@ class DefinitionBuilder:
         """
         The advancedMalwareProtection property
         """
-        from .advanced_malware_protection.advanced_malware_protection_builder import AdvancedMalwareProtectionBuilder
+        from .advanced_malware_protection.advanced_malware_protection_builder import (
+            AdvancedMalwareProtectionBuilder,
+        )
 
         return AdvancedMalwareProtectionBuilder(self._request_adapter)
 
@@ -79,7 +85,9 @@ class DefinitionBuilder:
         """
         The advancedinspectionprofile property
         """
-        from .advancedinspectionprofile.advancedinspectionprofile_builder import AdvancedinspectionprofileBuilder
+        from .advancedinspectionprofile.advancedinspectionprofile_builder import (
+            AdvancedinspectionprofileBuilder,
+        )
 
         return AdvancedinspectionprofileBuilder(self._request_adapter)
 

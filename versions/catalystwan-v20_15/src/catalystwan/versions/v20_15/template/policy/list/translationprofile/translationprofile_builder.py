@@ -25,7 +25,10 @@ class TranslationprofileBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/list/translationprofile", return_type=List[Any], **kw
+            "GET",
+            "/dataservice/template/policy/list/translationprofile",
+            return_type=List[Any],
+            **kw,
         )
 
     def create_policy_list_1(self, payload: Optional[Any] = None, **kw) -> Any:
@@ -39,7 +42,9 @@ class TranslationprofileBuilder:
             "POST", "/dataservice/template/policy/list/translationprofile", payload=payload, **kw
         )
 
-    def delete_policy_lists_with_info_tag_1(self, info_tag: Optional[str] = None, **kw) -> List[Any]:
+    def delete_policy_lists_with_info_tag_1(
+        self, info_tag: Optional[str] = None, **kw
+    ) -> List[Any]:
         """
         Delete policy lists with specific info tag
 
@@ -50,7 +55,11 @@ class TranslationprofileBuilder:
             "infoTag": info_tag,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/list/translationprofile", return_type=List[Any], params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/list/translationprofile",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def get_lists_by_id_1(self, id: str, **kw) -> Any:
@@ -79,7 +88,11 @@ class TranslationprofileBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/list/translationprofile/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/list/translationprofile/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_list_1(self, id: str, **kw):
@@ -93,7 +106,10 @@ class TranslationprofileBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/list/translationprofile/{id}", params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/list/translationprofile/{id}",
+            params=params,
+            **kw,
         )
 
     @property

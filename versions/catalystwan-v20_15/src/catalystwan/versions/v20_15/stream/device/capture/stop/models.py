@@ -15,7 +15,9 @@ class PacketCaptureInfo:
     is_owner: Optional[bool] = _field(default=None, metadata={"alias": "isOwner"})
     j_session_id: Optional[str] = _field(default=None, metadata={"alias": "JSessionId"})
     renewal_time: Optional[int] = _field(default=None, metadata={"alias": "renewalTime"})
-    request_status: Optional[RequestStatus] = _field(default=None, metadata={"alias": "requestStatus"})
+    request_status: Optional[RequestStatus] = _field(
+        default=None, metadata={"alias": "requestStatus"}
+    )
     session_id: Optional[str] = _field(default=None, metadata={"alias": "sessionId"})
     start_time: Optional[int] = _field(default=None, metadata={"alias": "startTime"})
     status: Optional[Status] = _field(default=None)

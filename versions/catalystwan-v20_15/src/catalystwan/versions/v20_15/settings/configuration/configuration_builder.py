@@ -34,7 +34,11 @@ class ConfigurationBuilder:
             "type": type_,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/settings/configuration/{type}", return_type=str, params=params, **kw
+            "GET",
+            "/dataservice/settings/configuration/{type}",
+            return_type=str,
+            params=params,
+            **kw,
         )
 
     def edit_configuration(self, type_: str, payload: Optional[Any] = None, **kw) -> str:
@@ -49,7 +53,12 @@ class ConfigurationBuilder:
             "type": type_,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/settings/configuration/{type}", return_type=str, params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/settings/configuration/{type}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def new_configuration(self, type_: str, payload: Optional[Any] = None, **kw) -> str:
@@ -64,7 +73,12 @@ class ConfigurationBuilder:
             "type": type_,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/settings/configuration/{type}", return_type=str, params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/settings/configuration/{type}",
+            return_type=str,
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     @property

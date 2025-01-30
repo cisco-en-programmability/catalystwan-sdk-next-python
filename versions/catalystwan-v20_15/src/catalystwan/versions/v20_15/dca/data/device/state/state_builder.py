@@ -14,7 +14,9 @@ class StateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_dca_device_state_data(self, state_data_type: str, payload: Optional[Any] = None, **kw) -> Any:
+    def generate_dca_device_state_data(
+        self, state_data_type: str, payload: Optional[Any] = None, **kw
+    ) -> Any:
         """
         Get device state data
 
@@ -26,5 +28,9 @@ class StateBuilder:
             "state_data_type": state_data_type,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/dca/data/device/state/{state_data_type}", params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/dca/data/device/state/{state_data_type}",
+            params=params,
+            payload=payload,
+            **kw,
         )

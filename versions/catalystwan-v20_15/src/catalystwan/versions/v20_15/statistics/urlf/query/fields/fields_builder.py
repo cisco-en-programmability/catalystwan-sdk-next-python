@@ -20,4 +20,6 @@ class FieldsBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/statistics/urlf/query/fields", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/urlf/query/fields", **kw
+        )

@@ -42,7 +42,9 @@ class ApplicationsBuilder:
             "limit": limit,
             "query": query,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/cflowd/applications", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/cflowd/applications", params=params, **kw
+        )
 
     @property
     def summary(self) -> SummaryBuilder:

@@ -48,7 +48,9 @@ class SpeedtestBuilder:
             "sortBy": sort_by,
             "sortOrder": sort_order,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/speedtest", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/speedtest", params=params, **kw
+        )
 
     def get_stats_raw_data_25(
         self,

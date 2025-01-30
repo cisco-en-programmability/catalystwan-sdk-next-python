@@ -12,8 +12,12 @@ class NotificationsRuleData:
     devices_attached: Optional[str] = _field(default=None, metadata={"alias": "devicesAttached"})
     email_threshold: Optional[int] = _field(default=None, metadata={"alias": "emailThreshold"})
     last_updated: Optional[int] = _field(default=None, metadata={"alias": "lastUpdated"})
-    notification_rule_id: Optional[str] = _field(default=None, metadata={"alias": "notificationRuleId"})
-    notification_rule_name: Optional[str] = _field(default=None, metadata={"alias": "notificationRuleName"})
+    notification_rule_id: Optional[str] = _field(
+        default=None, metadata={"alias": "notificationRuleId"}
+    )
+    notification_rule_name: Optional[str] = _field(
+        default=None, metadata={"alias": "notificationRuleName"}
+    )
     severity: Optional[str] = _field(default=None)
     updated_by: Optional[str] = _field(default=None, metadata={"alias": "updatedBy"})
     webhook_password: Optional[str] = _field(default=None, metadata={"alias": "webhookPassword"})

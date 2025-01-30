@@ -21,4 +21,6 @@ class LxcdeleteBuilder:
         :param payload: Delete request payload
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/device/action/lxcdelete", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/lxcdelete", payload=payload, **kw
+        )

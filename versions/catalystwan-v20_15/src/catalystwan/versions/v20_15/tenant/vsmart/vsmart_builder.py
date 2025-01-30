@@ -26,9 +26,13 @@ class VsmartBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request("GET", "/dataservice/tenant/vsmart", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/tenant/vsmart", return_type=List[Any], **kw
+        )
 
-    def update_tenantv_smart_placement(self, tenant_id: str, payload: Optional[Any] = None, **kw) -> List[Any]:
+    def update_tenantv_smart_placement(
+        self, tenant_id: str, payload: Optional[Any] = None, **kw
+    ) -> List[Any]:
         """
         Update placement of the Tenant from source vSmart to destination vSmart
 
@@ -43,7 +47,12 @@ class VsmartBuilder:
             "tenantId": tenant_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/tenant/{tenantId}/vsmart", return_type=List[Any], params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/tenant/{tenantId}/vsmart",
+            return_type=List[Any],
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     @property

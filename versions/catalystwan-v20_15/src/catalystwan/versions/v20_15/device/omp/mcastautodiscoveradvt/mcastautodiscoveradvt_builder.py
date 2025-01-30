@@ -25,5 +25,9 @@ class McastautodiscoveradvtBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/device/omp/mcastautodiscoveradvt", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/device/omp/mcastautodiscoveradvt",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )

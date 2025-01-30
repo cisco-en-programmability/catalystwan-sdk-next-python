@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING, List, Optional
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import Default, PolicyGroup, PolicyGroupDefault
+from .models import CreatePolicyGroupPostRequest, CreatePolicyGroupPostResponse, PolicyGroup
 
 if TYPE_CHECKING:
     from .device.device_builder import DeviceBuilder
@@ -42,15 +42,21 @@ class PolicyGroupBuilder:
             **kw,
         )
 
-    def create_policy_group(self, payload: Optional[PolicyGroupDefault] = None, **kw) -> Default:
+    def create_policy_group(
+        self, payload: Optional[CreatePolicyGroupPostRequest] = None, **kw
+    ) -> CreatePolicyGroupPostResponse:
         """
         Create a new Policy Group
 
         :param payload: Policy Group
-        :returns: Default
+        :returns: CreatePolicyGroupPostResponse
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/v1/policy-group", return_type=Default, payload=payload, **kw
+            "POST",
+            "/dataservice/v1/policy-group",
+            return_type=CreatePolicyGroupPostResponse,
+            payload=payload,
+            **kw,
         )
 
     def get_policy_group(self, policy_group_id: str, **kw) -> PolicyGroup:

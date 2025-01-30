@@ -20,4 +20,6 @@ class DeleteLocalDataCenterBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/disasterrecovery/deleteLocalDataCenter", **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/disasterrecovery/deleteLocalDataCenter", **kw
+        )

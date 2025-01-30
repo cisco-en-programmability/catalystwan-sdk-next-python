@@ -24,7 +24,9 @@ class WanrgBuilder:
         params = {
             "accountid": accountid,
         }
-        return self._request_adapter.request("GET", "/dataservice/template/cortex/wanrg", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/cortex/wanrg", params=params, **kw
+        )
 
     def edit_wan_resource_groups(self, payload: Optional[Any] = None, **kw):
         """
@@ -33,7 +35,9 @@ class WanrgBuilder:
         :param payload: WAN resource group
         :returns: None
         """
-        return self._request_adapter.request("PUT", "/dataservice/template/cortex/wanrg", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/template/cortex/wanrg", payload=payload, **kw
+        )
 
     def save_wan_resource_groups(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -42,7 +46,9 @@ class WanrgBuilder:
         :param payload: WAN resource group
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/cortex/wanrg", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/cortex/wanrg", payload=payload, **kw
+        )
 
     def delete_wan_resource_groups(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -51,4 +57,6 @@ class WanrgBuilder:
         :param payload: WAN resource group
         :returns: Any
         """
-        return self._request_adapter.request("DELETE", "/dataservice/template/cortex/wanrg", payload=payload, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/template/cortex/wanrg", payload=payload, **kw
+        )

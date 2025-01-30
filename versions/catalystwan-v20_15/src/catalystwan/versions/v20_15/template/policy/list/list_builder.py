@@ -67,7 +67,9 @@ class ListBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/list", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/list", return_type=List[Any], **kw
+        )
 
     @property
     def app(self) -> AppBuilder:

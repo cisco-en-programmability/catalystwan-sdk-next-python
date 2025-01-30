@@ -21,4 +21,6 @@ class ImageRemoveBuilder:
         :param payload: Request body - Process remove software image operation
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/device/action/image-remove", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/image-remove", payload=payload, **kw
+        )

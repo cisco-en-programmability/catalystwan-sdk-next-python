@@ -28,5 +28,9 @@ class AddcloudxBuilder:
             "type": type_,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/template/cloudx/addcloudx/{type}", params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/template/cloudx/addcloudx/{type}",
+            params=params,
+            payload=payload,
+            **kw,
         )

@@ -20,7 +20,9 @@ class CertificateBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/sslproxy/settings/vmanage/certificate", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/sslproxy/settings/vmanage/certificate", **kw
+        )
 
     def setv_manageintermediate_cert(self, payload: Optional[Any] = None, **kw) -> Any:
         """

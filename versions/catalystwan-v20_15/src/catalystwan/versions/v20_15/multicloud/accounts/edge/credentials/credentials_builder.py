@@ -15,7 +15,9 @@ class CredentialsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def validate_edge_account_update_credentials(self, account_id: str, payload: Optional[Any] = None, **kw):
+    def validate_edge_account_update_credentials(
+        self, account_id: str, payload: Optional[Any] = None, **kw
+    ):
         """
         Update Multicloud edge account credential
 
@@ -28,5 +30,9 @@ class CredentialsBuilder:
             "accountId": account_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/multicloud/accounts/edge/{accountId}/credentials", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/multicloud/accounts/edge/{accountId}/credentials",
+            params=params,
+            payload=payload,
+            **kw,
         )

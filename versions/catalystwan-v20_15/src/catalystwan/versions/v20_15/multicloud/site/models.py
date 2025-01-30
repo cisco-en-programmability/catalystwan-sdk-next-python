@@ -10,8 +10,12 @@ class TunnelsInner:
     CGW details relevant to AWS/AWS_GOVCLOUD
     """
 
-    accepted_route_count: Optional[int] = _field(default=None, metadata={"alias": "acceptedRouteCount"})
-    last_status_change_timestamp: Optional[str] = _field(default=None, metadata={"alias": "lastStatusChangeTimestamp"})
+    accepted_route_count: Optional[int] = _field(
+        default=None, metadata={"alias": "acceptedRouteCount"}
+    )
+    last_status_change_timestamp: Optional[str] = _field(
+        default=None, metadata={"alias": "lastStatusChangeTimestamp"}
+    )
     outer_ip_addr: Optional[str] = _field(default=None, metadata={"alias": "outerIpAddr"})
     status: Optional[str] = _field(default=None)
     status_message: Optional[str] = _field(default=None, metadata={"alias": "statusMessage"})
@@ -27,7 +31,9 @@ class GetSitesResponse:
     color: Optional[str] = _field(default=None)
     hostname: Optional[str] = _field(default=None)
     interface: Optional[str] = _field(default=None)
-    preferred_interface: Optional[bool] = _field(default=None, metadata={"alias": "preferredInterface"})
+    preferred_interface: Optional[bool] = _field(
+        default=None, metadata={"alias": "preferredInterface"}
+    )
     private_ip: Optional[str] = _field(default=None, metadata={"alias": "privateIp"})
     public_ip: Optional[str] = _field(default=None, metadata={"alias": "publicIp"})
     site_id: Optional[str] = _field(default=None, metadata={"alias": "siteId"})

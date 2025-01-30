@@ -22,5 +22,9 @@ class SignedCertBuilder:
         :returns: str
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/certificate/install/signedCert", return_type=str, payload=payload, **kw
+            "POST",
+            "/dataservice/certificate/install/signedCert",
+            return_type=str,
+            payload=payload,
+            **kw,
         )

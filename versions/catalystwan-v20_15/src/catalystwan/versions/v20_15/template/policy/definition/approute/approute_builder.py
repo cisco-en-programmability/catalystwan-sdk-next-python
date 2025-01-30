@@ -25,7 +25,9 @@ class ApprouteBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/definition/approute", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/definition/approute", **kw
+        )
 
     def create_policy_definition_12(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -64,7 +66,11 @@ class ApprouteBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/definition/approute/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/definition/approute/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_definition_12(self, id: str, **kw):

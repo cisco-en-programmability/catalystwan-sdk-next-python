@@ -24,4 +24,6 @@ class ContainerBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/csp/containers/container", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/csp/containers/container", params=params, **kw
+        )

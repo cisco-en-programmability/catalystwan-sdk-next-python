@@ -49,7 +49,9 @@ class HistoryBuilder:
             "sortBy": sort_by,
             "sortOrder": sort_order,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/history", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/history", params=params, **kw
+        )
 
     def get_stats_raw_data_20(
         self,

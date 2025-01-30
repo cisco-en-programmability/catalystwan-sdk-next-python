@@ -22,5 +22,9 @@ class VedgeBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/dca/template/policy/vedge", return_type=List[Any], payload=payload, **kw
+            "POST",
+            "/dataservice/dca/template/policy/vedge",
+            return_type=List[Any],
+            payload=payload,
+            **kw,
         )

@@ -48,7 +48,9 @@ class BridgeinterfaceBuilder:
             "sortBy": sort_by,
             "sortOrder": sort_order,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/bridgeinterface", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/bridgeinterface", params=params, **kw
+        )
 
     def get_stats_raw_data_6(
         self,

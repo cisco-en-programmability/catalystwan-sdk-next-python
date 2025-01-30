@@ -25,7 +25,9 @@ class PriisdnportBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/definition/priisdnport", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/definition/priisdnport", **kw
+        )
 
     def create_policy_definition_29(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -64,7 +66,11 @@ class PriisdnportBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/definition/priisdnport/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/definition/priisdnport/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_definition_29(self, id: str, **kw):
@@ -78,7 +84,10 @@ class PriisdnportBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/definition/priisdnport/{id}", params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/definition/priisdnport/{id}",
+            params=params,
+            **kw,
         )
 
     @property

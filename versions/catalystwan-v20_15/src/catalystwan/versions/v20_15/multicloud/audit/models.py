@@ -25,5 +25,7 @@ class AuditFixIssuesToSync:
 @dataclass
 class AuditFix:
     cloud_type: str = _field(metadata={"alias": "cloudType"})
-    issues_to_sync: Optional[List[AuditFixIssuesToSync]] = _field(default=None, metadata={"alias": "issuesToSync"})
+    issues_to_sync: Optional[List[AuditFixIssuesToSync]] = _field(
+        default=None, metadata={"alias": "issuesToSync"}
+    )
     region: Optional[str] = _field(default=None)

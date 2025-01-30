@@ -21,4 +21,6 @@ class LxcactivateBuilder:
         :param payload: Activation request payload
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/device/action/lxcactivate", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/lxcactivate", payload=payload, **kw
+        )

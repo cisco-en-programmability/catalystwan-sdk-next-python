@@ -27,7 +27,9 @@ class CertificateBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/sslproxy/certificate", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/sslproxy/certificate", params=params, **kw
+        )
 
     def update_certificate(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -36,7 +38,9 @@ class CertificateBuilder:
         :param payload: Upload device certificate
         :returns: Any
         """
-        return self._request_adapter.request("PUT", "/dataservice/sslproxy/certificate", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/sslproxy/certificate", payload=payload, **kw
+        )
 
     @property
     def wanedge(self) -> WanedgeBuilder:

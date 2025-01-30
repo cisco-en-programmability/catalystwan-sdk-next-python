@@ -50,7 +50,11 @@ class MediaprofileBuilder:
             "infoTag": info_tag,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/list/mediaprofile", return_type=List[Any], params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/list/mediaprofile",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def get_lists_by_id(self, id: str, **kw) -> Any:
@@ -79,7 +83,11 @@ class MediaprofileBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/list/mediaprofile/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/list/mediaprofile/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_list(self, id: str, **kw):

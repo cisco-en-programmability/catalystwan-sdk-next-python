@@ -33,7 +33,9 @@ class SigBuilder:
         """
         The sigGlobalCredentials property
         """
-        from .sig_global_credentials.sig_global_credentials_builder import SigGlobalCredentialsBuilder
+        from .sig_global_credentials.sig_global_credentials_builder import (
+            SigGlobalCredentialsBuilder,
+        )
 
         return SigGlobalCredentialsBuilder(self._request_adapter)
 

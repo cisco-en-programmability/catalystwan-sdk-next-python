@@ -21,4 +21,6 @@ class DeviceBuilder:
         :param payload: Query string
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/dca/system/device", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/dca/system/device", payload=payload, **kw
+        )

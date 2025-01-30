@@ -10,7 +10,9 @@ class VedgeCheckResponseData:
     data field
     """
 
-    v_edge_device_present: Optional[bool] = _field(default=None, metadata={"alias": "vEdgeDevicePresent"})
+    v_edge_device_present: Optional[bool] = _field(
+        default=None, metadata={"alias": "vEdgeDevicePresent"}
+    )
 
 
 @dataclass
@@ -39,8 +41,12 @@ class VedgeCheckResponseHeaderColumns:
     color: Optional[VedgeCheckResponseHeaderColumnsColor] = _field(default=None)
     color_property: Optional[str] = _field(default=None, metadata={"alias": "colorProperty"})
     data_type: Optional[str] = _field(default=None, metadata={"alias": "dataType"})
-    default_property_key: Optional[str] = _field(default=None, metadata={"alias": "defaultPropertyKey"})
-    default_property_value: Optional[str] = _field(default=None, metadata={"alias": "defaultPropertyValue"})
+    default_property_key: Optional[str] = _field(
+        default=None, metadata={"alias": "defaultPropertyKey"}
+    )
+    default_property_value: Optional[str] = _field(
+        default=None, metadata={"alias": "defaultPropertyValue"}
+    )
     display: Optional[str] = _field(default=None)
     display_format: Optional[str] = _field(default=None, metadata={"alias": "displayFormat"})
     editable: Optional[bool] = _field(default=None)
@@ -88,7 +94,9 @@ class VedgeCheckResponseHeader:
     columns: Optional[List[VedgeCheckResponseHeaderColumns]] = _field(default=None)
     fields: Optional[List[VedgeCheckResponseHeaderFields]] = _field(default=None)
     generated_on: Optional[int] = _field(default=None, metadata={"alias": "generatedOn"})
-    view_keys: Optional[VedgeCheckResponseHeaderViewKeys] = _field(default=None, metadata={"alias": "viewKeys"})
+    view_keys: Optional[VedgeCheckResponseHeaderViewKeys] = _field(
+        default=None, metadata={"alias": "viewKeys"}
+    )
 
 
 @dataclass

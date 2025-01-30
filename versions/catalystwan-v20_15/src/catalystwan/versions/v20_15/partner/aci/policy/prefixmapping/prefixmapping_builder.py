@@ -40,5 +40,9 @@ class PrefixmappingBuilder:
             "partnerId": partner_id,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/partner/aci/policy/prefixmapping/{partnerId}", params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/partner/aci/policy/prefixmapping/{partnerId}",
+            params=params,
+            payload=payload,
+            **kw,
         )

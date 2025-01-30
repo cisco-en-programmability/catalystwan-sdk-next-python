@@ -22,4 +22,6 @@ class DeviceBuilder:
         :returns: List[Any]
         """
         logging.warning("Operation: %s is deprecated", "getCloudOnRampDevices")
-        return self._request_adapter.request("GET", "/dataservice/template/cor/device", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/cor/device", return_type=List[Any], **kw
+        )

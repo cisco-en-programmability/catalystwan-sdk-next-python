@@ -19,7 +19,9 @@ class TransitvpcBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_transit_vp_cs(self, accountid: str, cloudregion: str, cloudtype: Optional[str] = "AWS", **kw) -> List[Any]:
+    def get_transit_vp_cs(
+        self, accountid: str, cloudregion: str, cloudtype: Optional[str] = "AWS", **kw
+    ) -> List[Any]:
         """
         Get transit VPC/VNet list
 
@@ -35,7 +37,11 @@ class TransitvpcBuilder:
             "cloudtype": cloudtype,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/cor/transitvpc", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/template/cor/transitvpc",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def update_transit_vpc(self, payload: Optional[Any] = None, **kw) -> Any:
@@ -46,7 +52,9 @@ class TransitvpcBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "updateTransitVPC")
-        return self._request_adapter.request("PUT", "/dataservice/template/cor/transitvpc", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/template/cor/transitvpc", payload=payload, **kw
+        )
 
     def add_transit_vpc(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -56,7 +64,9 @@ class TransitvpcBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "addTransitVPC")
-        return self._request_adapter.request("POST", "/dataservice/template/cor/transitvpc", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/cor/transitvpc", payload=payload, **kw
+        )
 
     @property
     def autoscale_properties(self) -> AutoscalePropertiesBuilder:

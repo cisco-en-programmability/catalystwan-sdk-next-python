@@ -12,8 +12,12 @@ if TYPE_CHECKING:
     from .appqoe_rm_resource.appqoe_rm_resource_builder import AppqoeRmResourceBuilder
     from .appqoe_rm_stats.appqoe_rm_stats_builder import AppqoeRmStatsBuilder
     from .appqoe_services_status.appqoe_services_status_builder import AppqoeServicesStatusBuilder
-    from .appqoe_sppi_pipe_resource.appqoe_sppi_pipe_resource_builder import AppqoeSppiPipeResourceBuilder
-    from .appqoe_sppi_queue_resource.appqoe_sppi_queue_resource_builder import AppqoeSppiQueueResourceBuilder
+    from .appqoe_sppi_pipe_resource.appqoe_sppi_pipe_resource_builder import (
+        AppqoeSppiPipeResourceBuilder,
+    )
+    from .appqoe_sppi_queue_resource.appqoe_sppi_queue_resource_builder import (
+        AppqoeSppiQueueResourceBuilder,
+    )
     from .cluster_summary.cluster_summary_builder import ClusterSummaryBuilder
     from .error_recent.error_recent_builder import ErrorRecentBuilder
     from .expired_flow_id.expired_flow_id_builder import ExpiredFlowIdBuilder
@@ -82,7 +86,9 @@ class AppqoeBuilder:
         """
         The appqoe-services-status property
         """
-        from .appqoe_services_status.appqoe_services_status_builder import AppqoeServicesStatusBuilder
+        from .appqoe_services_status.appqoe_services_status_builder import (
+            AppqoeServicesStatusBuilder,
+        )
 
         return AppqoeServicesStatusBuilder(self._request_adapter)
 
@@ -91,7 +97,9 @@ class AppqoeBuilder:
         """
         The appqoe-sppi-pipe-resource property
         """
-        from .appqoe_sppi_pipe_resource.appqoe_sppi_pipe_resource_builder import AppqoeSppiPipeResourceBuilder
+        from .appqoe_sppi_pipe_resource.appqoe_sppi_pipe_resource_builder import (
+            AppqoeSppiPipeResourceBuilder,
+        )
 
         return AppqoeSppiPipeResourceBuilder(self._request_adapter)
 
@@ -100,7 +108,9 @@ class AppqoeBuilder:
         """
         The appqoe-sppi-queue-resource property
         """
-        from .appqoe_sppi_queue_resource.appqoe_sppi_queue_resource_builder import AppqoeSppiQueueResourceBuilder
+        from .appqoe_sppi_queue_resource.appqoe_sppi_queue_resource_builder import (
+            AppqoeSppiQueueResourceBuilder,
+        )
 
         return AppqoeSppiQueueResourceBuilder(self._request_adapter)
 

@@ -6,7 +6,9 @@ from typing import Optional
 
 @dataclass
 class CustomSettings:
-    cloud_gateway_solution: Optional[str] = _field(default=None, metadata={"alias": "cloudGatewaySolution"})
+    cloud_gateway_solution: Optional[str] = _field(
+        default=None, metadata={"alias": "cloudGatewaySolution"}
+    )
     cloud_type: Optional[str] = _field(default=None, metadata={"alias": "cloudType"})
     instance_size: Optional[str] = _field(default=None, metadata={"alias": "instanceSize"})
     ip_subnet_pool: Optional[str] = _field(default=None, metadata={"alias": "ipSubnetPool"})

@@ -23,4 +23,6 @@ class UpBuilder:
         :returns: None
         """
         logging.warning("Operation: %s is deprecated", "scaleUp")
-        return self._request_adapter.request("POST", "/dataservice/template/cor/scale/up", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/cor/scale/up", payload=payload, **kw
+        )

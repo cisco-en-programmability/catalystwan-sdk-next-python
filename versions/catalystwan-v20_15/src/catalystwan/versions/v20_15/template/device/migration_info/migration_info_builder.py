@@ -23,4 +23,6 @@ class MigrationInfoBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/device/migration_info", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/device/migration_info", **kw
+        )

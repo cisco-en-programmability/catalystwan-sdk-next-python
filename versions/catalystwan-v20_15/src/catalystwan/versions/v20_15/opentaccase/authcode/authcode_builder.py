@@ -16,7 +16,11 @@ class AuthcodeBuilder:
         self._request_adapter = request_adapter
 
     def oauth_access(
-        self, code: Optional[str] = None, redirect: Optional[str] = None, is_refresh_needed: Optional[bool] = None, **kw
+        self,
+        code: Optional[str] = None,
+        redirect: Optional[str] = None,
+        is_refresh_needed: Optional[bool] = None,
+        **kw,
     ) -> List[Any]:
         """
         Gets Access Token for SSO Logjn

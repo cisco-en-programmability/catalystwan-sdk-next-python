@@ -25,7 +25,11 @@ class CertificateBuilder:
             "type": type_,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/settings/configuration/certificate/{type}", return_type=str, params=params, **kw
+            "GET",
+            "/dataservice/settings/configuration/certificate/{type}",
+            return_type=str,
+            params=params,
+            **kw,
         )
 
     def edit_cert_configuration(self, type_: str, payload: Optional[Any] = None, **kw) -> str:

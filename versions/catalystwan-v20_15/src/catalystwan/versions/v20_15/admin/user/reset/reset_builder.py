@@ -21,4 +21,6 @@ class ResetBuilder:
         :param payload: User
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/admin/user/reset", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/admin/user/reset", payload=payload, **kw
+        )

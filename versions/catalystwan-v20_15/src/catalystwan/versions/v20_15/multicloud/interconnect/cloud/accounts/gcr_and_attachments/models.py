@@ -12,8 +12,12 @@ class GcpInterconnectAttachment:
     Google cloud Interconnect Attachment Object.
     """
 
-    cloud_router_ip_address: Optional[str] = _field(default=None, metadata={"alias": "cloudRouterIpAddress"})
-    customer_ip_address: Optional[str] = _field(default=None, metadata={"alias": "customerIpAddress"})
+    cloud_router_ip_address: Optional[str] = _field(
+        default=None, metadata={"alias": "cloudRouterIpAddress"}
+    )
+    customer_ip_address: Optional[str] = _field(
+        default=None, metadata={"alias": "customerIpAddress"}
+    )
     id: Optional[str] = _field(default=None)
     # MTU of the Interconnect attachment
     mtu: Optional[str] = _field(default=None)
@@ -44,4 +48,6 @@ class GcpCloudRouter:
 
 @dataclass
 class InlineResponse20010:
-    gcp_cloud_routers: Optional[List[GcpCloudRouter]] = _field(default=None, metadata={"alias": "gcpCloudRouters"})
+    gcp_cloud_routers: Optional[List[GcpCloudRouter]] = _field(
+        default=None, metadata={"alias": "gcpCloudRouters"}
+    )

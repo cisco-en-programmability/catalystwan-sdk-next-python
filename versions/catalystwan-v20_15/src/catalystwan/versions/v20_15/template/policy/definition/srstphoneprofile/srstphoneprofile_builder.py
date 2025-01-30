@@ -25,7 +25,9 @@ class SrstphoneprofileBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/definition/srstphoneprofile", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/definition/srstphoneprofile", **kw
+        )
 
     def create_policy_definition_30(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -35,7 +37,10 @@ class SrstphoneprofileBuilder:
         :returns: Any
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/template/policy/definition/srstphoneprofile", payload=payload, **kw
+            "POST",
+            "/dataservice/template/policy/definition/srstphoneprofile",
+            payload=payload,
+            **kw,
         )
 
     def get_policy_definition_30(self, id: str, **kw) -> Any:
@@ -49,7 +54,10 @@ class SrstphoneprofileBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/definition/srstphoneprofile/{id}", params=params, **kw
+            "GET",
+            "/dataservice/template/policy/definition/srstphoneprofile/{id}",
+            params=params,
+            **kw,
         )
 
     def edit_policy_definition_30(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
@@ -64,7 +72,11 @@ class SrstphoneprofileBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/definition/srstphoneprofile/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/definition/srstphoneprofile/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_definition_30(self, id: str, **kw):
@@ -78,7 +90,10 @@ class SrstphoneprofileBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/definition/srstphoneprofile/{id}", params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/definition/srstphoneprofile/{id}",
+            params=params,
+            **kw,
         )
 
     @property

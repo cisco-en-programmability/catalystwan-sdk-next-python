@@ -35,9 +35,13 @@ class AppBuilder:
         :param payload: Policy list
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/policy/list/app", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/policy/list/app", payload=payload, **kw
+        )
 
-    def delete_policy_lists_with_info_tag_3(self, info_tag: Optional[str] = None, **kw) -> List[Any]:
+    def delete_policy_lists_with_info_tag_3(
+        self, info_tag: Optional[str] = None, **kw
+    ) -> List[Any]:
         """
         Delete policy lists with specific info tag
 
@@ -48,7 +52,11 @@ class AppBuilder:
             "infoTag": info_tag,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/list/app", return_type=List[Any], params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/list/app",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def get_lists_by_id_3(self, id: str, **kw) -> Any:
@@ -61,7 +69,9 @@ class AppBuilder:
         params = {
             "id": id,
         }
-        return self._request_adapter.request("GET", "/dataservice/template/policy/list/app/{id}", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/list/app/{id}", params=params, **kw
+        )
 
     def edit_policy_list_3(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -75,7 +85,11 @@ class AppBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/list/app/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/list/app/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_list_3(self, id: str, **kw):

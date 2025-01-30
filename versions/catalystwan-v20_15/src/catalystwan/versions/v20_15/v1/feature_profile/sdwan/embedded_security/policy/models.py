@@ -19,6 +19,11 @@ ResourceProfileValueDef = Literal["high", "low", "medium"]
 
 
 @dataclass
+class CreateEmbeddedSecurityProfileParcelPostResponse:
+    parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
+
+
+@dataclass
 class RefIdDef:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
@@ -220,7 +225,7 @@ class Data:
 
 
 @dataclass
-class Default:
+class CreateEmbeddedSecurityProfileParcelPostRequest:
     """
     Policy profile parcel schema for POST request
     """

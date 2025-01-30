@@ -6,7 +6,9 @@ from typing import List, Optional
 
 @dataclass
 class GetSingleMslaDevicePayload:
-    configured_system_ip: Optional[str] = _field(default=None, metadata={"alias": "configuredSystemIP"})
+    configured_system_ip: Optional[str] = _field(
+        default=None, metadata={"alias": "configuredSystemIP"}
+    )
     device_model: Optional[str] = _field(default=None, metadata={"alias": "deviceModel"})
     host_name: Optional[str] = _field(default=None, metadata={"alias": "hostName"})
     hsec_compatible: Optional[str] = _field(default=None, metadata={"alias": "hsecCompatible"})

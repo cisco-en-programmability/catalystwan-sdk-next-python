@@ -21,4 +21,6 @@ class CancelBuilder:
         :param payload: Request body for Device bootstrap configuration
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/device/action/cancel", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/cancel", payload=payload, **kw
+        )

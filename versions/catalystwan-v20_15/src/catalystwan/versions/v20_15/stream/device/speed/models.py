@@ -36,7 +36,9 @@ class SpeedTestSession:
     destination_ip: Optional[str] = _field(default=None, metadata={"alias": "destinationIp"})
     device_uuid: Optional[str] = _field(default=None, metadata={"alias": "deviceUUID"})
     port: Optional[str] = _field(default=None)
-    server_list: Optional[List[ServerList]] = _field(default=None, metadata={"alias": "server-list"})
+    server_list: Optional[List[ServerList]] = _field(
+        default=None, metadata={"alias": "server-list"}
+    )
     source_color: Optional[str] = _field(default=None, metadata={"alias": "sourceColor"})
     source_interface: Optional[str] = _field(default=None, metadata={"alias": "sourceInterface"})
     source_ip: Optional[str] = _field(default=None, metadata={"alias": "sourceIp"})

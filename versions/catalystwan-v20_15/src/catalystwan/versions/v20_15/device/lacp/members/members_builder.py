@@ -15,7 +15,11 @@ class MembersBuilder:
         self._request_adapter = request_adapter
 
     def get_lacp_members(
-        self, device_id: str, channel_group: Optional[str] = None, if_name: Optional[str] = None, **kw
+        self,
+        device_id: str,
+        channel_group: Optional[str] = None,
+        if_name: Optional[str] = None,
+        **kw,
     ) -> Any:
         """
         Get device lacp port channel interface table (Real Time)
@@ -30,4 +34,6 @@ class MembersBuilder:
             "ifName": if_name,
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/lacp/members", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/lacp/members", params=params, **kw
+        )

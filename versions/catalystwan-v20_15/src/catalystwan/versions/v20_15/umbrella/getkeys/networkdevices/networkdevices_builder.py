@@ -18,4 +18,6 @@ class NetworkdevicesBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request("GET", "/dataservice/umbrella/getkeys/networkdevices", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/umbrella/getkeys/networkdevices", **kw
+        )

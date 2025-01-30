@@ -31,7 +31,9 @@ class CustomappBuilder:
         :param payload: App payload
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/policy/customapp", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/policy/customapp", payload=payload, **kw
+        )
 
     def get_custom_app_by_id(self, id: str, **kw) -> Any:
         """
@@ -43,7 +45,9 @@ class CustomappBuilder:
         params = {
             "id": id,
         }
-        return self._request_adapter.request("GET", "/dataservice/template/policy/customapp/{id}", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/customapp/{id}", params=params, **kw
+        )
 
     def edit_custom_app(self, id: str, payload: Optional[Any] = None, **kw):
         """
@@ -57,7 +61,11 @@ class CustomappBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/customapp/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/customapp/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_custom_app(self, id: str, **kw):

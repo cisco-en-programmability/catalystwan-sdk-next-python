@@ -10,7 +10,9 @@ class UserObject:
     Object containing the users name
     """
 
-    ad_user_sam_account_name: Optional[str] = _field(default=None, metadata={"alias": "adUserSamAccountName"})
+    ad_user_sam_account_name: Optional[str] = _field(
+        default=None, metadata={"alias": "adUserSamAccountName"}
+    )
 
 
 @dataclass

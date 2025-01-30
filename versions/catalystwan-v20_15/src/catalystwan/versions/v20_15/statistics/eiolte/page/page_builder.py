@@ -15,7 +15,11 @@ class PageBuilder:
         self._request_adapter = request_adapter
 
     def get_stats_pagination_raw_data_6(
-        self, query: Optional[str] = None, scroll_id: Optional[str] = None, count: Optional[int] = None, **kw
+        self,
+        query: Optional[str] = None,
+        scroll_id: Optional[str] = None,
+        count: Optional[int] = None,
+        **kw,
     ) -> Any:
         """
         Get stats raw data
@@ -30,10 +34,16 @@ class PageBuilder:
             "scrollId": scroll_id,
             "count": count,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/eiolte/page", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/eiolte/page", params=params, **kw
+        )
 
     def get_post_stats_pagination_raw_data_6(
-        self, payload: Optional[Any] = None, scroll_id: Optional[str] = None, count: Optional[int] = None, **kw
+        self,
+        payload: Optional[Any] = None,
+        scroll_id: Optional[str] = None,
+        count: Optional[int] = None,
+        **kw,
     ) -> Any:
         """
         Get stats raw data

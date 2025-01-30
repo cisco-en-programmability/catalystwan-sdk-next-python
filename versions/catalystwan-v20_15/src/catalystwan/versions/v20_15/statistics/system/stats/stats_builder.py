@@ -48,7 +48,9 @@ class StatsBuilder:
             "sortBy": sort_by,
             "sortOrder": sort_order,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/system/stats", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/system/stats", params=params, **kw
+        )
 
     def get_stats_raw_data_17(
         self,

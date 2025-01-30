@@ -18,4 +18,6 @@ class ClientSessionTimeoutBuilder:
 
         :returns: str
         """
-        return self._request_adapter.request("GET", "/dataservice/settings/clientSessionTimeout", return_type=str, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/settings/clientSessionTimeout", return_type=str, **kw
+        )

@@ -18,7 +18,7 @@ class GetSdwanEmbeddedSecurityFeatureProfilesGetResponse:
 
 
 @dataclass
-class Default:
+class CreateSdwanEmbeddedSecurityFeatureProfilePostResponse:
     """
     Feature Profile POST Response schema
     """
@@ -34,7 +34,7 @@ class FromFeatureProfileDef:
 
 
 @dataclass
-class EmbeddedSecurityDefault:
+class CreateSdwanEmbeddedSecurityFeatureProfilePostRequest:
     """
     Feature Profile Schema for POST Request
     """

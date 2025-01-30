@@ -44,7 +44,9 @@ class ContainerManagerBuilder:
         """
         The doesValidImageExist property
         """
-        from .does_valid_image_exist.does_valid_image_exist_builder import DoesValidImageExistBuilder
+        from .does_valid_image_exist.does_valid_image_exist_builder import (
+            DoesValidImageExistBuilder,
+        )
 
         return DoesValidImageExistBuilder(self._request_adapter)
 

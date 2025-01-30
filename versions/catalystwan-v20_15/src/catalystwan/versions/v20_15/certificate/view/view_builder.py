@@ -18,4 +18,6 @@ class ViewBuilder:
 
         :returns: str
         """
-        return self._request_adapter.request("GET", "/dataservice/certificate/view", return_type=str, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/certificate/view", return_type=str, **kw
+        )

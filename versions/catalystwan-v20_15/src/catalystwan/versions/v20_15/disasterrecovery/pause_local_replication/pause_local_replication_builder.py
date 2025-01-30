@@ -20,4 +20,6 @@ class PauseLocalReplicationBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/disasterrecovery/pauseLocalReplication", **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/disasterrecovery/pauseLocalReplication", **kw
+        )

@@ -20,4 +20,6 @@ class StatsdbinfoBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/util/olapdb/migration/statsdbinfo", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/util/olapdb/migration/statsdbinfo", **kw
+        )

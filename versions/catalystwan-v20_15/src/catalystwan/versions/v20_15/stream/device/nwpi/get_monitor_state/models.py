@@ -8,7 +8,9 @@ from typing import List, Optional
 class NwpiDomainMonitorStateRespPayloadDevicelist:
     app_vis: Optional[str] = _field(default=None, metadata={"alias": "app-vis"})
     art_vis: Optional[str] = _field(default=None, metadata={"alias": "art-vis"})
-    connected_v_manages: Optional[str] = _field(default=None, metadata={"alias": "connectedVManages"})
+    connected_v_manages: Optional[str] = _field(
+        default=None, metadata={"alias": "connectedVManages"}
+    )
     device_ip: Optional[str] = _field(default=None, metadata={"alias": "device-ip"})
     device_type: Optional[str] = _field(default=None, metadata={"alias": "device-type"})
     dia_vis: Optional[str] = _field(default=None, metadata={"alias": "dia-vis"})

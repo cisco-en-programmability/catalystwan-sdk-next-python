@@ -21,4 +21,6 @@ class ConfigBuilder:
         :param payload: DNS sec config request
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/fedramp/dnssec/config", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/fedramp/dnssec/config", payload=payload, **kw
+        )

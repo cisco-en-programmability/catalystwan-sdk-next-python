@@ -45,7 +45,9 @@ class DeviceAppResponseHeader:
     columns: Optional[List[DeviceAppResponseHeaderColumns]] = _field(default=None)
     fields: Optional[List[DeviceAppResponseHeaderFields]] = _field(default=None)
     generated_on: Optional[int] = _field(default=None, metadata={"alias": "generatedOn"})
-    view_keys: Optional[DeviceAppResponseHeaderViewKeys] = _field(default=None, metadata={"alias": "viewKeys"})
+    view_keys: Optional[DeviceAppResponseHeaderViewKeys] = _field(
+        default=None, metadata={"alias": "viewKeys"}
+    )
 
 
 @dataclass

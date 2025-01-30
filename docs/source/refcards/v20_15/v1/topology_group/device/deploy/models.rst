@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import List, Dict, Union, Literal, Optional, Any
+    from typing import List, Dict, Optional, Union, Any, Literal
 
     ValueType = Literal[
         "ARRAY", "FALSE", "NULL", "NUMBER", "OBJECT", "STRING", "TRUE"

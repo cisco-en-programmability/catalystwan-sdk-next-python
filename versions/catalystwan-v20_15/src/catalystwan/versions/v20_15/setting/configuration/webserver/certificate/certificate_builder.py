@@ -35,7 +35,11 @@ class CertificateBuilder:
         :returns: str
         """
         return self._request_adapter.request(
-            "PUT", "/dataservice/setting/configuration/webserver/certificate", return_type=str, payload=payload, **kw
+            "PUT",
+            "/dataservice/setting/configuration/webserver/certificate",
+            return_type=str,
+            payload=payload,
+            **kw,
         )
 
     def get_csr(self, payload: Optional[Any] = None, **kw) -> str:
@@ -46,7 +50,11 @@ class CertificateBuilder:
         :returns: str
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/setting/configuration/webserver/certificate", return_type=str, payload=payload, **kw
+            "POST",
+            "/dataservice/setting/configuration/webserver/certificate",
+            return_type=str,
+            payload=payload,
+            **kw,
         )
 
     @property

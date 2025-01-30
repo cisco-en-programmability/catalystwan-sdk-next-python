@@ -26,5 +26,9 @@ class ResetuserBuilder:
             "deviceIP": device_ip,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/device/tools/resetuser/{deviceIP}", params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/device/tools/resetuser/{deviceIP}",
+            params=params,
+            payload=payload,
+            **kw,
         )

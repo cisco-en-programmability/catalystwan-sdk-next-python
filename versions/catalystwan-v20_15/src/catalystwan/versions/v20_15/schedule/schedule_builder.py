@@ -28,7 +28,9 @@ class ScheduleBuilder:
         params = {
             "schedulerId": scheduler_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/schedule/{schedulerId}", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/schedule/{schedulerId}", params=params, **kw
+        )
 
     def delete_schedule(self, scheduler_id: str, **kw) -> Any:
         """
@@ -40,7 +42,9 @@ class ScheduleBuilder:
         params = {
             "schedulerId": scheduler_id,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/schedule/{schedulerId}", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/schedule/{schedulerId}", params=params, **kw
+        )
 
     @property
     def create(self) -> CreateBuilder:

@@ -23,4 +23,6 @@ class AttachmentBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "pushNetworkDesign")
-        return self._request_adapter.request("POST", "/dataservice/networkdesign/attachment", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/networkdesign/attachment", payload=payload, **kw
+        )

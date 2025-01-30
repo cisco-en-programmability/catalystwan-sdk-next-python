@@ -18,4 +18,6 @@ class DefaultBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request("GET", "/dataservice/sdavc/protocol-pack/default", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/sdavc/protocol-pack/default", **kw
+        )

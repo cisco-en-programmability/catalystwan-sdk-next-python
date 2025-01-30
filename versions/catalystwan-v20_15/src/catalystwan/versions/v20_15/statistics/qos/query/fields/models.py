@@ -11,7 +11,9 @@ class QoSQueryFieldsRespFieldData:
 
 @dataclass
 class QueryFieldsOption:
-    enabled_date_fields: Optional[bool] = _field(default=None, metadata={"alias": "enabledDateFields"})
+    enabled_date_fields: Optional[bool] = _field(
+        default=None, metadata={"alias": "enabledDateFields"}
+    )
     key: Optional[str] = _field(default=None)
     number: Optional[str] = _field(default=None)
     value: Optional[str] = _field(default=None)
@@ -20,7 +22,9 @@ class QueryFieldsOption:
 @dataclass
 class QoSQueryFieldsResp:
     data_type: Optional[str] = _field(default=None, metadata={"alias": "dataType"})
-    field_data: Optional[QoSQueryFieldsRespFieldData] = _field(default=None, metadata={"alias": "fieldData"})
+    field_data: Optional[QoSQueryFieldsRespFieldData] = _field(
+        default=None, metadata={"alias": "fieldData"}
+    )
     is_required: Optional[bool] = _field(default=None, metadata={"alias": "isRequired"})
     name: Optional[str] = _field(default=None)
     options: Optional[List[QueryFieldsOption]] = _field(default=None)

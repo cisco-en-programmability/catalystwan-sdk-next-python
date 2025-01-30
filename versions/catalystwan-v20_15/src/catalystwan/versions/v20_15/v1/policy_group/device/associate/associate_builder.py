@@ -6,7 +6,7 @@ from typing import Any, Optional
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import AssociateDefault, Default
+from .models import CreatePolicyGroupAssociationPostRequest, UpdatePolicyGroupAssociationPutRequest
 
 
 class AssociateBuilder:
@@ -37,7 +37,10 @@ class AssociateBuilder:
         )
 
     def update_policy_group_association(
-        self, policy_group_id: str, payload: Optional[Default] = None, **kw
+        self,
+        policy_group_id: str,
+        payload: Optional[UpdatePolicyGroupAssociationPutRequest] = None,
+        **kw,
     ):
         """
         Move the devices from one policy group to another
@@ -58,7 +61,10 @@ class AssociateBuilder:
         )
 
     def create_policy_group_association(
-        self, policy_group_id: str, payload: Optional[AssociateDefault] = None, **kw
+        self,
+        policy_group_id: str,
+        payload: Optional[CreatePolicyGroupAssociationPostRequest] = None,
+        **kw,
     ):
         """
         Create associations with device and a policy group

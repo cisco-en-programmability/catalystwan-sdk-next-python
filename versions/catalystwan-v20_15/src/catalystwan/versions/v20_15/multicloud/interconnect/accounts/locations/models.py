@@ -9,7 +9,9 @@ EdgeType = Literal["EQUINIX", "MEGAPORT"]
 @dataclass
 class InterconnectLocationInfoMegaportMpMveInfo:
     image_name_list: Optional[List[str]] = _field(default=None, metadata={"alias": "imageNameList"})
-    product_size_list: Optional[List[str]] = _field(default=None, metadata={"alias": "productSizeList"})
+    product_size_list: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "productSizeList"}
+    )
 
 
 @dataclass
@@ -31,9 +33,13 @@ class InterconnectBillingAccountInfo:
     """
 
     # Interconnect billing account Id
-    edge_billing_account_id: Optional[str] = _field(default=None, metadata={"alias": "edgeBillingAccountId"})
+    edge_billing_account_id: Optional[str] = _field(
+        default=None, metadata={"alias": "edgeBillingAccountId"}
+    )
     # Interconnect billing account name
-    edge_billing_account_name: Optional[str] = _field(default=None, metadata={"alias": "edgeBillingAccountName"})
+    edge_billing_account_name: Optional[str] = _field(
+        default=None, metadata={"alias": "edgeBillingAccountName"}
+    )
 
 
 @dataclass

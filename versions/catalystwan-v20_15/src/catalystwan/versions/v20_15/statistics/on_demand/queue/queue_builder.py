@@ -32,7 +32,9 @@ class QueueBuilder:
         :param payload: On-demand queue entry
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/statistics/on-demand/queue", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/statistics/on-demand/queue", payload=payload, **kw
+        )
 
     def update_queue_entry(self, entry_id: str, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -46,7 +48,11 @@ class QueueBuilder:
             "entryId": entry_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/statistics/on-demand/queue/{entryId}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/statistics/on-demand/queue/{entryId}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_queue_entry(self, entry_id: str, **kw):

@@ -24,4 +24,6 @@ class FeatureBuilder:
         :param payload: Create template request
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/device/feature", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/device/feature", payload=payload, **kw
+        )

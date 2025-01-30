@@ -29,7 +29,11 @@ class ActivateBuilder:
             "policyId": policy_id,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/template/policy/vsmart/activate/{policyId}", params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/template/policy/vsmart/activate/{policyId}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     @property

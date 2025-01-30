@@ -25,7 +25,9 @@ class GroupBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request("GET", "/dataservice/group", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/group", return_type=List[Any], **kw
+        )
 
     @property
     def device(self) -> DeviceBuilder:

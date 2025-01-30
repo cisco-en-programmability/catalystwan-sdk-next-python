@@ -13,9 +13,13 @@ class LinkObject:
 
 @dataclass
 class VersionInformation:
-    current_server_version: Optional[str] = _field(default=None, metadata={"alias": "currentServerVersion"})
+    current_server_version: Optional[str] = _field(
+        default=None, metadata={"alias": "currentServerVersion"}
+    )
     link: Optional[LinkObject] = _field(default=None)
-    supported_versions: Optional[str] = _field(default=None, metadata={"alias": "supportedVersions"})
+    supported_versions: Optional[str] = _field(
+        default=None, metadata={"alias": "supportedVersions"}
+    )
 
 
 @dataclass
@@ -24,4 +28,6 @@ class ConnectResponse:
     Response from ISE ERS version info api
     """
 
-    version_info: Optional[VersionInformation] = _field(default=None, metadata={"alias": "VersionInfo"})
+    version_info: Optional[VersionInformation] = _field(
+        default=None, metadata={"alias": "VersionInfo"}
+    )

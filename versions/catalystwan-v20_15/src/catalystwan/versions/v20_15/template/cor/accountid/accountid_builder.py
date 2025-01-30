@@ -16,7 +16,12 @@ class AccountidBuilder:
         self._request_adapter = request_adapter
 
     def remove_transit_vpc(
-        self, accountid: str, transitvpcid: str, cloudregion: str, cloudtype: Optional[str] = "AWS", **kw
+        self,
+        accountid: str,
+        transitvpcid: str,
+        cloudregion: str,
+        cloudtype: Optional[str] = "AWS",
+        **kw,
     ) -> Any:
         """
         Delete transit VPC/VNet

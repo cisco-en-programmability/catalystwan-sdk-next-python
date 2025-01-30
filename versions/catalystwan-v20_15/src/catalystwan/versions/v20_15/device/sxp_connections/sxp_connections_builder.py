@@ -24,4 +24,6 @@ class SxpConnectionsBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/sxpConnections", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/sxpConnections", params=params, **kw
+        )

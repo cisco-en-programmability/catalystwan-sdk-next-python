@@ -29,5 +29,8 @@ class ServiceProfileConfigBuilder:
             "deviceModel": device_model,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/networkdesign/serviceProfileConfig/{profileId}", params=params, **kw
+            "GET",
+            "/dataservice/networkdesign/serviceProfileConfig/{profileId}",
+            params=params,
+            **kw,
         )

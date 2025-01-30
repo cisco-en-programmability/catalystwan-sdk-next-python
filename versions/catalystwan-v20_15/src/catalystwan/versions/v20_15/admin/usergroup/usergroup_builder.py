@@ -24,7 +24,9 @@ class UsergroupBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request("GET", "/dataservice/admin/usergroup", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/admin/usergroup", return_type=List[Any], **kw
+        )
 
     def create_user_group(self, payload: Optional[Any] = None, **kw):
         """
@@ -33,7 +35,9 @@ class UsergroupBuilder:
         :param payload: User group
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/admin/usergroup", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/admin/usergroup", payload=payload, **kw
+        )
 
     def update_user_group(self, user_group_id: str, payload: Optional[Any] = None, **kw):
         """
@@ -47,7 +51,11 @@ class UsergroupBuilder:
             "userGroupId": user_group_id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/admin/usergroup/{userGroupId}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/admin/usergroup/{userGroupId}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_user_group(self, user_group_id: str, **kw):

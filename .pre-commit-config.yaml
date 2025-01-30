@@ -3,12 +3,6 @@ exclude: '.git'
 default_stages: [pre-commit]
 
 repos:
-  - repo: https://github.com/timothycrosley/isort
-    rev: 5.12.0
-    hooks:
-      - id: isort
-        args: [-l, "100", --profile, black]
-  
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.8.1
     hooks:
@@ -18,3 +12,8 @@ repos:
       # Run the formatter.
       - id: ruff-format
         args: [--line-length, "100"]
+  - repo: https://github.com/timothycrosley/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: [-l, "100", --profile, black]

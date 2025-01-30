@@ -15,7 +15,9 @@ PeeringState = Literal["DISABLED", "ENABLED"]
 
 PeeringType = Literal["PRIVATE", "PUBLIC"]
 
-ServiceProviderProvisioningState = Literal["DEPROVISIONING", "NOT_PROVISIONED", "PROVISIONED", "PROVISIONING"]
+ServiceProviderProvisioningState = Literal[
+    "DEPROVISIONING", "NOT_PROVISIONED", "PROVISIONED", "PROVISIONING"
+]
 
 VirtualNetworkGatewayType = Literal["EXPRESS_ROUTE", "VPN"]
 
@@ -54,12 +56,16 @@ class GatewayAssociation:
     Generic multicloud gateway association object
     """
 
-    advertised_prefix_list: Optional[List[str]] = _field(default=None, metadata={"alias": "advertisedPrefixList"})
+    advertised_prefix_list: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "advertisedPrefixList"}
+    )
     # Cloud Connectivity Gateway Object
     associated_gateway: Optional[GatewayAssociationAssociatedGateway] = _field(
         default=None, metadata={"alias": "associatedGateway"}
     )
-    association_action: Optional[AssociationAction] = _field(default=None, metadata={"alias": "associationAction"})
+    association_action: Optional[AssociationAction] = _field(
+        default=None, metadata={"alias": "associationAction"}
+    )
     association_id: Optional[str] = _field(default=None, metadata={"alias": "associationId"})
     association_state: Optional[str] = _field(default=None, metadata={"alias": "associationState"})
     state_change_error: Optional[str] = _field(default=None, metadata={"alias": "stateChangeError"})
@@ -71,10 +77,14 @@ class AwsDirectConnectGatewayVirtualInterfaceData:
     VIrtual Interface Object
     """
 
-    advertised_prefix_list: Optional[List[str]] = _field(default=None, metadata={"alias": "advertisedPrefixList"})
+    advertised_prefix_list: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "advertisedPrefixList"}
+    )
     asn: Optional[int] = _field(default=None)
     bgp_key: Optional[str] = _field(default=None, metadata={"alias": "bgpKey"})
-    customer_ip_address: Optional[str] = _field(default=None, metadata={"alias": "customerIpAddress"})
+    customer_ip_address: Optional[str] = _field(
+        default=None, metadata={"alias": "customerIpAddress"}
+    )
     ip_address: Optional[str] = _field(default=None, metadata={"alias": "ipAddress"})
     vlan: Optional[int] = _field(default=None)
 
@@ -90,7 +100,9 @@ class AwsDirectConnectGatewayVirtualInterfaceAttachmentList:
     # Id of the private cross connect
     connection_id: Optional[str] = _field(default=None, metadata={"alias": "connectionId"})
     # Type of AWS connection
-    connection_type: Optional[ConnectionType] = _field(default=None, metadata={"alias": "connectionType"})
+    connection_type: Optional[ConnectionType] = _field(
+        default=None, metadata={"alias": "connectionType"}
+    )
     owner_account: Optional[str] = _field(default=None, metadata={"alias": "ownerAccount"})
     region: Optional[str] = _field(default=None)
     state_change_error: Optional[str] = _field(default=None, metadata={"alias": "stateChangeError"})
@@ -98,8 +110,12 @@ class AwsDirectConnectGatewayVirtualInterfaceAttachmentList:
     virtual_interface_data: Optional[AwsDirectConnectGatewayVirtualInterfaceData] = _field(
         default=None, metadata={"alias": "virtualInterfaceData"}
     )
-    virtual_interface_id: Optional[str] = _field(default=None, metadata={"alias": "virtualInterfaceId"})
-    virtual_interface_name: Optional[str] = _field(default=None, metadata={"alias": "virtualInterfaceName"})
+    virtual_interface_id: Optional[str] = _field(
+        default=None, metadata={"alias": "virtualInterfaceId"}
+    )
+    virtual_interface_name: Optional[str] = _field(
+        default=None, metadata={"alias": "virtualInterfaceName"}
+    )
     virtual_interface_type: Optional[VirtualInterfaceType] = _field(
         default=None, metadata={"alias": "virtualInterfaceType"}
     )
@@ -118,9 +134,9 @@ class AwsDirectConnectGateway:
     )
     owner_account: Optional[str] = _field(default=None, metadata={"alias": "ownerAccount"})
     # List of virtual interfaces attached to DxGW
-    virtual_interface_attachment_list: Optional[List[AwsDirectConnectGatewayVirtualInterfaceAttachmentList]] = _field(
-        default=None, metadata={"alias": "virtualInterfaceAttachmentList"}
-    )
+    virtual_interface_attachment_list: Optional[
+        List[AwsDirectConnectGatewayVirtualInterfaceAttachmentList]
+    ] = _field(default=None, metadata={"alias": "virtualInterfaceAttachmentList"})
     # VPC Tags associated to the Direct Connect Gateway
     vpc_tag_names_for_gateway_associations: Optional[List[str]] = _field(
         default=None, metadata={"alias": "vpcTagNamesForGatewayAssociations"}
@@ -137,10 +153,14 @@ class AwsVpcAttachments:
     # VPC Id
     vpc_id: Optional[str] = _field(default=None, metadata={"alias": "vpcId"})
     # List of ip prefixes to be advertized towards DxGw on the VPC routing table.
-    vpc_route_prefix_list: Optional[List[str]] = _field(default=None, metadata={"alias": "vpcRoutePrefixList"})
+    vpc_route_prefix_list: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "vpcRoutePrefixList"}
+    )
     vpc_state: Optional[str] = _field(default=None, metadata={"alias": "vpcState"})
     # List of VPC subnets to be added to DxGw association.
-    vpc_subnet_prefix_list: Optional[List[str]] = _field(default=None, metadata={"alias": "vpcSubnetPrefixList"})
+    vpc_subnet_prefix_list: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "vpcSubnetPrefixList"}
+    )
 
 
 @dataclass
@@ -203,7 +223,9 @@ class CloudConnectivityGatewayAws:
         default=None, metadata={"alias": "directConnectGateway"}
     )
     # AWS Transit Gateway specific Object.
-    transit_gateway: Optional[AwsTransitGateway] = _field(default=None, metadata={"alias": "transitGateway"})
+    transit_gateway: Optional[AwsTransitGateway] = _field(
+        default=None, metadata={"alias": "transitGateway"}
+    )
     # AWS Virtual Private Gateway specific Object.
     virtual_private_gateway: Optional[AwsVirtualPrivateGateway] = _field(
         default=None, metadata={"alias": "virtualPrivateGateway"}
@@ -220,15 +242,21 @@ class AzureErcPeering:
         default=None, metadata={"alias": "advertisedPublicPrefixList"}
     )
     azure_asn: Optional[str] = _field(default=None, metadata={"alias": "azureAsn"})
-    express_route_connection_id: Optional[str] = _field(default=None, metadata={"alias": "expressRouteConnectionId"})
+    express_route_connection_id: Optional[str] = _field(
+        default=None, metadata={"alias": "expressRouteConnectionId"}
+    )
     id: Optional[str] = _field(default=None)
     name: Optional[str] = _field(default=None)
     peer_asn: Optional[str] = _field(default=None, metadata={"alias": "peerAsn"})
     peering_state: Optional[PeeringState] = _field(default=None, metadata={"alias": "peeringState"})
     peering_type: Optional[PeeringType] = _field(default=None, metadata={"alias": "peeringType"})
     primary_azure_port: Optional[str] = _field(default=None, metadata={"alias": "primaryAzurePort"})
-    primary_peer_address_prefix: Optional[str] = _field(default=None, metadata={"alias": "primaryPeerAddressPrefix"})
-    secondary_azure_port: Optional[str] = _field(default=None, metadata={"alias": "secondaryAzurePort"})
+    primary_peer_address_prefix: Optional[str] = _field(
+        default=None, metadata={"alias": "primaryPeerAddressPrefix"}
+    )
+    secondary_azure_port: Optional[str] = _field(
+        default=None, metadata={"alias": "secondaryAzurePort"}
+    )
     secondary_peer_address_prefix: Optional[str] = _field(
         default=None, metadata={"alias": "secondaryPeerAddressPrefix"}
     )
@@ -245,7 +273,9 @@ class AzureErcServiceProviderProperties:
 
     bandwidth_in_mbps: Optional[int] = _field(default=None, metadata={"alias": "bandwidthInMbps"})
     peering_location: Optional[str] = _field(default=None, metadata={"alias": "peeringLocation"})
-    service_provider_name: Optional[str] = _field(default=None, metadata={"alias": "serviceProviderName"})
+    service_provider_name: Optional[str] = _field(
+        default=None, metadata={"alias": "serviceProviderName"}
+    )
 
 
 @dataclass
@@ -290,12 +320,18 @@ class AzureVirtualHub:
     cloud_type: Optional[CloudType] = _field(default=None, metadata={"alias": "cloudType"})
     id: Optional[str] = _field(default=None)
     name: Optional[str] = _field(default=None)
-    provisioning_state: Optional[str] = _field(default=None, metadata={"alias": "provisioningState"})
+    provisioning_state: Optional[str] = _field(
+        default=None, metadata={"alias": "provisioningState"}
+    )
     region: Optional[str] = _field(default=None)
-    resource_group_name: Optional[str] = _field(default=None, metadata={"alias": "resourceGroupName"})
+    resource_group_name: Optional[str] = _field(
+        default=None, metadata={"alias": "resourceGroupName"}
+    )
     routing_state: Optional[str] = _field(default=None, metadata={"alias": "routingState"})
     sku: Optional[str] = _field(default=None)
-    tag_list: Optional[List[AzureVirtualWanTagList]] = _field(default=None, metadata={"alias": "tagList"})
+    tag_list: Optional[List[AzureVirtualWanTagList]] = _field(
+        default=None, metadata={"alias": "tagList"}
+    )
     virtual_router_asn: Optional[str] = _field(default=None, metadata={"alias": "virtualRouterAsn"})
     virtual_router_ip: Optional[List[AzureVirtualHubVirtualRouterIp]] = _field(
         default=None, metadata={"alias": "virtualRouterIp"}
@@ -328,10 +364,16 @@ class AzureVirtualWan:
     cloud_type: Optional[str] = _field(default=None, metadata={"alias": "cloudType"})
     description: Optional[str] = _field(default=None)
     id: Optional[str] = _field(default=None)
-    provisioning_state: Optional[str] = _field(default=None, metadata={"alias": "provisioningState"})
-    tag_list: Optional[List[AzureVirtualWanTagList]] = _field(default=None, metadata={"alias": "tagList"})
+    provisioning_state: Optional[str] = _field(
+        default=None, metadata={"alias": "provisioningState"}
+    )
+    tag_list: Optional[List[AzureVirtualWanTagList]] = _field(
+        default=None, metadata={"alias": "tagList"}
+    )
     virtual_wan_type: Optional[str] = _field(default=None, metadata={"alias": "virtualWanType"})
-    vnet_tovnet_traffic_enabled: Optional[bool] = _field(default=None, metadata={"alias": "vnetTovnetTrafficEnabled"})
+    vnet_tovnet_traffic_enabled: Optional[bool] = _field(
+        default=None, metadata={"alias": "vnetTovnetTrafficEnabled"}
+    )
 
 
 @dataclass
@@ -340,7 +382,9 @@ class AzureExpressRouteCircuitVWanAttachmentList:
     vWan Attachment Name
     """
 
-    v_hub_list: Optional[List[AzureExpressRouteCircuitVHubList]] = _field(default=None, metadata={"alias": "vHubList"})
+    v_hub_list: Optional[List[AzureExpressRouteCircuitVHubList]] = _field(
+        default=None, metadata={"alias": "vHubList"}
+    )
     # Azure Virtual Wan
     v_wan: Optional[AzureVirtualWan] = _field(default=None, metadata={"alias": "vWan"})
 
@@ -362,14 +406,22 @@ class AzureExpressRouteCircuit:
     """
 
     resource_group_name: str = _field(metadata={"alias": "resourceGroupName"})
-    allow_classic_operations: Optional[bool] = _field(default=None, metadata={"alias": "allowClassicOperations"})
+    allow_classic_operations: Optional[bool] = _field(
+        default=None, metadata={"alias": "allowClassicOperations"}
+    )
     bandwidth_in_gbps: Optional[int] = _field(default=None, metadata={"alias": "bandwidthInGbps"})
     gateway_association_list: Optional[List[GatewayAssociation]] = _field(
         default=None, metadata={"alias": "gatewayAssociationList"}
     )
-    global_reach_enabled: Optional[bool] = _field(default=None, metadata={"alias": "globalReachEnabled"})
-    peering_list: Optional[List[AzureErcPeering]] = _field(default=None, metadata={"alias": "peeringList"})
-    provisioning_state: Optional[str] = _field(default=None, metadata={"alias": "provisioningState"})
+    global_reach_enabled: Optional[bool] = _field(
+        default=None, metadata={"alias": "globalReachEnabled"}
+    )
+    peering_list: Optional[List[AzureErcPeering]] = _field(
+        default=None, metadata={"alias": "peeringList"}
+    )
+    provisioning_state: Optional[str] = _field(
+        default=None, metadata={"alias": "provisioningState"}
+    )
     service_key: Optional[str] = _field(default=None, metadata={"alias": "serviceKey"})
     # Azure Express Route Circuit Service Provider Properties
     service_provider_properties: Optional[AzureErcServiceProviderProperties] = _field(
@@ -383,9 +435,9 @@ class AzureExpressRouteCircuit:
     v_wan_attachment_list: Optional[List[AzureExpressRouteCircuitVWanAttachmentList]] = _field(
         default=None, metadata={"alias": "vWanAttachmentList"}
     )
-    vnet_tag_names_for_connections: Optional[List[AzureExpressRouteCircuitVnetTagNamesForConnections]] = _field(
-        default=None, metadata={"alias": "vnetTagNamesForConnections"}
-    )
+    vnet_tag_names_for_connections: Optional[
+        List[AzureExpressRouteCircuitVnetTagNamesForConnections]
+    ] = _field(default=None, metadata={"alias": "vnetTagNamesForConnections"})
 
 
 @dataclass
@@ -394,8 +446,12 @@ class AzureExpressRouteGateway:
     Azure Express Route Gateway Object
     """
 
-    auto_scale_configuration: Optional[str] = _field(default=None, metadata={"alias": "autoScaleConfiguration"})
-    resource_group_name: Optional[str] = _field(default=None, metadata={"alias": "resourceGroupName"})
+    auto_scale_configuration: Optional[str] = _field(
+        default=None, metadata={"alias": "autoScaleConfiguration"}
+    )
+    resource_group_name: Optional[str] = _field(
+        default=None, metadata={"alias": "resourceGroupName"}
+    )
     # Id of the Azure vHUB.
     v_hub_id: Optional[str] = _field(default=None, metadata={"alias": "vHubId"})
 
@@ -454,8 +510,12 @@ class GcpInterconnectAttachment:
     Google cloud Interconnect Attachment Object.
     """
 
-    cloud_router_ip_address: Optional[str] = _field(default=None, metadata={"alias": "cloudRouterIpAddress"})
-    customer_ip_address: Optional[str] = _field(default=None, metadata={"alias": "customerIpAddress"})
+    cloud_router_ip_address: Optional[str] = _field(
+        default=None, metadata={"alias": "cloudRouterIpAddress"}
+    )
+    customer_ip_address: Optional[str] = _field(
+        default=None, metadata={"alias": "customerIpAddress"}
+    )
     id: Optional[str] = _field(default=None)
     # MTU of the Interconnect attachment
     mtu: Optional[str] = _field(default=None)
@@ -505,21 +565,31 @@ class CloudConnectivityGateway:
     """
 
     # AWS cloud Connectivity Gateway Object
-    aws_connectivity_gateway: CloudConnectivityGatewayAws = _field(metadata={"alias": "awsConnectivityGateway"})
+    aws_connectivity_gateway: CloudConnectivityGatewayAws = _field(
+        metadata={"alias": "awsConnectivityGateway"}
+    )
     # Cloud Connectivity Gateway Object
-    azure_connectivity_gateway: CloudConnectivityGatewayAzure = _field(metadata={"alias": "azureConnectivityGateway"})
+    azure_connectivity_gateway: CloudConnectivityGatewayAzure = _field(
+        metadata={"alias": "azureConnectivityGateway"}
+    )
     cloud_account_id: str = _field(metadata={"alias": "cloudAccountId"})
     cloud_type: str = _field(metadata={"alias": "cloudType"})
     gateway_name: str = _field(metadata={"alias": "gatewayName"})
     # Google cloud Connectivity Gateway Object.
-    gcp_connectivity_gateway: CloudConnectivityGatewayGcp = _field(metadata={"alias": "gcpConnectivityGateway"})
+    gcp_connectivity_gateway: CloudConnectivityGatewayGcp = _field(
+        metadata={"alias": "gcpConnectivityGateway"}
+    )
     region: str
     cloud_gateway_name: Optional[str] = _field(default=None, metadata={"alias": "cloudGatewayName"})
-    connectivity_gateway_state: Optional[str] = _field(default=None, metadata={"alias": "connectivityGatewayState"})
+    connectivity_gateway_state: Optional[str] = _field(
+        default=None, metadata={"alias": "connectivityGatewayState"}
+    )
     description: Optional[str] = _field(default=None)
     gateway_id: Optional[str] = _field(default=None, metadata={"alias": "gatewayId"})
     # Resource created by vManage
-    is_vmanage_created: Optional[bool] = _field(default=None, metadata={"alias": "isVmanageCreated"})
+    is_vmanage_created: Optional[bool] = _field(
+        default=None, metadata={"alias": "isVmanageCreated"}
+    )
     # Option indicates object type
     new_format: Optional[bool] = _field(default=None, metadata={"alias": "newFormat"})
 

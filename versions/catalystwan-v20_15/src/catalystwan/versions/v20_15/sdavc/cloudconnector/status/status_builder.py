@@ -20,4 +20,6 @@ class StatusBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/sdavc/cloudconnector/status", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/sdavc/cloudconnector/status", **kw
+        )

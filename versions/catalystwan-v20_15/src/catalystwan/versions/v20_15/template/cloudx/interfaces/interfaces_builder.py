@@ -21,4 +21,6 @@ class InterfacesBuilder:
         :param payload: Cloudx
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/template/cloudx/interfaces", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/cloudx/interfaces", payload=payload, **kw
+        )

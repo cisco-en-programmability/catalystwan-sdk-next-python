@@ -25,10 +25,15 @@ class DevicelistBuilder:
             "indexName": index_name,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/statistics/settings/disable/devicelist/{indexName}", params=params, **kw
+            "GET",
+            "/dataservice/statistics/settings/disable/devicelist/{indexName}",
+            params=params,
+            **kw,
         )
 
-    def update_statistics_device_list(self, index_name: str, payload: Optional[Any] = None, **kw) -> Any:
+    def update_statistics_device_list(
+        self, index_name: str, payload: Optional[Any] = None, **kw
+    ) -> Any:
         """
         Update list of disabled devices for a statistics index
 

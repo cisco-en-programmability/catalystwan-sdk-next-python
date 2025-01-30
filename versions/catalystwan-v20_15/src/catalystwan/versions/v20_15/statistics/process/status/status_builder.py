@@ -25,5 +25,9 @@ class StatusBuilder:
             "processQueue": process_queue,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/statistics/process/status", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/statistics/process/status",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )

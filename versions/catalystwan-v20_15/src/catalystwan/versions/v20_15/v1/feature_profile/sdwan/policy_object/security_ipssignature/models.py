@@ -40,7 +40,7 @@ class Data:
 
 
 @dataclass
-class Default:
+class CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest:
     """
     security-ipssignature profile parcel schema for POST request
     """
@@ -62,4 +62,6 @@ class GetDataPrefixProfileParcelForPolicyObjectGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # security-ipssignature profile parcel schema for POST request
-    payload: Optional[Default] = _field(default=None)
+    payload: Optional[CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest] = _field(
+        default=None
+    )

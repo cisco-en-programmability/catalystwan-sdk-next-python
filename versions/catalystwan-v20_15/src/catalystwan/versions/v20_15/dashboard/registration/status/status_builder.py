@@ -18,4 +18,6 @@ class StatusBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request("GET", "/dataservice/dashboard/registration/status", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/dashboard/registration/status", **kw
+        )

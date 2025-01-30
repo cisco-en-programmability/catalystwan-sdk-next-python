@@ -25,7 +25,9 @@ class InterconnectMrfSettings:
     # Multi Region Fabric router role
     mrf_router_role: Optional[str] = _field(default=None, metadata={"alias": "mrfRouterRole"})
     # Multi Region Fabric Transport Gateway
-    mrf_transport_gateway: Optional[bool] = _field(default=None, metadata={"alias": "mrfTransportGateway"})
+    mrf_transport_gateway: Optional[bool] = _field(
+        default=None, metadata={"alias": "mrfTransportGateway"}
+    )
     # Network Hierarchy Region Id
     nhm_region_id: Optional[int] = _field(default=None, metadata={"alias": "nhmRegionId"})
     # Network Hierarchy Region name
@@ -41,7 +43,9 @@ class InterconnectGatewaySettings:
     )
     edge_type: Optional[EdgeType] = _field(default=None, metadata={"alias": "edgeType"})
     # Assigned name of the Interconnect Gateway Custom Settings
-    egw_custom_setting_name: Optional[str] = _field(default=None, metadata={"alias": "egwCustomSettingName"})
+    egw_custom_setting_name: Optional[str] = _field(
+        default=None, metadata={"alias": "egwCustomSettingName"}
+    )
     # Ip subnet pool assigned to the gateway
     ip_subnet_pool: Optional[str] = _field(default=None, metadata={"alias": "ipSubnetPool"})
 
@@ -54,7 +58,9 @@ class InterconnectGatewayExtended:
     edge_gateway_name: str = _field(metadata={"alias": "edgeGatewayName"})
     edge_type: str = _field(metadata={"alias": "edgeType"})
     ip_transit: str = _field(metadata={"alias": "ipTransit"})
-    license_type: LicenseType = _field(metadata={"alias": "licenseType"})  # pytype: disable=annotation-type-mismatch
+    license_type: LicenseType = _field(
+        metadata={"alias": "licenseType"}
+    )  # pytype: disable=annotation-type-mismatch
     region: str
     region_id: str = _field(metadata={"alias": "regionId"})
     site_name: str = _field(metadata={"alias": "siteName"})
@@ -72,11 +78,19 @@ class InterconnectGatewayExtended:
     license_sku_id: Optional[str] = _field(default=None, metadata={"alias": "licenseSkuId"})
     # Ip pool allocated to Interconnect Gateway for Loopback Interfaces
     loopback_cidr: Optional[str] = _field(default=None, metadata={"alias": "loopbackCidr"})
-    mrf_settings: Optional[InterconnectMrfSettings] = _field(default=None, metadata={"alias": "mrfSettings"})
+    mrf_settings: Optional[InterconnectMrfSettings] = _field(
+        default=None, metadata={"alias": "mrfSettings"}
+    )
     resource_state: Optional[str] = _field(default=None, metadata={"alias": "resourceState"})
-    resource_state_message: Optional[str] = _field(default=None, metadata={"alias": "resourceStateMessage"})
-    resource_state_update_ts: Optional[str] = _field(default=None, metadata={"alias": "resourceStateUpdateTs"})
-    service_chain_attachments: Optional[str] = _field(default=None, metadata={"alias": "serviceChainAttachments"})
+    resource_state_message: Optional[str] = _field(
+        default=None, metadata={"alias": "resourceStateMessage"}
+    )
+    resource_state_update_ts: Optional[str] = _field(
+        default=None, metadata={"alias": "resourceStateUpdateTs"}
+    )
+    service_chain_attachments: Optional[str] = _field(
+        default=None, metadata={"alias": "serviceChainAttachments"}
+    )
     settings: Optional[InterconnectGatewaySettings] = _field(default=None)
 
 

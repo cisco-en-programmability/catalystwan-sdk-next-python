@@ -21,4 +21,6 @@ class CreateBuilder:
         :param payload: schedule request information
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/schedule/create", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/schedule/create", payload=payload, **kw
+        )

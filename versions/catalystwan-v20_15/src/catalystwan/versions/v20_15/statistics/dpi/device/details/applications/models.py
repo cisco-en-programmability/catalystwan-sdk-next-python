@@ -61,7 +61,9 @@ class DeviceAppDetailResponseHeader:
     columns: Optional[List[DeviceAppResponseHeaderColumns]] = _field(default=None)
     fields: Optional[List[DeviceAppResponseHeaderFields]] = _field(default=None)
     generated_on: Optional[int] = _field(default=None, metadata={"alias": "generatedOn"})
-    view_keys: Optional[DeviceAppDetailResponseHeaderViewKeys] = _field(default=None, metadata={"alias": "viewKeys"})
+    view_keys: Optional[DeviceAppDetailResponseHeaderViewKeys] = _field(
+        default=None, metadata={"alias": "viewKeys"}
+    )
 
 
 @dataclass
@@ -75,4 +77,6 @@ class DeviceAppDetailResponsePageInfo:
 class DeviceAppDetailResponse:
     data: Optional[List[DeviceAppDetailResponseData]] = _field(default=None)
     header: Optional[DeviceAppDetailResponseHeader] = _field(default=None)
-    page_info: Optional[DeviceAppDetailResponsePageInfo] = _field(default=None, metadata={"alias": "pageInfo"})
+    page_info: Optional[DeviceAppDetailResponsePageInfo] = _field(
+        default=None, metadata={"alias": "pageInfo"}
+    )

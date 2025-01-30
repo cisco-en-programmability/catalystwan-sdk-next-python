@@ -22,5 +22,9 @@ class VedgeBuilder:
         :returns: str
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/certificate/generate/enterprise/csr/vedge", return_type=str, payload=payload, **kw
+            "POST",
+            "/dataservice/certificate/generate/enterprise/csr/vedge",
+            return_type=str,
+            payload=payload,
+            **kw,
         )

@@ -22,5 +22,9 @@ class CheckBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/software/compliance/ip/origin/check", return_type=List[Any], payload=payload, **kw
+            "POST",
+            "/dataservice/software/compliance/ip/origin/check",
+            return_type=List[Any],
+            payload=payload,
+            **kw,
         )

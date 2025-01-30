@@ -18,4 +18,6 @@ class RegisteredprovidersBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request("GET", "/dataservice/v1/securedeviceonboarding/registeredproviders", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/v1/securedeviceonboarding/registeredproviders", **kw
+        )

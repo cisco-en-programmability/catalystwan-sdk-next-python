@@ -25,5 +25,9 @@ class DetachcloudxBuilder:
         :returns: str
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/template/device/config/detachcloudx", return_type=str, payload=payload, **kw
+            "POST",
+            "/dataservice/template/device/config/detachcloudx",
+            return_type=str,
+            payload=payload,
+            **kw,
         )

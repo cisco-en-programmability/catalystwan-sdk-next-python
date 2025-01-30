@@ -28,11 +28,19 @@ class MigrationBuilder:
             "hasAAA": has_aaa,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/template/device/migration", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/template/device/migration",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def migrate_templates(
-        self, id: List[str], prefix: Optional[str] = "cisco", include_all: Optional[bool] = True, **kw
+        self,
+        id: List[str],
+        prefix: Optional[str] = "cisco",
+        include_all: Optional[bool] = True,
+        **kw,
     ) -> Any:
         """
         Migrate the device templates given the template Ids
@@ -47,4 +55,6 @@ class MigrationBuilder:
             "prefix": prefix,
             "includeAll": include_all,
         }
-        return self._request_adapter.request("POST", "/dataservice/template/device/migration", params=params, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/device/migration", params=params, **kw
+        )

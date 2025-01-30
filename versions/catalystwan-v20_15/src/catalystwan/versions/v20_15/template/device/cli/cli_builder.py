@@ -24,4 +24,6 @@ class CliBuilder:
         :param payload: Create template request
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/device/cli", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/device/cli", payload=payload, **kw
+        )

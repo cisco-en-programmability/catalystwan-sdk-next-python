@@ -24,4 +24,6 @@ class InputBuilder:
         :param payload: Template device input
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/device/config/input", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/device/config/input", payload=payload, **kw
+        )

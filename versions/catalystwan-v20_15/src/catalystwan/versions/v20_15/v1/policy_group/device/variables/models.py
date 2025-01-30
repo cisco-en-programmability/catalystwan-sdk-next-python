@@ -21,7 +21,7 @@ class Devices:
 
 
 @dataclass
-class Default:
+class CreatePolicyGroupDeviceVariablesPutRequest:
     """
     Variables PUT request Schema
     """
@@ -32,7 +32,7 @@ class Default:
 
 
 @dataclass
-class VariablesDefault:
+class FetchPolicyGroupDeviceVariablesPostResponse:
     """
     Variables POST request Schema
     """

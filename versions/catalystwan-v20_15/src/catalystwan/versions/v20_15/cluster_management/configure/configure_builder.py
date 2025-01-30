@@ -24,4 +24,6 @@ class ConfigureBuilder:
         :param payload: vManage server config
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/clusterManagement/configure", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/clusterManagement/configure", payload=payload, **kw
+        )

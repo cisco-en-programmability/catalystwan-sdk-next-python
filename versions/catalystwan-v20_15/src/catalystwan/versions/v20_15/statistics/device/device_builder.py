@@ -48,7 +48,9 @@ class DeviceBuilder:
             "sortBy": sort_by,
             "sortOrder": sort_order,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/device", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/device", params=params, **kw
+        )
 
     def get_stats_raw_data_15(
         self,

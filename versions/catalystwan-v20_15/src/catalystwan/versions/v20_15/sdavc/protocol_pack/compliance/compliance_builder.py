@@ -9,8 +9,12 @@ if TYPE_CHECKING:
     from .all_devices.all_devices_builder import AllDevicesBuilder
     from .custom_application.custom_application_builder import CustomApplicationBuilder
     from .device.device_builder import DeviceBuilder
-    from .initiate_device_compliance.initiate_device_compliance_builder import InitiateDeviceComplianceBuilder
-    from .initiate_policy_compliance.initiate_policy_compliance_builder import InitiatePolicyComplianceBuilder
+    from .initiate_device_compliance.initiate_device_compliance_builder import (
+        InitiateDeviceComplianceBuilder,
+    )
+    from .initiate_policy_compliance.initiate_policy_compliance_builder import (
+        InitiatePolicyComplianceBuilder,
+    )
     from .new_application.new_application_builder import NewApplicationBuilder
     from .policy.policy_builder import PolicyBuilder
 
@@ -55,7 +59,9 @@ class ComplianceBuilder:
         """
         The initiate-device-compliance property
         """
-        from .initiate_device_compliance.initiate_device_compliance_builder import InitiateDeviceComplianceBuilder
+        from .initiate_device_compliance.initiate_device_compliance_builder import (
+            InitiateDeviceComplianceBuilder,
+        )
 
         return InitiateDeviceComplianceBuilder(self._request_adapter)
 
@@ -64,7 +70,9 @@ class ComplianceBuilder:
         """
         The initiate-policy-compliance property
         """
-        from .initiate_policy_compliance.initiate_policy_compliance_builder import InitiatePolicyComplianceBuilder
+        from .initiate_policy_compliance.initiate_policy_compliance_builder import (
+            InitiatePolicyComplianceBuilder,
+        )
 
         return InitiatePolicyComplianceBuilder(self._request_adapter)
 

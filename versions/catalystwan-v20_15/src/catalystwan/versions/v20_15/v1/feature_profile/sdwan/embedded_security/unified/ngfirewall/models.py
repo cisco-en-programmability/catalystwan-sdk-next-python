@@ -774,7 +774,7 @@ class Data:
 
 
 @dataclass
-class Default:
+class CreateNgfirewallProfileParcelPostRequest:
     """
     ngfirewall profile parcel schema for POST request
     """

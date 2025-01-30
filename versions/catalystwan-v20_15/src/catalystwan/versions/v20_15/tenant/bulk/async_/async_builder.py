@@ -24,7 +24,9 @@ class AsyncBuilder:
         :param payload: Tenant model
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/tenant/bulk/async", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/tenant/bulk/async", payload=payload, **kw
+        )
 
     def delete_tenant_async_bulk(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -36,4 +38,6 @@ class AsyncBuilder:
         :param payload: Tenant model
         :returns: Any
         """
-        return self._request_adapter.request("DELETE", "/dataservice/tenant/bulk/async", payload=payload, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/tenant/bulk/async", payload=payload, **kw
+        )

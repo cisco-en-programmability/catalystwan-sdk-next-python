@@ -24,4 +24,6 @@ class RebootcountBuilder:
         params = {
             "isCached": is_cached,
         }
-        return self._request_adapter.request("GET", "/dataservice/network/issues/rebootcount", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/network/issues/rebootcount", params=params, **kw
+        )

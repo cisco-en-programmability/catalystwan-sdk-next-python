@@ -28,7 +28,11 @@ class GlobalBuilder:
         self._request_adapter = request_adapter
 
     def get_mobility_global_feature_profile(
-        self, offset: Optional[int] = None, limit: Optional[int] = 0, reference_count: Optional[bool] = False, **kw
+        self,
+        offset: Optional[int] = None,
+        limit: Optional[int] = 0,
+        reference_count: Optional[bool] = False,
+        **kw,
     ) -> Any:
         """
         Get Mobility Global Feature Profiles

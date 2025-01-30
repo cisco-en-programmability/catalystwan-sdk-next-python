@@ -6,7 +6,10 @@ from typing import Optional
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import CreateNgfirewallProfileParcelPostResponse, Default
+from .models import (
+    CreateNgfirewallProfileParcelPostRequest,
+    CreateNgfirewallProfileParcelPostResponse,
+)
 
 
 class NgfirewallBuilder:
@@ -38,7 +41,10 @@ class NgfirewallBuilder:
         )
 
     def create_ngfirewall_profile_parcel(
-        self, security_id: str, payload: Optional[Default] = None, **kw
+        self,
+        security_id: str,
+        payload: Optional[CreateNgfirewallProfileParcelPostRequest] = None,
+        **kw,
     ) -> CreateNgfirewallProfileParcelPostResponse:
         """
         Create Parcel for Ngfirewall Policy

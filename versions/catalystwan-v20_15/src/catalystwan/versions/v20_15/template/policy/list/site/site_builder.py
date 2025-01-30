@@ -36,9 +36,13 @@ class SiteBuilder:
         :param payload: Policy list
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/policy/list/site", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/policy/list/site", payload=payload, **kw
+        )
 
-    def delete_policy_lists_with_info_tag_33(self, info_tag: Optional[str] = None, **kw) -> List[Any]:
+    def delete_policy_lists_with_info_tag_33(
+        self, info_tag: Optional[str] = None, **kw
+    ) -> List[Any]:
         """
         Delete policy lists with specific info tag
 
@@ -49,7 +53,11 @@ class SiteBuilder:
             "infoTag": info_tag,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/list/site", return_type=List[Any], params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/list/site",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def get_lists_by_id_33(self, id: str, **kw) -> Any:
@@ -62,7 +70,9 @@ class SiteBuilder:
         params = {
             "id": id,
         }
-        return self._request_adapter.request("GET", "/dataservice/template/policy/list/site/{id}", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/list/site/{id}", params=params, **kw
+        )
 
     def edit_policy_list_33(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -76,7 +86,11 @@ class SiteBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/list/site/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/list/site/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_list_33(self, id: str, **kw):

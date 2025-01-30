@@ -24,7 +24,9 @@ class LicensesResponseBaseLicenses:
 @dataclass
 class LicensesResponseTenantLicenses:
     licenses: Optional[List[LicensesResponseLicenses]] = _field(default=None)
-    total_tenant_lic_required: Optional[int] = _field(default=None, metadata={"alias": "totalTenantLicRequired"})
+    total_tenant_lic_required: Optional[int] = _field(
+        default=None, metadata={"alias": "totalTenantLicRequired"}
+    )
 
 
 @dataclass
@@ -40,11 +42,15 @@ class LicensesResponse:
 @dataclass
 class AppliedFilters:
     billing_type: Optional[str] = _field(default=None, metadata={"alias": "billingType"})
-    license_classification: Optional[str] = _field(default=None, metadata={"alias": "licenseClassification"})
+    license_classification: Optional[str] = _field(
+        default=None, metadata={"alias": "licenseClassification"}
+    )
 
 
 @dataclass
 class LicensesRequest:
-    applied_filters: Optional[AppliedFilters] = _field(default=None, metadata={"alias": "appliedFilters"})
+    applied_filters: Optional[AppliedFilters] = _field(
+        default=None, metadata={"alias": "appliedFilters"}
+    )
     # List of device UUIDs
     uuids: Optional[List[str]] = _field(default=None)

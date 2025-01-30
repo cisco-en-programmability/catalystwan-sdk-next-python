@@ -22,7 +22,9 @@ class LockBuilder:
         params = {
             "processId": process_id,
         }
-        return self._request_adapter.request("PUT", "/dataservice/template/lock/{processId}", params=params, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/template/lock/{processId}", params=params, **kw
+        )
 
     def remove_lock(self, process_id: str, **kw):
         """
@@ -34,4 +36,6 @@ class LockBuilder:
         params = {
             "processId": process_id,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/template/lock/{processId}", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/template/lock/{processId}", params=params, **kw
+        )

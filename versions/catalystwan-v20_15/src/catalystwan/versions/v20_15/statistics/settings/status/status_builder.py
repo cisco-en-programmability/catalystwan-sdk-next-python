@@ -32,7 +32,9 @@ class StatusBuilder:
         :param payload: Stats setting
         :returns: None
         """
-        return self._request_adapter.request("PUT", "/dataservice/statistics/settings/status", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/statistics/settings/status", payload=payload, **kw
+        )
 
     @property
     def device(self) -> DeviceBuilder:

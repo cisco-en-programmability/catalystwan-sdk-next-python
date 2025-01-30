@@ -31,7 +31,9 @@ class UserBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request("GET", "/dataservice/admin/user", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/admin/user", return_type=List[Any], **kw
+        )
 
     def create_user_1(self, payload: Optional[Any] = None, **kw):
         """
@@ -40,7 +42,9 @@ class UserBuilder:
         :param payload: User
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/admin/user", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/admin/user", payload=payload, **kw
+        )
 
     def update_user_1(self, user_name: str, payload: Optional[Any] = None, **kw):
         """
@@ -67,7 +71,9 @@ class UserBuilder:
         params = {
             "userName": user_name,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/admin/user/{userName}", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/admin/user/{userName}", params=params, **kw
+        )
 
     @property
     def active_sessions(self) -> ActiveSessionsBuilder:

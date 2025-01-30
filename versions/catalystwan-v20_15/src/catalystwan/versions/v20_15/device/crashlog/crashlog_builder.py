@@ -29,7 +29,9 @@ class CrashlogBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/crashlog", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/crashlog", params=params, **kw
+        )
 
     @property
     def details(self) -> DetailsBuilder:

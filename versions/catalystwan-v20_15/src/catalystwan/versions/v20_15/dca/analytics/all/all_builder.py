@@ -21,4 +21,6 @@ class AllBuilder:
         :param payload: Stats setting
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/dca/analytics/all", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/dca/analytics/all", payload=payload, **kw
+        )

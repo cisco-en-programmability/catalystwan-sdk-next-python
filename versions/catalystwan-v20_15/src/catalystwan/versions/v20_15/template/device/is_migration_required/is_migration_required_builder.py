@@ -23,4 +23,6 @@ class IsMigrationRequiredBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/device/is_migration_required", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/device/is_migration_required", **kw
+        )

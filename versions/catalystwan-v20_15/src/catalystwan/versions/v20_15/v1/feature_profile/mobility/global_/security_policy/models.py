@@ -3,7 +3,9 @@ from dataclasses import dataclass
 from dataclasses import field as _field
 from typing import List, Literal, Optional
 
-Type = Literal["cellular", "ethernet", "globalSettings", "networkProtocol", "securityPolicy", "wifi"]
+Type = Literal[
+    "cellular", "ethernet", "globalSettings", "networkProtocol", "securityPolicy", "wifi"
+]
 
 
 @dataclass
@@ -41,5 +43,7 @@ class CreateSecurityPolicyProfileParcelForMobilityPostRequest:
     # Timestamp of last update
     last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
     policy_name: Optional[str] = _field(default=None, metadata={"alias": "policyName"})
-    policy_rules: Optional[List[PolicyRule]] = _field(default=None, metadata={"alias": "policyRules"})
+    policy_rules: Optional[List[PolicyRule]] = _field(
+        default=None, metadata={"alias": "policyRules"}
+    )
     variables: Optional[List[Variable]] = _field(default=None)

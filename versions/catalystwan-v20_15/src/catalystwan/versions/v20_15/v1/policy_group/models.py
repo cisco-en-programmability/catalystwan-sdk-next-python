@@ -86,7 +86,7 @@ class ProfileObjDef:
 
 
 @dataclass
-class Default:
+class CreatePolicyGroupPostResponse:
     """
     Policy Group POST Response schema
     """
@@ -109,7 +109,7 @@ class FromPolicyGroupDef:
 
 
 @dataclass
-class PolicyGroupDefault:
+class CreatePolicyGroupPostRequest:
     """
     Policy Group POST Request schema
     """

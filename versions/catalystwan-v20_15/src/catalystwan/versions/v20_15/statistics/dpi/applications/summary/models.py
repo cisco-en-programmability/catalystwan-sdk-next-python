@@ -46,7 +46,9 @@ class DpiAppResponseHeader:
     columns: Optional[List[DpiAppResponseHeaderColumns]] = _field(default=None)
     fields: Optional[List[DpiAppResponseHeaderFields]] = _field(default=None)
     generated_on: Optional[int] = _field(default=None, metadata={"alias": "generatedOn"})
-    view_keys: Optional[DpiAppResponseHeaderViewKeys] = _field(default=None, metadata={"alias": "viewKeys"})
+    view_keys: Optional[DpiAppResponseHeaderViewKeys] = _field(
+        default=None, metadata={"alias": "viewKeys"}
+    )
 
 
 @dataclass

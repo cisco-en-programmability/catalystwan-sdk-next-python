@@ -35,9 +35,13 @@ class RegionBuilder:
         :param payload: Policy list
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/policy/list/region", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/policy/list/region", payload=payload, **kw
+        )
 
-    def delete_policy_lists_with_info_tag_31(self, info_tag: Optional[str] = None, **kw) -> List[Any]:
+    def delete_policy_lists_with_info_tag_31(
+        self, info_tag: Optional[str] = None, **kw
+    ) -> List[Any]:
         """
         Delete policy lists with specific info tag
 
@@ -48,7 +52,11 @@ class RegionBuilder:
             "infoTag": info_tag,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/list/region", return_type=List[Any], params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/list/region",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def get_lists_by_id_31(self, id: str, **kw) -> Any:
@@ -77,7 +85,11 @@ class RegionBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/list/region/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/list/region/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_list_31(self, id: str, **kw):

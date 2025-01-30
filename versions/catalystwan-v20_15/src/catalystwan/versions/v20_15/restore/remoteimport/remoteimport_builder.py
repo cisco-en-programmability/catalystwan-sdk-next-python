@@ -21,4 +21,6 @@ class RemoteimportBuilder:
         :param payload: ImportBackupInfo Payload
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/restore/remoteimport", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/restore/remoteimport", payload=payload, **kw
+        )

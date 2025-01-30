@@ -25,5 +25,8 @@ class SchemaBuilder:
             "policyGroupId": policy_group_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/policy-group/{policyGroupId}/device/variables/schema", params=params, **kw
+            "GET",
+            "/dataservice/v1/policy-group/{policyGroupId}/device/variables/schema",
+            params=params,
+            **kw,
         )

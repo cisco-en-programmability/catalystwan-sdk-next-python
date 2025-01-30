@@ -38,4 +38,6 @@ class DpiPaginationResponsePageInfo:
 @dataclass
 class DpiPaginationResponse:
     data: Optional[List[DpiDataObject]] = _field(default=None)
-    page_info: Optional[DpiPaginationResponsePageInfo] = _field(default=None, metadata={"alias": "pageInfo"})
+    page_info: Optional[DpiPaginationResponsePageInfo] = _field(
+        default=None, metadata={"alias": "pageInfo"}
+    )

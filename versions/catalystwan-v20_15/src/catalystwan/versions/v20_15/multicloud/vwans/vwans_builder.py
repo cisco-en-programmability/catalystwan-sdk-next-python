@@ -39,4 +39,6 @@ class VwansBuilder:
             "resourceGroup": resource_group,
             "refresh": refresh,
         }
-        return self._request_adapter.request("GET", "/dataservice/multicloud/vwans", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/multicloud/vwans", params=params, **kw
+        )

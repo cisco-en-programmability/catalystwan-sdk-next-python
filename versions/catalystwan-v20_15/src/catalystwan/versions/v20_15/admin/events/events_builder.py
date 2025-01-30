@@ -22,4 +22,6 @@ class EventsBuilder:
         params = {
             "sseSessionId": sse_session_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/admin/events/{sseSessionId}", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/admin/events/{sseSessionId}", params=params, **kw
+        )

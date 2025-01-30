@@ -25,5 +25,9 @@ class OutboundBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/device/ipsec/ike/outbound", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/device/ipsec/ike/outbound",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )

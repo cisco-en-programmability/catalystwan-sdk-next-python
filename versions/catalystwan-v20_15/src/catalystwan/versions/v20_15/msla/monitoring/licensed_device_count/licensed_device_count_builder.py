@@ -20,4 +20,6 @@ class LicensedDeviceCountBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/msla/monitoring/licensedDeviceCount", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/msla/monitoring/licensedDeviceCount", **kw
+        )

@@ -34,7 +34,9 @@ class CloudxBuilder:
 
         :returns: List[Any]
         """
-        return self._request_adapter.request("GET", "/dataservice/template/cloudx", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/cloudx", return_type=List[Any], **kw
+        )
 
     @property
     def addcloudx(self) -> AddcloudxBuilder:

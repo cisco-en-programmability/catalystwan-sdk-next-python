@@ -18,4 +18,6 @@ class SgtResponse:
     Security Groups Returned from ISE
     """
 
-    security_groups: Optional[List[SecurityGroup]] = _field(default=None, metadata={"alias": "securityGroups"})
+    security_groups: Optional[List[SecurityGroup]] = _field(
+        default=None, metadata={"alias": "securityGroups"}
+    )

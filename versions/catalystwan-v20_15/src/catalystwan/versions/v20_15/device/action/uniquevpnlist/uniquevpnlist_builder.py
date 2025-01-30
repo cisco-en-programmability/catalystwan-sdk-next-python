@@ -22,5 +22,9 @@ class UniquevpnlistBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/device/action/uniquevpnlist", return_type=List[Any], payload=payload, **kw
+            "POST",
+            "/dataservice/device/action/uniquevpnlist",
+            return_type=List[Any],
+            payload=payload,
+            **kw,
         )

@@ -31,5 +31,9 @@ class EventsBuilder:
             "endtime": endtime,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/partner/aci/policy/events/{partnerId}", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/partner/aci/policy/events/{partnerId}",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )

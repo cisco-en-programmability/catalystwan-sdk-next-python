@@ -25,7 +25,9 @@ class RewriteruleBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/definition/rewriterule", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/definition/rewriterule", **kw
+        )
 
     def create_policy_definition_19(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -64,7 +66,11 @@ class RewriteruleBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/definition/rewriterule/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/definition/rewriterule/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_definition_19(self, id: str, **kw):
@@ -78,7 +84,10 @@ class RewriteruleBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/definition/rewriterule/{id}", params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/definition/rewriterule/{id}",
+            params=params,
+            **kw,
         )
 
     @property

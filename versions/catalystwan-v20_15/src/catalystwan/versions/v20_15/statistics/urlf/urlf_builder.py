@@ -48,7 +48,9 @@ class UrlfBuilder:
             "sortBy": sort_by,
             "sortOrder": sort_order,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/urlf", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/urlf", params=params, **kw
+        )
 
     def get_stats_raw_data_22(
         self,

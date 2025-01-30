@@ -23,4 +23,6 @@ class VbondBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/device/config/vbond", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/device/config/vbond", **kw
+        )

@@ -20,4 +20,6 @@ class DeregisterBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/disasterrecovery/deregister", **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/disasterrecovery/deregister", **kw
+        )

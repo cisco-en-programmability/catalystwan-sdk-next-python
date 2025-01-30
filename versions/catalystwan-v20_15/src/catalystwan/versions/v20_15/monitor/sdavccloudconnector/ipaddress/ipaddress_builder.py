@@ -20,4 +20,6 @@ class IpaddressBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/monitor/sdavccloudconnector/ipaddress", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/monitor/sdavccloudconnector/ipaddress", **kw
+        )

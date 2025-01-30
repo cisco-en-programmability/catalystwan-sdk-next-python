@@ -21,4 +21,6 @@ class LxcresetBuilder:
         :param payload: Reset request payload
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/device/action/lxcreset", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/lxcreset", payload=payload, **kw
+        )

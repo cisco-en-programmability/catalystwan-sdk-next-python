@@ -10,7 +10,9 @@ InterconnectTypeParam = Literal["EQUINIX", "MEGAPORT"]
 class MulticloudSystemSettings:
     enable_monitoring: Optional[bool] = _field(default=None, metadata={"alias": "enableMonitoring"})
     # Enable or disable Configuration Group for Gateways
-    use_configuration_group: Optional[str] = _field(default=None, metadata={"alias": "useConfigurationGroup"})
+    use_configuration_group: Optional[str] = _field(
+        default=None, metadata={"alias": "useConfigurationGroup"}
+    )
 
 
 @dataclass

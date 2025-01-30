@@ -24,4 +24,6 @@ class DataplaneStatsBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/utd/dataplane-stats", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/utd/dataplane-stats", params=params, **kw
+        )

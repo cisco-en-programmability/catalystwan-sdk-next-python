@@ -21,4 +21,6 @@ class UsernamesBuilder:
         :param payload: Datacenter/vBond password update request
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/disasterrecovery/usernames", payload=payload, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/disasterrecovery/usernames", payload=payload, **kw
+        )

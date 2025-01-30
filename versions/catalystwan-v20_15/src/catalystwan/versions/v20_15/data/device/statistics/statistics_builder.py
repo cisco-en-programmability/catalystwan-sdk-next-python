@@ -57,7 +57,11 @@ class StatisticsBuilder:
             "timeZone": time_zone,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/data/device/statistics/{state_data_type}", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/data/device/statistics/{state_data_type}",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     @property

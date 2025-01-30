@@ -18,7 +18,11 @@ class PolicyBuilder:
         self._request_adapter = request_adapter
 
     def get_compliance_policy(
-        self, offset: Optional[int] = None, limit: Optional[int] = None, protocol_pack_name: Optional[str] = None, **kw
+        self,
+        offset: Optional[int] = None,
+        limit: Optional[int] = None,
+        protocol_pack_name: Optional[str] = None,
+        **kw,
     ):
         """
         Get all policy compliance details

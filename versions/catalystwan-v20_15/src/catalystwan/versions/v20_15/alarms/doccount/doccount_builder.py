@@ -26,9 +26,13 @@ class DoccountBuilder:
             "query": query,
             "site-id": site_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/alarms/doccount", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/alarms/doccount", params=params, **kw
+        )
 
-    def post_doc_count(self, payload: Optional[Any] = None, site_id: Optional[str] = None, **kw) -> Any:
+    def post_doc_count(
+        self, payload: Optional[Any] = None, site_id: Optional[str] = None, **kw
+    ) -> Any:
         """
         Get the count of alarms as per the query passed.
 

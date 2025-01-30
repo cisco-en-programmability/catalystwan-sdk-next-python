@@ -6,8 +6,12 @@ from typing import Optional
 
 @dataclass
 class InterconnectDeviceInfoExtended:
-    config_status_message: Optional[str] = _field(default=None, metadata={"alias": "configStatusMessage"})
-    configured_system_ip: Optional[str] = _field(default=None, metadata={"alias": "configuredSystemIP"})
+    config_status_message: Optional[str] = _field(
+        default=None, metadata={"alias": "configStatusMessage"}
+    )
+    configured_system_ip: Optional[str] = _field(
+        default=None, metadata={"alias": "configuredSystemIP"}
+    )
     device_model: Optional[str] = _field(default=None, metadata={"alias": "device-model"})
     device_type: Optional[str] = _field(default=None, metadata={"alias": "device-type"})
     edge_gateway_name: Optional[str] = _field(default=None, metadata={"alias": "edgeGatewayName"})

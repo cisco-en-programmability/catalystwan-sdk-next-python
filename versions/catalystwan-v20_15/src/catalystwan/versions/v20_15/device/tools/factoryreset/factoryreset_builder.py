@@ -21,4 +21,6 @@ class FactoryresetBuilder:
         :param payload: Device factory reset
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/device/tools/factoryreset", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/tools/factoryreset", payload=payload, **kw
+        )

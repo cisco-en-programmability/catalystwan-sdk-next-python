@@ -177,7 +177,9 @@ class CertificateValidity:
     This is Certificate Validity
     """
 
-    certificate_validity: Optional[str] = _field(default=None, metadata={"alias": "certificateValidity"})
+    certificate_validity: Optional[str] = _field(
+        default=None, metadata={"alias": "certificateValidity"}
+    )
 
 
 @dataclass

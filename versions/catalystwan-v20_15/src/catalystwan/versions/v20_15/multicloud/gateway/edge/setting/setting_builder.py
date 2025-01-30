@@ -27,5 +27,8 @@ class SettingBuilder:
             "edgeGatewayName": edge_gateway_name,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/gateway/edge/setting/{edgeGatewayName}", params=params, **kw
+            "GET",
+            "/dataservice/multicloud/gateway/edge/setting/{edgeGatewayName}",
+            params=params,
+            **kw,
         )

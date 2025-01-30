@@ -24,4 +24,6 @@ class UrlfUpdateStatusBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/utd/urlf-update-status", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/utd/urlf-update-status", params=params, **kw
+        )

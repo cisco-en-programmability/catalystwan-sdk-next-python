@@ -18,4 +18,6 @@ class PasswordPolicyBuilder:
 
         :returns: str
         """
-        return self._request_adapter.request("GET", "/dataservice/settings/passwordPolicy", return_type=str, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/settings/passwordPolicy", return_type=str, **kw
+        )

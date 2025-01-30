@@ -24,7 +24,9 @@ class AggregationBuilder:
         params = {
             "query": query,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/device/aggregation", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/device/aggregation", params=params, **kw
+        )
 
     def get_post_aggregation_data_by_query_18(self, payload: Optional[Any] = None, **kw) -> Any:
         """

@@ -18,4 +18,6 @@ class AllDevicesBuilder:
 
         :returns: None
         """
-        return self._request_adapter.request("GET", "/dataservice/sdavc/protocol-pack/compliance/all-devices", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/sdavc/protocol-pack/compliance/all-devices", **kw
+        )

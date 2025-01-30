@@ -15,7 +15,9 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_flowssummary(self, limit: Optional[int] = None, query: Optional[str] = None, **kw) -> Any:
+    def create_flowssummary(
+        self, limit: Optional[int] = None, query: Optional[str] = None, **kw
+    ) -> Any:
         """
         Generate cflowd flows list in a grid table
 

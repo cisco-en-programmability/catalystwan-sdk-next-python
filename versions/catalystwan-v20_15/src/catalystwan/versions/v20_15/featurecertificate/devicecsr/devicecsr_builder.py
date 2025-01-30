@@ -27,7 +27,9 @@ class DevicecsrBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/featurecertificate/devicecsr", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/featurecertificate/devicecsr", params=params, **kw
+        )
 
     def gen_device_csr(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -39,4 +41,6 @@ class DevicecsrBuilder:
         :param payload: CSR request for cEdge
         :returns: Any
         """
-        return self._request_adapter.request("PUT", "/dataservice/featurecertificate/devicecsr", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/featurecertificate/devicecsr", payload=payload, **kw
+        )

@@ -21,7 +21,9 @@ class MdpconfigBuilder:
         :param payload: addInternalPolicy
         :returns: Any
         """
-        return self._request_adapter.request("PUT", "/dataservice/mdp/policies/mdpconfig", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/mdp/policies/mdpconfig", payload=payload, **kw
+        )
 
     def retrieve_mdp_config_object(self, device_id: str, **kw) -> List[Any]:
         """
@@ -34,5 +36,9 @@ class MdpconfigBuilder:
             "deviceId": device_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/mdp/policies/mdpconfig/{deviceId}", return_type=List[Any], params=params, **kw
+            "GET",
+            "/dataservice/mdp/policies/mdpconfig/{deviceId}",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )

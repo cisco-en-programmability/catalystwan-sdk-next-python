@@ -8,7 +8,11 @@ InterconnectTypeParam = Literal["EQUINIX", "MEGAPORT"]
 
 @dataclass
 class InlineResponse2003:
-    configured_hostname: Optional[str] = _field(default=None, metadata={"alias": "configuredHostname"})
-    configured_system_ip: Optional[str] = _field(default=None, metadata={"alias": "configuredSystemIP"})
+    configured_hostname: Optional[str] = _field(
+        default=None, metadata={"alias": "configuredHostname"}
+    )
+    configured_system_ip: Optional[str] = _field(
+        default=None, metadata={"alias": "configuredSystemIP"}
+    )
     device_model: Optional[str] = _field(default=None, metadata={"alias": "deviceModel"})
     uuid: Optional[str] = _field(default=None)

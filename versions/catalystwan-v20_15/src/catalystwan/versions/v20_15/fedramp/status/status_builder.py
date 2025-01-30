@@ -21,4 +21,6 @@ class StatusBuilder:
         :param payload: Network deployment mode
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/fedramp/status", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/fedramp/status", payload=payload, **kw
+        )

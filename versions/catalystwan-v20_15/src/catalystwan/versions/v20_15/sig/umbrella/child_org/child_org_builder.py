@@ -22,4 +22,6 @@ class ChildOrgBuilder:
         params = {
             "type": type_,
         }
-        return self._request_adapter.request("GET", "/dataservice/sig/umbrella/childOrg/{type}", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/sig/umbrella/childOrg/{type}", params=params, **kw
+        )

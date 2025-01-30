@@ -25,5 +25,9 @@ class DetailBuilder:
             "status": status,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/certificate/stats/detail", return_type=List[str], params=params, **kw
+            "GET",
+            "/dataservice/certificate/stats/detail",
+            return_type=List[str],
+            params=params,
+            **kw,
         )

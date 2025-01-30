@@ -24,4 +24,6 @@ class ErrorRecentBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/appqoe/error-recent", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/appqoe/error-recent", params=params, **kw
+        )

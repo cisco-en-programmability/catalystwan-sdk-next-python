@@ -45,4 +45,6 @@ class FlowlogPaginationResponsePageInfo:
 @dataclass
 class FlowlogPaginationResponse:
     data: Optional[List[FlowlogDataObject]] = _field(default=None)
-    page_info: Optional[FlowlogPaginationResponsePageInfo] = _field(default=None, metadata={"alias": "pageInfo"})
+    page_info: Optional[FlowlogPaginationResponsePageInfo] = _field(
+        default=None, metadata={"alias": "pageInfo"}
+    )

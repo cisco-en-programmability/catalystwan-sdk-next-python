@@ -28,7 +28,9 @@ class MapBuilder:
             "accountid": accountid,
             "cloudregion": cloudregion,
         }
-        return self._request_adapter.request("GET", "/dataservice/template/cor/map", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/cor/map", params=params, **kw
+        )
 
     def map_vp_cs(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -38,7 +40,9 @@ class MapBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "mapVPCs")
-        return self._request_adapter.request("POST", "/dataservice/template/cor/map", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/cor/map", payload=payload, **kw
+        )
 
     def unmap_vp_cs(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -48,4 +52,6 @@ class MapBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "unmapVPCs")
-        return self._request_adapter.request("DELETE", "/dataservice/template/cor/map", payload=payload, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/template/cor/map", payload=payload, **kw
+        )

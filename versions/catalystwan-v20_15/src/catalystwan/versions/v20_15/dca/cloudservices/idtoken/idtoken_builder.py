@@ -29,4 +29,6 @@ class IdtokenBuilder:
         :param payload: DCA Id token
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/dca/cloudservices/idtoken", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/dca/cloudservices/idtoken", payload=payload, **kw
+        )

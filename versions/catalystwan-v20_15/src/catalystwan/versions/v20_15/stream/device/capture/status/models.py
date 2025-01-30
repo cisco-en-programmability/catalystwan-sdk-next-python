@@ -10,5 +10,9 @@ SessionStatus = Literal["IN_PROGRESS", "NOT_STARTED", "START", "STOP"]
 
 @dataclass
 class GetFileDownloadStatusRes:
-    file_download_status: Optional[FileDownloadStatus] = _field(default=None, metadata={"alias": "fileDownloadStatus"})
-    session_status: Optional[SessionStatus] = _field(default=None, metadata={"alias": "sessionStatus"})
+    file_download_status: Optional[FileDownloadStatus] = _field(
+        default=None, metadata={"alias": "fileDownloadStatus"}
+    )
+    session_status: Optional[SessionStatus] = _field(
+        default=None, metadata={"alias": "sessionStatus"}
+    )

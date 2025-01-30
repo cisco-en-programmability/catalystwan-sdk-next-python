@@ -32,7 +32,9 @@ class CircuitBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "createCircuit")
-        return self._request_adapter.request("POST", "/dataservice/networkdesign/circuit", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/networkdesign/circuit", payload=payload, **kw
+        )
 
     def delete_circuit(self, id: str, **kw):
         """
@@ -45,4 +47,6 @@ class CircuitBuilder:
         params = {
             "id": id,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/networkdesign/circuit/{id}", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/networkdesign/circuit/{id}", params=params, **kw
+        )

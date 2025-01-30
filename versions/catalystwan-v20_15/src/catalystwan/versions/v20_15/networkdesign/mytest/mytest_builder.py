@@ -26,4 +26,6 @@ class MytestBuilder:
         params = {
             "name": name,
         }
-        return self._request_adapter.request("GET", "/dataservice/networkdesign/mytest/{name}", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/networkdesign/mytest/{name}", params=params, **kw
+        )

@@ -13,7 +13,9 @@ class GetAllUnclaimedDevices:
     org: Optional[str] = _field(default=None)
     serial_number: Optional[str] = _field(default=None, metadata={"alias": "serial-number"})
     status: Optional[str] = _field(default=None)
-    subject_serial_number: Optional[str] = _field(default=None, metadata={"alias": "subject-serial-number"})
+    subject_serial_number: Optional[str] = _field(
+        default=None, metadata={"alias": "subject-serial-number"}
+    )
     vdevice_data_key: Optional[str] = _field(default=None, metadata={"alias": "vdevice-dataKey"})
     vdevice_host_name: Optional[str] = _field(default=None, metadata={"alias": "vdevice-host-name"})
     vdevice_name: Optional[str] = _field(default=None, metadata={"alias": "vdevice-name"})

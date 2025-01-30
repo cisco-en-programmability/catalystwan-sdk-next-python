@@ -26,5 +26,9 @@ class LockUserBuilder:
             "userName": user_name,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/admin/user/lockUser/{userName}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/admin/user/lockUser/{userName}",
+            params=params,
+            payload=payload,
+            **kw,
         )

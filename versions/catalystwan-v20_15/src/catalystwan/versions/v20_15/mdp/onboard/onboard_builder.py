@@ -24,7 +24,9 @@ class OnboardBuilder:
         :param payload: Onboard
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/mdp/onboard", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/mdp/onboard", payload=payload, **kw
+        )
 
     def update_onboarding_payload(self, nms_id: str, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -51,7 +53,9 @@ class OnboardBuilder:
         params = {
             "nmsId": nms_id,
         }
-        return self._request_adapter.request("DELETE", "/dataservice/mdp/onboard/{nmsId}", params=params, **kw)
+        return self._request_adapter.request(
+            "DELETE", "/dataservice/mdp/onboard/{nmsId}", params=params, **kw
+        )
 
     @property
     def status(self) -> StatusBuilder:

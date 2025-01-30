@@ -15,7 +15,11 @@ class PageBuilder:
         self._request_adapter = request_adapter
 
     def get_stats_pagination_raw_data(
-        self, query: Optional[str] = None, scroll_id: Optional[str] = None, count: Optional[int] = None, **kw
+        self,
+        query: Optional[str] = None,
+        scroll_id: Optional[str] = None,
+        count: Optional[int] = None,
+        **kw,
     ) -> Any:
         """
         Get stats raw data
@@ -35,7 +39,11 @@ class PageBuilder:
         )
 
     def get_post_stats_pagination_raw_data(
-        self, payload: Optional[Any] = None, scroll_id: Optional[str] = None, count: Optional[int] = None, **kw
+        self,
+        payload: Optional[Any] = None,
+        scroll_id: Optional[str] = None,
+        count: Optional[int] = None,
+        **kw,
     ) -> Any:
         """
         Get stats raw data
@@ -50,5 +58,9 @@ class PageBuilder:
             "count": count,
         }
         return self._request_adapter.request(
-            "POST", "/dataservice/statistics/apphostinginterface/page", params=params, payload=payload, **kw
+            "POST",
+            "/dataservice/statistics/apphostinginterface/page",
+            params=params,
+            payload=payload,
+            **kw,
         )

@@ -22,4 +22,6 @@ class ParametersBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "getGlobalParameters")
-        return self._request_adapter.request("GET", "/dataservice/networkdesign/global/parameters", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/networkdesign/global/parameters", **kw
+        )

@@ -24,4 +24,6 @@ class Ikev2Builder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/ipsec/ikev2", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/ipsec/ikev2", params=params, **kw
+        )

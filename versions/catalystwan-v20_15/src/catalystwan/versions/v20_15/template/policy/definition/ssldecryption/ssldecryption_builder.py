@@ -25,7 +25,9 @@ class SsldecryptionBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/template/policy/definition/ssldecryption", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/definition/ssldecryption", **kw
+        )
 
     def create_policy_definition_3(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -64,7 +66,11 @@ class SsldecryptionBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/definition/ssldecryption/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/definition/ssldecryption/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_definition_3(self, id: str, **kw):
@@ -78,7 +84,10 @@ class SsldecryptionBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/definition/ssldecryption/{id}", params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/definition/ssldecryption/{id}",
+            params=params,
+            **kw,
         )
 
     @property

@@ -9,8 +9,9 @@ if TYPE_CHECKING:
     from .commplans.commplans_builder import CommplansBuilder
     from .deviceusage.deviceusage_builder import DeviceusageBuilder
     from .fetch_sdo_token.fetch_sdo_token_builder import FetchSdoTokenBuilder
-    from .get_url_for_sdo_identity_service.get_url_for_sdo_identity_service_builder import \
-        GetUrlForSdoIdentityServiceBuilder
+    from .get_url_for_sdo_identity_service.get_url_for_sdo_identity_service_builder import (
+        GetUrlForSdoIdentityServiceBuilder,
+    )
     from .provider_credentials.provider_credentials_builder import ProviderCredentialsBuilder
     from .providercredentials.providercredentials_builder import ProvidercredentialsBuilder
     from .providerscredentials.providerscredentials_builder import ProviderscredentialsBuilder
@@ -58,8 +59,9 @@ class SecuredeviceonboardingBuilder:
         """
         The getUrlForSdoIdentityService property
         """
-        from .get_url_for_sdo_identity_service.get_url_for_sdo_identity_service_builder import \
-            GetUrlForSdoIdentityServiceBuilder
+        from .get_url_for_sdo_identity_service.get_url_for_sdo_identity_service_builder import (
+            GetUrlForSdoIdentityServiceBuilder,
+        )
 
         return GetUrlForSdoIdentityServiceBuilder(self._request_adapter)
 

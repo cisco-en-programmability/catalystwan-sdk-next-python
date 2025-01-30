@@ -10,7 +10,7 @@ class DeviceIdDef:
 
 
 @dataclass
-class Default:
+class UpdatePolicyGroupAssociationPutRequest:
     """
     Policy Group Associate Put Request schema
     """
@@ -27,7 +27,7 @@ class AssociateDeviceIdDef:
 
 
 @dataclass
-class AssociateDefault:
+class CreatePolicyGroupAssociationPostRequest:
     """
     Policy Group Associate Post Request schema
     """

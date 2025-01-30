@@ -6,7 +6,10 @@ from typing import Optional
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import Default
+from .models import (
+    CreateEmbeddedSecurityProfileParcelPostRequest,
+    CreateEmbeddedSecurityProfileParcelPostResponse,
+)
 
 
 class PolicyBuilder:
@@ -38,14 +41,17 @@ class PolicyBuilder:
         )
 
     def create_embedded_security_profile_parcel(
-        self, security_id: str, payload: Optional[Default] = None, **kw
-    ) -> str:
+        self,
+        security_id: str,
+        payload: Optional[CreateEmbeddedSecurityProfileParcelPostRequest] = None,
+        **kw,
+    ) -> CreateEmbeddedSecurityProfileParcelPostResponse:
         """
         Create Parcel for Security Policy
 
         :param security_id: Feature Profile ID
         :param payload: Security Profile Parcel
-        :returns: str
+        :returns: CreateEmbeddedSecurityProfileParcelPostResponse
         """
         params = {
             "securityId": security_id,
@@ -53,7 +59,7 @@ class PolicyBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/embedded-security/{securityId}/policy",
-            return_type=str,
+            return_type=CreateEmbeddedSecurityProfileParcelPostResponse,
             params=params,
             payload=payload,
             **kw,

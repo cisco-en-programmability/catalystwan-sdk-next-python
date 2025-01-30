@@ -21,7 +21,9 @@ class RegisterBuilder:
         :param payload: Datacenter registration request
         :returns: Any
         """
-        return self._request_adapter.request("PUT", "/dataservice/disasterrecovery/register", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/disasterrecovery/register", payload=payload, **kw
+        )
 
     def register(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -30,4 +32,6 @@ class RegisterBuilder:
         :param payload: Datacenter registration request
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/disasterrecovery/register", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/disasterrecovery/register", payload=payload, **kw
+        )

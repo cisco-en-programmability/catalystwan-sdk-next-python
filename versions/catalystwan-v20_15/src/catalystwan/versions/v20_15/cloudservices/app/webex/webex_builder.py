@@ -22,7 +22,11 @@ class WebexBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "PUT", "/dataservice/cloudservices/app/webex", return_type=List[Any], payload=payload, **kw
+            "PUT",
+            "/dataservice/cloudservices/app/webex",
+            return_type=List[Any],
+            payload=payload,
+            **kw,
         )
 
     def enable_webex(self, payload: Optional[Any] = None, **kw) -> List[Any]:
@@ -33,7 +37,11 @@ class WebexBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/cloudservices/app/webex", return_type=List[Any], payload=payload, **kw
+            "POST",
+            "/dataservice/cloudservices/app/webex",
+            return_type=List[Any],
+            payload=payload,
+            **kw,
         )
 
     def delete_webex_prefix_lists(self, payload: Optional[Any] = None, **kw) -> List[Any]:
@@ -44,5 +52,9 @@ class WebexBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "DELETE", "/dataservice/cloudservices/app/webex", return_type=List[Any], payload=payload, **kw
+            "DELETE",
+            "/dataservice/cloudservices/app/webex",
+            return_type=List[Any],
+            payload=payload,
+            **kw,
         )

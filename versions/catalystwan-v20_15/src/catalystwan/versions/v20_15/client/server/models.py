@@ -10,8 +10,12 @@ class ClientServerResponseData:
     cloudx: Optional[str] = _field(default=None)
     csrf_token: Optional[str] = _field(default=None, metadata={"alias": "CSRFToken"})
     description: Optional[str] = _field(default=None)
-    disable_full_config_push: Optional[bool] = _field(default=None, metadata={"alias": "disableFullConfigPush"})
-    enable_server_events: Optional[bool] = _field(default=None, metadata={"alias": "enableServerEvents"})
+    disable_full_config_push: Optional[bool] = _field(
+        default=None, metadata={"alias": "disableFullConfigPush"}
+    )
+    enable_server_events: Optional[bool] = _field(
+        default=None, metadata={"alias": "enableServerEvents"}
+    )
     external_user: Optional[bool] = _field(default=None, metadata={"alias": "externalUser"})
     general_template: Optional[bool] = _field(default=None, metadata={"alias": "generalTemplate"})
     is_rbac_vpn_user: Optional[bool] = _field(default=None, metadata={"alias": "isRbacVpnUser"})

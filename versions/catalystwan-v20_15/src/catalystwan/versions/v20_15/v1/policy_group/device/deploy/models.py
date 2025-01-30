@@ -10,7 +10,7 @@ class DeviceIdDef:
 
 
 @dataclass
-class Default:
+class DeployPolicyGroupPostRequest:
     """
     Policy Group Deploy Request schema
     """

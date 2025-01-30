@@ -33,7 +33,7 @@ class Data:
 
 
 @dataclass
-class Default:
+class CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest:
     """
     class profile parcel schema
     """
@@ -55,4 +55,6 @@ class GetDataPrefixProfileParcelForPolicyObjectGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # class profile parcel schema
-    payload: Optional[Default] = _field(default=None)
+    payload: Optional[CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest] = _field(
+        default=None
+    )

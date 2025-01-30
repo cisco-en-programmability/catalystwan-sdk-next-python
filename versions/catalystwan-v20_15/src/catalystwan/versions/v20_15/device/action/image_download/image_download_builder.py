@@ -21,4 +21,6 @@ class ImageDownloadBuilder:
         :param payload: Request body to Intitate image download on the given device
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/device/action/image-download", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/image-download", payload=payload, **kw
+        )

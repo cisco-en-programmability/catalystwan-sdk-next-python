@@ -23,4 +23,6 @@ class VnfinstallBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "processVnfInstall")
-        return self._request_adapter.request("POST", "/dataservice/device/action/vnfinstall", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/device/action/vnfinstall", payload=payload, **kw
+        )

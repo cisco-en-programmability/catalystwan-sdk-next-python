@@ -84,7 +84,7 @@ class Data3:
 
 
 @dataclass
-class Default:
+class CreateSecurityProfileParcelPostRequest:
     """
     advanced-malware-protection profile parcel schema for POST request
     """
@@ -107,4 +107,4 @@ class GetSecurityProfileParcelGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # advanced-malware-protection profile parcel schema for POST request
-    payload: Optional[Default] = _field(default=None)
+    payload: Optional[CreateSecurityProfileParcelPostRequest] = _field(default=None)

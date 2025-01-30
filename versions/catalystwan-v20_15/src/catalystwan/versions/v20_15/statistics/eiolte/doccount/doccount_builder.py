@@ -24,7 +24,9 @@ class DoccountBuilder:
         params = {
             "query": query,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/eiolte/doccount", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/eiolte/doccount", params=params, **kw
+        )
 
     def get_count_post_8(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -33,4 +35,6 @@ class DoccountBuilder:
         :param payload: Query
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/statistics/eiolte/doccount", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/statistics/eiolte/doccount", payload=payload, **kw
+        )

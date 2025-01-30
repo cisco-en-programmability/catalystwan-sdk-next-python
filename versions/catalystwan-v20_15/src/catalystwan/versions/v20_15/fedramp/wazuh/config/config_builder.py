@@ -21,4 +21,6 @@ class ConfigBuilder:
         :param payload: Wazhuh configuration
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/fedramp/wazuh/config", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/fedramp/wazuh/config", payload=payload, **kw
+        )

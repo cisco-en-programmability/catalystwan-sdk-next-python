@@ -24,4 +24,6 @@ class SccpCcmGroupsBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/voice/sccpCcmGroups", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/voice/sccpCcmGroups", params=params, **kw
+        )

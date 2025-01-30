@@ -31,7 +31,9 @@ class AppsBuilder:
         :param payload: Cloudx apps and vpns
         :returns: Any
         """
-        return self._request_adapter.request("PUT", "/dataservice/template/cloudx/manage/apps", payload=payload, **kw)
+        return self._request_adapter.request(
+            "PUT", "/dataservice/template/cloudx/manage/apps", payload=payload, **kw
+        )
 
     def add_apps(self, payload: Optional[Any] = None, **kw) -> List[Any]:
         """
@@ -41,5 +43,9 @@ class AppsBuilder:
         :returns: List[Any]
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/template/cloudx/manage/apps", return_type=List[Any], payload=payload, **kw
+            "POST",
+            "/dataservice/template/cloudx/manage/apps",
+            return_type=List[Any],
+            payload=payload,
+            **kw,
         )

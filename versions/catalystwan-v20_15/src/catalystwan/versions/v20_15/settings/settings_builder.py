@@ -34,7 +34,9 @@ class SettingsBuilder:
         """
         The clientSessionTimeout property
         """
-        from .client_session_timeout.client_session_timeout_builder import ClientSessionTimeoutBuilder
+        from .client_session_timeout.client_session_timeout_builder import (
+            ClientSessionTimeoutBuilder,
+        )
 
         return ClientSessionTimeoutBuilder(self._request_adapter)
 

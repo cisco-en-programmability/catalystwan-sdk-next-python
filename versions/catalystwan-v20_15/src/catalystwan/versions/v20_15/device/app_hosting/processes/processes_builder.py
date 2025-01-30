@@ -24,4 +24,6 @@ class ProcessesBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/app-hosting/processes", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/app-hosting/processes", params=params, **kw
+        )

@@ -24,4 +24,6 @@ class UserCredsBuilder:
         :param payload: User credential
         :returns: None
         """
-        return self._request_adapter.request("POST", "/dataservice/clusterManagement/userCreds", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/clusterManagement/userCreds", payload=payload, **kw
+        )

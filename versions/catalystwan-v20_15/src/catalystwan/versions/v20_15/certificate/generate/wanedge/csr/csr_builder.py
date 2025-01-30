@@ -22,5 +22,9 @@ class CsrBuilder:
         :returns: str
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/certificate/generate/wanedge/csr", return_type=str, payload=payload, **kw
+            "POST",
+            "/dataservice/certificate/generate/wanedge/csr",
+            return_type=str,
+            payload=payload,
+            **kw,
         )

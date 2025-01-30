@@ -23,7 +23,9 @@ class ModeBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/clusterManagement/tenancy/mode", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/clusterManagement/tenancy/mode", **kw
+        )
 
     def set_tenancy_mode(self, payload: Optional[Any] = None, **kw):
         """

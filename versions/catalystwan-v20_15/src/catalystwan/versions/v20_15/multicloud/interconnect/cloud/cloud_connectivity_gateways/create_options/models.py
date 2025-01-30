@@ -15,13 +15,19 @@ ConnectivityGatewayTypeParam = Literal[
 
 @dataclass
 class InlineResponse20014CreationOptionsExpressRouteCircuitServiceProviderList:
-    bandwidths_offered: Optional[List[int]] = _field(default=None, metadata={"alias": "bandwidthsOffered"})
+    bandwidths_offered: Optional[List[int]] = _field(
+        default=None, metadata={"alias": "bandwidthsOffered"}
+    )
     id: Optional[str] = _field(default=None)
     location: Optional[str] = _field(default=None)
     name: Optional[str] = _field(default=None)
-    peering_locations: Optional[List[str]] = _field(default=None, metadata={"alias": "peeringLocations"})
+    peering_locations: Optional[List[str]] = _field(
+        default=None, metadata={"alias": "peeringLocations"}
+    )
     # Provisioning state of the resource
-    provisioning_state: Optional[str] = _field(default=None, metadata={"alias": "provisioningState"})
+    provisioning_state: Optional[str] = _field(
+        default=None, metadata={"alias": "provisioningState"}
+    )
     # Type of Resource
     type_: Optional[str] = _field(default=None, metadata={"alias": "type"})
 
@@ -38,8 +44,8 @@ class InlineResponse20014CreationOptions:
     express_route_circuit_service_provider_list: Optional[
         List[InlineResponse20014CreationOptionsExpressRouteCircuitServiceProviderList]
     ] = _field(default=None, metadata={"alias": "expressRouteCircuitServiceProviderList"})
-    resource_group_list: Optional[List[InlineResponse20014CreationOptionsResourceGroupList]] = _field(
-        default=None, metadata={"alias": "resourceGroupList"}
+    resource_group_list: Optional[List[InlineResponse20014CreationOptionsResourceGroupList]] = (
+        _field(default=None, metadata={"alias": "resourceGroupList"})
     )
 
 

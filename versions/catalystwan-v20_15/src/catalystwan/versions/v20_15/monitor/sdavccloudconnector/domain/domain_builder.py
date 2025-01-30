@@ -20,4 +20,6 @@ class DomainBuilder:
 
         :returns: Any
         """
-        return self._request_adapter.request("GET", "/dataservice/monitor/sdavccloudconnector/domain", **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/monitor/sdavccloudconnector/domain", **kw
+        )

@@ -24,7 +24,9 @@ class DoccountBuilder:
         params = {
             "query": query,
         }
-        return self._request_adapter.request("GET", "/dataservice/statistics/bridgemac/doccount", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/statistics/bridgemac/doccount", params=params, **kw
+        )
 
     def get_count_post_7(self, payload: Optional[Any] = None, **kw) -> Any:
         """

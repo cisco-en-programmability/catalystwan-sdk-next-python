@@ -7,8 +7,8 @@ from catalystwan.abc import RequestAdapterInterface
 
 from . import models
 from .models import (
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest,
     CreateDataPrefixProfileParcelForSecurityPolicyObjectPostResponse,
-    Default,
     GetDataPrefixProfileParcelForPolicyObjectGetResponse,
 )
 
@@ -24,7 +24,10 @@ class SecurityZoneBuilder:
         self._request_adapter = request_adapter
 
     def create_data_prefix_profile_parcel_for_security_policy_object(
-        self, policy_object_id: str, payload: Optional[Default] = None, **kw
+        self,
+        policy_object_id: str,
+        payload: Optional[CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest] = None,
+        **kw,
     ) -> CreateDataPrefixProfileParcelForSecurityPolicyObjectPostResponse:
         """
         Create a Data Prefix Profile Parcel for Security Policy Object feature profile

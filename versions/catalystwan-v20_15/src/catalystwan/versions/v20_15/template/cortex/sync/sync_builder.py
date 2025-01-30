@@ -21,4 +21,6 @@ class SyncBuilder:
         :param payload: WAN resource group
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/cortex/sync", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/cortex/sync", payload=payload, **kw
+        )

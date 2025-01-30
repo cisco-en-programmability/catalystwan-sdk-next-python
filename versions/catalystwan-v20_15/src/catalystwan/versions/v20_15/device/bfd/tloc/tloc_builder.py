@@ -27,7 +27,9 @@ class TlocBuilder:
         params = {
             "deviceId": device_id,
         }
-        return self._request_adapter.request("GET", "/dataservice/device/bfd/tloc", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/bfd/tloc", params=params, **kw
+        )
 
     @property
     def detail(self) -> DetailBuilder:

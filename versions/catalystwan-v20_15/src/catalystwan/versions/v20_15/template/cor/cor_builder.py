@@ -16,8 +16,9 @@ if TYPE_CHECKING:
     from .device.device_builder import DeviceBuilder
     from .devicepair.devicepair_builder import DevicepairBuilder
     from .external_id.external_id_builder import ExternalIdBuilder
-    from .get_transit_device_pair_and_host_list.get_transit_device_pair_and_host_list_builder import \
-        GetTransitDevicePairAndHostListBuilder
+    from .get_transit_device_pair_and_host_list.get_transit_device_pair_and_host_list_builder import (
+        GetTransitDevicePairAndHostListBuilder,
+    )
     from .get_transit_vpn_list.get_transit_vpn_list_builder import GetTransitVpnListBuilder
     from .hostvpc.hostvpc_builder import HostvpcBuilder
     from .map.map_builder import MapBuilder
@@ -41,7 +42,9 @@ class CorBuilder:
         :returns: List[Any]
         """
         logging.warning("Operation: %s is deprecated", "getCORStatus")
-        return self._request_adapter.request("GET", "/dataservice/template/cor", return_type=List[Any], **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/cor", return_type=List[Any], **kw
+        )
 
     def create_and_map(self, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -51,7 +54,9 @@ class CorBuilder:
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "createAndMap")
-        return self._request_adapter.request("POST", "/dataservice/template/cor", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/cor", payload=payload, **kw
+        )
 
     @property
     def accountid(self) -> AccountidBuilder:
@@ -139,8 +144,9 @@ class CorBuilder:
         """
         The getTransitDevicePairAndHostList property
         """
-        from .get_transit_device_pair_and_host_list.get_transit_device_pair_and_host_list_builder import \
-            GetTransitDevicePairAndHostListBuilder
+        from .get_transit_device_pair_and_host_list.get_transit_device_pair_and_host_list_builder import (
+            GetTransitDevicePairAndHostListBuilder,
+        )
 
         return GetTransitDevicePairAndHostListBuilder(self._request_adapter)
 

@@ -35,9 +35,13 @@ class VpnBuilder:
         :param payload: Policy list
         :returns: Any
         """
-        return self._request_adapter.request("POST", "/dataservice/template/policy/list/vpn", payload=payload, **kw)
+        return self._request_adapter.request(
+            "POST", "/dataservice/template/policy/list/vpn", payload=payload, **kw
+        )
 
-    def delete_policy_lists_with_info_tag_42(self, info_tag: Optional[str] = None, **kw) -> List[Any]:
+    def delete_policy_lists_with_info_tag_42(
+        self, info_tag: Optional[str] = None, **kw
+    ) -> List[Any]:
         """
         Delete policy lists with specific info tag
 
@@ -48,7 +52,11 @@ class VpnBuilder:
             "infoTag": info_tag,
         }
         return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/list/vpn", return_type=List[Any], params=params, **kw
+            "DELETE",
+            "/dataservice/template/policy/list/vpn",
+            return_type=List[Any],
+            params=params,
+            **kw,
         )
 
     def get_lists_by_id_42(self, id: str, **kw) -> Any:
@@ -61,7 +69,9 @@ class VpnBuilder:
         params = {
             "id": id,
         }
-        return self._request_adapter.request("GET", "/dataservice/template/policy/list/vpn/{id}", params=params, **kw)
+        return self._request_adapter.request(
+            "GET", "/dataservice/template/policy/list/vpn/{id}", params=params, **kw
+        )
 
     def edit_policy_list_42(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
         """
@@ -75,7 +85,11 @@ class VpnBuilder:
             "id": id,
         }
         return self._request_adapter.request(
-            "PUT", "/dataservice/template/policy/list/vpn/{id}", params=params, payload=payload, **kw
+            "PUT",
+            "/dataservice/template/policy/list/vpn/{id}",
+            params=params,
+            payload=payload,
+            **kw,
         )
 
     def delete_policy_list_42(self, id: str, **kw):
