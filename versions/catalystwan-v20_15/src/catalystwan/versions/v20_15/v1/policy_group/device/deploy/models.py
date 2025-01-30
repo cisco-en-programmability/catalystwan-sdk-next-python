@@ -5,6 +5,15 @@ from typing import Any, List, Optional
 
 
 @dataclass
+class DeployPolicyGroupPostResponse:
+    """
+    Policy Group deploy Response schema
+    """
+
+    parent_task_id: str = _field(metadata={"alias": "parentTaskId"})
+
+
+@dataclass
 class DeviceIdDef:
     id: str
 
