@@ -43,3 +43,15 @@ Basic Examples
             es = es_api.m.EmbeddedSecurityDefault(name="NAME", description="DESC")
             es_response = es_api.create_sdwan_embedded_security_feature_profile(es)
             return es_response.id
+
+.. dropdown:: Device
+    
+    The easiest way of of finding a device/group of devices with a specific parameter (for example, a hostname or a personality) is to obtain a list of all devices and filter them out.
+
+    .. code-block:: python
+        
+        def get_device(client: ApiClient, personality="vedge") -> str:
+            devices = client.device.list_all_devices()
+            filtered_devices = [device for device in devices if device.personality == personality]
+
+            return filtered_devices
