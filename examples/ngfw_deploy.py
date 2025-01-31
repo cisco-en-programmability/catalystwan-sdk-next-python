@@ -21,10 +21,8 @@ SDWAN_URL = os.environ["SDWAN_URL"]
 SDWAN_PORT = int(os.environ["SDWAN_PORT"])
 SDWAN_USERNAME = os.environ["SDWAN_USERNAME"]
 SDWAN_PASSWORD = os.environ["SDWAN_PASSWORD"]
-# POLICY_OBJECT_PROFILE_NAME = "Policy_Object_Name"
-POLICY_OBJECT_PROFILE_NAME = "Default_Policy_Object_Profile"
-# DEVICE_HOSTNAME = "Device_Hostname"
-DEVICE_HOSTNAME = "vm5"
+POLICY_OBJECT_PROFILE_NAME = "Policy_Object_Name"
+DEVICE_HOSTNAME = "Device_Hostname"
 
 
 @dataclass
