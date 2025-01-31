@@ -11,11 +11,10 @@ Before generating the documentation, ensure that you have Sphinx and its depende
 
 .. code-block:: bash
 
-   pip install sphinx sphinx-rtd-theme myst-parser sphinx-design
+   pip install sphinx sphinx-rtd-theme myst-parser
 
 - **sphinx**: The core Sphinx package for generating documentation.
 - **sphinx-rtd-theme**: A popular theme for Sphinx documentation (optional).
-- **sphinx-design**: Extension for interactive components (optional).
 
 Building the Documentation
 ==========================
