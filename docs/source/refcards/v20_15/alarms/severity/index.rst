@@ -16,7 +16,7 @@ Get alarms by severity
         device_id: Optional[List[str]] = None,
         query: Optional[str] = None,
         site_id: Optional[str] = None,
-    ) -> AlarmResponse: ...
+    ) -> List[Alarm]: ...
 
 
 Example:

@@ -5,11 +5,19 @@ from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
+from .models import (
+    CreateNgfirewallProfileParcelPostRequest,
+    CreateNgfirewallProfileParcelPostResponse,
+)
+
 
 class NgfirewallBuilder:
     """
     Builds and executes requests for operations under /v1/feature-profile/sdwan/embedded-security/{securityId}/unified/ngfirewall
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -33,14 +41,17 @@ class NgfirewallBuilder:
         )
 
     def create_ngfirewall_profile_parcel(
-        self, security_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+        self,
+        security_id: str,
+        payload: Optional[CreateNgfirewallProfileParcelPostRequest] = None,
+        **kw,
+    ) -> CreateNgfirewallProfileParcelPostResponse:
         """
         Create Parcel for Ngfirewall Policy
 
         :param security_id: Feature Profile ID
         :param payload: Ngfirewall Profile Parcel
-        :returns: str
+        :returns: CreateNgfirewallProfileParcelPostResponse
         """
         params = {
             "securityId": security_id,
@@ -48,7 +59,7 @@ class NgfirewallBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/embedded-security/{securityId}/unified/ngfirewall",
-            return_type=str,
+            return_type=CreateNgfirewallProfileParcelPostResponse,
             params=params,
             payload=payload,
             **kw,

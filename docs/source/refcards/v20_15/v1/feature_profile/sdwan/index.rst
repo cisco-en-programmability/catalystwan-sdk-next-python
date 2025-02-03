@@ -13,7 +13,7 @@ Get all SDWAN Feature Profiles
 
     def get_sdwan_feature_profile_by_sdwan_family(
         offset: Optional[int] = None, limit: Optional[int] = 0
-    ) -> Any: ...
+    ) -> List[GetSdwanFeatureProfileBySdwanFamilyGetResponse]: ...
 
 
 Example:
@@ -47,4 +47,5 @@ Example:
     sig_security/index
     system/index
     transport/index
+    models
 

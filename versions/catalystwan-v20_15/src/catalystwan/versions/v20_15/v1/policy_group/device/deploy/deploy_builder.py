@@ -1,12 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import DeployPolicyGroupPostRequest
+from .models import DeployPolicyGroupPostRequest, DeployPolicyGroupPostResponse
 
 
 class DeployBuilder:
@@ -21,13 +21,13 @@ class DeployBuilder:
 
     def deploy_policy_group(
         self, policy_group_id: str, payload: Optional[DeployPolicyGroupPostRequest] = None, **kw
-    ) -> Any:
+    ) -> DeployPolicyGroupPostResponse:
         """
         deploy policy group to devices
 
         :param policy_group_id: Policy Group Id
         :param payload: Payload
-        :returns: Any
+        :returns: DeployPolicyGroupPostResponse
         """
         params = {
             "policyGroupId": policy_group_id,
@@ -35,6 +35,7 @@ class DeployBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/policy-group/{policyGroupId}/device/deploy",
+            return_type=DeployPolicyGroupPostResponse,
             params=params,
             payload=payload,
             **kw,

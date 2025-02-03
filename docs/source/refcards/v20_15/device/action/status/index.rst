@@ -42,7 +42,7 @@ Find status of action
 
 .. code:: python
 
-    def find_status(process_id: str) -> DeviceTaskStatus: ...
+    def find_status(process_id: str) -> Any: ...
 
 
 Example:
@@ -72,5 +72,4 @@ Example:
     mw
     preupgrade/index
     tasks/index
-    models
 

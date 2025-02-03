@@ -86,7 +86,7 @@ class ReportBusinessHours:
 
 
 @dataclass
-class ScheduleConfig:
+class ScheduleConfig1:
     """
     On-demand schedule
     """
@@ -98,7 +98,7 @@ class ScheduleConfig:
 
 
 @dataclass
-class ReportsScheduleConfig:
+class ScheduleConfig2:
     # Schedule type
     schedule_type: ScheduleType = _field(
         metadata={"alias": "scheduleType"}
@@ -108,7 +108,7 @@ class ReportsScheduleConfig:
 
 
 @dataclass
-class V1ReportsScheduleConfig:
+class ScheduleConfig3:
     # Schedule type
     schedule_type: ScheduleType = _field(
         metadata={"alias": "scheduleType"}
@@ -118,7 +118,7 @@ class V1ReportsScheduleConfig:
 
 
 @dataclass
-class ScheduleConfig1:
+class ScheduleConfig4:
     # The day number of a week, mapping is as 1 - Sun, 2 - Mon, 3 - Tus, 4 - Wed, 5 - Thu, 6 - Fri, 7 - Sat
     day_of_week: int = _field(metadata={"alias": "dayOfWeek"})
     # Schedule type
@@ -130,7 +130,7 @@ class ScheduleConfig1:
 
 
 @dataclass
-class ScheduleConfig2:
+class ScheduleConfig5:
     # Schedule type
     schedule_type: ScheduleType = _field(
         metadata={"alias": "scheduleType"}
@@ -151,11 +151,7 @@ class ExecutiveSummaryReport:
     report_name: str = _field(metadata={"alias": "reportName"})
     # schedule config
     schedule_config: Union[
-        ScheduleConfig,
-        ReportsScheduleConfig,
-        V1ReportsScheduleConfig,
-        ScheduleConfig1,
-        ScheduleConfig2,
+        ScheduleConfig1, ScheduleConfig2, ScheduleConfig3, ScheduleConfig4, ScheduleConfig5
     ] = _field(metadata={"alias": "scheduleConfig"})
     # Time range for report(one_week/one_month)
     time_range: TimeRange = _field(

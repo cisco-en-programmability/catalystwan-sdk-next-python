@@ -81,9 +81,9 @@ Fetch device variables
     def fetch_policy_group_device_variables(
         policy_group_id: str,
         payload: Optional[
-            CreatePolicyGroupDeviceVariablesPutRequest
+            FetchPolicyGroupDeviceVariablesPostRequest
         ] = None,
-    ) -> Any: ...
+    ) -> FetchPolicyGroupDeviceVariablesPostResponse: ...
 
 
 Example:

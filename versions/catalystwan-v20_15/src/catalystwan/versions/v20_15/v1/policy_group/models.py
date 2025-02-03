@@ -1,11 +1,15 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from dataclasses import dataclass
 from dataclasses import field as _field
-from typing import Dict, List, Literal, Optional
+from typing import Any, Dict, List, Literal, Optional
 
 Solution = Literal[
     "cellulargateway", "common", "mobility", "nfvirtual", "sd-routing", "sdwan", "service-insertion"
 ]
+
+ProfileType = Literal["global"]
+
+PolicyGroupSolution = Literal["sd-routing", "sdwan"]
 
 
 @dataclass
@@ -71,3 +75,93 @@ class PolicyGroup:
     profiles: Optional[List[FeatureProfile]] = _field(default=None)
     # Source of group
     source: Optional[str] = _field(default=None)
+
+
+@dataclass
+class ProfileObjDef:
+    id: str
+    profile_type: ProfileType = _field(
+        metadata={"alias": "profileType"}
+    )  # pytype: disable=annotation-type-mismatch
+
+
+@dataclass
+class CreatePolicyGroupPostResponse:
+    """
+    Policy Group POST Response schema
+    """
+
+    id: str
+    # This is the documentation for POST response schema for policy group.
+    documentation: Optional[Any] = _field(default=None)
+    # (Optional - only applicable for AON) List of profile ids that belongs to the policy group
+    profiles: Optional[List[ProfileObjDef]] = _field(default=None)
+
+
+@dataclass
+class ProfileIdObjDef:
+    id: str
+
+
+@dataclass
+class FromPolicyGroupDef:
+    copy: str
+
+
+@dataclass
+class CreatePolicyGroupPostRequest:
+    """
+    Policy Group POST Request schema
+    """
+
+    description: str
+    name: str
+    solution: PolicyGroupSolution  # pytype: disable=annotation-type-mismatch
+    # This is the documentation for POST request api schema for policy group
+    documentation: Optional[Any] = _field(default=None)
+    from_policy_group: Optional[FromPolicyGroupDef] = _field(
+        default=None, metadata={"alias": "fromPolicyGroup"}
+    )
+    # list of profile ids that belongs to the policy group
+    profiles: Optional[List[ProfileIdObjDef]] = _field(default=None)
+
+
+@dataclass
+class PolicyGroupProfileObjDef:
+    id: str
+    profile_type: ProfileType = _field(
+        metadata={"alias": "profileType"}
+    )  # pytype: disable=annotation-type-mismatch
+
+
+@dataclass
+class EditPolicyGroupPutResponse:
+    """
+    Policy Group PUT Response schema
+    """
+
+    id: str
+    # This is the documentation for PUT response schema for Policy group.
+    documentation: Optional[Any] = _field(default=None)
+    # (Optional - only applicable for AON) List of profile ids that belongs to the Policy group
+    profiles: Optional[List[PolicyGroupProfileObjDef]] = _field(default=None)
+
+
+@dataclass
+class PolicyGroupProfileIdObjDef:
+    id: str
+
+
+@dataclass
+class EditPolicyGroupPutRequest:
+    """
+    Policy Group PUT Request schema
+    """
+
+    description: str
+    name: str
+    solution: PolicyGroupSolution  # pytype: disable=annotation-type-mismatch
+    # This is the documentation for PUT request api schema for policy group
+    documentation: Optional[Any] = _field(default=None)
+    # list of profile ids that belongs to the policy group
+    profiles: Optional[List[PolicyGroupProfileIdObjDef]] = _field(default=None)

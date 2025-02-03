@@ -1,12 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import AlarmResponse
+from .models import Alarm
 
 if TYPE_CHECKING:
     from .aggregation.aggregation_builder import AggregationBuilder
@@ -49,20 +49,20 @@ class AlarmsBuilder:
 
     def get_raw_alarm_data(
         self, query: Optional[str] = None, site_id: Optional[str] = None, **kw
-    ) -> AlarmResponse:
+    ) -> List[Alarm]:
         """
         Get alarms for given query. If query is empty then last 30 mins data will be returned.
 
         :param query: Query
         :param site_id: Specify the site-id to filter the alarms
-        :returns: AlarmResponse
+        :returns: List[Alarm]
         """
         params = {
             "query": query,
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/alarms", return_type=AlarmResponse, params=params, **kw
+            "GET", "/dataservice/alarms", return_type=List[Alarm], params=params, **kw
         )
 
     def post_raw_alarm_data(
@@ -74,7 +74,7 @@ class AlarmsBuilder:
         sort_order: Optional[str] = None,
         site_id: Optional[str] = None,
         **kw,
-    ) -> AlarmResponse:
+    ) -> List[Alarm]:
         """
         Get alarms for given query.
 
@@ -84,7 +84,7 @@ class AlarmsBuilder:
         :param sort_order: Select sorting order. Use ASC for ascending and DESC for descending
         :param site_id: Specify the site-id to filter the alarms
         :param payload: Alarm query string
-        :returns: AlarmResponse
+        :returns: List[Alarm]
         """
         params = {
             "page": page,
@@ -96,7 +96,7 @@ class AlarmsBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/alarms",
-            return_type=AlarmResponse,
+            return_type=List[Alarm],
             params=params,
             payload=payload,
             **kw,

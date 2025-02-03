@@ -42,7 +42,9 @@ Create a new Policy Group
 
 .. code:: python
 
-    def create_policy_group(payload: Optional[str] = None) -> str: ...
+    def create_policy_group(
+        payload: Optional[CreatePolicyGroupPostRequest] = None,
+    ) -> CreatePolicyGroupPostResponse: ...
 
 
 Example:
@@ -101,8 +103,9 @@ Edit a Policy Group
 .. code:: python
 
     def edit_policy_group(
-        policy_group_id: str, payload: Optional[str] = None
-    ) -> str: ...
+        policy_group_id: str,
+        payload: Optional[EditPolicyGroupPutRequest] = None,
+    ) -> EditPolicyGroupPutResponse: ...
 
 
 Example:

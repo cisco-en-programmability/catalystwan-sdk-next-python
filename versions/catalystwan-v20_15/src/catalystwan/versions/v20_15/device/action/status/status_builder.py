@@ -5,9 +5,6 @@ from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
-from . import models
-from .models import DeviceTaskStatus
-
 if TYPE_CHECKING:
     from .cancel.cancel_builder import CancelBuilder
     from .clean.clean_builder import CleanBuilder
@@ -21,8 +18,6 @@ class StatusBuilder:
     """
     Builds and executes requests for operations under /device/action/status
     """
-
-    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -38,22 +33,18 @@ class StatusBuilder:
             "PUT", "/dataservice/device/action/status", payload=payload, **kw
         )
 
-    def find_status(self, process_id: str, **kw) -> DeviceTaskStatus:
+    def find_status(self, process_id: str, **kw) -> Any:
         """
         Find status of action
 
         :param process_id: processId
-        :returns: DeviceTaskStatus
+        :returns: Any
         """
         params = {
             "processId": process_id,
         }
         return self._request_adapter.request(
-            "GET",
-            "/dataservice/device/action/status/{processId}",
-            return_type=DeviceTaskStatus,
-            params=params,
-            **kw,
+            "GET", "/dataservice/device/action/status/{processId}", params=params, **kw
         )
 
     @property

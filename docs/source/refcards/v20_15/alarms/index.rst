@@ -13,7 +13,7 @@ Get alarms for given query. If query is empty then last 30 mins data will be ret
 
     def get_raw_alarm_data(
         query: Optional[str] = None, site_id: Optional[str] = None
-    ) -> AlarmResponse: ...
+    ) -> List[Alarm]: ...
 
 
 Example:
@@ -49,7 +49,7 @@ Get alarms for given query.
         sort_by: Optional[str] = None,
         sort_order: Optional[str] = None,
         site_id: Optional[str] = None,
-    ) -> AlarmResponse: ...
+    ) -> List[Alarm]: ...
 
 
 Example:

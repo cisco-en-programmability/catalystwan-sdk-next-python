@@ -1,9 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import GetSdwanFeatureProfileBySdwanFamilyGetResponse
 
 if TYPE_CHECKING:
     from .application_priority.application_priority_builder import ApplicationPriorityBuilder
@@ -23,25 +26,31 @@ class SdwanBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sdwan
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
     def get_sdwan_feature_profile_by_sdwan_family(
         self, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
-    ) -> Any:
+    ) -> List[GetSdwanFeatureProfileBySdwanFamilyGetResponse]:
         """
         Get all SDWAN Feature Profiles
 
         :param offset: Pagination offset
         :param limit: Pagination limit
-        :returns: Any
+        :returns: List[GetSdwanFeatureProfileBySdwanFamilyGetResponse]
         """
         params = {
             "offset": offset,
             "limit": limit,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/sdwan", params=params, **kw
+            "GET",
+            "/dataservice/v1/feature-profile/sdwan",
+            return_type=List[GetSdwanFeatureProfileBySdwanFamilyGetResponse],
+            params=params,
+            **kw,
         )
 
     @property

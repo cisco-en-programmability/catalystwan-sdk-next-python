@@ -6,7 +6,13 @@ from typing import TYPE_CHECKING, List, Optional
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import PolicyGroup
+from .models import (
+    CreatePolicyGroupPostRequest,
+    CreatePolicyGroupPostResponse,
+    EditPolicyGroupPutRequest,
+    EditPolicyGroupPutResponse,
+    PolicyGroup,
+)
 
 if TYPE_CHECKING:
     from .device.device_builder import DeviceBuilder
@@ -42,15 +48,21 @@ class PolicyGroupBuilder:
             **kw,
         )
 
-    def create_policy_group(self, payload: Optional[str] = None, **kw) -> str:
+    def create_policy_group(
+        self, payload: Optional[CreatePolicyGroupPostRequest] = None, **kw
+    ) -> CreatePolicyGroupPostResponse:
         """
         Create a new Policy Group
 
         :param payload: Policy Group
-        :returns: str
+        :returns: CreatePolicyGroupPostResponse
         """
         return self._request_adapter.request(
-            "POST", "/dataservice/v1/policy-group", return_type=str, payload=payload, **kw
+            "POST",
+            "/dataservice/v1/policy-group",
+            return_type=CreatePolicyGroupPostResponse,
+            payload=payload,
+            **kw,
         )
 
     def get_policy_group(self, policy_group_id: str, **kw) -> PolicyGroup:
@@ -71,13 +83,15 @@ class PolicyGroupBuilder:
             **kw,
         )
 
-    def edit_policy_group(self, policy_group_id: str, payload: Optional[str] = None, **kw) -> str:
+    def edit_policy_group(
+        self, policy_group_id: str, payload: Optional[EditPolicyGroupPutRequest] = None, **kw
+    ) -> EditPolicyGroupPutResponse:
         """
         Edit a Policy Group
 
         :param policy_group_id: Policy group id
         :param payload: Policy Group
-        :returns: str
+        :returns: EditPolicyGroupPutResponse
         """
         params = {
             "policyGroupId": policy_group_id,
@@ -85,7 +99,7 @@ class PolicyGroupBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/policy-group/{policyGroupId}",
-            return_type=str,
+            return_type=EditPolicyGroupPutResponse,
             params=params,
             payload=payload,
             **kw,

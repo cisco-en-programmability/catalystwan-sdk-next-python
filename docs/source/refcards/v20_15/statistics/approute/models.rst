@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import List, Dict, Optional, Union, Any, Literal
+    from typing import List, Any, Optional, Literal, Dict, Union
 
     SortOrderParam = Literal["ASC", "Asc", "DESC", "Desc", "asc", "desc"]
 

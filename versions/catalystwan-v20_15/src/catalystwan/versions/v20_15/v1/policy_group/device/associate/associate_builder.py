@@ -5,11 +5,16 @@ from typing import Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
+from .models import CreatePolicyGroupAssociationPostRequest, UpdatePolicyGroupAssociationPutRequest
+
 
 class AssociateBuilder:
     """
     Builds and executes requests for operations under /v1/policy-group/{policyGroupId}/device/associate
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
@@ -32,7 +37,10 @@ class AssociateBuilder:
         )
 
     def update_policy_group_association(
-        self, policy_group_id: str, payload: Optional[Any] = None, **kw
+        self,
+        policy_group_id: str,
+        payload: Optional[UpdatePolicyGroupAssociationPutRequest] = None,
+        **kw,
     ):
         """
         Move the devices from one policy group to another
@@ -53,7 +61,10 @@ class AssociateBuilder:
         )
 
     def create_policy_group_association(
-        self, policy_group_id: str, payload: Optional[Any] = None, **kw
+        self,
+        policy_group_id: str,
+        payload: Optional[CreatePolicyGroupAssociationPostRequest] = None,
+        **kw,
     ):
         """
         Create associations with device and a policy group

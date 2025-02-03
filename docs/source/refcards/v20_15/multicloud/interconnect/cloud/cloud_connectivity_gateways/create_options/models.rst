@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import List, Dict, Optional, Union, Any, Literal
+    from typing import List, Any, Optional, Literal, Dict, Union
 
     ConnectivityGatewayTypeParam = Literal[
         "DIRECT_CONNECT_GATEWAY",
