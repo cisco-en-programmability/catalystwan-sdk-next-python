@@ -1,18 +1,27 @@
 from __future__ import annotations
 
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict, dataclass
 from logging import getLogger
 from pathlib import Path
-from threading import Thread
+from time import sleep
 from typing import TYPE_CHECKING, List, Literal, Mapping, Optional, overload
 from uuid import UUID
 
 from catalystwan.core.client import copy_client
+from catalystwan.core.exceptions import CatalystwanException
 
 if TYPE_CHECKING:
     from catalystwan.core.loader import ApiClient
 
 logger = getLogger(__name__)
+
+
+class AdmintechNotFoundError(CatalystwanException): ...
+
+
+class AdmintechTimeoutExceededError(CatalystwanException): ...
+
 
 DeviceType = Literal["vbond", "vedge", "vmanage", "vsmart"]
 CollectDeviceType = Literal["all", DeviceType]
@@ -33,7 +42,6 @@ class Info:
 
 
 class AdminTech:
-
     supported_versions = ("20.15",)
 
     def __init__(self, client: ApiClient):
@@ -43,7 +51,8 @@ class AdminTech:
 
     def bulk_collect(
         self,
-        device_ips: List[str] = [],
+        max_workers: Optional[int] = None,
+        device_ips: Optional[List[str]] = None,
         download_dir: Path = Path.cwd(),
         *,
         device_type: CollectDeviceType = "all",
@@ -56,9 +65,11 @@ class AdminTech:
         delete_after_download: bool = True,
     ) -> List[Path]:
         filtered_ips: List[str] = list()
-        threads: List[Thread] = list()
         download_paths: List[Path] = list()
         filenames: List[str] = list()
+
+        if device_ips is None:
+            device_ips = []
 
         for device in self.client.device.list_all_devices(
             site_id=str(site_id) if site_id else None
@@ -84,23 +95,14 @@ class AdminTech:
                     custom_commands=custom_commands,
                     tech_filter=tech_filter,
                 )
+                self.wait_for_file(device_ip=device_ip, filename=filename)
                 filenames.append(filename)
                 path = api.download(filename=filename, download_dir=download_dir)
                 download_paths.append(path)
 
-        for ip in filtered_ips:
-            thread = Thread(
-                target=collect,
-                args=(
-                    self.client,
-                    ip,
-                ),
-            )
-            thread.start()
-            threads.append(thread)
-
-        for thread in threads:
-            thread.join()
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            for ip in filtered_ips:
+                executor.submit(collect, self.client, ip)
 
         if delete_after_download:
             AdminTech(self.client).delete(filenames=filenames)
@@ -118,7 +120,7 @@ class AdminTech:
         custom_commands: List[str] = [],
         tech_filter: List[str] = [],
     ) -> str:
-        Payload = self.client.device.tools.admintech.create_admin_tech.payload_model
+        Payload = self.client.device.tools.admintech.m.AdminTechCreateReq
         payload = Payload(
             device_ip=device_ip,
             device_type=device_type,
@@ -174,25 +176,45 @@ class AdminTech:
             ids = [id]
         elif filename is not None:
             ids = [
-                UUID(info.request_token_id)
-                for info in self.list()
-                if info.file_name == filename
+                UUID(info.request_token_id) for info in self.list() if info.file_name == filename
             ]
         elif filenames is not None:
             ids = [
-                UUID(info.request_token_id)
-                for info in self.list()
-                if info.file_name in filenames
+                UUID(info.request_token_id) for info in self.list() if info.file_name in filenames
             ]
         for id_ in ids:
             logger.info(f"Removing admin-tech file on remote: {id_}")
-            self.client.device.tools.admintech.delete_admin_tech_file(
-                request_id=str(id_)
-            )
+            self.client.device.tools.admintech.delete_admin_tech_file(request_id=str(id_))
 
     def delete_all(self) -> None:
-        ids = [
-            UUID(info.request_token_id) for info in self.list() if info.state == "done"
-        ]
+        ids = [UUID(info.request_token_id) for info in self.list() if info.state == "done"]
         for id in ids:
             self.delete(id=id)
+
+    def wait_for_file(
+        self, device_ip: str, filename: str, timeout: int = 3600, polling_interval: int = 30
+    ):
+        """
+        Wait for file to be generated on a specified device.
+        If provided, check for a specific filename.
+
+        :raises AdmintechNotFoundError: Failed to find file(s) for the device
+        :raises AdmintechTimeoutExceededError: Exceeded the timeout
+        """
+        attempt = 0
+        max_attempts = int(timeout / polling_interval)
+        while attempt <= max_attempts:
+            admintechs = self.list()
+            device_admintechs = [
+                admintech for admintech in admintechs if admintech.device_ip == device_ip
+            ]
+            generated_files = {admintech.file_name for admintech in device_admintechs}
+            if filename in generated_files:
+                return
+            if all([admintech.state == "done" for admintech in device_admintechs]):
+                raise AdmintechNotFoundError("No file for the specified device is being generated")
+
+            sleep(polling_interval)
+            attempt += 1
+
+        raise AdmintechTimeoutExceededError("Timeout exceeded")

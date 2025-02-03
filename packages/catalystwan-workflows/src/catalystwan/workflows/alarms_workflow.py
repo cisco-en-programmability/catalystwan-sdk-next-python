@@ -36,7 +36,7 @@ class AlarmsWorkflow:
 
         payload = Query(query=query)
         response = endpoint(payload=serialize(payload, to_json=True))
-        return response.data
+        return response
 
     def get_alarms(self, from_time: Optional[int] = None, active: bool = True):
         query_spec = QuerySpec(condition="AND", rules=[])
@@ -72,12 +72,12 @@ class AlarmsWorkflow:
             if alarms is not None:
                 ids = [alarm.uuid for alarm in alarms]
 
-        endpoint = self.client.alarms.clear.clear_stale_alarm
+        api = self.client.alarms.clear
 
         cleared_alarms: List[ClearedAlarm] = []
         for id in ids:
             if self.client.api_version == "20.15":
-                response = endpoint(payload={"alarm_uuid": str(id)})
+                response = api.clear_stale_alarm(payload={"alarm_uuid": str(id)})
                 cleared_alarms.append(
                     ClearedAlarm(
                         alarm_uuid=response.get("alarm_uuid"),
@@ -85,12 +85,10 @@ class AlarmsWorkflow:
                     )
                 )
             else:
-                payload_model = endpoint.payload_model
-                response = endpoint(payload=payload_model(alarm_uuid=str(id)))
+                payload_model = api.m.AlarmsClearBody
+                response = api.clear_stale_alarm(payload=payload_model(alarm_uuid=str(id)))
                 cleared_alarms.append(
-                    ClearedAlarm(
-                        alarm_uuid=response[0].alarm_uuid, cleared=response[0].cleared
-                    )
+                    ClearedAlarm(alarm_uuid=response[0].alarm_uuid, cleared=response[0].cleared)
                 )
 
         return cleared_alarms
