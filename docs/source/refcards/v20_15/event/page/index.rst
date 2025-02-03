@@ -16,7 +16,7 @@ Get paginated events
         scroll_id: Optional[str] = None,
         count: Optional[int] = None,
         site_id: Optional[str] = None,
-    ) -> AlarmResponse: ...
+    ) -> List[Alarm]: ...
 
 
 Example:
@@ -50,7 +50,7 @@ Get paginated events
         scroll_id: Optional[str] = None,
         count: Optional[int] = None,
         site_id: Optional[str] = None,
-    ) -> AlarmResponse: ...
+    ) -> List[Alarm]: ...
 
 
 Example:

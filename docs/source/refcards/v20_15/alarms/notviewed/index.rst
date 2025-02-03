@@ -13,7 +13,7 @@ Get alarms which are not acknowledged by the user.
 
     def get_non_viewed_alarms(
         state: Optional[str] = None,
-    ) -> AlarmResponse: ...
+    ) -> List[Alarm]: ...
 
 
 Example:

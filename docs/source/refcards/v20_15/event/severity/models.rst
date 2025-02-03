@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import Literal, Any, Union, Dict, Optional, List
+    from typing import List, Any, Optional, Literal, Dict, Union
 
     SeverityLevel = Literal["CRITICAL", "MAJOR", "MEDIUM", "MINOR"]
 

@@ -1,12 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import AlarmResponse
+from .models import Alarm
 
 
 class PageBuilder:
@@ -26,7 +26,7 @@ class PageBuilder:
         count: Optional[int] = None,
         site_id: Optional[str] = None,
         **kw,
-    ) -> AlarmResponse:
+    ) -> List[Alarm]:
         """
         Get paginated alarms
 
@@ -34,7 +34,7 @@ class PageBuilder:
         :param scroll_id: Scroll ID
         :param count: Number of alarms per page
         :param site_id: Specify the site-id to filter the alarms
-        :returns: AlarmResponse
+        :returns: List[Alarm]
         """
         params = {
             "query": query,
@@ -43,7 +43,7 @@ class PageBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/alarms/page", return_type=AlarmResponse, params=params, **kw
+            "GET", "/dataservice/alarms/page", return_type=List[Alarm], params=params, **kw
         )
 
     def post_page(
@@ -53,7 +53,7 @@ class PageBuilder:
         count: Optional[int] = None,
         site_id: Optional[str] = None,
         **kw,
-    ) -> AlarmResponse:
+    ) -> List[Alarm]:
         """
         Get paginated alarm raw data
 
@@ -61,7 +61,7 @@ class PageBuilder:
         :param count: Number of alarms per page
         :param site_id: Specify the site-id to filter the alarms
         :param payload: Alarm query string
-        :returns: AlarmResponse
+        :returns: List[Alarm]
         """
         params = {
             "scrollId": scroll_id,
@@ -71,7 +71,7 @@ class PageBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/alarms/page",
-            return_type=AlarmResponse,
+            return_type=List[Alarm],
             params=params,
             payload=payload,
             **kw,

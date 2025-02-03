@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import Literal, Any, Union, Dict, Optional, List
+    from typing import List, Any, Optional, Literal, Dict, Union
 
     FileDownloadStatus = Literal[
         "COMPLETED", "ERROR", "IN_PROGRESS", "NOT_STARTED", "STARTED"

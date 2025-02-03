@@ -11,7 +11,7 @@ Get alarm details for given UUID
 
 .. code:: python
 
-    def get_alarm_details(alarm_uuid: str) -> AlarmResponse: ...
+    def get_alarm_details(alarm_uuid: str) -> List[Alarm]: ...
 
 
 Example:

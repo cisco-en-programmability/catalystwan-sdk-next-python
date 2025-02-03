@@ -1,10 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
+from typing import List
+
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import AlarmResponse
+from .models import Alarm
 
 
 class UuidBuilder:
@@ -17,12 +19,12 @@ class UuidBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_alarm_details(self, alarm_uuid: str, **kw) -> AlarmResponse:
+    def get_alarm_details(self, alarm_uuid: str, **kw) -> List[Alarm]:
         """
         Get alarm details for given UUID
 
         :param alarm_uuid: Alarm UUID
-        :returns: AlarmResponse
+        :returns: List[Alarm]
         """
         params = {
             "alarm_uuid": alarm_uuid,
@@ -30,7 +32,7 @@ class UuidBuilder:
         return self._request_adapter.request(
             "GET",
             "/dataservice/alarms/uuid/{alarm_uuid}",
-            return_type=AlarmResponse,
+            return_type=List[Alarm],
             params=params,
             **kw,
         )

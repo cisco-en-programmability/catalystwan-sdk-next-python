@@ -16,7 +16,7 @@ Get paginated alarms
         scroll_id: Optional[str] = None,
         count: Optional[int] = None,
         site_id: Optional[str] = None,
-    ) -> AlarmResponse: ...
+    ) -> List[Alarm]: ...
 
 
 Example:
@@ -50,7 +50,7 @@ Get paginated alarm raw data
         scroll_id: Optional[str] = None,
         count: Optional[int] = None,
         site_id: Optional[str] = None,
-    ) -> AlarmResponse: ...
+    ) -> List[Alarm]: ...
 
 
 Example:
