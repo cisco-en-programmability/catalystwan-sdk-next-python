@@ -2,17 +2,17 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Type, Union
+import typing as t
 
-if TYPE_CHECKING:
+if t.TYPE_CHECKING:
     from catalystwan.versions.v20_15.api_client import ApiClient as ApiClientV20_15
 
-    ApiClient = Union[ApiClientV20_15]
+    ApiClient = t.Union[ApiClientV20_15]
 
 VERSIONS = ["20.15"]
 
 
-def load_client(version: str) -> Type[ApiClient]:
+def load_client(version: str) -> t.Type[ApiClient]:
     if version == "20.15":
         from catalystwan.versions.v20_15.api_client import ApiClient as ApiClientV20_15
 
