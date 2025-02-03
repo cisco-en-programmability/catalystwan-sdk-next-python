@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import List, Any, Optional, Literal, Dict, Union
+    from typing import Any, Union, List, Dict, Optional, Literal
 
     Health = Literal["fair", "good", "poor"]
 
