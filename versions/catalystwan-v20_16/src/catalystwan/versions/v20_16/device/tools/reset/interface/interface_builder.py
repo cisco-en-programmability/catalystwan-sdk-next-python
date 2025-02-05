@@ -1,0 +1,41 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+
+from typing import Optional
+
+from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import ResetInterfaceReq
+
+
+class InterfaceBuilder:
+    """
+    Builds and executes requests for operations under /device/tools/reset/interface
+    """
+
+    m = models
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def process_interface_reset(
+        self, device_ip: str, payload: Optional[ResetInterfaceReq] = None, **kw
+    ):
+        """
+        Reset device interface
+
+        :param device_ip: Device IP
+        :param payload: Device interface
+        :returns: None
+        """
+        params = {
+            "deviceIP": device_ip,
+        }
+        return self._request_adapter.request(
+            "POST",
+            "/dataservice/device/tools/reset/interface/{deviceIP}",
+            params=params,
+            payload=payload,
+            **kw,
+        )

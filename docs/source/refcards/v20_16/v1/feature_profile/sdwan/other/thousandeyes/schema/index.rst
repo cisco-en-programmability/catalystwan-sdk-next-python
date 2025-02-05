@@ -1,0 +1,41 @@
+==================================================
+v1.feature_profile.sdwan.other.thousandeyes.schema
+==================================================
+
+
+Operation: GET /dataservice/v1/feature-profile/sdwan/other/thousandeyes/schema
+------------------------------------------------------------------------------
+
+
+Get a SDWAN Other Thousandeyes Parcel Schema by Schema Type
+
+.. code:: python
+
+    def get_sdwan_other_thousandeyes_parcel_schema_by_schema_type(
+        schema_type: SchemaTypeParam,
+    ) -> str: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sdwan.other.thousandeyes.schema.get_sdwan_other_thousandeyes_parcel_schema_by_schema_type()
+
+
+.. toctree::
+    :maxdepth: 1
+
+    models
+

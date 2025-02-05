@@ -1,0 +1,41 @@
+==========================================
+v1.feature_profile.sdwan.system.mrf.schema
+==========================================
+
+
+Operation: GET /dataservice/v1/feature-profile/sdwan/system/mrf/schema
+----------------------------------------------------------------------
+
+
+Get a Cedge System Mrf Parcel Schema by Schema Type
+
+.. code:: python
+
+    def get_cedge_system_mrf_parcel_schema_by_schema_type(
+        schema_type: SchemaTypeParam,
+    ) -> str: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sdwan.system.mrf.schema.get_cedge_system_mrf_parcel_schema_by_schema_type()
+
+
+.. toctree::
+    :maxdepth: 1
+
+    models
+

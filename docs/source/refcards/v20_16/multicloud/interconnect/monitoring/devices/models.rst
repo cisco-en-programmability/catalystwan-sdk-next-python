@@ -1,0 +1,28 @@
+======
+Models
+======
+
+
+.. code:: python
+
+    from typing import Optional, List, Dict, Union, Any, Literal
+
+
+    class InterconnectDeviceInfoExtended:
+        config_status_message: Optional[str]
+        configured_system_ip: Optional[str]
+        device_model: Optional[str]
+        device_type: Optional[str]
+        edge_gateway_name: Optional[str]
+        host_name: Optional[str]
+        last_updated: Optional[int]
+        local_system_ip: Optional[str]
+        reachability: Optional[str]
+        site_id: Optional[str]
+        status: Optional[str]
+        system_ip: Optional[str]
+        uptime_date: Optional[int]
+        uuid: Optional[str]
+        version: Optional[str]
+
+

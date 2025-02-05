@@ -6,10 +6,19 @@ import typing as t
 
 if t.TYPE_CHECKING:
     from catalystwan.versions.v20_15.api_client import ApiClient as ApiClientV20_15
+    from catalystwan.versions.v20_16.api_client import ApiClient as ApiClientV20_16
 
-    ApiClient = t.Union[ApiClientV20_15]
+    ApiClient = t.Union[ApiClientV20_15, ApiClientV20_16]
 
-VERSIONS = ["20.15"]
+VERSIONS = ["20.15", "20.16"]
+
+
+@t.overload
+def load_client(version: t.Literal["20.15"]) -> t.Type[ApiClientV20_15]: ...
+
+
+@t.overload
+def load_client(version: t.Literal["20.16"]) -> t.Type[ApiClientV20_16]: ...
 
 
 def load_client(version: str) -> t.Type[ApiClient]:
@@ -17,4 +26,8 @@ def load_client(version: str) -> t.Type[ApiClient]:
         from catalystwan.versions.v20_15.api_client import ApiClient as ApiClientV20_15
 
         return ApiClientV20_15
+    if version == "20.16":
+        from catalystwan.versions.v20_16.api_client import ApiClient as ApiClientV20_16
+
+        return ApiClientV20_16
     raise RuntimeError("Unsupported version: {}".format(version))

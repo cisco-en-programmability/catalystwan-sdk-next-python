@@ -1,0 +1,34 @@
+===================================
+device.app_hosting.attached_devices
+===================================
+
+
+Operation: GET /dataservice/device/app-hosting/attached-devices
+---------------------------------------------------------------
+
+
+Get App hosting attached device from device
+
+.. code:: python
+
+    def get_app_hosting_attached_devices(device_id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.device.app_hosting.attached_devices.get_app_hosting_attached_devices()
+
+

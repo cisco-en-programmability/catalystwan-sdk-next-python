@@ -1,0 +1,34 @@
+=======================
+device.ip.nat.interface
+=======================
+
+
+Operation: GET /dataservice/device/ip/nat/interface
+---------------------------------------------------
+
+
+Get NAT interface list from device (Real Time)
+
+.. code:: python
+
+    def create_nat_interface_list(device_id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.device.ip.nat.interface.create_nat_interface_list()
+
+

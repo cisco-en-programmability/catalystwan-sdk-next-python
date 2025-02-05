@@ -1,0 +1,29 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+
+from typing import Any
+
+from catalystwan.abc import RequestAdapterInterface
+
+
+class TemplateBuilder:
+    """
+    Builds and executes requests for operations under /device/cflowd/template
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def create_cflowd_template(self, device_id: str, **kw) -> Any:
+        """
+        Get cflowd template from device
+
+        :param device_id: Device IP
+        :returns: Any
+        """
+        params = {
+            "deviceId": device_id,
+        }
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/cflowd/template", params=params, **kw
+        )

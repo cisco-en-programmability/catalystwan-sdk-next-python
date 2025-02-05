@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import Any, Union, List, Dict, Optional, Literal
+    from typing import Union, Dict, Optional, Literal, List, Any
 
     ModelParam = Literal[
         "vEdge-5000",
