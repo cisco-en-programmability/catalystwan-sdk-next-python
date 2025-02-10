@@ -164,11 +164,10 @@ class RequestAdapter(RequestAdapterInterface):
             name: str
             data: JSON
             priority: int
-            matched_keys: Optional[int] = None
 
         @dataclass
         class ModelReturn:
-            model: ReturnType
+            model: DataclassType
             payload: ModelPayload
 
         if not isinstance(model_payload, JsonContent):
@@ -213,19 +212,24 @@ class RequestAdapter(RequestAdapterInterface):
 
         # return model that matches best with the input
         valid_models.sort(
-            key=lambda x: (self.__count_matching_keys(x.model, x.payload.data), x.payload.priority),
+            key=lambda x: (
+                self.__count_matching_keys(x.model, cast(dict, x.payload.data)),
+                x.payload.priority,
+            ),
             reverse=True,
         )
         return valid_models[0].model
 
-    def __count_matching_keys(self, model: ReturnType, model_payload: dict):
+    def __count_matching_keys(self, model: DataclassType, model_payload: dict):
         matched_keys = 0
         for key, value in model_payload.items():
             try:
                 model_value = getattr(model, key)
                 matched_keys += 1
                 if is_dataclass(model_value) and isinstance(value, dict):
-                    matched_keys += self.__count_matching_keys(model_value, value)
+                    matched_keys += self.__count_matching_keys(
+                        cast(DataclassType, model_value), value
+                    )
                 elif (
                     isinstance(model_value, list)
                     and all([is_dataclass(element) for element in model_value])
