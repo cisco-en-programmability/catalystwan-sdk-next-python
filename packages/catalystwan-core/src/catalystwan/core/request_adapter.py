@@ -2,16 +2,19 @@ from __future__ import annotations
 
 import logging
 from copy import copy
-from dataclasses import Field, dataclass, field, fields, is_dataclass
+from dataclasses import dataclass, field, fields, is_dataclass
 from string import Formatter
-from typing import Any, Dict, List, Optional, Tuple, Type, TypeVar, Union, cast
+from typing import Any, Dict, List, Optional, Type, TypeVar, Union, cast
 
 from catalystwan.abc import RequestAdapterInterface, ResponseInterface, SessionInterface
 from catalystwan.abc.types import HTTP_METHOD, JSON
-from catalystwan.core.exceptions import CatalystwanResponseTypeError
+from catalystwan.core.exceptions import (
+    CatalystwanModelValidationError,
+    CatalystwanResponseTypeError,
+)
 from catalystwan.core.models.deserialize import deserialize
 from catalystwan.core.models.serialize import serialize
-from catalystwan.core.types import DataclassInstance, get_alias
+from catalystwan.core.types import DataclassInstance
 from typing_extensions import get_args, get_origin
 
 DataclassType = TypeVar("DataclassType", bound=DataclassInstance)
@@ -19,6 +22,16 @@ ReturnType = TypeVar("ReturnType")
 Payload = TypeVar("Payload")
 
 
+@dataclass
+class JsonContent:
+    # data extracted from a specific key
+    extracted_data: JSON
+    # raw version of the data
+    raw_data: JSON
+
+
+# Used for data extraction from a response, when it takes a specific form.
+# data_key is the key to pull data from, if required_keys are present
 @dataclass
 class ResponseDataPath:
     data_key: str
@@ -74,22 +87,36 @@ class RequestAdapter(RequestAdapterInterface):
         return self.__prepare_return_type(return_type, content)
 
     def __prepare_return_type(
-        self, return_type: Optional[Type[ReturnType]], content: Union[JSON, str, bytes, None]
+        self, return_type: Optional[Type[ReturnType]], content: Union[JsonContent, str, bytes, None]
     ) -> Union[ReturnType, JSON, bytes, None]:
         if is_dataclass(return_type):
             return cast(
                 ReturnType, self.__get_dataclass(return_type=return_type, model_payload=content)
             )
-        elif get_origin(return_type) is list and type(content) is list:
-            return [self.__parse_list(get_args(return_type)[0], value) for value in content]
+        # If we are expecting a list, it should be found within the extracted_data - the response was either a list from
+        # the beginning or we extracted it from an appropriate key
+        elif (
+            get_origin(return_type) is list
+            and type(content) is JsonContent
+            and type(content.extracted_data) is list
+        ):
+            return [
+                self.__parse_list(get_args(return_type)[0], value)
+                for value in content.extracted_data
+            ]
         else:
-            if type(content) is not return_type and return_type is not None:
+            extracted_data: Union[JSON, bytes, None]
+            if isinstance(content, JsonContent):
+                extracted_data = content.extracted_data
+            else:
+                extracted_data = content
+            if type(extracted_data) is not return_type and return_type is not None:
                 self.logger.warning(
-                    f"Server returned unexpected data. Expected: {return_type}, received {type(content)}"
+                    f"Server returned unexpected data. Expected: {return_type}, received {type(extracted_data)}"
                 )
-            return content
+            return extracted_data
 
-    def __get_content(self, response: ResponseInterface) -> Union[JSON, str, bytes, None]:
+    def __get_content(self, response: ResponseInterface) -> Union[JsonContent, str, bytes, None]:
         content_type: str = response.headers.get("content-type", "")
         if not content_type:
             return None
@@ -104,7 +131,7 @@ class RequestAdapter(RequestAdapterInterface):
         self, arg_type: Type[ReturnType], values: Union[JSON]
     ) -> Union[ReturnType, JSON]:
         if is_dataclass(arg_type):
-            model_payload = self.__extract_json_data(values, fields=fields(arg_type))
+            model_payload = self.__extract_json_data(values)
             return cast(
                 ReturnType, self.__get_dataclass(return_type=arg_type, model_payload=model_payload)
             )
@@ -117,30 +144,99 @@ class RequestAdapter(RequestAdapterInterface):
         else:
             return values
 
-    def __extract_json_data(self, data: JSON, fields: Optional[Tuple[Field, ...]] = None) -> JSON:
+    def __extract_json_data(self, data: JSON) -> JsonContent:
         if not isinstance(data, dict):
-            return data
-        # If we expect a model, see if necessary data is on the top-level of the json
-        if fields is not None:
-            field_names = [get_alias(field.metadata.get("alias", field.name)) for field in fields]
-        else:
-            field_names = []
-        if field_names and all(key in data for key in field_names):
-            return data
+            return JsonContent(extracted_data=data, raw_data=data)
         for known_data_path in self.known_data_paths:
             if known_data_path.is_data_available(data):
-                return known_data_path.get_data(data)
-        return data
+                return JsonContent(extracted_data=known_data_path.get_data(data), raw_data=data)
+        return JsonContent(extracted_data=data, raw_data=data)
 
     def __get_dataclass(
-        self, return_type: Type[DataclassType], model_payload: Union[JSON, str, bytes, None]
+        self, return_type: Type[DataclassType], model_payload: Union[JsonContent, str, bytes, None]
     ) -> DataclassType:
-        if not isinstance(model_payload, dict):
+        # Get a dataclass using payload from a response.
+        # This method includes a bit of brute-force trickery, to fight inconsistent schemas.
+        # Sometimes the schema requires are to pull data from a specific key, while at other times it doesn't.
+        # This method tries to check which version - extracted or raw - matches better.
+        @dataclass
+        class ModelPayload:
+            name: str
+            data: JSON
+            priority: int
+            matched_keys: Optional[int] = None
+
+        @dataclass
+        class ModelReturn:
+            model: ReturnType
+            payload: ModelPayload
+
+        if not isinstance(model_payload, JsonContent):
             raise CatalystwanResponseTypeError(
                 f"Expected data for {return_type} model. Received data of type {type(model_payload)} instead."
             )
 
-        return deserialize(return_type, **model_payload)
+        data_sources = [
+            ModelPayload(data=model_payload.extracted_data, name="extracted_data", priority=1),
+            ModelPayload(data=model_payload.raw_data, name="raw_data", priority=0),
+        ]
+
+        field_names = [f.metadata.get("alias") or f.name for f in fields(return_type)]
+        # Empty dataclass, return as is
+        if not field_names:
+            return return_type()
+
+        valid_models: List[ModelReturn] = []
+        for data_source in data_sources:
+            try:
+                if isinstance(data_source.data, dict):
+                    valid_models.append(
+                        ModelReturn(
+                            model=deserialize(return_type, **data_source.data), payload=data_source
+                        )
+                    )
+                else:
+                    self.logger.debug(
+                        f"Failed to create model {return_type} using {data_source.name} source. Reason: data of type {type(data_source.data)} is invalid"
+                    )
+            except CatalystwanModelValidationError:
+                self.logger.debug(
+                    f"Failed to create model {return_type} using {data_source.name} source."
+                )
+
+        if not valid_models:
+            raise CatalystwanResponseTypeError(
+                f"Failed to create model {return_type} from given data."
+            )
+        if len(valid_models) == 1:
+            return valid_models[0].model
+
+        # return model that matches best with the input
+        valid_models.sort(
+            key=lambda x: (self.__count_matching_keys(x.model, x.payload.data), x.payload.priority),
+            reverse=True,
+        )
+        return valid_models[0].model
+
+    def __count_matching_keys(self, model: ReturnType, model_payload: dict):
+        matched_keys = 0
+        for key, value in model_payload.items():
+            try:
+                model_value = getattr(model, key)
+                matched_keys += 1
+                if is_dataclass(model_value) and isinstance(value, dict):
+                    matched_keys += self.__count_matching_keys(model_value, value)
+                elif (
+                    isinstance(model_value, list)
+                    and all([is_dataclass(element) for element in model_value])
+                    and isinstance(value, list)
+                ):
+                    for model_v, input_v in zip(model_value, value):
+                        matched_keys += self.__count_matching_keys(model_v, input_v)
+            except AttributeError:
+                continue
+
+        return matched_keys
 
     def __copy__(self) -> RequestAdapter:
         return RequestAdapter(session=copy(self.session), logger=self.logger)
