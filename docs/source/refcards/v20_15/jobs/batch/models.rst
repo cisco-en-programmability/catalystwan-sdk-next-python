@@ -5,7 +5,7 @@ Models
 
 .. code:: python
 
-    from typing import Union, Dict, Optional, Literal, List, Any
+    from typing import Any, Dict, List, Literal, Optional, Union
 
     Method = Literal["DELETE", "GET", "POST", "PUT"]
 
