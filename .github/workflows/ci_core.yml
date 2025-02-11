@@ -41,6 +41,8 @@ jobs:
         run:  uv pip install --system ../catalystwan-types
       - name: Install Catalystwan WAN SDK Version 20.15 (uv)
         run:  uv pip install --system ../../versions/catalystwan-v20_15
+      - name: Install Catalystwan WAN SDK Version 20.16 (uv)
+        run:  uv pip install --system ../../versions/catalystwan-v20_16
       - name: Install Catalystwan WAN SDK Self (uv)
         run:  uv pip install --system .
       - name: Install Nox
