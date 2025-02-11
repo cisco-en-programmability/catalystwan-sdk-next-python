@@ -12,6 +12,7 @@ Supported Catalystwan WAN Server Versions
 -----------------------------------------
 
 - 20.15
+- 20.16
 
 Important Notice: Version Incompatibility
 -----------------------------------------
