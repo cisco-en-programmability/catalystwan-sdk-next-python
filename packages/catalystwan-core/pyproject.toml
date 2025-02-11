@@ -41,9 +41,13 @@ test = [
 ]
 "ver-all" = [
     "catalystwan-v20-15 == 2.0.0a1",
+    "catalystwan-v20-16 == 2.0.0a1",
 ]
 "ver-2015" = [
     "catalystwan-v20-15 == 2.0.0a1",
+]
+"ver-2016" = [
+    "catalystwan-v20-16 == 2.0.0a1",
 ]
 # for nox
 [dependency-groups]

@@ -13,7 +13,11 @@ ALL_PYTHONS = [
 DEFAULT_PYTHON_VERSION = "3.12"
 CURRENT_DIRECTORY = pathlib.Path(__file__).parent.absolute()
 
-DEPENDENCY = ["../catalystwan-types/", "../../versions/catalystwan-v20_15/"]
+DEPENDENCY = [
+    "../catalystwan-types/",
+    "../../versions/catalystwan-v20_15/",
+    "../../versions/catalystwan-v20_16/",
+]
 
 nox.options.sessions = ["units"]
 
