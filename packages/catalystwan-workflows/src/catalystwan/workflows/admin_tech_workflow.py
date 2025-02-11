@@ -42,7 +42,7 @@ class Info:
 
 
 class AdminTech:
-    supported_versions = ("20.15",)
+    supported_versions = ("20.15", "20.16")
 
     def __init__(self, client: ApiClient):
         manager_version = client.api_version

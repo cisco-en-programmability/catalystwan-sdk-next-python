@@ -18,7 +18,7 @@ class ClearedAlarm:
 
 
 class AlarmsWorkflow:
-    supported_versions = ("20.14", "20.15")
+    supported_versions = ("20.14", "20.15", "20.16")
 
     def __init__(self, client: ApiClient):
         self.client = client
@@ -29,7 +29,7 @@ class AlarmsWorkflow:
         return QuerySpec
 
     def get(self, query: Optional[QuerySpec] = None):
-        if self.client.api_version == "20.15":
+        if self.client.api_version in ["20.15", "20.16"]:
             endpoint = self.client.alarms.post_raw_alarm_data
         else:
             endpoint = self.client.alarms.get_raw_alarm_data
@@ -76,7 +76,7 @@ class AlarmsWorkflow:
 
         cleared_alarms: List[ClearedAlarm] = []
         for id in ids:
-            if self.client.api_version == "20.15":
+            if self.client.api_version in ["20.15", "20.16"]:
                 response = api.clear_stale_alarm(payload={"alarm_uuid": str(id)})
                 cleared_alarms.append(
                     ClearedAlarm(

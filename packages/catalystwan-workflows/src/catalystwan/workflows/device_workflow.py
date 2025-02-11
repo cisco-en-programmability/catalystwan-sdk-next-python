@@ -31,21 +31,17 @@ class Device:
         default_factory=list, metadata={"alias": "connectedVManages"}
     )
     model: Optional[str] = field(default=None, metadata={"alias": "device-model"})
-    board_serial: Optional[str] = field(
-        default=None, metadata={"alias": "board-serial"}
-    )
+    board_serial: Optional[str] = field(default=None, metadata={"alias": "board-serial"})
     vedgeCertificateState: Optional[str] = field(
         default=None, metadata={"alias": "vedgeCertificateState"}
     )
-    chasis_number: Optional[str] = field(
-        default=None, metadata={"alias": "chasisNumber"}
-    )
+    chasis_number: Optional[str] = field(default=None, metadata={"alias": "chasisNumber"})
     site_id: Optional[str] = field(default=None, metadata={"alias": "site-id"})
     site_name: Optional[str] = field(default=None, metadata={"alias": "site-name"})
 
 
 class DeviceWorkflow:
-    supported_versions = ("20.14", "20.15")
+    supported_versions = ("20.14", "20.15", "20.16")
     PARAMS_LIMIT = 1000
 
     def __init__(self, client: ApiClient):
