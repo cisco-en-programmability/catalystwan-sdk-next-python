@@ -1,0 +1,34 @@
+==========================
+device.app_hosting.details
+==========================
+
+
+Operation: GET /dataservice/device/app-hosting/details
+------------------------------------------------------
+
+
+Get App hosting details from device
+
+.. code:: python
+
+    def get_app_hosting_details(device_id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.device.app_hosting.details.get_app_hosting_details()
+
+

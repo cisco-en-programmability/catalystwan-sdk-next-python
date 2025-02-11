@@ -1,0 +1,34 @@
+======================
+device.sslproxy.status
+======================
+
+
+Operation: GET /dataservice/device/sslproxy/status
+--------------------------------------------------
+
+
+Get ssl proxy status from device
+
+.. code:: python
+
+    def get_ssl_proxy_status(device_id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.device.sslproxy.status.get_ssl_proxy_status()
+
+

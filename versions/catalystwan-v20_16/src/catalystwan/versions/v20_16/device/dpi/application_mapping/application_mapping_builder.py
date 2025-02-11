@@ -1,0 +1,25 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+from __future__ import annotations
+
+from typing import Any, List
+
+from catalystwan.abc import RequestAdapterInterface
+
+
+class ApplicationMappingBuilder:
+    """
+    Builds and executes requests for operations under /device/dpi/application-mapping
+    """
+
+    def __init__(self, request_adapter: RequestAdapterInterface) -> None:
+        self._request_adapter = request_adapter
+
+    def get_supported_application_list(self, **kw) -> List[Any]:
+        """
+        Get DPI supported application list from device
+
+        :returns: List[Any]
+        """
+        return self._request_adapter.request(
+            "GET", "/dataservice/device/dpi/application-mapping", return_type=List[Any], **kw
+        )

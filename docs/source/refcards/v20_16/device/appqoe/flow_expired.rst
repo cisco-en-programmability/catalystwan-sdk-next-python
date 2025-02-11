@@ -1,0 +1,34 @@
+==========================
+device.appqoe.flow_expired
+==========================
+
+
+Operation: GET /dataservice/device/appqoe/flow-expired
+------------------------------------------------------
+
+
+Get Appqoe expired from device
+
+.. code:: python
+
+    def get_appqoe_expired(device_id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.device.appqoe.flow_expired.get_appqoe_expired()
+
+

@@ -1,0 +1,34 @@
+======================================
+device.app_hosting.storage_utilization
+======================================
+
+
+Operation: GET /dataservice/device/app-hosting/storage-utilization
+------------------------------------------------------------------
+
+
+Get App hosting storage utilization from device
+
+.. code:: python
+
+    def get_app_hosting_storage_utils(device_id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.device.app_hosting.storage_utilization.get_app_hosting_storage_utils()
+
+

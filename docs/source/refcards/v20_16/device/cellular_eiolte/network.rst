@@ -1,0 +1,34 @@
+==============================
+device.cellular_eiolte.network
+==============================
+
+
+Operation: GET /dataservice/device/cellularEiolte/network
+---------------------------------------------------------
+
+
+Get cellular network  info from device
+
+.. code:: python
+
+    def get_eiolte_network_info(device_id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.device.cellular_eiolte.network.get_eiolte_network_info()
+
+
