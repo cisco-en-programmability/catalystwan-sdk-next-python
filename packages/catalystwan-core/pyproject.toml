@@ -8,7 +8,7 @@ dependencies = [
     "typing-extensions >= 4.12.2",
     "urllib3 >=2.2.2",
     "catalystwan-types == 2.0.0a1",
-    "catalystwan-v20-15 == 2.0.0a1"
+    "catalystwan-v20-15 == 2.0.0a1",
     "catalystwan-v20-16 == 2.0.0a1"
 ]
 readme = "README.md"
