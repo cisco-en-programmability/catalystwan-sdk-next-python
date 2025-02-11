@@ -1,0 +1,28 @@
+name: Publish Github Pages
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: gh-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+    - id: deployment
+      uses: sphinx-notes/pages@v3
+      with:
+        documentation_path: ./docs/source
+        requirements_path: ./docs/requirements.txt
+        cache: true
+        python_version: 3.12
