@@ -39,7 +39,7 @@ Installation
 To install the SDK, run the following command:
 
 ```bash
-pip install catalystwan
+pip install catalystwan==2.0.0a0
 ```
 
 Supported Python Versions
