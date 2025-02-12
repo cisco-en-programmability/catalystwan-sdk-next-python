@@ -1,6 +1,6 @@
 [project]
 name = "catalystwan_types"
-version = "2.0.0a1"
+version = "2.0.0a0"
 description = "Abstractions for Cisco Catalyst WAN SDK for Python"
 requires-python = ">= 3.8"
 readme = "README.md"

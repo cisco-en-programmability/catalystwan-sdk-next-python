@@ -1,15 +1,15 @@
 [project]
 name = "catalystwan"
-version = "2.0.0a1"
+version = "2.0.0a0"
 description = "Cisco Catalyst WAN SDK for Python"
 dependencies = [
     "packaging >= 23.0",
     "requests >= 2.32.3",
     "typing-extensions >= 4.12.2",
     "urllib3 >=2.2.2",
-    "catalystwan-types == 2.0.0a1",
-    "catalystwan-v20-15 == 2.0.0a1",
-    "catalystwan-v20-16 == 2.0.0a1"
+    "catalystwan-types == 2.0.0a0",
+    "catalystwan-v20-15 == 2.0.0a0",
+    "catalystwan-v20-16 == 2.0.0a0"
 ]
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -40,14 +40,14 @@ test = [
     "pytest>=8.2.2",
 ]
 "ver-all" = [
-    "catalystwan-v20-15 == 2.0.0a1",
-    "catalystwan-v20-16 == 2.0.0a1",
+    "catalystwan-v20-15 == 2.0.0a0",
+    "catalystwan-v20-16 == 2.0.0a0",
 ]
 "ver-2015" = [
-    "catalystwan-v20-15 == 2.0.0a1",
+    "catalystwan-v20-15 == 2.0.0a0",
 ]
 "ver-2016" = [
-    "catalystwan-v20-16 == 2.0.0a1",
+    "catalystwan-v20-16 == 2.0.0a0",
 ]
 # for nox
 [dependency-groups]
