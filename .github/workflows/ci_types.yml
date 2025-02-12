@@ -54,12 +54,19 @@ jobs:
   deploy:
     needs: [lint, typing]
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+#    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - name: Build sdist and wheel
         run: pipx run build
-  #     - name: Publish distribution PyPI
-  #       uses: pypa/gh-action-pypi-publish@release/v1
-  #       with:
-  #         password: ${{ secrets.PYPI_API_TOKEN }}
+      - name: Publish distribution PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: ${{ inputs.working-directory }}
+          repository-url: https://test.pypi.org/legacy/
+          password: ${{ secrets.PYPI_API_TOKEN }}
