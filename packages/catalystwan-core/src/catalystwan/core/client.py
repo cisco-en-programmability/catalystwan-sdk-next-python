@@ -3,6 +3,7 @@ from __future__ import annotations
 import logging
 from contextlib import contextmanager
 from copy import copy
+from inspect import isclass
 from typing import TYPE_CHECKING, Generator, Optional, Type, TypeVar, Union, cast, overload
 
 from catalystwan.core.apigw_auth import ApiGwAuth
@@ -27,15 +28,11 @@ Client = TypeVar("Client")
 # TODO: Better TypeGuards - it may be hard since we want to avoid direct imports
 # For now, it's more of a hack for typing purposes
 def _is_client_instance(obj: object) -> TypeGuard[ApiClient]:
-    if isinstance(obj, type):
-        return False
-    return hasattr(obj, "api_version")
+    return not isclass(obj) and hasattr(obj, "api_version")
 
 
 def _is_client_class(obj: object) -> TypeGuard[Type[ApiClient]]:
-    if not isinstance(obj, type):
-        return False
-    return hasattr(obj, "api_version")
+    return isclass(obj) and hasattr(obj, "api_version")
 
 
 @overload
