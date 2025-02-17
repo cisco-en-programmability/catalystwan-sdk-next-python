@@ -4,15 +4,39 @@ Basic Examples
 Create client
 -------------
 
+Snippet below will load version during runtime, based on the SDWAN version it connects to. It will provide type hints for all installed versions.
+
 .. code-block:: python
     
     from catalystwan.core.client import create_client
-        
+
+
     with create_client(
         url=SDWAN_URL,
         port=SDWAN_PORT,
         username=SDWAN_USERNAME,
         password=SDWAN_PASSWORD,
+    ) as client:
+        ...
+
+If you want to choose version manually (and use type hints for that version alone), you can pass desired ``ApiClient`` version to the ``api_client_class`` argument.
+
+.. note::
+
+    Keep in mind: ``api_client_class`` is a keyword only argument.
+
+.. code-block:: python
+    
+    from catalystwan.core.client import create_client
+    from catalystwan.core.loader import load_client
+
+
+    with create_client(
+        url=SDWAN_URL,
+        port=SDWAN_PORT,
+        username=SDWAN_USERNAME,
+        password=SDWAN_PASSWORD,
+        api_client_class=load_client(version="20.15"),
     ) as client:
         ...
 

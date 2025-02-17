@@ -29,14 +29,12 @@ class AlarmsWorkflow:
         return QuerySpec
 
     def get(self, query: Optional[QuerySpec] = None):
-        if self.client.api_version in ["20.15", "20.16"]:
-            endpoint = self.client.alarms.post_raw_alarm_data
-        else:
-            endpoint = self.client.alarms.get_raw_alarm_data
-
         payload = Query(query=query)
-        response = endpoint(payload=serialize(payload, to_json=True))
-        return response
+
+        if self.client.api_version in ["20.15", "20.16"]:
+            return self.client.alarms.post_raw_alarm_data(payload=serialize(payload, to_json=True))
+        else:
+            return self.client.alarms.get_raw_alarm_data(payload=serialize(payload, to_json=True))
 
     def get_alarms(self, from_time: Optional[int] = None, active: bool = True):
         query_spec = QuerySpec(condition="AND", rules=[])
@@ -53,16 +51,16 @@ class AlarmsWorkflow:
                 value=[str(from_time)],
                 operator="last_n_hours",
             )
-        return self.get(query_spec=query_spec)
+        return self.get(query=query_spec)
 
     @overload
     def clear(self, uuid: Optional[UUID]) -> List[ClearedAlarm]: ...
 
     @overload
-    def clear(self, *, query: Optional[Query]) -> List[ClearedAlarm]: ...
+    def clear(self, *, query: Optional[QuerySpec]) -> List[ClearedAlarm]: ...
 
     def clear(
-        self, uuid: Optional[UUID] = None, query: Optional[Query] = None
+        self, uuid: Optional[UUID] = None, query: Optional[QuerySpec] = None
     ) -> List[ClearedAlarm]:
         ids: List[UUID] = []
         if uuid is not None:
