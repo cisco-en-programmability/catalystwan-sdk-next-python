@@ -51,9 +51,7 @@ class QueryAggregationField:
     property: Any
     size: int
     order: Optional[Order] = _field(default=None)
-    order_type: Optional[OrderType] = _field(
-        default=None, metadata={"alias": "orderType"}
-    )
+    order_type: Optional[OrderType] = _field(default=None, metadata={"alias": "orderType"})
     sequence: Optional[int] = _field(default=None)
     type_: Optional[str] = _field(default=None, metadata={"alias": "type"})
 
@@ -99,9 +97,7 @@ class QuerySpec:
     def add_query_rule(
         self, field: str, operator: Operator, field_type: FieldType, value: List[str]
     ) -> QueryRule:
-        query_rule = QueryRule(
-            field=field, operator=operator, type_=field_type, value=value
-        )
+        query_rule = QueryRule(field=field, operator=operator, type_=field_type, value=value)
         self.rules.append(query_rule)
         return query_rule
 

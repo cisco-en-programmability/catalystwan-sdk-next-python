@@ -53,7 +53,7 @@ class DeviceWorkflow:
             self.client.device.action.rediscoverall.re_discover_all_device()
 
         devices = self.client.device.list_all_devices()
-        device_ids = [device.device_id for device in devices]
+        device_ids = [device.device_id for device in devices if device.device_id is not None]
         devices_info: List[Device] = []
         for i in range(0, len(device_ids), self.PARAMS_LIMIT):
             response = self.client.device.system.info.create_device_info_list(

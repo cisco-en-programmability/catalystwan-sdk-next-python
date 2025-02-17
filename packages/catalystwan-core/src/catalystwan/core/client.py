@@ -3,16 +3,16 @@ from __future__ import annotations
 import logging
 from contextlib import contextmanager
 from copy import copy
-from typing import TYPE_CHECKING, Generator, Optional, Type, TypeVar, Union, cast, overload, get_args
-from catalystwan.core.exceptions import CatalystwanException
-from typing_extensions import TypeGuard
+from typing import TYPE_CHECKING, Generator, Optional, Type, TypeVar, Union, cast, overload
 
 from catalystwan.core.apigw_auth import ApiGwAuth
+from catalystwan.core.exceptions import CatalystwanException
 from catalystwan.core.loader import load_client
 from catalystwan.core.request_adapter import RequestAdapter
 from catalystwan.core.request_limiter import RequestLimiter
 from catalystwan.core.session import ManagerSession, create_base_url, create_manager_session
 from catalystwan.core.vmanage_auth import vManageAuth
+from typing_extensions import TypeGuard
 
 if TYPE_CHECKING:
     from catalystwan.core.loader import ApiClient
@@ -30,7 +30,7 @@ def _is_client_instance(obj: object) -> TypeGuard[ApiClient]:
     if isinstance(obj, type):
         return False
     return hasattr(obj, "api_version")
-    
+
 
 def _is_client_class(obj: object) -> TypeGuard[Type[ApiClient]]:
     if not isinstance(obj, type):
@@ -47,8 +47,7 @@ def create_client_from_auth(
     subdomain: Optional[str] = None,
     logger: Optional[logging.Logger] = None,
     request_limiter: Optional[RequestLimiter] = None,
-) -> Generator[ApiClient, None, None]:
-    ...
+) -> Generator[ApiClient, None, None]: ...
 
 
 @overload
@@ -61,9 +60,8 @@ def create_client_from_auth(
     logger: Optional[logging.Logger] = None,
     request_limiter: Optional[RequestLimiter] = None,
     *,
-    api_client_class: Type[Client]
-) -> Generator[Client, None, None]:
-    ...
+    api_client_class: Type[Client],
+) -> Generator[Client, None, None]: ...
 
 
 @contextmanager
@@ -108,8 +106,7 @@ def create_client(
     port: Optional[int] = None,
     subdomain: Optional[str] = None,
     logger: Optional[logging.Logger] = None,
-) -> Generator[ApiClient, None, None]:
-    ...
+) -> Generator[ApiClient, None, None]: ...
 
 
 @overload
@@ -122,9 +119,8 @@ def create_client(
     subdomain: Optional[str] = None,
     logger: Optional[logging.Logger] = None,
     *,
-    api_client_class: Type[Client]
-) -> Generator[Client, None, None]:
-    ...
+    api_client_class: Type[Client],
+) -> Generator[Client, None, None]: ...
 
 
 @contextmanager

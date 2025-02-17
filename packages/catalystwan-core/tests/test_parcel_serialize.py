@@ -17,9 +17,7 @@ def test_model_serialize_json():
     class Model:
         _catalystwan_model_type: ClassVar[str] = "parcel"
 
-        submodel_field: Submodel = field(
-            metadata={"alias": AliasPath(["data", "submodel_field"])}
-        )
+        submodel_field: Submodel = field(metadata={"alias": AliasPath(["data", "submodel_field"])})
         int_field: int = field(metadata={"alias": AliasPath(["data", "int_field"])})
         bool_field: bool = field(metadata={"alias": AliasPath(["data", "bool_field"])})
         str_field: str = field(metadata={"alias": AliasPath(["data", "str_field"])})
@@ -79,9 +77,7 @@ def test_model_serialize():
     class Model:
         _catalystwan_model_type: ClassVar[str] = "parcel"
 
-        submodel_field: Submodel = field(
-            metadata={"alias": AliasPath(["data", "submodel_field"])}
-        )
+        submodel_field: Submodel = field(metadata={"alias": AliasPath(["data", "submodel_field"])})
         int_field: int = field(metadata={"alias": AliasPath(["data", "int_field"])})
         bool_field: bool = field(metadata={"alias": AliasPath(["data", "bool_field"])})
         str_field: str = field(metadata={"alias": AliasPath(["data", "str_field"])})
@@ -140,9 +136,7 @@ def test_model_serialize_exclude_none():
     class Model:
         _catalystwan_model_type: ClassVar[str] = "parcel"
 
-        submodel_field: Submodel = field(
-            metadata={"alias": AliasPath(["data", "submodel_field"])}
-        )
+        submodel_field: Submodel = field(metadata={"alias": AliasPath(["data", "submodel_field"])})
         int_field: int = field(metadata={"alias": AliasPath(["data", "int_field"])})
         optional_field: Optional[str] = field(
             metadata={"alias": AliasPath(["data", "optional_field"])}
@@ -184,9 +178,7 @@ def test_model_serialize_include_none():
     class Model:
         _catalystwan_model_type: ClassVar[str] = "parcel"
 
-        submodel_field: Submodel = field(
-            metadata={"alias": AliasPath(["data", "submodel_field"])}
-        )
+        submodel_field: Submodel = field(metadata={"alias": AliasPath(["data", "submodel_field"])})
         int_field: int = field(metadata={"alias": AliasPath(["data", "int_field"])})
         optional_field: Optional[str] = field(
             metadata={"alias": AliasPath(["data", "optional_field"])}
