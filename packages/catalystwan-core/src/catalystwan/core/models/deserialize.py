@@ -65,24 +65,25 @@ class ModelDeserializer:
                 message += f"{exc}\n"
             raise CatalystwanModelValidationError(message)
 
-    def __is_optional(self, t: Any) -> bool:
-        if get_origin(t) is Union and type(None) in get_args(t):
-            return True
-        return False
-
     def __extract_type(self, field_type: Any, field_value: Any, field_name: str) -> ExtractedValue:
         origin = get_origin(field_type)
         # check for simple types and classes
         if origin is None:
             if field_type is Any or isinstance(field_value, field_type):
                 return ExtractedValue(value=field_value, exact_match=True)
+            elif field_type is type(None):
+                if field_value is None:
+                    return ExtractedValue(value=None, exact_match=True)
+                elif not field_value:
+                    return ExtractedValue(value=None, exact_match=False)
             elif is_dataclass(field_type):
+                model_instance = deserialize(
+                    cast(Type[DataclassInstance], field_type), **field_value
+                )
                 return ExtractedValue(
-                    value=deserialize(cast(DataclassInstance, field_type), **field_value),
+                    value=model_instance,
                     exact_match=False,
-                    matched_keys=count_matching_keys(
-                        cast(DataclassInstance, field_type), field_value
-                    ),
+                    matched_keys=count_matching_keys(model_instance, field_value),
                 )
             elif isclass(unwrap(field_type)):
                 if isinstance(field_value, dict):
@@ -107,16 +108,6 @@ class ModelDeserializer:
                     if not extracted_value.exact_match:
                         exact_match = False
                 return ExtractedValue(value=values, exact_match=exact_match)
-        elif self.__is_optional(field_type):
-            if field_value is None:
-                return ExtractedValue(value=None, exact_match=True)
-            else:
-                try:
-                    return self.__extract_type(get_args(field_type)[0], field_value, field_name)
-                except CatalystwanModelInputException as e:
-                    if not field_value:
-                        return ExtractedValue(value=None, exact_match=False)
-                    raise e
         elif origin is Literal:
             for arg in get_args(field_type):
                 try:
