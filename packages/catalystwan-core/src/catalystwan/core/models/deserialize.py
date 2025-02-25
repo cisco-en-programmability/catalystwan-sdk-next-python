@@ -72,9 +72,7 @@ class ModelDeserializer:
             if field_type is Any or isinstance(field_value, field_type):
                 return ExtractedValue(value=field_value, exact_match=True)
             elif field_type is type(None):
-                if field_value is None:
-                    return ExtractedValue(value=None, exact_match=True)
-                elif not field_value:
+                if not field_value:
                     return ExtractedValue(value=None, exact_match=False)
             elif is_dataclass(field_type):
                 model_instance = deserialize(
