@@ -71,6 +71,10 @@ class ModelDeserializer:
         if origin is None:
             if field_type is Any or isinstance(field_value, field_type):
                 return ExtractedValue(value=field_value, exact_match=True)
+            # Do not cast bool values
+            elif field_type is bool:
+                ...
+            # False/Empty values (like empty string or list) can match to None
             elif field_type is type(None):
                 if not field_value:
                     return ExtractedValue(value=None, exact_match=False)
@@ -122,7 +126,7 @@ class ModelDeserializer:
             return ExtractedValue(value=caster(field_value), exact_match=False)
         # When parsing Unions, try to find the best match. Currently, it involves:
         # 1. Finding the exact match
-        # 2. If not found, favors dataclasses - sorted by number of matched keys
+        # 2. If not found, favors dataclasses - sorted by number of matched keys, then None values
         # 3. If no dataclasses are present, return the leftmost matched argument
         elif origin is Union:
             matches: List[ExtractedValue] = []
@@ -142,7 +146,8 @@ class ModelDeserializer:
             # Only non-exact matches left, sort and return first element
             elif len(matches) > 1:
                 matches.sort(
-                    key=lambda x: (x.matched_keys is not None, x.matched_keys), reverse=True
+                    key=lambda x: (x.matched_keys is not None, x.matched_keys, x.value is None),
+                    reverse=True,
                 )
                 return matches[0]
         # Correct type not found, add exception
@@ -157,7 +162,7 @@ class ModelDeserializer:
         kwargs_copy = deepcopy(kwargs)
         new_args = []
         new_kwargs = {}
-        field_types = get_type_hints(cls)
+        field_types = get_type_hints(cls, include_extras=True)
         for field in fields(cls):
             if not field.init:
                 continue
