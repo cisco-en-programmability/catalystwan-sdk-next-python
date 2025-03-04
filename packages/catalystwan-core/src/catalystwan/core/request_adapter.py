@@ -14,6 +14,7 @@ from catalystwan.core.exceptions import (
 )
 from catalystwan.core.models.deserialize import deserialize
 from catalystwan.core.models.serialize import serialize
+from catalystwan.core.models.utils import count_matching_keys
 from catalystwan.core.types import DataclassInstance
 from typing_extensions import get_args, get_origin
 
@@ -213,34 +214,12 @@ class RequestAdapter(RequestAdapterInterface):
         # return model that matches best with the input
         valid_models.sort(
             key=lambda x: (
-                self.__count_matching_keys(x.model, cast(dict, x.payload.data)),
+                count_matching_keys(x.model, cast(dict, x.payload.data)),
                 x.payload.priority,
             ),
             reverse=True,
         )
         return valid_models[0].model
-
-    def __count_matching_keys(self, model: DataclassType, model_payload: dict):
-        matched_keys = 0
-        for key, value in model_payload.items():
-            try:
-                model_value = getattr(model, key)
-                matched_keys += 1
-                if is_dataclass(model_value) and isinstance(value, dict):
-                    matched_keys += self.__count_matching_keys(
-                        cast(DataclassType, model_value), value
-                    )
-                elif (
-                    isinstance(model_value, list)
-                    and all([is_dataclass(element) for element in model_value])
-                    and isinstance(value, list)
-                ):
-                    for model_v, input_v in zip(model_value, value):
-                        matched_keys += self.__count_matching_keys(model_v, input_v)
-            except AttributeError:
-                continue
-
-        return matched_keys
 
     def __copy__(self) -> RequestAdapter:
         return RequestAdapter(session=copy(self.session), logger=self.logger)
