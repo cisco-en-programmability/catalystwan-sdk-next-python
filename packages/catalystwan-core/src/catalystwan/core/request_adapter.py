@@ -4,7 +4,7 @@ import logging
 from copy import copy
 from dataclasses import dataclass, field, fields, is_dataclass
 from string import Formatter
-from typing import Any, Dict, List, Optional, Type, TypeVar, Union, cast
+from typing import Any, Dict, List, Literal, Optional, Tuple, Type, TypeVar, Union, cast
 
 from catalystwan.abc import RequestAdapterInterface, ResponseInterface, SessionInterface
 from catalystwan.abc.types import HTTP_METHOD, JSON
@@ -220,6 +220,38 @@ class RequestAdapter(RequestAdapterInterface):
             reverse=True,
         )
         return valid_models[0].model
+
+    def param_checker(self, required_params: List[Tuple[Any, Type]], excluded_params: List[Any]):
+        for param in excluded_params:
+            if param is not None:
+                return False
+        for param_value, expected_type in required_params:
+            if param_value is None:
+                return False
+            origin = get_origin(expected_type)
+            if origin is Any:
+                continue
+            elif origin is None:
+                if type(param_value) is not expected_type:
+                    return False
+            elif origin is Literal:
+                if param_value not in get_args(expected_type):
+                    return False
+            # This part assumes List and Unions are not overly complex, allowing get_args to flatten the list of types
+            elif origin is list:
+                if type(param_value) is not list:
+                    return False
+                args = get_args(expected_type)
+                if Any in args:
+                    continue
+                if type(param_value) not in args:
+                    return False
+            elif origin is Union:
+                if type(param_value) not in get_args(expected_type):
+                    return False
+            else:
+                continue
+        return True
 
     def __copy__(self) -> RequestAdapter:
         return RequestAdapter(session=copy(self.session), logger=self.logger)
