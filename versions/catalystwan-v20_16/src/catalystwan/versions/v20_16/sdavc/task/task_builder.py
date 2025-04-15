@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class TaskBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def activate_container(self, task_id: str, payload: Optional[Any] = None, **kw):
+    def post(self, task_id: str, payload: Any, **kw):
         """
         Activate container
+        POST /dataservice/sdavc/task/{taskId}
 
         :param task_id: Task Id
         :param payload: Container task config

@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List
+from typing import TYPE_CHECKING, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -22,33 +22,46 @@ class WidgetBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_cloud_widgets(self, **kw) -> List[CloudWidget]:
-        """
-        Get All cloud widgets
-
-        :returns: List[CloudWidget]
-        """
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/widget", return_type=List[CloudWidget], **kw
-        )
-
-    def get_cloud_widget(self, cloud_type: str, **kw) -> CloudWidget:
+    @overload
+    def get(self, cloud_type: str, **kw) -> CloudWidget:
         """
         Get cloud widget by cloud type
+        GET /dataservice/multicloud/widget/{cloudType}
 
         :param cloud_type: Cloud type
         :returns: CloudWidget
         """
-        params = {
-            "cloudType": cloud_type,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/widget/{cloudType}",
-            return_type=CloudWidget,
-            params=params,
-            **kw,
-        )
+        ...
+
+    @overload
+    def get(self, **kw) -> List[CloudWidget]:
+        """
+        Get All cloud widgets
+        GET /dataservice/multicloud/widget
+
+        :returns: List[CloudWidget]
+        """
+        ...
+
+    def get(self, cloud_type: Optional[str] = None, **kw) -> Union[List[CloudWidget], CloudWidget]:
+        # /dataservice/multicloud/widget/{cloudType}
+        if self._request_adapter.param_checker([(cloud_type, str)], []):
+            params = {
+                "cloudType": cloud_type,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/multicloud/widget/{cloudType}",
+                return_type=CloudWidget,
+                params=params,
+                **kw,
+            )
+        # /dataservice/multicloud/widget
+        if self._request_adapter.param_checker([], [cloud_type]):
+            return self._request_adapter.request(
+                "GET", "/dataservice/multicloud/widget", return_type=List[CloudWidget], **kw
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def edge(self) -> EdgeBuilder:

@@ -13,7 +13,7 @@ Get interconnect edge gateway dashboard info
 
 .. code:: python
 
-    def get_dashboard_edge_info() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.dashboard.edge.get_dashboard_edge_info()
+        client.multicloud.dashboard.edge.get()
 
 

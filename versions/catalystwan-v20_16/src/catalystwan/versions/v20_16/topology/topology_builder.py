@@ -19,9 +19,10 @@ class TopologyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_full_topology(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Create full topology
+        GET /dataservice/topology
 
         :returns: List[Any]
         """

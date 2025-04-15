@@ -11,9 +11,7 @@ Activate vsmart policy for a given policy id
 
 .. code:: python
 
-    def activate_policy(
-        policy_id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def post(policy_id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.vsmart.activate.activate_policy()
+        client.template.policy.vsmart.activate.post()
 
 
 .. toctree::

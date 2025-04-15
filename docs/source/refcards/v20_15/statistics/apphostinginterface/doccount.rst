@@ -11,7 +11,7 @@ Get response count of a query
 
 .. code:: python
 
-    def get_count_2(query: str) -> Any: ...
+    def get(query: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.apphostinginterface.doccount.get_count_2()
+        client.statistics.apphostinginterface.doccount.get()
 
 
 Operation: POST /dataservice/statistics/apphostinginterface/doccount
@@ -40,7 +40,7 @@ Get response count of a query
 
 .. code:: python
 
-    def get_count_post_1(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.apphostinginterface.doccount.get_count_post_1()
+        client.statistics.apphostinginterface.doccount.post()
 
 

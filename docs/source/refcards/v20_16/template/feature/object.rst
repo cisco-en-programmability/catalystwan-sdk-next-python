@@ -11,7 +11,7 @@ Get template object definition for given template Id<br><br><br>Note: In a multi
 
 .. code:: python
 
-    def get_general_template(template_id: str) -> Any: ...
+    def get(template_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.feature.object.get_general_template()
+        client.template.feature.object.get()
 
 

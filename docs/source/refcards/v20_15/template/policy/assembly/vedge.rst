@@ -11,7 +11,7 @@ Get policy assembly preview
 
 .. code:: python
 
-    def preview_1(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.assembly.vedge.preview_1()
+        client.template.policy.assembly.vedge.post()
 
 
 Operation: GET /dataservice/template/policy/assembly/vedge/{id}
@@ -40,7 +40,7 @@ Get policy assembly preview for feature policy
 
 .. code:: python
 
-    def preview_by_id_1(id: str) -> Any: ...
+    def get(id: str) -> Any: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.assembly.vedge.preview_by_id_1()
+        client.template.policy.assembly.vedge.get()
 
 

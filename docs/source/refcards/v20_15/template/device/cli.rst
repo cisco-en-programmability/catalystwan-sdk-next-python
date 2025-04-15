@@ -11,7 +11,7 @@ Create CLI template<br><br><br>Note: In a multitenant vManage system, this API i
 
 .. code:: python
 
-    def create_cli_template(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.cli.create_cli_template()
+        client.template.device.cli.post()
 
 

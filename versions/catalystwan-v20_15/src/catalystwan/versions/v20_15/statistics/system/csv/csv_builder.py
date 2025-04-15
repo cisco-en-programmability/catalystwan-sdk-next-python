@@ -14,9 +14,10 @@ class CsvBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_data_raw_data_as_csv_16(self, query: Optional[str] = None, **kw) -> str:
+    def get(self, query: Optional[str] = None, **kw) -> str:
         """
         Get raw data with optional query as CSV
+        GET /dataservice/statistics/system/csv
 
         :param query: Query string
         :returns: str

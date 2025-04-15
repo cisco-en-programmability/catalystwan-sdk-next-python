@@ -13,7 +13,7 @@ Get transit VPC supported size
 
 .. code:: python
 
-    def get_transit_vpc_supported_size(
+    def get(
         cloud_environment: str, cloudtype: Optional[str] = "AWS"
     ) -> List[Any]: ...
 
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.transitvpc.size.get_transit_vpc_supported_size()
+        client.template.cor.transitvpc.size.get()
 
 

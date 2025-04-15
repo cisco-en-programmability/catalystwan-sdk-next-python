@@ -11,7 +11,7 @@ Generate DCA alarms
 
 .. code:: python
 
-    def generate_alarm(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.cloudservices.alarm.generate_alarm()
+        client.dca.cloudservices.alarm.post()
 
 

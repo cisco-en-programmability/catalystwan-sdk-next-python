@@ -11,9 +11,7 @@ Get policy lists with specific info tag
 
 .. code:: python
 
-    def get_policy_lists_with_info_tag_35(
-        info_tag: Optional[str] = None,
-    ) -> List[Any]: ...
+    def get(info_tag: Optional[str] = None) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.list.supervisorydisc.filtered.get_policy_lists_with_info_tag_35()
+        client.template.policy.list.supervisorydisc.filtered.get()
 
 

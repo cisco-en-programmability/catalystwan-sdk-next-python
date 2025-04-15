@@ -11,7 +11,7 @@ Create pysical topology
 
 .. code:: python
 
-    def create_physical_topology(device_id: List[DeviceIp]) -> Any: ...
+    def get(device_id: List[DeviceIp]) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.topology.physical.create_physical_topology()
+        client.topology.physical.get()
 
 
 .. toctree::

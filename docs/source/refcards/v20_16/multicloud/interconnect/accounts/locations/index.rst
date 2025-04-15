@@ -11,7 +11,7 @@ API to retrieve list of available regions for an Interconnect provider and accou
 
 .. code:: python
 
-    def get_interconnect_location_info(
+    def get(
         interconnect_type: str,
         interconnect_account_id: str,
         region: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.accounts.locations.get_interconnect_location_info()
+        client.multicloud.interconnect.accounts.locations.get()
 
 
 Operation: PUT /dataservice/multicloud/interconnect/{interconnect-type}/accounts/{interconnect-account-id}/locations
@@ -44,7 +44,7 @@ API to retrieve and update the available regions for an Interconnect provider an
 
 .. code:: python
 
-    def update_interconnect_location_info(
+    def put(
         interconnect_type: str, interconnect_account_id: str
     ) -> InterconnectLocations: ...
 
@@ -64,7 +64,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.accounts.locations.update_interconnect_location_info()
+        client.multicloud.interconnect.accounts.locations.put()
 
 
 Operation: DELETE /dataservice/multicloud/interconnect/{interconnect-type}/accounts/{interconnect-account-id}/locations
@@ -75,7 +75,7 @@ API to delete the stored regions for an Interconnect provider and account from v
 
 .. code:: python
 
-    def delete_interconnect_location_info(
+    def delete(
         interconnect_type: str, interconnect_account_id: str
     ) -> None: ...
 
@@ -95,7 +95,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.accounts.locations.delete_interconnect_location_info()
+        client.multicloud.interconnect.accounts.locations.delete()
 
 
 .. toctree::

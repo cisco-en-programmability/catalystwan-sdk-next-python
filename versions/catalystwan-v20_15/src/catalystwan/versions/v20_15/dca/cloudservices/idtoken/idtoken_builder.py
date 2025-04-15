@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,17 +14,19 @@ class IdtokenBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_id_token(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get DCA Id token
+        GET /dataservice/dca/cloudservices/idtoken
 
         :returns: Any
         """
         return self._request_adapter.request("GET", "/dataservice/dca/cloudservices/idtoken", **kw)
 
-    def store_id_token(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Set DCA Id token
+        POST /dataservice/dca/cloudservices/idtoken
 
         :param payload: DCA Id token
         :returns: None

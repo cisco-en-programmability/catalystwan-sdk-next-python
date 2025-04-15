@@ -14,12 +14,13 @@ class DownloadBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def download_existing_backup_file(self, path: str, **kw) -> Any:
+    def get(self, path: str, **kw) -> Any:
         """
         Download a Backup File that is already stored in vManage
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/tenantbackup/download/{path}
 
         :param path: File path
         :returns: Any

@@ -11,9 +11,7 @@ get device variables schema
 
 .. code:: python
 
-    def get_policy_group_device_variables_schema(
-        policy_group_id: str,
-    ) -> Any: ...
+    def get(policy_group_id: str) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.policy_group.device.variables.schema.get_policy_group_device_variables_schema()
+        client.v1.policy_group.device.variables.schema.get()
 
 

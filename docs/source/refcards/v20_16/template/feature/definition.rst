@@ -11,7 +11,7 @@ Get the configured template definition for given template Id<br><br><br>Note: In
 
 .. code:: python
 
-    def get_template_definition(template_id: str) -> Any: ...
+    def get(template_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.feature.definition.get_template_definition()
+        client.template.feature.definition.get()
 
 

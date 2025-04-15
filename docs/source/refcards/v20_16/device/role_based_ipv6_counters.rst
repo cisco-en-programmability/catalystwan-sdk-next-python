@@ -11,7 +11,7 @@ get Cisco TrustSec Role Based Ipv6 Counters information from device
 
 .. code:: python
 
-    def get_role_based_ipv6_counters(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.role_based_ipv6_counters.get_role_based_ipv6_counters()
+        client.device.role_based_ipv6_counters.get()
 
 

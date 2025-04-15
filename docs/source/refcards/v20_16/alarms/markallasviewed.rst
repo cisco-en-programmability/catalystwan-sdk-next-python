@@ -11,9 +11,7 @@ Mark all alarms as acknowledged by the user
 
 .. code:: python
 
-    def mark_all_alarms_as_viewed(
-        payload: Optional[Any] = None, type_: Optional[str] = None
-    ) -> Any: ...
+    def post(payload: Any, type_: Optional[str] = None) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.markallasviewed.mark_all_alarms_as_viewed()
+        client.alarms.markallasviewed.post()
 
 

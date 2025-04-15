@@ -11,9 +11,7 @@ Generate admin tech logs
 
 .. code:: python
 
-    def create_admin_tech(
-        payload: Optional[AdminTechCreateReq] = None,
-    ) -> None: ...
+    def post(payload: AdminTechCreateReq) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.admintech.create_admin_tech()
+        client.device.tools.admintech.post()
 
 
 Operation: DELETE /dataservice/device/tools/admintech/{requestID}

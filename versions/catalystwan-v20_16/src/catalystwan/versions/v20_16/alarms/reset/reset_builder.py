@@ -17,9 +17,10 @@ class ResetBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def reset(self, **kw) -> SimpleMessageResponse:
+    def get(self, **kw) -> SimpleMessageResponse:
         """
         Reset correlation engine.
+        GET /dataservice/alarms/reset
 
         :returns: SimpleMessageResponse
         """

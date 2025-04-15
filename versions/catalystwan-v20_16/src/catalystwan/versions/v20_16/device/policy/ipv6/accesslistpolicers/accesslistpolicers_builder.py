@@ -14,9 +14,10 @@ class AccesslistpolicersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_policy_access_list_policers_ipv6(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get access list policers from device
+        GET /dataservice/device/policy/ipv6/accesslistpolicers
 
         :param device_id: deviceId - Device IP
         :returns: Any

@@ -14,9 +14,10 @@ class CsrBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_ssl_proxy_csr(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get SSL proxy CSR
+        GET /dataservice/sslproxy/csr
 
         :param device_id: device UUID
         :returns: Any

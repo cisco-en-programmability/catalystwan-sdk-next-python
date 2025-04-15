@@ -11,7 +11,7 @@ Get query fields
 
 .. code:: python
 
-    def get_stat_query_fields_8() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.bridgemac.query.fields.get_stat_query_fields_8()
+        client.statistics.bridgemac.query.fields.get()
 
 

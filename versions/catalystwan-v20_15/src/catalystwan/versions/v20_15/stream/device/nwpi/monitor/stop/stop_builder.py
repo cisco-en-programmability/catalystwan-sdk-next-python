@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import logging
-from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -20,11 +19,10 @@ class StopBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def monitor_stop(
-        self, payload: Optional[NwpiMonitorReqPayload] = None, **kw
-    ) -> NwpiMonitorRespPayload:
+    def post(self, payload: NwpiMonitorReqPayload, **kw) -> NwpiMonitorRespPayload:
         """
         CXP Monitor Action - Stop
+        POST /dataservice/stream/device/nwpi/monitor/stop
 
         :param payload: Payload
         :returns: NwpiMonitorRespPayload

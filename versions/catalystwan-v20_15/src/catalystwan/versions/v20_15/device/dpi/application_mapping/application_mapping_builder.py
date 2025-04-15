@@ -14,9 +14,10 @@ class ApplicationMappingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_supported_application_list(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get DPI supported application list from device
+        GET /dataservice/device/dpi/application-mapping
 
         :returns: List[Any]
         """

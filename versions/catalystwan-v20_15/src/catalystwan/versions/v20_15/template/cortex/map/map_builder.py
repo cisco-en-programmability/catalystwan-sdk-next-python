@@ -14,9 +14,10 @@ class MapBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_mapped_wan_resource_groups(self, accountid: str, cloudregion: str, **kw) -> Any:
+    def get(self, accountid: str, cloudregion: str, **kw) -> Any:
         """
         Get Mapped WAN Resource Groups
+        GET /dataservice/template/cortex/map
 
         :param accountid: Account Id
         :param cloudregion: Cloud region

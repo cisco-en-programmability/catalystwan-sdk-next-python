@@ -22,12 +22,13 @@ class TypesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_template_types(self, type_: TypeParam, **kw) -> List[Any]:
+    def get(self, type_: TypeParam, **kw) -> List[Any]:
         """
         Generate template types
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/template/feature/types
 
         :param type_: Device type
         :returns: List[Any]

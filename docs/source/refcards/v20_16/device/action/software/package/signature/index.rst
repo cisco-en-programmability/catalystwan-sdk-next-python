@@ -11,9 +11,7 @@ Get list of Utd images
 
 .. code:: python
 
-    def generate_utd_image_data(
-        utdsignature: UtdsignatureParam, type_: str
-    ) -> ImageData: ...
+    def get(utdsignature: UtdsignatureParam, type_: str) -> ImageData: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.package.signature.generate_utd_image_data()
+        client.device.action.software.package.signature.get()
 
 
 .. toctree::

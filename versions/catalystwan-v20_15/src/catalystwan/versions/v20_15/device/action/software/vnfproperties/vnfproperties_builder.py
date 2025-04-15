@@ -17,9 +17,10 @@ class VnfpropertiesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_vnf_properties(self, version_id: str, **kw) -> GetVnfProperties:
+    def get(self, version_id: str, **kw) -> GetVnfProperties:
         """
         Get VNF Properties
+        GET /dataservice/device/action/software/vnfproperties/{versionId}
 
         :param version_id: Version id
         :returns: GetVnfProperties

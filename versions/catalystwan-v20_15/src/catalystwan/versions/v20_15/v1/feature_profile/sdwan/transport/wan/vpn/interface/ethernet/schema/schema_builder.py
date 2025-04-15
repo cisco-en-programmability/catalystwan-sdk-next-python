@@ -17,11 +17,10 @@ class SchemaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdwan_transport_wan_vpn_interface_ethernet_parcel_schema_by_schema(
-        self, schema_type: SchemaTypeParam, **kw
-    ) -> str:
+    def get(self, schema_type: SchemaTypeParam, **kw) -> str:
         """
         Get a SDWAN Transport WanVpn InterfaceEthernet Schema by Schema Type
+        GET /dataservice/v1/feature-profile/sdwan/transport/wan/vpn/interface/ethernet/schema
 
         :param schema_type: Schema type
         :returns: str

@@ -11,7 +11,7 @@ Get wan edge devices not configured by vManage (that is, those in CLI mode)
 
 .. code:: python
 
-    def get_unconfigured() -> List[Device]: ...
+    def get() -> List[Device]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.unconfigured.get_unconfigured()
+        client.device.unconfigured.get()
 
 
 .. toctree::

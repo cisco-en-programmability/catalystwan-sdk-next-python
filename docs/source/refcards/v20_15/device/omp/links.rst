@@ -11,7 +11,7 @@ Get OMP connection list
 
 .. code:: python
 
-    def create_omp_link_list(state: str) -> Any: ...
+    def get(state: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.omp.links.create_omp_link_list()
+        client.device.omp.links.get()
 
 

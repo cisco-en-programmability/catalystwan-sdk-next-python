@@ -11,7 +11,7 @@ Get user groups in a grid table
 
 .. code:: python
 
-    def create_group_grid_columns() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.usergroup.definition.create_group_grid_columns()
+        client.admin.usergroup.definition.get()
 
 

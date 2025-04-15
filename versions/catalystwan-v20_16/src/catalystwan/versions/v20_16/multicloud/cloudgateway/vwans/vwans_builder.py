@@ -19,7 +19,7 @@ class VwansBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_azure_virtual_wans(
+    def get(
         self,
         cloud_type: str,
         account_id: str,
@@ -29,6 +29,7 @@ class VwansBuilder:
     ) -> List[VwanListResponse]:
         """
         Discover Azure Virtual WANS
+        GET /dataservice/multicloud/cloudgateway/vwans
 
         :param cloud_type: Cloud type
         :param account_id: Account id

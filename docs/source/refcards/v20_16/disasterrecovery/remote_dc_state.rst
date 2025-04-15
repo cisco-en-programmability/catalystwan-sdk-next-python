@@ -11,7 +11,7 @@ Gets remote data center member state
 
 .. code:: python
 
-    def get_remote_dc_members_state() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.remote_dc_state.get_remote_dc_members_state()
+        client.disasterrecovery.remote_dc_state.get()
 
 

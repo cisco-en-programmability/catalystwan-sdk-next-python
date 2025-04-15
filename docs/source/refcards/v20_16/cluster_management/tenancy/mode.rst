@@ -11,7 +11,7 @@ Get vManage tenancy mode<br><br><br>Note: In a multitenant vManage system, this 
 
 .. code:: python
 
-    def get_tenancy_mode() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.tenancy.mode.get_tenancy_mode()
+        client.cluster_management.tenancy.mode.get()
 
 
 Operation: POST /dataservice/clusterManagement/tenancy/mode
@@ -40,7 +40,7 @@ Update vManage tenancy mode
 
 .. code:: python
 
-    def set_tenancy_mode(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.tenancy.mode.set_tenancy_mode()
+        client.cluster_management.tenancy.mode.post()
 
 

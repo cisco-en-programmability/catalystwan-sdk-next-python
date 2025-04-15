@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
+from typing import Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateRoutingOspfProfileParcelForServicePostRequest,
+    CreateRoutingOspfProfileParcelForServicePostResponse,
+    EditRoutingOspfProfileParcelForServicePutRequest,
+    EditRoutingOspfProfileParcelForServicePutResponse,
+    GetListSdwanServiceRoutingOspfPayload,
+    GetSingleSdwanServiceRoutingOspfPayload,
+)
 
 
 class OspfBuilder:
@@ -11,36 +21,21 @@ class OspfBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sdwan/service/{serviceId}/routing/ospf
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_routing_ospf_profile_parcel_for_service(self, service_id: str, **kw) -> str:
-        """
-        Get Routing Ospf Profile Parcels for Service feature profile
-
-        :param service_id: Feature Profile ID
-        :returns: str
-        """
-        params = {
-            "serviceId": service_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/ospf",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def create_routing_ospf_profile_parcel_for_service(
-        self, service_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self, service_id: str, payload: CreateRoutingOspfProfileParcelForServicePostRequest, **kw
+    ) -> CreateRoutingOspfProfileParcelForServicePostResponse:
         """
         Create a Routing Ospf Profile Parcel for Service feature profile
+        POST /dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/ospf
 
         :param service_id: Feature Profile ID
         :param payload: Routing Ospf Profile Parcel
-        :returns: str
+        :returns: CreateRoutingOspfProfileParcelForServicePostResponse
         """
         params = {
             "serviceId": service_id,
@@ -48,44 +43,27 @@ class OspfBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/ospf",
-            return_type=str,
+            return_type=CreateRoutingOspfProfileParcelForServicePostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_routing_ospf_profile_parcel_by_parcel_id_for_service(
-        self, service_id: str, ospf_id: str, **kw
-    ) -> str:
-        """
-        Get Routing Ospf Profile Parcel by parcelId for Service feature profile
-
-        :param service_id: Feature Profile ID
-        :param ospf_id: Profile Parcel ID
-        :returns: str
-        """
-        params = {
-            "serviceId": service_id,
-            "ospfId": ospf_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/ospf/{ospfId}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def edit_routing_ospf_profile_parcel_for_service(
-        self, service_id: str, ospf_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self,
+        service_id: str,
+        ospf_id: str,
+        payload: EditRoutingOspfProfileParcelForServicePutRequest,
+        **kw,
+    ) -> EditRoutingOspfProfileParcelForServicePutResponse:
         """
         Update a Routing Ospf Profile Parcel for Service feature profile
+        PUT /dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/ospf/{ospfId}
 
         :param service_id: Feature Profile ID
         :param ospf_id: Profile Parcel ID
         :param payload: Routing Ospf Profile Parcel
-        :returns: str
+        :returns: EditRoutingOspfProfileParcelForServicePutResponse
         """
         params = {
             "serviceId": service_id,
@@ -94,15 +72,16 @@ class OspfBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/ospf/{ospfId}",
-            return_type=str,
+            return_type=EditRoutingOspfProfileParcelForServicePutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_routing_ospf_profile_parcel_for_service(self, service_id: str, ospf_id: str, **kw):
+    def delete(self, service_id: str, ospf_id: str, **kw):
         """
         Delete a Routing Ospf Profile Parcel for Service feature profile
+        DELETE /dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/ospf/{ospfId}
 
         :param service_id: Feature Profile ID
         :param ospf_id: Profile Parcel ID
@@ -118,3 +97,56 @@ class OspfBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(self, service_id: str, ospf_id: str, **kw) -> GetSingleSdwanServiceRoutingOspfPayload:
+        """
+        Get Routing Ospf Profile Parcel by parcelId for Service feature profile
+        GET /dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/ospf/{ospfId}
+
+        :param service_id: Feature Profile ID
+        :param ospf_id: Profile Parcel ID
+        :returns: GetSingleSdwanServiceRoutingOspfPayload
+        """
+        ...
+
+    @overload
+    def get(self, service_id: str, **kw) -> GetListSdwanServiceRoutingOspfPayload:
+        """
+        Get Routing Ospf Profile Parcels for Service feature profile
+        GET /dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/ospf
+
+        :param service_id: Feature Profile ID
+        :returns: GetListSdwanServiceRoutingOspfPayload
+        """
+        ...
+
+    def get(
+        self, service_id: str, ospf_id: Optional[str] = None, **kw
+    ) -> Union[GetListSdwanServiceRoutingOspfPayload, GetSingleSdwanServiceRoutingOspfPayload]:
+        # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/ospf/{ospfId}
+        if self._request_adapter.param_checker([(service_id, str), (ospf_id, str)], []):
+            params = {
+                "serviceId": service_id,
+                "ospfId": ospf_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/ospf/{ospfId}",
+                return_type=GetSingleSdwanServiceRoutingOspfPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/ospf
+        if self._request_adapter.param_checker([(service_id, str)], [ospf_id]):
+            params = {
+                "serviceId": service_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/ospf",
+                return_type=GetListSdwanServiceRoutingOspfPayload,
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")

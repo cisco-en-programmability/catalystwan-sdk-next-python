@@ -19,14 +19,12 @@ class ImportTraceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def import_trace(
-        self,
-        payload: Optional[ImportTraceRequest] = None,
-        new_trace_name: Optional[str] = None,
-        **kw,
+    def post(
+        self, payload: ImportTraceRequest, new_trace_name: Optional[str] = None, **kw
     ) -> ImportTraceResponse:
         """
         Import Trace
+        POST /dataservice/stream/device/nwpi/importTrace
 
         :param new_trace_name: New trace name
         :param payload: Trace Data File

@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import logging
-from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -20,13 +19,14 @@ class VerifyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def validate_template(self, payload: Optional[ValidateTemplatePostRequest] = None, **kw):
+    def post(self, payload: ValidateTemplatePostRequest, **kw):
         """
         Validate full template"
 
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        POST /dataservice/template/device/config/verify
 
         :param payload: Payload
         :returns: None

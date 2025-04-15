@@ -11,7 +11,7 @@ returns all cloud sourced application
 
 .. code:: python
 
-    def get_extended_applications(
+    def get(
         offset: Optional[int] = None,
         limit: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -42,7 +42,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.cloud_sourced.get_extended_applications()
+        client.sdavc.cloud_sourced.get()
 
 
 Operation: POST /dataservice/sdavc/cloud-sourced
@@ -51,8 +51,8 @@ Operation: POST /dataservice/sdavc/cloud-sourced
 
 .. code:: python
 
-    def save_extended_applications(
-        payload: Optional[SaveExtendedApplicationRequest] = None,
+    def post(
+        payload: SaveExtendedApplicationRequest,
     ) -> DefaultSuccessResponse: ...
 
 
@@ -71,7 +71,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.cloud_sourced.save_extended_applications()
+        client.sdavc.cloud_sourced.post()
 
 
 .. toctree::

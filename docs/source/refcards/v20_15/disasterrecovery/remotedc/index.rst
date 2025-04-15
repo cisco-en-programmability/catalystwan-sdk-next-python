@@ -11,7 +11,7 @@ Get remote data center details
 
 .. code:: python
 
-    def get_remote_data_center_state() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.remotedc.get_remote_data_center_state()
+        client.disasterrecovery.remotedc.get()
 
 
 .. toctree::

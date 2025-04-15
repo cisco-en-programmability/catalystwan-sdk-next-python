@@ -11,7 +11,7 @@ Get Wazuh agent status
 
 .. code:: python
 
-    def get_wazuh_agent_status() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.fedramp.wazuh.status.get_wazuh_agent_status()
+        client.fedramp.wazuh.status.get()
 
 

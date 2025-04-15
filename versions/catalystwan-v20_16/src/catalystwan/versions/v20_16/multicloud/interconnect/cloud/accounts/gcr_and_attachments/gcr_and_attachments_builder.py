@@ -19,7 +19,7 @@ class GcrAndAttachmentsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_google_cloud_router_and_attachments(
+    def get(
         self,
         cloud_type: CloudTypeParam,
         cloud_account_id: str,
@@ -33,6 +33,7 @@ class GcrAndAttachmentsBuilder:
     ) -> InlineResponse20010:
         """
         API to get Google Cloud Router and Attachments.
+        GET /dataservice/multicloud/interconnect/cloud/{cloud-type}/accounts/{cloud-account-id}/gcr-and-attachments
 
         :param cloud_type: Cloud Provider Type
         :param cloud_account_id: Cloud account id

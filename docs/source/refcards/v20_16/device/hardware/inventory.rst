@@ -11,7 +11,7 @@ Get hardware inventory list from device
 
 .. code:: python
 
-    def create_inventory_list(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.hardware.inventory.create_inventory_list()
+        client.device.hardware.inventory.get()
 
 

@@ -12,9 +12,10 @@ class DownloadBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def download_report_data_file(self, report_id: str, task_id: str, **kw) -> str:
+    def get(self, report_id: str, task_id: str, **kw) -> str:
         """
         Download a report file
+        GET /dataservice/v1/reports/{reportId}/tasks/{taskId}/download
 
         :param report_id: Report id
         :param task_id: Task id

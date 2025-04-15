@@ -15,7 +15,7 @@ class ConnectivitygatewaycreationoptionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_connectivity_gateway_creation_options(
+    def get(
         self,
         account_id: Optional[str] = None,
         cloud_type: Optional[str] = None,
@@ -25,6 +25,7 @@ class ConnectivitygatewaycreationoptionsBuilder:
     ) -> Any:
         """
         Get connectivity gateway creation options
+        GET /dataservice/multicloud/connectivitygatewaycreationoptions
 
         :param account_id: Account Id
         :param cloud_type: Cloud Type

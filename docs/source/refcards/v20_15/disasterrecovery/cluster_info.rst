@@ -11,7 +11,7 @@ Get disaster recovery cluster info
 
 .. code:: python
 
-    def get_cluster_info() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.cluster_info.get_cluster_info()
+        client.disasterrecovery.cluster_info.get()
 
 

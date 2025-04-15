@@ -14,14 +14,13 @@ class AttachedconfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_attached_config_to_device(
-        self, device_id: str, policy_id: Optional[str] = None, **kw
-    ) -> Any:
+    def get(self, device_id: str, policy_id: Optional[str] = None, **kw) -> Any:
         """
         Get attached config to device
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/template/device/config/attachedconfig
 
         :param device_id: Device Model ID
         :param policy_id: Policy id

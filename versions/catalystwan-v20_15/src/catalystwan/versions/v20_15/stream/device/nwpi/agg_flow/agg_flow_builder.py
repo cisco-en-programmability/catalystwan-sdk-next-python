@@ -20,11 +20,12 @@ class AggFlowBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_agg_flow(
+    def get(
         self, trace_id: int, timestamp: int, trace_state: str, query: Optional[str] = None, **kw
     ) -> List[AggFlowResponsePayloadInner]:
         """
         Get aggregated flow data for NWPI.
+        GET /dataservice/stream/device/nwpi/aggFlow
 
         :param trace_id: Trace id
         :param timestamp: Timestamp

@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from dataclasses import dataclass
 from dataclasses import field as _field
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass
@@ -39,3 +39,10 @@ class ProviderAccountDetails:
         default=None, metadata={"alias": "acceptTermsAndConditions"}
     )
     account_data: Optional[AccountData] = _field(default=None, metadata={"alias": "accountData"})
+
+
+@dataclass
+class ProviderAccountDetailsList:
+    provider_account_details_list: Optional[List[ProviderAccountDetails]] = _field(
+        default=None, metadata={"alias": "providerAccountDetailsList"}
+    )

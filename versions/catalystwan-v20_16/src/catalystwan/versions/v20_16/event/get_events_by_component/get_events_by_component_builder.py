@@ -17,9 +17,10 @@ class GetEventsByComponentBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_event_names_by_component(self, query: str, **kw) -> ComponentEventMapping:
+    def get(self, query: str, **kw) -> ComponentEventMapping:
         """
         Get event names by component.
+        GET /dataservice/event/getEventsByComponent
 
         :param query: Event component name
         :returns: ComponentEventMapping

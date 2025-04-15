@@ -14,9 +14,10 @@ class FiltermemoryusageBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_policy_filter_memory_usage(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get data policy filter memory usage from device
+        GET /dataservice/device/policy/filtermemoryusage
 
         :param device_id: deviceId - Device IP
         :returns: Any

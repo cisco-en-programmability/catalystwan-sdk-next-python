@@ -14,9 +14,10 @@ class RadioBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_wireless_radios(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get wireless Radios from device
+        GET /dataservice/device/wireless/radio
 
         :param device_id: deviceId - Device IP
         :returns: Any

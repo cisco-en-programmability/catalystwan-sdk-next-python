@@ -11,7 +11,7 @@ Download generated file
 
 .. code:: python
 
-    def download_generated_file(request_uuid: str) -> None: ...
+    def get(request_uuid: str) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.file_based.data_collection.download.download_generated_file()
+        client.device.file_based.data_collection.download.get()
 
 

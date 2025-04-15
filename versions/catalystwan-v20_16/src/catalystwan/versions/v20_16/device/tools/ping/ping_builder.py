@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,11 +17,10 @@ class PingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def ping_device(
-        self, device_ip: str, payload: Optional[PingRequest] = None, **kw
-    ) -> PingResponse:
+    def post(self, device_ip: str, payload: PingRequest, **kw) -> PingResponse:
         """
         Ping device
+        POST /dataservice/device/tools/ping/{deviceIP}
 
         :param device_ip: Device IP
         :param payload: Ping parameter

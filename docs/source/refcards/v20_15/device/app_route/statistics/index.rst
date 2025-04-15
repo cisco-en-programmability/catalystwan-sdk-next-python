@@ -11,11 +11,11 @@ Get application-aware routing statistics from device (Real Time)
 
 .. code:: python
 
-    def create_app_route_statistics_list(
+    def get(
         device_id: str,
         remote_system_ip: Optional[str] = None,
         local_color: Optional[LocalColorParam] = None,
-        remote_color: Optional[LocalColorParam] = None,
+        remote_color: Optional[RemoteColorParam] = None,
     ) -> Any: ...
 
 
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.app_route.statistics.create_app_route_statistics_list()
+        client.device.app_route.statistics.get()
 
 
 .. toctree::

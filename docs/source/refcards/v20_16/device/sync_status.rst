@@ -11,7 +11,7 @@ Get list of currently syncing devices
 
 .. code:: python
 
-    def list_currently_syncing_devices(group_id: str) -> List[Any]: ...
+    def get(group_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.sync_status.list_currently_syncing_devices()
+        client.device.sync_status.get()
 
 

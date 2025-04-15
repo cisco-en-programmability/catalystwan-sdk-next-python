@@ -11,7 +11,7 @@ Delete Auto On Task
 
 .. code:: python
 
-    def task_delete(task_id: str) -> TasksDeleteResponsePayload: ...
+    def delete(task_id: str) -> TasksDeleteResponsePayload: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.tasks.delete.task_delete()
+        client.stream.device.nwpi.tasks.delete.delete()
 
 
 .. toctree::

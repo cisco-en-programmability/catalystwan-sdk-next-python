@@ -20,9 +20,10 @@ class TypesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_icgw_types(self, edge_type: Optional[EdgeTypeParam] = None, **kw) -> Any:
+    def get(self, edge_type: Optional[EdgeTypeParam] = None, **kw) -> Any:
         """
         Get Interconnect Gateway type for specified Edge Provider
+        GET /dataservice/multicloud/gateway/edge/types
 
         :param edge_type: Edge type
         :returns: Any

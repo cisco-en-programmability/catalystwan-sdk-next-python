@@ -17,9 +17,10 @@ class EnvironmentDataBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_environment_data(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         get Cisco TrustSec Environment Data information from device
+        GET /dataservice/device/environmentData
 
         :param device_id: deviceId - Device IP
         :returns: Any

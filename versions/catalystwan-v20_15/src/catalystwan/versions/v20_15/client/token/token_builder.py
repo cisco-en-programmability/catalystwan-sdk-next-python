@@ -19,9 +19,10 @@ class TokenBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_csrf_token(self, json: Optional[bool] = False, **kw) -> ClientTokenResponse:
+    def get(self, json: Optional[bool] = False, **kw) -> ClientTokenResponse:
         """
         Get CSRF token
+        GET /dataservice/client/token
 
         :param json: Json
         :returns: ClientTokenResponse

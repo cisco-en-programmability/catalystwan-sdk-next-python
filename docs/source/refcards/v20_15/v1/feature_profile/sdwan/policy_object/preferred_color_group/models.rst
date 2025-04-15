@@ -72,13 +72,22 @@ Models
         path_preference: Optional[OneOfEntriesPathPreferenceOptionsDef]
 
 
+    class TertiaryPreference:
+        """
+        Object with an color and path preference
+        """
+
+        color_preference: Optional[OneOfEntriesColorPreferenceOptionsDef]
+        path_preference: Optional[OneOfEntriesPathPreferenceOptionsDef]
+
+
     class Entries:
         # Object with an color and path preference
         primary_preference: Union[PrimaryPreference1, PrimaryPreference2]
         # Object with an color and path preference
         secondary_preference: Optional[SecondaryPreference]
         # Object with an color and path preference
-        tertiary_preference: Optional[SecondaryPreference]
+        tertiary_preference: Optional[TertiaryPreference]
 
 
     class Data:
@@ -93,8 +102,17 @@ Models
 
         data: Data
         description: Optional[str]
-        # This is the documentation for POST request schema for preferred-color-group profile parcel
-        documentation: Optional[Any]
+        metadata: Optional[Any]
+        name: Optional[str]
+
+
+    class Payload:
+        """
+        preferred-color-group profile parcel schema for POST request
+        """
+
+        data: Data
+        description: Optional[str]
         metadata: Optional[Any]
         name: Optional[str]
 
@@ -107,8 +125,6 @@ Models
         parcel_id: Optional[str]
         parcel_type: Optional[str]
         # preferred-color-group profile parcel schema for POST request
-        payload: Optional[
-            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest
-        ]
+        payload: Optional[Payload]
 
 

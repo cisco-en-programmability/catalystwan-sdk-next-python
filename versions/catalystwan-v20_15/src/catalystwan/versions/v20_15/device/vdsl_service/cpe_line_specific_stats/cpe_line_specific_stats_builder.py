@@ -14,9 +14,10 @@ class CpeLineSpecificStatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cpe_line_specific_stats(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get VDSL service CPE line specific stats from device
+        GET /dataservice/device/vdslService/cpeLineSpecificStats
 
         :param device_id: deviceId - Device IP
         :returns: Any

@@ -15,9 +15,10 @@ class GetTransitVpnListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_transit_vpc_vpn_list(self, account_id: str, **kw) -> List[Any]:
+    def get(self, account_id: str, **kw) -> List[Any]:
         """
         Get transit VPN list
+        GET /dataservice/template/cor/getTransitVpnList
 
         :param account_id: Account Id
         :returns: List[Any]

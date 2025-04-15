@@ -11,9 +11,7 @@ Get OMP multicast autodiscover advertised list
 
 .. code:: python
 
-    def create_omp_mcast_auto_discover_advt(
-        device_id: str,
-    ) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.omp.mcastautodiscoveradvt.create_omp_mcast_auto_discover_advt()
+        client.device.omp.mcastautodiscoveradvt.get()
 
 

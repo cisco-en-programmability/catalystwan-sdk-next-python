@@ -11,7 +11,7 @@ Get Telemetry state
 
 .. code:: python
 
-    def get_telemetry_state() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.telemetry.get_telemetry_state()
+        client.cloudservices.telemetry.get()
 
 
 .. toctree::

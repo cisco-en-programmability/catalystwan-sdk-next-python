@@ -14,9 +14,10 @@ class KeyvalueBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_list_as_key_value(self, site_id: Optional[str] = None, **kw) -> Any:
+    def get(self, site_id: Optional[str] = None, **kw) -> Any:
         """
         Get vEdge inventory as key value (key as systemIp value as hostName)
+        GET /dataservice/device/keyvalue
 
         :param site_id: Optional site ID  to filter devices
         :returns: Any

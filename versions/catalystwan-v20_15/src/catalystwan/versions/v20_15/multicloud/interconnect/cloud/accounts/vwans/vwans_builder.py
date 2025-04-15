@@ -19,7 +19,7 @@ class VwansBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_az_virtual_wans(
+    def get(
         self,
         cloud_type: str,
         cloud_account_id: str,
@@ -30,6 +30,7 @@ class VwansBuilder:
     ) -> InlineResponse2009:
         """
         API to retrieve Azure Virtual Wans.
+        GET /dataservice/multicloud/interconnect/cloud/{cloud-type}/accounts/{cloud-account-id}/vwans
 
         :param cloud_type: Cloud Provider Type
         :param cloud_account_id: Cloud account id
@@ -53,15 +54,12 @@ class VwansBuilder:
             **kw,
         )
 
-    def create_az_virtual_wan(
-        self,
-        cloud_type: str,
-        cloud_account_id: str,
-        payload: Optional[AzureVirtualWan] = None,
-        **kw,
+    def post(
+        self, cloud_type: str, cloud_account_id: str, payload: AzureVirtualWan, **kw
     ) -> InlineResponse2009:
         """
         API to create an Azure Virtual Wan..
+        POST /dataservice/multicloud/interconnect/cloud/{cloud-type}/accounts/{cloud-account-id}/vwans
 
         :param cloud_type: Cloud Provider Type
         :param cloud_account_id: Cloud account id
@@ -81,7 +79,7 @@ class VwansBuilder:
             **kw,
         )
 
-    def delete_az_virtual_wan(
+    def delete(
         self,
         cloud_type: CloudTypeParam,
         cloud_account_id: str,
@@ -91,6 +89,7 @@ class VwansBuilder:
     ) -> Any:
         """
         API to delete an Azure Virtual Wan.
+        DELETE /dataservice/multicloud/interconnect/cloud/{cloud-type}/accounts/{cloud-account-id}/vwans/{vwan-name}
 
         :param cloud_type: Cloud Provider Type
         :param cloud_account_id: Cloud account id

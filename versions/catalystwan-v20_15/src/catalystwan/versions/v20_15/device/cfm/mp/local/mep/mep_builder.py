@@ -14,7 +14,7 @@ class MepBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_mp_local_mep(
+    def get(
         self,
         device_id: str,
         domain: Optional[str] = None,
@@ -24,6 +24,7 @@ class MepBuilder:
     ) -> Any:
         """
         Get mp local mep from device
+        GET /dataservice/device/cfm/mp/local/mep
 
         :param domain: Domain Name
         :param service: Service Name

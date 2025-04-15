@@ -14,14 +14,13 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def health_summary(
-        self, is_cached: Optional[bool] = False, site_id: Optional[str] = None, **kw
-    ) -> Any:
+    def get(self, is_cached: Optional[bool] = False, site_id: Optional[str] = None, **kw) -> Any:
         """
         Get cluster health check summary
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/clusterManagement/health/summary
 
         :param is_cached: Flag to enable cached result
         :param site_id: Optional site ID  to filter devices

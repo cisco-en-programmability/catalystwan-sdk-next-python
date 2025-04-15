@@ -11,7 +11,7 @@ Get device compliance task status
 
 .. code:: python
 
-    def get_device_compliance_status(uuid: str) -> Any: ...
+    def get(uuid: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.device.status.get_device_compliance_status()
+        client.sdavc.protocol_pack.compliance.device.status.get()
 
 

@@ -22,7 +22,7 @@ class TagsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_vpc_tags(
+    def get(
         self,
         cloud_type: Optional[str] = None,
         region: Optional[str] = None,
@@ -31,6 +31,7 @@ class TagsBuilder:
     ) -> List[HostVpcTagResponse]:
         """
         Get VPC Tags
+        GET /dataservice/multicloud/hostvpc/tags
 
         :param cloud_type: Multicloud provider type
         :param region: Region
@@ -50,9 +51,10 @@ class TagsBuilder:
             **kw,
         )
 
-    def edit_tag(self, payload: Optional[HostVpcTagPut] = None, **kw) -> Taskid:
+    def put(self, payload: HostVpcTagPut, **kw) -> Taskid:
         """
         Edit VPCs for a Tag
+        PUT /dataservice/multicloud/hostvpc/tags
 
         :param payload: Payload for updating VPCs for a Tag
         :returns: Taskid
@@ -61,9 +63,10 @@ class TagsBuilder:
             "PUT", "/dataservice/multicloud/hostvpc/tags", return_type=Taskid, payload=payload, **kw
         )
 
-    def host_vpc_tagging(self, payload: Optional[HostVpcTagPost] = None, **kw) -> Taskid:
+    def post(self, payload: HostVpcTagPost, **kw) -> Taskid:
         """
         Tag a VPC
+        POST /dataservice/multicloud/hostvpc/tags
 
         :param payload: Payload for tagging a VPC
         :returns: Taskid
@@ -76,9 +79,10 @@ class TagsBuilder:
             **kw,
         )
 
-    def un_tag(self, tag_name: str, **kw) -> Taskid:
+    def delete(self, tag_name: str, **kw) -> Taskid:
         """
         Delete a Tag
+        DELETE /dataservice/multicloud/hostvpc/tags/{tagName}
 
         :param tag_name: Tag name
         :returns: Taskid

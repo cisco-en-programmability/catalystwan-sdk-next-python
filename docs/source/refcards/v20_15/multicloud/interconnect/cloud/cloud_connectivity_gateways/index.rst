@@ -11,7 +11,7 @@ API to retrieve all Cloud Connectivity Gateways.
 
 .. code:: python
 
-    def get_cloud_connectivity_gateways(
+    def get(
         cloud_type: CloudTypeParam,
         cloud_account_id: str,
         connectivity_gateway_name: Optional[str] = None,
@@ -41,7 +41,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.cloud.cloud_connectivity_gateways.get_cloud_connectivity_gateways()
+        client.multicloud.interconnect.cloud.cloud_connectivity_gateways.get()
 
 
 Operation: POST /dataservice/multicloud/interconnect/cloud/{cloud-type}/cloud-connectivity-gateways
@@ -52,9 +52,8 @@ API to create a Cloud Connectivity Gateway such as Direct Connect Gateway, Expre
 
 .. code:: python
 
-    def add_cloud_connectivity_gateway(
-        cloud_type: CloudTypeParam,
-        payload: Optional[CloudConnectivityGateway] = None,
+    def post(
+        cloud_type: CloudTypeParam, payload: CloudConnectivityGateway
     ) -> Any: ...
 
 
@@ -73,18 +72,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.cloud.cloud_connectivity_gateways.add_cloud_connectivity_gateway()
+        client.multicloud.interconnect.cloud.cloud_connectivity_gateways.post()
 
 
 Operation: DELETE /dataservice/multicloud/interconnect/cloud/{cloud-type}/cloud-connectivity-gateways
 -----------------------------------------------------------------------------------------------------
 
 
-API to delete Cloud Connectivity Gateways by type.
-
 .. code:: python
 
-    def delete_cloud_connectivity_gateways(
+    @overload
+    def delete(
         cloud_type: CloudTypeParam,
         connectivity_gateway_type: Optional[
             ConnectivityGatewayTypeParam
@@ -107,18 +105,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.cloud.cloud_connectivity_gateways.delete_cloud_connectivity_gateways()
+        client.multicloud.interconnect.cloud.cloud_connectivity_gateways.delete()
 
 
 Operation: DELETE /dataservice/multicloud/interconnect/cloud/{cloud-type}/cloud-connectivity-gateways/{connectivity-gateway-name}
 ---------------------------------------------------------------------------------------------------------------------------------
 
 
-API to delete a Cloud Connectivity Gateway.
-
 .. code:: python
 
-    def delete_cloud_connectivity_gateway(
+    @overload
+    def delete(
         connectivity_gateway_name: str,
         cloud_type: CloudTypeParam,
         connectivity_gateway_type: Optional[
@@ -142,7 +139,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.cloud.cloud_connectivity_gateways.delete_cloud_connectivity_gateway()
+        client.multicloud.interconnect.cloud.cloud_connectivity_gateways.delete()
 
 
 .. toctree::

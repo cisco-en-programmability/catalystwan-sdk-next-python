@@ -19,9 +19,10 @@ class LoggersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_loggers(self, **kw) -> List[Loggers]:
+    def get(self, **kw) -> List[Loggers]:
         """
         List loggers
+        GET /dataservice/util/logging/loggers
 
         :returns: List[Loggers]
         """

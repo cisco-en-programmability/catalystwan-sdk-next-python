@@ -11,7 +11,7 @@ Export NWPI Trace Data
 
 .. code:: python
 
-    def export_trace(trace_id: int, timestamp: int) -> Any: ...
+    def get(trace_id: int, timestamp: int) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.export_trace.export_trace()
+        client.stream.device.nwpi.export_trace.get()
 
 

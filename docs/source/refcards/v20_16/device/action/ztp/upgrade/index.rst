@@ -11,7 +11,7 @@ Get ZTP upgrade configuration
 
 .. code:: python
 
-    def get_ztp_upgrade_config() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.ztp.upgrade.get_ztp_upgrade_config()
+        client.device.action.ztp.upgrade.get()
 
 
 Operation: POST /dataservice/device/action/ztp/upgrade
@@ -40,9 +40,7 @@ Process ZTP upgrade configuration setting
 
 .. code:: python
 
-    def postprocess_ztp_upgrade_config_setting(
-        payload: Optional[Any] = None,
-    ) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.ztp.upgrade.postprocess_ztp_upgrade_config_setting()
+        client.device.action.ztp.upgrade.post()
 
 
 .. toctree::

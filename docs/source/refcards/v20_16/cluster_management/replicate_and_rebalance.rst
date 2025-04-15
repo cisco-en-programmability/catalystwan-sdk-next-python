@@ -11,9 +11,7 @@ Initiate replication and rebalance of kafka topics<br><br><br>Note: In a multite
 
 .. code:: python
 
-    def perform_replication_and_rebalance_of_kafka_partitions() -> (
-        Any
-    ): ...
+    def put() -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.replicate_and_rebalance.perform_replication_and_rebalance_of_kafka_partitions()
+        client.cluster_management.replicate_and_rebalance.put()
 
 

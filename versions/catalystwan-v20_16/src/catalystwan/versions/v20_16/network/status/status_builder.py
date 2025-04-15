@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_network_status_summary(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Retrieve network status summary
+        GET /dataservice/network/status
 
         :returns: List[Any]
         """

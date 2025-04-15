@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Optional
+from typing import TYPE_CHECKING, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -28,31 +28,10 @@ class PolicyGroupBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_policy_group_by_solution(
-        self, solution: Optional[str] = None, **kw
-    ) -> List[PolicyGroup]:
-        """
-        Get a Policy Group by Solution
-
-        :param solution: Solution
-        :returns: List[PolicyGroup]
-        """
-        params = {
-            "solution": solution,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/policy-group",
-            return_type=List[PolicyGroup],
-            params=params,
-            **kw,
-        )
-
-    def create_policy_group(
-        self, payload: Optional[CreatePolicyGroupPostRequest] = None, **kw
-    ) -> CreatePolicyGroupPostResponse:
+    def post(self, payload: CreatePolicyGroupPostRequest, **kw) -> CreatePolicyGroupPostResponse:
         """
         Create a new Policy Group
+        POST /dataservice/v1/policy-group
 
         :param payload: Policy Group
         :returns: CreatePolicyGroupPostResponse
@@ -65,29 +44,12 @@ class PolicyGroupBuilder:
             **kw,
         )
 
-    def get_policy_group(self, policy_group_id: str, **kw) -> PolicyGroup:
-        """
-        Get a Policy Group by ID
-
-        :param policy_group_id: Policy group id
-        :returns: PolicyGroup
-        """
-        params = {
-            "policyGroupId": policy_group_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/policy-group/{policyGroupId}",
-            return_type=PolicyGroup,
-            params=params,
-            **kw,
-        )
-
-    def edit_policy_group(
-        self, policy_group_id: str, payload: Optional[EditPolicyGroupPutRequest] = None, **kw
+    def put(
+        self, policy_group_id: str, payload: EditPolicyGroupPutRequest, **kw
     ) -> EditPolicyGroupPutResponse:
         """
         Edit a Policy Group
+        PUT /dataservice/v1/policy-group/{policyGroupId}
 
         :param policy_group_id: Policy group id
         :param payload: Policy Group
@@ -105,11 +67,10 @@ class PolicyGroupBuilder:
             **kw,
         )
 
-    def delete_policy_group(
-        self, policy_group_id: str, delete_profiles: Optional[bool] = None, **kw
-    ):
+    def delete(self, policy_group_id: str, delete_profiles: Optional[bool] = None, **kw):
         """
         Delete Policy Group
+        DELETE /dataservice/v1/policy-group/{policyGroupId}
 
         :param policy_group_id: Policy group id
         :param delete_profiles: Delete profiles
@@ -122,6 +83,57 @@ class PolicyGroupBuilder:
         return self._request_adapter.request(
             "DELETE", "/dataservice/v1/policy-group/{policyGroupId}", params=params, **kw
         )
+
+    @overload
+    def get(self, *, policy_group_id: str, **kw) -> PolicyGroup:
+        """
+        Get a Policy Group by ID
+        GET /dataservice/v1/policy-group/{policyGroupId}
+
+        :param policy_group_id: Policy group id
+        :returns: PolicyGroup
+        """
+        ...
+
+    @overload
+    def get(self, *, solution: Optional[str] = None, **kw) -> List[PolicyGroup]:
+        """
+        Get a Policy Group by Solution
+        GET /dataservice/v1/policy-group
+
+        :param solution: Solution
+        :returns: List[PolicyGroup]
+        """
+        ...
+
+    def get(
+        self, *, solution: Optional[str] = None, policy_group_id: Optional[str] = None, **kw
+    ) -> Union[List[PolicyGroup], PolicyGroup]:
+        # /dataservice/v1/policy-group/{policyGroupId}
+        if self._request_adapter.param_checker([(policy_group_id, str)], [solution]):
+            params = {
+                "policyGroupId": policy_group_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/policy-group/{policyGroupId}",
+                return_type=PolicyGroup,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/policy-group
+        if self._request_adapter.param_checker([], [policy_group_id]):
+            params = {
+                "solution": solution,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/policy-group",
+                return_type=List[PolicyGroup],
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def device(self) -> DeviceBuilder:

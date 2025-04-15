@@ -14,9 +14,10 @@ class CsvBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dpi_stats_raw_data_as_csv(self, query: Optional[str] = None, **kw) -> str:
+    def get(self, query: Optional[str] = None, **kw) -> str:
         """
         Get raw data with optional query as CSV
+        GET /dataservice/statistics/dpi/csv
 
         :param query: Query
         :returns: str

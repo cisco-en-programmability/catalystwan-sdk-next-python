@@ -14,9 +14,10 @@ class FlowClosedErrorBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_appqoe_flow_closed_error(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get Appqoe flow closed error from device
+        GET /dataservice/device/appqoe/flow-closed-error
 
         :param device_id: Device Id
         :returns: Any

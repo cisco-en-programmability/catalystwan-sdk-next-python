@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_device_status(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get devices status for vSmart,vBond,vEdge, and cEdge
+        GET /dataservice/device/status
 
         :returns: List[Any]
         """

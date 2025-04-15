@@ -11,7 +11,7 @@ API to retrieve all Interconnect Gateways from vManage.
 
 .. code:: python
 
-    def get_interconnect_gateways(
+    def get_list(
         interconnect_type: Optional[InterconnectTypeParam] = None,
         interconnect_account_id: Optional[str] = None,
         region: Optional[str] = None,
@@ -38,7 +38,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.gateways.get_interconnect_gateways()
+        client.multicloud.interconnect.gateways.get_list()
 
 
 Operation: POST /dataservice/multicloud/interconnect/gateways
@@ -49,9 +49,7 @@ API to create an Intercoonect gateway in an Interconnect provider.
 
 .. code:: python
 
-    def create_interconnect_gateway(
-        payload: Optional[InterconnectGatewayExtended] = None,
-    ) -> ProcessResponse: ...
+    def post(payload: InterconnectGatewayExtended) -> ProcessResponse: ...
 
 
 Example:
@@ -69,7 +67,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.gateways.create_interconnect_gateway()
+        client.multicloud.interconnect.gateways.post()
 
 
 Operation: GET /dataservice/multicloud/interconnect/gateways/{interconnect-gateway-name}
@@ -80,7 +78,7 @@ API to retrieve the Interconnect Gateway Information from vManage.
 
 .. code:: python
 
-    def get_interconnect_gateway(
+    def get(
         interconnect_gateway_name: str,
     ) -> InterconnectGatewayExtended: ...
 
@@ -100,7 +98,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.gateways.get_interconnect_gateway()
+        client.multicloud.interconnect.gateways.get()
 
 
 Operation: PUT /dataservice/multicloud/interconnect/gateways/{interconnect-gateway-name}
@@ -111,9 +109,9 @@ API to update the Interconnect Gateway Information in vManage.
 
 .. code:: python
 
-    def update_interconnect_gateway(
+    def put(
         interconnect_gateway_name: str,
-        payload: Optional[InterconnectGatewayExtended] = None,
+        payload: InterconnectGatewayExtended,
     ) -> InterconnectGatewayExtended: ...
 
 
@@ -132,7 +130,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.gateways.update_interconnect_gateway()
+        client.multicloud.interconnect.gateways.put()
 
 
 Operation: DELETE /dataservice/multicloud/interconnect/gateways/{interconnect-gateway-name}
@@ -143,9 +141,7 @@ API to delete an Interconnect Gateway from an Interconnect provider.
 
 .. code:: python
 
-    def delete_interconnect_gateway(
-        interconnect_gateway_name: str,
-    ) -> ProcessResponse: ...
+    def delete(interconnect_gateway_name: str) -> ProcessResponse: ...
 
 
 Example:
@@ -163,7 +159,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.gateways.delete_interconnect_gateway()
+        client.multicloud.interconnect.gateways.delete()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Get device BFD status
 
 .. code:: python
 
-    def get_device_bfd_status() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bfd.status.get_device_bfd_status()
+        client.device.bfd.status.get()
 
 

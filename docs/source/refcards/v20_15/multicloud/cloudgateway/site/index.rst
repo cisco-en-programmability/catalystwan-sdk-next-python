@@ -11,7 +11,7 @@ Get sites attached to CGW
 
 .. code:: python
 
-    def get_cgw_attached_sites(
+    def get(
         cloud_gateway_name: str,
         system_ip: Optional[str] = None,
         site_id: Optional[str] = None,
@@ -36,7 +36,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.site.get_cgw_attached_sites()
+        client.multicloud.cloudgateway.site.get()
 
 
 Operation: PUT /dataservice/multicloud/cloudgateway/{cloudGatewayName}/site
@@ -47,9 +47,8 @@ Update tunnel scaling and accelerated vpn parameter for a branch endpoint
 
 .. code:: python
 
-    def tunnel_scaling(
-        cloud_gateway_name: str,
-        payload: Optional[TunnelScalingRequestPayload] = None,
+    def put(
+        cloud_gateway_name: str, payload: TunnelScalingRequestPayload
     ) -> Taskid: ...
 
 
@@ -68,7 +67,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.site.tunnel_scaling()
+        client.multicloud.cloudgateway.site.put()
 
 
 Operation: POST /dataservice/multicloud/cloudgateway/{cloudGatewayName}/site
@@ -79,9 +78,9 @@ Attach sites to Cloud Gateway
 
 .. code:: python
 
-    def attach_sites(
+    def post(
         cloud_gateway_name: str,
-        payload: Optional[List[AttachSitesRequestPayloadInner]] = None,
+        payload: List[AttachSitesRequestPayloadInner],
     ) -> Taskid: ...
 
 
@@ -100,7 +99,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.site.attach_sites()
+        client.multicloud.cloudgateway.site.post()
 
 
 Operation: DELETE /dataservice/multicloud/cloudgateway/{cloudGatewayName}/site
@@ -111,7 +110,7 @@ Detach sites from cloud gateway
 
 .. code:: python
 
-    def detach_sites_1(
+    def delete(
         cloud_gateway_name: str,
         payload: Optional[List[DetachSitesRequestPayloadInner]] = None,
     ) -> Taskid: ...
@@ -132,7 +131,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.site.detach_sites_1()
+        client.multicloud.cloudgateway.site.delete()
 
 
 .. toctree::

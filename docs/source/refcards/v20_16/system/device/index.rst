@@ -11,7 +11,7 @@ Create new device<br><br><br>Note: In a multitenant vManage system, this API is 
 
 .. code:: python
 
-    def create_device(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.create_device()
+        client.system.device.post()
 
 
 Operation: GET /dataservice/system/device/{deviceCategory}
@@ -40,7 +40,7 @@ Get devices details. When {deviceCategory = controllers}, it returns vEdge sync 
 
 .. code:: python
 
-    def get_devices_details(
+    def get(
         device_category: str,
         model: Optional[ModelParam] = None,
         state: Optional[List[CertificateStates]] = None,
@@ -69,7 +69,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.get_devices_details()
+        client.system.device.get()
 
 
 Operation: PUT /dataservice/system/device/{uuid}
@@ -80,7 +80,7 @@ Edit device
 
 .. code:: python
 
-    def edit_device(uuid: str, payload: Optional[Any] = None) -> None: ...
+    def put(uuid: str, payload: Any) -> None: ...
 
 
 Example:
@@ -98,7 +98,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.edit_device()
+        client.system.device.put()
 
 
 Operation: DELETE /dataservice/system/device/{uuid}
@@ -109,7 +109,7 @@ Delete vEdges
 
 .. code:: python
 
-    def delete_device_1(uuid: str) -> DeleteDevice: ...
+    def delete(uuid: str) -> DeleteDevice: ...
 
 
 Example:
@@ -127,7 +127,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.delete_device_1()
+        client.system.device.delete()
 
 
 .. toctree::

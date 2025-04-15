@@ -27,7 +27,7 @@ class CloudSourcedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_extended_applications(
+    def get(
         self,
         offset: Optional[int] = None,
         limit: Optional[int] = None,
@@ -45,6 +45,7 @@ class CloudSourcedBuilder:
     ) -> GetExtendedApplicationResponse:
         """
         returns all cloud sourced application
+        GET /dataservice/sdavc/cloud-sourced
 
         :param offset: Offset
         :param limit: Limit
@@ -82,11 +83,10 @@ class CloudSourcedBuilder:
             **kw,
         )
 
-    def save_extended_applications(
-        self, payload: Optional[SaveExtendedApplicationRequest] = None, **kw
-    ) -> DefaultSuccessResponse:
+    def post(self, payload: SaveExtendedApplicationRequest, **kw) -> DefaultSuccessResponse:
         """
-        Save extended applications
+        Post
+        POST /dataservice/sdavc/cloud-sourced
 
         :param payload: Payload
         :returns: DefaultSuccessResponse

@@ -38,8 +38,6 @@ class CreateSecurityProfileParcelPostRequest1:
     # Will be auto generated
     description: str
     name: str
-    # This is the documentation for POST request schema for ssl-decryption profile parcel
-    documentation: Optional[Any] = _field(default=None)
     metadata: Optional[Any] = _field(default=None)
 
 
@@ -60,6 +58,14 @@ class OneOfExpiredCertificateOptionsDef:
 
 
 @dataclass
+class OneOfUntrustedCertificateOptionsDef:
+    option_type: GlobalOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: DecryptAndDropStringDef  # pytype: disable=annotation-type-mismatch
+
+
+@dataclass
 class OneOfCertificateRevocationStatusOptionsDef:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
@@ -68,7 +74,23 @@ class OneOfCertificateRevocationStatusOptionsDef:
 
 
 @dataclass
+class OneOfUnknownStatusOptionsDef:
+    option_type: GlobalOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: DecryptAndDropStringDef  # pytype: disable=annotation-type-mismatch
+
+
+@dataclass
 class OneOfUnsupportedProtocolVersionsOptionsDef:
+    option_type: GlobalOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: NoDecryptAndDropStringDef  # pytype: disable=annotation-type-mismatch
+
+
+@dataclass
+class OneOfUnsupportedCipherSuitesOptionsDef:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
@@ -189,16 +211,16 @@ class SslDecryptionData:
     min_tls_ver: Optional[OneOfMinTlsVerOptionsDef] = _field(
         default=None, metadata={"alias": "minTlsVer"}
     )
-    unknown_status: Optional[OneOfExpiredCertificateOptionsDef] = _field(
+    unknown_status: Optional[OneOfUnknownStatusOptionsDef] = _field(
         default=None, metadata={"alias": "unknownStatus"}
     )
-    unsupported_cipher_suites: Optional[OneOfUnsupportedProtocolVersionsOptionsDef] = _field(
+    unsupported_cipher_suites: Optional[OneOfUnsupportedCipherSuitesOptionsDef] = _field(
         default=None, metadata={"alias": "unsupportedCipherSuites"}
     )
     unsupported_protocol_versions: Optional[OneOfUnsupportedProtocolVersionsOptionsDef] = _field(
         default=None, metadata={"alias": "unsupportedProtocolVersions"}
     )
-    untrusted_certificate: Optional[OneOfExpiredCertificateOptionsDef] = _field(
+    untrusted_certificate: Optional[OneOfUntrustedCertificateOptionsDef] = _field(
         default=None, metadata={"alias": "untrustedCertificate"}
     )
 
@@ -209,8 +231,68 @@ class CreateSecurityProfileParcelPostRequest2:
     # Will be auto generated
     description: str
     name: str
-    # This is the documentation for POST request schema for ssl-decryption profile parcel
-    documentation: Optional[Any] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload1:
+    data: Data
+    # Will be auto generated
+    description: str
+    name: str
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class UnifiedSslDecryptionData:
+    ssl_enable: OneOfSslEnableOptionsDef = _field(metadata={"alias": "sslEnable"})
+    ca_cert_bundle: Optional[Union[OneOfCaCertBundleOptionsDef1, OneOfCaCertBundleOptionsDef2]] = (
+        _field(default=None, metadata={"alias": "caCertBundle"})
+    )
+    ca_tp_label: Optional[OneOfCaTpLabelOptionsDef] = _field(
+        default=None, metadata={"alias": "caTpLabel"}
+    )
+    certificate_lifetime: Optional[OneOfCertificateLifetimeOptionsDef] = _field(
+        default=None, metadata={"alias": "certificateLifetime"}
+    )
+    certificate_revocation_status: Optional[OneOfCertificateRevocationStatusOptionsDef] = _field(
+        default=None, metadata={"alias": "certificateRevocationStatus"}
+    )
+    eckey_type: Optional[OneOfEckeyTypeOptionsDef] = _field(
+        default=None, metadata={"alias": "eckeyType"}
+    )
+    expired_certificate: Optional[OneOfExpiredCertificateOptionsDef] = _field(
+        default=None, metadata={"alias": "expiredCertificate"}
+    )
+    failure_mode: Optional[OneOfFailureModeOptionsDef] = _field(
+        default=None, metadata={"alias": "failureMode"}
+    )
+    key_modulus: Optional[OneOfKeyModulusOptionsDef] = _field(
+        default=None, metadata={"alias": "keyModulus"}
+    )
+    min_tls_ver: Optional[OneOfMinTlsVerOptionsDef] = _field(
+        default=None, metadata={"alias": "minTlsVer"}
+    )
+    unknown_status: Optional[OneOfUnknownStatusOptionsDef] = _field(
+        default=None, metadata={"alias": "unknownStatus"}
+    )
+    unsupported_cipher_suites: Optional[OneOfUnsupportedCipherSuitesOptionsDef] = _field(
+        default=None, metadata={"alias": "unsupportedCipherSuites"}
+    )
+    unsupported_protocol_versions: Optional[OneOfUnsupportedProtocolVersionsOptionsDef] = _field(
+        default=None, metadata={"alias": "unsupportedProtocolVersions"}
+    )
+    untrusted_certificate: Optional[OneOfUntrustedCertificateOptionsDef] = _field(
+        default=None, metadata={"alias": "untrustedCertificate"}
+    )
+
+
+@dataclass
+class Payload2:
+    data: UnifiedSslDecryptionData
+    # Will be auto generated
+    description: str
+    name: str
     metadata: Optional[Any] = _field(default=None)
 
 
@@ -223,6 +305,4 @@ class GetSecurityProfileParcelGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # ssl-decryption profile parcel schema for POST request
-    payload: Optional[
-        Union[CreateSecurityProfileParcelPostRequest1, CreateSecurityProfileParcelPostRequest2]
-    ] = _field(default=None)
+    payload: Optional[Union[Payload1, Payload2]] = _field(default=None)

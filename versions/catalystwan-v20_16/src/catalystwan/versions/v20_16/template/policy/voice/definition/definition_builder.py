@@ -14,9 +14,10 @@ class DefinitionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_template_by_id(self, policy_id: str, **kw) -> Any:
+    def get(self, policy_id: str, **kw) -> Any:
         """
         Get templates by policy Id
+        GET /dataservice/template/policy/voice/definition/{policyId}
 
         :param policy_id: Policy Id
         :returns: Any

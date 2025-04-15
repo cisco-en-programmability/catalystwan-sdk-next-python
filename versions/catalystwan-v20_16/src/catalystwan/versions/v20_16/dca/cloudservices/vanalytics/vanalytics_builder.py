@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class VanalyticsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def getv_analytics(self, payload: Optional[str] = None, **kw) -> Any:
+    def post(self, payload: str, **kw) -> Any:
         """
         Get session from DCS for vAnalytics
+        POST /dataservice/dca/cloudservices/vanalytics
 
         :param payload: Payload
         :returns: Any

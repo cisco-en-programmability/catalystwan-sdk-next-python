@@ -11,7 +11,7 @@ Get vAnalytics Dashboard List
 
 .. code:: python
 
-    def getv_analytics_dashboard_list() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.vanalytics.dashboardlist.getv_analytics_dashboard_list()
+        client.cloudservices.vanalytics.dashboardlist.get()
 
 

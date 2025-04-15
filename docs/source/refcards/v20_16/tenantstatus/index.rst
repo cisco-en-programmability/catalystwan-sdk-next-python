@@ -11,7 +11,7 @@ List all tenant status<br><br><br>Note: In a multitenant vManage system, this AP
 
 .. code:: python
 
-    def get_all_tenant_statuses() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenantstatus.get_all_tenant_statuses()
+        client.tenantstatus.get()
 
 
 .. toctree::

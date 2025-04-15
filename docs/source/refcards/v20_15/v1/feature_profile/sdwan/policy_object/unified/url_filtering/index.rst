@@ -11,40 +11,38 @@ Create Parcel for Security Policy
 
 .. code:: python
 
-    def create_security_profile_parcel(
+    def post(
         policy_object_id: str,
-        payload: Optional[
+        payload: Union[
             Union[
-                Union[
-                    CreateSecurityProfileParcelPostRequest11,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest21,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest31,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest41,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest31,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest61,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest31,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-            ]
-        ] = None,
+                CreateSecurityProfileParcelPostRequest11,
+                CreateSecurityProfileParcelPostRequest12,
+            ],
+            Union[
+                CreateSecurityProfileParcelPostRequest21,
+                CreateSecurityProfileParcelPostRequest22,
+            ],
+            Union[
+                CreateSecurityProfileParcelPostRequest31,
+                CreateSecurityProfileParcelPostRequest32,
+            ],
+            Union[
+                CreateSecurityProfileParcelPostRequest41,
+                CreateSecurityProfileParcelPostRequest42,
+            ],
+            Union[
+                CreateSecurityProfileParcelPostRequest51,
+                CreateSecurityProfileParcelPostRequest52,
+            ],
+            Union[
+                CreateSecurityProfileParcelPostRequest61,
+                CreateSecurityProfileParcelPostRequest62,
+            ],
+            Union[
+                CreateSecurityProfileParcelPostRequest71,
+                CreateSecurityProfileParcelPostRequest72,
+            ],
+        ],
     ) -> CreateSecurityProfileParcelPostResponse: ...
 
 
@@ -63,7 +61,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.policy_object.unified.url_filtering.create_security_profile_parcel()
+        client.v1.feature_profile.sdwan.policy_object.unified.url_filtering.post()
 
 
 Operation: GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/url-filtering/{parcelId}
@@ -74,7 +72,7 @@ Get Security Profile Parcels for a given ParcelType
 
 .. code:: python
 
-    def get_security_profile_parcel(
+    def get(
         policy_object_id: str,
         parcel_id: str,
         reference_count: Optional[bool] = False,
@@ -96,7 +94,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.policy_object.unified.url_filtering.get_security_profile_parcel()
+        client.v1.feature_profile.sdwan.policy_object.unified.url_filtering.get()
 
 
 .. toctree::

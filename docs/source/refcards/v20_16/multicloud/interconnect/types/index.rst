@@ -11,7 +11,7 @@ API to retrieve list of supported Interconnect provider Types.
 
 .. code:: python
 
-    def get_interconnect_types() -> InlineResponse200: ...
+    def get() -> InlineResponse200: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.types.get_interconnect_types()
+        client.multicloud.interconnect.types.get()
 
 
 .. toctree::

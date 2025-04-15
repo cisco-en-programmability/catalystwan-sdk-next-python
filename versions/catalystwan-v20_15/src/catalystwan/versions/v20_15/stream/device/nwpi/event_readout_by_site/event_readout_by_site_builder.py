@@ -20,11 +20,12 @@ class EventReadoutBySiteBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_event_readout_by_site(
+    def get(
         self, site_id: str, last_n_hours: int, mode: Optional[str] = None, **kw
     ) -> EventReadoutsResponsePayloadData:
         """
         Get event Readout By Site
+        GET /dataservice/stream/device/nwpi/eventReadoutBySite
 
         :param site_id: site id
         :param last_n_hours: last_n_hours

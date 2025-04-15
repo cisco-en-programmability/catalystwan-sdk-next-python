@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,11 +19,10 @@ class AggregationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_post_aggregation_data_by_query_15(
-        self, payload: Optional[str] = None, **kw
-    ) -> List[ApplicationSiteChartItem]:
+    def post(self, payload: str, **kw) -> List[ApplicationSiteChartItem]:
         """
         Get one application one site line chart data
+        POST /dataservice/statistics/perfmon/aggregation
 
         :param payload: Stats query string
         :returns: List[ApplicationSiteChartItem]

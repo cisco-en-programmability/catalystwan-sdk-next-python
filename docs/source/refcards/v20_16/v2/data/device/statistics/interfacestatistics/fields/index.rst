@@ -11,7 +11,7 @@ Get statistics fields and types
 
 .. code:: python
 
-    def get_stat_data_fields_by_interface_statistics() -> List[Field]: ...
+    def get() -> List[Field]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v2.data.device.statistics.interfacestatistics.fields.get_stat_data_fields_by_interface_statistics()
+        client.v2.data.device.statistics.interfacestatistics.fields.get()
 
 
 .. toctree::

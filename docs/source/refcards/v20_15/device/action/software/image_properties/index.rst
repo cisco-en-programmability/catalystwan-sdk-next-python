@@ -11,7 +11,7 @@ Get Image Properties
 
 .. code:: python
 
-    def get_image_properties(version_id: str) -> GetImageProperties: ...
+    def get(version_id: str) -> GetImageProperties: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.image_properties.get_image_properties()
+        client.device.action.software.image_properties.get()
 
 
 .. toctree::

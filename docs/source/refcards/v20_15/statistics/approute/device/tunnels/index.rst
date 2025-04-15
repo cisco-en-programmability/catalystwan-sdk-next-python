@@ -11,7 +11,7 @@ Get statistics for top applications per tunnel in a grid table
 
 .. code:: python
 
-    def get_stats_app_route_device_tunnels(
+    def get(
         query: Optional[str] = None,
     ) -> List[AppRouteRespWithPageInfo]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.approute.device.tunnels.get_stats_app_route_device_tunnels()
+        client.statistics.approute.device.tunnels.get()
 
 
 .. toctree::

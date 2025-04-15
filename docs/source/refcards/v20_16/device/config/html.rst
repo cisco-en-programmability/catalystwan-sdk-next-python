@@ -13,7 +13,7 @@ Get device running configuration in HTML format
 
 .. code:: python
 
-    def get_device_running_config_html(device_id: List[str]) -> str: ...
+    def get(device_id: List[str]) -> str: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.config.html.get_device_running_config_html()
+        client.device.config.html.get()
 
 

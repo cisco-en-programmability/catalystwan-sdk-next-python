@@ -13,9 +13,7 @@ Get Interconnect Gateway type for specified Edge Provider
 
 .. code:: python
 
-    def get_icgw_types(
-        edge_type: Optional[EdgeTypeParam] = None,
-    ) -> Any: ...
+    def get(edge_type: Optional[EdgeTypeParam] = None) -> Any: ...
 
 
 Example:
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.gateway.edge.types.get_icgw_types()
+        client.multicloud.gateway.edge.types.get()
 
 
 .. toctree::

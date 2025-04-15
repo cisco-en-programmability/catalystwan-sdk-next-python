@@ -11,9 +11,7 @@ Lock a user account
 
 .. code:: python
 
-    def lock_user(
-        user_name: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def put(user_name: str, payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.user.lock_user.lock_user()
+        client.admin.user.lock_user.put()
 
 

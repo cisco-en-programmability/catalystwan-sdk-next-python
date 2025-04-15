@@ -11,7 +11,7 @@ Get configured IP addresses<br><br><br>Note: In a multitenant vManage system, th
 
 .. code:: python
 
-    def get_configured_ip_list(vmanage_id: str) -> List[Any]: ...
+    def get(vmanage_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.iplist.get_configured_ip_list()
+        client.cluster_management.iplist.get()
 
 

@@ -11,7 +11,7 @@ API to retrieve Interconnect licences
 
 .. code:: python
 
-    def get_interconnect_licenses(
+    def get(
         interconnect_type: str,
         interconnect_account_id: str,
         refresh: Optional[str] = "false",
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.entitlement.licenses.get_interconnect_licenses()
+        client.multicloud.interconnect.entitlement.licenses.get()
 
 
 .. toctree::

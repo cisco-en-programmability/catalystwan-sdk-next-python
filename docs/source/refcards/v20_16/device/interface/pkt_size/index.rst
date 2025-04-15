@@ -11,7 +11,7 @@ Get interface packet size
 
 .. code:: python
 
-    def get_device_interface_pkt_sizes(
+    def get(
         device_id: str,
         vpn_id: Optional[str] = None,
         ifname: Optional[IfnameParam] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.interface.pkt_size.get_device_interface_pkt_sizes()
+        client.device.interface.pkt_size.get()
 
 
 .. toctree::

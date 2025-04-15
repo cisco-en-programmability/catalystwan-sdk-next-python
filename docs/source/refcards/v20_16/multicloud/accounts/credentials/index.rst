@@ -11,8 +11,8 @@ Update Cloud Account Credentials
 
 .. code:: python
 
-    def validate_account_update_credentials(
-        account_id: str, payload: Optional[PostAccounts] = None
+    def put(
+        account_id: str, payload: PostAccounts
     ) -> PostAccountsResponse: ...
 
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.accounts.credentials.validate_account_update_credentials()
+        client.multicloud.accounts.credentials.put()
 
 
 .. toctree::

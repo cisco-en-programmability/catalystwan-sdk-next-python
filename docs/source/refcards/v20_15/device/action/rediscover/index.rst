@@ -11,7 +11,7 @@ Get rediscover operation information
 
 .. code:: python
 
-    def generate_rediscover_info() -> GenerateRediscoverInfo: ...
+    def get() -> GenerateRediscoverInfo: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.rediscover.generate_rediscover_info()
+        client.device.action.rediscover.get()
 
 
 Operation: POST /dataservice/device/action/rediscover
@@ -40,7 +40,7 @@ Rediscover device
 
 .. code:: python
 
-    def re_discover_devices(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.rediscover.re_discover_devices()
+        client.device.action.rediscover.post()
 
 
 .. toctree::

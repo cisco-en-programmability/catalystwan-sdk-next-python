@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_appqoe_status(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get Appqoe status from device
+        GET /dataservice/device/appqoe/status
 
         :param device_id: Device Id
         :returns: Any

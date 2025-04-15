@@ -14,9 +14,10 @@ class RouteBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_eigrp_route(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get EIGRP route from device (Real Time)
+        GET /dataservice/device/eigrp/route
 
         :param device_id: deviceId - Device IP
         :returns: Any

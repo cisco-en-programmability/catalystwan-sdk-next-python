@@ -11,11 +11,11 @@ Get list of BFD sessions from vManage (Real Time)
 
 .. code:: python
 
-    def create_bfd_sessions(
+    def get(
         device_id: str,
         system_ip: Optional[str] = None,
         color: Optional[ColorParam] = None,
-        local_color: Optional[ColorParam] = None,
+        local_color: Optional[LocalColorParam] = None,
         region_type: Optional[RegionTypeParam] = None,
     ) -> List[Any]: ...
 
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bfd.sessions.create_bfd_sessions()
+        client.device.bfd.sessions.get()
 
 
 .. toctree::

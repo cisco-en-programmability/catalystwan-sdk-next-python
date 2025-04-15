@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class WanedgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def add_wan_edge(self, device_id: str, payload: Optional[Any] = None, **kw):
+    def post(self, device_id: str, payload: Any, **kw):
         """
         Add SSL proxy wan edge
+        POST /dataservice/sslproxy/certificate/wanedge/{deviceId}
 
         :param device_id: Device Id
         :param payload: Cert state

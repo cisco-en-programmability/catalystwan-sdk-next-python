@@ -11,7 +11,7 @@ Get list of unreachable devices
 
 .. code:: python
 
-    def list_unreachable_devices(personality: str) -> List[Any]: ...
+    def get(personality: str) -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.unreachable.list_unreachable_devices()
+        client.device.unreachable.get()
 
 
 Operation: DELETE /dataservice/device/unreachable/{deviceIP}
@@ -40,7 +40,7 @@ Delete unreachable device
 
 .. code:: python
 
-    def remove_unreachable_device(device_ip: str) -> None: ...
+    def delete(device_ip: str) -> None: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.unreachable.remove_unreachable_device()
+        client.device.unreachable.delete()
 
 

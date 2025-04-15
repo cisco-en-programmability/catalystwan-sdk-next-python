@@ -11,7 +11,7 @@ invalidate the device
 
 .. code:: python
 
-    def invalidate_device(payload: Optional[Any] = None) -> str: ...
+    def post(payload: Any) -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.device.invalidate.invalidate_device()
+        client.certificate.device.invalidate.post()
 
 

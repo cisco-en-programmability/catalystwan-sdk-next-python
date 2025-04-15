@@ -13,7 +13,7 @@ Get list of devices that support firmware upgrade
 
 .. code:: python
 
-    def get_devices_fw_upgrade() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.firmware.devices.get_devices_fw_upgrade()
+        client.device.action.firmware.devices.get()
 
 

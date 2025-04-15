@@ -11,12 +11,12 @@ Get paginated events
 
 .. code:: python
 
-    def get_page_1(
+    def get(
         query: Optional[str] = None,
         scroll_id: Optional[str] = None,
         count: Optional[int] = None,
         site_id: Optional[str] = None,
-    ) -> List[Alarm]: ...
+    ) -> AlarmResponse: ...
 
 
 Example:
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.event.page.get_page_1()
+        client.event.page.get()
 
 
 Operation: POST /dataservice/event/page
@@ -45,12 +45,12 @@ Get paginated events
 
 .. code:: python
 
-    def post_page_1(
-        payload: Optional[Any] = None,
+    def post(
+        payload: Any,
         scroll_id: Optional[str] = None,
         count: Optional[int] = None,
         site_id: Optional[str] = None,
-    ) -> List[Alarm]: ...
+    ) -> AlarmResponse: ...
 
 
 Example:
@@ -68,7 +68,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.event.page.post_page_1()
+        client.event.page.post()
 
 
 .. toctree::

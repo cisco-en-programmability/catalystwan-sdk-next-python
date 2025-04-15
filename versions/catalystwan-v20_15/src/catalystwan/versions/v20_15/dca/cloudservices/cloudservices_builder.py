@@ -22,9 +22,10 @@ class CloudservicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_settings(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get cloud service settings
+        GET /dataservice/dca/cloudservices
 
         :returns: Any
         """

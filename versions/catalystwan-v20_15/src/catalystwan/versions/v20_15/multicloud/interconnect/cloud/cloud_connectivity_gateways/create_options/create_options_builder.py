@@ -19,7 +19,7 @@ class CreateOptionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_connectivity_gateway_create_options(
+    def get(
         self,
         cloud_type: str,
         cloud_account_id: str,
@@ -29,6 +29,7 @@ class CreateOptionsBuilder:
     ) -> InlineResponse20014:
         """
         API to retrieve Cloud Connectivity Gateway create options.
+        GET /dataservice/multicloud/interconnect/cloud/{cloud-type}/cloud-connectivity-gateways/create-options
 
         :param cloud_type: Cloud Provider Type
         :param cloud_account_id: Cloud account id

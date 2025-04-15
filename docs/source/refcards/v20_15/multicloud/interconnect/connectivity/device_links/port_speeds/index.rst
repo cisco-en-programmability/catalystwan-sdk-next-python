@@ -11,9 +11,7 @@ API to get supported port speeds for Device-Link by Interconnect provider.
 
 .. code:: python
 
-    def get_interconnect_device_link_port_speeds(
-        interconnect_type: str,
-    ) -> InlineResponse20011: ...
+    def get(interconnect_type: str) -> InlineResponse20011: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.device_links.port_speeds.get_interconnect_device_link_port_speeds()
+        client.multicloud.interconnect.connectivity.device_links.port_speeds.get()
 
 
 .. toctree::

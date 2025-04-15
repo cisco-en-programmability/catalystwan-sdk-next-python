@@ -11,7 +11,7 @@ Get Appqoe error recent from device
 
 .. code:: python
 
-    def get_appqoe_error_recent(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.appqoe.error_recent.get_appqoe_error_recent()
+        client.device.appqoe.error_recent.get()
 
 

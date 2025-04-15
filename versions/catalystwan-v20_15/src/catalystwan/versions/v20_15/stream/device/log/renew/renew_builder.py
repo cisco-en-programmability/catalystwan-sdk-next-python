@@ -17,9 +17,10 @@ class RenewBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def renew_session_info(self, session_id: Uuid, **kw):
+    def get(self, session_id: Uuid, **kw):
         """
-        Renew session info
+        Get
+        GET /dataservice/stream/device/log/renew/{sessionId}
 
         :param session_id: Session id
         :returns: None

@@ -14,9 +14,10 @@ class DoccountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_doc_count(self, query: str, site_id: Optional[str] = None, **kw) -> Any:
+    def get(self, query: str, site_id: Optional[str] = None, **kw) -> Any:
         """
         Get the count of alarms as per the query passed.
+        GET /dataservice/alarms/doccount
 
         :param query: Query
         :param site_id: Specify the site-id to filter the alarms
@@ -30,11 +31,10 @@ class DoccountBuilder:
             "GET", "/dataservice/alarms/doccount", params=params, **kw
         )
 
-    def post_doc_count(
-        self, payload: Optional[Any] = None, site_id: Optional[str] = None, **kw
-    ) -> Any:
+    def post(self, payload: Any, site_id: Optional[str] = None, **kw) -> Any:
         """
         Get the count of alarms as per the query passed.
+        POST /dataservice/alarms/doccount
 
         :param site_id: Specify the site-id to filter the alarms
         :param payload: Query

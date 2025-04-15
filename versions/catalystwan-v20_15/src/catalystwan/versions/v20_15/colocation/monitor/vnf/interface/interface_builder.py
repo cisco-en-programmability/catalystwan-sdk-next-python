@@ -20,7 +20,7 @@ class InterfaceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_vnf_interface_detail(
+    def get(
         self,
         vnf_name: str,
         device_ip: Optional[DeviceIp] = None,
@@ -29,6 +29,7 @@ class InterfaceBuilder:
     ):
         """
         Get interface detail of VNF
+        GET /dataservice/colocation/monitor/vnf/interface
 
         :param vnf_name: Vnf name
         :param device_ip: Device ip

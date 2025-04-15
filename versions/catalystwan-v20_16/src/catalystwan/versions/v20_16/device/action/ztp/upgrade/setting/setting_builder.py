@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class SettingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_ztp_upgrade_config_setting(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get ZTP upgrade configuration setting
+        GET /dataservice/device/action/ztp/upgrade/setting
 
         :returns: Any
         """
@@ -24,9 +25,10 @@ class SettingBuilder:
             "GET", "/dataservice/device/action/ztp/upgrade/setting", **kw
         )
 
-    def process_ztp_upgrade_config_setting(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Process ZTP upgrade configuration setting
+        POST /dataservice/device/action/ztp/upgrade/setting
 
         :param payload: Request body for ZTP upgrade configuration setting
         :returns: None

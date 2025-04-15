@@ -14,9 +14,10 @@ class CollectorBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_cflowd_collector_list(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get cflowd collector list from device
+        GET /dataservice/device/cflowd/collector
 
         :param device_id: Device IP
         :returns: List[Any]

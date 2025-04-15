@@ -14,9 +14,10 @@ class FileAnalysisStatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_utd_file_analysis_status(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get UTD file analysis status from device (Real Time)
+        GET /dataservice/device/utd/file-analysis-status
 
         :param device_id: deviceId - Device IP
         :returns: Any

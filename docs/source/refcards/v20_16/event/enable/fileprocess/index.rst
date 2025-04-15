@@ -11,7 +11,7 @@ Enable events from file.
 
 .. code:: python
 
-    def enable_events_from_file() -> GeneralSchema: ...
+    def get() -> GeneralSchema: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.event.enable.fileprocess.enable_events_from_file()
+        client.event.enable.fileprocess.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Get security connection events stats raw data
 
 .. code:: python
 
-    def get_sul_stat_data_raw_data(
+    def get(
         query: Optional[str] = None,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.sul.connections.get_sul_stat_data_raw_data()
+        client.statistics.sul.connections.get()
 
 
 Operation: POST /dataservice/statistics/sul/connections
@@ -46,8 +46,8 @@ Get stats raw data
 
 .. code:: python
 
-    def get_stats_raw_data_16(
-        payload: Optional[Any] = None,
+    def post(
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -70,7 +70,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.sul.connections.get_stats_raw_data_16()
+        client.statistics.sul.connections.post()
 
 
 .. toctree::

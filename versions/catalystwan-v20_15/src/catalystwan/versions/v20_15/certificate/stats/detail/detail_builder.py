@@ -14,9 +14,10 @@ class DetailBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_certificate_detail(self, status: Optional[str] = None, **kw) -> List[str]:
+    def get(self, status: Optional[str] = None, **kw) -> List[str]:
         """
         Get certificate details
+        GET /dataservice/certificate/stats/detail
 
         :param status: Certificate Status
         :returns: List[str]

@@ -18,7 +18,7 @@ class ApplicationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_flows_grid(
+    def get(
         self,
         vpn: Optional[str] = None,
         device_id: Optional[str] = None,
@@ -28,6 +28,7 @@ class ApplicationsBuilder:
     ) -> Any:
         """
         Generate cflowd flows list in a grid table
+        GET /dataservice/statistics/cflowd/applications
 
         :param vpn: VPN Id
         :param device_id: Device IP

@@ -11,7 +11,7 @@ Get DRE peer statistics
 
 .. code:: python
 
-    def get_dre_peer_stats(
+    def get(
         device_id: str,
         appqoe_dre_stats_peer_system_ip: Optional[str] = None,
         appqoe_dre_stats_peer_peer_no: Optional[int] = None,
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.dre.peer_stats.get_dre_peer_stats()
+        client.device.dre.peer_stats.get()
 
 

@@ -11,9 +11,7 @@ Download SLAC Request file for CSSM
 
 .. code:: python
 
-    def download_slac_request_file(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.hsec.download.download_slac_request_file()
+        client.hsec.download.post()
 
 

@@ -19,7 +19,7 @@ class PageBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_bulk_raw_data_3(
+    def get(
         self,
         query: Optional[str] = None,
         scroll_id: Optional[str] = None,
@@ -28,6 +28,7 @@ class PageBuilder:
     ) -> QoSRespWithPageInfo:
         """
         Get stats raw data
+        GET /dataservice/statistics/qos/page
 
         :param query: Query
         :param scroll_id: Scroll id
@@ -47,15 +48,12 @@ class PageBuilder:
             **kw,
         )
 
-    def get_post_stat_bulk_raw_data12(
-        self,
-        payload: Optional[Any] = None,
-        scroll_id: Optional[str] = None,
-        count: Optional[int] = None,
-        **kw,
+    def post(
+        self, payload: Any, scroll_id: Optional[str] = None, count: Optional[int] = None, **kw
     ) -> QoSRespWithPageInfo:
         """
         Get stats raw data
+        POST /dataservice/statistics/qos/page
 
         :param scroll_id: Scroll id
         :param count: Count

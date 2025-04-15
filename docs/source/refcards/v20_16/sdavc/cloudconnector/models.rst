@@ -17,3 +17,8 @@ Models
         value_type: Optional[ValueType]
 
 
+    class EnableCloudConnectorPostRequest:
+        empty: Optional[bool]
+        value_type: Optional[ValueType]
+
+

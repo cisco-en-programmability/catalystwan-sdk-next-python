@@ -13,7 +13,7 @@ Retrieve Fin Flow time range
 
 .. code:: python
 
-    def get_fin_flow_time_range(
+    def get(
         trace_id: int, timestamp: int, state: str
     ) -> List[TraceFinFlowTimeRangeResponsePayloadInner]: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.trace_fin_flow_time_range.get_fin_flow_time_range()
+        client.stream.device.nwpi.trace_fin_flow_time_range.get()
 
 
 .. toctree::

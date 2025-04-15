@@ -14,9 +14,10 @@ class GuestRoutesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_hosting_guest_routes(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get App hosting guest routes from device
+        GET /dataservice/device/app-hosting/guest-routes
 
         :param device_id: deviceId - Device IP
         :returns: Any

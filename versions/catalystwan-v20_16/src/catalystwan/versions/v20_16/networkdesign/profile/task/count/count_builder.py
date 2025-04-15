@@ -15,9 +15,10 @@ class CountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_profile_task_count(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get device profile configuration task count
+        GET /dataservice/networkdesign/profile/task/count
 
         :returns: Any
         """

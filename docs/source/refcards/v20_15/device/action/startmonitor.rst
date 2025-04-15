@@ -11,7 +11,7 @@ Triggers global monitoring thread
 
 .. code:: python
 
-    def trigger_pending_tasks_monitoring() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.startmonitor.trigger_pending_tasks_monitoring()
+        client.device.action.startmonitor.get()
 
 

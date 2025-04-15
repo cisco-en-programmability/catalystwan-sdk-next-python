@@ -15,9 +15,10 @@ class MytestBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def run_my_test(self, name: str, **kw) -> Any:
+    def get(self, name: str, **kw) -> Any:
         """
         Get all device templates for this feature template
+        GET /dataservice/networkdesign/mytest/{name}
 
         :param name: Test bane
         :returns: Any

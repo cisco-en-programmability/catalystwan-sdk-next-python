@@ -11,7 +11,7 @@ Get list of rebooted devices
 
 .. code:: python
 
-    def generate_reboot_device_list(
+    def get(
         device_type: str, group_id: str
     ) -> GenerateRebootDeviceList: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.reboot.devices.generate_reboot_device_list()
+        client.device.action.reboot.devices.get()
 
 
 .. toctree::

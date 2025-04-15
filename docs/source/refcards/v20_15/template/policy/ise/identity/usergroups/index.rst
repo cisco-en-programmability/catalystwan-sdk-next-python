@@ -11,9 +11,7 @@ Get all identity user groups
 
 .. code:: python
 
-    def get_identity_user_groups(
-        payload: Optional[UserGroupsBody] = None,
-    ) -> UserGroupsResponse: ...
+    def post(payload: UserGroupsBody) -> UserGroupsResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.ise.identity.usergroups.get_identity_user_groups()
+        client.template.policy.ise.identity.usergroups.post()
 
 
 .. toctree::

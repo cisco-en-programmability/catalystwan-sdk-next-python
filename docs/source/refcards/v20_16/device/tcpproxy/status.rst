@@ -11,7 +11,7 @@ Get tcp proxy status from device
 
 .. code:: python
 
-    def get_tcp_proxy_status(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tcpproxy.status.get_tcp_proxy_status()
+        client.device.tcpproxy.status.get()
 
 

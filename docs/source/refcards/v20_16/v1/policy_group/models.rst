@@ -21,6 +21,8 @@ Models
 
     PolicyGroupSolution = Literal["sd-routing", "sdwan"]
 
+    V1PolicyGroupSolution = Literal["sd-routing", "sdwan"]
+
 
     class FeatureProfile:
         """
@@ -93,8 +95,6 @@ Models
         """
 
         id: str
-        # This is the documentation for POST response schema for policy group.
-        documentation: Optional[Any]
         # (Optional - only applicable for AON) List of profile ids that belongs to the policy group
         profiles: Optional[List[ProfileObjDef]]
 
@@ -115,8 +115,6 @@ Models
         description: str
         name: str
         solution: PolicyGroupSolution  # pytype: disable=annotation-type-mismatch
-        # This is the documentation for POST request api schema for policy group
-        documentation: Optional[Any]
         from_policy_group: Optional[FromPolicyGroupDef]
         # list of profile ids that belongs to the policy group
         profiles: Optional[List[ProfileIdObjDef]]
@@ -133,8 +131,6 @@ Models
         """
 
         id: str
-        # This is the documentation for PUT response schema for Policy group.
-        documentation: Optional[Any]
         # (Optional - only applicable for AON) List of profile ids that belongs to the Policy group
         profiles: Optional[List[PolicyGroupProfileObjDef]]
 
@@ -150,9 +146,7 @@ Models
 
         description: str
         name: str
-        solution: PolicyGroupSolution  # pytype: disable=annotation-type-mismatch
-        # This is the documentation for PUT request api schema for policy group
-        documentation: Optional[Any]
+        solution: V1PolicyGroupSolution  # pytype: disable=annotation-type-mismatch
         # list of profile ids that belongs to the policy group
         profiles: Optional[List[PolicyGroupProfileIdObjDef]]
 

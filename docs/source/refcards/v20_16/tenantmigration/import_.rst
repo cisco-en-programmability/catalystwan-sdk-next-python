@@ -11,7 +11,7 @@ Import tenant data
 
 .. code:: python
 
-    def import_tenant_data(migration_key: str) -> Any: ...
+    def post(migration_key: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenantmigration.import_.import_tenant_data()
+        client.tenantmigration.import_.post()
 
 

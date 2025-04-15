@@ -19,11 +19,12 @@ class RulesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_notification_rule(
+    def get(
         self, rule_id: Optional[str] = None, site_id: Optional[str] = None, **kw
     ) -> NotificationsRulesResponse:
         """
         Get all rules or specific notification rule by its Id
+        GET /dataservice/notifications/rules
 
         :param rule_id: Rule id
         :param site_id: Site id
@@ -41,9 +42,10 @@ class RulesBuilder:
             **kw,
         )
 
-    def delete_notification_rule(self, rule_id: str, **kw):
+    def delete(self, rule_id: str, **kw):
         """
         Delete notification rule
+        DELETE /dataservice/notifications/rules
 
         :param rule_id: Rule Id
         :returns: None

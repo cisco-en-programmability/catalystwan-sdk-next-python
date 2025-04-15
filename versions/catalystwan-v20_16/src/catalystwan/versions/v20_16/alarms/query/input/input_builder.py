@@ -17,9 +17,10 @@ class InputBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_field_details(self, **kw) -> AlarmQueryInputResponse:
+    def get(self, **kw) -> AlarmQueryInputResponse:
         """
         Get alarm field details
+        GET /dataservice/alarms/query/input
 
         :returns: AlarmQueryInputResponse
         """

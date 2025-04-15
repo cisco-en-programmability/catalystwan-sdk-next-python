@@ -11,7 +11,7 @@ Get DCA access token
 
 .. code:: python
 
-    def get_access_token() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.cloudservices.accesstoken.get_access_token()
+        client.dca.cloudservices.accesstoken.get()
 
 
 Operation: POST /dataservice/dca/cloudservices/accesstoken
@@ -40,7 +40,7 @@ Set DCA access token
 
 .. code:: python
 
-    def store_access_token(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.cloudservices.accesstoken.store_access_token()
+        client.dca.cloudservices.accesstoken.post()
 
 

@@ -19,7 +19,7 @@ class LocalexitsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_local_exits_list(
+    def get(
         self,
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
@@ -28,6 +28,7 @@ class LocalexitsBuilder:
     ) -> Any:
         """
         Get list of cloudexpress local exits from device (Real Time)
+        GET /dataservice/device/cloudx/localexits
 
         :param vpn_id: VPN Id
         :param application: Application

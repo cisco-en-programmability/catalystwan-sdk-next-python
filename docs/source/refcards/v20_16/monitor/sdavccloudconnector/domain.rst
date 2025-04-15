@@ -11,7 +11,7 @@ Get SD AVC App Rules based on Domain for O365
 
 .. code:: python
 
-    def get_cloud_connector_domain_app_rules() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.monitor.sdavccloudconnector.domain.get_cloud_connector_domain_app_rules()
+        client.monitor.sdavccloudconnector.domain.get()
 
 

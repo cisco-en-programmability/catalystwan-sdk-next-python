@@ -13,7 +13,7 @@ flowDetail for NWPI.
 
 .. code:: python
 
-    def get_flow_detail(
+    def get(
         trace_id: int, timestamp: int, flow_id: int
     ) -> List[NwpiflowDetailRespPayloadInner]: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.flow_detail.get_flow_detail()
+        client.stream.device.nwpi.flow_detail.get()
 
 
 .. toctree::

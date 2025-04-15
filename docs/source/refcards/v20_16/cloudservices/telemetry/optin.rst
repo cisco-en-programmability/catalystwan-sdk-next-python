@@ -11,7 +11,7 @@ Telemetry Opt In
 
 .. code:: python
 
-    def opt_in(payload: Optional[str] = None) -> Any: ...
+    def put(payload: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.telemetry.optin.opt_in()
+        client.cloudservices.telemetry.optin.put()
 
 

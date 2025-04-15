@@ -11,7 +11,7 @@ Get PPPoE session list from device
 
 .. code:: python
 
-    def create_pp_po_e_interface_list(device_id: DeviceIp) -> Any: ...
+    def get(device_id: DeviceIp) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.pppoe.session.create_pp_po_e_interface_list()
+        client.device.pppoe.session.get()
 
 
 .. toctree::

@@ -11,9 +11,7 @@ Get software list from device
 
 .. code:: python
 
-    def get_aaa_ucreate_software_listsers(
-        device_id: str,
-    ) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.software.get_aaa_ucreate_software_listsers()
+        client.device.software.get()
 
 
 .. toctree::

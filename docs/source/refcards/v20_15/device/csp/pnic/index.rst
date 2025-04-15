@@ -11,7 +11,7 @@ Get pnic interfaces from device
 
 .. code:: python
 
-    def get_pnic_stats(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.csp.pnic.get_pnic_stats()
+        client.device.csp.pnic.get()
 
 
 .. toctree::

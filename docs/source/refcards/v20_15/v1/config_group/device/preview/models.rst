@@ -12,6 +12,16 @@ Models
     ]
 
 
+    class GetConfigGroupDeviceConfigurationPreviewPostResponse:
+        """
+        Config Group preview Response schema
+        """
+
+        existing_config: str
+        new_config: str
+        unsupported_parcels: Optional[List[Any]]
+
+
     class GetConfigGroupDeviceConfigurationPreviewPostRequest:
         empty: Optional[bool]
         value_type: Optional[ValueType]

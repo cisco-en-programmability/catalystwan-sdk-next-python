@@ -11,7 +11,7 @@ Retrieve registration change information
 
 .. code:: python
 
-    def get_data_change_info(
+    def get(
         partner_id: str,
         event_id: Optional[str] = None,
         event_names: Optional[List[EventName]] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.serverlongpoll.event.poll.get_data_change_info()
+        client.serverlongpoll.event.poll.get()
 
 
 .. toctree::

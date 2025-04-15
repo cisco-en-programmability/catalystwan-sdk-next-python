@@ -11,7 +11,7 @@ get device installed cert
 
 .. code:: python
 
-    def get_installed_cert(uuid: str) -> List[InstalledCertsInner]: ...
+    def get(uuid: str) -> List[InstalledCertsInner]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.vedge.get_installed_cert()
+        client.certificate.vedge.get()
 
 
 .. toctree::

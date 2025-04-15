@@ -17,9 +17,10 @@ class IoxconfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def test_iox_config(self, device_ip: DeviceIp, **kw):
+    def get(self, device_ip: DeviceIp, **kw):
         """
         testIoxConfig
+        GET /dataservice/device/action/test/ioxconfig/{deviceIP}
 
         :param device_ip: Device IP
         :returns: None

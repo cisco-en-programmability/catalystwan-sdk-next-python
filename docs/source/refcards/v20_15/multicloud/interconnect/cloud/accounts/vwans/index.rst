@@ -11,7 +11,7 @@ API to retrieve Azure Virtual Wans.
 
 .. code:: python
 
-    def get_az_virtual_wans(
+    def get(
         cloud_type: str,
         cloud_account_id: str,
         resource_group: str,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.cloud.accounts.vwans.get_az_virtual_wans()
+        client.multicloud.interconnect.cloud.accounts.vwans.get()
 
 
 Operation: POST /dataservice/multicloud/interconnect/cloud/{cloud-type}/accounts/{cloud-account-id}/vwans
@@ -46,10 +46,8 @@ API to create an Azure Virtual Wan..
 
 .. code:: python
 
-    def create_az_virtual_wan(
-        cloud_type: str,
-        cloud_account_id: str,
-        payload: Optional[AzureVirtualWan] = None,
+    def post(
+        cloud_type: str, cloud_account_id: str, payload: AzureVirtualWan
     ) -> InlineResponse2009: ...
 
 
@@ -68,7 +66,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.cloud.accounts.vwans.create_az_virtual_wan()
+        client.multicloud.interconnect.cloud.accounts.vwans.post()
 
 
 Operation: DELETE /dataservice/multicloud/interconnect/cloud/{cloud-type}/accounts/{cloud-account-id}/vwans/{vwan-name}
@@ -79,7 +77,7 @@ API to delete an Azure Virtual Wan.
 
 .. code:: python
 
-    def delete_az_virtual_wan(
+    def delete(
         cloud_type: CloudTypeParam,
         cloud_account_id: str,
         vwan_name: str,
@@ -102,7 +100,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.cloud.accounts.vwans.delete_az_virtual_wan()
+        client.multicloud.interconnect.cloud.accounts.vwans.delete()
 
 
 .. toctree::

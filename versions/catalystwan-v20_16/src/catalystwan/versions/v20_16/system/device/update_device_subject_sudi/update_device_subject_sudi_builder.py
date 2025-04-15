@@ -12,9 +12,10 @@ class UpdateDeviceSubjectSudiBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def update_device_subject_sudi(self, uuid: str, **kw):
+    def put(self, uuid: str, **kw):
         """
         update subject sudi value of given device uuid
+        PUT /dataservice/system/device/updateDeviceSubjectSUDI/{uuid}
 
         :param uuid: Device uuid
         :returns: None

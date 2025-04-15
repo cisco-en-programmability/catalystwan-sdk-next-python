@@ -20,11 +20,12 @@ class RoutingDetailBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_routing_detail_from_local(
+    def get(
         self, trace_id: int, timestamp: int, trace_state: str, route_prefixs: str, **kw
     ) -> List[RoutingDetailResponsePayloadInner]:
         """
         Get Routing Details for NWPI.
+        GET /dataservice/stream/device/nwpi/routingDetail
 
         :param trace_id: Trace id
         :param timestamp: Timestamp

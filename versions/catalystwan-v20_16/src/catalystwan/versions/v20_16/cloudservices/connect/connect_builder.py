@@ -14,9 +14,10 @@ class ConnectBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def connect(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Telemetry Opt In
+        GET /dataservice/cloudservices/connect
 
         :returns: Any
         """

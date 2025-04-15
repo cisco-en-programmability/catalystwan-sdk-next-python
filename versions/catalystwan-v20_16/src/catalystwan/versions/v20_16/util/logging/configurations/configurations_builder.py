@@ -17,9 +17,10 @@ class ConfigurationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_configurations(self, **kw) -> Configurations:
+    def get(self, **kw) -> Configurations:
         """
         List logger configuration
+        GET /dataservice/util/logging/configurations
 
         :returns: Configurations
         """

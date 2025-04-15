@@ -11,7 +11,7 @@ Get connection history list from device
 
 .. code:: python
 
-    def create_connection_history_list(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.orchestrator.connectionshistory.create_connection_history_list()
+        client.device.orchestrator.connectionshistory.get()
 
 

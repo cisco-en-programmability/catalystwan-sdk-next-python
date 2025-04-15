@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import logging
-from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,9 +14,10 @@ class InstallBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def install_firmware_image(self, payload: Optional[str] = None, **kw):
+    def post(self, payload: str, **kw):
         """
         Install firmware on device
+        POST /dataservice/device/action/firmware/install
 
         :param payload: Payload
         :returns: None

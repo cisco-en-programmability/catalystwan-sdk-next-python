@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional
+from typing import Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class ClouddiscoveredappBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_discovered_apps(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get all cloud discovered applications
+        GET /dataservice/template/policy/clouddiscoveredapp
 
         :returns: List[Any]
         """
@@ -24,9 +25,10 @@ class ClouddiscoveredappBuilder:
             "GET", "/dataservice/template/policy/clouddiscoveredapp", return_type=List[Any], **kw
         )
 
-    def map_traffic_profiles(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Set SLA class for policy cloud discovered applications
+        POST /dataservice/template/policy/clouddiscoveredapp
 
         :param payload: App payload
         :returns: Any

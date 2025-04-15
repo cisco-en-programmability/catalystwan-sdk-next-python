@@ -17,9 +17,10 @@ class UserSettingsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_user_settings(self, **kw) -> UserSettingsResponse:
+    def get(self, **kw) -> UserSettingsResponse:
         """
         Get smart licensing user settings
+        GET /dataservice/v1/smart-licensing/user-settings
 
         :returns: UserSettingsResponse
         """

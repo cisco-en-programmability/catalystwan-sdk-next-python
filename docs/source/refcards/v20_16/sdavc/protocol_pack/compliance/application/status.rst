@@ -11,7 +11,7 @@ Get application name compliance task status
 
 .. code:: python
 
-    def get_application_compliance_status(uuid: str) -> Any: ...
+    def get(uuid: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.application.status.get_application_compliance_status()
+        client.sdavc.protocol_pack.compliance.application.status.get()
 
 

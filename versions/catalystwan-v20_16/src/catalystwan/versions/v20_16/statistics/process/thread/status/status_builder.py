@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_stats_process_thread_report(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get stats process thread report
+        GET /dataservice/statistics/process/thread/status
 
         :returns: List[Any]
         """

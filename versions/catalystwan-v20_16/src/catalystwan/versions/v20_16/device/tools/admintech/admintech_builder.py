@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -25,9 +25,10 @@ class AdmintechBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_admin_tech(self, payload: Optional[AdminTechCreateReq] = None, **kw):
+    def post(self, payload: AdminTechCreateReq, **kw):
         """
         Generate admin tech logs
+        POST /dataservice/device/tools/admintech
 
         :param payload: Admin tech generation request
         :returns: None
@@ -39,6 +40,7 @@ class AdmintechBuilder:
     def delete_admin_tech_file(self, request_id: str, **kw):
         """
         Delete admin tech logs
+        DELETE /dataservice/device/tools/admintech/{requestID}
 
         :param request_id: Request Id of admin tech generation request
         :returns: None

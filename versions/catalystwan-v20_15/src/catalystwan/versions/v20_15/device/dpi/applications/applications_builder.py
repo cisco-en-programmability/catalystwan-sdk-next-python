@@ -19,7 +19,7 @@ class ApplicationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_dpi_collector_list(
+    def get(
         self,
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
@@ -29,6 +29,7 @@ class ApplicationsBuilder:
     ) -> List[Any]:
         """
         Get DPI applications from device (Real Time)
+        GET /dataservice/device/dpi/applications
 
         :param vpn_id: VPN Id
         :param application: Application

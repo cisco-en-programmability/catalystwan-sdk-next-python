@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateSdroutingTransportGlobalVrfFeaturePostRequest,
+    CreateSdroutingTransportGlobalVrfFeaturePostResponse,
+    EditSdroutingTransportGlobalVrfFeaturePutRequest,
+    EditSdroutingTransportGlobalVrfFeaturePutResponse,
+    GetListSdRoutingTransportGlobalVrfPayload,
+    GetSingleSdRoutingTransportGlobalVrfPayload,
+)
 
 if TYPE_CHECKING:
     from .interface.interface_builder import InterfaceBuilder
@@ -16,36 +26,21 @@ class GlobalVrfBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sd-routing/transport/{transportId}/global-vrf
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdrouting_transport_global_vrf_features(self, transport_id: str, **kw) -> str:
-        """
-        Get all SD-Routing Global VRF features from a specific transport feature profile
-
-        :param transport_id: Transport Profile ID
-        :returns: str
-        """
-        params = {
-            "transportId": transport_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def create_sdrouting_transport_global_vrf_feature(
-        self, transport_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self, transport_id: str, payload: CreateSdroutingTransportGlobalVrfFeaturePostRequest, **kw
+    ) -> CreateSdroutingTransportGlobalVrfFeaturePostResponse:
         """
         Create a SD-Routing Global VRF feature from a specific transport feature profile
+        POST /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf
 
         :param transport_id: Transport Profile ID
         :param payload:  Global VRF feature from a specific transport feature profile
-        :returns: str
+        :returns: CreateSdroutingTransportGlobalVrfFeaturePostResponse
         """
         params = {
             "transportId": transport_id,
@@ -53,44 +48,27 @@ class GlobalVrfBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf",
-            return_type=str,
+            return_type=CreateSdroutingTransportGlobalVrfFeaturePostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_sdrouting_transport_global_vrf_feature(
-        self, transport_id: str, vrf_id: str, **kw
-    ) -> str:
-        """
-        Get the SD-Routing Global VRF feature from a specific transport feature profile
-
-        :param transport_id: Transport Profile ID
-        :param vrf_id: Global VRF Feature ID
-        :returns: str
-        """
-        params = {
-            "transportId": transport_id,
-            "vrfId": vrf_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def edit_sdrouting_transport_global_vrf_feature(
-        self, transport_id: str, vrf_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self,
+        transport_id: str,
+        vrf_id: str,
+        payload: EditSdroutingTransportGlobalVrfFeaturePutRequest,
+        **kw,
+    ) -> EditSdroutingTransportGlobalVrfFeaturePutResponse:
         """
         Edit the SD-Routing Global VRF feature from a specific transport feature profile
+        PUT /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}
 
         :param transport_id: Transport Profile ID
         :param vrf_id: Global VRF Feature ID
         :param payload:  Global VRF feature from a specific transport feature profile
-        :returns: str
+        :returns: EditSdroutingTransportGlobalVrfFeaturePutResponse
         """
         params = {
             "transportId": transport_id,
@@ -99,15 +77,16 @@ class GlobalVrfBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}",
-            return_type=str,
+            return_type=EditSdroutingTransportGlobalVrfFeaturePutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_sdrouting_transport_global_vrf_feature(self, transport_id: str, vrf_id: str, **kw):
+    def delete(self, transport_id: str, vrf_id: str, **kw):
         """
         Delete the SD-Routing Global VRF feature from a specific transport feature profile
+        DELETE /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}
 
         :param transport_id: Transport Profile ID
         :param vrf_id: Global VRF Feature ID
@@ -123,6 +102,63 @@ class GlobalVrfBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(
+        self, transport_id: str, vrf_id: str, **kw
+    ) -> GetSingleSdRoutingTransportGlobalVrfPayload:
+        """
+        Get the SD-Routing Global VRF feature from a specific transport feature profile
+        GET /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}
+
+        :param transport_id: Transport Profile ID
+        :param vrf_id: Global VRF Feature ID
+        :returns: GetSingleSdRoutingTransportGlobalVrfPayload
+        """
+        ...
+
+    @overload
+    def get(self, transport_id: str, **kw) -> GetListSdRoutingTransportGlobalVrfPayload:
+        """
+        Get all SD-Routing Global VRF features from a specific transport feature profile
+        GET /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf
+
+        :param transport_id: Transport Profile ID
+        :returns: GetListSdRoutingTransportGlobalVrfPayload
+        """
+        ...
+
+    def get(
+        self, transport_id: str, vrf_id: Optional[str] = None, **kw
+    ) -> Union[
+        GetListSdRoutingTransportGlobalVrfPayload, GetSingleSdRoutingTransportGlobalVrfPayload
+    ]:
+        # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}
+        if self._request_adapter.param_checker([(transport_id, str), (vrf_id, str)], []):
+            params = {
+                "transportId": transport_id,
+                "vrfId": vrf_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}",
+                return_type=GetSingleSdRoutingTransportGlobalVrfPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf
+        if self._request_adapter.param_checker([(transport_id, str)], [vrf_id]):
+            params = {
+                "transportId": transport_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf",
+                return_type=GetListSdRoutingTransportGlobalVrfPayload,
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def interface(self) -> InterfaceBuilder:

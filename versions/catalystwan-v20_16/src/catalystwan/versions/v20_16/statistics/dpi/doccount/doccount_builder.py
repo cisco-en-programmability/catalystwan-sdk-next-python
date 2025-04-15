@@ -19,9 +19,10 @@ class DoccountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dpi_stats_count(self, query: Optional[str] = None, **kw) -> CountResponse:
+    def get(self, query: Optional[str] = None, **kw) -> CountResponse:
         """
         Get response count of a query
+        GET /dataservice/statistics/dpi/doccount
 
         :param query: Query
         :returns: CountResponse
@@ -37,9 +38,10 @@ class DoccountBuilder:
             **kw,
         )
 
-    def get_dpi_stats_count_post(self, payload: Optional[Any] = None, **kw) -> CountResponse:
+    def post(self, payload: Any, **kw) -> CountResponse:
         """
         Get response count of a query
+        POST /dataservice/statistics/dpi/doccount
 
         :param payload: User
         :returns: CountResponse

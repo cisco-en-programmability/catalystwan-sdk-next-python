@@ -14,9 +14,10 @@ class ErrorsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_error_alarm_list(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get hardware error list from device
+        GET /dataservice/device/hardware/errors
 
         :returns: Any
         """

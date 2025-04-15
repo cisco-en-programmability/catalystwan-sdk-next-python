@@ -17,9 +17,10 @@ class VedgedetectionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def checkv_edge_device_presence(self, **kw) -> VedgeCheckResponse:
+    def get(self, **kw) -> VedgeCheckResponse:
         """
         Check for Vedge Device Presence
+        GET /dataservice/system/device/vedgedetection
 
         :returns: VedgeCheckResponse
         """

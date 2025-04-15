@@ -14,9 +14,10 @@ class QueuesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sync_queues(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get synchronized queue information, returns information about syncing, queued and stuck devices
+        GET /dataservice/device/queues
 
         :returns: Any
         """

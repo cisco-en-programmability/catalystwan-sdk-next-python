@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateSdwanServiceFeatureProfilePostRequest,
+    CreateSdwanServiceFeatureProfilePostResponse,
+    EditSdwanServiceFeatureProfilePutRequest,
+    EditSdwanServiceFeatureProfilePutResponse,
+    GetSdwanServiceFeatureProfilesGetResponse,
+    GetSingleSdwanServicePayload,
+)
 
 if TYPE_CHECKING:
     from .appqoe.appqoe_builder import AppqoeBuilder
@@ -21,75 +31,39 @@ class ServiceBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sdwan/service
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdwan_service_feature_profiles(
-        self,
-        offset: Optional[int] = None,
-        limit: Optional[int] = 0,
-        details: Optional[bool] = False,
-        **kw,
-    ) -> Any:
-        """
-        Get all SDWAN Feature Profiles with giving Family and profile type
-
-        :param offset: Pagination offset
-        :param limit: Pagination limit
-        :param details: get configuration details
-        :returns: Any
-        """
-        params = {
-            "offset": offset,
-            "limit": limit,
-            "details": details,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/sdwan/service", params=params, **kw
-        )
-
-    def create_sdwan_service_feature_profile(self, payload: Optional[str] = None, **kw) -> str:
+    def post(
+        self, payload: CreateSdwanServiceFeatureProfilePostRequest, **kw
+    ) -> CreateSdwanServiceFeatureProfilePostResponse:
         """
         Create a SDWAN Service Feature Profile
+        POST /dataservice/v1/feature-profile/sdwan/service
 
         :param payload: SDWAN Feature profile
-        :returns: str
+        :returns: CreateSdwanServiceFeatureProfilePostResponse
         """
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/service",
-            return_type=str,
+            return_type=CreateSdwanServiceFeatureProfilePostResponse,
             payload=payload,
             **kw,
         )
 
-    def get_sdwan_service_feature_profile_by_profile_id(
-        self, service_id: str, details: Optional[bool] = False, **kw
-    ) -> Any:
-        """
-        Get a SDWAN Service Feature Profile with serviceId
-
-        :param service_id: Feature Profile Id
-        :param details: get feature details
-        :returns: Any
-        """
-        params = {
-            "serviceId": service_id,
-            "details": details,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/sdwan/service/{serviceId}", params=params, **kw
-        )
-
-    def edit_sdwan_service_feature_profile(
-        self, service_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self, service_id: str, payload: EditSdwanServiceFeatureProfilePutRequest, **kw
+    ) -> EditSdwanServiceFeatureProfilePutResponse:
         """
         Edit a SDWAN Service Feature Profile
+        PUT /dataservice/v1/feature-profile/sdwan/service/{serviceId}
 
         :param service_id: Feature Profile Id
         :param payload: SDWAN Feature profile
-        :returns: str
+        :returns: EditSdwanServiceFeatureProfilePutResponse
         """
         params = {
             "serviceId": service_id,
@@ -97,15 +71,16 @@ class ServiceBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sdwan/service/{serviceId}",
-            return_type=str,
+            return_type=EditSdwanServiceFeatureProfilePutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_sdwan_service_feature_profile(self, service_id: str, **kw):
+    def delete(self, service_id: str, **kw):
         """
         Delete Feature Profile
+        DELETE /dataservice/v1/feature-profile/sdwan/service/{serviceId}
 
         :param service_id: Service id
         :returns: None
@@ -119,6 +94,78 @@ class ServiceBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(
+        self, *, service_id: str, details: Optional[bool] = False, **kw
+    ) -> GetSingleSdwanServicePayload:
+        """
+        Get a SDWAN Service Feature Profile with serviceId
+        GET /dataservice/v1/feature-profile/sdwan/service/{serviceId}
+
+        :param service_id: Feature Profile Id
+        :param details: get feature details
+        :returns: GetSingleSdwanServicePayload
+        """
+        ...
+
+    @overload
+    def get(
+        self,
+        *,
+        offset: Optional[int] = None,
+        limit: Optional[int] = 0,
+        details: Optional[bool] = False,
+        **kw,
+    ) -> List[GetSdwanServiceFeatureProfilesGetResponse]:
+        """
+        Get all SDWAN Feature Profiles with giving Family and profile type
+        GET /dataservice/v1/feature-profile/sdwan/service
+
+        :param offset: Pagination offset
+        :param limit: Pagination limit
+        :param details: get configuration details
+        :returns: List[GetSdwanServiceFeatureProfilesGetResponse]
+        """
+        ...
+
+    def get(
+        self,
+        *,
+        offset: Optional[int] = None,
+        limit: Optional[int] = None,
+        details: Optional[bool] = None,
+        service_id: Optional[str] = None,
+        **kw,
+    ) -> Union[List[GetSdwanServiceFeatureProfilesGetResponse], GetSingleSdwanServicePayload]:
+        # /dataservice/v1/feature-profile/sdwan/service/{serviceId}
+        if self._request_adapter.param_checker([(service_id, str)], [offset, limit]):
+            params = {
+                "serviceId": service_id,
+                "details": details,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/service/{serviceId}",
+                return_type=GetSingleSdwanServicePayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sdwan/service
+        if self._request_adapter.param_checker([], [service_id]):
+            params = {
+                "offset": offset,
+                "limit": limit,
+                "details": details,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/service",
+                return_type=List[GetSdwanServiceFeatureProfilesGetResponse],
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def appqoe(self) -> AppqoeBuilder:

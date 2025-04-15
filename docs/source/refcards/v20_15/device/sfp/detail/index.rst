@@ -11,7 +11,7 @@ Get SFP detail
 
 .. code:: python
 
-    def get_detail(
+    def get(
         device_id: str, ifname: Optional[IfnameParam] = None
     ) -> Any: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.sfp.detail.get_detail()
+        client.device.sfp.detail.get()
 
 
 .. toctree::

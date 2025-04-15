@@ -14,9 +14,10 @@ class DrstatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_disaster_recovery_status(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Disaster recovery status
+        GET /dataservice/disasterrecovery/drstatus
 
         :returns: List[Any]
         """

@@ -12,9 +12,10 @@ class ConfirmBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def confirm_protocol_pack_upload(self, uuid: str, **kw):
+    def post(self, uuid: str, **kw):
         """
         Confirm uploaded protocol pack
+        POST /dataservice/sdavc/protocol-pack/maintenance/upload/confirm/{uuid}
 
         :param uuid: Uuid
         :returns: None

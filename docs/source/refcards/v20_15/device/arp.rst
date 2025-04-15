@@ -11,7 +11,7 @@ Get ARP interfaces from device (Real Time)
 
 .. code:: python
 
-    def get_arp_interface(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.arp.get_arp_interface()
+        client.device.arp.get()
 
 

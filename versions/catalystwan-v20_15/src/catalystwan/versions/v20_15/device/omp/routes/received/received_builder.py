@@ -17,9 +17,10 @@ class ReceivedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_received_routes_list(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get OMP received routes list (Real Time)
+        GET /dataservice/device/omp/routes/received
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

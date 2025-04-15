@@ -13,7 +13,7 @@ Get QoS Application data for NWPI.
 
 .. code:: python
 
-    def get_app_qos_data(
+    def get(
         trace_id: int, timestamp: int, received_timestamp: int
     ) -> List[AppQosDataResponsePayloadInner]: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.app_qos_data.get_app_qos_data()
+        client.stream.device.nwpi.app_qos_data.get()
 
 
 .. toctree::

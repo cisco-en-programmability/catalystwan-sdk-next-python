@@ -14,9 +14,10 @@ class MigrationTokenBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_migration_token(self, migration_id: str, **kw) -> Any:
+    def get(self, migration_id: str, **kw) -> Any:
         """
         Get migration token
+        GET /dataservice/tenantmigration/migrationToken
 
         :param migration_id: Migration Id
         :returns: Any

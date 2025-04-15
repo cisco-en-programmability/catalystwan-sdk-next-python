@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,9 +17,10 @@ class CreateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def account_create(self, payload: Optional[CreateBody] = None, **kw) -> CreateResponse:
+    def post(self, payload: CreateBody, **kw) -> CreateResponse:
         """
         Create pxGrid account
+        POST /dataservice/ise/pxgrid/create
 
         :param payload: name for pxgrid node
         :returns: CreateResponse

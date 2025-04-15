@@ -14,12 +14,13 @@ class MigrateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def tenantv_smart_mt_migrate(self, **kw) -> List[Any]:
+    def post(self, **kw) -> List[Any]:
         """
         Migrate tenants from single tenant vSmarts to multi-tenant capable vSmarts
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        POST /dataservice/tenant/vsmart-mt/migrate
 
         :returns: List[Any]
         """

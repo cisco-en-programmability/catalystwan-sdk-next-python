@@ -14,7 +14,7 @@ class DoccountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_count_with_state_data_type(
+    def get(
         self,
         state_data_type: str,
         start_date: str,
@@ -24,6 +24,7 @@ class DoccountBuilder:
     ) -> Any:
         """
         Get response count of a query
+        GET /dataservice/data/device/statistics/{state_data_type}/doccount
 
         :param state_data_type: State data type(example:object)
         :param start_date: Start date (example:2023-10-31T14:30:00)

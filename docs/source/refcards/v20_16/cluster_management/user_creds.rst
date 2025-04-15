@@ -11,9 +11,7 @@ Add or update user credentials for cluster operations<br><br><br>Note: In a mult
 
 .. code:: python
 
-    def add_or_update_user_credentials(
-        payload: Optional[Any] = None,
-    ) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.user_creds.add_or_update_user_credentials()
+        client.cluster_management.user_creds.post()
 
 

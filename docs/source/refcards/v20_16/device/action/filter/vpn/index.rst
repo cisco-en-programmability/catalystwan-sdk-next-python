@@ -11,7 +11,7 @@ Get filter VPN list
 
 .. code:: python
 
-    def create_filter_vpn_list(
+    def get(
         site_id: Optional[str] = None, device_id: Optional[str] = None
     ) -> CreateFilterVpnList: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.filter.vpn.create_filter_vpn_list()
+        client.device.action.filter.vpn.get()
 
 
 .. toctree::

@@ -12,9 +12,10 @@ class ReportingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_reporting_keys_from_umbrella(self, **kw):
+    def get(self, **kw):
         """
         Get reporting keys from Umbrella
+        GET /dataservice/umbrella/getkeys/reporting
 
         :returns: None
         """

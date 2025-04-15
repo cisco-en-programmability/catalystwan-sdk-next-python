@@ -11,7 +11,7 @@ Get container inspect data
 
 .. code:: python
 
-    def get_container_inspect_data(
+    def get(
         container_name: str, host_ip: Optional[str] = None
     ) -> str: ...
 
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.container_manager.inspect.get_container_inspect_data()
+        client.container_manager.inspect.get()
 
 

@@ -7,13 +7,10 @@ Operation: GET /dataservice/sig/datacenters/{type}/{tunneltype}
 ---------------------------------------------------------------
 
 
-The API to get all sig data center for given provider type
-
 .. code:: python
 
-    def get_sig_dynamic_data_center_list(
-        type_: str, tunneltype: str
-    ) -> GetDataCenters: ...
+    @overload
+    def get(type_: str, tunneltype: str) -> GetDataCenters: ...
 
 
 Example:
@@ -31,20 +28,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sig.datacenters.get_sig_dynamic_data_center_list()
+        client.sig.datacenters.get()
 
 
 Operation: GET /dataservice/sig/datacenters/{type}/{tunneltype}/{devicetype}
 ----------------------------------------------------------------------------
 
 
-Get list of data centers for zscaler or umbrella
-
 .. code:: python
 
-    def get_sig_data_center_list(
-        type_: str, tunneltype: str, devicetype: str
-    ) -> Any: ...
+    @overload
+    def get(type_: str, tunneltype: str, devicetype: str) -> Any: ...
 
 
 Example:
@@ -62,7 +56,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sig.datacenters.get_sig_data_center_list()
+        client.sig.datacenters.get()
 
 
 .. toctree::

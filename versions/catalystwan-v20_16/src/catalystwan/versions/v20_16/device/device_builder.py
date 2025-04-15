@@ -157,11 +157,12 @@ class DeviceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_all_devices(
+    def get(
         self, site_id: Optional[str] = None, include_tenantv_smart: Optional[bool] = None, **kw
     ) -> List[DeviceData]:
         """
         List all devices
+        GET /dataservice/device
 
         :param site_id: Site id
         :param include_tenantv_smart: Include tenantv smart

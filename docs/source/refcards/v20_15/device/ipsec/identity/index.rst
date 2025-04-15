@@ -11,11 +11,11 @@ Get Crypto IPSEC identity entry from device
 
 .. code:: python
 
-    def create_crypto_ipsec_identity(
+    def get(
         device_id: str,
         remote_tloc_address: Optional[str] = None,
         remote_tloc_color: Optional[RemoteTlocColorParam] = None,
-        local_tloc_color: Optional[RemoteTlocColorParam] = None,
+        local_tloc_color: Optional[LocalTlocColorParam] = None,
     ) -> Any: ...
 
 
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ipsec.identity.create_crypto_ipsec_identity()
+        client.device.ipsec.identity.get()
 
 
 .. toctree::

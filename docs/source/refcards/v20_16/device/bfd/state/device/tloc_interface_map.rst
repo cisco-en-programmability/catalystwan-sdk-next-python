@@ -11,7 +11,7 @@ Get device tloc color to Intf Mapping Relationship
 
 .. code:: python
 
-    def get_device_tloc_to_intf_list(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bfd.state.device.tloc_interface_map.get_device_tloc_to_intf_list()
+        client.device.bfd.state.device.tloc_interface_map.get()
 
 

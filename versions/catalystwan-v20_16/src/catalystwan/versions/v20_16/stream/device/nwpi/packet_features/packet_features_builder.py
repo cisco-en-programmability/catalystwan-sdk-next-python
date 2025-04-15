@@ -19,11 +19,10 @@ class PacketFeaturesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_packet_features(
-        self, trace_id: int, timestamp: int, flow_id: int, **kw
-    ) -> NwpipacketRespPayload:
+    def get(self, trace_id: int, timestamp: int, flow_id: int, **kw) -> NwpipacketRespPayload:
         """
         packetFeatures for NWPI.
+        GET /dataservice/stream/device/nwpi/packetFeatures
 
         :param trace_id: trace id
         :param timestamp: start time

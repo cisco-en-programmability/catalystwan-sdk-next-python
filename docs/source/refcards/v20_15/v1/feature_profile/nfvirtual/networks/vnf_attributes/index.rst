@@ -11,9 +11,10 @@ Create VNF Attributes Profile config for Networks feature profile
 
 .. code:: python
 
-    def create_nfvirtual_vnf_attributes_parcel(
-        networks_id: str, payload: Optional[str] = None
-    ) -> str: ...
+    def post(
+        networks_id: str,
+        payload: CreateNfvirtualVnfAttributesParcelPostRequest,
+    ) -> CreateNfvirtualVnfAttributesParcelPostResponse: ...
 
 
 Example:
@@ -31,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.nfvirtual.networks.vnf_attributes.create_nfvirtual_vnf_attributes_parcel()
+        client.v1.feature_profile.nfvirtual.networks.vnf_attributes.post()
 
 
 Operation: GET /dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/vnf-attributes/{vnfAttributesId}
@@ -42,9 +43,9 @@ Get VNF Attributes Profile Parcels for Networks feature profile
 
 .. code:: python
 
-    def get_nfvirtual_vnf_attributes_parcel(
+    def get(
         networks_id: str, vnf_attributes_id: str
-    ) -> str: ...
+    ) -> GetSingleNfvirtualNetworksVnfAttributesPayload: ...
 
 
 Example:
@@ -62,7 +63,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.nfvirtual.networks.vnf_attributes.get_nfvirtual_vnf_attributes_parcel()
+        client.v1.feature_profile.nfvirtual.networks.vnf_attributes.get()
 
 
 Operation: PUT /dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/vnf-attributes/{vnfAttributesId}
@@ -73,11 +74,11 @@ Edit a VNF Attributes Profile Parcel for networks feature profile
 
 .. code:: python
 
-    def edit_nfvirtual_vnf_attributes_parcel(
+    def put(
         networks_id: str,
         vnf_attributes_id: str,
-        payload: Optional[str] = None,
-    ) -> str: ...
+        payload: EditNfvirtualVnfAttributesParcelPutRequest,
+    ) -> EditNfvirtualVnfAttributesParcelPutResponse: ...
 
 
 Example:
@@ -95,7 +96,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.nfvirtual.networks.vnf_attributes.edit_nfvirtual_vnf_attributes_parcel()
+        client.v1.feature_profile.nfvirtual.networks.vnf_attributes.put()
 
 
 Operation: DELETE /dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/vnf-attributes/{vnfAttributesId}
@@ -106,9 +107,7 @@ Delete VNF Attributes Profile config for Networks feature profile
 
 .. code:: python
 
-    def delete_nfvirtual_vnf_attributes_parcel(
-        networks_id: str, vnf_attributes_id: str
-    ) -> None: ...
+    def delete(networks_id: str, vnf_attributes_id: str) -> None: ...
 
 
 Example:
@@ -126,11 +125,12 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.nfvirtual.networks.vnf_attributes.delete_nfvirtual_vnf_attributes_parcel()
+        client.v1.feature_profile.nfvirtual.networks.vnf_attributes.delete()
 
 
 .. toctree::
     :maxdepth: 1
 
-    vnf
+    vnf/index
+    models
 

@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -18,9 +18,10 @@ class DevicepairBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def add_device_pair(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Add device pair
+        POST /dataservice/template/cor/devicepair
 
         :param payload: Add device pair request
         :returns: Any

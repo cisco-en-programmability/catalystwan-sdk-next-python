@@ -11,7 +11,7 @@ Get license UDI info from device
 
 .. code:: python
 
-    def get_license_udi_info(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.license.udi.get_license_udi_info()
+        client.device.license.udi.get()
 
 

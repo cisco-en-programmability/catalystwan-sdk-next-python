@@ -11,9 +11,7 @@ Get Mapping details for cloudType
 
 .. code:: python
 
-    def get_mapping_matrix(
-        cloud_type: CloudTypeParam,
-    ) -> List[GetMapResponse]: ...
+    def get(cloud_type: CloudTypeParam) -> List[GetMapResponse]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.map.get_mapping_matrix()
+        client.multicloud.map.get()
 
 
 Operation: POST /dataservice/multicloud/map
@@ -42,9 +40,7 @@ Enable Mapping for cloudType
 
 .. code:: python
 
-    def process_mapping(
-        payload: Optional[PostMapRequest] = None,
-    ) -> Taskid: ...
+    def post(payload: PostMapRequest) -> Taskid: ...
 
 
 Example:
@@ -62,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.map.process_mapping()
+        client.multicloud.map.post()
 
 
 .. toctree::

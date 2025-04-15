@@ -13,7 +13,7 @@ Get Edge Locations
 
 .. code:: python
 
-    def get_edge_locations_info(
+    def get(
         edge_type: EdgeTypeParam,
         account_id: Optional[str] = None,
         region: Optional[str] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.locations.edge.get_edge_locations_info()
+        client.multicloud.locations.edge.get()
 
 
 Operation: DELETE /dataservice/multicloud/locations/edge/{edgeType}
@@ -48,7 +48,7 @@ Delete edge account
 
 .. code:: python
 
-    def delete_edge_account_1(edge_type: EdgeTypeParam) -> None: ...
+    def delete(edge_type: EdgeTypeParam) -> None: ...
 
 
 Example:
@@ -66,7 +66,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.locations.edge.delete_edge_account_1()
+        client.multicloud.locations.edge.delete()
 
 
 .. toctree::

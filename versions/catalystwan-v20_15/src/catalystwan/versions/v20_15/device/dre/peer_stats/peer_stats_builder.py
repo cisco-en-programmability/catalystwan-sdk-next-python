@@ -14,7 +14,7 @@ class PeerStatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dre_peer_stats(
+    def get(
         self,
         device_id: str,
         appqoe_dre_stats_peer_system_ip: Optional[str] = None,
@@ -23,6 +23,7 @@ class PeerStatsBuilder:
     ) -> Any:
         """
         Get DRE peer statistics
+        GET /dataservice/device/dre/peer-stats
 
         :param appqoe_dre_stats_peer_system_ip: System IP
         :param appqoe_dre_stats_peer_peer_no: Peer Number

@@ -13,9 +13,7 @@ Retrieve MSLA subscription/licenses
 
 .. code:: python
 
-    def get_subscriptions_1(
-        payload: Optional[GetSubscriptions1PostRequest] = None,
-    ) -> Any: ...
+    def post(payload: GetSubscriptions1PostRequest) -> Any: ...
 
 
 Example:
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.msla.template.licenses.get_subscriptions_1()
+        client.msla.template.licenses.post()
 
 
 .. toctree::

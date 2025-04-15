@@ -11,7 +11,7 @@ Get configuration for link-state alarm
 
 .. code:: python
 
-    def get_link_state_alarm_config() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.link_state_alarm.get_link_state_alarm_config()
+        client.alarms.link_state_alarm.get()
 
 
 Operation: POST /dataservice/alarms/link-state-alarm
@@ -40,9 +40,7 @@ Enable/Disable a specific link-state alarm
 
 .. code:: python
 
-    def enable_disable_link_state_alarm(
-        link_name: str, enable: bool
-    ) -> None: ...
+    def post(link_name: str, enable: bool) -> None: ...
 
 
 Example:
@@ -60,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.link_state_alarm.enable_disable_link_state_alarm()
+        client.alarms.link_state_alarm.post()
 
 

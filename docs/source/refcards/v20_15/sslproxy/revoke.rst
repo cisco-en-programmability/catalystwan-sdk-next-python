@@ -11,7 +11,7 @@ Revoke device certificate
 
 .. code:: python
 
-    def revoke_certificate(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.revoke.revoke_certificate()
+        client.sslproxy.revoke.post()
 
 

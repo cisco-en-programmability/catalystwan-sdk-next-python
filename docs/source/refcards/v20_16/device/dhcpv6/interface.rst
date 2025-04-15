@@ -11,7 +11,7 @@ Get DHCPv6 interfaces from device
 
 .. code:: python
 
-    def get_dhc_pv6_interface(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.dhcpv6.interface.get_dhc_pv6_interface()
+        client.device.dhcpv6.interface.get()
 
 

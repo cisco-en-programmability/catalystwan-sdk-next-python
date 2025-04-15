@@ -11,7 +11,7 @@ get certificate data
 
 .. code:: python
 
-    def get_list_status() -> List[str]: ...
+    def get() -> List[str]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.list.status.get_list_status()
+        client.certificate.list.status.get()
 
 

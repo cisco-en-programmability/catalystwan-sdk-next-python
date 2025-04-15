@@ -11,9 +11,7 @@ Get tloc
 
 .. code:: python
 
-    def get_approute_tloc(
-        payload: Optional[Any] = None,
-    ) -> List[AppRouteTlocRespInner]: ...
+    def post(payload: Any) -> List[AppRouteTlocRespInner]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.approute.tloc.get_approute_tloc()
+        client.statistics.approute.tloc.post()
 
 
 .. toctree::

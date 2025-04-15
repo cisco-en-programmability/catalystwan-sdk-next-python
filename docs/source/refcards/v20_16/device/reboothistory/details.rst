@@ -11,7 +11,7 @@ Get detailed reboot history list
 
 .. code:: python
 
-    def get_reboot_history_details() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.reboothistory.details.get_reboot_history_details()
+        client.device.reboothistory.details.get()
 
 

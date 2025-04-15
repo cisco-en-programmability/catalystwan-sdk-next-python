@@ -19,9 +19,10 @@ class SessionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdra_session_summary(self, site: Optional[int] = None, **kw) -> SdraSessionSummary:
+    def get(self, site: Optional[int] = None, **kw) -> SdraSessionSummary:
         """
         Get SD-WAN Remote Access session summary
+        GET /dataservice/statistics/sdra/sessions
 
         :param site: Site
         :returns: SdraSessionSummary

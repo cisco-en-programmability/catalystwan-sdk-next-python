@@ -14,9 +14,10 @@ class InfoBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_device_info_list(self, device_id: List[str], **kw) -> Any:
+    def get(self, device_id: List[str], **kw) -> Any:
         """
         Get device information list
+        GET /dataservice/device/system/info
 
         :param device_id: deviceId - Device IP
         :returns: Any

@@ -11,7 +11,7 @@ Get DCA tenant owners
 
 .. code:: python
 
-    def get_dca_tenant_owners() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.dcatenantowners.get_dca_tenant_owners()
+        client.dca.dcatenantowners.get()
 
 

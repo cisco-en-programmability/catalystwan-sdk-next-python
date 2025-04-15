@@ -14,9 +14,10 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_network_issues_summary(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Retrieve network issues summary
+        GET /dataservice/network/issues/summary
 
         :returns: Any
         """

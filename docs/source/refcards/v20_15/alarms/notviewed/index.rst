@@ -11,9 +11,7 @@ Get alarms which are not acknowledged by the user.
 
 .. code:: python
 
-    def get_non_viewed_alarms(
-        state: Optional[str] = None,
-    ) -> List[Alarm]: ...
+    def get(state: Optional[str] = None) -> AlarmResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.notviewed.get_non_viewed_alarms()
+        client.alarms.notviewed.get()
 
 
 .. toctree::

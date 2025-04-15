@@ -11,7 +11,7 @@ Get device bridge interface MAC (Real Time)
 
 .. code:: python
 
-    def get_bridge_interface_mac(
+    def get(
         device_id: str,
         bridge_id: Optional[str] = None,
         if_name: Optional[IfNameParam] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bridge.mac.get_bridge_interface_mac()
+        client.device.bridge.mac.get()
 
 
 .. toctree::

@@ -19,7 +19,7 @@ class AuditBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_audit_report(
+    def get(
         self,
         interconnect_type: str,
         connection_type: Optional[str] = None,
@@ -30,6 +30,7 @@ class AuditBuilder:
     ) -> AuditReport:
         """
         API to generate audit report for resources.
+        GET /dataservice/multicloud/interconnect/audit
 
         :param interconnect_type: Interconnect provider type
         :param connection_type: Interconnect connectivity type

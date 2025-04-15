@@ -11,7 +11,7 @@ Get NAT interface statistics list from device
 
 .. code:: python
 
-    def create_nat_interface_statistics_list(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ip.nat.interfacestatistics.create_nat_interface_statistics_list()
+        client.device.ip.nat.interfacestatistics.get()
 
 

@@ -41,3 +41,9 @@ Models
         account_data: Optional[AccountData]
 
 
+    class ProviderAccountDetailsList:
+        provider_account_details_list: Optional[
+            List[ProviderAccountDetails]
+        ]
+
+

@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -23,9 +23,10 @@ class UpgradeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def upgrade_protocol_pack(self, payload: Optional[ProtocolPackUpgradeRequest] = None, **kw):
+    def post(self, payload: ProtocolPackUpgradeRequest, **kw):
         """
         Deploy protocol pack to devices
+        POST /dataservice/sdavc/protocol-pack/maintenance/upgrade
 
         :param payload: Request Payload
         :returns: None

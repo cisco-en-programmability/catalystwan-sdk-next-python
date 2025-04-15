@@ -3,37 +3,6 @@ v1.policy_group
 ===============
 
 
-Operation: GET /dataservice/v1/policy-group
--------------------------------------------
-
-
-Get a Policy Group by Solution
-
-.. code:: python
-
-    def get_policy_group_by_solution(
-        solution: Optional[str] = None,
-    ) -> List[PolicyGroup]: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.policy_group.get_policy_group_by_solution()
-
-
 Operation: POST /dataservice/v1/policy-group
 --------------------------------------------
 
@@ -42,8 +11,8 @@ Create a new Policy Group
 
 .. code:: python
 
-    def create_policy_group(
-        payload: Optional[CreatePolicyGroupPostRequest] = None,
+    def post(
+        payload: CreatePolicyGroupPostRequest,
     ) -> CreatePolicyGroupPostResponse: ...
 
 
@@ -62,36 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.policy_group.create_policy_group()
-
-
-Operation: GET /dataservice/v1/policy-group/{policyGroupId}
------------------------------------------------------------
-
-
-Get a Policy Group by ID
-
-.. code:: python
-
-    def get_policy_group(policy_group_id: str) -> PolicyGroup: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.policy_group.get_policy_group()
+        client.v1.policy_group.post()
 
 
 Operation: PUT /dataservice/v1/policy-group/{policyGroupId}
@@ -102,9 +42,8 @@ Edit a Policy Group
 
 .. code:: python
 
-    def edit_policy_group(
-        policy_group_id: str,
-        payload: Optional[EditPolicyGroupPutRequest] = None,
+    def put(
+        policy_group_id: str, payload: EditPolicyGroupPutRequest
     ) -> EditPolicyGroupPutResponse: ...
 
 
@@ -123,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.policy_group.edit_policy_group()
+        client.v1.policy_group.put()
 
 
 Operation: DELETE /dataservice/v1/policy-group/{policyGroupId}
@@ -134,7 +73,7 @@ Delete Policy Group
 
 .. code:: python
 
-    def delete_policy_group(
+    def delete(
         policy_group_id: str, delete_profiles: Optional[bool] = None
     ) -> None: ...
 
@@ -154,7 +93,63 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.policy_group.delete_policy_group()
+        client.v1.policy_group.delete()
+
+
+Operation: GET /dataservice/v1/policy-group
+-------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(solution: Optional[str] = None) -> List[PolicyGroup]: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.policy_group.get()
+
+
+Operation: GET /dataservice/v1/policy-group/{policyGroupId}
+-----------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(policy_group_id: str) -> PolicyGroup: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.policy_group.get()
 
 
 .. toctree::

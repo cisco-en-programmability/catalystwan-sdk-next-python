@@ -19,11 +19,12 @@ class HealthBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_application_site_health(
-        self, payload: Optional[Any] = None, health: Optional[HealthParam] = None, **kw
+    def post(
+        self, payload: Any, health: Optional[HealthParam] = None, **kw
     ) -> List[ApplicationSiteItem]:
         """
         Get one application health for one site
+        POST /dataservice/statistics/perfmon/application/site/health
 
         :param health: Health
         :param payload: Stats query string

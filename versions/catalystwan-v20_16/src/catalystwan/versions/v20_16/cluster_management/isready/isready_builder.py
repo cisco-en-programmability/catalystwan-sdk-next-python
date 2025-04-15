@@ -14,12 +14,13 @@ class IsreadyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def is_cluster_ready(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Is cluster ready
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/clusterManagement/isready
 
         :returns: Any
         """

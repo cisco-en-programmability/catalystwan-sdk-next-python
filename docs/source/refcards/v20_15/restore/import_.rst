@@ -11,7 +11,7 @@ Submit a previously backed up file and import the data and apply it to the confi
 
 .. code:: python
 
-    def import_scheduled_backup() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.restore.import_.import_scheduled_backup()
+        client.restore.import_.post()
 
 

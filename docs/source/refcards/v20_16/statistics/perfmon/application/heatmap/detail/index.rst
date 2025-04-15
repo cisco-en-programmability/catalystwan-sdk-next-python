@@ -11,7 +11,7 @@ Get single applicaiton site health detail in a time range
 
 .. code:: python
 
-    def get_application_heat_map_detail(
+    def get(
         application: str,
         start_time: int,
         heatmap_time: int,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.perfmon.application.heatmap.detail.get_application_heat_map_detail()
+        client.statistics.perfmon.application.heatmap.detail.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Get trustsec Scalable Group Tags
 
 .. code:: python
 
-    def sgts() -> SgtResponse: ...
+    def get() -> SgtResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.ise.identity.sgt.sgts()
+        client.template.policy.ise.identity.sgt.get()
 
 
 .. toctree::

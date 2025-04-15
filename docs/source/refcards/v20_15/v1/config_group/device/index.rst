@@ -6,7 +6,7 @@ v1.config_group.device
 .. toctree::
     :maxdepth: 1
 
-    associate
+    associate/index
     deploy/index
     variables/index
     preview/index

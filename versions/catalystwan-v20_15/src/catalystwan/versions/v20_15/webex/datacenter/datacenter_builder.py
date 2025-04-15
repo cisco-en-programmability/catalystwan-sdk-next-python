@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -23,9 +23,10 @@ class DatacenterBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_webex_data_centers(self, payload: Optional[WebexDataCenter] = None, **kw) -> bool:
+    def post(self, payload: WebexDataCenter, **kw) -> bool:
         """
         TEMP-Insert webex data center details manually for test setup
+        POST /dataservice/webex/datacenter
 
         :param payload: Webex Data Center
         :returns: bool
@@ -34,9 +35,10 @@ class DatacenterBuilder:
             "POST", "/dataservice/webex/datacenter", return_type=bool, payload=payload, **kw
         )
 
-    def delete_webex_data_centers(self, **kw) -> bool:
+    def delete(self, **kw) -> bool:
         """
         Delete webex data center data in DB
+        DELETE /dataservice/webex/datacenter
 
         :returns: bool
         """

@@ -11,9 +11,7 @@ Get local properties list
 
 .. code:: python
 
-    def create_local_properties_synced_list(
-        device_id: str,
-    ) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.control.synced.localproperties.create_local_properties_synced_list()
+        client.device.control.synced.localproperties.get()
 
 

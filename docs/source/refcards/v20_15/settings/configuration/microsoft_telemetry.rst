@@ -13,7 +13,7 @@ Retrieve Microsoft telemetry configuration value
 
 .. code:: python
 
-    def get_microsoft_telemetry_configuration() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.microsoft_telemetry.get_microsoft_telemetry_configuration()
+        client.settings.configuration.microsoft_telemetry.get()
 
 
 Operation: PUT /dataservice/settings/configuration/microsoftTelemetry
@@ -44,9 +44,7 @@ Update Microsoft telemetry configuration setting
 
 .. code:: python
 
-    def edit_microsoft_telemetry_configuration(
-        payload: Optional[str] = None,
-    ) -> Any: ...
+    def put(payload: str) -> Any: ...
 
 
 Example:
@@ -64,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.microsoft_telemetry.edit_microsoft_telemetry_configuration()
+        client.settings.configuration.microsoft_telemetry.put()
 
 
 Operation: POST /dataservice/settings/configuration/microsoftTelemetry
@@ -77,9 +75,7 @@ Add new Microsoft telemetry configuration
 
 .. code:: python
 
-    def new_microsoft_telemetry_configuration(
-        payload: Optional[str] = None,
-    ) -> str: ...
+    def post(payload: str) -> str: ...
 
 
 Example:
@@ -97,6 +93,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.microsoft_telemetry.new_microsoft_telemetry_configuration()
+        client.settings.configuration.microsoft_telemetry.post()
 
 

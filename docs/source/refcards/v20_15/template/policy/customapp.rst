@@ -3,35 +3,6 @@ template.policy.customapp
 =========================
 
 
-Operation: GET /dataservice/template/policy/customapp
------------------------------------------------------
-
-
-Get all policy custom applications
-
-.. code:: python
-
-    def get_custom_apps() -> List[Any]: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.template.policy.customapp.get_custom_apps()
-
-
 Operation: POST /dataservice/template/policy/customapp
 ------------------------------------------------------
 
@@ -40,7 +11,7 @@ Create a policy custom applications
 
 .. code:: python
 
-    def create_custom_app(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,36 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.customapp.create_custom_app()
-
-
-Operation: GET /dataservice/template/policy/customapp/{id}
-----------------------------------------------------------
-
-
-Get a policy custom applications
-
-.. code:: python
-
-    def get_custom_app_by_id(id: str) -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.template.policy.customapp.get_custom_app_by_id()
+        client.template.policy.customapp.post()
 
 
 Operation: PUT /dataservice/template/policy/customapp/{id}
@@ -98,9 +40,7 @@ Edit a policy custom applications
 
 .. code:: python
 
-    def edit_custom_app(
-        id: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def put(id: str, payload: Any) -> None: ...
 
 
 Example:
@@ -118,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.customapp.edit_custom_app()
+        client.template.policy.customapp.put()
 
 
 Operation: DELETE /dataservice/template/policy/customapp/{id}
@@ -129,7 +69,7 @@ Delete a policy custom applications
 
 .. code:: python
 
-    def delete_custom_app(id: str) -> None: ...
+    def delete(id: str) -> None: ...
 
 
 Example:
@@ -147,6 +87,62 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.customapp.delete_custom_app()
+        client.template.policy.customapp.delete()
+
+
+Operation: GET /dataservice/template/policy/customapp
+-----------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get() -> List[Any]: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.template.policy.customapp.get()
+
+
+Operation: GET /dataservice/template/policy/customapp/{id}
+----------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.template.policy.customapp.get()
 
 

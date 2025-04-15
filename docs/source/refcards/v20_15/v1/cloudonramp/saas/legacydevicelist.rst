@@ -11,7 +11,7 @@ Get Legacy Devices List
 
 .. code:: python
 
-    def get_legacy_device_list() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.cloudonramp.saas.legacydevicelist.get_legacy_device_list()
+        client.v1.cloudonramp.saas.legacydevicelist.get()
 
 

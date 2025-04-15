@@ -11,7 +11,7 @@ Get tenant list<br><br><br>Note: In a multitenant vManage system, this API is on
 
 .. code:: python
 
-    def get_tenants_list() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.tenant_list.get_tenants_list()
+        client.cluster_management.tenant_list.get()
 
 

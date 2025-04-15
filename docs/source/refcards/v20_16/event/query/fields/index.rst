@@ -11,7 +11,7 @@ Get query fields
 
 .. code:: python
 
-    def get_query_fields() -> EventQueryInputResponse: ...
+    def get() -> EventQueryInputResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.event.query.fields.get_query_fields()
+        client.event.query.fields.get()
 
 
 .. toctree::

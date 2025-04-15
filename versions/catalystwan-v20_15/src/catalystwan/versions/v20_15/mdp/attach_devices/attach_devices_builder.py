@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional
+from typing import Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class AttachDevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def retrieve_mdp_attached_devices(self, nms_id: str, **kw) -> List[Any]:
+    def get(self, nms_id: str, **kw) -> List[Any]:
         """
         Retrieve MDP attached devices
+        GET /dataservice/mdp/attachDevices/{nmsId}
 
         :param nms_id: Nms id
         :returns: List[Any]
@@ -32,9 +33,10 @@ class AttachDevicesBuilder:
             **kw,
         )
 
-    def edit_attached_devices(self, nms_id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, nms_id: str, payload: Any, **kw) -> Any:
         """
         Edit attached devices
+        PUT /dataservice/mdp/attachDevices/{nmsId}
 
         :param nms_id: Nms id
         :param payload: deviceList
@@ -47,9 +49,10 @@ class AttachDevicesBuilder:
             "PUT", "/dataservice/mdp/attachDevices/{nmsId}", params=params, payload=payload, **kw
         )
 
-    def attach_devices(self, nms_id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, nms_id: str, payload: Any, **kw) -> Any:
         """
         Share devices with MDP
+        POST /dataservice/mdp/attachDevices/{nmsId}
 
         :param nms_id: Nms id
         :param payload: deviceList

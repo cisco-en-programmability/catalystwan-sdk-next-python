@@ -11,7 +11,7 @@ Disable enabled gateways, clients, dias<br><br><br>Note: In a multitenant vManag
 
 .. code:: python
 
-    def detach_sites(payload: Optional[Any] = None) -> str: ...
+    def post(payload: Any) -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.detachcloudx.detach_sites()
+        client.template.device.config.detachcloudx.post()
 
 

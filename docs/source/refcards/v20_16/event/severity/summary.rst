@@ -11,7 +11,7 @@ Get event severity histogram
 
 .. code:: python
 
-    def get_severity_histogram(
+    def get(
         device_id: List[str],
         query: Optional[str] = None,
         site_id: Optional[str] = None,
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.event.severity.summary.get_severity_histogram()
+        client.event.severity.summary.get()
 
 

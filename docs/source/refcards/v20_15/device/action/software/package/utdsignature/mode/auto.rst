@@ -11,9 +11,7 @@ add Utd remote image
 
 .. code:: python
 
-    def add_utd_remote_image(
-        type_: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def post(type_: str, payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.package.utdsignature.mode.auto.add_utd_remote_image()
+        client.device.action.software.package.utdsignature.mode.auto.post()
 
 

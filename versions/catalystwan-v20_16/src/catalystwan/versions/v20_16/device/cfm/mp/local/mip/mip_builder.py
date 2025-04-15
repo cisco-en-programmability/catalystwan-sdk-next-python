@@ -14,7 +14,7 @@ class MipBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_mp_local_mip(
+    def get(
         self,
         device_id: str,
         level: Optional[int] = None,
@@ -24,6 +24,7 @@ class MipBuilder:
     ) -> Any:
         """
         Get mp local mip from device
+        GET /dataservice/device/cfm/mp/local/mip
 
         :param level: Level
         :param port: Port

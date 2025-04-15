@@ -11,7 +11,7 @@ Get all policy compliance details
 
 .. code:: python
 
-    def get_compliance_policy(
+    def get(
         offset: Optional[int] = None,
         limit: Optional[int] = None,
         protocol_pack_name: Optional[str] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.policy.get_compliance_policy()
+        client.sdavc.protocol_pack.compliance.policy.get()
 
 
 .. toctree::

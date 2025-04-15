@@ -11,7 +11,7 @@ API to retrieve Interconnect Gateway software image versions supported by an Int
 
 .. code:: python
 
-    def get_interconnect_gateway_image_names(
+    def get(
         interconnect_type: InterconnectTypeParam,
     ) -> InlineResponse2005: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.gateways.image_names.get_interconnect_gateway_image_names()
+        client.multicloud.interconnect.gateways.image_names.get()
 
 
 .. toctree::

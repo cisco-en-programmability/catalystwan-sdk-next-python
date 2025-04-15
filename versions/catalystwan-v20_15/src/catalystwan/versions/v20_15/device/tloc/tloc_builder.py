@@ -19,11 +19,12 @@ class TlocBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_tloc_status(
+    def get(
         self, device_id: Optional[str] = None, color: Optional[str] = None, **kw
     ) -> DeviceTlocDataWithBfd:
         """
         Get TLOC status list
+        GET /dataservice/device/tloc
 
         :param device_id: Device id
         :param color: Color

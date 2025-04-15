@@ -11,7 +11,7 @@ Request DNS-Sec actions
 
 .. code:: python
 
-    def reques_dns_sec_actions(action: str) -> Any: ...
+    def get(action: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.fedramp.dnssec.actions.reques_dns_sec_actions()
+        client.fedramp.dnssec.actions.get()
 
 

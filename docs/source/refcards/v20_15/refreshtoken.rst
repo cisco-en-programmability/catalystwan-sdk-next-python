@@ -11,9 +11,7 @@ Get Access Token for SecureX Ribbon
 
 .. code:: python
 
-    def get_secure_x_refresh_token(
-        client_id: str, region_base_uri: str
-    ) -> str: ...
+    def get(client_id: str, region_base_uri: str) -> str: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.refreshtoken.get_secure_x_refresh_token()
+        client.refreshtoken.get()
 
 

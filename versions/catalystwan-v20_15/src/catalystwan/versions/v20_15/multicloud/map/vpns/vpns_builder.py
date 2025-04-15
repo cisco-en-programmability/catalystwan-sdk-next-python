@@ -17,9 +17,10 @@ class VpnsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_mapping_vpns(self, **kw) -> MapVpnsResponse:
+    def get(self, **kw) -> MapVpnsResponse:
         """
         Get default mapping values
+        GET /dataservice/multicloud/map/vpns
 
         :returns: MapVpnsResponse
         """

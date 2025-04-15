@@ -11,7 +11,7 @@ Get list of unreachable devices
 
 .. code:: python
 
-    def network_summary(state: Optional[str] = None) -> List[Any]: ...
+    def get(state: Optional[str] = None) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.control.networksummary.network_summary()
+        client.device.control.networksummary.get()
 
 

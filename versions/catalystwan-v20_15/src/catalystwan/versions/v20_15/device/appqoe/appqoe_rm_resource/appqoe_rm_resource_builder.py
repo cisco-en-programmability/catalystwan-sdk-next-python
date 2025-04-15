@@ -14,9 +14,10 @@ class AppqoeRmResourceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_appqoe_rm_resources(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get Appqoe Resource Manager resources from device
+        GET /dataservice/device/appqoe/appqoe-rm-resource
 
         :param device_id: Device Id
         :returns: Any

@@ -14,9 +14,10 @@ class LineBondingStatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_line_bonding_stats(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get VDSL service line bonding stats from device
+        GET /dataservice/device/vdslService/lineBondingStats
 
         :param device_id: deviceId - Device IP
         :returns: Any

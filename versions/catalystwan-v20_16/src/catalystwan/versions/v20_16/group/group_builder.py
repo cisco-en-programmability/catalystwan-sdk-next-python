@@ -19,9 +19,10 @@ class GroupBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_device_group_list(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Retrieve device group list
+        GET /dataservice/group
 
         :returns: List[Any]
         """

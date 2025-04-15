@@ -17,9 +17,10 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_msla_devices(self, **kw) -> DevicesDetails:
+    def get(self, **kw) -> DevicesDetails:
         """
         Retrieve list of all devices along with license details if assigned
+        GET /dataservice/v1/licensing/devices
 
         :returns: DevicesDetails
         """

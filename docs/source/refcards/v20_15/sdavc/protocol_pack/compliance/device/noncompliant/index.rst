@@ -11,9 +11,7 @@ Get all non compliant devices for given protocol pack and selected device or ent
 
 .. code:: python
 
-    def get_non_compliant_devices_for_protocol_pack_1(
-        payload: Optional[CompliantDeviceRequest] = None,
-    ) -> None: ...
+    def post(payload: CompliantDeviceRequest) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.device.noncompliant.get_non_compliant_devices_for_protocol_pack_1()
+        client.sdavc.protocol_pack.compliance.device.noncompliant.post()
 
 
 Operation: GET /dataservice/sdavc/protocol-pack/compliance/device/noncompliant/{protocolPackName}
@@ -42,9 +40,7 @@ Get all non compliant devices for given protocol pack
 
 .. code:: python
 
-    def get_non_compliant_devices_for_protocol_pack(
-        protocol_pack_name: str,
-    ) -> None: ...
+    def get(protocol_pack_name: str) -> None: ...
 
 
 Example:
@@ -62,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.device.noncompliant.get_non_compliant_devices_for_protocol_pack()
+        client.sdavc.protocol_pack.compliance.device.noncompliant.get()
 
 
 .. toctree::

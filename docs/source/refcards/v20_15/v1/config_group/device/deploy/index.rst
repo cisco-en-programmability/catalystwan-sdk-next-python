@@ -11,10 +11,9 @@ deploy config group to devices<br><br><br>Note: In a multitenant vManage system,
 
 .. code:: python
 
-    def deploy_config_group(
-        config_group_id: str,
-        payload: Optional[DeployConfigGroupPostRequest] = None,
-    ) -> str: ...
+    def post(
+        config_group_id: str, payload: DeployConfigGroupPostRequest
+    ) -> DeployConfigGroupPostResponse: ...
 
 
 Example:
@@ -32,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.config_group.device.deploy.deploy_config_group()
+        client.v1.config_group.device.deploy.post()
 
 
 .. toctree::

@@ -20,7 +20,7 @@ class DomainMetricBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_domain_metric(
+    def get(
         self,
         trace_id: int,
         timestamp: int,
@@ -31,7 +31,8 @@ class DomainMetricBuilder:
         **kw,
     ) -> List[DomainMetricResponsePayloadInner]:
         """
-        Get domain metric
+        Get
+        GET /dataservice/stream/device/nwpi/domainMetric
 
         :param trace_id: Trace id
         :param timestamp: Timestamp

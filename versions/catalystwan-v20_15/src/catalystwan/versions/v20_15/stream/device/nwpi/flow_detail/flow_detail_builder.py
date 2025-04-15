@@ -20,11 +20,12 @@ class FlowDetailBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_flow_detail(
+    def get(
         self, trace_id: int, timestamp: int, flow_id: int, **kw
     ) -> List[NwpiflowDetailRespPayloadInner]:
         """
         flowDetail for NWPI.
+        GET /dataservice/stream/device/nwpi/flowDetail
 
         :param trace_id: trace id
         :param timestamp: start time

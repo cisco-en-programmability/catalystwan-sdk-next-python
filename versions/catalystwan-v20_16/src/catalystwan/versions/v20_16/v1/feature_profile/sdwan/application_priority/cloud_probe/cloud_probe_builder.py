@@ -12,11 +12,10 @@ class CloudProbeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_probe_profile_parcel_by_parcel_id_forapplication_priority(
-        self, application_priority_id: str, cloud_probe_id: str, **kw
-    ) -> str:
+    def get(self, application_priority_id: str, cloud_probe_id: str, **kw) -> str:
         """
         Get Cloud Probe Profile Parcel by parcelId for application-priority feature profile
+        GET /dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/cloud-probe/{cloudProbeId}
 
         :param application_priority_id: Feature Profile ID
         :param cloud_probe_id: Profile Parcel ID

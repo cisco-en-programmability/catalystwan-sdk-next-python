@@ -14,9 +14,10 @@ class HistoryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_history(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get disaster recovery switchover history
+        GET /dataservice/disasterrecovery/history
 
         :returns: Any
         """

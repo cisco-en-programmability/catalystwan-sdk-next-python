@@ -13,7 +13,7 @@ Generate cflowd flows list in a grid table
 
 .. code:: python
 
-    def create_flows_grid(
+    def get(
         vpn: Optional[str] = None,
         device_id: Optional[str] = None,
         limit: Optional[int] = None,
@@ -36,7 +36,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.cflowd.applications.create_flows_grid()
+        client.statistics.cflowd.applications.get()
 
 
 .. toctree::

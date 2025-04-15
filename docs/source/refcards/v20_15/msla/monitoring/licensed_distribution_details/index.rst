@@ -11,7 +11,7 @@ Get all license distribution
 
 .. code:: python
 
-    def get_license_distribution_details() -> LicenseDistribution: ...
+    def get() -> LicenseDistribution: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.msla.monitoring.licensed_distribution_details.get_license_distribution_details()
+        client.msla.monitoring.licensed_distribution_details.get()
 
 
 .. toctree::

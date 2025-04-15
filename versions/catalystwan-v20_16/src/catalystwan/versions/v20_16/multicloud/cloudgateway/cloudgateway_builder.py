@@ -39,7 +39,7 @@ class CloudgatewayBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cgws(
+    def get_list(
         self,
         cloud_type: Optional[str] = None,
         account_id: Optional[str] = None,
@@ -50,6 +50,7 @@ class CloudgatewayBuilder:
     ) -> List[CloudGatewayListResponse]:
         """
         Get cloud gateways
+        GET /dataservice/multicloud/cloudgateway
 
         :param cloud_type: Multicloud provider type
         :param account_id: Multicloud account id
@@ -73,9 +74,10 @@ class CloudgatewayBuilder:
             **kw,
         )
 
-    def create_cgw(self, payload: Optional[CloudGatewayPost] = None, **kw) -> Taskid:
+    def post(self, payload: CloudGatewayPost, **kw) -> Taskid:
         """
         Create cloud gateway
+        POST /dataservice/multicloud/cloudgateway
 
         :param payload: Payloads for updating Cloud Gateway based on CloudType
         :returns: Taskid
@@ -88,9 +90,10 @@ class CloudgatewayBuilder:
             **kw,
         )
 
-    def get_cgw_details(self, cloud_gateway_name: str, **kw) -> CloudGatewayAdjusted:
+    def get(self, cloud_gateway_name: str, **kw) -> CloudGatewayAdjusted:
         """
         Get cloud gateway by name
+        GET /dataservice/multicloud/cloudgateway/{cloudGatewayName}
 
         :param cloud_gateway_name: Multicloud cloud gateway name
         :returns: CloudGatewayAdjusted
@@ -106,11 +109,10 @@ class CloudgatewayBuilder:
             **kw,
         )
 
-    def update_cgw(
-        self, cloud_gateway_name: str, payload: Optional[UpdateCgw] = None, **kw
-    ) -> Taskid:
+    def put(self, cloud_gateway_name: str, payload: UpdateCgw, **kw) -> Taskid:
         """
         Update cloud gateway
+        PUT /dataservice/multicloud/cloudgateway/{cloudGatewayName}
 
         :param cloud_gateway_name: Cloud gateway name
         :param payload: Payloads for updating Cloud Gateway based on CloudType
@@ -128,11 +130,12 @@ class CloudgatewayBuilder:
             **kw,
         )
 
-    def delete_cgw(
+    def delete(
         self, cloud_gateway_name: str, delete_all_resources: Optional[str] = "true", **kw
     ) -> Taskid:
         """
         Delete cloud gateway
+        DELETE /dataservice/multicloud/cloudgateway/{cloudGatewayName}
 
         :param cloud_gateway_name: Multicloud cloud gateway name
         :param delete_all_resources: Delete all resources

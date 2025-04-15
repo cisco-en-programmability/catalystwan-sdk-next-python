@@ -17,9 +17,10 @@ class TlocBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_tloc_summary(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get TLOC summary from device (Real Time)
+        GET /dataservice/device/bfd/tloc
 
         :param device_id: deviceId - Device IP
         :returns: Any

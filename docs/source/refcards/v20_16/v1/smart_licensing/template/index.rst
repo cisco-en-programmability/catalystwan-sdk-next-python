@@ -11,9 +11,7 @@ Create and assign license template.
 
 .. code:: python
 
-    def save_template(
-        payload: Optional[SaveTemplateRequest] = None,
-    ) -> Any: ...
+    def post(payload: SaveTemplateRequest) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.smart_licensing.template.save_template()
+        client.v1.smart_licensing.template.post()
 
 
 Operation: DELETE /dataservice/v1/smart-licensing/template/{templateId}
@@ -42,7 +40,7 @@ Delete a license template
 
 .. code:: python
 
-    def delete_template(template_id: str) -> None: ...
+    def delete(template_id: str) -> None: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.smart_licensing.template.delete_template()
+        client.v1.smart_licensing.template.delete()
 
 
 .. toctree::

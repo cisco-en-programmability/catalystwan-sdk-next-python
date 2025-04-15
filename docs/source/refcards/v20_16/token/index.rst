@@ -11,7 +11,7 @@ Get Access Token and Refresh Token for authorized user
 
 .. code:: python
 
-    def token(client_id: str, region_base_uri: str) -> Tokens: ...
+    def post(client_id: str, region_base_uri: str) -> Tokens: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.token.token()
+        client.token.post()
 
 
 .. toctree::

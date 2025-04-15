@@ -17,6 +17,10 @@ Models
         "service-insertion",
     ]
 
+    TopologyGroupSolution = Literal["sdwan"]
+
+    V1TopologyGroupSolution = Literal["sdwan"]
+
 
     class FeatureProfile:
         """
@@ -55,6 +59,7 @@ Models
         #  Group Version Flag
         version: int
         active_status: Optional[bool]
+        copy_info: Optional[str]
         # User who last created this.
         created_by: Optional[str]
         # Timestamp of creation
@@ -76,5 +81,42 @@ Models
         profiles: Optional[List[FeatureProfile]]
         # Source of group
         source: Optional[str]
+
+
+    class ProfileIdObjDef:
+        id: str
+
+
+    class FromTopologyGroupDef:
+        copy: str
+
+
+    class CreateTopologyGroupPostRequest:
+        """
+        Topology Group POST Request schema
+        """
+
+        description: str
+        name: str
+        solution: TopologyGroupSolution  # pytype: disable=annotation-type-mismatch
+        from_topology_group: Optional[FromTopologyGroupDef]
+        # list of profile ids that belongs to the topology group
+        profiles: Optional[List[ProfileIdObjDef]]
+
+
+    class TopologyGroupProfileIdObjDef:
+        id: str
+
+
+    class EditTopologyGroupPutRequest:
+        """
+        Topology Group PUT Request schema
+        """
+
+        description: str
+        name: str
+        solution: V1TopologyGroupSolution  # pytype: disable=annotation-type-mismatch
+        # list of profile ids that belongs to the topology group
+        profiles: Optional[List[TopologyGroupProfileIdObjDef]]
 
 

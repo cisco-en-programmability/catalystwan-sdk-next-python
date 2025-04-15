@@ -11,7 +11,7 @@ Get ACL match counters from device (Real Time)
 
 .. code:: python
 
-    def get_acl_match_counter_users(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.acl.matchcounter.get_acl_match_counter_users()
+        client.device.acl.matchcounter.get()
 
 

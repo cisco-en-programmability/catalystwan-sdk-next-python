@@ -14,9 +14,10 @@ class FieldsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_data_fields_by_state_data_type(self, state_data_type: str, **kw) -> List[Any]:
+    def get(self, state_data_type: str, **kw) -> List[Any]:
         """
         Get statistics fields and types
+        GET /dataservice/data/device/statistics/{state_data_type}/fields
 
         :param state_data_type: State data type
         :returns: List[Any]

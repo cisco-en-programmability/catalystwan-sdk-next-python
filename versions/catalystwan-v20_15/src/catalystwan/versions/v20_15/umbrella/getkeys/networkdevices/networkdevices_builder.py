@@ -12,9 +12,10 @@ class NetworkdevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_network_keys_from_umbrella(self, **kw):
+    def get(self, **kw):
         """
         Get network devices keys from Umbrella
+        GET /dataservice/umbrella/getkeys/networkdevices
 
         :returns: None
         """

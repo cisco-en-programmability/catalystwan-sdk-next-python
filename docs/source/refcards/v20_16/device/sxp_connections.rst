@@ -11,7 +11,7 @@ get Cisco TrustSec SXP Connections information from device
 
 .. code:: python
 
-    def get_sxp_connections(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.sxp_connections.get_sxp_connections()
+        client.device.sxp_connections.get()
 
 

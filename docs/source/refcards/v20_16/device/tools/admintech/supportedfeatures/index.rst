@@ -11,7 +11,7 @@ Get supported admin tech features
 
 .. code:: python
 
-    def get_supported_admin_tech_features(
+    def get(
         device_model: DeviceModel, device_ip: DeviceIp, personality: str
     ) -> None: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.admintech.supportedfeatures.get_supported_admin_tech_features()
+        client.device.tools.admintech.supportedfeatures.get()
 
 
 .. toctree::

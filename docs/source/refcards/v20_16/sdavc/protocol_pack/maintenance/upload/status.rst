@@ -11,7 +11,7 @@ Get protocol pack upload status
 
 .. code:: python
 
-    def get_protocol_pack_upload_status(uuid: str) -> Any: ...
+    def get(uuid: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.maintenance.upload.status.get_protocol_pack_upload_status()
+        client.sdavc.protocol_pack.maintenance.upload.status.get()
 
 

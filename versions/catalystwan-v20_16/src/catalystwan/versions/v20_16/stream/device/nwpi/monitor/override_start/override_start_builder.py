@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import logging
-from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -20,11 +19,10 @@ class OverrideStartBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def monitor_override_start(
-        self, payload: Optional[NwpiMonitorReqPayload] = None, **kw
-    ) -> NwpiMonitorRespPayload:
+    def post(self, payload: NwpiMonitorReqPayload, **kw) -> NwpiMonitorRespPayload:
         """
         CXP Monitor Action - Override Start
+        POST /dataservice/stream/device/nwpi/monitor/overrideStart
 
         :param payload: Payload
         :returns: NwpiMonitorRespPayload

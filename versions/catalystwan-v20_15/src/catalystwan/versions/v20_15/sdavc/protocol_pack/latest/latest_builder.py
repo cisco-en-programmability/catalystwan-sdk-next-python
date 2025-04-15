@@ -12,9 +12,10 @@ class LatestBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_latest_system_pack(self, **kw):
+    def get(self, **kw):
         """
         Get current latest protocol pack details
+        GET /dataservice/sdavc/protocol-pack/latest
 
         :returns: None
         """

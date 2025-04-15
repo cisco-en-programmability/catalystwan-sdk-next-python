@@ -20,11 +20,12 @@ class TraceReadoutFilterBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_trace_readout_filter(
+    def get(
         self, trace_id: List[int], entry_time: List[int], **kw
     ) -> EventReadoutFilterResponsePayload:
         """
         Get event Readout Filter By Traces
+        GET /dataservice/stream/device/nwpi/traceReadoutFilter
 
         :param trace_id: traceId
         :param entry_time: entry_time

@@ -15,9 +15,10 @@ class AccountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_accounts(self, cloudtype: str, cloud_environment: str, **kw) -> Any:
+    def get(self, cloudtype: str, cloud_environment: str, **kw) -> Any:
         """
         Get cloud accounts
+        GET /dataservice/template/cor/cloud/account
 
         :param cloudtype: Cloud type
         :param cloud_environment: Cloud environment

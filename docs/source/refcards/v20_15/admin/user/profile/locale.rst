@@ -11,9 +11,7 @@ Update profile locale
 
 .. code:: python
 
-    def update_profile_locale_1(
-        payload: Optional[Any] = None,
-    ) -> None: ...
+    def put(payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.user.profile.locale.update_profile_locale_1()
+        client.admin.user.profile.locale.put()
 
 

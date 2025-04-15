@@ -11,7 +11,7 @@ Get device admin-tech InProgressCount
 
 .. code:: python
 
-    def get_in_progress_count() -> InProgressCount: ...
+    def get() -> InProgressCount: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.admintechs.inprogress.get_in_progress_count()
+        client.device.tools.admintechs.inprogress.get()
 
 
 .. toctree::

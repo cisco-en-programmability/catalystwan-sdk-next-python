@@ -13,9 +13,7 @@ Get cloud accounts
 
 .. code:: python
 
-    def get_cloud_accounts(
-        cloudtype: str, cloud_environment: str
-    ) -> Any: ...
+    def get(cloudtype: str, cloud_environment: str) -> Any: ...
 
 
 Example:
@@ -33,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.cloud.account.get_cloud_accounts()
+        client.template.cor.cloud.account.get()
 
 

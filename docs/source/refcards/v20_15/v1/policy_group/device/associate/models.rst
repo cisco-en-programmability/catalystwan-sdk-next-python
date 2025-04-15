@@ -19,8 +19,6 @@ Models
 
         # list of device ids that policy group need to be associated with
         devices: List[DeviceIdDef]
-        # This is the documentation for associate PUT API request schema for policy group.
-        documentation: Optional[Any]
 
 
     class AssociateDeviceIdDef:
@@ -34,7 +32,18 @@ Models
 
         # list of device ids that policy group need to be associated with
         devices: List[AssociateDeviceIdDef]
-        # This is the documentation for associate POST API request schema for policy group.
-        documentation: Optional[Any]
+
+
+    class DeviceAssociateDeviceIdDef:
+        id: str
+
+
+    class DeletePolicyGroupAssociationDeleteRequest:
+        """
+        Policy Group Associate Delete Request schema
+        """
+
+        # list of device ids that policy group need to be associated with
+        devices: List[DeviceAssociateDeviceIdDef]
 
 

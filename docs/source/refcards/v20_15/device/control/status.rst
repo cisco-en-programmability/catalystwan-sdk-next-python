@@ -11,7 +11,7 @@ Get local device status
 
 .. code:: python
 
-    def get_local_device_status() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.control.status.get_local_device_status()
+        client.device.control.status.get()
 
 

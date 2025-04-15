@@ -11,9 +11,7 @@ Get attached device list by master template Id<br><br><br>Note: In a multitenant
 
 .. code:: python
 
-    def get_attached_device_list(
-        master_template_id: str,
-    ) -> List[Any]: ...
+    def get(master_template_id: str) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.attached.get_attached_device_list()
+        client.template.device.config.attached.get()
 
 

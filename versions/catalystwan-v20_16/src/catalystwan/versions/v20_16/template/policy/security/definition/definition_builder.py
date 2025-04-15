@@ -14,9 +14,10 @@ class DefinitionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_security_template(self, policy_id: str, **kw) -> Any:
+    def get(self, policy_id: str, **kw) -> Any:
         """
         Get Template
+        GET /dataservice/template/policy/security/definition/{policyId}
 
         :param policy_id: Policy Id
         :returns: Any

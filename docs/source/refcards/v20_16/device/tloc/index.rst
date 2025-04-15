@@ -11,7 +11,7 @@ Get TLOC status list
 
 .. code:: python
 
-    def get_device_tloc_status(
+    def get(
         device_id: Optional[str] = None, color: Optional[str] = None
     ) -> DeviceTlocDataWithBfd: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tloc.get_device_tloc_status()
+        client.device.tloc.get()
 
 
 .. toctree::

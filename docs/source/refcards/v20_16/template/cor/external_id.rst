@@ -13,7 +13,7 @@ Get the vManage external ID for AWS
 
 .. code:: python
 
-    def get_external_id() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.external_id.get_external_id()
+        client.template.cor.external_id.get()
 
 

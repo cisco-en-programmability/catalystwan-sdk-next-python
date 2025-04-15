@@ -13,7 +13,7 @@ Gets Access Token for SSO Logjn
 
 .. code:: python
 
-    def oauth_access(
+    def get(
         code: Optional[str] = None,
         redirect: Optional[str] = None,
         is_refresh_needed: Optional[bool] = None,
@@ -35,6 +35,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.opentaccase.authcode.oauth_access()
+        client.opentaccase.authcode.get()
 
 

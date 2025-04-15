@@ -12,9 +12,10 @@ class SelfsignedcertBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_self_signed_cert(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         get vManage self signed cert
+        GET /dataservice/certificate/vmanage/selfsignedcert
 
         :returns: str
         """

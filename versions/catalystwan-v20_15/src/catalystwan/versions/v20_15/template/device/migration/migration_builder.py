@@ -14,12 +14,13 @@ class MigrationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_template_for_migration(self, has_aaa: Optional[bool] = None, **kw) -> List[Any]:
+    def get(self, has_aaa: Optional[bool] = None, **kw) -> List[Any]:
         """
         Generate a list of templates which require migration
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/template/device/migration
 
         :param has_aaa: Return only those uses AAA
         :returns: List[Any]
@@ -35,7 +36,7 @@ class MigrationBuilder:
             **kw,
         )
 
-    def migrate_templates(
+    def post(
         self,
         id: List[str],
         prefix: Optional[str] = "cisco",
@@ -44,6 +45,7 @@ class MigrationBuilder:
     ) -> Any:
         """
         Migrate the device templates given the template Ids
+        POST /dataservice/template/device/migration
 
         :param id: Template Id
         :param prefix: Prefix

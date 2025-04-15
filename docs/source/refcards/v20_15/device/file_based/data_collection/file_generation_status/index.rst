@@ -11,10 +11,8 @@ Device notify when file is ready and vManage has to download them
 
 .. code:: python
 
-    def handle_file_generation_status_response_from_device(
-        payload: Optional[
-            HandleFileGenerationStatusNotificationRequest
-        ] = None,
+    def post(
+        payload: HandleFileGenerationStatusNotificationRequest,
     ) -> None: ...
 
 
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.file_based.data_collection.file_generation_status.handle_file_generation_status_response_from_device()
+        client.device.file_based.data_collection.file_generation_status.post()
 
 
 .. toctree::

@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -17,9 +17,10 @@ class OnboardBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def onboard_mdp(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Start MDP onboarding operation
+        POST /dataservice/mdp/onboard
 
         :param payload: Onboard
         :returns: Any
@@ -28,9 +29,10 @@ class OnboardBuilder:
             "POST", "/dataservice/mdp/onboard", payload=payload, **kw
         )
 
-    def update_onboarding_payload(self, nms_id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, nms_id: str, payload: Any, **kw) -> Any:
         """
         update MDP onboarding document
+        PUT /dataservice/mdp/onboard/{nmsId}
 
         :param nms_id: Nms id
         :param payload: Onboard
@@ -43,9 +45,10 @@ class OnboardBuilder:
             "PUT", "/dataservice/mdp/onboard/{nmsId}", params=params, payload=payload, **kw
         )
 
-    def offboard(self, nms_id: str, **kw):
+    def delete(self, nms_id: str, **kw):
         """
         offboard the mdp application
+        DELETE /dataservice/mdp/onboard/{nmsId}
 
         :param nms_id: Nms id
         :returns: None

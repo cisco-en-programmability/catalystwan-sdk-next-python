@@ -19,9 +19,10 @@ class VmanageBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_device_vmanage_connection_list(self, **kw) -> List[MessagingResp]:
+    def get(self, **kw) -> List[MessagingResp]:
         """
         Create device vManage connection list
+        GET /dataservice/messaging/device/vmanage
 
         :returns: List[MessagingResp]
         """

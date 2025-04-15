@@ -19,7 +19,7 @@ class ConnectionshistoryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_connection_history_list_real_time(
+    def get(
         self,
         device_id: str,
         peer_type: Optional[PeerTypeParam] = None,
@@ -28,6 +28,7 @@ class ConnectionshistoryBuilder:
     ) -> Any:
         """
         Get connections history list from device (Real Time)
+        GET /dataservice/device/control/connectionshistory
 
         :param peer_type: Peer type
         :param system_ip: Peer system IP

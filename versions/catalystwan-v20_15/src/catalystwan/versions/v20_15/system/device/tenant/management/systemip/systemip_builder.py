@@ -19,12 +19,13 @@ class SystemipBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_tenant_management_system_i_ps(self, **kw) -> List[GetTenantManagementSystemIPsInner]:
+    def get(self, **kw) -> List[GetTenantManagementSystemIPsInner]:
         """
         Get management system IP
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/system/device/tenant/management/systemip
 
         :returns: List[GetTenantManagementSystemIPsInner]
         """

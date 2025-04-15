@@ -11,9 +11,7 @@ delete admin tech logs
 
 .. code:: python
 
-    def delete_admin_tech_on_device(
-        payload: Optional[AdminTechReq] = None,
-    ) -> None: ...
+    def delete(payload: Optional[AdminTechReq] = None) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.admintech.delete.delete_admin_tech_on_device()
+        client.device.tools.admintech.delete.delete()
 
 
 .. toctree::

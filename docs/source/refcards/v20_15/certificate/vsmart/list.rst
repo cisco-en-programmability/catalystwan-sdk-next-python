@@ -11,7 +11,7 @@ get vSmart list
 
 .. code:: python
 
-    def getv_smart_list() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.vsmart.list.getv_smart_list()
+        client.certificate.vsmart.list.get()
 
 
 Operation: POST /dataservice/certificate/vsmart/list
@@ -40,7 +40,7 @@ save vSmart List(handleSendToVbond)
 
 .. code:: python
 
-    def setv_smart_list() -> str: ...
+    def post() -> str: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.vsmart.list.setv_smart_list()
+        client.certificate.vsmart.list.post()
 
 

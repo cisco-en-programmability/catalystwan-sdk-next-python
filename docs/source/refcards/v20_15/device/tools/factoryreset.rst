@@ -11,7 +11,7 @@ Device factory reset
 
 .. code:: python
 
-    def factory_reset(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.factoryreset.factory_reset()
+        client.device.tools.factoryreset.post()
 
 

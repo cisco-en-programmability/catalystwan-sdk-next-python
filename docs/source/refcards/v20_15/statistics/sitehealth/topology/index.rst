@@ -11,7 +11,7 @@ Get all site health topology
 
 .. code:: python
 
-    def get_site_health_topology(
+    def get(
         last_n_hours: Optional[int] = None,
         start_time: Optional[int] = None,
         end_time: Optional[int] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.sitehealth.topology.get_site_health_topology()
+        client.statistics.sitehealth.topology.get()
 
 
 .. toctree::

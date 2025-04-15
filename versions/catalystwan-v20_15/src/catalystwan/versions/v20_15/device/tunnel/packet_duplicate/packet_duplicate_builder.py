@@ -14,9 +14,10 @@ class PacketDuplicateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_packet_duplicate_statistics(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get tunnel statistics packet duplication statistics
+        GET /dataservice/device/tunnel/packet-duplicate
 
         :param device_id: deviceId - Device IP
         :returns: Any

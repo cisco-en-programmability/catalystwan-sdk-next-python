@@ -14,9 +14,10 @@ class EventsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_vnf_events_detail(self, vnf_name: str, **kw):
+    def get(self, vnf_name: str, **kw):
         """
         Get event detail of VNF
+        GET /dataservice/colocation/monitor/vnf/events
 
         :param vnf_name: Vnf name
         :returns: None

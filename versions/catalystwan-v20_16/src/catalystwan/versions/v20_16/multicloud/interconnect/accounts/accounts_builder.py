@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Optional
+from typing import TYPE_CHECKING, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -26,31 +26,10 @@ class AccountsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_accounts(
-        self, interconnect_type: Optional[str] = None, **kw
-    ) -> List[InterconnectAccount]:
-        """
-        API to retrieve Interconnect provider accounts.
-
-        :param interconnect_type: Interconnect provider type
-        :returns: List[InterconnectAccount]
-        """
-        params = {
-            "interconnect-type": interconnect_type,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/interconnect/accounts",
-            return_type=List[InterconnectAccount],
-            params=params,
-            **kw,
-        )
-
-    def add_interconnect_account(
-        self, payload: Optional[InterconnectAccount] = None, **kw
-    ) -> InterconnectAccount:
+    def post(self, payload: InterconnectAccount, **kw) -> InterconnectAccount:
         """
         API to associate an Interconnect provider account to vManage.
+        POST /dataservice/multicloud/interconnect/accounts
 
         :param payload: Request Payload for Multicloud Interconnect Accounts
         :returns: InterconnectAccount
@@ -63,29 +42,10 @@ class AccountsBuilder:
             **kw,
         )
 
-    def get_interconnect_account(self, interconnect_account_id: str, **kw) -> InterconnectAccount:
-        """
-        API to retrieve associated Interconnect provider account details by id.
-
-        :param interconnect_account_id: Interconnect provider account id
-        :returns: InterconnectAccount
-        """
-        params = {
-            "interconnect-account-id": interconnect_account_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/multicloud/interconnect/accounts/{interconnect-account-id}",
-            return_type=InterconnectAccount,
-            params=params,
-            **kw,
-        )
-
-    def update_interconnect_account(
-        self, interconnect_account_id: str, payload: Optional[InterconnectAccount] = None, **kw
-    ):
+    def put(self, interconnect_account_id: str, payload: InterconnectAccount, **kw):
         """
         API to edit associated Interconnect provider account name and description.
+        PUT /dataservice/multicloud/interconnect/accounts/{interconnect-account-id}
 
         :param interconnect_account_id: Interconnect provider account id
         :param payload: Request Payload for Multicloud Interconnect Accounts
@@ -102,9 +62,10 @@ class AccountsBuilder:
             **kw,
         )
 
-    def delete_interconnect_account(self, interconnect_account_id: str, **kw):
+    def delete(self, interconnect_account_id: str, **kw):
         """
         API to disassociate Interconnect provider account from vManage.
+        DELETE /dataservice/multicloud/interconnect/accounts/{interconnect-account-id}
 
         :param interconnect_account_id: Interconnect provider account id
         :returns: None
@@ -118,6 +79,63 @@ class AccountsBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(self, *, interconnect_account_id: str, **kw) -> InterconnectAccount:
+        """
+        API to retrieve associated Interconnect provider account details by id.
+        GET /dataservice/multicloud/interconnect/accounts/{interconnect-account-id}
+
+        :param interconnect_account_id: Interconnect provider account id
+        :returns: InterconnectAccount
+        """
+        ...
+
+    @overload
+    def get(self, *, interconnect_type: Optional[str] = None, **kw) -> List[InterconnectAccount]:
+        """
+        API to retrieve Interconnect provider accounts.
+        GET /dataservice/multicloud/interconnect/accounts
+
+        :param interconnect_type: Interconnect provider type
+        :returns: List[InterconnectAccount]
+        """
+        ...
+
+    def get(
+        self,
+        *,
+        interconnect_type: Optional[str] = None,
+        interconnect_account_id: Optional[str] = None,
+        **kw,
+    ) -> Union[List[InterconnectAccount], InterconnectAccount]:
+        # /dataservice/multicloud/interconnect/accounts/{interconnect-account-id}
+        if self._request_adapter.param_checker(
+            [(interconnect_account_id, str)], [interconnect_type]
+        ):
+            params = {
+                "interconnect-account-id": interconnect_account_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/multicloud/interconnect/accounts/{interconnect-account-id}",
+                return_type=InterconnectAccount,
+                params=params,
+                **kw,
+            )
+        # /dataservice/multicloud/interconnect/accounts
+        if self._request_adapter.param_checker([], [interconnect_account_id]):
+            params = {
+                "interconnect-type": interconnect_type,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/multicloud/interconnect/accounts",
+                return_type=List[InterconnectAccount],
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def billing_accounts(self) -> BillingAccountsBuilder:

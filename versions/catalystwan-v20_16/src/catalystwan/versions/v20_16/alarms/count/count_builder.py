@@ -19,11 +19,10 @@ class CountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_non_viewed_active_alarms_count(
-        self, include_tenants: Optional[bool] = None, **kw
-    ) -> Any:
+    def get(self, include_tenants: Optional[bool] = None, **kw) -> Any:
         """
         Get the count of alarms which are active and not acknowledged by user.
+        GET /dataservice/alarms/count
 
         :param include_tenants: include tenants
         :returns: Any
@@ -35,15 +34,16 @@ class CountBuilder:
             "GET", "/dataservice/alarms/count", params=params, **kw
         )
 
-    def post_count(
+    def post(
         self,
-        payload: Optional[Any] = None,
+        payload: Any,
         site_id: Optional[str] = None,
         include_tenants: Optional[bool] = None,
         **kw,
     ) -> List[AlarmCountPost]:
         """
         Get the count of alarms as per the query passed.
+        POST /dataservice/alarms/count
 
         :param site_id: Specify the site-id to filter the alarms
         :param include_tenants: Specify whether the tenant alarms need to be visible or not from provider view.

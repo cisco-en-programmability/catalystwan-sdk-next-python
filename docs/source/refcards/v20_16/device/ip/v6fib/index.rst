@@ -11,7 +11,7 @@ Get IPv6 FIB list from device (Real Time)
 
 .. code:: python
 
-    def create_i_pv6_fib_list(
+    def get(
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
         prefix: Optional[str] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ip.v6fib.create_i_pv6_fib_list()
+        client.device.ip.v6fib.get()
 
 
 .. toctree::

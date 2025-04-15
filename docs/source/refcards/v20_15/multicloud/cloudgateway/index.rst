@@ -11,7 +11,7 @@ Get cloud gateways
 
 .. code:: python
 
-    def get_cgws(
+    def get_list(
         cloud_type: Optional[str] = None,
         account_id: Optional[str] = None,
         region: Optional[str] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.get_cgws()
+        client.multicloud.cloudgateway.get_list()
 
 
 Operation: POST /dataservice/multicloud/cloudgateway
@@ -46,9 +46,7 @@ Create cloud gateway
 
 .. code:: python
 
-    def create_cgw(
-        payload: Optional[CloudGatewayPost] = None,
-    ) -> Taskid: ...
+    def post(payload: CloudGatewayPost) -> Taskid: ...
 
 
 Example:
@@ -66,7 +64,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.create_cgw()
+        client.multicloud.cloudgateway.post()
 
 
 Operation: GET /dataservice/multicloud/cloudgateway/{cloudGatewayName}
@@ -77,9 +75,7 @@ Get cloud gateway by name
 
 .. code:: python
 
-    def get_cgw_details(
-        cloud_gateway_name: str,
-    ) -> CloudGatewayAdjusted: ...
+    def get(cloud_gateway_name: str) -> CloudGatewayAdjusted: ...
 
 
 Example:
@@ -97,7 +93,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.get_cgw_details()
+        client.multicloud.cloudgateway.get()
 
 
 Operation: PUT /dataservice/multicloud/cloudgateway/{cloudGatewayName}
@@ -108,9 +104,7 @@ Update cloud gateway
 
 .. code:: python
 
-    def update_cgw(
-        cloud_gateway_name: str, payload: Optional[UpdateCgw] = None
-    ) -> Taskid: ...
+    def put(cloud_gateway_name: str, payload: UpdateCgw) -> Taskid: ...
 
 
 Example:
@@ -128,7 +122,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.update_cgw()
+        client.multicloud.cloudgateway.put()
 
 
 Operation: DELETE /dataservice/multicloud/cloudgateway/{cloudGatewayName}
@@ -139,7 +133,7 @@ Delete cloud gateway
 
 .. code:: python
 
-    def delete_cgw(
+    def delete(
         cloud_gateway_name: str,
         delete_all_resources: Optional[str] = "true",
     ) -> Taskid: ...
@@ -160,7 +154,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.delete_cgw()
+        client.multicloud.cloudgateway.delete()
 
 
 .. toctree::

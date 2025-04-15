@@ -15,9 +15,10 @@ class MappedhostaccountsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_mapped_host_accounts(self, accountid: str, cloudtype: str, **kw) -> Any:
+    def get(self, accountid: str, cloudtype: str, **kw) -> Any:
         """
         Get cloud mapped accounts view
+        GET /dataservice/template/cor/cloud/mappedhostaccounts
 
         :param accountid: Account Id
         :param cloudtype: Cloud type

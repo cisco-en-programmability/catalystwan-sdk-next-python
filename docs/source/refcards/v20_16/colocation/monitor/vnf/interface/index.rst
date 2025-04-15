@@ -13,7 +13,7 @@ Get interface detail of VNF
 
 .. code:: python
 
-    def get_vnf_interface_detail(
+    def get(
         vnf_name: str,
         device_ip: Optional[DeviceIp] = None,
         device_class: Optional[str] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.colocation.monitor.vnf.interface.get_vnf_interface_detail()
+        client.colocation.monitor.vnf.interface.get()
 
 
 .. toctree::

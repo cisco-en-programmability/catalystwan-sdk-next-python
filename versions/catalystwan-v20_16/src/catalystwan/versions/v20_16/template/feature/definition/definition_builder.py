@@ -14,12 +14,13 @@ class DefinitionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_template_definition(self, template_id: str, **kw) -> Any:
+    def get(self, template_id: str, **kw) -> Any:
         """
         Get the configured template definition for given template Id
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/template/feature/definition/{templateId}
 
         :param template_id: Template Id
         :returns: Any

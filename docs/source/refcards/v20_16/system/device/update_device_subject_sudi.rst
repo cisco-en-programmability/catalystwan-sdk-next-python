@@ -11,7 +11,7 @@ update subject sudi value of given device uuid
 
 .. code:: python
 
-    def update_device_subject_sudi(uuid: str) -> None: ...
+    def put(uuid: str) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.update_device_subject_sudi.update_device_subject_sudi()
+        client.system.device.update_device_subject_sudi.put()
 
 

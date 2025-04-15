@@ -23,7 +23,7 @@ class InterfacestatisticsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_device_interface_statistics_data(
+    def get(
         self,
         start_date: Optional[str] = None,
         end_date: Optional[str] = None,
@@ -34,6 +34,7 @@ class InterfacestatisticsBuilder:
     ) -> List[InterfaceStatisticsRes]:
         """
         Get device statistics data
+        GET /dataservice/v2/data/device/statistics/interfacestatistics
 
         :param start_date: Start date (example:2023-1-1T00:00:00)
         :param end_date: End date (example:2023-1-1T00:00:00)

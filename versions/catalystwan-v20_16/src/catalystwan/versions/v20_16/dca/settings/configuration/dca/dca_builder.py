@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,11 +19,10 @@ class DcaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_dca_analytics_data_file(
-        self, type_: TypeParam, payload: Optional[Any] = None, **kw
-    ) -> Any:
+    def post(self, type_: TypeParam, payload: Any, **kw) -> Any:
         """
         Create analytics config data
+        POST /dataservice/dca/settings/configuration/{type}/dca
 
         :param type_: Data type
         :param payload: Query string

@@ -11,7 +11,7 @@ Get OMP received routes list (Real Time)
 
 .. code:: python
 
-    def create_received_routes_list_ipv6(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.omp.routes.received.omp_ipv6.create_received_routes_list_ipv6()
+        client.device.omp.routes.received.omp_ipv6.get()
 
 

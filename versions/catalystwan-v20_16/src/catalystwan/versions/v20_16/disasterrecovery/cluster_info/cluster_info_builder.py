@@ -14,9 +14,10 @@ class ClusterInfoBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cluster_info(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get disaster recovery cluster info
+        GET /dataservice/disasterrecovery/clusterInfo
 
         :returns: Any
         """

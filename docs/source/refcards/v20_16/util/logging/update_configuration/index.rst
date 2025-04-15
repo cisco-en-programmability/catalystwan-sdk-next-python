@@ -11,7 +11,7 @@ Update logger configuration for rollover size and max file number
 
 .. code:: python
 
-    def update_logger_configuration(
+    def post(
         logger_name: LoggerNameParam,
         size_limit: Optional[int] = None,
         reset: Optional[bool] = False,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.logging.update_configuration.update_logger_configuration()
+        client.util.logging.update_configuration.post()
 
 
 .. toctree::

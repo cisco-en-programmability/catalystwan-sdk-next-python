@@ -11,7 +11,7 @@ Get all users from device
 
 .. code:: python
 
-    def get_all_device_users(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.users.list.get_all_device_users()
+        client.device.users.list.get()
 
 

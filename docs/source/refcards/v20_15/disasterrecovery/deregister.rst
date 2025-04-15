@@ -11,7 +11,7 @@ Delete disaster recovery
 
 .. code:: python
 
-    def delete() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.deregister.delete()
+        client.disasterrecovery.deregister.post()
 
 

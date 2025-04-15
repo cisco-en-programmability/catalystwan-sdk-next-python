@@ -14,9 +14,10 @@ class IsComplianceDetectedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def is_application_compliance_detected(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Check if there is any Application Compliance detected in the system
+        GET /dataservice/sdavc/protocol-pack/compliance/application/is-compliance-detected
 
         :returns: Any
         """

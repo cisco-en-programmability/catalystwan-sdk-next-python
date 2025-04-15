@@ -17,9 +17,10 @@ class AccesscodeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def webex_access_code(self, **kw) -> AccessCodeResponse:
+    def get(self, **kw) -> AccessCodeResponse:
         """
         Webex Access Code Details
+        GET /dataservice/webex/accesscode
 
         :returns: AccessCodeResponse
         """

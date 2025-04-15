@@ -11,9 +11,7 @@ Get All the App for the given conditions
 
 .. code:: python
 
-    def disableor_enable_saas_feed_for_selected_app(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def put(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.saasfeed.app.configure.disableor_enable_saas_feed_for_selected_app()
+        client.app_registry.saasfeed.app.configure.put()
 
 

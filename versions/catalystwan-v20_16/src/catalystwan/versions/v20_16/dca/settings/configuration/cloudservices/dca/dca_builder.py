@@ -14,9 +14,10 @@ class DcaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_services_configuration_dca(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get DCA cloud service configuration
+        GET /dataservice/dca/settings/configuration/cloudservices/dca
 
         :returns: Any
         """

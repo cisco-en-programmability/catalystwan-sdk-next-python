@@ -11,7 +11,7 @@ Rediscover all devices
 
 .. code:: python
 
-    def re_discover_all_device() -> None: ...
+    def post() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.rediscoverall.re_discover_all_device()
+        client.device.action.rediscoverall.post()
 
 

@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional
+from typing import TYPE_CHECKING, Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -24,9 +24,10 @@ class VsmartBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_v_smart_policy_template_list(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get all template vsmart policy list
+        GET /dataservice/template/policy/vsmart
 
         :returns: List[Any]
         """
@@ -34,9 +35,10 @@ class VsmartBuilder:
             "GET", "/dataservice/template/policy/vsmart", return_type=List[Any], **kw
         )
 
-    def create_v_smart_template(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create template for given policy
+        POST /dataservice/template/policy/vsmart
 
         :param payload: Template policy
         :returns: Any
@@ -45,11 +47,10 @@ class VsmartBuilder:
             "POST", "/dataservice/template/policy/vsmart", payload=payload, **kw
         )
 
-    def edit_v_smart_template(
-        self, policy_id: str, payload: Optional[Any] = None, **kw
-    ) -> List[Any]:
+    def put(self, policy_id: str, payload: Any, **kw) -> List[Any]:
         """
         Edit template for given policy id
+        PUT /dataservice/template/policy/vsmart/{policyId}
 
         :param policy_id: Policy Id
         :param payload: Template policy
@@ -67,9 +68,10 @@ class VsmartBuilder:
             **kw,
         )
 
-    def delete_v_smart_template(self, policy_id: str, **kw):
+    def delete(self, policy_id: str, **kw):
         """
         Delete template for a given policy id
+        DELETE /dataservice/template/policy/vsmart/{policyId}
 
         :param policy_id: Policy Id
         :returns: None

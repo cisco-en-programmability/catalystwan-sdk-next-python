@@ -11,9 +11,7 @@ assign sessionId to client if there is no conflict ongoing sessions
 
 .. code:: python
 
-    def enable_session(
-        payload: Optional[UmtsInput] = None,
-    ) -> List[UmtsSession]: ...
+    def post(payload: UmtsInput) -> List[UmtsSession]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.umts.enable_session()
+        client.stream.device.umts.post()
 
 
 Operation: GET /dataservice/stream/device/umts/{operation}/{sessionId}
@@ -42,9 +40,7 @@ start, stop,status,download or disable session
 
 .. code:: python
 
-    def update_umts_session_status(
-        operation: str, session_id: str
-    ) -> Any: ...
+    def get(operation: str, session_id: str) -> Any: ...
 
 
 Example:
@@ -62,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.umts.update_umts_session_status()
+        client.stream.device.umts.get()
 
 
 .. toctree::

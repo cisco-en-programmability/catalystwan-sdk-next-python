@@ -14,9 +14,10 @@ class SdwanGlobalDropStatisticsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sd_wan_global_drop_statistics(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get SD-WAN global drop statistics detail from device (Real Time)
+        GET /dataservice/device/sdwan-global-drop-statistics
 
         :param device_id: deviceId - Device IP
         :returns: Any

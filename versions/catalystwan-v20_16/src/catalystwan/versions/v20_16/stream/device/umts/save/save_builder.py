@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class SaveBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def save_umts_data(self, device_uuid: str, payload: Optional[Any] = None, **kw) -> str:
+    def post(self, device_uuid: str, payload: Any, **kw) -> str:
         """
         Save UMTS Data, this api is called by device side
+        POST /dataservice/stream/device/umts/{deviceUUID}/save
 
         :param device_uuid: Device uuid
         :param payload: Stats query string

@@ -14,9 +14,10 @@ class DetailsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_signature_version_info(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get UTD Signature version information from Device
+        GET /dataservice/device/utd/signature/version/details
 
         :param device_id: deviceId - Device IP
         :returns: Any

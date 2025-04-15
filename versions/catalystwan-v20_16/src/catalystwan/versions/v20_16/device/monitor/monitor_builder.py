@@ -14,9 +14,10 @@ class MonitorBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_all_monitor_details_devices(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get all monitoring details of the devices
+        GET /dataservice/device/monitor
 
         :returns: Any
         """

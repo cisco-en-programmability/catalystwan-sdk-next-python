@@ -11,9 +11,7 @@ Get cloud gateway types for specified cloudType
 
 .. code:: python
 
-    def get_cgw_types(
-        cloud_type: Optional[CloudTypeParam] = None,
-    ) -> Any: ...
+    def get(cloud_type: Optional[CloudTypeParam] = None) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgatewaytype.get_cgw_types()
+        client.multicloud.cloudgatewaytype.get()
 
 
 .. toctree::

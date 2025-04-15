@@ -17,11 +17,12 @@ class SettingsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_gateway_custom_settings(
+    def get(
         self, interconnect_gateway_name: str, interconnect_account_id: str, **kw
     ) -> InterconnectGatewaySettings:
         """
         API to retrieve the custom settings specified for an Interconnect Gateway
+        GET /dataservice/multicloud/interconnect/gateways/{interconnect-gateway-name}/settings
 
         :param interconnect_gateway_name: Interconnect gateway name
         :param interconnect_account_id: Interconnect Account Id

@@ -19,7 +19,7 @@ class ConnectionsinfoBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_real_time_connection_list_1(
+    def get(
         self,
         device_id: str,
         peer_type: Optional[PeerTypeParam] = None,
@@ -28,6 +28,7 @@ class ConnectionsinfoBuilder:
     ) -> Any:
         """
         Get connections list from device (Real Time)
+        GET /dataservice/device/control/connectionsinfo
 
         :param peer_type: Peer type
         :param system_ip: Peer system IP

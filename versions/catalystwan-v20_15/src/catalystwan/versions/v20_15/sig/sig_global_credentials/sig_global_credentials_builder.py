@@ -17,9 +17,10 @@ class SigGlobalCredentialsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sig_global_credentials(self, feature_template_type: str, **kw) -> FeatureTemplateType:
+    def get(self, feature_template_type: str, **kw) -> FeatureTemplateType:
         """
         Get sig global credentials
+        GET /dataservice/sig/sigGlobalCredentials/{featureTemplateType}
 
         :param feature_template_type: Feature template type
         :returns: FeatureTemplateType

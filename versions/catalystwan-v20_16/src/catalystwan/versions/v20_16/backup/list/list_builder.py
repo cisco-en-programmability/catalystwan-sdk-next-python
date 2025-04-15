@@ -19,9 +19,10 @@ class ListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_backup(self, size: Optional[str] = None, **kw) -> LocalBackupListResult:
+    def get(self, size: Optional[str] = None, **kw) -> LocalBackupListResult:
         """
         List all backup files of a tenant stored in vManage
+        GET /dataservice/backup/list
 
         :param size: Size
         :returns: LocalBackupListResult

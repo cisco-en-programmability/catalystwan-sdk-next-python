@@ -19,11 +19,10 @@ class PolicyNameBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_filter_policy_name_list(
-        self, policy_type: PolicyTypeParam, query: str, **kw
-    ) -> List[Any]:
+    def get(self, policy_type: PolicyTypeParam, query: str, **kw) -> List[Any]:
         """
         Get filter Policy Name list
+        GET /dataservice/statistics/sul/connections/filter/policy_name/{policyType}
 
         :param policy_type: Policy type
         :param query: query string

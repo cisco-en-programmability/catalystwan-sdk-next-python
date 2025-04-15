@@ -14,9 +14,10 @@ class AppqoeSppiQueueResourceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_appqoe_sppi_queue_stats(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get Appqoe Sppi Queue Stats from device
+        GET /dataservice/device/appqoe/appqoe-sppi-queue-resource
 
         :param device_id: Device Id
         :returns: Any

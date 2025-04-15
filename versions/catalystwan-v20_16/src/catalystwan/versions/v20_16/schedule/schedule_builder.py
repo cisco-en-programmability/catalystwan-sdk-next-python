@@ -18,9 +18,10 @@ class ScheduleBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_schedule_record_for_backup(self, scheduler_id: str, **kw) -> Any:
+    def get(self, scheduler_id: str, **kw) -> Any:
         """
         Get a schedule record for backup by scheduler id
+        GET /dataservice/schedule/{schedulerId}
 
         :param scheduler_id: scheduler id
         :returns: Any
@@ -32,9 +33,10 @@ class ScheduleBuilder:
             "GET", "/dataservice/schedule/{schedulerId}", params=params, **kw
         )
 
-    def delete_schedule(self, scheduler_id: str, **kw) -> Any:
+    def delete(self, scheduler_id: str, **kw) -> Any:
         """
         Delete a schedule record for backup in vManage by scheduler id
+        DELETE /dataservice/schedule/{schedulerId}
 
         :param scheduler_id: scheduler id
         :returns: Any

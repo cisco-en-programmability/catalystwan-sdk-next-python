@@ -14,9 +14,10 @@ class ClientBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dhcp_client(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get DHCP client from device (Real Time)
+        GET /dataservice/device/dhcp/client
 
         :param device_id: deviceId - Device IP
         :returns: Any

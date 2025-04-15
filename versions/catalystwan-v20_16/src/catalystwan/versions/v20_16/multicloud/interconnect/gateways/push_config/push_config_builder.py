@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,11 +17,10 @@ class PushConfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def push_interconnect_gateway_config(
-        self, payload: Optional[GatewaysPushconfigBody] = None, **kw
-    ) -> ProcessResponse:
+    def post(self, payload: GatewaysPushconfigBody, **kw) -> ProcessResponse:
         """
         API to initiate a configuration push for an Interconnect gateway.
+        POST /dataservice/multicloud/interconnect/gateways/push-config
 
         :param payload: Request Payload for Multicloud Interconnect Gateway Configuration Push
         :returns: ProcessResponse

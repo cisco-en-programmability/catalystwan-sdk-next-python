@@ -64,6 +64,30 @@ Models
         "string",
     ]
 
+    StatisticsEiolteUniqueAggregationType = Literal[
+        "array",
+        "boolean",
+        "date",
+        "double",
+        "int",
+        "long",
+        "number",
+        "specialString",
+        "string",
+    ]
+
+    Type1 = Literal[
+        "array",
+        "boolean",
+        "date",
+        "double",
+        "int",
+        "long",
+        "number",
+        "specialString",
+        "string",
+    ]
+
 
     class DbQueryAggregationFieldObject:
         property: Any
@@ -110,14 +134,14 @@ Models
         condition: Optional[Condition]
         field: Optional[Any]
         operator: Optional[Operator]
-        type_: Optional[EiolteUniqueAggregationType]
+        type_: Optional[StatisticsEiolteUniqueAggregationType]
         value: Optional[List[str]]
 
 
     class DbQuerySortObject:
         field: Any
         order: Order  # pytype: disable=annotation-type-mismatch
-        type_: Optional[EiolteUniqueAggregationType]
+        type_: Optional[Type1]
 
 
     class StatisticsDbQueryParam:

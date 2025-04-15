@@ -11,7 +11,7 @@ Get prefix mapping
 
 .. code:: python
 
-    def get_data_prefix_mappings(partner_id: str) -> Any: ...
+    def get(partner_id: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.aci.policy.prefixmapping.get_data_prefix_mappings()
+        client.partner.aci.policy.prefixmapping.get()
 
 
 Operation: POST /dataservice/partner/aci/policy/prefixmapping/{partnerId}
@@ -40,9 +40,7 @@ Create data prefix mapping
 
 .. code:: python
 
-    def set_data_prefix_mappings(
-        partner_id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def post(partner_id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -60,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.aci.policy.prefixmapping.set_data_prefix_mappings()
+        client.partner.aci.policy.prefixmapping.post()
 
 

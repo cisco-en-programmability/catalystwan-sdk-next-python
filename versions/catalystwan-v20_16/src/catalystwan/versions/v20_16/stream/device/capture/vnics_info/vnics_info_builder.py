@@ -19,9 +19,10 @@ class VnicsInfoBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_vnic_info_by_vnf_id(self, vnf_id: str, **kw) -> List[VnicInfo]:
+    def get(self, vnf_id: str, **kw) -> List[VnicInfo]:
         """
         Get vnic info by vrfId
+        GET /dataservice/stream/device/capture/vnicsInfo/{vnfId}
 
         :param vnf_id: Vnf id
         :returns: List[VnicInfo]

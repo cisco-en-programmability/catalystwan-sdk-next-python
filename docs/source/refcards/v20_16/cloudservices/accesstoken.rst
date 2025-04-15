@@ -9,7 +9,7 @@ Operation: GET /dataservice/cloudservices/accesstoken
 
 .. code:: python
 
-    def get_access_tokenfor_device() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -27,6 +27,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.accesstoken.get_access_tokenfor_device()
+        client.cloudservices.accesstoken.get()
 
 

@@ -19,7 +19,7 @@ class HistoryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def statistics_approute_tunnelhealth_history_get(
+    def get(
         self,
         last_n_hours: Optional[int] = 12,
         site: Optional[str] = None,
@@ -28,6 +28,7 @@ class HistoryBuilder:
     ) -> List[TunnelHealthHistoryItem]:
         """
         Get all tunnel health history
+        GET /dataservice/statistics/tunnelhealth/history
 
         :param last_n_hours: Last n hours
         :param site: Site

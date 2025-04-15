@@ -11,9 +11,7 @@ Get security policy device list
 
 .. code:: python
 
-    def get_security_policy_device_list() -> (
-        List[SecurityPolicyDeviceList]
-    ): ...
+    def get() -> List[SecurityPolicyDeviceList]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.security.policy.devicelist.get_security_policy_device_list()
+        client.security.policy.devicelist.get()
 
 
 .. toctree::

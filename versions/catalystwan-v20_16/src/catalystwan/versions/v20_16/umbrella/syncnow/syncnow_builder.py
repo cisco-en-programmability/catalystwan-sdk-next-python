@@ -12,9 +12,10 @@ class SyncnowBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def send_meta_data_to_umbrella(self, **kw):
+    def get(self, **kw):
         """
         Get metadata from db and send to Umbrella
+        GET /dataservice/umbrella/syncnow
 
         :returns: None
         """

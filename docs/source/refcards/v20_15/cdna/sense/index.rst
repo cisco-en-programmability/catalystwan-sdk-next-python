@@ -11,7 +11,7 @@ Get Sense Service
 
 .. code:: python
 
-    def get_cdna_sense_service(tag: str) -> DnaSenseResponse: ...
+    def get(tag: str) -> DnaSenseResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cdna.sense.get_cdna_sense_service()
+        client.cdna.sense.get()
 
 
 .. toctree::

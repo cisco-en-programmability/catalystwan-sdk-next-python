@@ -11,7 +11,7 @@ invalidate the device
 
 .. code:: python
 
-    def get_controller_cert_status() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.controller.certstatus.get_controller_cert_status()
+        client.certificate.controller.certstatus.get()
 
 

@@ -14,9 +14,10 @@ class ProxymappingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_reverse_proxy_mapping_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get reverse proxy mapping from vbond
+        GET /dataservice/device/orchestrator/proxymapping
 
         :param device_id: deviceId - Device IP
         :returns: Any

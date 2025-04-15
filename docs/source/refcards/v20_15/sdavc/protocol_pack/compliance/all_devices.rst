@@ -11,7 +11,7 @@ Get all device compliance details
 
 .. code:: python
 
-    def get_all_sdavc_device() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.all_devices.get_all_sdavc_device()
+        client.sdavc.protocol_pack.compliance.all_devices.get()
 
 

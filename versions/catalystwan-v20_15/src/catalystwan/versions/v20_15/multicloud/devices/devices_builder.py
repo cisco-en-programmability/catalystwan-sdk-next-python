@@ -22,11 +22,12 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_devices(
+    def get(
         self, cloud_type: CloudTypeParam, cloud_gateway_name: Optional[str] = None, **kw
     ) -> DeviceInfoExtendedResponse:
         """
         Get cloud devices by cloud type
+        GET /dataservice/multicloud/devices/{cloudType}
 
         :param cloud_type: Cloud type
         :param cloud_gateway_name: Cloud gateway name

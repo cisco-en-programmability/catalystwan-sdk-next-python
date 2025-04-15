@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional
+from typing import TYPE_CHECKING, Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -22,9 +22,10 @@ class InstallBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_install_info(self, device_id: List[DeviceIp], **kw) -> Any:
+    def get(self, device_id: List[DeviceIp], **kw) -> Any:
         """
         Generate install info
+        GET /dataservice/device/action/install
 
         :param device_id: deviceId - Device IP
         :returns: Any
@@ -36,9 +37,10 @@ class InstallBuilder:
             "GET", "/dataservice/device/action/install", params=params, **kw
         )
 
-    def process_install(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Process an installation operation
+        POST /dataservice/device/action/install
 
         :param payload: Request body
         :returns: Any

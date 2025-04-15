@@ -13,7 +13,7 @@ Get Edge Loopback Tunnel supported colors
 
 .. code:: python
 
-    def get_supported_loopback_transport_colors() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.loopbacktransportcolor.edge.get_supported_loopback_transport_colors()
+        client.multicloud.loopbacktransportcolor.edge.get()
 
 

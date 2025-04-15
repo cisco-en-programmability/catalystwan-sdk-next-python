@@ -17,9 +17,10 @@ class ProviderscredentialsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_accounts(self, **kw) -> ProviderAccountDetails:
+    def get(self, **kw) -> ProviderAccountDetails:
         """
         Get all providers credentials
+        GET /dataservice/v1/securedeviceonboarding/providerscredentials
 
         :returns: ProviderAccountDetails
         """

@@ -13,7 +13,7 @@ Get QoS Application state to received timestamp mapping for NWPI.
 
 .. code:: python
 
-    def get_app_qos_state(
+    def get(
         trace_id: int, timestamp: int, trace_state: str
     ) -> List[AppQosStateResponsePayloadInner]: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.app_qos_state.get_app_qos_state()
+        client.stream.device.nwpi.app_qos_state.get()
 
 
 .. toctree::

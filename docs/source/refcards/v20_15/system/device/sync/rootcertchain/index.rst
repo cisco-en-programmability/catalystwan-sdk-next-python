@@ -11,7 +11,7 @@ Sync root certificate
 
 .. code:: python
 
-    def sync_root_cert_chain() -> SyncRootCertChain: ...
+    def get() -> SyncRootCertChain: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.sync.rootcertchain.sync_root_cert_chain()
+        client.system.device.sync.rootcertchain.get()
 
 
 .. toctree::

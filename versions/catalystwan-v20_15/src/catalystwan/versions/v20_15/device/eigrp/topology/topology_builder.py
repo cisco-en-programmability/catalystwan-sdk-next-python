@@ -14,9 +14,10 @@ class TopologyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_eigrp_topology(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get EIGRP topology info from device (Real Time)
+        GET /dataservice/device/eigrp/topology
 
         :param device_id: deviceId - Device IP
         :returns: Any

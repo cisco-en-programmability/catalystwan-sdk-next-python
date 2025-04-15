@@ -14,9 +14,10 @@ class CountersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_statistics_processing_counters(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get statistics processing counters
+        GET /dataservice/statistics/process/counters
 
         :returns: List[Any]
         """

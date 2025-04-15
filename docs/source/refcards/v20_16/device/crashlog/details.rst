@@ -11,7 +11,7 @@ Get device crash logs for all device
 
 .. code:: python
 
-    def get_all_device_crash_logs() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.crashlog.details.get_all_device_crash_logs()
+        client.device.crashlog.details.get()
 
 

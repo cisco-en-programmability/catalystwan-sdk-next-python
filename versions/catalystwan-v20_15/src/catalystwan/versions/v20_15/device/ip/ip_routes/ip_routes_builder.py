@@ -14,7 +14,7 @@ class IpRoutesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_ietf_routing_list(
+    def get(
         self,
         device_id: str,
         routing_instance_name: Optional[str] = None,
@@ -26,6 +26,7 @@ class IpRoutesBuilder:
     ) -> Any:
         """
         Get ietf routing list from device
+        GET /dataservice/device/ip/ipRoutes
 
         :param routing_instance_name: VPN Id
         :param address_family: Address family

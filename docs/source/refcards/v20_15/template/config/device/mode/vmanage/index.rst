@@ -11,7 +11,7 @@ Get list of devices that are allowable for vmanage modes
 
 .. code:: python
 
-    def generatev_manage_mode_devices(type_: TypeParam) -> List[Any]: ...
+    def get(type_: TypeParam) -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.config.device.mode.vmanage.generatev_manage_mode_devices()
+        client.template.config.device.mode.vmanage.get()
 
 
 .. toctree::

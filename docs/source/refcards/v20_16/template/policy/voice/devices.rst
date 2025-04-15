@@ -7,11 +7,10 @@ Operation: GET /dataservice/template/policy/voice/devices
 ---------------------------------------------------------
 
 
-Get all device list
-
 .. code:: python
 
-    def get_voice_policy_device_list() -> List[Any]: ...
+    @overload
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,18 +28,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.voice.devices.get_voice_policy_device_list()
+        client.template.policy.voice.devices.get()
 
 
 Operation: GET /dataservice/template/policy/voice/devices/{policyId}
 --------------------------------------------------------------------
 
 
-Get device list by policy Id
-
 .. code:: python
 
-    def get_device_list_by_policy_id(policy_id: str) -> List[Any]: ...
+    @overload
+    def get(policy_id: str) -> List[Any]: ...
 
 
 Example:
@@ -58,6 +56,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.voice.devices.get_device_list_by_policy_id()
+        client.template.policy.voice.devices.get()
 
 

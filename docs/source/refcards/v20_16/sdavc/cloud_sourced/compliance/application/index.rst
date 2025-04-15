@@ -9,9 +9,7 @@ Operation: POST /dataservice/sdavc/cloud-sourced/compliance/application
 
 .. code:: python
 
-    def application_compliance_with_extended_applications(
-        payload: Optional[ExtendedApplicationRequestData] = None,
-    ) -> Application: ...
+    def post(payload: ExtendedApplicationRequestData) -> Application: ...
 
 
 Example:
@@ -29,7 +27,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.cloud_sourced.compliance.application.application_compliance_with_extended_applications()
+        client.sdavc.cloud_sourced.compliance.application.post()
 
 
 .. toctree::

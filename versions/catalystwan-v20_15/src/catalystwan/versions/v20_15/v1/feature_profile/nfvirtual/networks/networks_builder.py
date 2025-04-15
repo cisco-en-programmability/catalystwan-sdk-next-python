@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateNfvirtualNetworksFeatureProfilePostRequest,
+    CreateNfvirtualNetworksFeatureProfilePostResponse,
+    EditNfvirtualNetworksFeatureProfilePutRequest,
+    EditNfvirtualNetworksFeatureProfilePutResponse,
+    GetAllNfvirtualNetworksFeatureProfilesGetResponse,
+    GetSingleNfvirtualNetworksPayload,
+)
 
 if TYPE_CHECKING:
     from .lan.lan_builder import LanBuilder
@@ -19,70 +29,39 @@ class NetworksBuilder:
     Builds and executes requests for operations under /v1/feature-profile/nfvirtual/networks
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_nfvirtual_networks_feature_profiles(self, offset: int, limit: int, **kw) -> Any:
-        """
-        Get all Nfvirtual Feature Profiles
-
-        :param offset: Pagination offset
-        :param limit: Pagination limit
-        :returns: Any
-        """
-        params = {
-            "offset": offset,
-            "limit": limit,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/nfvirtual/networks", params=params, **kw
-        )
-
-    def create_nfvirtual_networks_feature_profile(self, payload: Optional[str] = None, **kw) -> str:
+    def post(
+        self, payload: CreateNfvirtualNetworksFeatureProfilePostRequest, **kw
+    ) -> CreateNfvirtualNetworksFeatureProfilePostResponse:
         """
         Create a nfvirtual Networks Feature Profile
+        POST /dataservice/v1/feature-profile/nfvirtual/networks
 
         :param payload: Nfvirtual Feature profile
-        :returns: str
+        :returns: CreateNfvirtualNetworksFeatureProfilePostResponse
         """
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/nfvirtual/networks",
-            return_type=str,
+            return_type=CreateNfvirtualNetworksFeatureProfilePostResponse,
             payload=payload,
             **kw,
         )
 
-    def get_nfvirtual_networks_feature_profile_by_profile_id(
-        self, network_id: str, details: bool, **kw
-    ) -> Any:
-        """
-        Get a Nfvirtual Networks Feature Profile with networkId
-
-        :param network_id: Feature Profile ID
-        :param details: get feature details
-        :returns: Any
-        """
-        params = {
-            "networkId": network_id,
-            "details": details,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/nfvirtual/networks/{networkId}",
-            params=params,
-            **kw,
-        )
-
-    def edit_nfvirtual_networks_feature_profile(
-        self, network_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self, network_id: str, payload: EditNfvirtualNetworksFeatureProfilePutRequest, **kw
+    ) -> EditNfvirtualNetworksFeatureProfilePutResponse:
         """
         Edit a Nfvirtual Networks Feature Profile
+        PUT /dataservice/v1/feature-profile/nfvirtual/networks/{networkId}
 
         :param network_id: Feature Profile ID
         :param payload: Nfvirtual Feature profile
-        :returns: str
+        :returns: EditNfvirtualNetworksFeatureProfilePutResponse
         """
         params = {
             "networkId": network_id,
@@ -90,15 +69,16 @@ class NetworksBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/nfvirtual/networks/{networkId}",
-            return_type=str,
+            return_type=EditNfvirtualNetworksFeatureProfilePutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_nfvirtual_networks_feature_profile(self, network_id: str, **kw):
+    def delete(self, network_id: str, **kw):
         """
         Delete a Nfvirtual Networks Feature Profile
+        DELETE /dataservice/v1/feature-profile/nfvirtual/networks/{networkId}
 
         :param network_id: Network id
         :returns: None
@@ -112,6 +92,75 @@ class NetworksBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(
+        self, *, offset: int, limit: int, **kw
+    ) -> List[GetAllNfvirtualNetworksFeatureProfilesGetResponse]:
+        """
+        Get all Nfvirtual Feature Profiles
+        GET /dataservice/v1/feature-profile/nfvirtual/networks
+
+        :param offset: Pagination offset
+        :param limit: Pagination limit
+        :returns: List[GetAllNfvirtualNetworksFeatureProfilesGetResponse]
+        """
+        ...
+
+    @overload
+    def get(self, *, network_id: str, details: bool, **kw) -> GetSingleNfvirtualNetworksPayload:
+        """
+        Get a Nfvirtual Networks Feature Profile with networkId
+        GET /dataservice/v1/feature-profile/nfvirtual/networks/{networkId}
+
+        :param network_id: Feature Profile ID
+        :param details: get feature details
+        :returns: GetSingleNfvirtualNetworksPayload
+        """
+        ...
+
+    def get(
+        self,
+        *,
+        offset: Optional[int] = None,
+        limit: Optional[int] = None,
+        network_id: Optional[str] = None,
+        details: Optional[bool] = None,
+        **kw,
+    ) -> Union[
+        List[GetAllNfvirtualNetworksFeatureProfilesGetResponse], GetSingleNfvirtualNetworksPayload
+    ]:
+        # /dataservice/v1/feature-profile/nfvirtual/networks
+        if self._request_adapter.param_checker(
+            [(offset, int), (limit, int)], [network_id, details]
+        ):
+            params = {
+                "offset": offset,
+                "limit": limit,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/nfvirtual/networks",
+                return_type=List[GetAllNfvirtualNetworksFeatureProfilesGetResponse],
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/nfvirtual/networks/{networkId}
+        if self._request_adapter.param_checker(
+            [(network_id, str), (details, bool)], [offset, limit]
+        ):
+            params = {
+                "networkId": network_id,
+                "details": details,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/nfvirtual/networks/{networkId}",
+                return_type=GetSingleNfvirtualNetworksPayload,
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def lan(self) -> LanBuilder:

@@ -13,7 +13,7 @@ Get global parameter templates
 
 .. code:: python
 
-    def get_global_parameters() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.global_.parameters.get_global_parameters()
+        client.networkdesign.global_.parameters.get()
 
 

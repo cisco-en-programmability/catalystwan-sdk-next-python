@@ -14,9 +14,10 @@ class PropertiesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_queue_properties(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         gets current size of on-demand queue
+        GET /dataservice/statistics/on-demand/queue/properties
 
         :returns: Any
         """

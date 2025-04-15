@@ -11,7 +11,7 @@ Discover Azure Resource Groups
 
 .. code:: python
 
-    def get_azure_resource_groups(
+    def get(
         cloud_type: str, account_id: str
     ) -> List[ResourceGroupsResponse]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.resource_groups.get_azure_resource_groups()
+        client.multicloud.cloudgateway.resource_groups.get()
 
 
 .. toctree::

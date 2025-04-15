@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class DevicelistBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_disabled_device_list(self, index_name: str, **kw) -> Any:
+    def get(self, index_name: str, **kw) -> Any:
         """
         Get list of disabled devices for a statistics index
+        GET /dataservice/statistics/settings/disable/devicelist/{indexName}
 
         :param index_name: Index name
         :returns: Any
@@ -31,11 +32,10 @@ class DevicelistBuilder:
             **kw,
         )
 
-    def update_statistics_device_list(
-        self, index_name: str, payload: Optional[Any] = None, **kw
-    ) -> Any:
+    def put(self, index_name: str, payload: Any, **kw) -> Any:
         """
         Update list of disabled devices for a statistics index
+        PUT /dataservice/statistics/settings/disable/devicelist/{indexName}
 
         :param index_name: Index name
         :param payload: Disabled device

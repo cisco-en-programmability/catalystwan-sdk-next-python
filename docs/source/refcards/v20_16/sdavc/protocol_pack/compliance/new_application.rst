@@ -11,7 +11,7 @@ Get New Application List for given Device UUID
 
 .. code:: python
 
-    def get_new_application_list(device_uuid: str) -> Any: ...
+    def get(device_uuid: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.new_application.get_new_application_list()
+        client.sdavc.protocol_pack.compliance.new_application.get()
 
 

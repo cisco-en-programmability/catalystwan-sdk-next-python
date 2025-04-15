@@ -11,7 +11,7 @@ Get aggregated count of alarms based on given query.
 
 .. code:: python
 
-    def get_aggregation_data(
+    def get(
         query: str, site_id: Optional[str] = None
     ) -> AlarmAggregationResponse: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.aggregation.get_aggregation_data()
+        client.alarms.aggregation.get()
 
 
 Operation: POST /dataservice/alarms/aggregation
@@ -42,8 +42,8 @@ Get aggregated count of alarms based on given query.
 
 .. code:: python
 
-    def post_aggregation_data(
-        payload: Optional[Any] = None, site_id: Optional[str] = None
+    def post(
+        payload: Any, site_id: Optional[str] = None
     ) -> AlarmAggregationResponse: ...
 
 
@@ -62,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.aggregation.post_aggregation_data()
+        client.alarms.aggregation.post()
 
 
 .. toctree::

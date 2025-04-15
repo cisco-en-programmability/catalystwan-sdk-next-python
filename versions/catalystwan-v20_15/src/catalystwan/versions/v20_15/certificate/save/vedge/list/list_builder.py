@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 
@@ -14,9 +12,10 @@ class ListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def save_v_edge_list(self, payload: Optional[str] = None, **kw) -> str:
+    def post(self, payload: str, **kw) -> str:
         """
         change VedgeList Validity
+        POST /dataservice/certificate/save/vedge/list
 
         :param payload: JSON payload with RootCertChain and Certificate details.
         :returns: str

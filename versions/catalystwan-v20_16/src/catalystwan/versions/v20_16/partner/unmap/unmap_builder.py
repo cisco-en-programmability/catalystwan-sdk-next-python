@@ -17,11 +17,12 @@ class UnmapBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def delete_device_mapping(
+    def post(
         self, partner_type: str, nms_id: str, payload: MapDevicesRequest, **kw
     ) -> StatusResponse:
         """
         Unmap a set of devices for the partner
+        POST /dataservice/partner/{partnerType}/unmap/{nmsId}
 
         :param partner_type: Partner type
         :param nms_id: Nms id

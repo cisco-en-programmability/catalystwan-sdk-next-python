@@ -14,9 +14,10 @@ class ResetBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def reset_stats_collection(self, process_queue: int, **kw) -> Any:
+    def get(self, process_queue: int, **kw) -> Any:
         """
         Reset stats collect thread report
+        GET /dataservice/statistics/collection/reset/{processQueue}
 
         :param process_queue: Process queue
         :returns: Any

@@ -11,7 +11,7 @@ Unpause DR replication for local datacenter
 
 .. code:: python
 
-    def unpause_local_dc_replication() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.unpause_local_replication.unpause_local_dc_replication()
+        client.disasterrecovery.unpause_local_replication.post()
 
 

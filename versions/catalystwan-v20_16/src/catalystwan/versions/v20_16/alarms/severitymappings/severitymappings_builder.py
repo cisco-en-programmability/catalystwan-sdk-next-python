@@ -19,9 +19,10 @@ class SeveritymappingsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_alarm_severity_mappings(self, **kw) -> List[AlarmSeverityMapping]:
+    def get(self, **kw) -> List[AlarmSeverityMapping]:
         """
         Gets alarm severity mappings
+        GET /dataservice/alarms/severitymappings
 
         :returns: List[AlarmSeverityMapping]
         """

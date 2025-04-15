@@ -11,7 +11,7 @@ Get RMA candidates by device type
 
 .. code:: python
 
-    def get_rma_candidates(
+    def get(
         device_type: str, uuid: Optional[str] = None
     ) -> GetRmaCandidates: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.rma.candidates.get_rma_candidates()
+        client.system.device.rma.candidates.get()
 
 
 .. toctree::

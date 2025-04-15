@@ -17,9 +17,10 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_connections_summary(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get connections summary from device (Real Time)
+        GET /dataservice/device/control/summary
 
         :param device_id: deviceId - Device IP
         :returns: Any

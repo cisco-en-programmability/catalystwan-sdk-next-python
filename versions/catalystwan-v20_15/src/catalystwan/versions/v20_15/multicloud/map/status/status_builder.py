@@ -19,11 +19,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_mapping_status(
-        self, cloud_type: str, region: Optional[str] = None, **kw
-    ) -> List[MapStatus]:
+    def get(self, cloud_type: str, region: Optional[str] = None, **kw) -> List[MapStatus]:
         """
         Get mapping status
+        GET /dataservice/multicloud/map/status
 
         :param cloud_type: Multicloud provider type
         :param region: Region

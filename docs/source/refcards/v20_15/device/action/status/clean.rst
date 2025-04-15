@@ -13,7 +13,7 @@ Delete task and status vertex
 
 .. code:: python
 
-    def clean_status(clean_status: Optional[bool] = None) -> None: ...
+    def get(clean_status: Optional[bool] = None) -> None: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.status.clean.clean_status()
+        client.device.action.status.clean.get()
 
 

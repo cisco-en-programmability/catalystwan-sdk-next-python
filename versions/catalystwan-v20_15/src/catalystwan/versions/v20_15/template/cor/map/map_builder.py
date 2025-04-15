@@ -15,9 +15,10 @@ class MapBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_mapped_vp_cs(self, accountid: str, cloudregion: str, **kw) -> Any:
+    def get(self, accountid: str, cloudregion: str, **kw) -> Any:
         """
         Get mapped VPC/VNet list
+        GET /dataservice/template/cor/map
 
         :param accountid: Account Id
         :param cloudregion: Cloud region
@@ -32,9 +33,10 @@ class MapBuilder:
             "GET", "/dataservice/template/cor/map", params=params, **kw
         )
 
-    def map_vp_cs(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Map host to transit VPC/VNet
+        POST /dataservice/template/cor/map
 
         :param payload: Map host to VPC/VNet
         :returns: Any
@@ -44,9 +46,10 @@ class MapBuilder:
             "POST", "/dataservice/template/cor/map", payload=payload, **kw
         )
 
-    def unmap_vp_cs(self, payload: Optional[Any] = None, **kw) -> Any:
+    def delete(self, payload: Optional[Any] = None, **kw) -> Any:
         """
         Unmap host from transit VPC/VNet
+        DELETE /dataservice/template/cor/map
 
         :param payload: Unmap host to VPC/VNet
         :returns: Any

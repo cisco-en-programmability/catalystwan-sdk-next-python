@@ -19,7 +19,7 @@ class NvasBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_azure_network_virtual_appliances(
+    def get(
         self,
         cloud_type: str,
         account_id: str,
@@ -32,6 +32,7 @@ class NvasBuilder:
     ) -> List[NvasResponse]:
         """
         Discover Azure Network Virtual Appliances
+        GET /dataservice/multicloud/cloudgateway/nvas
 
         :param cloud_type: Cloud type
         :param account_id: Account id

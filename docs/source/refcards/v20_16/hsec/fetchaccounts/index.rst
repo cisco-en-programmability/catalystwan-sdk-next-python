@@ -11,7 +11,7 @@ Authenticate User and Sync Licenses
 
 .. code:: python
 
-    def fetch_sava_accounts(
+    def get(
         username: Optional[str] = None,
         pwd: Optional[str] = None,
         mode: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.hsec.fetchaccounts.fetch_sava_accounts()
+        client.hsec.fetchaccounts.get()
 
 
 Operation: POST /dataservice/hsec/fetchaccounts
@@ -44,8 +44,8 @@ Authenticate User and Sync Licenses
 
 .. code:: python
 
-    def fetch_accounts_1(
-        payload: Optional[FetchAccounts1PostRequest] = None,
+    def post(
+        payload: FetchAccounts1PostRequest,
     ) -> SmartLicensingfetchAccountsResp: ...
 
 
@@ -64,7 +64,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.hsec.fetchaccounts.fetch_accounts_1()
+        client.hsec.fetchaccounts.post()
 
 
 .. toctree::

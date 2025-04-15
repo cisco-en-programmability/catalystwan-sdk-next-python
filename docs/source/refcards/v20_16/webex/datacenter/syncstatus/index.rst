@@ -11,7 +11,7 @@ Get webex data center sync status from DB
 
 .. code:: python
 
-    def get_webex_data_centers_sync_status() -> SyncStatusResponse: ...
+    def get() -> SyncStatusResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.webex.datacenter.syncstatus.get_webex_data_centers_sync_status()
+        client.webex.datacenter.syncstatus.get()
 
 
 Operation: PUT /dataservice/webex/datacenter/syncstatus
@@ -40,7 +40,7 @@ Set webex data center sync needed            to false
 
 .. code:: python
 
-    def set_webex_data_centers_sync_status() -> bool: ...
+    def put() -> bool: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.webex.datacenter.syncstatus.set_webex_data_centers_sync_status()
+        client.webex.datacenter.syncstatus.put()
 
 
 .. toctree::

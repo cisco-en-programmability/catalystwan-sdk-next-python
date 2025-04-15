@@ -14,9 +14,10 @@ class ApikeyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def process_delete_amp_api_key(self, uuid: str, **kw) -> Any:
+    def delete(self, uuid: str, **kw) -> Any:
         """
         Process amp api key deletion operation
+        DELETE /dataservice/device/action/security/amp/apikey/{uuid}
 
         :param uuid: Uuid
         :returns: Any

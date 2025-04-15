@@ -11,7 +11,7 @@ Retrieve list of devices which has HSEC fetched
 
 .. code:: python
 
-    def install_device_details() -> List[GetHsecDevicesPayloadInner]: ...
+    def get() -> List[GetHsecDevicesPayloadInner]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.hsec.devices.install.install_device_details()
+        client.hsec.devices.install.get()
 
 
 .. toctree::

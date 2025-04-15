@@ -19,9 +19,10 @@ class StatisticBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_pp_po_e_neighbor_list(self, device_id: DeviceIp, **kw) -> Any:
+    def get(self, device_id: DeviceIp, **kw) -> Any:
         """
         Get PPPoE statistics from device
+        GET /dataservice/device/pppoe/statistic
 
         :param device_id: deviceId - Device IP
         :returns: Any

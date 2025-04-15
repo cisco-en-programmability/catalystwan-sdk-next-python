@@ -14,9 +14,10 @@ class StatisticsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_connection_statistics(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get connection statistics from device (Real Time)
+        GET /dataservice/device/control/statistics
 
         :param device_id: deviceId - Device IP
         :returns: Any

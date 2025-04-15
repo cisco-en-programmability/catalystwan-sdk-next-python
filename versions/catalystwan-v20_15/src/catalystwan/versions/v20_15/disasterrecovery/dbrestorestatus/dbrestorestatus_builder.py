@@ -14,9 +14,10 @@ class DbrestorestatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_config_db_restore_status(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Config-db restore status
+        GET /dataservice/disasterrecovery/dbrestorestatus
 
         :returns: List[Any]
         """

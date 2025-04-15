@@ -13,7 +13,7 @@ Get Trace CFT record
 
 .. code:: python
 
-    def get_trace_cft_record(
+    def get(
         trace_id: int,
         entry_time: int,
         trace_state: str,
@@ -39,7 +39,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.trace_cft_record.get_trace_cft_record()
+        client.stream.device.nwpi.trace_cft_record.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Get device information list
 
 .. code:: python
 
-    def create_device_info_list(device_id: List[str]) -> Any: ...
+    def get(device_id: List[str]) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.system.info.create_device_info_list()
+        client.device.system.info.get()
 
 

@@ -11,9 +11,7 @@ Edit multiple policy definitions
 
 .. code:: python
 
-    def edit_multiple_policy_definition_30(
-        id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.srstphoneprofile.multiple.edit_multiple_policy_definition_30()
+        client.template.policy.definition.srstphoneprofile.multiple.put()
 
 

@@ -11,7 +11,7 @@ Get UTD file reputation status from device (Real Time)
 
 .. code:: python
 
-    def get_utd_file_reputation_status(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.utd.file_reputation_status.get_utd_file_reputation_status()
+        client.device.utd.file_reputation_status.get()
 
 

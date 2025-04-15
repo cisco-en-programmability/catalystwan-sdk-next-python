@@ -19,9 +19,10 @@ class DeleteAllListsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def delete_all_lists(self, payload: Optional[DeleteAllListsBody] = None, **kw) -> bool:
+    def delete(self, payload: Optional[DeleteAllListsBody] = None, **kw) -> bool:
         """
         Delete all lists of the specified list type
+        DELETE /dataservice/template/policy/ise/identity/deleteAllLists
 
         :param payload: type of list
         :returns: bool

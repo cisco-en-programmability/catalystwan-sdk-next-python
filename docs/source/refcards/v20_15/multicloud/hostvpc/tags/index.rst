@@ -11,7 +11,7 @@ Get VPC Tags
 
 .. code:: python
 
-    def get_vpc_tags(
+    def get(
         cloud_type: Optional[str] = None,
         region: Optional[str] = None,
         tag_name: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.hostvpc.tags.get_vpc_tags()
+        client.multicloud.hostvpc.tags.get()
 
 
 Operation: PUT /dataservice/multicloud/hostvpc/tags
@@ -44,7 +44,7 @@ Edit VPCs for a Tag
 
 .. code:: python
 
-    def edit_tag(payload: Optional[HostVpcTagPut] = None) -> Taskid: ...
+    def put(payload: HostVpcTagPut) -> Taskid: ...
 
 
 Example:
@@ -62,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.hostvpc.tags.edit_tag()
+        client.multicloud.hostvpc.tags.put()
 
 
 Operation: POST /dataservice/multicloud/hostvpc/tags
@@ -73,9 +73,7 @@ Tag a VPC
 
 .. code:: python
 
-    def host_vpc_tagging(
-        payload: Optional[HostVpcTagPost] = None,
-    ) -> Taskid: ...
+    def post(payload: HostVpcTagPost) -> Taskid: ...
 
 
 Example:
@@ -93,7 +91,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.hostvpc.tags.host_vpc_tagging()
+        client.multicloud.hostvpc.tags.post()
 
 
 Operation: DELETE /dataservice/multicloud/hostvpc/tags/{tagName}
@@ -104,7 +102,7 @@ Delete a Tag
 
 .. code:: python
 
-    def un_tag(tag_name: str) -> Taskid: ...
+    def delete(tag_name: str) -> Taskid: ...
 
 
 Example:
@@ -122,7 +120,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.hostvpc.tags.un_tag()
+        client.multicloud.hostvpc.tags.delete()
 
 
 .. toctree::

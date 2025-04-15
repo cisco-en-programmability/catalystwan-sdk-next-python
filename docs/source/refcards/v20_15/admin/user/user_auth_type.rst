@@ -11,7 +11,7 @@ Find user authentication type, whether it is SAML enabled
 
 .. code:: python
 
-    def find_user_auth_type_1() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.user.user_auth_type.find_user_auth_type_1()
+        client.admin.user.user_auth_type.get()
 
 

@@ -11,7 +11,7 @@ Get stats raw data
 
 .. code:: python
 
-    def get_stat_data_raw_data_12(
+    def get(
         query: Optional[str] = None,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.vnfstatistics.get_stat_data_raw_data_12()
+        client.statistics.vnfstatistics.get()
 
 
 Operation: POST /dataservice/statistics/vnfstatistics
@@ -46,8 +46,8 @@ Get stats raw data
 
 .. code:: python
 
-    def get_stats_raw_data_12(
-        payload: Optional[Any] = None,
+    def post(
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -70,7 +70,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.vnfstatistics.get_stats_raw_data_12()
+        client.statistics.vnfstatistics.post()
 
 
 .. toctree::

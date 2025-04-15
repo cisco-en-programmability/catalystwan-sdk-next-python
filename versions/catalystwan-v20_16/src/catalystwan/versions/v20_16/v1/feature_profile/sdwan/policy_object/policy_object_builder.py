@@ -1,12 +1,82 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import PolicyObjectListTypeParam
+from .models import (
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest1,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest2,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest3,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest4,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest5,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest6,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest7,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest8,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest9,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest10,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest11,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest12,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest13,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest14,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest15,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest16,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest17,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest18,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest19,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest20,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest21,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest22,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest23,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest24,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest25,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest26,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest27,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest28,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest29,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest30,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest31,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest32,
+    CreateDataPrefixProfileParcelForSecurityPolicyObjectPostResponse,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest1,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest2,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest3,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest4,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest5,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest6,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest7,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest8,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest9,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest10,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest11,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest12,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest13,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest14,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest15,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest16,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest17,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest18,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest19,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest20,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest21,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest22,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest23,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest24,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest25,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest26,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest27,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest28,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest29,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest30,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest31,
+    EditDataPrefixProfileParcelForPolicyObjectPutRequest32,
+    EditDataPrefixProfileParcelForPolicyObjectPutResponse,
+    GetListSdwanPolicyObjectSecurityDataIpPrefixPayload,
+    GetSingleSdwanPolicyObjectSecurityDataIpPrefixPayload,
+    PolicyObjectListTypeParam,
+)
 
 if TYPE_CHECKING:
     from .app_list.app_list_builder import AppListBuilder
@@ -61,48 +131,54 @@ class PolicyObjectBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_data_prefix_profile_parcel_for_policy_object(
+    def post(
         self,
         policy_object_id: str,
         policy_object_list_type: PolicyObjectListTypeParam,
-        reference_count: Optional[bool] = False,
+        payload: Union[
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest1,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest2,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest3,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest4,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest5,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest6,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest7,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest8,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest9,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest10,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest11,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest12,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest13,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest14,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest15,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest16,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest17,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest18,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest19,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest20,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest21,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest22,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest23,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest24,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest25,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest26,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest27,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest28,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest29,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest30,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest31,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest32,
+        ],
         **kw,
-    ) -> str:
-        """
-        Get Data Prefix Profile Parcels for Policy Object feature profile
-
-        :param policy_object_id: Feature Profile ID
-        :param policy_object_list_type: Policy Object ListType
-        :param reference_count: get reference count
-        :returns: str
-        """
-        params = {
-            "policyObjectId": policy_object_id,
-            "policyObjectListType": policy_object_list_type,
-            "referenceCount": reference_count,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def create_data_prefix_profile_parcel_for_security_policy_object(
-        self,
-        policy_object_id: str,
-        policy_object_list_type: PolicyObjectListTypeParam,
-        payload: Optional[str] = None,
-        **kw,
-    ) -> str:
+    ) -> CreateDataPrefixProfileParcelForSecurityPolicyObjectPostResponse:
         """
         Create a Data Prefix Profile Parcel for Security Policy Object feature profile
+        POST /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}
 
         :param policy_object_id: Feature Profile ID
         :param policy_object_list_type: Policy Object ListType
         :param payload: Data Prefix Profile Parcel
-        :returns: str
+        :returns: CreateDataPrefixProfileParcelForSecurityPolicyObjectPostResponse
         """
         params = {
             "policyObjectId": policy_object_id,
@@ -111,59 +187,62 @@ class PolicyObjectBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}",
-            return_type=str,
+            return_type=CreateDataPrefixProfileParcelForSecurityPolicyObjectPostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_data_prefix_profile_parcel_by_parcel_id_for_policy_object(
+    def put(
         self,
         policy_object_id: str,
         policy_object_list_type: PolicyObjectListTypeParam,
         list_object_id: str,
-        references: Optional[bool] = False,
+        payload: Union[
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest1,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest2,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest3,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest4,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest5,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest6,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest7,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest8,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest9,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest10,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest11,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest12,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest13,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest14,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest15,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest16,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest17,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest18,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest19,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest20,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest21,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest22,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest23,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest24,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest25,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest26,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest27,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest28,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest29,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest30,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest31,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest32,
+        ],
         **kw,
-    ) -> str:
-        """
-        Get Data Prefix Profile Parcel by parcelId for Policy Object feature profile
-
-        :param policy_object_id: Feature Profile ID
-        :param policy_object_list_type: Policy Object ListType
-        :param list_object_id: Profile Parcel ID
-        :param references: get referred profile/parcel details
-        :returns: str
-        """
-        params = {
-            "policyObjectId": policy_object_id,
-            "policyObjectListType": policy_object_list_type,
-            "listObjectId": list_object_id,
-            "references": references,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}/{listObjectId}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def edit_data_prefix_profile_parcel_for_policy_object(
-        self,
-        policy_object_id: str,
-        policy_object_list_type: PolicyObjectListTypeParam,
-        list_object_id: str,
-        payload: Optional[str] = None,
-        **kw,
-    ) -> str:
+    ) -> EditDataPrefixProfileParcelForPolicyObjectPutResponse:
         """
         Update a Data Prefix Profile Parcel for Policy Object feature profile
+        PUT /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}/{listObjectId}
 
         :param policy_object_id: Feature Profile ID
         :param policy_object_list_type: Policy Object ListType
         :param list_object_id: Profile Parcel ID
         :param payload: Data Prefix Profile Parcel
-        :returns: str
+        :returns: EditDataPrefixProfileParcelForPolicyObjectPutResponse
         """
         params = {
             "policyObjectId": policy_object_id,
@@ -173,13 +252,13 @@ class PolicyObjectBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}/{listObjectId}",
-            return_type=str,
+            return_type=EditDataPrefixProfileParcelForPolicyObjectPutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_data_prefix_profile_parcel_for_policy_object(
+    def delete(
         self,
         policy_object_id: str,
         policy_object_list_type: PolicyObjectListTypeParam,
@@ -188,6 +267,7 @@ class PolicyObjectBuilder:
     ):
         """
         Delete a Data Prefix Profile Parcel for Policy Object feature profile
+        DELETE /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}/{listObjectId}
 
         :param policy_object_id: Feature Profile ID
         :param policy_object_list_type: Policy Object ListType
@@ -205,6 +285,102 @@ class PolicyObjectBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(
+        self,
+        *,
+        policy_object_id: str,
+        policy_object_list_type: PolicyObjectListTypeParam,
+        list_object_id: str,
+        references: Optional[bool] = False,
+        **kw,
+    ) -> GetSingleSdwanPolicyObjectSecurityDataIpPrefixPayload:
+        """
+        Get Data Prefix Profile Parcel by parcelId for Policy Object feature profile
+        GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}/{listObjectId}
+
+        :param policy_object_id: Feature Profile ID
+        :param policy_object_list_type: Policy Object ListType
+        :param list_object_id: Profile Parcel ID
+        :param references: get referred profile/parcel details
+        :returns: GetSingleSdwanPolicyObjectSecurityDataIpPrefixPayload
+        """
+        ...
+
+    @overload
+    def get(
+        self,
+        *,
+        policy_object_id: str,
+        policy_object_list_type: PolicyObjectListTypeParam,
+        reference_count: Optional[bool] = False,
+        **kw,
+    ) -> GetListSdwanPolicyObjectSecurityDataIpPrefixPayload:
+        """
+        Get Data Prefix Profile Parcels for Policy Object feature profile
+        GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}
+
+        :param policy_object_id: Feature Profile ID
+        :param policy_object_list_type: Policy Object ListType
+        :param reference_count: get reference count
+        :returns: GetListSdwanPolicyObjectSecurityDataIpPrefixPayload
+        """
+        ...
+
+    def get(
+        self,
+        *,
+        policy_object_id: str,
+        policy_object_list_type: PolicyObjectListTypeParam,
+        reference_count: Optional[bool] = None,
+        list_object_id: Optional[str] = None,
+        references: Optional[bool] = None,
+        **kw,
+    ) -> Union[
+        GetListSdwanPolicyObjectSecurityDataIpPrefixPayload,
+        GetSingleSdwanPolicyObjectSecurityDataIpPrefixPayload,
+    ]:
+        # /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}/{listObjectId}
+        if self._request_adapter.param_checker(
+            [
+                (policy_object_id, str),
+                (policy_object_list_type, PolicyObjectListTypeParam),
+                (list_object_id, str),
+            ],
+            [reference_count],
+        ):
+            params = {
+                "policyObjectId": policy_object_id,
+                "policyObjectListType": policy_object_list_type,
+                "listObjectId": list_object_id,
+                "references": references,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}/{listObjectId}",
+                return_type=GetSingleSdwanPolicyObjectSecurityDataIpPrefixPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}
+        if self._request_adapter.param_checker(
+            [(policy_object_id, str), (policy_object_list_type, PolicyObjectListTypeParam)],
+            [list_object_id, references],
+        ):
+            params = {
+                "policyObjectId": policy_object_id,
+                "policyObjectListType": policy_object_list_type,
+                "referenceCount": reference_count,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}",
+                return_type=GetListSdwanPolicyObjectSecurityDataIpPrefixPayload,
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def app_list(self) -> AppListBuilder:

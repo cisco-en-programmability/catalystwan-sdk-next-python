@@ -17,9 +17,10 @@ class ControlBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_control_connections(self, uuid: str, **kw) -> GetControlConnections:
+    def get(self, uuid: str, **kw) -> GetControlConnections:
         """
         Troubleshoot control connections
+        GET /dataservice/troubleshooting/control/{uuid}
 
         :param uuid: Uuid
         :returns: GetControlConnections

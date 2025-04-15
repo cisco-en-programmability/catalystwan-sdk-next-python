@@ -11,9 +11,7 @@ Release licenses assigned to the devices
 
 .. code:: python
 
-    def release_licenses(
-        payload: Optional[ReleaseLicenses] = None,
-    ) -> None: ...
+    def put(payload: ReleaseLicenses) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.licensing.release_licenses.release_licenses()
+        client.v1.licensing.release_licenses.put()
 
 
 .. toctree::

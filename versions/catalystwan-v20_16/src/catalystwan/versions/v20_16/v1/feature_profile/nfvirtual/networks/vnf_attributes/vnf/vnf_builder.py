@@ -1,9 +1,16 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateNfvirtualVnfParcelPostRequest,
+    CreateNfvirtualVnfParcelPostResponse,
+    EditNfvirtualVnfParcelPutRequest,
+    EditNfvirtualVnfParcelPutResponse,
+    GetSingleNfvirtualNetworksVnfAttributesVnfPayload,
+)
 
 
 class VnfBuilder:
@@ -11,19 +18,26 @@ class VnfBuilder:
     Builds and executes requests for operations under /v1/feature-profile/nfvirtual/networks/{networksId}/vnf-attributes/{vnfAttributesId}/vnf
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_nfvirtual_vnf_parcel(
-        self, networks_id: str, vnf_attributes_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self,
+        networks_id: str,
+        vnf_attributes_id: str,
+        payload: CreateNfvirtualVnfParcelPostRequest,
+        **kw,
+    ) -> CreateNfvirtualVnfParcelPostResponse:
         """
         Create VNF Profile Parcel for Networks feature profile
+        POST /dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/vnf-attributes/{vnfAttributesId}/vnf
 
         :param networks_id: Feature Profile ID
         :param vnf_attributes_id: Profile Parcel ID
         :param payload: VNF config Profile Parcel
-        :returns: str
+        :returns: CreateNfvirtualVnfParcelPostResponse
         """
         params = {
             "networksId": networks_id,
@@ -32,22 +46,23 @@ class VnfBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/vnf-attributes/{vnfAttributesId}/vnf",
-            return_type=str,
+            return_type=CreateNfvirtualVnfParcelPostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_nfvirtual_vnf_parcel(
+    def get(
         self, networks_id: str, vnf_attributes_id: str, vnf_id: str, **kw
-    ) -> str:
+    ) -> GetSingleNfvirtualNetworksVnfAttributesVnfPayload:
         """
         Get VNF Profile Parcels for Networks feature profile
+        GET /dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/vnf-attributes/{vnfAttributesId}/vnf/{vnfId}
 
         :param networks_id: Feature Profile ID
         :param vnf_attributes_id: Profile Parcel ID
         :param vnf_id: VNF Parcel ID
-        :returns: str
+        :returns: GetSingleNfvirtualNetworksVnfAttributesVnfPayload
         """
         params = {
             "networksId": networks_id,
@@ -57,27 +72,28 @@ class VnfBuilder:
         return self._request_adapter.request(
             "GET",
             "/dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/vnf-attributes/{vnfAttributesId}/vnf/{vnfId}",
-            return_type=str,
+            return_type=GetSingleNfvirtualNetworksVnfAttributesVnfPayload,
             params=params,
             **kw,
         )
 
-    def edit_nfvirtual_vnf_parcel(
+    def put(
         self,
         networks_id: str,
         vnf_attributes_id: str,
         vnf_id: str,
-        payload: Optional[str] = None,
+        payload: EditNfvirtualVnfParcelPutRequest,
         **kw,
-    ) -> str:
+    ) -> EditNfvirtualVnfParcelPutResponse:
         """
         Edit a VNF Profile Parcel for networks feature profile
+        PUT /dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/vnf-attributes/{vnfAttributesId}/vnf/{vnfId}
 
         :param networks_id: Feature Profile ID
         :param vnf_attributes_id: Profile Parcel ID
         :param vnf_id: VNF Parcel ID
         :param payload: VNF Profile Parcel
-        :returns: str
+        :returns: EditNfvirtualVnfParcelPutResponse
         """
         params = {
             "networksId": networks_id,
@@ -87,17 +103,16 @@ class VnfBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/vnf-attributes/{vnfAttributesId}/vnf/{vnfId}",
-            return_type=str,
+            return_type=EditNfvirtualVnfParcelPutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_nfvirtual_vnf_parcel(
-        self, networks_id: str, vnf_attributes_id: str, vnf_id: str, **kw
-    ):
+    def delete(self, networks_id: str, vnf_attributes_id: str, vnf_id: str, **kw):
         """
         Delete a VNF Profile Parcel for Networks feature profile
+        DELETE /dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/vnf-attributes/{vnfAttributesId}/vnf/{vnfId}
 
         :param networks_id: Feature Profile ID
         :param vnf_attributes_id: Profile Parcel ID

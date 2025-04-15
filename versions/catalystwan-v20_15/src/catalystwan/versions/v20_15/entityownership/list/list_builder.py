@@ -17,9 +17,10 @@ class ListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_entity_ownership_info(self, **kw) -> EntityOwnershipInfo:
+    def get(self, **kw) -> EntityOwnershipInfo:
         """
         List all entity ownership info
+        GET /dataservice/entityownership/list
 
         :returns: EntityOwnershipInfo
         """

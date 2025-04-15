@@ -12,9 +12,10 @@ class FetchvManageListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def fetch_list(self, process_type: str, **kw):
+    def get(self, process_type: str, **kw):
         """
-        Fetch list
+        Get
+        GET /dataservice/statistics/download/{processType}/fetchvManageList
 
         :param process_type: Process type
         :returns: None

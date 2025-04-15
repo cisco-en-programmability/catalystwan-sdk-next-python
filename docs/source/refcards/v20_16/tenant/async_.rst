@@ -11,7 +11,7 @@ Create a new tenant in Multi-Tenant vManage asynchronously<br><br><br>Note: In a
 
 .. code:: python
 
-    def create_tenant_async(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenant.async_.create_tenant_async()
+        client.tenant.async_.post()
 
 

@@ -11,7 +11,7 @@ API to retrieve Interconnect gateways by Interconnect type for monitoring.
 
 .. code:: python
 
-    def get_monitoring_interconnect_gateways(
+    def get(
         interconnect_type: str,
     ) -> List[InterconnectGatewayMonitoring]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.monitoring.gateways.get_monitoring_interconnect_gateways()
+        client.multicloud.interconnect.monitoring.gateways.get()
 
 
 .. toctree::

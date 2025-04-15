@@ -19,9 +19,10 @@ class CloudgatewaytypeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cgw_types(self, cloud_type: Optional[CloudTypeParam] = None, **kw) -> Any:
+    def get(self, cloud_type: Optional[CloudTypeParam] = None, **kw) -> Any:
         """
         Get cloud gateway types for specified cloudType
+        GET /dataservice/multicloud/cloudgatewaytype
 
         :param cloud_type: Cloud type
         :returns: Any

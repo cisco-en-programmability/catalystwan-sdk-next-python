@@ -11,7 +11,7 @@ vSmart Mthub list
 
 .. code:: python
 
-    def setv_smart_mt_hub_list() -> List[str]: ...
+    def get() -> List[str]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.mthub.list.setv_smart_mt_hub_list()
+        client.certificate.mthub.list.get()
 
 

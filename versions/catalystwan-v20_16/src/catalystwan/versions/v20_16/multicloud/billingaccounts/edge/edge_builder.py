@@ -20,11 +20,12 @@ class EdgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_edge_billing_accounts(
+    def get(
         self, edge_type: EdgeTypeParam, edge_account_id: str, region: Optional[str] = None, **kw
     ) -> Any:
         """
         Get Edge Billing Accounts
+        GET /dataservice/multicloud/billingaccounts/edge/{edgeType}/{edgeAccountId}
 
         :param edge_type: Interconnect Provider
         :param edge_account_id: Interconnect Provider Account ID

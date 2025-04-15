@@ -3,39 +3,6 @@ multicloud.accounts.edge
 ========================
 
 
-Operation: GET /dataservice/multicloud/accounts/edge
-----------------------------------------------------
-
-
-Deprecated!!!
-
-Get all Multicloud edge accounts
-
-.. code:: python
-
-    def get_edge_accounts(
-        edge_type: Optional[EdgeTypeParam] = None,
-    ) -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.multicloud.accounts.edge.get_edge_accounts()
-
-
 Operation: POST /dataservice/multicloud/accounts/edge
 -----------------------------------------------------
 
@@ -46,9 +13,7 @@ Authenticate edge account credentials
 
 .. code:: python
 
-    def validate_edge_account_add(
-        payload: Optional[Any] = None,
-    ) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -66,38 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.accounts.edge.validate_edge_account_add()
-
-
-Operation: GET /dataservice/multicloud/accounts/edge/{accountId}
-----------------------------------------------------------------
-
-
-Deprecated!!!
-
-Get edge account by account Id
-
-.. code:: python
-
-    def get_edge_account_details(account_id: str) -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.multicloud.accounts.edge.get_edge_account_details()
+        client.multicloud.accounts.edge.post()
 
 
 Operation: PUT /dataservice/multicloud/accounts/edge/{accountId}
@@ -110,9 +44,7 @@ Update Multicloud edge account
 
 .. code:: python
 
-    def update_edge_account(
-        account_id: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def put(account_id: str, payload: Any) -> None: ...
 
 
 Example:
@@ -130,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.accounts.edge.update_edge_account()
+        client.multicloud.accounts.edge.put()
 
 
 Operation: DELETE /dataservice/multicloud/accounts/edge/{accountId}
@@ -143,7 +75,7 @@ Delete edge account
 
 .. code:: python
 
-    def delete_edge_account(account_id: str) -> None: ...
+    def delete(account_id: str) -> None: ...
 
 
 Example:
@@ -161,7 +93,67 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.accounts.edge.delete_edge_account()
+        client.multicloud.accounts.edge.delete()
+
+
+Operation: GET /dataservice/multicloud/accounts/edge
+----------------------------------------------------
+
+
+Deprecated!!!
+
+.. code:: python
+
+    @overload
+    def get(edge_type: Optional[EdgeTypeParam] = None) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.multicloud.accounts.edge.get()
+
+
+Operation: GET /dataservice/multicloud/accounts/edge/{accountId}
+----------------------------------------------------------------
+
+
+Deprecated!!!
+
+.. code:: python
+
+    @overload
+    def get(account_id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.multicloud.accounts.edge.get()
 
 
 .. toctree::

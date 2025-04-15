@@ -11,9 +11,7 @@ List all backup files of a tenant stored in vManage
 
 .. code:: python
 
-    def list_backup(
-        size: Optional[str] = None,
-    ) -> LocalBackupListResult: ...
+    def get(size: Optional[str] = None) -> LocalBackupListResult: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.backup.list.list_backup()
+        client.backup.list.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Get cloud gateway types for specified cloudType
 
 .. code:: python
 
-    def get_mapping_tags(
+    def get(
         cloud_type: Optional[CloudTypeParam] = None,
     ) -> TagsResponse: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.map.tags.get_mapping_tags()
+        client.multicloud.map.tags.get()
 
 
 .. toctree::

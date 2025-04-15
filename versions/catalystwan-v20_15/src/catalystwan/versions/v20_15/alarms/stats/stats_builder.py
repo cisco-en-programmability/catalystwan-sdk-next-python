@@ -17,9 +17,10 @@ class StatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stats(self, **kw) -> AlarmStatsResponse:
+    def get(self, **kw) -> AlarmStatsResponse:
         """
         Get alarm statistics
+        GET /dataservice/alarms/stats
 
         :returns: AlarmStatsResponse
         """

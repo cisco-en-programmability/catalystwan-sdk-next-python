@@ -14,9 +14,10 @@ class DeviceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_device_groups(self, site_id: Optional[str] = None, **kw) -> List[Any]:
+    def get(self, site_id: Optional[str] = None, **kw) -> List[Any]:
         """
         Retrieve device groups
+        GET /dataservice/group/device
 
         :param site_id: siteId
         :returns: List[Any]

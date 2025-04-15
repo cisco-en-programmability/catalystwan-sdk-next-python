@@ -11,9 +11,7 @@ Get applicable licenses based on platform class
 
 .. code:: python
 
-    def get_msla_licenses(
-        payload: Optional[LicensesRequest] = None,
-    ) -> LicensesResponse: ...
+    def post(payload: LicensesRequest) -> LicensesResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.licensing.licenses.get_msla_licenses()
+        client.v1.licensing.licenses.post()
 
 
 .. toctree::

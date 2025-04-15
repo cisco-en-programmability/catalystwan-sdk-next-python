@@ -5,15 +5,22 @@ Models
 
 .. code:: python
 
-    from typing import Any, Dict, List, Literal, Optional, Union
+    from typing import Optional, List, Dict, Union, Any, Literal
 
-    ValueType = Literal[
-        "ARRAY", "FALSE", "NULL", "NUMBER", "OBJECT", "STRING", "TRUE"
-    ]
+
+    class DeployTopologyGroupPostResponse:
+        """
+        Topology Group deploy Response schema
+        """
+
+        parent_task_id: str
 
 
     class DeployTopologyGroupPostRequest:
-        empty: Optional[bool]
-        value_type: Optional[ValueType]
+        """
+        Topology Group Deploy Request schema
+        """
+
+        deactivate_topology: Optional[bool]
 
 

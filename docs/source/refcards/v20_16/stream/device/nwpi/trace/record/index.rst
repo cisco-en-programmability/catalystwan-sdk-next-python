@@ -13,9 +13,7 @@ post flow data
 
 .. code:: python
 
-    def nwpi_post_flow_data(
-        device_uuid: str, payload: str
-    ) -> NwpiResponsePayload: ...
+    def post(device_uuid: str, payload: str) -> NwpiResponsePayload: ...
 
 
 Example:
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.trace.record.nwpi_post_flow_data()
+        client.stream.device.nwpi.trace.record.post()
 
 
 .. toctree::

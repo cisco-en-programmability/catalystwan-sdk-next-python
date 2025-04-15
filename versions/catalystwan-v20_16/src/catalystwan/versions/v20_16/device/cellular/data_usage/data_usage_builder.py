@@ -19,7 +19,7 @@ class DataUsageBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def data_usage(
+    def get(
         self,
         last_n_hours: Optional[LastNHoursParam] = None,
         drill_down: Optional[bool] = None,
@@ -27,6 +27,7 @@ class DataUsageBuilder:
     ) -> List[CellularDataUsage]:
         """
         Cellular DataUsage Dashlet
+        GET /dataservice/device/cellular/dataUsage
 
         :param last_n_hours: last N hours
         :param drill_down: drill down

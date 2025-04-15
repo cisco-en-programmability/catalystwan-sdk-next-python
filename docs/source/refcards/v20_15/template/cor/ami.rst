@@ -13,7 +13,7 @@ Get AMI list
 
 .. code:: python
 
-    def get_ami_list(
+    def get(
         accountid: str, cloudregion: str, cloudtype: Optional[str] = "AWS"
     ) -> List[Any]: ...
 
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.ami.get_ami_list()
+        client.template.cor.ami.get()
 
 

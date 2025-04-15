@@ -22,9 +22,10 @@ class ApplicationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_agg_app_flows(self, query: str, limit: Optional[int] = None, **kw) -> DpiAppResponse:
+    def get(self, query: str, limit: Optional[int] = None, **kw) -> DpiAppResponse:
         """
         Get detailed DPI application flows list in a grid table
+        GET /dataservice/statistics/dpi/applications
 
         :param query: Query
         :param limit: Limit

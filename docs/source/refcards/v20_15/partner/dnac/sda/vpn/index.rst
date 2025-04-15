@@ -11,7 +11,7 @@ Get Overlay VPN list
 
 .. code:: python
 
-    def get_overlay_vpn_list() -> VpnListRes: ...
+    def get() -> VpnListRes: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.dnac.sda.vpn.get_overlay_vpn_list()
+        client.partner.dnac.sda.vpn.get()
 
 
 .. toctree::

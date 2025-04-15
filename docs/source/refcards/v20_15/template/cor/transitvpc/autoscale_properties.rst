@@ -13,9 +13,7 @@ Update transit VPC autoscale properties
 
 .. code:: python
 
-    def update_transit_vpc_autoscale_properties(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def put(payload: Any) -> Any: ...
 
 
 Example:
@@ -33,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.transitvpc.autoscale_properties.update_transit_vpc_autoscale_properties()
+        client.template.cor.transitvpc.autoscale_properties.put()
 
 

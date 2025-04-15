@@ -11,7 +11,7 @@ Get site list
 
 .. code:: python
 
-    def get_site_list() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cloudx.clientlist.get_site_list()
+        client.template.cloudx.clientlist.get()
 
 

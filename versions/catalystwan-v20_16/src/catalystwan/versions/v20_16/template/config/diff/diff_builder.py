@@ -14,9 +14,10 @@ class DiffBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_diff(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Generates a JSON object that contains the diff for a given device
+        GET /dataservice/template/config/diff/{deviceId}
 
         :param device_id: Device Model ID
         :returns: Any

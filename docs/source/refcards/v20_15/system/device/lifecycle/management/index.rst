@@ -11,7 +11,7 @@ Set device lifecycle needed flag
 
 .. code:: python
 
-    def set_life_cycle(
+    def post(
         uuid: str, enable: Optional[bool] = None
     ) -> SetLifeCycle: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.lifecycle.management.set_life_cycle()
+        client.system.device.lifecycle.management.post()
 
 
 .. toctree::

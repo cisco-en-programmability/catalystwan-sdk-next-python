@@ -11,7 +11,7 @@ Get all default protocol pack details
 
 .. code:: python
 
-    def get_default_system_pack() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.default.get_default_system_pack()
+        client.sdavc.protocol_pack.default.get()
 
 

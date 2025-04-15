@@ -14,12 +14,13 @@ class IsMigrationRequiredBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def is_migration_required(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Check if any device templates need migration
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/template/device/is_migration_required
 
         :returns: Any
         """

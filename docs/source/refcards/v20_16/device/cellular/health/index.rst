@@ -11,7 +11,7 @@ Cellular Health Dashlet
 
 .. code:: python
 
-    def cellular_health_dashlet(
+    def get(
         type_: Optional[TypeParam] = None,
         last_n_hours: Optional[LastNHoursParam] = None,
     ) -> List[CellularHealth]: ...
@@ -32,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cellular.health.cellular_health_dashlet()
+        client.device.cellular.health.get()
 
 
 .. toctree::

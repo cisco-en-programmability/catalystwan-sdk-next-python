@@ -11,7 +11,7 @@ Retrieve certificate configuration value by type
 
 .. code:: python
 
-    def get_cert_configuration(type_: str) -> str: ...
+    def get(type_: str) -> str: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.certificate.get_cert_configuration()
+        client.settings.configuration.certificate.get()
 
 
 Operation: PUT /dataservice/settings/configuration/certificate/{type}
@@ -40,9 +40,7 @@ Update certificate configuration
 
 .. code:: python
 
-    def edit_cert_configuration(
-        type_: str, payload: Optional[Any] = None
-    ) -> str: ...
+    def put(type_: str, payload: Any) -> str: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.certificate.edit_cert_configuration()
+        client.settings.configuration.certificate.put()
 
 
 Operation: POST /dataservice/settings/configuration/certificate/{type}
@@ -71,9 +69,7 @@ Add new certificate configuration
 
 .. code:: python
 
-    def new_cert_configuration(
-        type_: str, payload: Optional[Any] = None
-    ) -> str: ...
+    def post(type_: str, payload: Any) -> str: ...
 
 
 Example:
@@ -91,6 +87,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.certificate.new_cert_configuration()
+        client.settings.configuration.certificate.post()
 
 

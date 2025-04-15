@@ -9,11 +9,10 @@ Operation: GET /dataservice/multicloud/widget/edge
 
 Deprecated!!!
 
-Get All Interconnect Edge widgets
-
 .. code:: python
 
-    def get_all_edge_widgets() -> Any: ...
+    @overload
+    def get() -> Any: ...
 
 
 Example:
@@ -31,7 +30,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.widget.edge.get_all_edge_widgets()
+        client.multicloud.widget.edge.get()
 
 
 Operation: GET /dataservice/multicloud/widget/edge/{edgeType}
@@ -40,11 +39,10 @@ Operation: GET /dataservice/multicloud/widget/edge/{edgeType}
 
 Deprecated!!!
 
-Get Interconnect Edge widget by edge type
-
 .. code:: python
 
-    def get_edge_widget(edge_type: str) -> Any: ...
+    @overload
+    def get(edge_type: str) -> Any: ...
 
 
 Example:
@@ -62,6 +60,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.widget.edge.get_edge_widget()
+        client.multicloud.widget.edge.get()
 
 

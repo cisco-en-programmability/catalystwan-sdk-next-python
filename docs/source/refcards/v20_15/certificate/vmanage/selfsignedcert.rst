@@ -11,7 +11,7 @@ get vManage self signed cert
 
 .. code:: python
 
-    def get_self_signed_cert() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.vmanage.selfsignedcert.get_self_signed_cert()
+        client.certificate.vmanage.selfsignedcert.get()
 
 

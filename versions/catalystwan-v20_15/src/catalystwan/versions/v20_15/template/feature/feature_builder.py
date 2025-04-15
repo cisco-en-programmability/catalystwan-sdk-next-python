@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional
+from typing import TYPE_CHECKING, Any, List, Optional, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -26,36 +26,10 @@ class FeatureBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_feature_template_list(
-        self,
-        summary: Optional[bool] = False,
-        offset: Optional[int] = None,
-        limit: Optional[int] = 0,
-        **kw,
-    ) -> List[Any]:
-        """
-        Get feature template list
-
-
-        Note: In a multitenant vManage system, this API is only available in the Provider view.
-
-        :param summary: Flag to include template definition
-        :param offset: Pagination offset
-        :param limit: Pagination limit on templateId
-        :returns: List[Any]
-        """
-        params = {
-            "summary": summary,
-            "offset": offset,
-            "limit": limit,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/feature", return_type=List[Any], params=params, **kw
-        )
-
-    def create_feature_template(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create feature template
+        POST /dataservice/template/feature
 
         :param payload: Feature template
         :returns: Any
@@ -64,33 +38,13 @@ class FeatureBuilder:
             "POST", "/dataservice/template/feature", payload=payload, **kw
         )
 
-    def generate_template_by_device_type(self, device_type: str, **kw) -> List[Any]:
-        """
-        Generate template based on device
-
-
-        Note: In a multitenant vManage system, this API is only available in the Provider view.
-
-        :param device_type: Device type
-        :returns: List[Any]
-        """
-        params = {
-            "deviceType": device_type,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/feature/{deviceType}",
-            return_type=List[Any],
-            params=params,
-            **kw,
-        )
-
-    def edit_feature_template(self, template_id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, template_id: str, payload: Any, **kw) -> Any:
         """
         Update feature template
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        PUT /dataservice/template/feature/{templateId}
 
         :param template_id: Template Id
         :param payload: Template
@@ -107,9 +61,10 @@ class FeatureBuilder:
             **kw,
         )
 
-    def delete_general_template(self, template_id: str, **kw):
+    def delete(self, template_id: str, **kw):
         """
         Delete feature template
+        DELETE /dataservice/template/feature/{templateId}
 
         :param template_id: Template Id
         :returns: None
@@ -120,6 +75,76 @@ class FeatureBuilder:
         return self._request_adapter.request(
             "DELETE", "/dataservice/template/feature/{templateId}", params=params, **kw
         )
+
+    @overload
+    def get(self, *, device_type: str, **kw) -> List[Any]:
+        """
+        Generate template based on device
+
+
+        Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/template/feature/{deviceType}
+
+        :param device_type: Device type
+        :returns: List[Any]
+        """
+        ...
+
+    @overload
+    def get(
+        self,
+        *,
+        summary: Optional[bool] = False,
+        offset: Optional[int] = None,
+        limit: Optional[int] = 0,
+        **kw,
+    ) -> List[Any]:
+        """
+        Get feature template list
+
+
+        Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/template/feature
+
+        :param summary: Flag to include template definition
+        :param offset: Pagination offset
+        :param limit: Pagination limit on templateId
+        :returns: List[Any]
+        """
+        ...
+
+    def get(
+        self,
+        *,
+        summary: Optional[bool] = None,
+        offset: Optional[int] = None,
+        limit: Optional[int] = None,
+        device_type: Optional[str] = None,
+        **kw,
+    ) -> List[Any]:
+        # /dataservice/template/feature/{deviceType}
+        if self._request_adapter.param_checker([(device_type, str)], [summary, offset, limit]):
+            params = {
+                "deviceType": device_type,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/template/feature/{deviceType}",
+                return_type=List[Any],
+                params=params,
+                **kw,
+            )
+        # /dataservice/template/feature
+        if self._request_adapter.param_checker([], [device_type]):
+            params = {
+                "summary": summary,
+                "offset": offset,
+                "limit": limit,
+            }
+            return self._request_adapter.request(
+                "GET", "/dataservice/template/feature", return_type=List[Any], params=params, **kw
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def clone(self) -> CloneBuilder:

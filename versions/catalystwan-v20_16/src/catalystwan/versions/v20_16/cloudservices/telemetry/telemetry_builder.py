@@ -18,9 +18,10 @@ class TelemetryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_telemetry_state(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get Telemetry state
+        GET /dataservice/cloudservices/telemetry
 
         :returns: Any
         """

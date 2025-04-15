@@ -11,7 +11,7 @@ Clear the alarm for a specific UUID.
 
 .. code:: python
 
-    def clear_stale_alarm(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.clear.clear_stale_alarm()
+        client.alarms.clear.post()
 
 

@@ -11,7 +11,7 @@ Retrieve mapping of tenants to vSmarts<br><br><br>Note: In a multitenant vManage
 
 .. code:: python
 
-    def get_tenantv_smart_mapping() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenant.vsmart.get_tenantv_smart_mapping()
+        client.tenant.vsmart.get()
 
 
 Operation: PUT /dataservice/tenant/{tenantId}/vsmart
@@ -40,9 +40,7 @@ Update placement of the Tenant from source vSmart to destination vSmart<br><br><
 
 .. code:: python
 
-    def update_tenantv_smart_placement(
-        tenant_id: str, payload: Optional[Any] = None
-    ) -> List[Any]: ...
+    def put(tenant_id: str, payload: Any) -> List[Any]: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenant.vsmart.update_tenantv_smart_placement()
+        client.tenant.vsmart.put()
 
 
 .. toctree::

@@ -23,7 +23,7 @@ class EdgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_links(
+    def get(
         self,
         edge_type: Optional[EdgeTypeParam] = None,
         device_link_name: Optional[str] = None,
@@ -31,6 +31,7 @@ class EdgeBuilder:
     ) -> Any:
         """
         Get Device Links
+        GET /dataservice/multicloud/devicelink/edge
 
         :param edge_type: Edge type
         :param device_link_name: Device Link Name
@@ -45,9 +46,10 @@ class EdgeBuilder:
             "GET", "/dataservice/multicloud/devicelink/edge", params=params, **kw
         )
 
-    def update_device_link(self, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, payload: Any, **kw) -> Any:
         """
         Update Device Link
+        PUT /dataservice/multicloud/devicelink/edge
 
         :param payload: Device Link
         :returns: Any
@@ -57,9 +59,10 @@ class EdgeBuilder:
             "PUT", "/dataservice/multicloud/devicelink/edge", payload=payload, **kw
         )
 
-    def create_device_link(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create Device Link
+        POST /dataservice/multicloud/devicelink/edge
 
         :param payload: Device Link
         :returns: Any
@@ -69,9 +72,10 @@ class EdgeBuilder:
             "POST", "/dataservice/multicloud/devicelink/edge", payload=payload, **kw
         )
 
-    def delete_device_link(self, device_link_name: str, **kw) -> Any:
+    def delete(self, device_link_name: str, **kw) -> Any:
         """
         Delete Device Link
+        DELETE /dataservice/multicloud/devicelink/edge/{deviceLinkName}
 
         :param device_link_name: Device Link Name
         :returns: Any

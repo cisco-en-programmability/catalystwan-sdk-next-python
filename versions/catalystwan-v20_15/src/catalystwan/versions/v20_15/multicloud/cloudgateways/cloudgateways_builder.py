@@ -19,11 +19,10 @@ class CloudgatewaysBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_gateways(
-        self, cloud_type: CloudTypeParam, **kw
-    ) -> List[CloudGatewayListResponse]:
+    def get(self, cloud_type: CloudTypeParam, **kw) -> List[CloudGatewayListResponse]:
         """
         Get sites with connectivity to the cloud by cloud type
+        GET /dataservice/multicloud/cloudgateways/{cloudType}
 
         :param cloud_type: Cloud type
         :returns: List[CloudGatewayListResponse]

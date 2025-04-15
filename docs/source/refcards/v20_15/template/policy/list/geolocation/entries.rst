@@ -11,7 +11,7 @@ Get list of countries and continents for geo location
 
 .. code:: python
 
-    def get_geo_location_lists() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.list.geolocation.entries.get_geo_location_lists()
+        client.template.policy.list.geolocation.entries.get()
 
 

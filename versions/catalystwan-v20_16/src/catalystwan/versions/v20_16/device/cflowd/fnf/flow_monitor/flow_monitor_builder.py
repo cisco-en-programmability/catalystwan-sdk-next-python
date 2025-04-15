@@ -14,9 +14,10 @@ class FlowMonitorBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_fnf(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get FnF from device
+        GET /dataservice/device/cflowd/fnf/flow-monitor
 
         :param device_id: Device IP
         :returns: Any

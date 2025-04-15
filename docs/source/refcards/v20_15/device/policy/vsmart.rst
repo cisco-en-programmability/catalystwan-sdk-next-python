@@ -11,7 +11,7 @@ show Sdwan Policy From Vsmart
 
 .. code:: python
 
-    def show_sdwan_policy_from_vsmart(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.policy.vsmart.show_sdwan_policy_from_vsmart()
+        client.device.policy.vsmart.get()
 
 

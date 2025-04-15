@@ -17,9 +17,10 @@ class RegisteredprovidersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_providers_info(self, **kw) -> ProviderInfo:
+    def get(self, **kw) -> ProviderInfo:
         """
         Get Registered Providers Info
+        GET /dataservice/v1/securedeviceonboarding/registeredproviders
 
         :returns: ProviderInfo
         """

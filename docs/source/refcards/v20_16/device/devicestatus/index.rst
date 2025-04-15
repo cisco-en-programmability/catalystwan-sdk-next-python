@@ -11,7 +11,7 @@ Get devices status per type
 
 .. code:: python
 
-    def get_device_only_status() -> DeviceStatusData: ...
+    def get() -> DeviceStatusData: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.devicestatus.get_device_only_status()
+        client.device.devicestatus.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Generate template types<br><br><br>Note: In a multitenant vManage system, this A
 
 .. code:: python
 
-    def generate_template_types(type_: TypeParam) -> List[Any]: ...
+    def get(type_: TypeParam) -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.feature.types.generate_template_types()
+        client.template.feature.types.get()
 
 
 .. toctree::

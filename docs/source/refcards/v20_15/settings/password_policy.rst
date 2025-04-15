@@ -11,7 +11,7 @@ Retrieve password policy from global settings
 
 .. code:: python
 
-    def get_password_policy() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.password_policy.get_password_policy()
+        client.settings.password_policy.get()
 
 

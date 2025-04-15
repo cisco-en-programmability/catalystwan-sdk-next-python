@@ -14,9 +14,10 @@ class IptouserbindingsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def show_vsmart_ipto_user_binding(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         show ip to user binding from Vsmart
+        GET /dataservice/device/policy/iptouserbindings
 
         :param device_id: Device Id
         :returns: Any

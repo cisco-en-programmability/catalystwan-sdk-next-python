@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional
+from typing import Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,9 +19,10 @@ class CliBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_cli_mode_devices(self, type_: TypeParam, **kw) -> List[Any]:
+    def get(self, type_: TypeParam, **kw) -> List[Any]:
         """
         Generates a JSON object that contains a list of valid devices in CLI mode
+        GET /dataservice/template/config/device/mode/cli
 
         :param type_: Device type
         :returns: List[Any]
@@ -37,9 +38,10 @@ class CliBuilder:
             **kw,
         )
 
-    def update_device_to_cli_mode(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Given a JSON list of devices not managed by any third member partners, push to devices from a CLI template
+        POST /dataservice/template/config/device/mode/cli
 
         :param payload: Device list
         :returns: Any

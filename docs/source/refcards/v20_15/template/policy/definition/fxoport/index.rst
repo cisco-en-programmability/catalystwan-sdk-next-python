@@ -3,35 +3,6 @@ template.policy.definition.fxoport
 ==================================
 
 
-Operation: GET /dataservice/template/policy/definition/fxoport
---------------------------------------------------------------
-
-
-Get policy definitions
-
-.. code:: python
-
-    def get_definitions_26() -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.template.policy.definition.fxoport.get_definitions_26()
-
-
 Operation: POST /dataservice/template/policy/definition/fxoport
 ---------------------------------------------------------------
 
@@ -40,9 +11,7 @@ Create policy definition
 
 .. code:: python
 
-    def create_policy_definition_26(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -60,36 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.fxoport.create_policy_definition_26()
-
-
-Operation: GET /dataservice/template/policy/definition/fxoport/{id}
--------------------------------------------------------------------
-
-
-Get a specific policy definitions
-
-.. code:: python
-
-    def get_policy_definition_26(id: str) -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.template.policy.definition.fxoport.get_policy_definition_26()
+        client.template.policy.definition.fxoport.post()
 
 
 Operation: PUT /dataservice/template/policy/definition/fxoport/{id}
@@ -100,9 +40,7 @@ Edit a policy definitions
 
 .. code:: python
 
-    def edit_policy_definition_26(
-        id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -120,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.fxoport.edit_policy_definition_26()
+        client.template.policy.definition.fxoport.put()
 
 
 Operation: DELETE /dataservice/template/policy/definition/fxoport/{id}
@@ -131,7 +69,7 @@ Delete policy definition
 
 .. code:: python
 
-    def delete_policy_definition_26(id: str) -> None: ...
+    def delete(id: str) -> None: ...
 
 
 Example:
@@ -149,7 +87,63 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.fxoport.delete_policy_definition_26()
+        client.template.policy.definition.fxoport.delete()
+
+
+Operation: GET /dataservice/template/policy/definition/fxoport
+--------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get() -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.template.policy.definition.fxoport.get()
+
+
+Operation: GET /dataservice/template/policy/definition/fxoport/{id}
+-------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.template.policy.definition.fxoport.get()
 
 
 .. toctree::

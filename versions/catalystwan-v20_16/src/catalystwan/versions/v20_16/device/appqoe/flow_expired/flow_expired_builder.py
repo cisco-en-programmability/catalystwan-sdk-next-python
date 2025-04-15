@@ -14,9 +14,10 @@ class FlowExpiredBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_appqoe_expired(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get Appqoe expired from device
+        GET /dataservice/device/appqoe/flow-expired
 
         :param device_id: Device IP
         :returns: Any

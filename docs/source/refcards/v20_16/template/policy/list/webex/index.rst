@@ -11,7 +11,7 @@ TEMP-Create Webex policy lists
 
 .. code:: python
 
-    def create_webex_prefix_lists() -> List[Any]: ...
+    def post() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.list.webex.create_webex_prefix_lists()
+        client.template.policy.list.webex.post()
 
 
 .. toctree::

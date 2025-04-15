@@ -11,7 +11,7 @@ Start MDP onboarding operation
 
 .. code:: python
 
-    def onboard_mdp(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.mdp.onboard.onboard_mdp()
+        client.mdp.onboard.post()
 
 
 Operation: PUT /dataservice/mdp/onboard/{nmsId}
@@ -40,9 +40,7 @@ update MDP onboarding document
 
 .. code:: python
 
-    def update_onboarding_payload(
-        nms_id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(nms_id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.mdp.onboard.update_onboarding_payload()
+        client.mdp.onboard.put()
 
 
 Operation: DELETE /dataservice/mdp/onboard/{nmsId}
@@ -71,7 +69,7 @@ offboard the mdp application
 
 .. code:: python
 
-    def offboard(nms_id: str) -> None: ...
+    def delete(nms_id: str) -> None: ...
 
 
 Example:
@@ -89,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.mdp.onboard.offboard()
+        client.mdp.onboard.delete()
 
 
 .. toctree::

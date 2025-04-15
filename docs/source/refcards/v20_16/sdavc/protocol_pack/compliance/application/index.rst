@@ -7,11 +7,10 @@ Operation: GET /dataservice/sdavc/protocol-pack/compliance/application
 ----------------------------------------------------------------------
 
 
-Get default application name compliance details
-
 .. code:: python
 
-    def get_default_application_compliance_details() -> Any: ...
+    @overload
+    def get() -> Any: ...
 
 
 Example:
@@ -29,18 +28,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.application.get_default_application_compliance_details()
+        client.sdavc.protocol_pack.compliance.application.get()
 
 
 Operation: GET /dataservice/sdavc/protocol-pack/compliance/application/{uuid}
 -----------------------------------------------------------------------------
 
 
-Get application name compliance details for given task uuid
-
 .. code:: python
 
-    def get_application_compliance_details(uuid: str) -> Any: ...
+    @overload
+    def get(uuid: str) -> Any: ...
 
 
 Example:
@@ -58,7 +56,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.application.get_application_compliance_details()
+        client.sdavc.protocol_pack.compliance.application.get()
 
 
 .. toctree::

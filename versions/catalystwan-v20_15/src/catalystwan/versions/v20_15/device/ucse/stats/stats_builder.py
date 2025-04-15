@@ -6,7 +6,7 @@ from typing import Any, Optional
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import RemoteTlocColorParam
+from .models import LocalTlocColorParam, RemoteTlocColorParam
 
 
 class StatsBuilder:
@@ -19,16 +19,17 @@ class StatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_ucse_stats(
+    def get(
         self,
         device_id: str,
         remote_tloc_address: Optional[str] = None,
         remote_tloc_color: Optional[RemoteTlocColorParam] = None,
-        local_tloc_color: Optional[RemoteTlocColorParam] = None,
+        local_tloc_color: Optional[LocalTlocColorParam] = None,
         **kw,
     ) -> Any:
         """
         Get  UCSE stats entry from device
+        GET /dataservice/device/ucse/stats
 
         :param remote_tloc_address: Remote TLOC address
         :param remote_tloc_color: Remote tloc color

@@ -19,7 +19,7 @@ class PortSpeedsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_port_speeds(
+    def get(
         self,
         interconnect_type: str,
         interconnect_account_id: str,
@@ -34,6 +34,7 @@ class PortSpeedsBuilder:
     ) -> InlineResponse2007:
         """
         API to retrieve supported port speeds for an Interconnect connectivity.
+        GET /dataservice/multicloud/interconnect/{interconnect-type}/accounts/{interconnect-account-id}/connectivity/connections/{connection-type}/port-speeds
 
         :param interconnect_type: Interconnect provider Type
         :param interconnect_account_id: Interconnect provider account id

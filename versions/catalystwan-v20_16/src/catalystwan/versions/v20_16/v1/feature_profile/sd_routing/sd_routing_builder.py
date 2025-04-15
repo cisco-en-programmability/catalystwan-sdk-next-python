@@ -1,9 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, List, Optional
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import GetSdroutingFeatureProfilesGetResponse
 
 if TYPE_CHECKING:
     from .cli.cli_builder import CliBuilder
@@ -20,25 +23,32 @@ class SdRoutingBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sd-routing
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdrouting_feature_profiles(
+    def get(
         self, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
-    ) -> Any:
+    ) -> List[GetSdroutingFeatureProfilesGetResponse]:
         """
         Get all SD-Routing Feature Profiles
+        GET /dataservice/v1/feature-profile/sd-routing
 
         :param offset: Pagination offset
         :param limit: Pagination limit
-        :returns: Any
+        :returns: List[GetSdroutingFeatureProfilesGetResponse]
         """
         params = {
             "offset": offset,
             "limit": limit,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/sd-routing", params=params, **kw
+            "GET",
+            "/dataservice/v1/feature-profile/sd-routing",
+            return_type=List[GetSdroutingFeatureProfilesGetResponse],
+            params=params,
+            **kw,
         )
 
     @property

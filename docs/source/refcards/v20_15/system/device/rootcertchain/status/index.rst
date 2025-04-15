@@ -11,7 +11,7 @@ Get controllers vEdge sync status
 
 .. code:: python
 
-    def get_root_cert_status_all(state: str) -> GetRootCertStatusAll: ...
+    def get(state: str) -> GetRootCertStatusAll: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.rootcertchain.status.get_root_cert_status_all()
+        client.system.device.rootcertchain.status.get()
 
 
 .. toctree::

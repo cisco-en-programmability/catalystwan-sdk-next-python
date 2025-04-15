@@ -11,9 +11,7 @@ List all devices
 
 .. code:: python
 
-    def list_all_devices(
-        site_id: Optional[str] = None,
-    ) -> List[DeviceData]: ...
+    def get(site_id: Optional[str] = None) -> List[DeviceData]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.list_all_devices()
+        client.device.get()
 
 
 .. toctree::

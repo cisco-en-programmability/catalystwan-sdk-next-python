@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,12 +15,13 @@ class DetachBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def detach_device_template(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Detach device template
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        POST /dataservice/template/device/config/detach
 
         :param payload: Device template
         :returns: None

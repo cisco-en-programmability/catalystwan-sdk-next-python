@@ -11,7 +11,7 @@ Entity ownership info grouped by buckets
 
 .. code:: python
 
-    def entity_ownership_info() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.entityownership.tree.entity_ownership_info()
+        client.entityownership.tree.get()
 
 

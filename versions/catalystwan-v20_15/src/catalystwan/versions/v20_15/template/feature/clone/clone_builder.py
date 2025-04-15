@@ -14,12 +14,13 @@ class CloneBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def clone_template(self, id: str, name: str, desc: str, **kw) -> Any:
+    def post(self, id: str, name: str, desc: str, **kw) -> Any:
         """
         Clone a feature template
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        POST /dataservice/template/feature/clone
 
         :param id: Template Id to clone from
         :param name: Name for the cloned template

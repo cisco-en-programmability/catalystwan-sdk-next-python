@@ -14,9 +14,10 @@ class RoleBasedCountersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_role_based_counters(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         get Cisco TrustSec Role Based Counters information from device
+        GET /dataservice/device/roleBasedCounters
 
         :param device_id: deviceId - Device IP
         :returns: Any

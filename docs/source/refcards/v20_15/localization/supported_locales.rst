@@ -11,7 +11,7 @@ Get Supported locales
 
 .. code:: python
 
-    def get_supported_locales() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.localization.supported_locales.get_supported_locales()
+        client.localization.supported_locales.get()
 
 

@@ -11,7 +11,7 @@ Get Azure device code
 
 .. code:: python
 
-    def get_device_code() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.devicecode.get_device_code()
+        client.cloudservices.devicecode.post()
 
 

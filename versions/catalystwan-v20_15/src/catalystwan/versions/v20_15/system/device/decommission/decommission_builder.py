@@ -17,9 +17,10 @@ class DecommissionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def decommission_vedge_cloud(self, uuid: str, **kw) -> DecommissionVedgeCloud:
+    def put(self, uuid: str, **kw) -> DecommissionVedgeCloud:
         """
         Decomission vEdge device
+        PUT /dataservice/system/device/decommission/{uuid}
 
         :param uuid: Device uuid
         :returns: DecommissionVedgeCloud

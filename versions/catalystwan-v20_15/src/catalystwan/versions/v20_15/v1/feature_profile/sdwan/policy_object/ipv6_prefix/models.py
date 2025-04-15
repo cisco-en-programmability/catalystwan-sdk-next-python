@@ -72,8 +72,18 @@ class CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest:
     data: Data
     name: str
     description: Optional[str] = _field(default=None)
-    # This is the documentation for ipv6 prefix profile parcel
-    documentation: Optional[Any] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload:
+    """
+    Ipv6 prefix profile parcel schema
+    """
+
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
     metadata: Optional[Any] = _field(default=None)
 
 
@@ -86,6 +96,4 @@ class GetDataPrefixProfileParcelForPolicyObjectGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # Ipv6 prefix profile parcel schema
-    payload: Optional[CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest] = _field(
-        default=None
-    )
+    payload: Optional[Payload] = _field(default=None)

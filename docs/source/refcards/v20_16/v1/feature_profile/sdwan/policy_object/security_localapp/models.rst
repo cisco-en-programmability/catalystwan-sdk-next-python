@@ -47,8 +47,17 @@ Models
         data: Data
         name: str
         description: Optional[str]
-        # This is the documentation for POST request schema for security-localapp profile parcel
-        documentation: Optional[Any]
+        metadata: Optional[Any]
+
+
+    class Payload:
+        """
+        security-localapp profile parcel schema for POST request
+        """
+
+        data: Data
+        name: str
+        description: Optional[str]
         metadata: Optional[Any]
 
 
@@ -60,8 +69,6 @@ Models
         parcel_id: Optional[str]
         parcel_type: Optional[str]
         # security-localapp profile parcel schema for POST request
-        payload: Optional[
-            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest
-        ]
+        payload: Optional[Payload]
 
 

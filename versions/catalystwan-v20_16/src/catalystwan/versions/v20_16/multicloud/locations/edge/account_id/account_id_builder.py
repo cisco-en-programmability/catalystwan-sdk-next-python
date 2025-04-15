@@ -20,9 +20,10 @@ class AccountIdBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def update_edge_locations_info(self, edge_type: EdgeTypeParam, account_id: str, **kw) -> Any:
+    def put(self, edge_type: EdgeTypeParam, account_id: str, **kw) -> Any:
         """
         Update Edge Locations
+        PUT /dataservice/multicloud/locations/edge/{edgeType}/accountId/{accountId}
 
         :param edge_type: Edge Type
         :param account_id: Edge Account Id

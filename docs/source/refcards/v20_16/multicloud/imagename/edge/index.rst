@@ -13,9 +13,7 @@ Get Edge provider supported images
 
 .. code:: python
 
-    def get_supported_edge_image_names(
-        edge_type: Optional[EdgeTypeParam] = "MEGAPORT",
-    ) -> Any: ...
+    def get(edge_type: Optional[EdgeTypeParam] = "MEGAPORT") -> Any: ...
 
 
 Example:
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.imagename.edge.get_supported_edge_image_names()
+        client.multicloud.imagename.edge.get()
 
 
 .. toctree::

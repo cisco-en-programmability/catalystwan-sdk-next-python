@@ -19,7 +19,7 @@ class DeviceChassisNumbersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_available_devices_or_by_cg_id_1(
+    def get(
         self,
         interconnect_type: InterconnectTypeParam,
         config_group_id: Optional[str] = None,
@@ -28,6 +28,7 @@ class DeviceChassisNumbersBuilder:
     ) -> List[InlineResponse2003]:
         """
         API to retrieve available devices or devices associated to a config group.
+        GET /dataservice/multicloud/interconnect/{interconnect-type}/gateways/device-chassis-numbers
 
         :param interconnect_type: Interconnect provider type
         :param config_group_id: Config Group Id

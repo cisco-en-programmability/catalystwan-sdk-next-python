@@ -19,11 +19,10 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_gateway_devices(
-        self, interconnect_type: InterconnectTypeParam, **kw
-    ) -> List[InlineResponse2003]:
+    def get(self, interconnect_type: InterconnectTypeParam, **kw) -> List[InlineResponse2003]:
         """
         API to retrieve available Interconnect Gateway devices.
+        GET /dataservice/multicloud/interconnect/{interconnect-type}/gateways/devices
 
         :param interconnect_type: Interconnect Provider Type
         :returns: List[InlineResponse2003]

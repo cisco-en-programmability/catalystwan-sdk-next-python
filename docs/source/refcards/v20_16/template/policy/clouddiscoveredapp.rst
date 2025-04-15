@@ -11,7 +11,7 @@ Get all cloud discovered applications
 
 .. code:: python
 
-    def get_cloud_discovered_apps() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.clouddiscoveredapp.get_cloud_discovered_apps()
+        client.template.policy.clouddiscoveredapp.get()
 
 
 Operation: POST /dataservice/template/policy/clouddiscoveredapp
@@ -40,7 +40,7 @@ Set SLA class for policy cloud discovered applications
 
 .. code:: python
 
-    def map_traffic_profiles(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.clouddiscoveredapp.map_traffic_profiles()
+        client.template.policy.clouddiscoveredapp.post()
 
 

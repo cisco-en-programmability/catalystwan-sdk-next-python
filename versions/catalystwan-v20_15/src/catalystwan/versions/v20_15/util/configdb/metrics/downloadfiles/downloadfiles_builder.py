@@ -14,7 +14,7 @@ class DownloadfilesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def return_metric_files(
+    def get(
         self,
         metric_name: str,
         start_date: str,
@@ -25,6 +25,7 @@ class DownloadfilesBuilder:
     ) -> str:
         """
         By passing in the appropriate metric, date, start and end time, it will return a tar file consisting of all the metric files of the respective metric within the timeframe provided
+        GET /dataservice/util/configdb/metrics/downloadfiles
 
         :param metric_name: Pass the metric name
         :param start_date: Date in yyyy-MM-dd format or any Number format. If a number is passed, that will be the number of minutes. The start/end will be translated as <current date/time – minutes passed> and <current date/time> respectively.

@@ -14,9 +14,10 @@ class VsmartBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def show_sdwan_policy_from_vsmart(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         show Sdwan Policy From Vsmart
+        GET /dataservice/device/policy/vsmart
 
         :param device_id: deviceId - Device IP
         :returns: Any

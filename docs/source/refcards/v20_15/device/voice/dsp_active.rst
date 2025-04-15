@@ -11,7 +11,7 @@ Get DSPFarm Active DSP info from device
 
 .. code:: python
 
-    def get_dsp_active(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.voice.dsp_active.get_dsp_active()
+        client.device.voice.dsp_active.get()
 
 

@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class RootcertchainsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_root_cert_chains(self, action: str, **kw) -> List[str]:
+    def get(self, action: str, **kw) -> List[str]:
         """
         get root cert chain in the system
+        GET /dataservice/certificate/rootcertchains
 
         :param action: Action Parameter to fetch root cert chains
         :returns: List[str]
@@ -32,9 +33,10 @@ class RootcertchainsBuilder:
             **kw,
         )
 
-    def save_root_cert_chain(self, payload: Optional[str] = None, **kw) -> str:
+    def put(self, payload: str, **kw) -> str:
         """
         save root cert chain in the system
+        PUT /dataservice/certificate/rootcertchains
 
         :param payload: JSON payload with RootCertChain and Certificate details.
         :returns: str

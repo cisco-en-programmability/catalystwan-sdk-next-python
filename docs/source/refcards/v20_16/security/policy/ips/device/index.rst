@@ -11,9 +11,7 @@ Get ips alert devices list
 
 .. code:: python
 
-    def get_post_ips_alert_by_query(
-        payload: Optional[Any] = None,
-    ) -> List[DeviceLists]: ...
+    def post(payload: Any) -> List[DeviceLists]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.security.policy.ips.device.get_post_ips_alert_by_query()
+        client.security.policy.ips.device.post()
 
 
 .. toctree::

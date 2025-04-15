@@ -11,7 +11,7 @@ Get cellular ipsec interface info from device
 
 .. code:: python
 
-    def get_aon_ipsec_interface_sessionnfo(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cellular_eiolte.ipsec.interface.session.get_aon_ipsec_interface_sessionnfo()
+        client.device.cellular_eiolte.ipsec.interface.session.get()
 
 

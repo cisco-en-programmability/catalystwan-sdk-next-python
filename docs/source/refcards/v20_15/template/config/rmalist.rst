@@ -11,7 +11,7 @@ Get compatible devices of model, chassis number, certificate serial number with 
 
 .. code:: python
 
-    def get_compatible_devices(old_device_id: str) -> List[Any]: ...
+    def get(old_device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.config.rmalist.get_compatible_devices()
+        client.template.config.rmalist.get()
 
 

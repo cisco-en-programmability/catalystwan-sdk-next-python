@@ -11,7 +11,7 @@ Get cellular session list from device
 
 .. code:: python
 
-    def create_sessions_list(
+    def get(
         device_id: str,
         if_name: Optional[IfNameParam] = None,
         ipv4_dns_pri: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cellular.sessions.create_sessions_list()
+        client.device.cellular.sessions.get()
 
 
 .. toctree::

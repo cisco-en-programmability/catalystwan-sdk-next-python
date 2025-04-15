@@ -14,9 +14,10 @@ class ValidvmanageidBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_valid_v_manage_id_real_time(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get valid vManage from device (Real Time)
+        GET /dataservice/device/control/validvmanageid
 
         :param device_id: deviceId - Device IP
         :returns: Any

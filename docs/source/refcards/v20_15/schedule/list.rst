@@ -11,7 +11,7 @@ Get a schedule record for backup by scheduler id
 
 .. code:: python
 
-    def list_schedules(limit: Optional[int] = 100) -> Any: ...
+    def get(limit: Optional[int] = 100) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.schedule.list.list_schedules()
+        client.schedule.list.get()
 
 

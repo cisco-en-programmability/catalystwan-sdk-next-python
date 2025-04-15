@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List
+from typing import TYPE_CHECKING, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -33,39 +33,10 @@ class PartnerBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_partners(self, **kw) -> List[PartnerRes]:
-        """
-        Get all NMS partners
-
-        :returns: List[PartnerRes]
-        """
-        return self._request_adapter.request(
-            "GET", "/dataservice/partner", return_type=List[PartnerRes], **kw
-        )
-
-    def get_partners_by_partner_type(self, partner_type: str, **kw) -> List[PartnerRes]:
-        """
-        Get NMS partners by partner type
-
-        :param partner_type: Partner type
-        :returns: List[PartnerRes]
-        """
-        params = {
-            "partnerType": partner_type,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/partner/{partnerType}",
-            return_type=List[PartnerRes],
-            params=params,
-            **kw,
-        )
-
-    def register_partner(
-        self, partner_type: str, payload: RegisterPartnerRequest, **kw
-    ) -> RegisterPartnerRes:
+    def post(self, partner_type: str, payload: RegisterPartnerRequest, **kw) -> RegisterPartnerRes:
         """
         Register NMS partner
+        POST /dataservice/partner/{partnerType}
 
         :param partner_type: Partner type
         :param payload: Partner
@@ -83,29 +54,10 @@ class PartnerBuilder:
             **kw,
         )
 
-    def get_partner(self, partner_type: str, nms_id: str, **kw) -> PartnerRes:
-        """
-        Get NMS partners by partner type and Id
-
-        :param partner_type: Partner type
-        :param nms_id: Nms id
-        :returns: PartnerRes
-        """
-        params = {
-            "partnerType": partner_type,
-            "nmsId": nms_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/partner/{partnerType}/{nmsId}",
-            return_type=PartnerRes,
-            params=params,
-            **kw,
-        )
-
-    def update_partner(self, partner_type: str, nms_id: str, payload: UpdatePartnerRequest, **kw):
+    def put(self, partner_type: str, nms_id: str, payload: UpdatePartnerRequest, **kw):
         """
         Update NMS partner details
+        PUT /dataservice/partner/{partnerType}/{nmsId}
 
         :param partner_type: Partner type
         :param nms_id: Nms id
@@ -124,9 +76,10 @@ class PartnerBuilder:
             **kw,
         )
 
-    def delete_partner(self, partner_type: str, nms_id: str, **kw) -> StatusResponse:
+    def delete(self, partner_type: str, nms_id: str, **kw) -> StatusResponse:
         """
         Delete NMS partner
+        DELETE /dataservice/partner/{partnerType}/{nmsId}
 
         :param partner_type: Partner type
         :param nms_id: Nms id
@@ -143,6 +96,74 @@ class PartnerBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(self, partner_type: str, nms_id: str, **kw) -> PartnerRes:
+        """
+        Get NMS partners by partner type and Id
+        GET /dataservice/partner/{partnerType}/{nmsId}
+
+        :param partner_type: Partner type
+        :param nms_id: Nms id
+        :returns: PartnerRes
+        """
+        ...
+
+    @overload
+    def get(self, partner_type: str, **kw) -> List[PartnerRes]:
+        """
+        Get NMS partners by partner type
+        GET /dataservice/partner/{partnerType}
+
+        :param partner_type: Partner type
+        :returns: List[PartnerRes]
+        """
+        ...
+
+    @overload
+    def get(self, **kw) -> List[PartnerRes]:
+        """
+        Get all NMS partners
+        GET /dataservice/partner
+
+        :returns: List[PartnerRes]
+        """
+        ...
+
+    def get(
+        self, partner_type: Optional[str] = None, nms_id: Optional[str] = None, **kw
+    ) -> Union[List[PartnerRes], PartnerRes]:
+        # /dataservice/partner/{partnerType}/{nmsId}
+        if self._request_adapter.param_checker([(partner_type, str), (nms_id, str)], []):
+            params = {
+                "partnerType": partner_type,
+                "nmsId": nms_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/partner/{partnerType}/{nmsId}",
+                return_type=PartnerRes,
+                params=params,
+                **kw,
+            )
+        # /dataservice/partner/{partnerType}
+        if self._request_adapter.param_checker([(partner_type, str)], [nms_id]):
+            params = {
+                "partnerType": partner_type,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/partner/{partnerType}",
+                return_type=List[PartnerRes],
+                params=params,
+                **kw,
+            )
+        # /dataservice/partner
+        if self._request_adapter.param_checker([], [partner_type, nms_id]):
+            return self._request_adapter.request(
+                "GET", "/dataservice/partner", return_type=List[PartnerRes], **kw
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def aci(self) -> AciBuilder:

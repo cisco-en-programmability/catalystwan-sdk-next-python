@@ -3,37 +3,6 @@ v1.feature_profile.mobility.global_.security_policy
 ===================================================
 
 
-Operation: GET /dataservice/v1/feature-profile/mobility/global/{profileId}/securityPolicy
------------------------------------------------------------------------------------------
-
-
-Get an Mobility SecurityPolicy Profile Parcel list for Mobility Global Feature Profile
-
-.. code:: python
-
-    def get_security_policy_profile_parcel_list_for_mobility(
-        profile_id: str,
-    ) -> str: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.mobility.global_.security_policy.get_security_policy_profile_parcel_list_for_mobility()
-
-
 Operation: POST /dataservice/v1/feature-profile/mobility/global/{profileId}/securityPolicy
 ------------------------------------------------------------------------------------------
 
@@ -42,11 +11,9 @@ Create an SecurityPolicy Profile Parcel for Mobility Global Feature Profile
 
 .. code:: python
 
-    def create_security_policy_profile_parcel_for_mobility(
+    def post(
         profile_id: str,
-        payload: Optional[
-            CreateSecurityPolicyProfileParcelForMobilityPostRequest
-        ] = None,
+        payload: CreateSecurityPolicyProfileParcelForMobilityPostRequest,
     ) -> str: ...
 
 
@@ -65,38 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.mobility.global_.security_policy.create_security_policy_profile_parcel_for_mobility()
-
-
-Operation: GET /dataservice/v1/feature-profile/mobility/global/{profileId}/securityPolicy/{securityPolicyId}
-------------------------------------------------------------------------------------------------------------
-
-
-Get an Mobility SecurityPolicy Profile Parcel for Mobility Global Feature Profile
-
-.. code:: python
-
-    def get_security_policy_profile_parcel_for_mobility(
-        profile_id: str, security_policy_id: str
-    ) -> str: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.mobility.global_.security_policy.get_security_policy_profile_parcel_for_mobility()
+        client.v1.feature_profile.mobility.global_.security_policy.post()
 
 
 Operation: PUT /dataservice/v1/feature-profile/mobility/global/{profileId}/securityPolicy/{securityPolicyId}
@@ -107,12 +43,10 @@ Edit an Security Policy Profile Parcel for Mobility Global Feature Profile
 
 .. code:: python
 
-    def edit_security_policy_profile_parcel_for_mobility(
+    def put(
         profile_id: str,
         security_policy_id: str,
-        payload: Optional[
-            CreateSecurityPolicyProfileParcelForMobilityPostRequest
-        ] = None,
+        payload: EditSecurityPolicyProfileParcelForMobilityPutRequest,
     ) -> None: ...
 
 
@@ -131,7 +65,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.mobility.global_.security_policy.edit_security_policy_profile_parcel_for_mobility()
+        client.v1.feature_profile.mobility.global_.security_policy.put()
 
 
 Operation: DELETE /dataservice/v1/feature-profile/mobility/global/{profileId}/securityPolicy/{securityPolicyId}
@@ -142,9 +76,7 @@ Delete a Security Policy Profile Parcel for Mobility Global Feature Profile
 
 .. code:: python
 
-    def delete_security_policy_profile_parcel_for_mobility(
-        profile_id: str, security_policy_id: str
-    ) -> None: ...
+    def delete(profile_id: str, security_policy_id: str) -> None: ...
 
 
 Example:
@@ -162,7 +94,67 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.mobility.global_.security_policy.delete_security_policy_profile_parcel_for_mobility()
+        client.v1.feature_profile.mobility.global_.security_policy.delete()
+
+
+Operation: GET /dataservice/v1/feature-profile/mobility/global/{profileId}/securityPolicy
+-----------------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        profile_id: str,
+    ) -> GetListMobilityGlobalSecuritypolicyPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.mobility.global_.security_policy.get()
+
+
+Operation: GET /dataservice/v1/feature-profile/mobility/global/{profileId}/securityPolicy/{securityPolicyId}
+------------------------------------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        profile_id: str, security_policy_id: str
+    ) -> GetSingleMobilityGlobalSecuritypolicyPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.mobility.global_.security_policy.get()
 
 
 .. toctree::

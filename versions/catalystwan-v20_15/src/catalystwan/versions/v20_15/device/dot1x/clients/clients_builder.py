@@ -14,9 +14,10 @@ class ClientsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_wlandot1x_clients(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get DOT1x client from device (Real Time)
+        GET /dataservice/device/dot1x/clients
 
         :param device_id: deviceId - Device IP
         :returns: Any

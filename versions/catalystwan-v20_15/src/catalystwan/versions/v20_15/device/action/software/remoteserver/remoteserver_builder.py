@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class RemoteserverBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_image_remote_server(self, version_id: str, **kw) -> Any:
+    def get(self, version_id: str, **kw) -> Any:
         """
         Get Image Remote Server Details
+        GET /dataservice/device/action/software/remoteserver/{versionId}
 
         :param version_id: Version
         :returns: Any
@@ -31,9 +32,10 @@ class RemoteserverBuilder:
             **kw,
         )
 
-    def edit_image_remote_server(self, version_id: str, payload: Optional[Any] = None, **kw):
+    def put(self, version_id: str, payload: Any, **kw):
         """
         Update Image Remote Server Details
+        PUT /dataservice/device/action/software/remoteserver/{versionId}
 
         :param version_id: Image ID
         :param payload: Update image remote server details

@@ -87,7 +87,85 @@ Models
         country_region_settings: Optional[CountryRegionSettings]
 
 
+    class Wifi:
+        # Name of the Profile Parcel. Must be unique.
+        name: str
+        type_: Type
+        advanced_radio_setting: Optional[AdvancedRadioSetting]
+        corporate_wifi: Optional[CorporateWifi]
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # Description of the Profile Parcel.
+        description: Optional[str]
+        guest_wifi: Optional[GuestWifi]
+        # System generated unique identifier of the Profile Parcel in UUID format.
+        id: Optional[str]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        ssid_config_list: Optional[List[SsidConfig]]
+        variables: Optional[List[Variable]]
+
+
+    class Data:
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        parcel_id: Optional[str]
+        parcel_type: Optional[str]
+        payload: Optional[Wifi]
+
+
+    class GetListMobilityGlobalWifiPayload:
+        data: Optional[List[Data]]
+
+
     class CreateWifiProfileParcelForMobilityPostRequest:
+        # Name of the Profile Parcel. Must be unique.
+        name: str
+        type_: Type
+        advanced_radio_setting: Optional[AdvancedRadioSetting]
+        corporate_wifi: Optional[CorporateWifi]
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # Description of the Profile Parcel.
+        description: Optional[str]
+        guest_wifi: Optional[GuestWifi]
+        # System generated unique identifier of the Profile Parcel in UUID format.
+        id: Optional[str]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        ssid_config_list: Optional[List[SsidConfig]]
+        variables: Optional[List[Variable]]
+
+
+    class GetSingleMobilityGlobalWifiPayload:
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        parcel_id: Optional[str]
+        parcel_type: Optional[str]
+        payload: Optional[Wifi]
+
+
+    class EditWifiProfileParcelForMobilityPutRequest:
         # Name of the Profile Parcel. Must be unique.
         name: str
         type_: Type

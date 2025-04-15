@@ -14,9 +14,10 @@ class WanrgBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_wan_resource_groups(self, accountid: str, **kw) -> Any:
+    def get(self, accountid: str, **kw) -> Any:
         """
         Get WAN Resource Groups
+        GET /dataservice/template/cortex/wanrg
 
         :param accountid: Account Id
         :returns: Any
@@ -28,9 +29,10 @@ class WanrgBuilder:
             "GET", "/dataservice/template/cortex/wanrg", params=params, **kw
         )
 
-    def edit_wan_resource_groups(self, payload: Optional[Any] = None, **kw):
+    def put(self, payload: Any, **kw):
         """
         Edit WAN Resource Groups
+        PUT /dataservice/template/cortex/wanrg
 
         :param payload: WAN resource group
         :returns: None
@@ -39,9 +41,10 @@ class WanrgBuilder:
             "PUT", "/dataservice/template/cortex/wanrg", payload=payload, **kw
         )
 
-    def save_wan_resource_groups(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create WAN Resource Groups
+        POST /dataservice/template/cortex/wanrg
 
         :param payload: WAN resource group
         :returns: Any
@@ -50,9 +53,10 @@ class WanrgBuilder:
             "POST", "/dataservice/template/cortex/wanrg", payload=payload, **kw
         )
 
-    def delete_wan_resource_groups(self, payload: Optional[Any] = None, **kw) -> Any:
+    def delete(self, payload: Optional[Any] = None, **kw) -> Any:
         """
         Delete WAN Resource Groups
+        DELETE /dataservice/template/cortex/wanrg
 
         :param payload: WAN resource group
         :returns: Any

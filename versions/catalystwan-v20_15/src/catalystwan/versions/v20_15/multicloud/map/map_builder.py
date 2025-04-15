@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Optional
+from typing import TYPE_CHECKING, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -26,9 +26,10 @@ class MapBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_mapping_matrix(self, cloud_type: CloudTypeParam, **kw) -> List[GetMapResponse]:
+    def get(self, cloud_type: CloudTypeParam, **kw) -> List[GetMapResponse]:
         """
         Get Mapping details for cloudType
+        GET /dataservice/multicloud/map
 
         :param cloud_type: Cloud type
         :returns: List[GetMapResponse]
@@ -44,9 +45,10 @@ class MapBuilder:
             **kw,
         )
 
-    def process_mapping(self, payload: Optional[PostMapRequest] = None, **kw) -> Taskid:
+    def post(self, payload: PostMapRequest, **kw) -> Taskid:
         """
         Enable Mapping for cloudType
+        POST /dataservice/multicloud/map
 
         :param payload: Payloads for enable mapping
         :returns: Taskid

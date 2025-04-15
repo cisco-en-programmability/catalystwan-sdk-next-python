@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,9 +15,10 @@ class CreateResourcePoolBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_resource_pool(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Add resource pool
+        POST /dataservice/template/cor/createResourcePool
 
         :param payload: Add resource pool request
         :returns: None

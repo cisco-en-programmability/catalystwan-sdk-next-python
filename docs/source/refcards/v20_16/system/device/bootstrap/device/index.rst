@@ -11,7 +11,7 @@ Create vEdge device config
 
 .. code:: python
 
-    def generate_bootstrap_config_for_vedge(
+    def get(
         uuid: str,
         configtype: str,
         incl_def_root_cert: bool,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.bootstrap.device.generate_bootstrap_config_for_vedge()
+        client.system.device.bootstrap.device.get()
 
 
 .. toctree::

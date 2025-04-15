@@ -11,7 +11,7 @@ Get SFP diagnostic measurement value
 
 .. code:: python
 
-    def get_diagnostic_measurement_value(
+    def get(
         device_id: str, ifname: Optional[IfnameParam] = None
     ) -> Any: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.sfp.diagnostic_measurement_value.get_diagnostic_measurement_value()
+        client.device.sfp.diagnostic_measurement_value.get()
 
 
 .. toctree::

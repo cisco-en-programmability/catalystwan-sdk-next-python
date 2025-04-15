@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional
+from typing import TYPE_CHECKING, Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -25,9 +25,10 @@ class UserBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def find_users_1(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get all users
+        GET /dataservice/admin/user
 
         :returns: List[Any]
         """
@@ -35,9 +36,10 @@ class UserBuilder:
             "GET", "/dataservice/admin/user", return_type=List[Any], **kw
         )
 
-    def create_user_1(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Create a user
+        POST /dataservice/admin/user
 
         :param payload: User
         :returns: None
@@ -46,9 +48,10 @@ class UserBuilder:
             "POST", "/dataservice/admin/user", payload=payload, **kw
         )
 
-    def update_user_1(self, user_name: str, payload: Optional[Any] = None, **kw):
+    def put(self, user_name: str, payload: Any, **kw):
         """
         Update user
+        PUT /dataservice/admin/user/{userName}
 
         :param user_name: User name
         :param payload: User
@@ -61,9 +64,10 @@ class UserBuilder:
             "PUT", "/dataservice/admin/user/{userName}", params=params, payload=payload, **kw
         )
 
-    def delete_user_1(self, user_name: str, **kw):
+    def delete(self, user_name: str, **kw):
         """
         Delete user
+        DELETE /dataservice/admin/user/{userName}
 
         :param user_name: User name
         :returns: None

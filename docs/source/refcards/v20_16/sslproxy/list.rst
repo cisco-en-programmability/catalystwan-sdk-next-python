@@ -11,7 +11,7 @@ Get SSL proxy certificate list
 
 .. code:: python
 
-    def get_ssl_proxy_list() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.list.get_ssl_proxy_list()
+        client.sslproxy.list.get()
 
 

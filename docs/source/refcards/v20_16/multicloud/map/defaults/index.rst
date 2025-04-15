@@ -11,9 +11,7 @@ Get default mapping values
 
 .. code:: python
 
-    def get_default_mapping_values(
-        cloud_type: CloudTypeParam,
-    ) -> List[MapDefaults]: ...
+    def get(cloud_type: CloudTypeParam) -> List[MapDefaults]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.map.defaults.get_default_mapping_values()
+        client.multicloud.map.defaults.get()
 
 
 .. toctree::

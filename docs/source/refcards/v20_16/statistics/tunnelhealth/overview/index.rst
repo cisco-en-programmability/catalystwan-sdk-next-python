@@ -11,7 +11,7 @@ Get all tunnel health overview
 
 .. code:: python
 
-    def statistics_approute_tunnelhealth_overview_type_get(
+    def get(
         type_: str,
         last_n_hours: Optional[int] = 12,
         site: Optional[str] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.tunnelhealth.overview.statistics_approute_tunnelhealth_overview_type_get()
+        client.statistics.tunnelhealth.overview.get()
 
 
 .. toctree::

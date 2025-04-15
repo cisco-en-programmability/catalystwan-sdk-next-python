@@ -15,9 +15,10 @@ class EdgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_edge_gateways(self, edge_type: str, **kw) -> Any:
+    def get(self, edge_type: str, **kw) -> Any:
         """
         Get sites with connectivity to the interconnect gateways by edge type
+        GET /dataservice/multicloud/gateways/edge/{edgeType}
 
         :param edge_type: Edge type
         :returns: Any

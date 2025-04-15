@@ -13,7 +13,7 @@ Get cloud devices by cloud type
 
 .. code:: python
 
-    def get_cloud_devices_1(
+    def get(
         edge_type: str, edge_gateway_name: Optional[str] = None
     ) -> Any: ...
 
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.devices.edge.get_cloud_devices_1()
+        client.multicloud.devices.edge.get()
 
 

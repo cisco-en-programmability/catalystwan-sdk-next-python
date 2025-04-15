@@ -11,7 +11,7 @@ Update Package Metadata
 
 .. code:: python
 
-    def get_image_metadata(version_id: str) -> Any: ...
+    def get(version_id: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.package.metadata.get_image_metadata()
+        client.device.action.software.package.metadata.get()
 
 
 Operation: PUT /dataservice/device/action/software/package/{versionId}/metadata
@@ -40,9 +40,7 @@ Update Package Metadata
 
 .. code:: python
 
-    def edit_image_metadata(
-        version_id: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def put(version_id: str, payload: Any) -> None: ...
 
 
 Example:
@@ -60,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.package.metadata.edit_image_metadata()
+        client.device.action.software.package.metadata.put()
 
 

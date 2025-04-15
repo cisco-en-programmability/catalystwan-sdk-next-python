@@ -22,11 +22,10 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_group_devices_for_map(
-        self, group_id: Optional[str] = None, vpn_id: Optional[List[Vpnid]] = None, **kw
-    ):
+    def get(self, group_id: Optional[str] = None, vpn_id: Optional[List[Vpnid]] = None, **kw):
         """
         Retrieve group devices for map
+        GET /dataservice/group/map/devices
 
         :param group_id: groupId
         :param vpn_id: Vpn id

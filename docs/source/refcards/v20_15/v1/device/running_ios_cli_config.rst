@@ -11,7 +11,7 @@ Get Running iOS CLI Config for device
 
 .. code:: python
 
-    def get_running_ios_cli_config(device_uuid: str) -> str: ...
+    def get(device_uuid: str) -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.device.running_ios_cli_config.get_running_ios_cli_config()
+        client.v1.device.running_ios_cli_config.get()
 
 

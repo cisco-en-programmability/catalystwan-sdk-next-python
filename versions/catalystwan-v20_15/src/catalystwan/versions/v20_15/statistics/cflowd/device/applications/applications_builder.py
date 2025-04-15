@@ -15,9 +15,10 @@ class ApplicationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_flow_device_data(self, query: Optional[str] = None, **kw) -> Any:
+    def get(self, query: Optional[str] = None, **kw) -> Any:
         """
         Generate cflowd flows list in a grid table
+        GET /dataservice/statistics/cflowd/device/applications
 
         :param query: Query
         :returns: Any

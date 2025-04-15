@@ -14,12 +14,13 @@ class AsyncBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_tenant_async_bulk(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create multiple tenants on vManage asynchronously
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        POST /dataservice/tenant/bulk/async
 
         :param payload: Tenant model
         :returns: Any
@@ -28,12 +29,13 @@ class AsyncBuilder:
             "POST", "/dataservice/tenant/bulk/async", payload=payload, **kw
         )
 
-    def delete_tenant_async_bulk(self, payload: Optional[Any] = None, **kw) -> Any:
+    def delete(self, payload: Optional[Any] = None, **kw) -> Any:
         """
         Delete multiple tenants on vManage asynchronously
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        DELETE /dataservice/tenant/bulk/async
 
         :param payload: Tenant model
         :returns: Any

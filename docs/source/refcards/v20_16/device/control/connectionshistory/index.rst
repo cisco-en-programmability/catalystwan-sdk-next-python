@@ -11,7 +11,7 @@ Get connections history list from device (Real Time)
 
 .. code:: python
 
-    def create_connection_history_list_real_time(
+    def get(
         device_id: str,
         peer_type: Optional[PeerTypeParam] = None,
         system_ip: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.control.connectionshistory.create_connection_history_list_real_time()
+        client.device.control.connectionshistory.get()
 
 
 .. toctree::

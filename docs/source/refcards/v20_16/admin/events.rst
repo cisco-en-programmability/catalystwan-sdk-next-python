@@ -9,7 +9,7 @@ Operation: GET /dataservice/admin/events/{sseSessionId}
 
 .. code:: python
 
-    def listen_auth_events(sse_session_id: str) -> None: ...
+    def get(sse_session_id: str) -> None: ...
 
 
 Example:
@@ -27,6 +27,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.events.listen_auth_events()
+        client.admin.events.get()
 
 

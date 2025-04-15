@@ -11,9 +11,7 @@ TEMP-Insert webex data center details manually for test setup
 
 .. code:: python
 
-    def get_webex_data_centers(
-        payload: Optional[WebexDataCenter] = None,
-    ) -> bool: ...
+    def post(payload: WebexDataCenter) -> bool: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.webex.datacenter.get_webex_data_centers()
+        client.webex.datacenter.post()
 
 
 Operation: DELETE /dataservice/webex/datacenter
@@ -42,7 +40,7 @@ Delete webex data center data in DB
 
 .. code:: python
 
-    def delete_webex_data_centers() -> bool: ...
+    def delete() -> bool: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.webex.datacenter.delete_webex_data_centers()
+        client.webex.datacenter.delete()
 
 
 .. toctree::

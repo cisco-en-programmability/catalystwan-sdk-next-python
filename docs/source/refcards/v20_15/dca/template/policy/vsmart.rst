@@ -11,9 +11,7 @@ Get vSmart template list
 
 .. code:: python
 
-    def get_vsmart_template_list_dca(
-        payload: Optional[Any] = None,
-    ) -> List[Any]: ...
+    def post(payload: Any) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.template.policy.vsmart.get_vsmart_template_list_dca()
+        client.dca.template.policy.vsmart.post()
 
 

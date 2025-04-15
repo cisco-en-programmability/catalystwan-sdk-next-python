@@ -17,9 +17,10 @@ class AppGroupBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_redundancy_group_app_group(self, device_id: DeviceIp, **kw):
+    def get(self, device_id: DeviceIp, **kw):
         """
         Get Redundancy Group Information
+        GET /dataservice/device/redundancy-group/app-group
 
         :param device_id: Device id
         :returns: None

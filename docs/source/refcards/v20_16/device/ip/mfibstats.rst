@@ -11,7 +11,7 @@ Get IP MFIB statistics list from device (Real Time)
 
 .. code:: python
 
-    def create_ip_mfib_stats_list(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ip.mfibstats.create_ip_mfib_stats_list()
+        client.device.ip.mfibstats.get()
 
 

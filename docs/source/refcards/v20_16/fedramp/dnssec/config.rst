@@ -11,7 +11,7 @@ Configure DNS-Sec
 
 .. code:: python
 
-    def configure_dns_sec(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.fedramp.dnssec.config.configure_dns_sec()
+        client.fedramp.dnssec.config.post()
 
 

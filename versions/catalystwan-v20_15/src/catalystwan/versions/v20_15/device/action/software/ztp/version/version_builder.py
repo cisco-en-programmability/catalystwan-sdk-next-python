@@ -14,9 +14,10 @@ class VersionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def find_ztp_software_version(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get ZTP software version
+        GET /dataservice/device/action/software/ztp/version
 
         :returns: Any
         """

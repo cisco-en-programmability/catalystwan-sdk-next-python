@@ -11,7 +11,7 @@ gets current on-demand queue entries
 
 .. code:: python
 
-    def get_queue_entries() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.on_demand.queue.get_queue_entries()
+        client.statistics.on_demand.queue.get()
 
 
 Operation: POST /dataservice/statistics/on-demand/queue
@@ -40,7 +40,7 @@ Create on-demand troubleshooting queue entry
 
 .. code:: python
 
-    def create_queue_entry(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.on_demand.queue.create_queue_entry()
+        client.statistics.on_demand.queue.post()
 
 
 Operation: PUT /dataservice/statistics/on-demand/queue/{entryId}
@@ -69,9 +69,7 @@ Updates on-demand troubleshooting queue entry
 
 .. code:: python
 
-    def update_queue_entry(
-        entry_id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(entry_id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -89,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.on_demand.queue.update_queue_entry()
+        client.statistics.on_demand.queue.put()
 
 
 Operation: DELETE /dataservice/statistics/on-demand/queue/{entryId}
@@ -100,7 +98,7 @@ removes on-demand queue entry
 
 .. code:: python
 
-    def delete_queue_entry(entry_id: str) -> None: ...
+    def delete(entry_id: str) -> None: ...
 
 
 Example:
@@ -118,7 +116,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.on_demand.queue.delete_queue_entry()
+        client.statistics.on_demand.queue.delete()
 
 
 .. toctree::

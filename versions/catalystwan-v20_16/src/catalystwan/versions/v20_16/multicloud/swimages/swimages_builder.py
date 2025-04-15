@@ -19,7 +19,7 @@ class SwimagesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_supported_software_image_list(
+    def get(
         self,
         cloud_type: CloudTypeParam,
         account_id: Optional[str] = None,
@@ -28,6 +28,7 @@ class SwimagesBuilder:
     ) -> List[SwImagesResponse]:
         """
         Get software image list
+        GET /dataservice/multicloud/swimages
 
         :param cloud_type: Cloud type
         :param account_id: Account id

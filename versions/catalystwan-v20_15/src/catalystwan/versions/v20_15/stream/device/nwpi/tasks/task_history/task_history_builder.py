@@ -17,9 +17,10 @@ class TaskHistoryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_task_history(self, **kw) -> TaskHistoryResponsePayload:
+    def get(self, **kw) -> TaskHistoryResponsePayload:
         """
         Get all the auto on tasks
+        GET /dataservice/stream/device/nwpi/tasks/taskHistory
 
         :returns: TaskHistoryResponsePayload
         """

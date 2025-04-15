@@ -11,9 +11,7 @@ copy admin tech logs
 
 .. code:: python
 
-    def copy_admin_tech_on_device(
-        payload: Optional[AdminTechReq] = None,
-    ) -> None: ...
+    def post(payload: AdminTechReq) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.admintech.copy.copy_admin_tech_on_device()
+        client.device.tools.admintech.copy.post()
 
 
 .. toctree::

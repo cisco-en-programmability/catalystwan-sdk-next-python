@@ -11,7 +11,7 @@ Retrieve banner
 
 .. code:: python
 
-    def get_banner() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.banner.get_banner()
+        client.settings.banner.get()
 
 

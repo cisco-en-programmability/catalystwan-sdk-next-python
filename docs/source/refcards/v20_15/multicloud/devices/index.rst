@@ -11,7 +11,7 @@ Get cloud devices by cloud type
 
 .. code:: python
 
-    def get_cloud_devices(
+    def get(
         cloud_type: CloudTypeParam,
         cloud_gateway_name: Optional[str] = None,
     ) -> DeviceInfoExtendedResponse: ...
@@ -32,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.devices.get_cloud_devices()
+        client.multicloud.devices.get()
 
 
 .. toctree::

@@ -14,9 +14,10 @@ class GroupsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_igmp_groups_list(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get IGMP neighbor list from device
+        GET /dataservice/device/igmp/groups
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

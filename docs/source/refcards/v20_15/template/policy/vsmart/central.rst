@@ -11,9 +11,7 @@ Edit template for given policy id to allow for multiple component edits
 
 .. code:: python
 
-    def edit_template_without_lock_checks(
-        policy_id: str, payload: Optional[Any] = None
-    ) -> List[Any]: ...
+    def put(policy_id: str, payload: Any) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.vsmart.central.edit_template_without_lock_checks()
+        client.template.policy.vsmart.central.put()
 
 

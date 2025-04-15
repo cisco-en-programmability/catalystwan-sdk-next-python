@@ -11,9 +11,9 @@ Get all SD-Routing Feature Profiles
 
 .. code:: python
 
-    def get_sdrouting_feature_profiles(
+    def get(
         offset: Optional[int] = None, limit: Optional[int] = 0
-    ) -> Any: ...
+    ) -> List[GetSdroutingFeatureProfilesGetResponse]: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sd_routing.get_sdrouting_feature_profiles()
+        client.v1.feature_profile.sd_routing.get()
 
 
 .. toctree::
@@ -44,4 +44,5 @@ Example:
     sse/index
     system/index
     transport/index
+    models
 

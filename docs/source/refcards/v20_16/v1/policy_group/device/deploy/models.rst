@@ -27,7 +27,5 @@ Models
 
         # list of device ids that policy group need to be deployed
         devices: Optional[List[DeviceIdDef]]
-        # This is the documentation for DEPLOY API request schema for policy group.
-        documentation: Optional[Any]
 
 

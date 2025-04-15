@@ -11,7 +11,7 @@ API to retrieve current Multicloud Interconnect topology for the Config Group.
 
 .. code:: python
 
-    def get_interconnect_config_group_topology(
+    def get(
         interconnect_type: str, config_group_id: str
     ) -> InlineResponse20013: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.config_group.topology.get_interconnect_config_group_topology()
+        client.multicloud.interconnect.config_group.topology.get()
 
 
 Operation: PUT /dataservice/multicloud/interconnect/{interconnect-type}/config-group/{config-group-id}/topology
@@ -42,7 +42,7 @@ API to update current Multicloud Interconnect topology for the Config Group.
 
 .. code:: python
 
-    def update_interconnect_config_group_topology(
+    def put(
         interconnect_type: str, config_group_id: str
     ) -> InlineResponse20013: ...
 
@@ -62,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.config_group.topology.update_interconnect_config_group_topology()
+        client.multicloud.interconnect.config_group.topology.put()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Get CloudX feature list
 
 .. code:: python
 
-    def get_cloud_x_status() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cloudx.get_cloud_x_status()
+        client.template.cloudx.get()
 
 
 .. toctree::

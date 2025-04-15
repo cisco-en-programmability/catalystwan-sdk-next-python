@@ -17,9 +17,10 @@ class RedirectBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def redirect_webex_data_centers(self, code: str, **kw) -> RedirectCodeResponse:
+    def get(self, code: str, **kw) -> RedirectCodeResponse:
         """
         Redirect Info
+        GET /dataservice/webex/redirect
 
         :param code: code
         :returns: RedirectCodeResponse

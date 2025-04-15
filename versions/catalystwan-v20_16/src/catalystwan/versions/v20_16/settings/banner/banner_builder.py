@@ -14,9 +14,10 @@ class BannerBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_banner(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Retrieve banner
+        GET /dataservice/settings/banner
 
         :returns: Any
         """

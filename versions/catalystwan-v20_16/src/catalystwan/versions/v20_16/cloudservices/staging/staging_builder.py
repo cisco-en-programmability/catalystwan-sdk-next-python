@@ -14,9 +14,10 @@ class StagingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def is_staging(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Check if testbed or production
+        GET /dataservice/cloudservices/staging
 
         :returns: Any
         """

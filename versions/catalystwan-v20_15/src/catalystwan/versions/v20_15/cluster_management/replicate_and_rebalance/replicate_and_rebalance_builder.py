@@ -14,12 +14,13 @@ class ReplicateAndRebalanceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def perform_replication_and_rebalance_of_kafka_partitions(self, **kw) -> Any:
+    def put(self, **kw) -> Any:
         """
         Initiate replication and rebalance of kafka topics
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        PUT /dataservice/clusterManagement/replicateAndRebalance
 
         :returns: Any
         """

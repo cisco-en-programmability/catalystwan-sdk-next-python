@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional
+from typing import Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class MdpconfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def add_internal_policy(self, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, payload: Any, **kw) -> Any:
         """
         Add internal policy from vmanage
+        PUT /dataservice/mdp/policies/mdpconfig
 
         :param payload: addInternalPolicy
         :returns: Any
@@ -25,9 +26,10 @@ class MdpconfigBuilder:
             "PUT", "/dataservice/mdp/policies/mdpconfig", payload=payload, **kw
         )
 
-    def retrieve_mdp_config_object(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Retrieve MDP ConfigObject
+        GET /dataservice/mdp/policies/mdpconfig/{deviceId}
 
         :param device_id: Device id
         :returns: List[Any]

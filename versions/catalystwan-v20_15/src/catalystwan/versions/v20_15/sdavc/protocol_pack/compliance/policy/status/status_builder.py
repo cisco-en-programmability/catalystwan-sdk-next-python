@@ -12,9 +12,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_policy_compliance_status(self, uuid: str, **kw):
+    def get(self, uuid: str, **kw):
         """
         Get policy compliance status
+        GET /dataservice/sdavc/protocol-pack/compliance/policy/status/{uuid}
 
         :param uuid: Uuid
         :returns: None

@@ -14,9 +14,10 @@ class InterfacestatisticsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_nat_interface_statistics_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get NAT interface statistics list from device
+        GET /dataservice/device/ip/nat/interfacestatistics
 
         :param device_id: deviceId - Device IP
         :returns: Any

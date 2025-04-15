@@ -17,9 +17,10 @@ class MapBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_partner_devices(self, partner_type: str, nms_id: str, **kw) -> PartnerDevicesRes:
+    def get(self, partner_type: str, nms_id: str, **kw) -> PartnerDevicesRes:
         """
         List mapped devices for the partner
+        GET /dataservice/partner/{partnerType}/map/{nmsId}
 
         :param partner_type: Partner type
         :param nms_id: Nms id
@@ -37,11 +38,12 @@ class MapBuilder:
             **kw,
         )
 
-    def map_devices(
+    def post(
         self, partner_type: str, nms_id: str, payload: MapDevicesRequest, **kw
     ) -> StatusResponse:
         """
         Map devices for the partner
+        POST /dataservice/partner/{partnerType}/map/{nmsId}
 
         :param partner_type: Partner type
         :param nms_id: Nms id
@@ -61,9 +63,10 @@ class MapBuilder:
             **kw,
         )
 
-    def unmap_devices(self, partner_type: str, nms_id: str, **kw) -> StatusResponse:
+    def delete(self, partner_type: str, nms_id: str, **kw) -> StatusResponse:
         """
         Unmap all devices for the partner
+        DELETE /dataservice/partner/{partnerType}/map/{nmsId}
 
         :param partner_type: Partner type
         :param nms_id: Nms id

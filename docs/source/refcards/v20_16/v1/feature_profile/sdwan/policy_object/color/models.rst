@@ -60,8 +60,17 @@ Models
 
         data: Data
         description: Optional[str]
-        # This is the documentation for POST request schema for color profile parcel
-        documentation: Optional[Any]
+        metadata: Optional[Any]
+        name: Optional[str]
+
+
+    class Payload:
+        """
+        color profile parcel schema for POST request
+        """
+
+        data: Data
+        description: Optional[str]
         metadata: Optional[Any]
         name: Optional[str]
 
@@ -74,8 +83,6 @@ Models
         parcel_id: Optional[str]
         parcel_type: Optional[str]
         # color profile parcel schema for POST request
-        payload: Optional[
-            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest
-        ]
+        payload: Optional[Payload]
 
 

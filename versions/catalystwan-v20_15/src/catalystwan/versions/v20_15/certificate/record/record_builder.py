@@ -14,11 +14,12 @@ class RecordBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_certificate_data(
+    def get(
         self, request_id: Optional[str] = None, data_object: Optional[str] = None, **kw
     ) -> List[str]:
         """
         get device certificate data
+        GET /dataservice/certificate/record
 
         :param request_id: Request ID parameter
         :param data_object: Device property as DataObject parameter

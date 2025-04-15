@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,9 +15,10 @@ class ValidateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def validate_password_1(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Validate user password
+        POST /dataservice/admin/user/password/validate
 
         :param payload: User password
         :returns: None

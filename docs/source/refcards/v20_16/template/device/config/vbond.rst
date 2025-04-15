@@ -11,7 +11,7 @@ Check if vBond is configured<br><br><br>Note: In a multitenant vManage system, t
 
 .. code:: python
 
-    def check_vbond() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.vbond.check_vbond()
+        client.template.device.config.vbond.get()
 
 

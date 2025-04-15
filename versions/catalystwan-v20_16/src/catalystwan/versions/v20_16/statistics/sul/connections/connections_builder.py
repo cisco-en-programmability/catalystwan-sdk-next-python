@@ -24,7 +24,7 @@ class ConnectionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sul_stat_data_raw_data(
+    def get(
         self,
         query: Optional[str] = None,
         page: Optional[int] = None,
@@ -35,6 +35,7 @@ class ConnectionsBuilder:
     ) -> Any:
         """
         Get security connection events stats raw data
+        GET /dataservice/statistics/sul/connections
 
         :param query: Query string
         :param page: page number
@@ -54,9 +55,9 @@ class ConnectionsBuilder:
             "GET", "/dataservice/statistics/sul/connections", params=params, **kw
         )
 
-    def get_stats_raw_data_16(
+    def post(
         self,
-        payload: Optional[Any] = None,
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -65,6 +66,7 @@ class ConnectionsBuilder:
     ) -> Any:
         """
         Get stats raw data
+        POST /dataservice/statistics/sul/connections
 
         :param page: page number
         :param page_size: page size

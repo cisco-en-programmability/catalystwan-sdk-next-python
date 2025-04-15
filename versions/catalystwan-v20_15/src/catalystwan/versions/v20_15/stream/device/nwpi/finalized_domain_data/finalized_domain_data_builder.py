@@ -20,11 +20,12 @@ class FinalizedDomainDataBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_finalized_domain_data(
+    def get(
         self, trace_id: int, timestamp: int, query: Optional[str] = None, **kw
     ) -> List[FinalizedDomainDataResponsePayloadInner]:
         """
         Get Domain data for NWPI.
+        GET /dataservice/stream/device/nwpi/finalizedDomainData
 
         :param trace_id: Trace id
         :param timestamp: Timestamp

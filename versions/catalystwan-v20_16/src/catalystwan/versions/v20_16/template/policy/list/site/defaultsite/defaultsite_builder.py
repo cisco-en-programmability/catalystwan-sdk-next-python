@@ -14,9 +14,10 @@ class DefaultsiteBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_default_site_list(self, **kw) -> Any:
+    def post(self, **kw) -> Any:
         """
         Create default site list for sites missing from centralized policy
+        POST /dataservice/template/policy/list/site/defaultsite
 
         :returns: Any
         """

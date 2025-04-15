@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,9 +15,10 @@ class CloudxBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloudx_configuration(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Retrieve cloudx configuration value
+        GET /dataservice/settings/configuration/cloudx
 
         :returns: Any
         """
@@ -26,9 +27,10 @@ class CloudxBuilder:
             "GET", "/dataservice/settings/configuration/cloudx", **kw
         )
 
-    def edit_cloudx_configuration(self, payload: Optional[str] = None, **kw) -> Any:
+    def put(self, payload: str, **kw) -> Any:
         """
         Update cloudx configuration setting
+        PUT /dataservice/settings/configuration/cloudx
 
         :param payload: Payload
         :returns: Any
@@ -38,9 +40,10 @@ class CloudxBuilder:
             "PUT", "/dataservice/settings/configuration/cloudx", payload=payload, **kw
         )
 
-    def new_cloudx_configuration(self, payload: Optional[str] = None, **kw) -> str:
+    def post(self, payload: str, **kw) -> str:
         """
         Add new cloudx configuration
+        POST /dataservice/settings/configuration/cloudx
 
         :param payload: Payload
         :returns: str

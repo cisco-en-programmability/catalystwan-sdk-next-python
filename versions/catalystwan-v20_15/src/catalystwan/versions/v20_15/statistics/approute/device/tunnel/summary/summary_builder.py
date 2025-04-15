@@ -19,11 +19,10 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stats_app_route_device_tunnel_summary(
-        self, query: Optional[str] = None, **kw
-    ) -> List[AppRouteTunnenSummarResp]:
+    def get(self, query: Optional[str] = None, **kw) -> List[AppRouteTunnenSummarResp]:
         """
         Get statistics for top applications per tunnel in a grid table
+        GET /dataservice/statistics/approute/device/tunnel/summary
 
         :param query: Query filter
         :returns: List[AppRouteTunnenSummarResp]

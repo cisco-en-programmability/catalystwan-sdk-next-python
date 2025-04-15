@@ -14,9 +14,10 @@ class ActionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def request_wazuh_actions(self, action: Optional[str] = None, **kw) -> List[Any]:
+    def get(self, action: Optional[str] = None, **kw) -> List[Any]:
         """
         Wazuh agent action
+        GET /dataservice/fedramp/wazuh/actions
 
         :param action: Wazhuh Action
         :returns: List[Any]

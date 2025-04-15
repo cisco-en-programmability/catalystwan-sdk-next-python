@@ -11,7 +11,7 @@ get device list
 
 .. code:: python
 
-    def get_devices_list() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.device.list.get_devices_list()
+        client.certificate.device.list.get()
 
 

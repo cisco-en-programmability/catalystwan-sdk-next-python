@@ -11,7 +11,7 @@ Get TCP optimized expired flows from device (Real Time)
 
 .. code:: python
 
-    def get_expired_tcp_flows(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tcpopt.expiredflows.get_expired_tcp_flows()
+        client.device.tcpopt.expiredflows.get()
 
 

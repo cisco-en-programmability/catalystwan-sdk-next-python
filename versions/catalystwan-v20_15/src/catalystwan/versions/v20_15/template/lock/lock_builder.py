@@ -12,9 +12,10 @@ class LockBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def update_lease_time(self, process_id: str, **kw):
+    def put(self, process_id: str, **kw):
         """
         Update lease
+        PUT /dataservice/template/lock/{processId}
 
         :param process_id: Process Id
         :returns: None
@@ -26,9 +27,10 @@ class LockBuilder:
             "PUT", "/dataservice/template/lock/{processId}", params=params, **kw
         )
 
-    def remove_lock(self, process_id: str, **kw):
+    def delete(self, process_id: str, **kw):
         """
         Remove lock
+        DELETE /dataservice/template/lock/{processId}
 
         :param process_id: Process Id
         :returns: None

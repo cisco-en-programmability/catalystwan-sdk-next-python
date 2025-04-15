@@ -11,7 +11,7 @@ Get EIGRP route from device (Real Time)
 
 .. code:: python
 
-    def create_eigrp_route(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.eigrp.route.create_eigrp_route()
+        client.device.eigrp.route.get()
 
 

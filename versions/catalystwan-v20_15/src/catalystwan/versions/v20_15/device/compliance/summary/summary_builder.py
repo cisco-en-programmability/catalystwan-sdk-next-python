@@ -17,9 +17,10 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_compliance_summary(self, **kw) -> DeviceComplianceSummaryResponse:
+    def get(self, **kw) -> DeviceComplianceSummaryResponse:
         """
         Get compliance summary for devices
+        GET /dataservice/device/compliance/summary
 
         :returns: DeviceComplianceSummaryResponse
         """

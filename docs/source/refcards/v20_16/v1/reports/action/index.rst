@@ -11,7 +11,7 @@ User operations for specific report template, which includes activate,deactivate
 
 .. code:: python
 
-    def report_action(
+    def put(
         report_id: str, action: ActionParam
     ) -> UpdateReportTemplateResponse: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.reports.action.report_action()
+        client.v1.reports.action.put()
 
 
 .. toctree::

@@ -12,9 +12,10 @@ class DownloadBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def download_admin_tech_file(self, filename: str, **kw):
+    def get(self, filename: str, **kw):
         """
         Download admin tech logs
+        GET /dataservice/device/tools/admintech/download/{filename}
 
         :param filename: Admin tech file
         :returns: None

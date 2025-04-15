@@ -14,9 +14,10 @@ class ProcessesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_hosting_processes(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get App hosting processes from device
+        GET /dataservice/device/app-hosting/processes
 
         :param device_id: deviceId - Device IP
         :returns: Any

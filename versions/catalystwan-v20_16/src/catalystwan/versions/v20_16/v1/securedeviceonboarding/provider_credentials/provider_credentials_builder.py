@@ -12,9 +12,10 @@ class ProviderCredentialsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def delete_provider_credentials(self, account_id: str, **kw):
+    def delete(self, account_id: str, **kw):
         """
         Delete provider credentials
+        DELETE /dataservice/v1/securedeviceonboarding/{accountId}/providerCredentials
 
         :param account_id: Service User Account Id
         :returns: None

@@ -13,7 +13,7 @@ Get device profile configuration task count
 
 .. code:: python
 
-    def get_device_profile_task_count() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.profile.task.count.get_device_profile_task_count()
+        client.networkdesign.profile.task.count.get()
 
 

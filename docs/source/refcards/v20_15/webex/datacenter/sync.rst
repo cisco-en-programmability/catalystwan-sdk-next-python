@@ -11,7 +11,7 @@ TEMP-Update webex data center data in DB with data from Webex API
 
 .. code:: python
 
-    def update_webex_data_centers() -> bool: ...
+    def post() -> bool: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.webex.datacenter.sync.update_webex_data_centers()
+        client.webex.datacenter.sync.post()
 
 

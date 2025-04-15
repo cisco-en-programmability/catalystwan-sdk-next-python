@@ -11,7 +11,7 @@ Discover Azure Vpn Gateways
 
 .. code:: python
 
-    def get_azure_vpn_gateways(
+    def get(
         cloud_type: str,
         account_id: str,
         region: str,
@@ -37,7 +37,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.vpn_gateways.get_azure_vpn_gateways()
+        client.multicloud.cloudgateway.vpn_gateways.get()
 
 
 .. toctree::

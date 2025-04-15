@@ -11,7 +11,7 @@ Get Umbrella DNScrypt information from device
 
 .. code:: python
 
-    def get_umbrella_dns_crypt(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.umbrella.dnscrypt.get_umbrella_dns_crypt()
+        client.device.umbrella.dnscrypt.get()
 
 

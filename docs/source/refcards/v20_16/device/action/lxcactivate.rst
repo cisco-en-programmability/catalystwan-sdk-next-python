@@ -11,7 +11,7 @@ Process an activation operation
 
 .. code:: python
 
-    def process_lxc_activate(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.lxcactivate.process_lxc_activate()
+        client.device.action.lxcactivate.post()
 
 

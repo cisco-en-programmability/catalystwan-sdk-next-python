@@ -17,9 +17,10 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_audit_severity_custom_histogram(self, query: str, **kw) -> InlineResponse200:
+    def get(self, query: str, **kw) -> InlineResponse200:
         """
         Get audit log severity histogram
+        GET /dataservice/auditlog/severity/summary
 
         :param query: Query
         :returns: InlineResponse200

@@ -11,9 +11,7 @@ Push configuration to devices of CGW
 
 .. code:: python
 
-    def push_cgw_cfg(
-        payload: Optional[PushCgwConfig] = None,
-    ) -> Taskid: ...
+    def post(payload: PushCgwConfig) -> Taskid: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.push_cgw_config.push_cgw_cfg()
+        client.multicloud.push_cgw_config.post()
 
 
 .. toctree::

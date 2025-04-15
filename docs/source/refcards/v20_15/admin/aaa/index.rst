@@ -11,7 +11,7 @@ Get aaa configuration<br><br><br>Note: In a multitenant vManage system, this API
 
 .. code:: python
 
-    def get_aaa_config() -> Aaa: ...
+    def get() -> Aaa: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.aaa.get_aaa_config()
+        client.admin.aaa.get()
 
 
 Operation: PUT /dataservice/admin/aaa
@@ -40,7 +40,7 @@ Update aaa configuration<br><br><br>Note: In a multitenant vManage system, this 
 
 .. code:: python
 
-    def update_aaa_config(payload: Optional[Aaa] = None) -> None: ...
+    def put(payload: Aaa) -> None: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.aaa.update_aaa_config()
+        client.admin.aaa.put()
 
 
 Operation: POST /dataservice/admin/aaa
@@ -69,7 +69,7 @@ Create aaa configuration<br><br><br>Note: In a multitenant vManage system, this 
 
 .. code:: python
 
-    def create_aaa_config(payload: Optional[Aaa] = None) -> None: ...
+    def post(payload: Aaa) -> None: ...
 
 
 Example:
@@ -87,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.aaa.create_aaa_config()
+        client.admin.aaa.post()
 
 
 Operation: DELETE /dataservice/admin/aaa
@@ -98,7 +98,7 @@ Delete aaa configuration<br><br><br>Note: In a multitenant vManage system, this 
 
 .. code:: python
 
-    def delete_aaa_config() -> None: ...
+    def delete() -> None: ...
 
 
 Example:
@@ -116,7 +116,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.aaa.delete_aaa_config()
+        client.admin.aaa.delete()
 
 
 .. toctree::

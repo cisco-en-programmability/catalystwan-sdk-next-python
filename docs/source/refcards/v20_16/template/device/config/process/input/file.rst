@@ -11,9 +11,7 @@ Process input comma separated file<br><br><br>Note: In a multitenant vManage sys
 
 .. code:: python
 
-    def process_input_comma_sep_file(
-        payload: Optional[Any] = None,
-    ) -> str: ...
+    def post(payload: Any) -> str: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.process.input.file.process_input_comma_sep_file()
+        client.template.device.config.process.input.file.post()
 
 

@@ -19,9 +19,10 @@ class ListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_device_action_list(self, **kw) -> List[GenerateDeviceActionListInner]:
+    def get(self, **kw) -> List[GenerateDeviceActionListInner]:
         """
         Get device action list
+        GET /dataservice/device/action/list
 
         :returns: List[GenerateDeviceActionListInner]
         """

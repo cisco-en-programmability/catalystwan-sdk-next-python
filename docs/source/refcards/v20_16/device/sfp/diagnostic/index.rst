@@ -11,7 +11,7 @@ Get SFP diagnostic
 
 .. code:: python
 
-    def get_diagnostic(
+    def get(
         device_id: str, ifname: Optional[IfnameParam] = None
     ) -> Any: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.sfp.diagnostic.get_diagnostic()
+        client.device.sfp.diagnostic.get()
 
 
 .. toctree::

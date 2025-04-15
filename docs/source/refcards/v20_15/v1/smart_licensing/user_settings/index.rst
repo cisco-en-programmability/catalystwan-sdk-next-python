@@ -11,7 +11,7 @@ Get smart licensing user settings
 
 .. code:: python
 
-    def get_user_settings() -> UserSettingsResponse: ...
+    def get() -> UserSettingsResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.smart_licensing.user_settings.get_user_settings()
+        client.v1.smart_licensing.user_settings.get()
 
 
 .. toctree::

@@ -13,7 +13,7 @@ Get event Readout By Site
 
 .. code:: python
 
-    def get_event_readout_by_site(
+    def get(
         site_id: str, last_n_hours: int, mode: Optional[str] = None
     ) -> EventReadoutsResponsePayloadData: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.event_readout_by_site.get_event_readout_by_site()
+        client.stream.device.nwpi.event_readout_by_site.get()
 
 
 .. toctree::

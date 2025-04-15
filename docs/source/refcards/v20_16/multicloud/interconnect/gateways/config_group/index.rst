@@ -11,9 +11,9 @@ API to initiate a config group creation for an Interconnect gateway.
 
 .. code:: python
 
-    def create_interconnect_gateway_config_group(
+    def post(
         interconnect_type: InterconnectTypeParam,
-        payload: Optional[GatewaysConfiggroupBody] = None,
+        payload: GatewaysConfiggroupBody,
     ) -> Any: ...
 
 
@@ -32,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.gateways.config_group.create_interconnect_gateway_config_group()
+        client.multicloud.interconnect.gateways.config_group.post()
 
 
 .. toctree::

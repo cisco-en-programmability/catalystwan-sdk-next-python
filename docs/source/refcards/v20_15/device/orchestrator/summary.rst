@@ -11,7 +11,7 @@ Get connection summary from device
 
 .. code:: python
 
-    def create_connection_summary(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.orchestrator.summary.create_connection_summary()
+        client.device.orchestrator.summary.get()
 
 

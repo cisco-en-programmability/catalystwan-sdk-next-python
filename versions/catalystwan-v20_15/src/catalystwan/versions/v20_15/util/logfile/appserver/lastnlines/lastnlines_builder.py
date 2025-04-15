@@ -14,9 +14,10 @@ class LastnlinesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_v_manage_server_log_last_n_lines(self, lines: Optional[int] = 100, **kw) -> Any:
+    def get(self, lines: Optional[int] = 100, **kw) -> Any:
         """
         List last N lines of log file. This API accepts content type as text/plain. It is mandatory to provide response content type. Any other content type would result in empty response.
+        GET /dataservice/util/logfile/appserver/lastnlines
 
         :param lines: Lines
         :returns: Any

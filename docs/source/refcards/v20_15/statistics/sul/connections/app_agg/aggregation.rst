@@ -11,9 +11,7 @@ Get aggregated data based on input query and filters. The data can be filtered o
 
 .. code:: python
 
-    def get_post_aggregation_app_data_by_query_3(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.sul.connections.app_agg.aggregation.get_post_aggregation_app_data_by_query_3()
+        client.statistics.sul.connections.app_agg.aggregation.post()
 
 

@@ -17,9 +17,10 @@ class FieldsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_query_fields_14(self, **kw) -> QoSQueryFieldsResp:
+    def get(self, **kw) -> QoSQueryFieldsResp:
         """
         Get query fields
+        GET /dataservice/statistics/qos/query/fields
 
         :returns: QoSQueryFieldsResp
         """

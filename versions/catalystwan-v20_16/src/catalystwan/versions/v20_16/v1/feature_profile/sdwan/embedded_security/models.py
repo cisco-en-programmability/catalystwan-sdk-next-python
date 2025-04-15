@@ -24,8 +24,6 @@ class CreateSdwanEmbeddedSecurityFeatureProfilePostResponse:
     """
 
     id: str
-    # This is the documentation for POST response schema for feature profile
-    documentation: Optional[Any] = _field(default=None)
 
 
 @dataclass
@@ -41,8 +39,6 @@ class CreateSdwanEmbeddedSecurityFeatureProfilePostRequest:
 
     description: str
     name: str
-    # This is the documentation for POST request api schema for feature profile
-    documentation: Optional[Any] = _field(default=None)
     from_feature_profile: Optional[FromFeatureProfileDef] = _field(
         default=None, metadata={"alias": "fromFeatureProfile"}
     )
@@ -66,3 +62,25 @@ class GetSingleSdwanEmbeddedSecurityPayload:
     profile_name: Optional[str] = _field(default=None, metadata={"alias": "profileName"})
     profile_type: Optional[ProfileType] = _field(default=None, metadata={"alias": "profileType"})
     solution: Optional[Solution] = _field(default=None)
+
+
+@dataclass
+class EditSdwanEmbeddedSecurityFeatureProfilePutResponse:
+    """
+    Feature Profile POST Response schema
+    """
+
+    id: str
+
+
+@dataclass
+class EditSdwanEmbeddedSecurityFeatureProfilePutRequest:
+    """
+    Feature Profile Schema for POST Request
+    """
+
+    description: str
+    name: str
+    from_feature_profile: Optional[FromFeatureProfileDef] = _field(
+        default=None, metadata={"alias": "fromFeatureProfile"}
+    )

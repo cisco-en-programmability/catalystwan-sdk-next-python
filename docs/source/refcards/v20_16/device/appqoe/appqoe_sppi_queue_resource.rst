@@ -11,7 +11,7 @@ Get Appqoe Sppi Queue Stats from device
 
 .. code:: python
 
-    def get_appqoe_sppi_queue_stats(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.appqoe.appqoe_sppi_queue_resource.get_appqoe_sppi_queue_stats()
+        client.device.appqoe.appqoe_sppi_queue_resource.get()
 
 

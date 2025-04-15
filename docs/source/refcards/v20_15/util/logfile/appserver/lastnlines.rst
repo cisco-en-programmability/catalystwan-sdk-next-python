@@ -11,9 +11,7 @@ List last N lines of log file. This API accepts content type as text/plain. It i
 
 .. code:: python
 
-    def list_v_manage_server_log_last_n_lines(
-        lines: Optional[int] = 100,
-    ) -> Any: ...
+    def get(lines: Optional[int] = 100) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.logfile.appserver.lastnlines.list_v_manage_server_log_last_n_lines()
+        client.util.logfile.appserver.lastnlines.get()
 
 

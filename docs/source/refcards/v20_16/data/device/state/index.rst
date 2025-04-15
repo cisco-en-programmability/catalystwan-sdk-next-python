@@ -11,7 +11,7 @@ Get device state data
 
 .. code:: python
 
-    def generate_device_state_data(
+    def get(
         state_data_type: str,
         start_id: Optional[str] = None,
         count: Optional[int] = 1000,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.data.device.state.generate_device_state_data()
+        client.data.device.state.get()
 
 
 .. toctree::

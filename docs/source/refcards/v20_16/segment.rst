@@ -3,35 +3,6 @@ segment
 =======
 
 
-Operation: GET /dataservice/segment
------------------------------------
-
-
-Get network segments
-
-.. code:: python
-
-    def get_segments() -> List[Any]: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.segment.get_segments()
-
-
 Operation: POST /dataservice/segment
 ------------------------------------
 
@@ -40,7 +11,7 @@ Create network segment
 
 .. code:: python
 
-    def create_segment(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,36 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.segment.create_segment()
-
-
-Operation: GET /dataservice/segment/{id}
-----------------------------------------
-
-
-Get network segment
-
-.. code:: python
-
-    def get_segment(id: str) -> List[Any]: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.segment.get_segment()
+        client.segment.post()
 
 
 Operation: PUT /dataservice/segment/{id}
@@ -98,7 +40,7 @@ Edit network segment
 
 .. code:: python
 
-    def edit_segment(id: str, payload: Optional[Any] = None) -> None: ...
+    def put(id: str, payload: Any) -> None: ...
 
 
 Example:
@@ -116,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.segment.edit_segment()
+        client.segment.put()
 
 
 Operation: DELETE /dataservice/segment/{id}
@@ -127,7 +69,7 @@ Delete network segment
 
 .. code:: python
 
-    def delete_segment(id: str) -> None: ...
+    def delete(id: str) -> None: ...
 
 
 Example:
@@ -145,6 +87,62 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.segment.delete_segment()
+        client.segment.delete()
+
+
+Operation: GET /dataservice/segment
+-----------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get() -> List[Any]: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.segment.get()
+
+
+Operation: GET /dataservice/segment/{id}
+----------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(id: str) -> List[Any]: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.segment.get()
 
 

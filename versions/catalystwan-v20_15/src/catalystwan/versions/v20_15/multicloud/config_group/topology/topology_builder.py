@@ -17,11 +17,10 @@ class TopologyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_multi_cloud_config_group_topology(
-        self, cloud_type: str, config_group_id: str, **kw
-    ) -> InlineResponse200:
+    def get(self, cloud_type: str, config_group_id: str, **kw) -> InlineResponse200:
         """
         API to retrieve current Multicloud MultiCloud topology for the Config Group.
+        GET /dataservice/multicloud/{cloudType}/config-group/{config-group-id}/topology
 
         :param cloud_type: Cloud type
         :param config_group_id: Config group id
@@ -39,11 +38,10 @@ class TopologyBuilder:
             **kw,
         )
 
-    def update_multi_cloud_config_group_topology(
-        self, cloud_type: str, config_group_id: str, **kw
-    ) -> InlineResponse200:
+    def put(self, cloud_type: str, config_group_id: str, **kw) -> InlineResponse200:
         """
         API to update current MultiCloud topology for the Config Group.
+        PUT /dataservice/multicloud/{cloudType}/config-group/{config-group-id}/topology
 
         :param cloud_type: Cloud type
         :param config_group_id: Config group id

@@ -17,9 +17,10 @@ class DisableBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def disable_device_log(self, session_id: Uuid, **kw):
+    def get(self, session_id: Uuid, **kw):
         """
-        Disable device log
+        Get
+        GET /dataservice/stream/device/log/disable/{sessionId}
 
         :param session_id: Session id
         :returns: None

@@ -13,7 +13,7 @@ getMonitorState
 
 .. code:: python
 
-    def get_monitor_state(
+    def get(
         trace_id: int, state: str
     ) -> NwpiDomainMonitorStateRespPayload: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.get_monitor_state.get_monitor_state()
+        client.stream.device.nwpi.get_monitor_state.get()
 
 
 .. toctree::

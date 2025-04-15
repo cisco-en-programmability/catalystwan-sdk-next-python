@@ -91,8 +91,18 @@ class CreateSecurityProfileParcelPostRequest:
     data: Data
     name: str
     description: Optional[str] = _field(default=None)
-    # This is the documentation for POST request schema for Intrusion Prevention profile parcel
-    documentation: Optional[Any] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload:
+    """
+    Intrusion Prevention profile parcel schema for POST request
+    """
+
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
     metadata: Optional[Any] = _field(default=None)
 
 
@@ -105,4 +115,4 @@ class GetSecurityProfileParcelGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # Intrusion Prevention profile parcel schema for POST request
-    payload: Optional[CreateSecurityProfileParcelPostRequest] = _field(default=None)
+    payload: Optional[Payload] = _field(default=None)

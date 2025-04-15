@@ -19,7 +19,7 @@ class ServiceSwPackageBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_service_sw_pkg(
+    def get(
         self,
         interconnect_provider_name: str,
         interconnect_account_id: str,
@@ -30,6 +30,7 @@ class ServiceSwPackageBuilder:
     ) -> InlineResponse20015:
         """
         API to retrieve the Interconnect Services Sw Package Types Information from vManage.
+        GET /dataservice/multicloud/interconnect/service-sw-package
 
         :param interconnect_provider_name: Interconnect provider name
         :param interconnect_account_id: Interconnect account id

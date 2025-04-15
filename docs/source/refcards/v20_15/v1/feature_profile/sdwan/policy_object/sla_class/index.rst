@@ -11,11 +11,9 @@ Create a Data Prefix Profile Parcel for Security Policy Object feature profile
 
 .. code:: python
 
-    def create_data_prefix_profile_parcel_for_security_policy_object(
+    def post(
         policy_object_id: str,
-        payload: Optional[
-            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest
-        ] = None,
+        payload: CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest,
     ) -> (
         CreateDataPrefixProfileParcelForSecurityPolicyObjectPostResponse
     ): ...
@@ -36,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.policy_object.sla_class.create_data_prefix_profile_parcel_for_security_policy_object()
+        client.v1.feature_profile.sdwan.policy_object.sla_class.post()
 
 
 Operation: GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/sla-class/{parcelId}
@@ -47,7 +45,7 @@ Get Data Prefix Profile Parcels for Policy Object feature profile
 
 .. code:: python
 
-    def get_data_prefix_profile_parcel_for_policy_object(
+    def get(
         policy_object_id: str,
         parcel_id: str,
         reference_count: Optional[bool] = False,
@@ -69,7 +67,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.policy_object.sla_class.get_data_prefix_profile_parcel_for_policy_object()
+        client.v1.feature_profile.sdwan.policy_object.sla_class.get()
 
 
 .. toctree::

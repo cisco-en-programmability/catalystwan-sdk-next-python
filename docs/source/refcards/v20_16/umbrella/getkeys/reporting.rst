@@ -11,7 +11,7 @@ Get reporting keys from Umbrella
 
 .. code:: python
 
-    def get_reporting_keys_from_umbrella() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.umbrella.getkeys.reporting.get_reporting_keys_from_umbrella()
+        client.umbrella.getkeys.reporting.get()
 
 

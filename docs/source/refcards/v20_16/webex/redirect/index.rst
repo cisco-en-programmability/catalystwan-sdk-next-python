@@ -11,9 +11,7 @@ Redirect Info
 
 .. code:: python
 
-    def redirect_webex_data_centers(
-        code: str,
-    ) -> RedirectCodeResponse: ...
+    def get(code: str) -> RedirectCodeResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.webex.redirect.redirect_webex_data_centers()
+        client.webex.redirect.get()
 
 
 .. toctree::

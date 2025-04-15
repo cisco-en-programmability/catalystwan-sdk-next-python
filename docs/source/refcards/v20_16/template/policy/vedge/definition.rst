@@ -11,7 +11,7 @@ Get template
 
 .. code:: python
 
-    def get_v_edge_template(policy_id: str) -> Any: ...
+    def get(policy_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.vedge.definition.get_v_edge_template()
+        client.template.policy.vedge.definition.get()
 
 

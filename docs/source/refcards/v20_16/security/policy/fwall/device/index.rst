@@ -11,9 +11,7 @@ Get firewall devices list
 
 .. code:: python
 
-    def get_post_fwall_by_query(
-        payload: Optional[Any] = None,
-    ) -> List[DeviceLists]: ...
+    def post(payload: Any) -> List[DeviceLists]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.security.policy.fwall.device.get_post_fwall_by_query()
+        client.security.policy.fwall.device.post()
 
 
 .. toctree::

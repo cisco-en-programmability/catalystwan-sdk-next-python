@@ -11,7 +11,7 @@ Get remove partition information
 
 .. code:: python
 
-    def generate_remove_partition_info(
+    def get(
         device_id: Optional[List[DeviceIp]] = None,
     ) -> GenerateRemovePartitionInfo: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.removepartition.generate_remove_partition_info()
+        client.device.action.removepartition.get()
 
 
 Operation: POST /dataservice/device/action/removepartition
@@ -42,9 +42,7 @@ Process remove partition operation
 
 .. code:: python
 
-    def process_remove_partition(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -62,7 +60,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.removepartition.process_remove_partition()
+        client.device.action.removepartition.post()
 
 
 .. toctree::

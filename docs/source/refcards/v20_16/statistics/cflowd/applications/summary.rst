@@ -13,7 +13,7 @@ Generate cflowd flows list in a grid table
 
 .. code:: python
 
-    def create_flowssummary(
+    def get(
         limit: Optional[int] = None, query: Optional[str] = None
     ) -> Any: ...
 
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.cflowd.applications.summary.create_flowssummary()
+        client.statistics.cflowd.applications.summary.get()
 
 

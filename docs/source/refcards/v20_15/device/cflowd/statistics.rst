@@ -11,7 +11,7 @@ Get cflowd statistics from device
 
 .. code:: python
 
-    def create_cflowd_statistics(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cflowd.statistics.create_cflowd_statistics()
+        client.device.cflowd.statistics.get()
 
 

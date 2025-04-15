@@ -20,7 +20,7 @@ class FlowMetricBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_flow_metric(
+    def get(
         self,
         trace_id: int,
         timestamp: int,
@@ -31,6 +31,7 @@ class FlowMetricBuilder:
     ) -> List[NwpiflowMetricRespPayloadInner]:
         """
         flowMetric for NWPI.
+        GET /dataservice/stream/device/nwpi/flowMetric
 
         :param trace_id: trace id
         :param timestamp: start time

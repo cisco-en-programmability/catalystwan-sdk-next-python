@@ -11,7 +11,7 @@ Get list of app fwd cflowd v6 flows from device
 
 .. code:: python
 
-    def create_app_fwd_cflowd_v6_flows_list(
+    def get(
         device_id: str,
         vpn_id: Optional[int] = None,
         src_addr: Optional[str] = None,
@@ -36,6 +36,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cedgecflowd.app_fwd_cflowd_v6_flows.create_app_fwd_cflowd_v6_flows_list()
+        client.device.cedgecflowd.app_fwd_cflowd_v6_flows.get()
 
 

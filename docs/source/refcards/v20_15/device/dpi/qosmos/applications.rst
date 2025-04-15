@@ -13,7 +13,7 @@ Get DPI QoSMos application list from device
 
 .. code:: python
 
-    def get_qosmos_application_list() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.dpi.qosmos.applications.get_qosmos_application_list()
+        client.device.dpi.qosmos.applications.get()
 
 

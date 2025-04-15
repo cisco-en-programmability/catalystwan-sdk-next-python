@@ -13,7 +13,7 @@ Retrieve wani configuration value
 
 .. code:: python
 
-    def get_wani_configuration() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.wani.get_wani_configuration()
+        client.settings.configuration.wani.get()
 
 
 Operation: PUT /dataservice/settings/configuration/wani
@@ -44,7 +44,7 @@ Update wani configuration setting
 
 .. code:: python
 
-    def edit_wani_configuration(payload: Optional[str] = None) -> Any: ...
+    def put(payload: str) -> Any: ...
 
 
 Example:
@@ -62,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.wani.edit_wani_configuration()
+        client.settings.configuration.wani.put()
 
 
 Operation: POST /dataservice/settings/configuration/wani
@@ -75,7 +75,7 @@ Add new wani configuration
 
 .. code:: python
 
-    def new_wani_configuration(payload: Optional[str] = None) -> str: ...
+    def post(payload: str) -> str: ...
 
 
 Example:
@@ -93,6 +93,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.wani.new_wani_configuration()
+        client.settings.configuration.wani.post()
 
 

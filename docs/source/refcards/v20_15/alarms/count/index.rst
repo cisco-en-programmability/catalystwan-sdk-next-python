@@ -11,7 +11,7 @@ Get the count of alarms which are active and not acknowledged by user.
 
 .. code:: python
 
-    def get_count_1() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.count.get_count_1()
+        client.alarms.count.get()
 
 
 Operation: POST /dataservice/alarms/count
@@ -40,8 +40,8 @@ Get the count of alarms as per the query passed.
 
 .. code:: python
 
-    def post_count(
-        payload: Optional[Any] = None, site_id: Optional[str] = None
+    def post(
+        payload: Any, site_id: Optional[str] = None
     ) -> List[AlarmCountPost]: ...
 
 
@@ -60,7 +60,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.count.post_count()
+        client.alarms.count.post()
 
 
 .. toctree::

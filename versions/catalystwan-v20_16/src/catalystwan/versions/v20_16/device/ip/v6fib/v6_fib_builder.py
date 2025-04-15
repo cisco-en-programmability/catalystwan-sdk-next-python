@@ -19,7 +19,7 @@ class V6FibBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_i_pv6_fib_list(
+    def get(
         self,
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
@@ -30,6 +30,7 @@ class V6FibBuilder:
     ) -> Any:
         """
         Get IPv6 FIB list from device (Real Time)
+        GET /dataservice/device/ip/v6fib
 
         :param vpn_id: VPN Id
         :param prefix: IP prefix

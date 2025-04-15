@@ -11,7 +11,7 @@ Reports telemetry data
 
 .. code:: python
 
-    def telemetry(payload: TelemetryRequests) -> Taskid: ...
+    def post(payload: TelemetryRequests) -> Taskid: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.telemetry.telemetry()
+        client.multicloud.telemetry.post()
 
 
 .. toctree::

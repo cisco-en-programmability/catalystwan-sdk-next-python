@@ -19,11 +19,12 @@ class LicenseBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def license(
+    def get(
         self, virtual_account_id: str, license_type: str, **kw
     ) -> List[GetLicenseResponseInner]:
         """
         Get licenses from vManage db
+        GET /dataservice/v1/smart-licensing/license
 
         :param virtual_account_id: virtual_account_id
         :param license_type: License type 'prepaid' or 'postpaid'

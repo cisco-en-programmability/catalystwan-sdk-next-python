@@ -11,9 +11,7 @@ Trigger a backup of configuration database and statstics database and store it i
 
 .. code:: python
 
-    def export_backup(
-        payload: Optional[LocalBackupInfo] = None,
-    ) -> InlineResponse200: ...
+    def post(payload: LocalBackupInfo) -> InlineResponse200: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.backup.export.export_backup()
+        client.backup.export.post()
 
 
 .. toctree::

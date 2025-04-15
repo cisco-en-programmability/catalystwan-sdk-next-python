@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,11 +17,10 @@ class InitiateFileGenerationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def initiate_file_generation_request_to_device(
-        self, payload: Optional[InitiateFileGenerationRequest] = None, **kw
-    ) -> str:
+    def post(self, payload: InitiateFileGenerationRequest, **kw) -> str:
         """
         Request device to prepare realtime collection data in required file format
+        POST /dataservice/device/file-based/data-collection/initiate-file-generation
 
         :param payload: Initiate file generation payload
         :returns: str

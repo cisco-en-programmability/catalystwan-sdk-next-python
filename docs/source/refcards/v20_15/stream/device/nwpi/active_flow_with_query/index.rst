@@ -13,7 +13,7 @@ Get active flows for NWPI.
 
 .. code:: python
 
-    def active_flow_with_query(
+    def get(
         trace_id: int, timestamp: int, query: Optional[str] = None
     ) -> ActiveFlowResponsePayload: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.active_flow_with_query.active_flow_with_query()
+        client.stream.device.nwpi.active_flow_with_query.get()
 
 
 .. toctree::

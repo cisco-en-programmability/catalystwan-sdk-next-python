@@ -14,9 +14,10 @@ class FieldsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_data_fields_18(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get fields and type
+        GET /dataservice/statistics/system/stats/fields
 
         :returns: Any
         """

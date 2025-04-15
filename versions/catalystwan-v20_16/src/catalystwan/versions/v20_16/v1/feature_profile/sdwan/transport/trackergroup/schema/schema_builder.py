@@ -17,11 +17,10 @@ class SchemaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cedge_transport_tracker_group_parcel_schema_by_schema_type(
-        self, schema_type: SchemaTypeParam, **kw
-    ) -> str:
+    def get(self, schema_type: SchemaTypeParam, **kw) -> str:
         """
         Get a Cedge Transport TrackerGroup Parcel Schema by Schema Type
+        GET /dataservice/v1/feature-profile/sdwan/transport/trackergroup/schema
 
         :param schema_type: Schema type
         :returns: str

@@ -11,7 +11,7 @@ Get tunnel top statistics from device
 
 .. code:: python
 
-    def get_app_route_tunnel_type(
+    def get(
         type_: str,
         query: Optional[str] = None,
         limit: Optional[int] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.approute.tunnels.get_app_route_tunnel_type()
+        client.statistics.approute.tunnels.get()
 
 
 .. toctree::

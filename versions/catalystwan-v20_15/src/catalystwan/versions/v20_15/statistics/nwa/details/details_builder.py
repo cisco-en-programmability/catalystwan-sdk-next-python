@@ -19,11 +19,12 @@ class DetailsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_detail_aggregation_data_by_query(
-        self, payload: Optional[Any] = None, include_prev: Optional[bool] = False, **kw
+    def post(
+        self, payload: Any, include_prev: Optional[bool] = False, **kw
     ) -> List[NetworkAvailabilityResp]:
         """
         Get network availability aggregated data with details based on input query and filters.
+        POST /dataservice/statistics/nwa/details
 
         :param include_prev: Include prev
         :param payload: Stats query string

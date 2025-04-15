@@ -15,7 +15,7 @@ LogLevelDef = Literal[
 
 
 @dataclass
-class CreateSecurityProfileParcelPostResponse:
+class CreateSdwanSecurityFeaturePostResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
 
 
@@ -83,7 +83,7 @@ class Data:
 
 
 @dataclass
-class CreateSecurityProfileParcelPostRequest:
+class CreateSdwanSecurityFeaturePostRequest:
     """
     Intrusion Prevention profile parcel schema for POST request
     """
@@ -91,13 +91,23 @@ class CreateSecurityProfileParcelPostRequest:
     data: Data
     name: str
     description: Optional[str] = _field(default=None)
-    # This is the documentation for POST request schema for Intrusion Prevention profile parcel
-    documentation: Optional[Any] = _field(default=None)
     metadata: Optional[Any] = _field(default=None)
 
 
 @dataclass
-class GetSecurityProfileParcelGetResponse:
+class Payload:
+    """
+    Intrusion Prevention profile parcel schema for POST request
+    """
+
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class GetSdwanSecurityFeatureGetResponse:
     created_by: Optional[str] = _field(default=None, metadata={"alias": "createdBy"})
     created_on: Optional[int] = _field(default=None, metadata={"alias": "createdOn"})
     last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
@@ -105,4 +115,4 @@ class GetSecurityProfileParcelGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # Intrusion Prevention profile parcel schema for POST request
-    payload: Optional[CreateSecurityProfileParcelPostRequest] = _field(default=None)
+    payload: Optional[Payload] = _field(default=None)

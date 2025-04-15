@@ -11,9 +11,7 @@ Get OSPF database summary list from device (Real Time)
 
 .. code:: python
 
-    def create_ospf_database_summary_list(
-        device_id: str,
-    ) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ospf.databasesummary.create_ospf_database_summary_list()
+        client.device.ospf.databasesummary.get()
 
 

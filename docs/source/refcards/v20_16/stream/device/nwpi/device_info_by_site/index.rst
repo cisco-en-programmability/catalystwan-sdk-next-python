@@ -13,7 +13,7 @@ Get device and interface data by site
 
 .. code:: python
 
-    def get_devices_and_interfaces_by_site(
+    def get(
         site_id: str, mode: Optional[str] = None
     ) -> DeviceInfoResponsePayloadData: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.device_info_by_site.get_devices_and_interfaces_by_site()
+        client.stream.device.nwpi.device_info_by_site.get()
 
 
 .. toctree::

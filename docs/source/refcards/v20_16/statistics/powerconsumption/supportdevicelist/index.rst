@@ -11,9 +11,7 @@ Get power consumption collection supported device list
 
 .. code:: python
 
-    def get_supported_device_list(
-        last_n_hours: Optional[int] = 24,
-    ) -> SupportedDeviceList: ...
+    def get(last_n_hours: Optional[int] = 24) -> SupportedDeviceList: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.powerconsumption.supportdevicelist.get_supported_device_list()
+        client.statistics.powerconsumption.supportdevicelist.get()
 
 
 .. toctree::

@@ -13,7 +13,7 @@ Get supported port speed for Device Link
 
 .. code:: python
 
-    def get_dl_port_speed(edge_type: EdgeTypeParam) -> Any: ...
+    def get(edge_type: EdgeTypeParam) -> Any: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.devicelink.edge.portspeed.get_dl_port_speed()
+        client.multicloud.devicelink.edge.portspeed.get()
 
 
 .. toctree::

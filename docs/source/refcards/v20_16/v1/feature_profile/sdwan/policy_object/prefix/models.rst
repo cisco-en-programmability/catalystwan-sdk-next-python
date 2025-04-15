@@ -58,8 +58,17 @@ Models
         data: Data
         name: str
         description: Optional[str]
-        # This is the documentation for POST request schema for ipv4 prefix profile parcel
-        documentation: Optional[Any]
+        metadata: Optional[Any]
+
+
+    class Payload:
+        """
+        Ipv4 prefix profile parcel schema
+        """
+
+        data: Data
+        name: str
+        description: Optional[str]
         metadata: Optional[Any]
 
 
@@ -71,8 +80,6 @@ Models
         parcel_id: Optional[str]
         parcel_type: Optional[str]
         # Ipv4 prefix profile parcel schema
-        payload: Optional[
-            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest
-        ]
+        payload: Optional[Payload]
 
 

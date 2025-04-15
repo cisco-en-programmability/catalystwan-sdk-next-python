@@ -11,7 +11,7 @@ Get event field details
 
 .. code:: python
 
-    def create_events_query_config() -> EventQueryInputResponse: ...
+    def get() -> EventQueryInputResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.event.query.input.create_events_query_config()
+        client.event.query.input.get()
 
 
 .. toctree::

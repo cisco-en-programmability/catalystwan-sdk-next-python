@@ -15,9 +15,10 @@ class ExternalIdBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_external_id(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get the vManage external ID for AWS
+        GET /dataservice/template/cor/externalId
 
         :returns: List[Any]
         """

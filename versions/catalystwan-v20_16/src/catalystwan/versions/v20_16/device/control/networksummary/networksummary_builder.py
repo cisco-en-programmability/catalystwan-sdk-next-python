@@ -14,9 +14,10 @@ class NetworksummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def network_summary(self, state: Optional[str] = None, **kw) -> List[Any]:
+    def get(self, state: Optional[str] = None, **kw) -> List[Any]:
         """
         Get list of unreachable devices
+        GET /dataservice/device/control/networksummary
 
         :param state: Device State
         :returns: List[Any]

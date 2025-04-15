@@ -14,9 +14,10 @@ class LinksBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_omp_link_list(self, state: str, **kw) -> Any:
+    def get(self, state: str, **kw) -> Any:
         """
         Get OMP connection list
+        GET /dataservice/device/omp/links
 
         :param state: Connection state
         :returns: Any

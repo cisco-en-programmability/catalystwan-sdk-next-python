@@ -11,9 +11,7 @@ get device variables schema
 
 .. code:: python
 
-    def get_config_group_device_variables_schema(
-        config_group_id: str, all: Optional[bool] = False
-    ) -> Any: ...
+    def get(config_group_id: str, all: Optional[bool] = False) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.config_group.device.variables.schema.get_config_group_device_variables_schema()
+        client.v1.config_group.device.variables.schema.get()
 
 

@@ -13,7 +13,7 @@ List all VNF attached with Device
 
 .. code:: python
 
-    def getvnf_by_device_id(device_id: DeviceUuid) -> None: ...
+    def get(device_id: DeviceUuid) -> None: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.colocation.monitor.device.vnf.getvnf_by_device_id()
+        client.colocation.monitor.device.vnf.get()
 
 
 .. toctree::

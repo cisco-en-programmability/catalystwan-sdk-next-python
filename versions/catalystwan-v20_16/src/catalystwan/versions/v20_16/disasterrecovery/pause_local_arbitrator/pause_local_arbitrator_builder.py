@@ -14,9 +14,10 @@ class PauseLocalArbitratorBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def pause_local_arbitrator(self, **kw) -> Any:
+    def post(self, **kw) -> Any:
         """
         Pause DR for Local Arbitrator
+        POST /dataservice/disasterrecovery/pauseLocalArbitrator
 
         :returns: Any
         """

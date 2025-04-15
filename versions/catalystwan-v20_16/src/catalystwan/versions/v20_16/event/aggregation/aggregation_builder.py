@@ -19,7 +19,7 @@ class AggregationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_aggregation_data_1(
+    def get(
         self,
         query: str,
         site_id: Optional[str] = None,
@@ -28,6 +28,7 @@ class AggregationBuilder:
     ) -> AlarmAggregationResponse:
         """
         Get aggregated count of events based on given query.
+        GET /dataservice/event/aggregation
 
         :param query: Query
         :param site_id: Specify the site-id to filter the events
@@ -47,15 +48,16 @@ class AggregationBuilder:
             **kw,
         )
 
-    def post_aggregation_data_1(
+    def post(
         self,
-        payload: Optional[Any] = None,
+        payload: Any,
         site_id: Optional[str] = None,
         include_tenants: Optional[bool] = None,
         **kw,
     ) -> AlarmAggregationResponse:
         """
         Get aggregated count of events based on given query.
+        POST /dataservice/event/aggregation
 
         :param site_id: Specify the site-id to filter the events
         :param include_tenants: Include tenants

@@ -11,9 +11,7 @@ Get if specified list is apart of a activated centralized policy, if it is the r
 
 .. code:: python
 
-    def get_list_activation_status(
-        list_type: str, list_id: str
-    ) -> ActivationStatusRes: ...
+    def get(list_type: str, list_id: str) -> ActivationStatusRes: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.wani.list_activation_status.get_list_activation_status()
+        client.wani.list_activation_status.get()
 
 
 .. toctree::

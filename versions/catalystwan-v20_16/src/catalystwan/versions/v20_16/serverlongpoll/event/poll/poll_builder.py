@@ -19,7 +19,7 @@ class PollBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_data_change_info(
+    def get(
         self,
         partner_id: str,
         event_id: Optional[str] = None,
@@ -29,6 +29,7 @@ class PollBuilder:
     ):
         """
         Retrieve registration change information
+        GET /dataservice/serverlongpoll/event/poll/{partnerId}
 
         :param partner_id: Partner Id
         :param event_id: Continuation token of ongoing event-polling session

@@ -17,11 +17,10 @@ class ImageNamesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_gateway_image_names(
-        self, interconnect_type: InterconnectTypeParam, **kw
-    ) -> InlineResponse2005:
+    def get(self, interconnect_type: InterconnectTypeParam, **kw) -> InlineResponse2005:
         """
         API to retrieve Interconnect Gateway software image versions supported by an Interconnect Provider.
+        GET /dataservice/multicloud/interconnect/gateways/image-names
 
         :param interconnect_type: Interconnect provider type
         :returns: InlineResponse2005

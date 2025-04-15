@@ -17,11 +17,12 @@ class SshkeysBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_ssh_keys(
+    def get(
         self, interconnect_provider_name: str, interconnect_account_id: str, **kw
     ) -> InlineResponse20016:
         """
         Get ssh keys for Interconnect provider.
+        GET /dataservice/multicloud/interconnect/sshkeys
 
         :param interconnect_provider_name: Interconnect provider name
         :param interconnect_account_id: Interconnect account id

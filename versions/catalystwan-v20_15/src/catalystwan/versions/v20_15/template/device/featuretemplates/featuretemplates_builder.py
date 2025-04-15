@@ -12,9 +12,10 @@ class FeaturetemplatesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_associated_feature_templates_details(self, template_id: str, **kw):
+    def get(self, template_id: str, **kw):
         """
         get Associated Feature Templates Details
+        GET /dataservice/template/device/{templateId}/featuretemplates
 
         :param template_id: TemplateId
         :returns: None

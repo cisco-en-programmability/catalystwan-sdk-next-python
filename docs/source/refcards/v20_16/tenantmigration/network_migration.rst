@@ -11,7 +11,7 @@ Re-trigger network migration
 
 .. code:: python
 
-    def re_trigger_network_migration() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenantmigration.network_migration.re_trigger_network_migration()
+        client.tenantmigration.network_migration.get()
 
 
 Operation: POST /dataservice/tenantmigration/networkMigration
@@ -40,7 +40,7 @@ Migrate network
 
 .. code:: python
 
-    def migrate_network(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenantmigration.network_migration.migrate_network()
+        client.tenantmigration.network_migration.post()
 
 

@@ -19,7 +19,7 @@ class ConnectionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_synced_connection_list(
+    def get(
         self,
         device_id: str,
         peer_type: Optional[PeerTypeParam] = None,
@@ -28,6 +28,7 @@ class ConnectionsBuilder:
     ) -> Any:
         """
         Get connections list from vManage
+        GET /dataservice/device/control/synced/connections
 
         :param peer_type: Peer type
         :param system_ip: Peer system IP

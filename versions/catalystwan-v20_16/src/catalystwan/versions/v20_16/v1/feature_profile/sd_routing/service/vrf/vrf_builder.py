@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateSdroutingServiceVrfFeaturePostRequest,
+    CreateSdroutingServiceVrfFeaturePostResponse,
+    EditSdroutingServiceVrfFeaturePutRequest,
+    EditSdroutingServiceVrfFeaturePutResponse,
+    GetListSdRoutingServiceVrfPayload,
+    GetSingleSdRoutingServiceVrfPayload,
+)
 
 if TYPE_CHECKING:
     from .dmvpn_tunnel.dmvpn_tunnel_builder import DmvpnTunnelBuilder
@@ -16,36 +26,21 @@ class VrfBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sd-routing/service/{serviceId}/vrf
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdrouting_service_vrf_features(self, service_id: str, **kw) -> str:
-        """
-        Get all SD-Routing VRF features from a specific service feature profile
-
-        :param service_id: Service Profile ID
-        :returns: str
-        """
-        params = {
-            "serviceId": service_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def create_sdrouting_service_vrf_feature(
-        self, service_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self, service_id: str, payload: CreateSdroutingServiceVrfFeaturePostRequest, **kw
+    ) -> CreateSdroutingServiceVrfFeaturePostResponse:
         """
         Create a SD-Routing VRF feature from a specific service feature profile
+        POST /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf
 
         :param service_id: Service Profile ID
         :param payload:  VRF feature from a specific service feature profile
-        :returns: str
+        :returns: CreateSdroutingServiceVrfFeaturePostResponse
         """
         params = {
             "serviceId": service_id,
@@ -53,42 +48,23 @@ class VrfBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf",
-            return_type=str,
+            return_type=CreateSdroutingServiceVrfFeaturePostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_sdrouting_service_vrf_feature(self, service_id: str, vrf_id: str, **kw) -> str:
-        """
-        Get the SD-Routing VRF feature from a specific service feature profile
-
-        :param service_id: Service Profile ID
-        :param vrf_id: VRF Feature ID
-        :returns: str
-        """
-        params = {
-            "serviceId": service_id,
-            "vrfId": vrf_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def edit_sdrouting_service_vrf_feature(
-        self, service_id: str, vrf_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self, service_id: str, vrf_id: str, payload: EditSdroutingServiceVrfFeaturePutRequest, **kw
+    ) -> EditSdroutingServiceVrfFeaturePutResponse:
         """
         Edit the SD-Routing VRF feature from a specific service feature profile
+        PUT /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}
 
         :param service_id: Service Profile ID
         :param vrf_id: VRF Feature ID
         :param payload:  VRF feature from a specific service feature profile
-        :returns: str
+        :returns: EditSdroutingServiceVrfFeaturePutResponse
         """
         params = {
             "serviceId": service_id,
@@ -97,15 +73,16 @@ class VrfBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}",
-            return_type=str,
+            return_type=EditSdroutingServiceVrfFeaturePutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_sdrouting_service_vrf_feature(self, service_id: str, vrf_id: str, **kw):
+    def delete(self, service_id: str, vrf_id: str, **kw):
         """
         Delete the SD-Routing VRF feature from a specific service feature profile
+        DELETE /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}
 
         :param service_id: Service Profile ID
         :param vrf_id: VRF Feature ID
@@ -121,6 +98,59 @@ class VrfBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(self, service_id: str, vrf_id: str, **kw) -> GetSingleSdRoutingServiceVrfPayload:
+        """
+        Get the SD-Routing VRF feature from a specific service feature profile
+        GET /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}
+
+        :param service_id: Service Profile ID
+        :param vrf_id: VRF Feature ID
+        :returns: GetSingleSdRoutingServiceVrfPayload
+        """
+        ...
+
+    @overload
+    def get(self, service_id: str, **kw) -> GetListSdRoutingServiceVrfPayload:
+        """
+        Get all SD-Routing VRF features from a specific service feature profile
+        GET /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf
+
+        :param service_id: Service Profile ID
+        :returns: GetListSdRoutingServiceVrfPayload
+        """
+        ...
+
+    def get(
+        self, service_id: str, vrf_id: Optional[str] = None, **kw
+    ) -> Union[GetListSdRoutingServiceVrfPayload, GetSingleSdRoutingServiceVrfPayload]:
+        # /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}
+        if self._request_adapter.param_checker([(service_id, str), (vrf_id, str)], []):
+            params = {
+                "serviceId": service_id,
+                "vrfId": vrf_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}",
+                return_type=GetSingleSdRoutingServiceVrfPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf
+        if self._request_adapter.param_checker([(service_id, str)], [vrf_id]):
+            params = {
+                "serviceId": service_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf",
+                return_type=GetListSdRoutingServiceVrfPayload,
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def dmvpn_tunnel(self) -> DmvpnTunnelBuilder:

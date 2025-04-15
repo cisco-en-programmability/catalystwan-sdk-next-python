@@ -17,9 +17,10 @@ class WaninterfaceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_wan_interface_list_list(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get WAN interface list (Real Time)
+        GET /dataservice/device/control/waninterface
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

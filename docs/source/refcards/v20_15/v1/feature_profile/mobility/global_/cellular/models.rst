@@ -26,6 +26,24 @@ Models
         user_name: Optional[str]
 
 
+    class Data:
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        parcel_id: Optional[str]
+        parcel_type: Optional[str]
+        payload: Optional[CellularProfile]
+
+
+    class GetListMobilityGlobalCellularPayload:
+        data: Optional[List[Data]]
+
+
     class Variable:
         json_path: str
         var_name: str
@@ -37,6 +55,43 @@ Models
         slot_number: int
         carrier_name: Optional[str]
         data_profile_id_list: Optional[List[int]]
+
+
+    class Cellular:
+        # Name of the Profile Parcel. Must be unique.
+        name: str
+        primary_slot: int
+        type_: Type
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # Description of the Profile Parcel.
+        description: Optional[str]
+        # System generated unique identifier of the Profile Parcel in UUID format.
+        id: Optional[str]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        sim_slot0: Optional[SimSlotConfig]
+        sim_slot1: Optional[SimSlotConfig]
+        variables: Optional[List[Variable]]
+        wan_config: Optional[str]
+
+
+    class GetSingleMobilityGlobalCellularPayload:
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        parcel_id: Optional[str]
+        parcel_type: Optional[str]
+        payload: Optional[Cellular]
 
 
     class EditCellularProfileParcelForMobilityPutRequest:

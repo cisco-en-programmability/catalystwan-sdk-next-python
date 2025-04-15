@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class DoccountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_count_10(self, query: str, **kw) -> Any:
+    def get(self, query: str, **kw) -> Any:
         """
         Get response count of a query
+        GET /dataservice/statistics/cflowd/doccount
 
         :param query: Query
         :returns: Any
@@ -28,9 +29,10 @@ class DoccountBuilder:
             "GET", "/dataservice/statistics/cflowd/doccount", params=params, **kw
         )
 
-    def get_count_post_9(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Get response count of a query
+        POST /dataservice/statistics/cflowd/doccount
 
         :param payload: Query
         :returns: Any

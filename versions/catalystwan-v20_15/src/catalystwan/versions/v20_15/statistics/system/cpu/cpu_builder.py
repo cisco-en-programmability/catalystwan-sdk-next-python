@@ -14,9 +14,10 @@ class CpuBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_device_system_cpu_stat(self, query: str, device_id: str, **kw) -> Any:
+    def get(self, query: str, device_id: str, **kw) -> Any:
         """
         Get device system CPU stats list
+        GET /dataservice/statistics/system/cpu
 
         :param query: Query filter
         :param device_id: deviceId - Device IP

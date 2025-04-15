@@ -11,7 +11,7 @@ Get policy compliance status
 
 .. code:: python
 
-    def get_policy_compliance_status(uuid: str) -> None: ...
+    def get(uuid: str) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.policy.status.get_policy_compliance_status()
+        client.sdavc.protocol_pack.compliance.policy.status.get()
 
 

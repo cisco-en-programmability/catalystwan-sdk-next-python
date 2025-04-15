@@ -36,8 +36,17 @@ Models
         data: Data
         name: str
         description: Optional[str]
-        # This is the documentation for extended community profile parcel
-        documentation: Optional[Any]
+        metadata: Optional[Any]
+
+
+    class Payload:
+        """
+        extended community list profile parcel schema
+        """
+
+        data: Data
+        name: str
+        description: Optional[str]
         metadata: Optional[Any]
 
 
@@ -49,8 +58,6 @@ Models
         parcel_id: Optional[str]
         parcel_type: Optional[str]
         # extended community list profile parcel schema
-        payload: Optional[
-            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest
-        ]
+        payload: Optional[Payload]
 
 

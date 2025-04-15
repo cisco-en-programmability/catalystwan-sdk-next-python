@@ -11,9 +11,7 @@ Get sig global credentials
 
 .. code:: python
 
-    def get_sig_global_credentials(
-        feature_template_type: str,
-    ) -> FeatureTemplateType: ...
+    def get(feature_template_type: str) -> FeatureTemplateType: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sig.sig_global_credentials.get_sig_global_credentials()
+        client.sig.sig_global_credentials.get()
 
 
 .. toctree::

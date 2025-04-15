@@ -115,6 +115,20 @@ Models
         ]  # pytype: disable=annotation-type-mismatch
 
 
+    class OneOfNeverDecryptCategoriesOptionsDef:
+        option_type: GlobalOptionTypeDef
+        value: List[
+            CategoriesDef
+        ]  # pytype: disable=annotation-type-mismatch
+
+
+    class OneOfSkipDecryptCategoriesOptionsDef:
+        option_type: GlobalOptionTypeDef
+        value: List[
+            CategoriesDef
+        ]  # pytype: disable=annotation-type-mismatch
+
+
     class OneOfReputationOptionsDef:
         option_type: GlobalOptionTypeDef
         value: bool
@@ -123,6 +137,16 @@ Models
     class OneOfDecryptThresholdOptionsDef:
         option_type: GlobalOptionTypeDef
         value: ThresholdDef  # pytype: disable=annotation-type-mismatch
+
+
+    class OneOfSkipDecryptThresholdOptionsDef:
+        option_type: GlobalOptionTypeDef
+        value: ThresholdDef  # pytype: disable=annotation-type-mismatch
+
+
+    class OneOfFailDecryptOptionsDef:
+        option_type: GlobalOptionTypeDef
+        value: bool
 
 
     class RefIdOptionDef:
@@ -134,18 +158,24 @@ Models
         ref_id: Optional[RefIdOptionDef]
 
 
+    class UrlBlockedList:
+        ref_id: Optional[RefIdOptionDef]
+
+
     class Data:
         decrypt_categories: OneOfDecryptCategoriesOptionsDef
-        fail_decrypt: OneOfReputationOptionsDef
-        never_decrypt_categories: OneOfDecryptCategoriesOptionsDef
+        fail_decrypt: OneOfFailDecryptOptionsDef
+        never_decrypt_categories: OneOfNeverDecryptCategoriesOptionsDef
         reputation: OneOfReputationOptionsDef
         decrypt_threshold: Optional[OneOfDecryptThresholdOptionsDef]
         skip_decrypt_categories: Optional[
-            OneOfDecryptCategoriesOptionsDef
+            OneOfSkipDecryptCategoriesOptionsDef
         ]
-        skip_decrypt_threshold: Optional[OneOfDecryptThresholdOptionsDef]
+        skip_decrypt_threshold: Optional[
+            OneOfSkipDecryptThresholdOptionsDef
+        ]
         url_allowed_list: Optional[UrlAllowedList]
-        url_blocked_list: Optional[UrlAllowedList]
+        url_blocked_list: Optional[UrlBlockedList]
 
 
     class CreateSecurityProfileParcelPostRequest:
@@ -156,8 +186,17 @@ Models
         data: Data
         description: str
         name: str
-        # This is the documentation for POST request schema for ssl-decryption-profile profile parcel
-        documentation: Optional[Any]
+        metadata: Optional[Any]
+
+
+    class Payload:
+        """
+        ssl-decryption-profile profile parcel schema for POST request
+        """
+
+        data: Data
+        description: str
+        name: str
         metadata: Optional[Any]
 
 
@@ -169,6 +208,6 @@ Models
         parcel_id: Optional[str]
         parcel_type: Optional[str]
         # ssl-decryption-profile profile parcel schema for POST request
-        payload: Optional[CreateSecurityProfileParcelPostRequest]
+        payload: Optional[Payload]
 
 

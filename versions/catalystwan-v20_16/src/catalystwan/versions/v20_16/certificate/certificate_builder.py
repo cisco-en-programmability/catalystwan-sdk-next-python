@@ -41,11 +41,12 @@ class CertificateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def delete_configuration(
+    def delete(
         self, uuid: str, device_id: str, replace_controller: Optional[bool] = None, **kw
     ) -> str:
         """
         invalid device
+        DELETE /dataservice/certificate/{uuid}
 
         :param uuid: Device UUID
         :param replace_controller: Boolean value to indicate replacing controller

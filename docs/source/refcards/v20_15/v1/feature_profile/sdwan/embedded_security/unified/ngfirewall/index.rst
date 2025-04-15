@@ -3,35 +3,6 @@ v1.feature_profile.sdwan.embedded_security.unified.ngfirewall
 =============================================================
 
 
-Operation: GET /dataservice/v1/feature-profile/sdwan/embedded-security/{securityId}/unified/ngfirewall
-------------------------------------------------------------------------------------------------------
-
-
-Get Ngfirewall Profile Parcel
-
-.. code:: python
-
-    def get_ngfirewall_profile_parcel(security_id: str) -> str: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.sdwan.embedded_security.unified.ngfirewall.get_ngfirewall_profile_parcel()
-
-
 Operation: POST /dataservice/v1/feature-profile/sdwan/embedded-security/{securityId}/unified/ngfirewall
 -------------------------------------------------------------------------------------------------------
 
@@ -40,11 +11,9 @@ Create Parcel for Ngfirewall Policy
 
 .. code:: python
 
-    def create_ngfirewall_profile_parcel(
+    def post(
         security_id: str,
-        payload: Optional[
-            CreateNgfirewallProfileParcelPostRequest
-        ] = None,
+        payload: CreateNgfirewallProfileParcelPostRequest,
     ) -> CreateNgfirewallProfileParcelPostResponse: ...
 
 
@@ -63,38 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.embedded_security.unified.ngfirewall.create_ngfirewall_profile_parcel()
-
-
-Operation: GET /dataservice/v1/feature-profile/sdwan/embedded-security/{securityId}/unified/ngfirewall/{securityProfileParcelId}
---------------------------------------------------------------------------------------------------------------------------------
-
-
-Get Ngfirewall Profile Parcel by parcelId
-
-.. code:: python
-
-    def get_ngfirewall_profile_parcel_by_parcel_id(
-        security_id: str, security_profile_parcel_id: str
-    ) -> str: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.sdwan.embedded_security.unified.ngfirewall.get_ngfirewall_profile_parcel_by_parcel_id()
+        client.v1.feature_profile.sdwan.embedded_security.unified.ngfirewall.post()
 
 
 Operation: PUT /dataservice/v1/feature-profile/sdwan/embedded-security/{securityId}/unified/ngfirewall/{securityProfileParcelId}
@@ -105,11 +43,11 @@ Update a Ngfirewall Profile Parcel
 
 .. code:: python
 
-    def edit_ngfirewall_profile_parcel(
+    def put(
         security_id: str,
         security_profile_parcel_id: str,
-        payload: Optional[str] = None,
-    ) -> str: ...
+        payload: EditNgfirewallProfileParcelPutRequest,
+    ) -> EditNgfirewallProfileParcelPutResponse: ...
 
 
 Example:
@@ -127,7 +65,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.embedded_security.unified.ngfirewall.edit_ngfirewall_profile_parcel()
+        client.v1.feature_profile.sdwan.embedded_security.unified.ngfirewall.put()
 
 
 Operation: DELETE /dataservice/v1/feature-profile/sdwan/embedded-security/{securityId}/unified/ngfirewall/{securityProfileParcelId}
@@ -138,7 +76,7 @@ Delete a Ngfirewall Profile Parcel
 
 .. code:: python
 
-    def delete_ngfirewall_profile_parcel(
+    def delete(
         security_id: str, security_profile_parcel_id: str
     ) -> None: ...
 
@@ -158,7 +96,67 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.embedded_security.unified.ngfirewall.delete_ngfirewall_profile_parcel()
+        client.v1.feature_profile.sdwan.embedded_security.unified.ngfirewall.delete()
+
+
+Operation: GET /dataservice/v1/feature-profile/sdwan/embedded-security/{securityId}/unified/ngfirewall
+------------------------------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        security_id: str,
+    ) -> GetListSdwanEmbeddedSecurityUnifiedNgfirewallPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sdwan.embedded_security.unified.ngfirewall.get()
+
+
+Operation: GET /dataservice/v1/feature-profile/sdwan/embedded-security/{securityId}/unified/ngfirewall/{securityProfileParcelId}
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        security_id: str, security_profile_parcel_id: str
+    ) -> GetSingleSdwanEmbeddedSecurityUnifiedNgfirewallPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sdwan.embedded_security.unified.ngfirewall.get()
 
 
 .. toctree::

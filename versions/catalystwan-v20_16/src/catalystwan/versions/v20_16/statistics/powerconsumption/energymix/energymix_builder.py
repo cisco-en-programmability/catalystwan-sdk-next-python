@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,11 +19,10 @@ class EnergymixBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_power_consumption_energy_mix(
-        self, payload: Optional[Any] = None, **kw
-    ) -> PowerConsumptionEnergyMixResp:
+    def post(self, payload: Any, **kw) -> PowerConsumptionEnergyMixResp:
         """
         Get Power Consumption Energy Mix
+        POST /dataservice/statistics/powerconsumption/energymix
 
         :param payload: Stats query string
         :returns: PowerConsumptionEnergyMixResp

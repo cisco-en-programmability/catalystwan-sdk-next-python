@@ -11,7 +11,7 @@ Get OSPF interface list from device (Real Time)
 
 .. code:: python
 
-    def create_ospf_interface(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ospf.interface.create_ospf_interface()
+        client.device.ospf.interface.get()
 
 

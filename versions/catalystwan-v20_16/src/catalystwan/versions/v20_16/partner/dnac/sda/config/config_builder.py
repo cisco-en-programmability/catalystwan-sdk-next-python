@@ -17,11 +17,10 @@ class ConfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_sda_config(
-        self, partner_id: str, payload: SdaConfigRequest, **kw
-    ) -> SdaDeviceConfigRes:
+    def post(self, partner_id: str, payload: SdaConfigRequest, **kw) -> SdaDeviceConfigRes:
         """
         Create SDA enabled device
+        POST /dataservice/partner/dnac/sda/config/{partnerId}
 
         :param partner_id: Partner id
         :param payload: Device SDA configuration

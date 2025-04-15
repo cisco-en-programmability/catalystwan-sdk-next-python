@@ -15,11 +15,10 @@ class SizeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_transit_vpc_supported_size(
-        self, cloud_environment: str, cloudtype: Optional[str] = "AWS", **kw
-    ) -> List[Any]:
+    def get(self, cloud_environment: str, cloudtype: Optional[str] = "AWS", **kw) -> List[Any]:
         """
         Get transit VPC supported size
+        GET /dataservice/template/cor/transitvpc/size
 
         :param cloudtype: Cloud type
         :param cloud_environment: Cloud environment

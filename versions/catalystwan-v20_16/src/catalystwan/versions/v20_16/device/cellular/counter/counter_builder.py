@@ -19,7 +19,7 @@ class CounterBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def cellular_count_dashlet(
+    def get(
         self,
         type_: Optional[TypeParam] = None,
         last_n_hours: Optional[LastNHoursParam] = None,
@@ -27,6 +27,7 @@ class CounterBuilder:
     ) -> List[CellularCount]:
         """
         Cellular count dashlet
+        GET /dataservice/device/cellular/counter
 
         :param type_: type
         :param last_n_hours: last N Hours

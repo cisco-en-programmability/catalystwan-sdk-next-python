@@ -11,7 +11,7 @@ Get stats raw data
 
 .. code:: python
 
-    def get_stat_data_raw_data_17(
+    def get(
         query: Optional[str] = None,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.system.get_stat_data_raw_data_17()
+        client.statistics.system.get()
 
 
 Operation: POST /dataservice/statistics/system
@@ -46,8 +46,8 @@ Get stats raw data
 
 .. code:: python
 
-    def get_stats_raw_data_18(
-        payload: Optional[Any] = None,
+    def post(
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -70,7 +70,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.system.get_stats_raw_data_18()
+        client.statistics.system.post()
 
 
 .. toctree::

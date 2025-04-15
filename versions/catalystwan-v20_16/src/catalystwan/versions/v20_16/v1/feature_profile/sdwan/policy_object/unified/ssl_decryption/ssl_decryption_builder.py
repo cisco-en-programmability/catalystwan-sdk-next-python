@@ -7,10 +7,10 @@ from catalystwan.abc import RequestAdapterInterface
 
 from . import models
 from .models import (
-    CreateSecurityProfileParcelPostRequest1,
-    CreateSecurityProfileParcelPostRequest2,
-    CreateSecurityProfileParcelPostResponse,
-    GetSecurityProfileParcelGetResponse,
+    CreateSdwanSecurityFeaturePostRequest1,
+    CreateSdwanSecurityFeaturePostRequest2,
+    CreateSdwanSecurityFeaturePostResponse,
+    GetSdwanSecurityFeatureGetResponse,
 )
 
 
@@ -24,20 +24,21 @@ class SslDecryptionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_security_profile_parcel(
+    def post(
         self,
         policy_object_id: str,
-        payload: Optional[
-            Union[CreateSecurityProfileParcelPostRequest1, CreateSecurityProfileParcelPostRequest2]
-        ] = None,
+        payload: Union[
+            CreateSdwanSecurityFeaturePostRequest1, CreateSdwanSecurityFeaturePostRequest2
+        ],
         **kw,
-    ) -> CreateSecurityProfileParcelPostResponse:
+    ) -> CreateSdwanSecurityFeaturePostResponse:
         """
         Create Feature for Security Policy
+        POST /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/ssl-decryption
 
         :param policy_object_id: Feature Profile ID
         :param payload: Security Feature
-        :returns: CreateSecurityProfileParcelPostResponse
+        :returns: CreateSdwanSecurityFeaturePostResponse
         """
         params = {
             "policyObjectId": policy_object_id,
@@ -45,22 +46,23 @@ class SslDecryptionBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/ssl-decryption",
-            return_type=CreateSecurityProfileParcelPostResponse,
+            return_type=CreateSdwanSecurityFeaturePostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_security_profile_parcel(
+    def get(
         self, policy_object_id: str, parcel_id: str, reference_count: Optional[bool] = False, **kw
-    ) -> GetSecurityProfileParcelGetResponse:
+    ) -> GetSdwanSecurityFeatureGetResponse:
         """
         Get Security Features for a given ParcelType
+        GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/ssl-decryption/{parcelId}
 
         :param policy_object_id: Feature Profile ID
         :param reference_count: get reference count
         :param parcel_id: Parcel ID
-        :returns: GetSecurityProfileParcelGetResponse
+        :returns: GetSdwanSecurityFeatureGetResponse
         """
         params = {
             "policyObjectId": policy_object_id,
@@ -70,7 +72,7 @@ class SslDecryptionBuilder:
         return self._request_adapter.request(
             "GET",
             "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/ssl-decryption/{parcelId}",
-            return_type=GetSecurityProfileParcelGetResponse,
+            return_type=GetSdwanSecurityFeatureGetResponse,
             params=params,
             **kw,
         )

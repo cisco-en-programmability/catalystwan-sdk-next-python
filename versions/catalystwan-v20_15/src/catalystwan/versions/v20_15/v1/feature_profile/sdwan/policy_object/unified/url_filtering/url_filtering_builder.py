@@ -10,9 +10,17 @@ from .models import (
     CreateSecurityProfileParcelPostRequest11,
     CreateSecurityProfileParcelPostRequest12,
     CreateSecurityProfileParcelPostRequest21,
+    CreateSecurityProfileParcelPostRequest22,
     CreateSecurityProfileParcelPostRequest31,
+    CreateSecurityProfileParcelPostRequest32,
     CreateSecurityProfileParcelPostRequest41,
+    CreateSecurityProfileParcelPostRequest42,
+    CreateSecurityProfileParcelPostRequest51,
+    CreateSecurityProfileParcelPostRequest52,
     CreateSecurityProfileParcelPostRequest61,
+    CreateSecurityProfileParcelPostRequest62,
+    CreateSecurityProfileParcelPostRequest71,
+    CreateSecurityProfileParcelPostRequest72,
     CreateSecurityProfileParcelPostResponse,
     GetSecurityProfileParcelGetResponse,
 )
@@ -28,45 +36,37 @@ class UrlFilteringBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_security_profile_parcel(
+    def post(
         self,
         policy_object_id: str,
-        payload: Optional[
+        payload: Union[
             Union[
-                Union[
-                    CreateSecurityProfileParcelPostRequest11,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest21,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest31,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest41,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest31,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest61,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest31,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-            ]
-        ] = None,
+                CreateSecurityProfileParcelPostRequest11, CreateSecurityProfileParcelPostRequest12
+            ],
+            Union[
+                CreateSecurityProfileParcelPostRequest21, CreateSecurityProfileParcelPostRequest22
+            ],
+            Union[
+                CreateSecurityProfileParcelPostRequest31, CreateSecurityProfileParcelPostRequest32
+            ],
+            Union[
+                CreateSecurityProfileParcelPostRequest41, CreateSecurityProfileParcelPostRequest42
+            ],
+            Union[
+                CreateSecurityProfileParcelPostRequest51, CreateSecurityProfileParcelPostRequest52
+            ],
+            Union[
+                CreateSecurityProfileParcelPostRequest61, CreateSecurityProfileParcelPostRequest62
+            ],
+            Union[
+                CreateSecurityProfileParcelPostRequest71, CreateSecurityProfileParcelPostRequest72
+            ],
+        ],
         **kw,
     ) -> CreateSecurityProfileParcelPostResponse:
         """
         Create Parcel for Security Policy
+        POST /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/url-filtering
 
         :param policy_object_id: Feature Profile ID
         :param payload: Security Profile Parcel
@@ -84,11 +84,12 @@ class UrlFilteringBuilder:
             **kw,
         )
 
-    def get_security_profile_parcel(
+    def get(
         self, policy_object_id: str, parcel_id: str, reference_count: Optional[bool] = False, **kw
     ) -> GetSecurityProfileParcelGetResponse:
         """
         Get Security Profile Parcels for a given ParcelType
+        GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/url-filtering/{parcelId}
 
         :param policy_object_id: Feature Profile ID
         :param reference_count: get reference count

@@ -15,7 +15,7 @@ class VhubsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_v_hubs(
+    def get(
         self,
         cloud_type: Optional[str] = None,
         account_id: Optional[str] = None,
@@ -26,6 +26,7 @@ class VhubsBuilder:
     ) -> Any:
         """
         Get Virtual Hubs
+        GET /dataservice/multicloud/vhubs
 
         :param cloud_type: Cloud Type
         :param account_id: Account Id

@@ -23,14 +23,15 @@ class Ipv4NetworkObjectGroupBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_data_prefix_profile_parcel_for_security_policy_object(
+    def post(
         self,
         policy_object_id: str,
-        payload: Optional[CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest] = None,
+        payload: CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest,
         **kw,
     ) -> CreateDataPrefixProfileParcelForSecurityPolicyObjectPostResponse:
         """
         Create a Data Prefix Profile Parcel for Security Policy Object feature profile
+        POST /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/ipv4-network-object-group
 
         :param policy_object_id: Feature Profile ID
         :param payload: Data Prefix Profile Parcel
@@ -48,11 +49,12 @@ class Ipv4NetworkObjectGroupBuilder:
             **kw,
         )
 
-    def get_data_prefix_profile_parcel_for_policy_object(
+    def get(
         self, policy_object_id: str, parcel_id: str, reference_count: Optional[bool] = False, **kw
     ) -> GetDataPrefixProfileParcelForPolicyObjectGetResponse:
         """
         Get Data Prefix Profile Parcels for Policy Object feature profile
+        GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/ipv4-network-object-group/{parcelId}
 
         :param policy_object_id: Feature Profile ID
         :param reference_count: get reference count

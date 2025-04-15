@@ -11,7 +11,7 @@ Deprecated!!!
 
 .. code:: python
 
-    def get_nwpi_protocol() -> List[NwpiProtocolResponsePayloadInner]: ...
+    def get() -> List[NwpiProtocolResponsePayloadInner]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.nwpi_protocol.get_nwpi_protocol()
+        client.stream.device.nwpi.nwpi_protocol.get()
 
 
 .. toctree::

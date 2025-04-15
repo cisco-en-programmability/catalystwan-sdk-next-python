@@ -11,9 +11,7 @@ Generate template type definition<br><br><br>Note: In a multitenant vManage syst
 
 .. code:: python
 
-    def generate_template_type_definition(
-        type_name: str, version: str
-    ) -> List[Any]: ...
+    def get(type_name: str, version: str) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.feature.types.definition.generate_template_type_definition()
+        client.template.feature.types.definition.get()
 
 

@@ -14,9 +14,10 @@ class SizeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_db_size_on_file(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Fetches the disk usage by configuration-db
+        GET /dataservice/util/configdb/size
 
         :returns: Any
         """

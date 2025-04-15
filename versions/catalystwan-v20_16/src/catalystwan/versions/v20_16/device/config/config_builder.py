@@ -17,9 +17,10 @@ class ConfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_running_config(self, device_id: List[str], **kw) -> str:
+    def get(self, device_id: List[str], **kw) -> str:
         """
         Get device running configuration
+        GET /dataservice/device/config
 
         :param device_id: Device Id list
         :returns: str

@@ -11,7 +11,7 @@ Retrieve list of devices which are valid for fetch of HSEC license
 
 .. code:: python
 
-    def fetch_device_details() -> List[GetHsecDevicesPayloadInner]: ...
+    def get() -> List[GetHsecDevicesPayloadInner]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.hsec.devices.fetch_device_details()
+        client.hsec.devices.get()
 
 
 .. toctree::

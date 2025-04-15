@@ -42,8 +42,19 @@ class CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest:
     name: str
     type_: Type = _field(metadata={"alias": "type"})  # pytype: disable=annotation-type-mismatch
     description: Optional[str] = _field(default=None)
-    # This is the documentation for POST request schema for URL List profile parcel
-    documentation: Optional[Any] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload:
+    """
+    URL List profile parcel schema for POST request
+    """
+
+    data: Data
+    name: str
+    type_: Type = _field(metadata={"alias": "type"})  # pytype: disable=annotation-type-mismatch
+    description: Optional[str] = _field(default=None)
     metadata: Optional[Any] = _field(default=None)
 
 
@@ -56,6 +67,4 @@ class GetDataPrefixProfileParcelForPolicyObjectGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # URL List profile parcel schema for POST request
-    payload: Optional[CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest] = _field(
-        default=None
-    )
+    payload: Optional[Payload] = _field(default=None)

@@ -20,11 +20,12 @@ class TraceFinFlowWithQueryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def trace_fin_flow_with_query(
+    def get(
         self, trace_id: int, timestamp: int, query: Optional[str] = None, **kw
     ) -> NwpitraceFlowRespPayload:
         """
         Retrieve Certain Fin Flows
+        GET /dataservice/stream/device/nwpi/traceFinFlowWithQuery
 
         :param trace_id: trace id
         :param timestamp: start time

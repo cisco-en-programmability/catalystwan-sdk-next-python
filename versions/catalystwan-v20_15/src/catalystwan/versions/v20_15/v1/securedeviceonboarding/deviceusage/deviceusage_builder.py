@@ -3,21 +3,27 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
+from .models import DeviceUsageDetails
+
 
 class DeviceusageBuilder:
     """
     Builds and executes requests for operations under /v1/securedeviceonboarding/{deviceUUID}/deviceusage
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_data_usage(self, device_uuid: str, **kw) -> str:
+    def get(self, device_uuid: str, **kw) -> DeviceUsageDetails:
         """
         Get device data usage using device uuid
+        GET /dataservice/v1/securedeviceonboarding/{deviceUUID}/deviceusage
 
         :param device_uuid: DeviceUUID
-        :returns: str
+        :returns: DeviceUsageDetails
         """
         params = {
             "deviceUUID": device_uuid,
@@ -25,7 +31,7 @@ class DeviceusageBuilder:
         return self._request_adapter.request(
             "GET",
             "/dataservice/v1/securedeviceonboarding/{deviceUUID}/deviceusage",
-            return_type=str,
+            return_type=DeviceUsageDetails,
             params=params,
             **kw,
         )

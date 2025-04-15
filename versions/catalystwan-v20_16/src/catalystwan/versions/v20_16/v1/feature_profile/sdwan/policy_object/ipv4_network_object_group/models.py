@@ -57,9 +57,19 @@ class OneOfEntriesHostOptionsDef1:
 
 
 @dataclass
+class OneOfEntriesHostOptionsDef2:
+    option_type: VariableOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: str
+    default: Optional[str] = _field(default=None)
+    description: Optional[str] = _field(default=None)
+
+
+@dataclass
 class Entries1:
     address_type: OneOfEntriesAddressTypeHostOptionsDef = _field(metadata={"alias": "addressType"})
-    host: Union[OneOfEntriesHostOptionsDef1, OneOfDescriptionOptionsDef2]
+    host: Union[OneOfEntriesHostOptionsDef1, OneOfEntriesHostOptionsDef2]
 
 
 @dataclass
@@ -79,11 +89,21 @@ class OneOfEntriesIpPrefixOptionsDef1:
 
 
 @dataclass
+class OneOfEntriesIpPrefixOptionsDef2:
+    option_type: VariableOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: str
+    default: Optional[str] = _field(default=None)
+    description: Optional[str] = _field(default=None)
+
+
+@dataclass
 class Entries2:
     address_type: OneOfEntriesAddressTypeIpPrefixOptionsDef = _field(
         metadata={"alias": "addressType"}
     )
-    ip_prefix: Union[OneOfEntriesIpPrefixOptionsDef1, OneOfDescriptionOptionsDef2] = _field(
+    ip_prefix: Union[OneOfEntriesIpPrefixOptionsDef1, OneOfEntriesIpPrefixOptionsDef2] = _field(
         metadata={"alias": "ipPrefix"}
     )
 
@@ -126,13 +146,49 @@ class OneOfEntriesAddressTypeHostRangeOptionsDef:
 
 
 @dataclass
+class OneOfEntriesHostRangeStartOptionsDef1:
+    option_type: GlobalOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: Any
+
+
+@dataclass
+class OneOfEntriesHostRangeStartOptionsDef2:
+    option_type: VariableOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: str
+    default: Optional[str] = _field(default=None)
+    description: Optional[str] = _field(default=None)
+
+
+@dataclass
+class OneOfEntriesHostRangeEndOptionsDef1:
+    option_type: GlobalOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: Any
+
+
+@dataclass
+class OneOfEntriesHostRangeEndOptionsDef2:
+    option_type: VariableOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: str
+    default: Optional[str] = _field(default=None)
+    description: Optional[str] = _field(default=None)
+
+
+@dataclass
 class HostRange:
     """
     Host Address Range
     """
 
-    end: Union[OneOfEntriesHostOptionsDef1, OneOfDescriptionOptionsDef2]
-    start: Union[OneOfEntriesHostOptionsDef1, OneOfDescriptionOptionsDef2]
+    end: Union[OneOfEntriesHostRangeEndOptionsDef1, OneOfEntriesHostRangeEndOptionsDef2]
+    start: Union[OneOfEntriesHostRangeStartOptionsDef1, OneOfEntriesHostRangeStartOptionsDef2]
 
 
 @dataclass
@@ -162,8 +218,18 @@ class CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest:
     data: Data
     name: str
     description: Optional[str] = _field(default=None)
-    # This is the documentation for POST/PUT request schema for Ipv4 Network Object Group profile parcel
-    documentation: Optional[Any] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload:
+    """
+    Ipv4 Network Object Group profile parcel schema
+    """
+
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
     metadata: Optional[Any] = _field(default=None)
 
 
@@ -176,6 +242,4 @@ class GetDataPrefixProfileParcelForPolicyObjectGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # Ipv4 Network Object Group profile parcel schema
-    payload: Optional[CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest] = _field(
-        default=None
-    )
+    payload: Optional[Payload] = _field(default=None)

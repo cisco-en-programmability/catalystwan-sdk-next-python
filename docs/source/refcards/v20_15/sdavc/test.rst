@@ -11,7 +11,7 @@ Test SD_AVC load balancer
 
 .. code:: python
 
-    def test_load_balancer() -> None: ...
+    def post() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.test.test_load_balancer()
+        client.sdavc.test.post()
 
 

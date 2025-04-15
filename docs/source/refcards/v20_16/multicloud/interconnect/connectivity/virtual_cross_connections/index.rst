@@ -47,8 +47,8 @@ API to create an Interconnect virtual cross connection on an Interconnect Gatewa
 
 .. code:: python
 
-    def create_interconnect_cross_connection(
-        payload: Optional[List[InterconnectCrossConnection]] = None,
+    def post(
+        payload: List[InterconnectCrossConnection],
     ) -> ProcessResponse: ...
 
 
@@ -67,7 +67,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.virtual_cross_connections.create_interconnect_cross_connection()
+        client.multicloud.interconnect.connectivity.virtual_cross_connections.post()
 
 
 Operation: GET /dataservice/multicloud/interconnect/connectivity/virtual-cross-connections/{connection-name}
@@ -78,9 +78,7 @@ API to retrieve an exisiting Interconnect virtual cross connection.
 
 .. code:: python
 
-    def get_interconnect_cross_connection(
-        connection_name: str,
-    ) -> Any: ...
+    def get(connection_name: str) -> Any: ...
 
 
 Example:
@@ -98,7 +96,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.virtual_cross_connections.get_interconnect_cross_connection()
+        client.multicloud.interconnect.connectivity.virtual_cross_connections.get()
 
 
 Operation: PUT /dataservice/multicloud/interconnect/connectivity/virtual-cross-connections/{connection-name}
@@ -109,9 +107,8 @@ API to update a virtual cross connection connection on an Interconnect Gateway a
 
 .. code:: python
 
-    def update_interconnect_cross_connection(
-        connection_name: str,
-        payload: Optional[InterconnectCrossConnection] = None,
+    def put(
+        connection_name: str, payload: InterconnectCrossConnection
     ) -> ProcessResponse: ...
 
 
@@ -130,7 +127,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.virtual_cross_connections.update_interconnect_cross_connection()
+        client.multicloud.interconnect.connectivity.virtual_cross_connections.put()
 
 
 Operation: DELETE /dataservice/multicloud/interconnect/connectivity/virtual-cross-connections/{connection-name}
@@ -141,9 +138,7 @@ API to delete an Interconnect virtual cross connection at an Interconnect provid
 
 .. code:: python
 
-    def delete_interconnect_cross_connection(
-        connection_name: str,
-    ) -> ProcessResponse: ...
+    def delete(connection_name: str) -> ProcessResponse: ...
 
 
 Example:
@@ -161,7 +156,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.virtual_cross_connections.delete_interconnect_cross_connection()
+        client.multicloud.interconnect.connectivity.virtual_cross_connections.delete()
 
 
 .. toctree::

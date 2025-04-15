@@ -14,9 +14,10 @@ class TunnelBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_pim_tunnel_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get PIM tunnel from device
+        GET /dataservice/device/multicast/tunnel
 
         :param device_id: deviceId - Device IP
         :returns: Any

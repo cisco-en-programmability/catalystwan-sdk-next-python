@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -23,11 +23,10 @@ class FirmwareUpgradeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def remote_firmware_image_upgrade(
-        self, payload: Optional[Any] = None, **kw
-    ) -> FirmwareImageRemoteUpgrade:
+    def post(self, payload: Any, **kw) -> FirmwareImageRemoteUpgrade:
         """
         Eemote firmware on device
+        POST /dataservice/device/action/firmware-upgrade
 
         :param payload: Request body
         :returns: FirmwareImageRemoteUpgrade
@@ -40,9 +39,10 @@ class FirmwareUpgradeBuilder:
             **kw,
         )
 
-    def delete_firmware_upgarde_remote_image(self, version_id: str, **kw):
+    def delete(self, version_id: str, **kw):
         """
         Download software package file
+        DELETE /dataservice/device/action/firmware-upgrade/{versionId}
 
         :param version_id: Version id
         :returns: None

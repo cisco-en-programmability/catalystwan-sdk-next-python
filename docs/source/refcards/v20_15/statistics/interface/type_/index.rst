@@ -11,7 +11,7 @@ Get statistics per interface
 
 .. code:: python
 
-    def get_statistics_per_interface(query: str) -> InterfaceAggResp: ...
+    def get(query: str) -> InterfaceAggResp: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.interface.type_.get_statistics_per_interface()
+        client.statistics.interface.type_.get()
 
 
 .. toctree::

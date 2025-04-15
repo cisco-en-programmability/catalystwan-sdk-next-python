@@ -23,9 +23,10 @@ class TasksBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def find_running_tasks(self, **kw) -> InlineResponse200:
+    def get(self, **kw) -> InlineResponse200:
         """
         Find running tasks
+        GET /dataservice/device/action/status/tasks
 
         :returns: InlineResponse200
         """

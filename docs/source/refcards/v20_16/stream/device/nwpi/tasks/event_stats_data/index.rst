@@ -13,7 +13,7 @@ Get auto on stats data in one task
 
 .. code:: python
 
-    def get_event_stats_data(
+    def get(
         task_id: int, state: str, task_end_time: int, duration: int
     ) -> EventStatsDataResponsePayload: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.tasks.event_stats_data.get_event_stats_data()
+        client.stream.device.nwpi.tasks.event_stats_data.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ API to retrieve current Multicloud MultiCloud topology for the Config Group.
 
 .. code:: python
 
-    def get_multi_cloud_config_group_topology(
+    def get(
         cloud_type: str, config_group_id: str
     ) -> InlineResponse200: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.config_group.topology.get_multi_cloud_config_group_topology()
+        client.multicloud.config_group.topology.get()
 
 
 Operation: PUT /dataservice/multicloud/{cloudType}/config-group/{config-group-id}/topology
@@ -42,7 +42,7 @@ API to update current MultiCloud topology for the Config Group.
 
 .. code:: python
 
-    def update_multi_cloud_config_group_topology(
+    def put(
         cloud_type: str, config_group_id: str
     ) -> InlineResponse200: ...
 
@@ -62,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.config_group.topology.update_multi_cloud_config_group_topology()
+        client.multicloud.config_group.topology.put()
 
 
 .. toctree::

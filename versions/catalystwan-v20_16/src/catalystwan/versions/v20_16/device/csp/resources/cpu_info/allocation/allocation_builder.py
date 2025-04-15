@@ -14,9 +14,10 @@ class AllocationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_allocation_info(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get NetworkHub CPU allocation info from device
+        GET /dataservice/device/csp/resources/cpu-info/allocation
 
         :param device_id: deviceId - Device IP
         :returns: Any

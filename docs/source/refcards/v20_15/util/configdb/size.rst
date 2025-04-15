@@ -11,7 +11,7 @@ Fetches the disk usage by configuration-db
 
 .. code:: python
 
-    def get_db_size_on_file() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.configdb.size.get_db_size_on_file()
+        client.util.configdb.size.get()
 
 

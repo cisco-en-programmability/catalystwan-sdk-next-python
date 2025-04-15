@@ -11,7 +11,7 @@ Get mapping status
 
 .. code:: python
 
-    def get_mapping_status(
+    def get(
         cloud_type: str, region: Optional[str] = None
     ) -> List[MapStatus]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.map.status.get_mapping_status()
+        client.multicloud.map.status.get()
 
 
 .. toctree::

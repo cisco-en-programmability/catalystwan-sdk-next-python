@@ -19,9 +19,10 @@ class VnfBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def getvnf_by_device_id(self, device_id: DeviceUuid, **kw):
+    def get(self, device_id: DeviceUuid, **kw):
         """
         List all VNF attached with Device
+        GET /dataservice/colocation/monitor/device/vnf
 
         :param device_id: Device id
         :returns: None

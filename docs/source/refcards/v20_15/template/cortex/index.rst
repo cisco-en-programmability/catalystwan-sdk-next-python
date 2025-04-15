@@ -11,7 +11,7 @@ Get Cortex List
 
 .. code:: python
 
-    def get_cortex_status() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cortex.get_cortex_status()
+        client.template.cortex.get()
 
 
 .. toctree::

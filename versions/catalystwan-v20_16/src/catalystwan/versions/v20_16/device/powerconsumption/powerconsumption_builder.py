@@ -17,9 +17,10 @@ class PowerconsumptionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_power_consumption(self, device_id: DeviceIp, **kw) -> PowerConsumptionRealTime:
+    def get(self, device_id: DeviceIp, **kw) -> PowerConsumptionRealTime:
         """
         Get Power Consumption Information
+        GET /dataservice/device/powerconsumption
 
         :param device_id: Device id
         :returns: PowerConsumptionRealTime

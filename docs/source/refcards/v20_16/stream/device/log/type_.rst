@@ -9,7 +9,7 @@ Operation: GET /dataservice/stream/device/log/type
 
 .. code:: python
 
-    def get_log_type(uuid: str) -> None: ...
+    def get(uuid: str) -> None: ...
 
 
 Example:
@@ -27,6 +27,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.log.type_.get_log_type()
+        client.stream.device.log.type_.get()
 
 

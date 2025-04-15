@@ -11,7 +11,7 @@ Process amp api re-key operation
 
 .. code:: python
 
-    def process_amp_api_re_key(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.security.amp.rekey.process_amp_api_re_key()
+        client.device.action.security.amp.rekey.post()
 
 

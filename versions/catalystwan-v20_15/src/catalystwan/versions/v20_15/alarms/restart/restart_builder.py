@@ -17,9 +17,10 @@ class RestartBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def restart_correlation_engine(self, **kw) -> SimpleMessageResponse:
+    def get(self, **kw) -> SimpleMessageResponse:
         """
         Restart correlation engine.
+        GET /dataservice/alarms/restart
 
         :returns: SimpleMessageResponse
         """

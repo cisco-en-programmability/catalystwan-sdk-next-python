@@ -13,7 +13,7 @@ Remove device pair
 
 .. code:: python
 
-    def remove_device_id(
+    def delete(
         accountid: str,
         transitvpcid: str,
         transitvpcname: str,
@@ -38,6 +38,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.delete_devicepair.remove_device_id()
+        client.template.cor.delete_devicepair.delete()
 
 

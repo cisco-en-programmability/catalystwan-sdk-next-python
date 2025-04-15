@@ -11,9 +11,7 @@ Creates and pushes bootstrap configurations onto day0 devices.
 
 .. code:: python
 
-    def submit_day0_config(
-        payload: Optional[SubmitDay0ConfigPostRequest] = None,
-    ) -> List[Any]: ...
+    def post(payload: SubmitDay0ConfigPostRequest) -> List[Any]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.config.quick_connect.submit_devices.submit_day0_config()
+        client.template.config.quick_connect.submit_devices.post()
 
 
 .. toctree::

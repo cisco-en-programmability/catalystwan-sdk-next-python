@@ -17,9 +17,10 @@ class EditLicensesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_license_by_uuid(self, uuid: str, **kw) -> EditLicenseResponse:
+    def get(self, uuid: str, **kw) -> EditLicenseResponse:
         """
         Edit licenses associated to a device
+        GET /dataservice/v1/licensing/edit-licenses/{uuid}
 
         :param uuid: Uuid
         :returns: EditLicenseResponse

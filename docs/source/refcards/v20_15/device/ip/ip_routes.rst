@@ -11,7 +11,7 @@ Get ietf routing list from device
 
 .. code:: python
 
-    def create_ietf_routing_list(
+    def get(
         device_id: str,
         routing_instance_name: Optional[str] = None,
         address_family: Optional[str] = None,
@@ -36,6 +36,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ip.ip_routes.create_ietf_routing_list()
+        client.device.ip.ip_routes.get()
 
 

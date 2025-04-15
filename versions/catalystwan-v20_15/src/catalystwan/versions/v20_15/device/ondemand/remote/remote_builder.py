@@ -14,9 +14,10 @@ class RemoteBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_on_demand_remote(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get on-demand remote (Real Time)
+        GET /dataservice/device/ondemand/remote
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

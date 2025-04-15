@@ -11,7 +11,7 @@ Download packet capture file
 
 .. code:: python
 
-    def download_file(session_id: str) -> str: ...
+    def get(session_id: str) -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.capture.download.download_file()
+        client.stream.device.capture.download.get()
 
 

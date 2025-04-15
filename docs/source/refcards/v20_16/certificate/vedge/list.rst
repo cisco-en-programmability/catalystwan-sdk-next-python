@@ -11,7 +11,7 @@ get vEdge list
 
 .. code:: python
 
-    def getv_edge_list(state: Optional[str] = None) -> str: ...
+    def get(state: Optional[str] = None) -> str: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.vedge.list.getv_edge_list()
+        client.certificate.vedge.list.get()
 
 
 Operation: POST /dataservice/certificate/vedge/list
@@ -40,9 +40,7 @@ Save vEdge list (send to controller)
 
 .. code:: python
 
-    def setv_edge_list(
-        payload: Optional[str] = None, action: Optional[str] = None
-    ) -> str: ...
+    def post(payload: str, action: Optional[str] = None) -> str: ...
 
 
 Example:
@@ -60,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.vedge.list.setv_edge_list()
+        client.certificate.vedge.list.post()
 
 

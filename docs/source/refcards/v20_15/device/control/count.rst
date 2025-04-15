@@ -11,7 +11,7 @@ Get number of vedges and vsmart device in different control states
 
 .. code:: python
 
-    def get_total_count_for_device_states(
+    def get(
         is_cached: Optional[bool] = False, site_id: Optional[str] = None
     ) -> Any: ...
 
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.control.count.get_total_count_for_device_states()
+        client.device.control.count.get()
 
 

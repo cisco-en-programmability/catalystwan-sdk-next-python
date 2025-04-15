@@ -11,7 +11,7 @@ Get template policy definition by policy id
 
 .. code:: python
 
-    def get_template_by_policy_id(policy_id: str) -> Any: ...
+    def get(policy_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.vsmart.definition.get_template_by_policy_id()
+        client.template.policy.vsmart.definition.get()
 
 

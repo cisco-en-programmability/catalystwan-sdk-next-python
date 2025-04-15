@@ -13,7 +13,7 @@ Get partner ports
 
 .. code:: python
 
-    def get_partner_ports(
+    def get(
         edge_type: Optional[EdgeTypeParam] = None,
         account_id: Optional[str] = None,
         cloud_type: Optional[str] = None,
@@ -39,7 +39,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.partnerports.edge.get_partner_ports()
+        client.multicloud.partnerports.edge.get()
 
 
 .. toctree::

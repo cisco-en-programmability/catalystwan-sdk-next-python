@@ -11,7 +11,7 @@ Get all policy lists
 
 .. code:: python
 
-    def get_all_policy_lists() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.list.get_all_policy_lists()
+        client.template.policy.list.get()
 
 
 .. toctree::

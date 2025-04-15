@@ -11,7 +11,7 @@ Get vManage detail<br><br><br>Note: In a multitenant vManage system, this API is
 
 .. code:: python
 
-    def get_v_manage_details(vmanage_ip: str) -> Any: ...
+    def get(vmanage_ip: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.v_manage.details.get_v_manage_details()
+        client.cluster_management.v_manage.details.get()
 
 

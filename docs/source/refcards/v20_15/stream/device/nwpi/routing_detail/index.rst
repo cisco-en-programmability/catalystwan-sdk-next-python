@@ -13,7 +13,7 @@ Get Routing Details for NWPI.
 
 .. code:: python
 
-    def get_routing_detail_from_local(
+    def get(
         trace_id: int,
         timestamp: int,
         trace_state: str,
@@ -36,7 +36,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.routing_detail.get_routing_detail_from_local()
+        client.stream.device.nwpi.routing_detail.get()
 
 
 .. toctree::

@@ -14,7 +14,7 @@ class MembersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_lacp_members(
+    def get(
         self,
         device_id: str,
         channel_group: Optional[str] = None,
@@ -23,6 +23,7 @@ class MembersBuilder:
     ) -> Any:
         """
         Get device lacp port channel interface table (Real Time)
+        GET /dataservice/device/lacp/members
 
         :param channel_group: Channel-group
         :param if_name: Interface Name

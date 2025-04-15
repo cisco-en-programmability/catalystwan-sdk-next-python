@@ -11,7 +11,7 @@ Get zone based firewall statistics from device
 
 .. code:: python
 
-    def get_zbfw_statistics(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.policy.zbfwstatistics.get_zbfw_statistics()
+        client.device.policy.zbfwstatistics.get()
 
 

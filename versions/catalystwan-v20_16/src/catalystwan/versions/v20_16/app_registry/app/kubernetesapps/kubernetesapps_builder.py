@@ -19,7 +19,7 @@ class KubernetesappsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_kubernetes_services(
+    def get(
         self,
         is_cached: Optional[bool] = False,
         offset: Optional[int] = 0,
@@ -28,6 +28,7 @@ class KubernetesappsBuilder:
     ) -> List[DiscoveredServices]:
         """
         Obtain all services associated with clusters
+        GET /dataservice/app-registry/app/kubernetesapps
 
         :param is_cached: Is cached
         :param offset: Pagination offset

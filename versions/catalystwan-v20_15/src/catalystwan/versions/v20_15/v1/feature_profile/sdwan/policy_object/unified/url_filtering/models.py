@@ -151,6 +151,11 @@ class UrlAllowedList:
 
 
 @dataclass
+class UrlBlockedList:
+    ref_id: Optional[RefIdOptionDef] = _field(default=None, metadata={"alias": "refId"})
+
+
+@dataclass
 class OneOfBlockPageActionOptionsDef:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
@@ -210,7 +215,7 @@ class Data:
     url_allowed_list: Optional[UrlAllowedList] = _field(
         default=None, metadata={"alias": "urlAllowedList"}
     )
-    url_blocked_list: Optional[UrlAllowedList] = _field(
+    url_blocked_list: Optional[UrlBlockedList] = _field(
         default=None, metadata={"alias": "urlBlockedList"}
     )
     web_categories: Optional[OneOfWebCategoriesOptionsDef] = _field(
@@ -235,8 +240,24 @@ class CreateSecurityProfileParcelPostRequest21:
 
 
 @dataclass
+class CreateSecurityProfileParcelPostRequest22:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
 class CreateSecurityProfileParcelPostRequest31:
     data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class CreateSecurityProfileParcelPostRequest32:
+    data: Data
     name: str
     description: Optional[str] = _field(default=None)
     metadata: Optional[Any] = _field(default=None)
@@ -251,8 +272,168 @@ class CreateSecurityProfileParcelPostRequest41:
 
 
 @dataclass
+class CreateSecurityProfileParcelPostRequest42:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class CreateSecurityProfileParcelPostRequest51:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class CreateSecurityProfileParcelPostRequest52:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
 class CreateSecurityProfileParcelPostRequest61:
     data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class CreateSecurityProfileParcelPostRequest62:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class CreateSecurityProfileParcelPostRequest71:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class CreateSecurityProfileParcelPostRequest72:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload11:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload12:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload21:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload22:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload31:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload32:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload41:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload42:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload51:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload52:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload61:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload62:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload71:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload72:
+    data: Data
     name: str
     description: Optional[str] = _field(default=None)
     metadata: Optional[Any] = _field(default=None)
@@ -269,26 +450,12 @@ class GetSecurityProfileParcelGetResponse:
     # url-filtering profile parcel schema for POST request
     payload: Optional[
         Union[
-            Union[
-                CreateSecurityProfileParcelPostRequest11, CreateSecurityProfileParcelPostRequest12
-            ],
-            Union[
-                CreateSecurityProfileParcelPostRequest21, CreateSecurityProfileParcelPostRequest12
-            ],
-            Union[
-                CreateSecurityProfileParcelPostRequest31, CreateSecurityProfileParcelPostRequest12
-            ],
-            Union[
-                CreateSecurityProfileParcelPostRequest41, CreateSecurityProfileParcelPostRequest12
-            ],
-            Union[
-                CreateSecurityProfileParcelPostRequest31, CreateSecurityProfileParcelPostRequest12
-            ],
-            Union[
-                CreateSecurityProfileParcelPostRequest61, CreateSecurityProfileParcelPostRequest12
-            ],
-            Union[
-                CreateSecurityProfileParcelPostRequest31, CreateSecurityProfileParcelPostRequest12
-            ],
+            Union[Payload11, Payload12],
+            Union[Payload21, Payload22],
+            Union[Payload31, Payload32],
+            Union[Payload41, Payload42],
+            Union[Payload51, Payload52],
+            Union[Payload61, Payload62],
+            Union[Payload71, Payload72],
         ]
     ] = _field(default=None)

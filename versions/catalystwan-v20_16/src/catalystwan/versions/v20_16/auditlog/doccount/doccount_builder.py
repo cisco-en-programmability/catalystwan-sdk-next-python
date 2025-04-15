@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,9 +19,10 @@ class DoccountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_count(self, query: str, **kw) -> GetAuditLogDoccount:
+    def get(self, query: str, **kw) -> GetAuditLogDoccount:
         """
         Get response count of a query
+        GET /dataservice/auditlog/doccount
 
         :param query: Query
         :returns: GetAuditLogDoccount
@@ -37,9 +38,10 @@ class DoccountBuilder:
             **kw,
         )
 
-    def get_count_post(self, payload: Optional[Any] = None, **kw) -> GetAuditLogDoccount:
+    def post(self, payload: Any, **kw) -> GetAuditLogDoccount:
         """
         Get response count of a query
+        POST /dataservice/auditlog/doccount
 
         :param payload: Stats query string
         :returns: GetAuditLogDoccount

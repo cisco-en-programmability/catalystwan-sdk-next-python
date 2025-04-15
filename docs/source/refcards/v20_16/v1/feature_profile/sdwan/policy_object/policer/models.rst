@@ -52,8 +52,17 @@ Models
         data: Data
         name: str
         description: Optional[str]
-        # This is the documentation for POST request schema for policer profile parcel
-        documentation: Optional[Any]
+        metadata: Optional[Any]
+
+
+    class Payload:
+        """
+        policer profile parcel schema for POST request
+        """
+
+        data: Data
+        name: str
+        description: Optional[str]
         metadata: Optional[Any]
 
 
@@ -65,8 +74,6 @@ Models
         parcel_id: Optional[str]
         parcel_type: Optional[str]
         # policer profile parcel schema for POST request
-        payload: Optional[
-            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest
-        ]
+        payload: Optional[Payload]
 
 

@@ -12,9 +12,10 @@ class ListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def getv_smart_list(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         get vSmart list
+        GET /dataservice/certificate/vsmart/list
 
         :returns: str
         """
@@ -22,9 +23,10 @@ class ListBuilder:
             "GET", "/dataservice/certificate/vsmart/list", return_type=str, **kw
         )
 
-    def setv_smart_list(self, **kw) -> str:
+    def post(self, **kw) -> str:
         """
         save vSmart List(handleSendToVbond)
+        POST /dataservice/certificate/vsmart/list
 
         :returns: str
         """

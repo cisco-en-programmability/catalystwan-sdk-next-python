@@ -14,9 +14,10 @@ class GetSigTunnelTotalBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sig_tunnel_total(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         get Sig Tunnel Total coount
+        GET /dataservice/device/sig/getSigTunnelTotal
 
         :returns: Any
         """

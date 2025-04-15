@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional
+from typing import Any, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,11 +19,12 @@ class ApplicationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_list(
+    def get(
         self, traffic_class: Optional[str] = None, business_relevance: Optional[str] = None, **kw
     ) -> List[Any]:
         """
         Get All the App for the given conditions
+        GET /dataservice/app-registry/applications
 
         :param traffic_class: Traffic Class
         :param business_relevance: Business Relevance
@@ -41,41 +42,57 @@ class ApplicationsBuilder:
             **kw,
         )
 
-    def edit_app_details(
-        self, payload: Optional[List[EditAppDetailsPutRequest]] = None, **kw
-    ) -> List[Any]:
+    @overload
+    def put(self, payload: Any, app_id: str, **kw) -> PayloadItems:
         """
         Edit App Details
+        PUT /dataservice/app-registry/applications/{appId}
+
+        :param payload: Request body
+        :param app_id: appId
+        :returns: PayloadItems
+        """
+        ...
+
+    @overload
+    def put(self, payload: List[EditAppDetailsPutRequest], **kw) -> List[Any]:
+        """
+        Edit App Details
+        PUT /dataservice/app-registry/applications
 
         :param payload: Payload
         :returns: List[Any]
         """
-        return self._request_adapter.request(
-            "PUT",
-            "/dataservice/app-registry/applications",
-            return_type=List[Any],
-            payload=payload,
-            **kw,
-        )
+        ...
 
-    def edit_app_details_with_uuid(
-        self, app_id: str, payload: Optional[Any] = None, **kw
-    ) -> PayloadItems:
-        """
-        Edit App Details
-
-        :param app_id: appId
-        :param payload: Request body
-        :returns: PayloadItems
-        """
-        params = {
-            "appId": app_id,
-        }
-        return self._request_adapter.request(
-            "PUT",
-            "/dataservice/app-registry/applications/{appId}",
-            return_type=PayloadItems,
-            params=params,
-            payload=payload,
-            **kw,
-        )
+    def put(
+        self,
+        payload: Union[Any, List[EditAppDetailsPutRequest]],
+        app_id: Optional[str] = None,
+        **kw,
+    ) -> Union[List[Any], PayloadItems]:
+        # /dataservice/app-registry/applications/{appId}
+        if self._request_adapter.param_checker([(payload, Any), (app_id, str)], []):
+            params = {
+                "appId": app_id,
+            }
+            return self._request_adapter.request(
+                "PUT",
+                "/dataservice/app-registry/applications/{appId}",
+                return_type=PayloadItems,
+                params=params,
+                payload=payload,
+                **kw,
+            )
+        # /dataservice/app-registry/applications
+        if self._request_adapter.param_checker(
+            [(payload, List[EditAppDetailsPutRequest])], [app_id]
+        ):
+            return self._request_adapter.request(
+                "PUT",
+                "/dataservice/app-registry/applications",
+                return_type=List[Any],
+                payload=payload,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")

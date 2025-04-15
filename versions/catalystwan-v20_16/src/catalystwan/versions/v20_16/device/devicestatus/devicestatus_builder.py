@@ -17,9 +17,10 @@ class DevicestatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_only_status(self, **kw) -> DeviceStatusData:
+    def get(self, **kw) -> DeviceStatusData:
         """
         Get devices status per type
+        GET /dataservice/device/devicestatus
 
         :returns: DeviceStatusData
         """

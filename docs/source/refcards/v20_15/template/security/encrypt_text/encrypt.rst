@@ -11,7 +11,7 @@ Get Type 6 Encryptedd String for a given value
 
 .. code:: python
 
-    def get_encrypted_string(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.security.encrypt_text.encrypt.get_encrypted_string()
+        client.template.security.encrypt_text.encrypt.post()
 
 

@@ -17,9 +17,10 @@ class SiteBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sites_for_partner(self, partner_id: str, **kw) -> SdaSitesRes:
+    def get(self, partner_id: str, **kw) -> SdaSitesRes:
         """
         Get SDA Sites for Partner
+        GET /dataservice/partner/dnac/sda/site/{partnerId}
 
         :param partner_id: Partner id
         :returns: SdaSitesRes

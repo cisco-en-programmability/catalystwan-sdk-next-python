@@ -11,9 +11,7 @@ Authenticate vSmart user account
 
 .. code:: python
 
-    def smart_account_authenticate(
-        payload: Optional[Any] = None,
-    ) -> SmartAccountAuthenticateResponse: ...
+    def post(payload: Any) -> SmartAccountAuthenticateResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.smartaccount.authenticate.smart_account_authenticate()
+        client.system.device.smartaccount.authenticate.post()
 
 
 .. toctree::

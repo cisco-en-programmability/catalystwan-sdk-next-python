@@ -17,9 +17,10 @@ class ServerBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cdna_server(self, **kw) -> EnrollOtpResponse:
+    def get(self, **kw) -> EnrollOtpResponse:
         """
         Get CDNA Server Details
+        GET /dataservice/cdna/server
 
         :returns: EnrollOtpResponse
         """
@@ -27,9 +28,10 @@ class ServerBuilder:
             "GET", "/dataservice/cdna/server", return_type=EnrollOtpResponse, **kw
         )
 
-    def enroll_cdna_server(self, payload: EnrollOtpSettings, **kw) -> EnrollOtpResponse:
+    def put(self, payload: EnrollOtpSettings, **kw) -> EnrollOtpResponse:
         """
         Enroll CDNA Server with OTP
+        PUT /dataservice/cdna/server
 
         :param payload: CDNA OTP Details
         :returns: EnrollOtpResponse
@@ -38,9 +40,10 @@ class ServerBuilder:
             "PUT", "/dataservice/cdna/server", return_type=EnrollOtpResponse, payload=payload, **kw
         )
 
-    def delete_cdna_server(self, **kw):
+    def delete(self, **kw):
         """
         Delete CDNA Server Details
+        DELETE /dataservice/cdna/server
 
         :returns: None
         """

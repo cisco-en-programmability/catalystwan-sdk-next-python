@@ -14,9 +14,10 @@ class InterfaceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_nat_interface_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get NAT interface list from device (Real Time)
+        GET /dataservice/device/ip/nat/interface
 
         :param device_id: deviceId - Device IP
         :returns: Any

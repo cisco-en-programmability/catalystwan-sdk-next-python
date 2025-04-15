@@ -11,9 +11,7 @@ Download a report file
 
 .. code:: python
 
-    def download_report_data_file(
-        report_id: str, task_id: str
-    ) -> str: ...
+    def get(report_id: str, task_id: str) -> str: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.reports.tasks.download.download_report_data_file()
+        client.v1.reports.tasks.download.get()
 
 

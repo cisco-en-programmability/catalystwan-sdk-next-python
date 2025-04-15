@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateLanVpnInterfaceEthernetParcelForServicePostRequest,
+    CreateLanVpnInterfaceEthernetParcelForServicePostResponse,
+    EditLanVpnInterfaceEthernetParcelForServicePutRequest,
+    EditLanVpnInterfaceEthernetParcelForServicePutResponse,
+    GetListSdwanServiceLanVpnInterfaceEthernetPayload,
+    GetSingleSdwanServiceLanVpnInterfaceEthernetPayload,
+)
 
 if TYPE_CHECKING:
     from .dhcp_server.dhcp_server_builder import DhcpServerBuilder
@@ -17,41 +27,26 @@ class EthernetBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sdwan/service/lan/vpn/interface/ethernet
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interface_ethernet_parcels_for_service_lan_vpn(
-        self, service_id: str, vpn_id: str, **kw
-    ) -> str:
-        """
-        Get InterfaceEthernet Parcels for service LanVpn Parcel
-
-        :param service_id: Feature Profile ID
-        :param vpn_id: Feature Parcel ID
-        :returns: str
-        """
-        params = {
-            "serviceId": service_id,
-            "vpnId": vpn_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def create_lan_vpn_interface_ethernet_parcel_for_service(
-        self, service_id: str, vpn_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self,
+        service_id: str,
+        vpn_id: str,
+        payload: CreateLanVpnInterfaceEthernetParcelForServicePostRequest,
+        **kw,
+    ) -> CreateLanVpnInterfaceEthernetParcelForServicePostResponse:
         """
         Create a LanVpn InterfaceEthernet parcel for service feature profile
+        POST /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet
 
         :param service_id: Feature Profile ID
         :param vpn_id: Profile Parcel ID
         :param payload: Lan Vpn Interface Ethernet Profile Parcel
-        :returns: str
+        :returns: CreateLanVpnInterfaceEthernetParcelForServicePostResponse
         """
         params = {
             "serviceId": service_id,
@@ -60,47 +55,29 @@ class EthernetBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet",
-            return_type=str,
+            return_type=CreateLanVpnInterfaceEthernetParcelForServicePostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_lan_vpn_interface_ethernet_parcel_by_parcel_id_for_service(
-        self, service_id: str, vpn_id: str, ethernet_id: str, **kw
-    ) -> str:
-        """
-        Get LanVpn InterfaceEthernet Parcel by ethernetId for service feature profile
-
-        :param service_id: Feature Profile ID
-        :param vpn_id: Profile Parcel ID
-        :param ethernet_id: Interface Parcel ID
-        :returns: str
-        """
-        params = {
-            "serviceId": service_id,
-            "vpnId": vpn_id,
-            "ethernetId": ethernet_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet/{ethernetId}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def edit_lan_vpn_interface_ethernet_parcel_for_service(
-        self, service_id: str, vpn_id: str, ethernet_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self,
+        service_id: str,
+        vpn_id: str,
+        ethernet_id: str,
+        payload: EditLanVpnInterfaceEthernetParcelForServicePutRequest,
+        **kw,
+    ) -> EditLanVpnInterfaceEthernetParcelForServicePutResponse:
         """
         Update a LanVpn InterfaceEthernet Parcel for service feature profile
+        PUT /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet/{ethernetId}
 
         :param service_id: Feature Profile ID
         :param vpn_id: Profile Parcel ID
         :param ethernet_id: Interface ID
         :param payload: Lan Vpn Interface Ethernet Profile Parcel
-        :returns: str
+        :returns: EditLanVpnInterfaceEthernetParcelForServicePutResponse
         """
         params = {
             "serviceId": service_id,
@@ -110,17 +87,16 @@ class EthernetBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet/{ethernetId}",
-            return_type=str,
+            return_type=EditLanVpnInterfaceEthernetParcelForServicePutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_lan_vpn_interface_ethernet_for_service(
-        self, service_id: str, vpn_id: str, ethernet_id: str, **kw
-    ):
+    def delete(self, service_id: str, vpn_id: str, ethernet_id: str, **kw):
         """
         Delete a  LanVpn InterfaceEthernet Parcel for service feature profile
+        DELETE /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet/{ethernetId}
 
         :param service_id: Feature Profile ID
         :param vpn_id: Profile Parcel ID
@@ -138,6 +114,72 @@ class EthernetBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(
+        self, service_id: str, vpn_id: str, ethernet_id: str, **kw
+    ) -> GetSingleSdwanServiceLanVpnInterfaceEthernetPayload:
+        """
+        Get LanVpn InterfaceEthernet Parcel by ethernetId for service feature profile
+        GET /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet/{ethernetId}
+
+        :param service_id: Feature Profile ID
+        :param vpn_id: Profile Parcel ID
+        :param ethernet_id: Interface Parcel ID
+        :returns: GetSingleSdwanServiceLanVpnInterfaceEthernetPayload
+        """
+        ...
+
+    @overload
+    def get(
+        self, service_id: str, vpn_id: str, **kw
+    ) -> GetListSdwanServiceLanVpnInterfaceEthernetPayload:
+        """
+        Get InterfaceEthernet Parcels for service LanVpn Parcel
+        GET /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet
+
+        :param service_id: Feature Profile ID
+        :param vpn_id: Feature Parcel ID
+        :returns: GetListSdwanServiceLanVpnInterfaceEthernetPayload
+        """
+        ...
+
+    def get(
+        self, service_id: str, vpn_id: str, ethernet_id: Optional[str] = None, **kw
+    ) -> Union[
+        GetListSdwanServiceLanVpnInterfaceEthernetPayload,
+        GetSingleSdwanServiceLanVpnInterfaceEthernetPayload,
+    ]:
+        # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet/{ethernetId}
+        if self._request_adapter.param_checker(
+            [(service_id, str), (vpn_id, str), (ethernet_id, str)], []
+        ):
+            params = {
+                "serviceId": service_id,
+                "vpnId": vpn_id,
+                "ethernetId": ethernet_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet/{ethernetId}",
+                return_type=GetSingleSdwanServiceLanVpnInterfaceEthernetPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet
+        if self._request_adapter.param_checker([(service_id, str), (vpn_id, str)], [ethernet_id]):
+            params = {
+                "serviceId": service_id,
+                "vpnId": vpn_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet",
+                return_type=GetListSdwanServiceLanVpnInterfaceEthernetPayload,
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def dhcp_server(self) -> DhcpServerBuilder:

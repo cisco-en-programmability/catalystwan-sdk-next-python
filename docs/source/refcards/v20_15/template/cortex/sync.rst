@@ -11,9 +11,7 @@ Sync WAN Resource Groups
 
 .. code:: python
 
-    def sync_wan_resource_groups(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cortex.sync.sync_wan_resource_groups()
+        client.template.cortex.sync.post()
 
 

@@ -11,9 +11,7 @@ Get Power Consumption Per Device stats
 
 .. code:: python
 
-    def get_power_consumption_device(
-        payload: Optional[Any] = None,
-    ) -> PowerConsumptionDeviceResp: ...
+    def post(payload: Any) -> PowerConsumptionDeviceResp: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.powerconsumption.device.get_power_consumption_device()
+        client.statistics.powerconsumption.device.post()
 
 
 .. toctree::

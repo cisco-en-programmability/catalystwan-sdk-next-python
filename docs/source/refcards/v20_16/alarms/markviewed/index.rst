@@ -11,9 +11,7 @@ Mark alarms as acknowledged based on list of UUIDs.
 
 .. code:: python
 
-    def mark_alarms_as_viewed(
-        payload: Optional[Any] = None,
-    ) -> List[AlarmCount]: ...
+    def post(payload: Any) -> List[AlarmCount]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.markviewed.mark_alarms_as_viewed()
+        client.alarms.markviewed.post()
 
 
 .. toctree::

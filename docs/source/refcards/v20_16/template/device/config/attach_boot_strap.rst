@@ -11,7 +11,7 @@ Attach feature device template<br><br><br>Note: In a multitenant vManage system,
 
 .. code:: python
 
-    def push_master_template_1(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.attach_boot_strap.push_master_template_1()
+        client.template.device.config.attach_boot_strap.post()
 
 

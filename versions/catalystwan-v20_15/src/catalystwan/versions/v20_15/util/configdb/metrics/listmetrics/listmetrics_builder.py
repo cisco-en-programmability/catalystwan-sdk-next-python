@@ -14,9 +14,10 @@ class ListmetricsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_metrics_list(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Fetches the list of enabled metrics
+        GET /dataservice/util/configdb/metrics/listmetrics
 
         :returns: Any
         """

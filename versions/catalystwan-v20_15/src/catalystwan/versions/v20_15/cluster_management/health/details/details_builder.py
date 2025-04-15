@@ -14,12 +14,13 @@ class DetailsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def health_details(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get cluster health check details
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/clusterManagement/health/details
 
         :returns: Any
         """

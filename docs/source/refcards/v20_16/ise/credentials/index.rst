@@ -11,7 +11,7 @@ Get Ise server credentials
 
 .. code:: python
 
-    def get_ise_server_credentials() -> IseServer: ...
+    def get() -> IseServer: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.ise.credentials.get_ise_server_credentials()
+        client.ise.credentials.get()
 
 
 Operation: PUT /dataservice/ise/credentials
@@ -40,9 +40,7 @@ update Ise server credentials
 
 .. code:: python
 
-    def update_ise_server_credentials(
-        payload: Optional[IseServer] = None,
-    ) -> bool: ...
+    def put(payload: IseServer) -> bool: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.ise.credentials.update_ise_server_credentials()
+        client.ise.credentials.put()
 
 
 Operation: POST /dataservice/ise/credentials
@@ -71,9 +69,7 @@ Add Ise server credentials
 
 .. code:: python
 
-    def add_ise_server_credentials(
-        payload: Optional[IseServer] = None,
-    ) -> bool: ...
+    def post(payload: IseServer) -> bool: ...
 
 
 Example:
@@ -91,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.ise.credentials.add_ise_server_credentials()
+        client.ise.credentials.post()
 
 
 .. toctree::

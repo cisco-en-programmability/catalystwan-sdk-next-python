@@ -14,9 +14,10 @@ class DreStatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dre_stats(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get DRE statistics
+        GET /dataservice/device/dre/dre-stats
 
         :param device_id: deviceId - Device IP
         :returns: Any

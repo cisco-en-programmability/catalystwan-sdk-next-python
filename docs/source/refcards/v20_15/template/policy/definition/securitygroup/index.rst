@@ -3,35 +3,6 @@ template.policy.definition.securitygroup
 ========================================
 
 
-Operation: GET /dataservice/template/policy/definition/securitygroup
---------------------------------------------------------------------
-
-
-Get policy definitions
-
-.. code:: python
-
-    def get_definitions_21() -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.template.policy.definition.securitygroup.get_definitions_21()
-
-
 Operation: POST /dataservice/template/policy/definition/securitygroup
 ---------------------------------------------------------------------
 
@@ -40,9 +11,7 @@ Create policy definition
 
 .. code:: python
 
-    def create_policy_definition_21(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -60,36 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.securitygroup.create_policy_definition_21()
-
-
-Operation: GET /dataservice/template/policy/definition/securitygroup/{id}
--------------------------------------------------------------------------
-
-
-Get a specific policy definitions
-
-.. code:: python
-
-    def get_policy_definition_21(id: str) -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.template.policy.definition.securitygroup.get_policy_definition_21()
+        client.template.policy.definition.securitygroup.post()
 
 
 Operation: PUT /dataservice/template/policy/definition/securitygroup/{id}
@@ -100,9 +40,7 @@ Edit a policy definitions
 
 .. code:: python
 
-    def edit_policy_definition_21(
-        id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -120,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.securitygroup.edit_policy_definition_21()
+        client.template.policy.definition.securitygroup.put()
 
 
 Operation: DELETE /dataservice/template/policy/definition/securitygroup/{id}
@@ -131,7 +69,7 @@ Delete policy definition
 
 .. code:: python
 
-    def delete_policy_definition_21(id: str) -> None: ...
+    def delete(id: str) -> None: ...
 
 
 Example:
@@ -149,7 +87,63 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.securitygroup.delete_policy_definition_21()
+        client.template.policy.definition.securitygroup.delete()
+
+
+Operation: GET /dataservice/template/policy/definition/securitygroup
+--------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get() -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.template.policy.definition.securitygroup.get()
+
+
+Operation: GET /dataservice/template/policy/definition/securitygroup/{id}
+-------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.template.policy.definition.securitygroup.get()
 
 
 .. toctree::

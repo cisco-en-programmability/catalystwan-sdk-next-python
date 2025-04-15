@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -24,9 +24,10 @@ class CredentialsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_ise_server_credentials(self, **kw) -> IseServer:
+    def get(self, **kw) -> IseServer:
         """
         Get Ise server credentials
+        GET /dataservice/ise/credentials
 
         :returns: IseServer
         """
@@ -34,9 +35,10 @@ class CredentialsBuilder:
             "GET", "/dataservice/ise/credentials", return_type=IseServer, **kw
         )
 
-    def update_ise_server_credentials(self, payload: Optional[IseServer] = None, **kw) -> bool:
+    def put(self, payload: IseServer, **kw) -> bool:
         """
         update Ise server credentials
+        PUT /dataservice/ise/credentials
 
         :param payload: Ise Server with possibly new values for properties
         :returns: bool
@@ -45,9 +47,10 @@ class CredentialsBuilder:
             "PUT", "/dataservice/ise/credentials", return_type=bool, payload=payload, **kw
         )
 
-    def add_ise_server_credentials(self, payload: Optional[IseServer] = None, **kw) -> bool:
+    def post(self, payload: IseServer, **kw) -> bool:
         """
         Add Ise server credentials
+        POST /dataservice/ise/credentials
 
         :param payload: Ise Server
         :returns: bool

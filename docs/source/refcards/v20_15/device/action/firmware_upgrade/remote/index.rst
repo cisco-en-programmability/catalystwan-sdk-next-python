@@ -11,9 +11,7 @@ firmware remote image package
 
 .. code:: python
 
-    def get_firmware_remote_image() -> (
-        ProcessGetFirmwareRemoteImageReq
-    ): ...
+    def get() -> ProcessGetFirmwareRemoteImageReq: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.firmware_upgrade.remote.get_firmware_remote_image()
+        client.device.action.firmware_upgrade.remote.get()
 
 
 Operation: POST /dataservice/device/action/firmware-upgrade/remote
@@ -42,9 +40,7 @@ firmware remote image package
 
 .. code:: python
 
-    def process_firmware_remote_image(
-        payload: Optional[Any] = None,
-    ) -> ProcessFirmwareRemoteImageReq: ...
+    def post(payload: Any) -> ProcessFirmwareRemoteImageReq: ...
 
 
 Example:
@@ -62,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.firmware_upgrade.remote.process_firmware_remote_image()
+        client.device.action.firmware_upgrade.remote.post()
 
 
 Operation: PUT /dataservice/device/action/firmware-upgrade/remote/{versionId}
@@ -73,8 +69,8 @@ Download software package file
 
 .. code:: python
 
-    def edit_firmware_upgarde_remote_image(
-        version_id: str, payload: Optional[Any] = None
+    def put(
+        version_id: str, payload: Any
     ) -> ProcessGetFirmwareRemoteImageReq: ...
 
 
@@ -93,7 +89,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.firmware_upgrade.remote.edit_firmware_upgarde_remote_image()
+        client.device.action.firmware_upgrade.remote.put()
 
 
 .. toctree::

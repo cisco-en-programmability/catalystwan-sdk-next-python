@@ -12,9 +12,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_protocol_pack_upload_status(self, uuid: str, **kw):
+    def get(self, uuid: str, **kw):
         """
         Get protocol pack upload status
+        GET /dataservice/sdavc/protocol-pack/maintenance/upload/status/{uuid}
 
         :param uuid: Uuid
         :returns: None

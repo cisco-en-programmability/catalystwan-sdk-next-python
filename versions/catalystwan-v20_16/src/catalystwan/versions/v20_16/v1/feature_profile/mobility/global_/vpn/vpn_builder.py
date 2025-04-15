@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
+from typing import Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateVpnProfileParcelForMobilityPostRequest,
+    CreateVpnProfileParcelForMobilityPostResponse,
+    EditVpnProfileParcelForMobilityPutRequest,
+    EditVpnProfileParcelForMobilityPutResponse,
+    GetListMobilityGlobalVpnPayload,
+    GetSingleMobilityGlobalVpnPayload,
+)
 
 
 class VpnBuilder:
@@ -11,36 +21,21 @@ class VpnBuilder:
     Builds and executes requests for operations under /v1/feature-profile/mobility/global/{profileId}/vpn
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_vpn_profile_parcel_for_mobility(self, profile_id: str, **kw) -> str:
-        """
-        Get VPN Profile Parcels for Mobility Global Feature Profile
-
-        :param profile_id: Feature Profile ID
-        :returns: str
-        """
-        params = {
-            "profileId": profile_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/mobility/global/{profileId}/vpn",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def create_vpn_profile_parcel_for_mobility(
-        self, profile_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self, profile_id: str, payload: CreateVpnProfileParcelForMobilityPostRequest, **kw
+    ) -> CreateVpnProfileParcelForMobilityPostResponse:
         """
         Create a VPN Profile Parcel for Mobility Global Feature Profile
+        POST /dataservice/v1/feature-profile/mobility/global/{profileId}/vpn
 
         :param profile_id: Feature Profile ID
         :param payload: VPN Profile Parcel
-        :returns: str
+        :returns: CreateVpnProfileParcelForMobilityPostResponse
         """
         params = {
             "profileId": profile_id,
@@ -48,44 +43,23 @@ class VpnBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/mobility/global/{profileId}/vpn",
-            return_type=str,
+            return_type=CreateVpnProfileParcelForMobilityPostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_vpn_profile_parcel_by_parcel_id_for_mobility(
-        self, profile_id: str, vpn_id: str, **kw
-    ) -> str:
-        """
-        Get VPN Profile Parcel by parcelId for Mobility Global Feature Profile
-
-        :param profile_id: Feature Profile ID
-        :param vpn_id: Profile Parcel ID
-        :returns: str
-        """
-        params = {
-            "profileId": profile_id,
-            "vpnId": vpn_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/mobility/global/{profileId}/vpn/{vpnId}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def edit_vpn_profile_parcel_for_mobility(
-        self, profile_id: str, vpn_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self, profile_id: str, vpn_id: str, payload: EditVpnProfileParcelForMobilityPutRequest, **kw
+    ) -> EditVpnProfileParcelForMobilityPutResponse:
         """
         Update a VPN Profile Parcel for Mobility Global Feature Profile
+        PUT /dataservice/v1/feature-profile/mobility/global/{profileId}/vpn/{vpnId}
 
         :param profile_id: Feature Profile ID
         :param vpn_id: Profile Parcel ID
         :param payload: VPN Profile Parcel
-        :returns: str
+        :returns: EditVpnProfileParcelForMobilityPutResponse
         """
         params = {
             "profileId": profile_id,
@@ -94,15 +68,16 @@ class VpnBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/mobility/global/{profileId}/vpn/{vpnId}",
-            return_type=str,
+            return_type=EditVpnProfileParcelForMobilityPutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_vpn_profile_parcel_for_mobility(self, profile_id: str, vpn_id: str, **kw):
+    def delete(self, profile_id: str, vpn_id: str, **kw):
         """
         Delete a VPN Profile Parcel for Mobility Global Feature Profile
+        DELETE /dataservice/v1/feature-profile/mobility/global/{profileId}/vpn/{vpnId}
 
         :param profile_id: Feature Profile ID
         :param vpn_id: Profile Parcel ID
@@ -118,3 +93,56 @@ class VpnBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(self, profile_id: str, vpn_id: str, **kw) -> GetSingleMobilityGlobalVpnPayload:
+        """
+        Get VPN Profile Parcel by parcelId for Mobility Global Feature Profile
+        GET /dataservice/v1/feature-profile/mobility/global/{profileId}/vpn/{vpnId}
+
+        :param profile_id: Feature Profile ID
+        :param vpn_id: Profile Parcel ID
+        :returns: GetSingleMobilityGlobalVpnPayload
+        """
+        ...
+
+    @overload
+    def get(self, profile_id: str, **kw) -> GetListMobilityGlobalVpnPayload:
+        """
+        Get VPN Profile Parcels for Mobility Global Feature Profile
+        GET /dataservice/v1/feature-profile/mobility/global/{profileId}/vpn
+
+        :param profile_id: Feature Profile ID
+        :returns: GetListMobilityGlobalVpnPayload
+        """
+        ...
+
+    def get(
+        self, profile_id: str, vpn_id: Optional[str] = None, **kw
+    ) -> Union[GetListMobilityGlobalVpnPayload, GetSingleMobilityGlobalVpnPayload]:
+        # /dataservice/v1/feature-profile/mobility/global/{profileId}/vpn/{vpnId}
+        if self._request_adapter.param_checker([(profile_id, str), (vpn_id, str)], []):
+            params = {
+                "profileId": profile_id,
+                "vpnId": vpn_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/mobility/global/{profileId}/vpn/{vpnId}",
+                return_type=GetSingleMobilityGlobalVpnPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/mobility/global/{profileId}/vpn
+        if self._request_adapter.param_checker([(profile_id, str)], [vpn_id]):
+            params = {
+                "profileId": profile_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/mobility/global/{profileId}/vpn",
+                return_type=GetListMobilityGlobalVpnPayload,
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")

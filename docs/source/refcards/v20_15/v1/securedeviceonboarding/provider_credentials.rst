@@ -11,7 +11,7 @@ Delete provider credentials
 
 .. code:: python
 
-    def delete_provider_credentials(account_id: str) -> None: ...
+    def delete(account_id: str) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.securedeviceonboarding.provider_credentials.delete_provider_credentials()
+        client.v1.securedeviceonboarding.provider_credentials.delete()
 
 

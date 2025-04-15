@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,11 +17,10 @@ class ApproveBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def approve_extended_applications(
-        self, payload: Optional[ExtendedApplicationRequestData] = None, **kw
-    ) -> DefaultSuccessResponse:
+    def post(self, payload: ExtendedApplicationRequestData, **kw) -> DefaultSuccessResponse:
         """
-        Approve extended applications
+        Post
+        POST /dataservice/sdavc/cloud-sourced/approve
 
         :param payload: Payload
         :returns: DefaultSuccessResponse

@@ -13,9 +13,7 @@ get NWPI setting
 
 .. code:: python
 
-    def nwpi_setting_view(
-        type_: Optional[str] = None,
-    ) -> NwpiSettingDataPayload: ...
+    def get(type_: Optional[str] = None) -> NwpiSettingDataPayload: ...
 
 
 Example:
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.nwpi_setting_view.nwpi_setting_view()
+        client.stream.device.nwpi.nwpi_setting_view.get()
 
 
 .. toctree::

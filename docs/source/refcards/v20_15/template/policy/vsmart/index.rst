@@ -11,7 +11,7 @@ Get all template vsmart policy list
 
 .. code:: python
 
-    def generate_v_smart_policy_template_list() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.vsmart.generate_v_smart_policy_template_list()
+        client.template.policy.vsmart.get()
 
 
 Operation: POST /dataservice/template/policy/vsmart
@@ -40,7 +40,7 @@ Create template for given policy
 
 .. code:: python
 
-    def create_v_smart_template(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.vsmart.create_v_smart_template()
+        client.template.policy.vsmart.post()
 
 
 Operation: PUT /dataservice/template/policy/vsmart/{policyId}
@@ -69,9 +69,7 @@ Edit template for given policy id
 
 .. code:: python
 
-    def edit_v_smart_template(
-        policy_id: str, payload: Optional[Any] = None
-    ) -> List[Any]: ...
+    def put(policy_id: str, payload: Any) -> List[Any]: ...
 
 
 Example:
@@ -89,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.vsmart.edit_v_smart_template()
+        client.template.policy.vsmart.put()
 
 
 Operation: DELETE /dataservice/template/policy/vsmart/{policyId}
@@ -100,7 +98,7 @@ Delete template for a given policy id
 
 .. code:: python
 
-    def delete_v_smart_template(policy_id: str) -> None: ...
+    def delete(policy_id: str) -> None: ...
 
 
 Example:
@@ -118,7 +116,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.vsmart.delete_v_smart_template()
+        client.template.policy.vsmart.delete()
 
 
 .. toctree::

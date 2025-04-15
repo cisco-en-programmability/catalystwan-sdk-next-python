@@ -14,9 +14,10 @@ class ServicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_omp_services(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get OMP services list
+        GET /dataservice/device/omp/services
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

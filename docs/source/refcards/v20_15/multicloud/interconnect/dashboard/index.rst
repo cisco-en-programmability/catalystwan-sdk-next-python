@@ -11,7 +11,7 @@ API to retrieve Multicloud Interconnect dashboard view.
 
 .. code:: python
 
-    def get_interconnect_dashboard() -> List[InterconnectDashboard]: ...
+    def get() -> List[InterconnectDashboard]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.dashboard.get_interconnect_dashboard()
+        client.multicloud.interconnect.dashboard.get()
 
 
 .. toctree::

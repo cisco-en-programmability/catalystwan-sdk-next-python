@@ -11,7 +11,7 @@ Get local template attached config for given device
 
 .. code:: python
 
-    def get_attached_config(
+    def get(
         device_id: str, type_: Optional[TypeParam] = "CFS"
     ) -> Any: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.config.attached.get_attached_config()
+        client.template.config.attached.get()
 
 
 .. toctree::

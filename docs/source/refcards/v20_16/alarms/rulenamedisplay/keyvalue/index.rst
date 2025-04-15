@@ -11,7 +11,7 @@ Get alarm types.
 
 .. code:: python
 
-    def get_alarm_types_as_key_value() -> SimpleKeyValueMapping: ...
+    def get() -> SimpleKeyValueMapping: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.rulenamedisplay.keyvalue.get_alarm_types_as_key_value()
+        client.alarms.rulenamedisplay.keyvalue.get()
 
 
 .. toctree::

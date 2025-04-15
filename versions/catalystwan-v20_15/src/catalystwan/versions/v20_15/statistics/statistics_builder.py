@@ -61,9 +61,10 @@ class StatisticsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_statistic_type(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get statistics types
+        GET /dataservice/statistics
 
         :returns: List[Any]
         """
@@ -71,9 +72,9 @@ class StatisticsBuilder:
             "GET", "/dataservice/statistics", return_type=List[Any], **kw
         )
 
-    def get_stats_raw_data_13(
+    def post(
         self,
-        payload: Optional[Any] = None,
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -82,6 +83,7 @@ class StatisticsBuilder:
     ) -> Any:
         """
         Get stats raw data
+        POST /dataservice/statistics
 
         :param page: page number
         :param page_size: page size

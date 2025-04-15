@@ -14,9 +14,10 @@ class CountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_vnf_alarm_count(self, user_group: str, **kw):
+    def get(self, user_group: str, **kw):
         """
         Get alarm count of VNF
+        GET /dataservice/colocation/monitor/vnf/alarms/count
 
         :param user_group: User group
         :returns: None

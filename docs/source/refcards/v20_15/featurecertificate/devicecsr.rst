@@ -11,7 +11,7 @@ Get CSR from cEdge device<br><br><br>Note: In a multitenant vManage system, this
 
 .. code:: python
 
-    def get_device_csr(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.featurecertificate.devicecsr.get_device_csr()
+        client.featurecertificate.devicecsr.get()
 
 
 Operation: PUT /dataservice/featurecertificate/devicecsr
@@ -40,7 +40,7 @@ Create CSR for cEdge device<br><br><br>Note: In a multitenant vManage system, th
 
 .. code:: python
 
-    def gen_device_csr(payload: Optional[Any] = None) -> Any: ...
+    def put(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.featurecertificate.devicecsr.gen_device_csr()
+        client.featurecertificate.devicecsr.put()
 
 

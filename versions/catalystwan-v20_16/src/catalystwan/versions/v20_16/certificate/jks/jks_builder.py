@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 
@@ -14,9 +12,10 @@ class JksBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def update_jks(self, payload: Optional[str] = None, **kw) -> str:
+    def put(self, payload: str, **kw) -> str:
         """
         update JKS
+        PUT /dataservice/certificate/jks
 
         :param payload: JSON payload with encoded JKS.
         :returns: str

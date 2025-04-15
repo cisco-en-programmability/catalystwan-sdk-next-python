@@ -11,7 +11,7 @@ Get OMP multicast routes received list
 
 .. code:: python
 
-    def create_omp_mcast_routes_recv(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.omp.mcastroutesrecv.create_omp_mcast_routes_recv()
+        client.device.omp.mcastroutesrecv.get()
 
 

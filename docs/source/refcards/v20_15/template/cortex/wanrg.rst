@@ -11,7 +11,7 @@ Get WAN Resource Groups
 
 .. code:: python
 
-    def get_wan_resource_groups(accountid: str) -> Any: ...
+    def get(accountid: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cortex.wanrg.get_wan_resource_groups()
+        client.template.cortex.wanrg.get()
 
 
 Operation: PUT /dataservice/template/cortex/wanrg
@@ -40,9 +40,7 @@ Edit WAN Resource Groups
 
 .. code:: python
 
-    def edit_wan_resource_groups(
-        payload: Optional[Any] = None,
-    ) -> None: ...
+    def put(payload: Any) -> None: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cortex.wanrg.edit_wan_resource_groups()
+        client.template.cortex.wanrg.put()
 
 
 Operation: POST /dataservice/template/cortex/wanrg
@@ -71,9 +69,7 @@ Create WAN Resource Groups
 
 .. code:: python
 
-    def save_wan_resource_groups(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -91,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cortex.wanrg.save_wan_resource_groups()
+        client.template.cortex.wanrg.post()
 
 
 Operation: DELETE /dataservice/template/cortex/wanrg
@@ -102,9 +98,7 @@ Delete WAN Resource Groups
 
 .. code:: python
 
-    def delete_wan_resource_groups(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def delete(payload: Optional[Any] = None) -> Any: ...
 
 
 Example:
@@ -122,6 +116,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cortex.wanrg.delete_wan_resource_groups()
+        client.template.cortex.wanrg.delete()
 
 

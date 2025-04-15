@@ -17,9 +17,10 @@ class TestbedModeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def testbed_mode(self, **kw) -> TestbedMode:
+    def get(self, **kw) -> TestbedMode:
         """
         Return testbed mode information staging or production
+        GET /dataservice/hsec/testbedMode
 
         :returns: TestbedMode
         """

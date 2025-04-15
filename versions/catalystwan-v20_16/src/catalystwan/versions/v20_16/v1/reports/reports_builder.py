@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -29,19 +29,10 @@ class ReportsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_report_templates(self, **kw) -> ReportSummaryResponse:
-        """
-        Get all reports information
-
-        :returns: ReportSummaryResponse
-        """
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/reports", return_type=ReportSummaryResponse, **kw
-        )
-
-    def create_report_template(self, payload: ExecutiveSummaryReport, **kw) -> ReportInfo:
+    def post(self, payload: ExecutiveSummaryReport, **kw) -> ReportInfo:
         """
         create a new report template
+        POST /dataservice/v1/reports
 
         :param payload: Report Template Config
         :returns: ReportInfo
@@ -50,29 +41,10 @@ class ReportsBuilder:
             "POST", "/dataservice/v1/reports", return_type=ReportInfo, payload=payload, **kw
         )
 
-    def get_report_template_by_id(self, report_id: str, **kw) -> ReportSummaryResponse:
-        """
-        Get the report template information by report ID
-
-        :param report_id: Report id
-        :returns: ReportSummaryResponse
-        """
-        params = {
-            "reportId": report_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/reports/{reportId}",
-            return_type=ReportSummaryResponse,
-            params=params,
-            **kw,
-        )
-
-    def update_report_template(
-        self, report_id: str, payload: ExecutiveSummaryReport, **kw
-    ) -> ReportInfo:
+    def put(self, report_id: str, payload: ExecutiveSummaryReport, **kw) -> ReportInfo:
         """
         Update the report template by report ID
+        PUT /dataservice/v1/reports/{reportId}
 
         :param report_id: Report id
         :param payload: updated report config
@@ -90,9 +62,10 @@ class ReportsBuilder:
             **kw,
         )
 
-    def delete_report_template(self, report_id: str, **kw) -> UpdateReportTemplateResponse:
+    def delete(self, report_id: str, **kw) -> UpdateReportTemplateResponse:
         """
         Delete the report template and all report files associated with it
+        DELETE /dataservice/v1/reports/{reportId}
 
         :param report_id: Report id
         :returns: UpdateReportTemplateResponse
@@ -107,6 +80,47 @@ class ReportsBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(self, report_id: str, **kw) -> ReportSummaryResponse:
+        """
+        Get the report template information by report ID
+        GET /dataservice/v1/reports/{reportId}
+
+        :param report_id: Report id
+        :returns: ReportSummaryResponse
+        """
+        ...
+
+    @overload
+    def get(self, **kw) -> ReportSummaryResponse:
+        """
+        Get all reports information
+        GET /dataservice/v1/reports
+
+        :returns: ReportSummaryResponse
+        """
+        ...
+
+    def get(self, report_id: Optional[str] = None, **kw) -> ReportSummaryResponse:
+        # /dataservice/v1/reports/{reportId}
+        if self._request_adapter.param_checker([(report_id, str)], []):
+            params = {
+                "reportId": report_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/reports/{reportId}",
+                return_type=ReportSummaryResponse,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/reports
+        if self._request_adapter.param_checker([], [report_id]):
+            return self._request_adapter.request(
+                "GET", "/dataservice/v1/reports", return_type=ReportSummaryResponse, **kw
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def action(self) -> ActionBuilder:

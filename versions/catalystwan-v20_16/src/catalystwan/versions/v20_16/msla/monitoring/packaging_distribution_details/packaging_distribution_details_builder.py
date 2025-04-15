@@ -17,9 +17,10 @@ class PackagingDistributionDetailsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_packaging_distribution_details(self, **kw) -> PackagingDistribution:
+    def get(self, **kw) -> PackagingDistribution:
         """
         Get all license distribution
+        GET /dataservice/msla/monitoring/packagingDistributionDetails
 
         :returns: PackagingDistribution
         """

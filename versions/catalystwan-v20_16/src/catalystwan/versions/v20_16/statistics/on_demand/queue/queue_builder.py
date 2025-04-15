@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -17,17 +17,19 @@ class QueueBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_queue_entries(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         gets current on-demand queue entries
+        GET /dataservice/statistics/on-demand/queue
 
         :returns: Any
         """
         return self._request_adapter.request("GET", "/dataservice/statistics/on-demand/queue", **kw)
 
-    def create_queue_entry(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create on-demand troubleshooting queue entry
+        POST /dataservice/statistics/on-demand/queue
 
         :param payload: On-demand queue entry
         :returns: Any
@@ -36,9 +38,10 @@ class QueueBuilder:
             "POST", "/dataservice/statistics/on-demand/queue", payload=payload, **kw
         )
 
-    def update_queue_entry(self, entry_id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, entry_id: str, payload: Any, **kw) -> Any:
         """
         Updates on-demand troubleshooting queue entry
+        PUT /dataservice/statistics/on-demand/queue/{entryId}
 
         :param entry_id: Entry Id
         :param payload: On-demand queue entry
@@ -55,9 +58,10 @@ class QueueBuilder:
             **kw,
         )
 
-    def delete_queue_entry(self, entry_id: str, **kw):
+    def delete(self, entry_id: str, **kw):
         """
         removes on-demand queue entry
+        DELETE /dataservice/statistics/on-demand/queue/{entryId}
 
         :param entry_id: Entry Id
         :returns: None

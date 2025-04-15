@@ -14,9 +14,10 @@ class NewApplicationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_new_application_list(self, device_uuid: str, **kw) -> Any:
+    def get(self, device_uuid: str, **kw) -> Any:
         """
         Get New Application List for given Device UUID
+        GET /dataservice/sdavc/protocol-pack/compliance/new-application/{deviceUUID}
 
         :param device_uuid: Device uuid
         :returns: Any

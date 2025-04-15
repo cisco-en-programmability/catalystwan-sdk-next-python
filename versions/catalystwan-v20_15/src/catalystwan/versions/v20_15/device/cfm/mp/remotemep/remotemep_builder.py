@@ -14,7 +14,7 @@ class RemotemepBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_mp_remote_mep(
+    def get(
         self,
         device_id: str,
         domain: Optional[str] = None,
@@ -25,6 +25,7 @@ class RemotemepBuilder:
     ) -> Any:
         """
         Get mp remote mep from device
+        GET /dataservice/device/cfm/mp/remotemep
 
         :param domain: Domain Name
         :param service: Service Name

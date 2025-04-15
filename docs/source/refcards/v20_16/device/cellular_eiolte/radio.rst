@@ -11,7 +11,7 @@ Get cellular radio info from device
 
 .. code:: python
 
-    def get_eiolte_radio_info(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cellular_eiolte.radio.get_eiolte_radio_info()
+        client.device.cellular_eiolte.radio.get()
 
 

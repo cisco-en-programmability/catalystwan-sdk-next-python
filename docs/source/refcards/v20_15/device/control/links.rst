@@ -11,7 +11,7 @@ Get connections list
 
 .. code:: python
 
-    def create_link_list(state: str) -> List[Any]: ...
+    def get(state: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.control.links.create_link_list()
+        client.device.control.links.get()
 
 

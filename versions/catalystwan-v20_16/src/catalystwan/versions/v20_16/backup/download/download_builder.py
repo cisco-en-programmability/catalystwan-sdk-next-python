@@ -12,9 +12,10 @@ class DownloadBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def download_backup_file(self, path: str, **kw) -> str:
+    def get(self, path: str, **kw) -> str:
         """
         Download a Backup File that is already stored in vManage
+        GET /dataservice/backup/download/{path}
 
         :param path: Path
         :returns: str

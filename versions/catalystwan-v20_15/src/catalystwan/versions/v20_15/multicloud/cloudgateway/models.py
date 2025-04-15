@@ -228,7 +228,6 @@ class UpdateCgw:
     region: str
     # Used for AZURE updateCgw
     resource_group_name: str = _field(metadata={"alias": "resourceGroupName"})
-    settings: AllOfupdateCgwSettings
     # Used for AZURE updateCgw
     vhub_id: str = _field(metadata={"alias": "vhubId"})
     description: Optional[str] = _field(default=None)
@@ -241,3 +240,4 @@ class UpdateCgw:
     mrf_router_role: Optional[str] = _field(default=None, metadata={"alias": "mrfRouterRole"})
     # Used for GCP updateCgw
     s2s_permitted: Optional[str] = _field(default=None, metadata={"alias": "s2sPermitted"})
+    settings: Optional[AllOfupdateCgwSettings] = _field(default=None)

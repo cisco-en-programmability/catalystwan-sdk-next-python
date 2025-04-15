@@ -7,11 +7,10 @@ Operation: GET /dataservice/template/policy/vedge/devices
 ---------------------------------------------------------
 
 
-Get device list
-
 .. code:: python
 
-    def get_v_edge_policy_device_list() -> List[Any]: ...
+    @overload
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,18 +28,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.vedge.devices.get_v_edge_policy_device_list()
+        client.template.policy.vedge.devices.get()
 
 
 Operation: GET /dataservice/template/policy/vedge/devices/{policyId}
 --------------------------------------------------------------------
 
 
-Get device list by policy
-
 .. code:: python
 
-    def get_device_list_by_policy(policy_id: str) -> List[Any]: ...
+    @overload
+    def get(policy_id: str) -> List[Any]: ...
 
 
 Example:
@@ -58,6 +56,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.vedge.devices.get_device_list_by_policy()
+        client.template.policy.vedge.devices.get()
 
 

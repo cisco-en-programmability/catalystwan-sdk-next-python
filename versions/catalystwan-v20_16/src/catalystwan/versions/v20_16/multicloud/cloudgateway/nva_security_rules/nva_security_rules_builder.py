@@ -17,9 +17,10 @@ class NvaSecurityRulesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_nva_security_rules(self, cloud_gateway_name: str, **kw) -> NvaRulesResponse:
+    def get(self, cloud_gateway_name: str, **kw) -> NvaRulesResponse:
         """
         Get NVA Security Rules
+        GET /dataservice/multicloud/cloudgateway/nvaSecurityRules/{cloudGatewayName}
 
         :param cloud_gateway_name: Multicloud cloud gateway name
         :returns: NvaRulesResponse
@@ -35,11 +36,10 @@ class NvaSecurityRulesBuilder:
             **kw,
         )
 
-    def update_nva_security_rules(
-        self, cloud_gateway_name: str, payload: NvaRulesListRequest, **kw
-    ) -> Taskid:
+    def put(self, cloud_gateway_name: str, payload: NvaRulesListRequest, **kw) -> Taskid:
         """
         Update NVA Security Rules
+        PUT /dataservice/multicloud/cloudgateway/nvaSecurityRules/{cloudGatewayName}
 
         :param cloud_gateway_name: Cloud gateway name
         :param payload: Update NVA security Rules

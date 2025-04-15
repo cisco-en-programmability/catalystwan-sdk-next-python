@@ -11,9 +11,7 @@ Get CSRF token
 
 .. code:: python
 
-    def get_csrf_token(
-        json: Optional[bool] = False,
-    ) -> ClientTokenResponse: ...
+    def get(json: Optional[bool] = False) -> ClientTokenResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.client.token.get_csrf_token()
+        client.client.token.get()
 
 
 .. toctree::

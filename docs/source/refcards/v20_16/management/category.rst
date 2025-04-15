@@ -11,7 +11,7 @@ Get vManage resource category
 
 .. code:: python
 
-    def get_category() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.management.category.get_category()
+        client.management.category.get()
 
 

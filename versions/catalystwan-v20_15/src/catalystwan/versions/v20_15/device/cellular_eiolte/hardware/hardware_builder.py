@@ -14,9 +14,10 @@ class HardwareBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_eiolte_hardware_info(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get cellular hardware info from device
+        GET /dataservice/device/cellularEiolte/hardware
 
         :param device_id: Device Ip address, example:172.16.255.111
         :returns: Any

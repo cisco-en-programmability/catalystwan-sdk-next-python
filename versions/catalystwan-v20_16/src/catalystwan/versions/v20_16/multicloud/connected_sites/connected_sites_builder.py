@@ -22,11 +22,12 @@ class ConnectedSitesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_connected_sites(
+    def get(
         self, cloud_type: str, cloud_gateway_name: Optional[str] = None, **kw
     ) -> ConnectedSitesResponse:
         """
         Get sites with connectivity to the cloud by cloud type
+        GET /dataservice/multicloud/connected-sites/{cloudType}
 
         :param cloud_type: Cloud type
         :param cloud_gateway_name: Cloud gateway name

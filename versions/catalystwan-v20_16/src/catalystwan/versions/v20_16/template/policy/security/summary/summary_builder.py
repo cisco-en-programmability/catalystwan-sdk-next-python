@@ -14,9 +14,10 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_security_policy_summary(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Generate security policy summary
+        GET /dataservice/template/policy/security/summary
 
         :returns: Any
         """

@@ -14,9 +14,10 @@ class MigrateDeviceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def migrate_device(self, uuid: str, **kw) -> Any:
+    def put(self, uuid: str, **kw) -> Any:
         """
         Migrate device software to vedge/cedge
+        PUT /dataservice/system/device/migrateDevice/{uuid}
 
         :param uuid: Device uuid
         :returns: Any

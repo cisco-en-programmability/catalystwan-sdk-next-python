@@ -13,7 +13,7 @@ Install firmware on device
 
 .. code:: python
 
-    def install_firmware_image(payload: Optional[str] = None) -> None: ...
+    def post(payload: str) -> None: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.firmware.install.install_firmware_image()
+        client.device.action.firmware.install.post()
 
 

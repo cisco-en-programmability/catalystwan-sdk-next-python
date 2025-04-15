@@ -11,9 +11,7 @@ Create unique VPN list
 
 .. code:: python
 
-    def create_unique_vpn_list(
-        payload: Optional[Any] = None,
-    ) -> List[Any]: ...
+    def post(payload: Any) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.uniquevpnlist.create_unique_vpn_list()
+        client.device.action.uniquevpnlist.post()
 
 

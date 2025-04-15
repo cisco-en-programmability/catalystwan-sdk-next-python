@@ -13,7 +13,7 @@ Get sites with connectivity to the interconnect gateways by edge type
 
 .. code:: python
 
-    def get_cloud_connected_sites_1(
+    def get(
         edge_type: str, edge_gateway_name: Optional[str] = None
     ) -> Any: ...
 
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.connected_sites.edge.get_cloud_connected_sites_1()
+        client.multicloud.connected_sites.edge.get()
 
 

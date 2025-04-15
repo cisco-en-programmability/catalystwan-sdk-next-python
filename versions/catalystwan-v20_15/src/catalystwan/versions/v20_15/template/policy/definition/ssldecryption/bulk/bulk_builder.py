@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class BulkBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def save_policy_definition_in_bulk_3(self, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, payload: Any, **kw) -> Any:
         """
         Create/Edit policy definitions in bulk
+        PUT /dataservice/template/policy/definition/ssldecryption/bulk
 
         :param payload: Policy definition
         :returns: Any

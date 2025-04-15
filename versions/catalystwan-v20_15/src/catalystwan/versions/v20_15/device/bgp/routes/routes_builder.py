@@ -19,7 +19,7 @@ class RoutesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_bgp_routes_list(
+    def get(
         self,
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
@@ -29,6 +29,7 @@ class RoutesBuilder:
     ) -> List[Any]:
         """
         Get BGP routes list (Real Time)
+        GET /dataservice/device/bgp/routes
 
         :param vpn_id: VPN Id
         :param prefix: IP prefix

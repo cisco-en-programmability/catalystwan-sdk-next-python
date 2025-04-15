@@ -13,7 +13,7 @@ Detach device template<br><br><br>Note: In a multitenant vManage system, this AP
 
 .. code:: python
 
-    def detach_device_template(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.detach.detach_device_template()
+        client.template.device.config.detach.post()
 
 

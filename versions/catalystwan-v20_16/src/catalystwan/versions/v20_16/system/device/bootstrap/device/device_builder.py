@@ -19,7 +19,7 @@ class DeviceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_bootstrap_config_for_vedge(
+    def get(
         self,
         uuid: str,
         configtype: str,
@@ -30,6 +30,7 @@ class DeviceBuilder:
     ) -> GenerateBootstrapConfigForVedge:
         """
         Create vEdge device config
+        GET /dataservice/system/device/bootstrap/device/{uuid}
 
         :param uuid: Device UUID
         :param configtype: configtype

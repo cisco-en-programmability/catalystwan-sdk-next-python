@@ -11,7 +11,7 @@ Get DCA cloud service configuration
 
 .. code:: python
 
-    def get_cloud_services_configuration_dca() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.settings.configuration.cloudservices.dca.get_cloud_services_configuration_dca()
+        client.dca.settings.configuration.cloudservices.dca.get()
 
 

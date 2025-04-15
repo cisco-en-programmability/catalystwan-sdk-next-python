@@ -3,37 +3,6 @@ v1.feature_profile.sd_routing.transport
 =======================================
 
 
-Operation: GET /dataservice/v1/feature-profile/sd-routing/transport
--------------------------------------------------------------------
-
-
-Get all SD-Routing Transport Feature Profiles
-
-.. code:: python
-
-    def get_sdrouting_transport_feature_profiles(
-        offset: Optional[int] = None, limit: Optional[int] = 0
-    ) -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.sd_routing.transport.get_sdrouting_transport_feature_profiles()
-
-
 Operation: POST /dataservice/v1/feature-profile/sd-routing/transport
 --------------------------------------------------------------------
 
@@ -42,9 +11,9 @@ Create a SD-Routing Transport Feature Profile
 
 .. code:: python
 
-    def create_sdrouting_transport_feature_profile(
-        payload: Optional[str] = None,
-    ) -> str: ...
+    def post(
+        payload: CreateSdroutingTransportFeatureProfilePostRequest,
+    ) -> CreateSdroutingTransportFeatureProfilePostResponse: ...
 
 
 Example:
@@ -62,38 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sd_routing.transport.create_sdrouting_transport_feature_profile()
-
-
-Operation: GET /dataservice/v1/feature-profile/sd-routing/transport/{transportId}
----------------------------------------------------------------------------------
-
-
-Get a SD-Routing Transport Feature Profile
-
-.. code:: python
-
-    def get_sdrouting_transport_feature_profile(
-        transport_id: str,
-    ) -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.sd_routing.transport.get_sdrouting_transport_feature_profile()
+        client.v1.feature_profile.sd_routing.transport.post()
 
 
 Operation: PUT /dataservice/v1/feature-profile/sd-routing/transport/{transportId}
@@ -104,9 +42,10 @@ Edit a SD-Routing Transport Feature Profile
 
 .. code:: python
 
-    def edit_sdrouting_transport_feature_profile(
-        transport_id: str, payload: Optional[str] = None
-    ) -> str: ...
+    def put(
+        transport_id: str,
+        payload: EditSdroutingTransportFeatureProfilePutRequest,
+    ) -> EditSdroutingTransportFeatureProfilePutResponse: ...
 
 
 Example:
@@ -124,7 +63,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sd_routing.transport.edit_sdrouting_transport_feature_profile()
+        client.v1.feature_profile.sd_routing.transport.put()
 
 
 Operation: DELETE /dataservice/v1/feature-profile/sd-routing/transport/{transportId}
@@ -135,9 +74,7 @@ Delete a SD-Routing Transport Feature Profile
 
 .. code:: python
 
-    def delete_sdrouting_transport_feature_profile(
-        transport_id: str,
-    ) -> None: ...
+    def delete(transport_id: str) -> None: ...
 
 
 Example:
@@ -155,24 +92,83 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sd_routing.transport.delete_sdrouting_transport_feature_profile()
+        client.v1.feature_profile.sd_routing.transport.delete()
+
+
+Operation: GET /dataservice/v1/feature-profile/sd-routing/transport
+-------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        offset: Optional[int] = None, limit: Optional[int] = 0
+    ) -> List[GetSdroutingTransportFeatureProfilesGetResponse]: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sd_routing.transport.get()
+
+
+Operation: GET /dataservice/v1/feature-profile/sd-routing/transport/{transportId}
+---------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(transport_id: str) -> GetSingleSdRoutingTransportPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sd_routing.transport.get()
 
 
 .. toctree::
     :maxdepth: 1
 
     cellular_controller/index
-    cellular_profile
+    cellular_profile/index
     global_vrf/index
-    gps
-    ipv4_acl
+    gps/index
+    ipv4_acl/index
     management_vrf/index
-    multicloud_connection
-    objecttracker
-    objecttrackergroup
-    route_policy
+    multicloud_connection/index
+    objecttracker/index
+    objecttrackergroup/index
+    route_policy/index
     routing/index
-    tracker
-    trackergroup
+    tracker/index
+    trackergroup/index
     vrf/index
+    models
 

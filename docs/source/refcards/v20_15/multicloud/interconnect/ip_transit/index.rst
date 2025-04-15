@@ -11,7 +11,7 @@ API to retrieve Interconnect ip transit in MB supported by an  Interconnect prov
 
 .. code:: python
 
-    def get_interconnect_ip_transit(
+    def get(
         interconnect_service_type: str, interconnect_type: str
     ) -> InlineResponse20016: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.ip_transit.get_interconnect_ip_transit()
+        client.multicloud.interconnect.ip_transit.get()
 
 
 .. toctree::

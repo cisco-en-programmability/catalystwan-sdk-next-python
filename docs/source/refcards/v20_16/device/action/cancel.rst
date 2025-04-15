@@ -11,7 +11,7 @@ Cancel tasks
 
 .. code:: python
 
-    def process_cancel_task(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.cancel.process_cancel_task()
+        client.device.action.cancel.post()
 
 

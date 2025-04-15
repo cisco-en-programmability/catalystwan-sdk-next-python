@@ -14,9 +14,10 @@ class ApikeyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def test_api_key(self, uuid: str, **kw) -> Any:
+    def get(self, uuid: str, **kw) -> Any:
         """
         Get API key from device
+        GET /dataservice/device/action/security/apikey/{uuid}
 
         :param uuid: Device uuid
         :returns: Any

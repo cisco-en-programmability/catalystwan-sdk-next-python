@@ -15,11 +15,10 @@ class GetTransitDevicePairAndHostListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_transit_device_pair_and_host_list(
-        self, account_id: str, cloud_region: str, **kw
-    ) -> Any:
+    def get(self, account_id: str, cloud_region: str, **kw) -> Any:
         """
         Get device and host details
+        GET /dataservice/template/cor/getTransitDevicePairAndHostList
 
         :param account_id: Account Id
         :param cloud_region: Cloud region

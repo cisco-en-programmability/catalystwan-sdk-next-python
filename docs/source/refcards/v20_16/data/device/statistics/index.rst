@@ -7,11 +7,10 @@ Operation: GET /dataservice/data/device/statistics
 --------------------------------------------------
 
 
-Get statistics types
-
 .. code:: python
 
-    def get_statistics_type() -> Any: ...
+    @overload
+    def get() -> Any: ...
 
 
 Example:
@@ -29,18 +28,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.data.device.statistics.get_statistics_type()
+        client.data.device.statistics.get()
 
 
 Operation: GET /dataservice/data/device/statistics/{state_data_type}
 --------------------------------------------------------------------
 
 
-Get device statistics data
-
 .. code:: python
 
-    def generate_device_statistics_data(
+    @overload
+    def get(
         state_data_type: str,
         scroll_id: Optional[str] = None,
         start_date: Optional[str] = None,
@@ -65,7 +63,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.data.device.statistics.generate_device_statistics_data()
+        client.data.device.statistics.get()
 
 
 .. toctree::

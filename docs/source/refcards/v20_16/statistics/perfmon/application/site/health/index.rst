@@ -11,9 +11,8 @@ Get one application health for one site
 
 .. code:: python
 
-    def get_application_site_health(
-        payload: Optional[Any] = None,
-        health: Optional[HealthParam] = None,
+    def post(
+        payload: Any, health: Optional[HealthParam] = None
     ) -> List[ApplicationSiteItem]: ...
 
 
@@ -32,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.perfmon.application.site.health.get_application_site_health()
+        client.statistics.perfmon.application.site.health.post()
 
 
 .. toctree::

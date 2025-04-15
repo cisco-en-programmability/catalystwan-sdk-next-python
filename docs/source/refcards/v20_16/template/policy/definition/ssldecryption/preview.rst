@@ -11,9 +11,7 @@ Preview policy definition
 
 .. code:: python
 
-    def preview_policy_definition_3(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.ssldecryption.preview.preview_policy_definition_3()
+        client.template.policy.definition.ssldecryption.preview.post()
 
 
 Operation: GET /dataservice/template/policy/definition/ssldecryption/preview/{id}
@@ -42,7 +40,7 @@ Preview policy definition
 
 .. code:: python
 
-    def preview_policy_definition_by_id_3(id: str) -> Any: ...
+    def get(id: str) -> Any: ...
 
 
 Example:
@@ -60,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.ssldecryption.preview.preview_policy_definition_by_id_3()
+        client.template.policy.definition.ssldecryption.preview.get()
 
 

@@ -14,15 +14,16 @@ class TopnBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_top_n(
+    def post(
         self,
-        payload: Optional[Any] = None,
+        payload: Any,
         site_id: Optional[str] = None,
         include_tenants: Optional[bool] = None,
         **kw,
     ) -> Any:
         """
         Returns top-n alarm count based on given query
+        POST /dataservice/alarms/topn
 
         :param site_id: Specify the site-id to filter the alarms
         :param include_tenants: Specify whether the tenant alarms need to be visible or not from provider view.

@@ -11,7 +11,7 @@ Get Server info
 
 .. code:: python
 
-    def create_server_info_1() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.server.info.create_server_info_1()
+        client.server.info.get()
 
 

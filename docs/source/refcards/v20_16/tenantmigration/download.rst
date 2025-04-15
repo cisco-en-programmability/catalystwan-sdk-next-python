@@ -11,7 +11,7 @@ Download tenant data
 
 .. code:: python
 
-    def download_tenant_data(path: str) -> Any: ...
+    def get(path: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenantmigration.download.download_tenant_data()
+        client.tenantmigration.download.get()
 
 

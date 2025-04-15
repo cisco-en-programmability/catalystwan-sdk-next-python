@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,9 +15,10 @@ class DownBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def scale_down(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Scale down cloud on ramp
+        POST /dataservice/template/cor/scale/down
 
         :param payload: Update VPC
         :returns: None

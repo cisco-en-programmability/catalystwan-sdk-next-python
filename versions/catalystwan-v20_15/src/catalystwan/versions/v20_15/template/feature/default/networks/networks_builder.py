@@ -19,12 +19,13 @@ class NetworksBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_default_networks(self, device_model: DeviceModelParam, **kw) -> Any:
+    def get(self, device_model: DeviceModelParam, **kw) -> Any:
         """
         Get default networks
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/template/feature/default/networks
 
         :param device_model: Device model
         :returns: Any

@@ -11,7 +11,7 @@ Get zone drop statistics from device
 
 .. code:: python
 
-    def get_zone_drop_statistics(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.policy.zbfwdropstatistics.get_zone_drop_statistics()
+        client.device.policy.zbfwdropstatistics.get()
 
 

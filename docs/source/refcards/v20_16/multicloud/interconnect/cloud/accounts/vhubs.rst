@@ -11,7 +11,7 @@ API to retrieve Azure Virtual Hubs.
 
 .. code:: python
 
-    def get_az_virtual_hubs(
+    def get(
         cloud_type: str,
         cloud_account_id: str,
         resource_group: Optional[str] = None,
@@ -36,6 +36,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.cloud.accounts.vhubs.get_az_virtual_hubs()
+        client.multicloud.interconnect.cloud.accounts.vhubs.get()
 
 

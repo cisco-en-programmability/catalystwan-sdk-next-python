@@ -11,7 +11,7 @@ Get NAT filter list from device
 
 .. code:: python
 
-    def create_nat_filter_list(
+    def get(
         device_id: str,
         nat_vpn_id: Optional[str] = None,
         nat_ifname: Optional[str] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ip.nat.filter.create_nat_filter_list()
+        client.device.ip.nat.filter.get()
 
 
 .. toctree::

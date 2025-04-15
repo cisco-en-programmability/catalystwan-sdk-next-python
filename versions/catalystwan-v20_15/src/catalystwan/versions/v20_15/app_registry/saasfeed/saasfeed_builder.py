@@ -17,9 +17,10 @@ class SaasfeedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_active_saas_feeds(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get All Saas feed details
+        GET /dataservice/app-registry/saasfeed
 
         :returns: List[Any]
         """

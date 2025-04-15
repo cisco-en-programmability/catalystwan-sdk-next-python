@@ -12,9 +12,10 @@ class CancelBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def cancel_pending_tasks(self, process_id: str, **kw):
+    def post(self, process_id: str, **kw):
         """
         Bulk cancel task status
+        POST /dataservice/device/action/status/cancel/{processId}
 
         :param process_id: Process Id
         :returns: None

@@ -17,9 +17,10 @@ class ReachableBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_reachable_devices(self, **kw) -> DeviceReachableData:
+    def get(self, **kw) -> DeviceReachableData:
         """
         Get list of reachable devices
+        GET /dataservice/device/reachable
 
         :returns: DeviceReachableData
         """

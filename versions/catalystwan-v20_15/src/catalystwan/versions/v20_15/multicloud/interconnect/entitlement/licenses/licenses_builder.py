@@ -19,7 +19,7 @@ class LicensesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_licenses(
+    def get(
         self,
         interconnect_type: str,
         interconnect_account_id: str,
@@ -29,6 +29,7 @@ class LicensesBuilder:
     ) -> List[InterconnectLicense]:
         """
         API to retrieve Interconnect licences
+        GET /dataservice/multicloud/interconnect/entitlement/licenses
 
         :param interconnect_type: Interconnect provider type
         :param interconnect_account_id: Interconnect account id

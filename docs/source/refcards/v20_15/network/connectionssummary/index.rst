@@ -11,7 +11,7 @@ Retrieve vManage control status
 
 .. code:: python
 
-    def get_vmanage_control_status(
+    def get(
         is_cached: Optional[bool] = False,
         vpn_id: Optional[List[Vpnid]] = None,
         site_id: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.network.connectionssummary.get_vmanage_control_status()
+        client.network.connectionssummary.get()
 
 
 .. toctree::

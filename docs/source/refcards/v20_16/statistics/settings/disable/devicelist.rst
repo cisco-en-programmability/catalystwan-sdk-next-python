@@ -11,7 +11,7 @@ Get list of disabled devices for a statistics index
 
 .. code:: python
 
-    def get_disabled_device_list(index_name: str) -> Any: ...
+    def get(index_name: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.settings.disable.devicelist.get_disabled_device_list()
+        client.statistics.settings.disable.devicelist.get()
 
 
 Operation: PUT /dataservice/statistics/settings/disable/devicelist/{indexName}
@@ -40,9 +40,7 @@ Update list of disabled devices for a statistics index
 
 .. code:: python
 
-    def update_statistics_device_list(
-        index_name: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(index_name: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -60,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.settings.disable.devicelist.update_statistics_device_list()
+        client.statistics.settings.disable.devicelist.put()
 
 

@@ -13,9 +13,7 @@ Test whether logging works
 
 .. code:: python
 
-    def debug_log(
-        payload: Optional[DebugLogPostRequest] = None,
-    ) -> None: ...
+    def post(payload: DebugLogPostRequest) -> None: ...
 
 
 Example:
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.logging.debuglog.debug_log()
+        client.util.logging.debuglog.post()
 
 
 .. toctree::

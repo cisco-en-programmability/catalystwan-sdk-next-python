@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any, Optional, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,19 +19,10 @@ class VpnmembershipgroupBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_definitions_6(self, **kw) -> Any:
-        """
-        Get policy definitions
-
-        :returns: Any
-        """
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/definition/vpnmembershipgroup", **kw
-        )
-
-    def create_policy_definition_6(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create policy definition
+        POST /dataservice/template/policy/definition/vpnmembershipgroup
 
         :param payload: Policy definition
         :returns: Any
@@ -43,26 +34,10 @@ class VpnmembershipgroupBuilder:
             **kw,
         )
 
-    def get_policy_definition_6(self, id: str, **kw) -> Any:
-        """
-        Get a specific policy definitions
-
-        :param id: Policy Id
-        :returns: Any
-        """
-        params = {
-            "id": id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/policy/definition/vpnmembershipgroup/{id}",
-            params=params,
-            **kw,
-        )
-
-    def edit_policy_definition_6(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, id: str, payload: Any, **kw) -> Any:
         """
         Edit a policy definitions
+        PUT /dataservice/template/policy/definition/vpnmembershipgroup/{id}
 
         :param id: Policy Id
         :param payload: Policy definition
@@ -79,9 +54,10 @@ class VpnmembershipgroupBuilder:
             **kw,
         )
 
-    def delete_policy_definition_6(self, id: str, **kw):
+    def delete(self, id: str, **kw):
         """
         Delete policy definition
+        DELETE /dataservice/template/policy/definition/vpnmembershipgroup/{id}
 
         :param id: Policy Id
         :returns: None
@@ -95,6 +71,46 @@ class VpnmembershipgroupBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(self, id: str, **kw) -> Any:
+        """
+        Get a specific policy definitions
+        GET /dataservice/template/policy/definition/vpnmembershipgroup/{id}
+
+        :param id: Policy Id
+        :returns: Any
+        """
+        ...
+
+    @overload
+    def get(self, **kw) -> Any:
+        """
+        Get policy definitions
+        GET /dataservice/template/policy/definition/vpnmembershipgroup
+
+        :returns: Any
+        """
+        ...
+
+    def get(self, id: Optional[str] = None, **kw) -> Any:
+        # /dataservice/template/policy/definition/vpnmembershipgroup/{id}
+        if self._request_adapter.param_checker([(id, str)], []):
+            params = {
+                "id": id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/template/policy/definition/vpnmembershipgroup/{id}",
+                params=params,
+                **kw,
+            )
+        # /dataservice/template/policy/definition/vpnmembershipgroup
+        if self._request_adapter.param_checker([], [id]):
+            return self._request_adapter.request(
+                "GET", "/dataservice/template/policy/definition/vpnmembershipgroup", **kw
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def bulk(self) -> BulkBuilder:

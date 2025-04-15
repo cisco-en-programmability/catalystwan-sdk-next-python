@@ -11,7 +11,7 @@ Generates a JSON object that contains the diff for a given device
 
 .. code:: python
 
-    def get_device_diff(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.config.diff.get_device_diff()
+        client.template.config.diff.get()
 
 

@@ -20,11 +20,12 @@ class ActiveFlowWithQueryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def active_flow_with_query(
+    def get(
         self, trace_id: int, timestamp: int, query: Optional[str] = None, **kw
     ) -> ActiveFlowResponsePayload:
         """
         Get active flows for NWPI.
+        GET /dataservice/stream/device/nwpi/activeFlowWithQuery
 
         :param trace_id: trace id
         :param timestamp: start time

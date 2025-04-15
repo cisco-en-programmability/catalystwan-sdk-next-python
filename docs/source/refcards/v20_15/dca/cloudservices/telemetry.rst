@@ -11,7 +11,7 @@ Get DCA telemetry settings
 
 .. code:: python
 
-    def get_telemetry_settings() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.cloudservices.telemetry.get_telemetry_settings()
+        client.dca.cloudservices.telemetry.get()
 
 

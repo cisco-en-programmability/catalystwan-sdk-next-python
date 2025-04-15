@@ -15,9 +15,10 @@ class EdgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dashboard_edge_info(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get interconnect edge gateway dashboard info
+        GET /dataservice/multicloud/dashboard/edge
 
         :returns: Any
         """

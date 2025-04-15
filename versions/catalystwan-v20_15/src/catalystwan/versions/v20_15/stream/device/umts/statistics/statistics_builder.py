@@ -14,11 +14,10 @@ class StatisticsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_umts_data(
-        self, device_uuid: str, event_type: str, last_n_hours: Optional[int] = 24, **kw
-    ) -> Any:
+    def get(self, device_uuid: str, event_type: str, last_n_hours: Optional[int] = 24, **kw) -> Any:
         """
         get UMTS result by type, time, and device uuid
+        GET /dataservice/stream/device/umts/statistics/{deviceUUID}/{eventType}
 
         :param device_uuid: Device uuid
         :param event_type: Event type

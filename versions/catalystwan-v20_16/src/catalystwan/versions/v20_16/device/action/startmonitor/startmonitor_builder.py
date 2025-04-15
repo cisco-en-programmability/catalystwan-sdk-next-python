@@ -12,9 +12,10 @@ class StartmonitorBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def trigger_pending_tasks_monitoring(self, **kw):
+    def get(self, **kw):
         """
         Triggers global monitoring thread
+        GET /dataservice/device/action/startmonitor
 
         :returns: None
         """

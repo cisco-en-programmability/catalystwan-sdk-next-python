@@ -11,7 +11,7 @@ Get fields and types
 
 .. code:: python
 
-    def get_alarm_data_fields() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.fields.get_alarm_data_fields()
+        client.alarms.fields.get()
 
 

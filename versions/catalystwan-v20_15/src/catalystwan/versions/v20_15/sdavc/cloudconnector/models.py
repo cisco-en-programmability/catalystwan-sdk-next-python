@@ -10,3 +10,9 @@ ValueType = Literal["ARRAY", "FALSE", "NULL", "NUMBER", "OBJECT", "STRING", "TRU
 class DisableCloudConnectorPutRequest:
     empty: Optional[bool] = _field(default=None)
     value_type: Optional[ValueType] = _field(default=None, metadata={"alias": "valueType"})
+
+
+@dataclass
+class EnableCloudConnectorPostRequest:
+    empty: Optional[bool] = _field(default=None)
+    value_type: Optional[ValueType] = _field(default=None, metadata={"alias": "valueType"})

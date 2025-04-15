@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,14 +17,12 @@ class GatewaysBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def update_interconnect_gateway_1(
-        self,
-        interconnect_gateway_name: str,
-        payload: Optional[InterconnectGatewayExtended] = None,
-        **kw,
+    def put(
+        self, interconnect_gateway_name: str, payload: InterconnectGatewayExtended, **kw
     ) -> ProcessResponse:
         """
         Asynchronous API to update the Interconnect Gateway Information in vManage.
+        PUT /dataservice/v1/multicloud/interconnect/gateways/{interconnect-gateway-name}
 
         :param interconnect_gateway_name: Interconnect gateway name
         :param payload: Request Payload for Multicloud Interconnect Gateways

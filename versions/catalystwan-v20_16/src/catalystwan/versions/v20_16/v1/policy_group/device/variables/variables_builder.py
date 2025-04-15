@@ -26,7 +26,7 @@ class VariablesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_policy_group_device_variables(
+    def get(
         self,
         policy_group_id: str,
         device_id: Optional[str] = None,
@@ -35,6 +35,7 @@ class VariablesBuilder:
     ) -> Any:
         """
         Get device variables
+        GET /dataservice/v1/policy-group/{policyGroupId}/device/variables
 
         :param policy_group_id: Policy Group Id
         :param device_id: Comma separated device id's like d1,d2
@@ -53,14 +54,12 @@ class VariablesBuilder:
             **kw,
         )
 
-    def create_policy_group_device_variables(
-        self,
-        policy_group_id: str,
-        payload: Optional[CreatePolicyGroupDeviceVariablesPutRequest] = None,
-        **kw,
+    def put(
+        self, policy_group_id: str, payload: CreatePolicyGroupDeviceVariablesPutRequest, **kw
     ) -> Any:
         """
         assign values to device variables
+        PUT /dataservice/v1/policy-group/{policyGroupId}/device/variables
 
         :param policy_group_id: Policy Group Id
         :param payload: Payload
@@ -77,14 +76,12 @@ class VariablesBuilder:
             **kw,
         )
 
-    def fetch_policy_group_device_variables(
-        self,
-        policy_group_id: str,
-        payload: Optional[FetchPolicyGroupDeviceVariablesPostRequest] = None,
-        **kw,
+    def post(
+        self, policy_group_id: str, payload: FetchPolicyGroupDeviceVariablesPostRequest, **kw
     ) -> FetchPolicyGroupDeviceVariablesPostResponse:
         """
         Fetch device variables
+        POST /dataservice/v1/policy-group/{policyGroupId}/device/variables
 
         :param policy_group_id: Policy Group Id
         :param payload: Payload

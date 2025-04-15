@@ -17,9 +17,10 @@ class AutonomousversionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_autonomous_software_version(self, device_id: str, **kw) -> SoftwareVersion:
+    def get(self, device_id: str, **kw) -> SoftwareVersion:
         """
         Get Software version from device
+        GET /dataservice/device/autonomousversion
 
         :param device_id: deviceId - Device IP
         :returns: SoftwareVersion

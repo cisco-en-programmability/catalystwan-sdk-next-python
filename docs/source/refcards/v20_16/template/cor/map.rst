@@ -13,7 +13,7 @@ Get mapped VPC/VNet list
 
 .. code:: python
 
-    def get_mapped_vp_cs(accountid: str, cloudregion: str) -> Any: ...
+    def get(accountid: str, cloudregion: str) -> Any: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.map.get_mapped_vp_cs()
+        client.template.cor.map.get()
 
 
 Operation: POST /dataservice/template/cor/map
@@ -44,7 +44,7 @@ Map host to transit VPC/VNet
 
 .. code:: python
 
-    def map_vp_cs(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -62,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.map.map_vp_cs()
+        client.template.cor.map.post()
 
 
 Operation: DELETE /dataservice/template/cor/map
@@ -75,7 +75,7 @@ Unmap host from transit VPC/VNet
 
 .. code:: python
 
-    def unmap_vp_cs(payload: Optional[Any] = None) -> Any: ...
+    def delete(payload: Optional[Any] = None) -> Any: ...
 
 
 Example:
@@ -93,6 +93,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.map.unmap_vp_cs()
+        client.template.cor.map.delete()
 
 

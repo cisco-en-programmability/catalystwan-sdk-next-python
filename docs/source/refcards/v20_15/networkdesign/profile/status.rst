@@ -9,11 +9,10 @@ Operation: GET /dataservice/networkdesign/profile/status
 
 Deprecated!!!
 
-Get device profile configuration status
-
 .. code:: python
 
-    def get_device_profile_config_status() -> Any: ...
+    @overload
+    def get() -> Any: ...
 
 
 Example:
@@ -31,7 +30,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.profile.status.get_device_profile_config_status()
+        client.networkdesign.profile.status.get()
 
 
 Operation: GET /dataservice/networkdesign/profile/status/{profileId}
@@ -40,13 +39,10 @@ Operation: GET /dataservice/networkdesign/profile/status/{profileId}
 
 Deprecated!!!
 
-Get device profile configuration status by profile Id
-
 .. code:: python
 
-    def get_device_profile_config_status_by_profile_id(
-        profile_id: str,
-    ) -> Any: ...
+    @overload
+    def get(profile_id: str) -> Any: ...
 
 
 Example:
@@ -64,6 +60,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.profile.status.get_device_profile_config_status_by_profile_id()
+        client.networkdesign.profile.status.get()
 
 

@@ -11,9 +11,7 @@ Set log level for logger
 
 .. code:: python
 
-    def set_log_level(
-        payload: Optional[SetLogLevelPostRequest] = None,
-    ) -> None: ...
+    def post(payload: SetLogLevelPostRequest) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.logging.level.set_log_level()
+        client.util.logging.level.post()
 
 
 .. toctree::

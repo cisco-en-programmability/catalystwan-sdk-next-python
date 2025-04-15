@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateSdwanTransportFeatureProfilePostRequest,
+    CreateSdwanTransportFeatureProfilePostResponse,
+    EditSdwanTransportFeatureProfilePutRequest,
+    EditSdwanTransportFeatureProfilePutResponse,
+    GetSdwanTransportFeatureProfilesGetResponse,
+    GetSingleSdwanTransportPayload,
+)
 
 if TYPE_CHECKING:
     from .cellular_controller.cellular_controller_builder import CellularControllerBuilder
@@ -28,68 +38,39 @@ class TransportBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sdwan/transport
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdwan_transport_feature_profiles(
-        self, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
-    ) -> Any:
-        """
-        Get all SDWAN Feature Profiles with giving Family and profile type
-
-        :param offset: Pagination offset
-        :param limit: Pagination limit
-        :returns: Any
-        """
-        params = {
-            "offset": offset,
-            "limit": limit,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/sdwan/transport", params=params, **kw
-        )
-
-    def create_sdwan_transport_feature_profile(self, payload: Optional[str] = None, **kw) -> str:
+    def post(
+        self, payload: CreateSdwanTransportFeatureProfilePostRequest, **kw
+    ) -> CreateSdwanTransportFeatureProfilePostResponse:
         """
         Create a SDWAN Transport Feature Profile
+        POST /dataservice/v1/feature-profile/sdwan/transport
 
         :param payload: SDWAN Feature profile
-        :returns: str
+        :returns: CreateSdwanTransportFeatureProfilePostResponse
         """
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/transport",
-            return_type=str,
+            return_type=CreateSdwanTransportFeatureProfilePostResponse,
             payload=payload,
             **kw,
         )
 
-    def get_sdwan_transport_feature_profile_by_profile_id(self, transport_id: str, **kw) -> Any:
-        """
-        Get a SDWAN Transport Feature Profile with transportId
-
-        :param transport_id: Feature Profile Id
-        :returns: Any
-        """
-        params = {
-            "transportId": transport_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/transport/{transportId}",
-            params=params,
-            **kw,
-        )
-
-    def edit_sdwan_transport_feature_profile(
-        self, transport_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self, transport_id: str, payload: EditSdwanTransportFeatureProfilePutRequest, **kw
+    ) -> EditSdwanTransportFeatureProfilePutResponse:
         """
         Edit a SDWAN Transport Feature Profile
+        PUT /dataservice/v1/feature-profile/sdwan/transport/{transportId}
 
         :param transport_id: Feature Profile Id
         :param payload: SDWAN Feature profile
-        :returns: str
+        :returns: EditSdwanTransportFeatureProfilePutResponse
         """
         params = {
             "transportId": transport_id,
@@ -97,15 +78,16 @@ class TransportBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sdwan/transport/{transportId}",
-            return_type=str,
+            return_type=EditSdwanTransportFeatureProfilePutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_sdwan_transport_feature_profile(self, transport_id: str, **kw):
+    def delete(self, transport_id: str, **kw):
         """
         Delete Feature Profile
+        DELETE /dataservice/v1/feature-profile/sdwan/transport/{transportId}
 
         :param transport_id: Transport id
         :returns: None
@@ -119,6 +101,66 @@ class TransportBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(self, *, transport_id: str, **kw) -> GetSingleSdwanTransportPayload:
+        """
+        Get a SDWAN Transport Feature Profile with transportId
+        GET /dataservice/v1/feature-profile/sdwan/transport/{transportId}
+
+        :param transport_id: Feature Profile Id
+        :returns: GetSingleSdwanTransportPayload
+        """
+        ...
+
+    @overload
+    def get(
+        self, *, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
+    ) -> List[GetSdwanTransportFeatureProfilesGetResponse]:
+        """
+        Get all SDWAN Feature Profiles with giving Family and profile type
+        GET /dataservice/v1/feature-profile/sdwan/transport
+
+        :param offset: Pagination offset
+        :param limit: Pagination limit
+        :returns: List[GetSdwanTransportFeatureProfilesGetResponse]
+        """
+        ...
+
+    def get(
+        self,
+        *,
+        offset: Optional[int] = None,
+        limit: Optional[int] = None,
+        transport_id: Optional[str] = None,
+        **kw,
+    ) -> Union[List[GetSdwanTransportFeatureProfilesGetResponse], GetSingleSdwanTransportPayload]:
+        # /dataservice/v1/feature-profile/sdwan/transport/{transportId}
+        if self._request_adapter.param_checker([(transport_id, str)], [offset, limit]):
+            params = {
+                "transportId": transport_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/transport/{transportId}",
+                return_type=GetSingleSdwanTransportPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sdwan/transport
+        if self._request_adapter.param_checker([], [transport_id]):
+            params = {
+                "offset": offset,
+                "limit": limit,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/transport",
+                return_type=List[GetSdwanTransportFeatureProfilesGetResponse],
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def cellular_controller(self) -> CellularControllerBuilder:

@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,9 +17,10 @@ class LevelBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def set_log_level(self, payload: Optional[SetLogLevelPostRequest] = None, **kw):
+    def post(self, payload: SetLogLevelPostRequest, **kw):
         """
         Set log level for logger
+        POST /dataservice/util/logging/level
 
         :param payload: Payload
         :returns: None

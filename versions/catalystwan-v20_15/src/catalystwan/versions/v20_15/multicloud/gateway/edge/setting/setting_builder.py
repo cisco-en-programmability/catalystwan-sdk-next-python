@@ -15,9 +15,10 @@ class SettingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_icgw_custom_setting_details(self, edge_gateway_name: str, **kw) -> Any:
+    def get(self, edge_gateway_name: str, **kw) -> Any:
         """
         Get Interconnect Gateway custom setting by Interconnect Gateway name
+        GET /dataservice/multicloud/gateway/edge/setting/{edgeGatewayName}
 
         :param edge_gateway_name: Edge gateway name
         :returns: Any

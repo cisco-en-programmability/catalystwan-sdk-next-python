@@ -1,0 +1,165 @@
+==================================================================
+v1.feature_profile.sd_routing.embedded_security.unified.ngfirewall
+==================================================================
+
+
+Operation: POST /dataservice/v1/feature-profile/sd-routing/embedded-security/{securityId}/unified/ngfirewall
+------------------------------------------------------------------------------------------------------------
+
+
+Create Parcel for Ngfirewall Policy
+
+.. code:: python
+
+    def post(
+        security_id: str, payload: CreateNgfirewallFeaturePostRequest
+    ) -> CreateNgfirewallFeaturePostResponse: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sd_routing.embedded_security.unified.ngfirewall.post()
+
+
+Operation: PUT /dataservice/v1/feature-profile/sd-routing/embedded-security/{securityId}/unified/ngfirewall/{securityProfileParcelId}
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+Update a Ngfirewall Feature
+
+.. code:: python
+
+    def put(
+        security_id: str,
+        security_profile_parcel_id: str,
+        payload: EditNgfirewallFeaturePutRequest,
+    ) -> EditNgfirewallFeaturePutResponse: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sd_routing.embedded_security.unified.ngfirewall.put()
+
+
+Operation: DELETE /dataservice/v1/feature-profile/sd-routing/embedded-security/{securityId}/unified/ngfirewall/{securityProfileParcelId}
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+Delete a Ngfirewall Feature
+
+.. code:: python
+
+    def delete(
+        security_id: str, security_profile_parcel_id: str
+    ) -> None: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sd_routing.embedded_security.unified.ngfirewall.delete()
+
+
+Operation: GET /dataservice/v1/feature-profile/sd-routing/embedded-security/{securityId}/unified/ngfirewall
+-----------------------------------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        security_id: str,
+    ) -> GetListSdRoutingEmbeddedSecurityUnifiedNgfirewallPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sd_routing.embedded_security.unified.ngfirewall.get()
+
+
+Operation: GET /dataservice/v1/feature-profile/sd-routing/embedded-security/{securityId}/unified/ngfirewall/{securityProfileParcelId}
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        security_id: str, security_profile_parcel_id: str
+    ) -> GetSingleSdRoutingEmbeddedSecurityUnifiedNgfirewallPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sd_routing.embedded_security.unified.ngfirewall.get()
+
+
+.. toctree::
+    :maxdepth: 1
+
+    models
+

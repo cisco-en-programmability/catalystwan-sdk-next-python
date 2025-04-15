@@ -11,7 +11,7 @@ Get data plane config from Device
 
 .. code:: python
 
-    def get_utd_dataplane_config(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.utd.dataplane_config.get_utd_dataplane_config()
+        client.device.utd.dataplane_config.get()
 
 

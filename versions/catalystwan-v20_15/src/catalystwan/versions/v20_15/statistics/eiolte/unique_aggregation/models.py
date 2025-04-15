@@ -36,6 +36,14 @@ EiolteUniqueAggregationType = Literal[
     "array", "boolean", "date", "double", "int", "long", "number", "specialString", "string"
 ]
 
+StatisticsEiolteUniqueAggregationType = Literal[
+    "array", "boolean", "date", "double", "int", "long", "number", "specialString", "string"
+]
+
+Type1 = Literal[
+    "array", "boolean", "date", "double", "int", "long", "number", "specialString", "string"
+]
+
 
 @dataclass
 class DbQueryAggregationFieldObject:
@@ -90,7 +98,9 @@ class DbQuerySpecObject:
     condition: Optional[Condition] = _field(default=None)
     field: Optional[Any] = _field(default=None)
     operator: Optional[Operator] = _field(default=None)
-    type_: Optional[EiolteUniqueAggregationType] = _field(default=None, metadata={"alias": "type"})
+    type_: Optional[StatisticsEiolteUniqueAggregationType] = _field(
+        default=None, metadata={"alias": "type"}
+    )
     value: Optional[List[str]] = _field(default=None)
 
 
@@ -98,7 +108,7 @@ class DbQuerySpecObject:
 class DbQuerySortObject:
     field: Any
     order: Order  # pytype: disable=annotation-type-mismatch
-    type_: Optional[EiolteUniqueAggregationType] = _field(default=None, metadata={"alias": "type"})
+    type_: Optional[Type1] = _field(default=None, metadata={"alias": "type"})
 
 
 @dataclass

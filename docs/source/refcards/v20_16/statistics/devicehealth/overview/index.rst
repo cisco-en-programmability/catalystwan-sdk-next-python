@@ -11,7 +11,7 @@ Get all device health overview
 
 .. code:: python
 
-    def get_device_health_overview(
+    def get(
         type_: str,
         last_n_hours: Optional[int] = 12,
         site: Optional[str] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.devicehealth.overview.get_device_health_overview()
+        client.statistics.devicehealth.overview.get()
 
 
 .. toctree::

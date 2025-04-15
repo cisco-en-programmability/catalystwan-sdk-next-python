@@ -11,9 +11,7 @@ Get possible device list by master template Id<br><br><br>Note: In a multitenant
 
 .. code:: python
 
-    def get_device_list_by_master_template_id(
-        master_template_id: str,
-    ) -> List[Any]: ...
+    def get(master_template_id: str) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.available.get_device_list_by_master_template_id()
+        client.template.device.config.available.get()
 
 

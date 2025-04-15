@@ -14,12 +14,13 @@ class DevicetemplatesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_templates_attached_to_feature(self, template_id: str, **kw) -> Any:
+    def get(self, template_id: str, **kw) -> Any:
         """
         Get all device templates for this feature template
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/template/feature/devicetemplates/{templateId}
 
         :param template_id: Feature template Id
         :returns: Any

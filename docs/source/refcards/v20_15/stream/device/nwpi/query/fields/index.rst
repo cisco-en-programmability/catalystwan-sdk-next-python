@@ -13,9 +13,7 @@ Get query fields
 
 .. code:: python
 
-    def get_stat_query_fields_27() -> (
-        List[QueryFieldsResponsePayloadInner]
-    ): ...
+    def get() -> List[QueryFieldsResponsePayloadInner]: ...
 
 
 Example:
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.query.fields.get_stat_query_fields_27()
+        client.stream.device.nwpi.query.fields.get()
 
 
 .. toctree::

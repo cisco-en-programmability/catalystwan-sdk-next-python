@@ -11,7 +11,7 @@ Retrieve Google map key
 
 .. code:: python
 
-    def get_google_map_key() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.google_map_key.get_google_map_key()
+        client.settings.configuration.google_map_key.get()
 
 

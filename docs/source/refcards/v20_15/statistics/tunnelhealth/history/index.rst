@@ -11,7 +11,7 @@ Get all tunnel health history
 
 .. code:: python
 
-    def statistics_approute_tunnelhealth_history_get(
+    def get(
         last_n_hours: Optional[int] = 12,
         site: Optional[str] = None,
         limit: Optional[int] = 30,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.tunnelhealth.history.statistics_approute_tunnelhealth_history_get()
+        client.statistics.tunnelhealth.history.get()
 
 
 .. toctree::

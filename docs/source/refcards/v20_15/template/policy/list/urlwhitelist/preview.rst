@@ -11,7 +11,7 @@ Preview a policy list based on the policy list type
 
 .. code:: python
 
-    def preview_policy_list_41(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.list.urlwhitelist.preview.preview_policy_list_41()
+        client.template.policy.list.urlwhitelist.preview.post()
 
 
 Operation: GET /dataservice/template/policy/list/urlwhitelist/preview/{id}
@@ -40,7 +40,7 @@ Preview a specific policy list entry based on id provided
 
 .. code:: python
 
-    def preview_policy_list_by_id_41(id: str) -> Any: ...
+    def get(id: str) -> Any: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.list.urlwhitelist.preview.preview_policy_list_by_id_41()
+        client.template.policy.list.urlwhitelist.preview.get()
 
 

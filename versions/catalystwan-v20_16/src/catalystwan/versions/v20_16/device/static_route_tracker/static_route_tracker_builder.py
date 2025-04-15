@@ -14,9 +14,10 @@ class StaticRouteTrackerBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_static_route_tracker_info(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get single static route tracker info from device
+        GET /dataservice/device/staticRouteTracker
 
         :param device_id: deviceId - Device IP
         :returns: Any

@@ -12,9 +12,10 @@ class TestBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def test_load_balancer(self, **kw):
+    def post(self, **kw):
         """
         Test SD_AVC load balancer
+        POST /dataservice/sdavc/test
 
         :returns: None
         """

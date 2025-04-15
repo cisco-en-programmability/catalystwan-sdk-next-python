@@ -11,7 +11,7 @@ Get QFP cpu status
 
 .. code:: python
 
-    def cpustat(device_id: str) -> QfpCpuState: ...
+    def get(device_id: str) -> QfpCpuState: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.qfp.cpustat.cpustat()
+        client.device.qfp.cpustat.get()
 
 
 .. toctree::

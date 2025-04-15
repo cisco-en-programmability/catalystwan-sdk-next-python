@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,11 +19,10 @@ class AdmintechlistBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_admin_techs_on_device(
-        self, payload: Optional[AdminTechListReq] = None, **kw
-    ) -> List[AdminTechListRes]:
+    def post(self, payload: AdminTechListReq, **kw) -> List[AdminTechListRes]:
         """
         List admin tech logs
+        POST /dataservice/device/tools/admintechlist
 
         :param payload: Admin tech listing request
         :returns: List[AdminTechListRes]

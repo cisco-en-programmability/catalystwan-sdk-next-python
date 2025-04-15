@@ -19,9 +19,10 @@ class ProcessBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def process_statistics_data(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Process stats data
+        GET /dataservice/statistics/process
 
         :returns: Any
         """

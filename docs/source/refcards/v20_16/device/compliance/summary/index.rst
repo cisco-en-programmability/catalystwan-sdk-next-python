@@ -11,7 +11,7 @@ Get compliance summary for devices
 
 .. code:: python
 
-    def get_compliance_summary() -> DeviceComplianceSummaryResponse: ...
+    def get() -> DeviceComplianceSummaryResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.compliance.summary.get_compliance_summary()
+        client.device.compliance.summary.get()
 
 
 .. toctree::

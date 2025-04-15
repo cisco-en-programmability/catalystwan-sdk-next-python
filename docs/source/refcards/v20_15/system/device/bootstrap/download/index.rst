@@ -11,7 +11,7 @@ Download vEdge device config
 
 .. code:: python
 
-    def get_bootstrap_config_zip(id: str) -> GetBootstrapConfigZip: ...
+    def get(id: str) -> GetBootstrapConfigZip: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.bootstrap.download.get_bootstrap_config_zip()
+        client.system.device.bootstrap.download.get()
 
 
 .. toctree::

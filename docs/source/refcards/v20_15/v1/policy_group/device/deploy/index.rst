@@ -11,9 +11,8 @@ deploy policy group to devices
 
 .. code:: python
 
-    def deploy_policy_group(
-        policy_group_id: str,
-        payload: Optional[DeployPolicyGroupPostRequest] = None,
+    def post(
+        policy_group_id: str, payload: DeployPolicyGroupPostRequest
     ) -> DeployPolicyGroupPostResponse: ...
 
 
@@ -32,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.policy_group.device.deploy.deploy_policy_group()
+        client.v1.policy_group.device.deploy.post()
 
 
 .. toctree::

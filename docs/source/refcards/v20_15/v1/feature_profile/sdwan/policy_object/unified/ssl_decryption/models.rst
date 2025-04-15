@@ -39,8 +39,6 @@ Models
         # Will be auto generated
         description: str
         name: str
-        # This is the documentation for POST request schema for ssl-decryption profile parcel
-        documentation: Optional[Any]
         metadata: Optional[Any]
 
 
@@ -54,12 +52,27 @@ Models
         value: DecryptAndDropStringDef  # pytype: disable=annotation-type-mismatch
 
 
+    class OneOfUntrustedCertificateOptionsDef:
+        option_type: GlobalOptionTypeDef
+        value: DecryptAndDropStringDef  # pytype: disable=annotation-type-mismatch
+
+
     class OneOfCertificateRevocationStatusOptionsDef:
         option_type: GlobalOptionTypeDef
         value: CertificateRevocationStatusDef  # pytype: disable=annotation-type-mismatch
 
 
+    class OneOfUnknownStatusOptionsDef:
+        option_type: GlobalOptionTypeDef
+        value: DecryptAndDropStringDef  # pytype: disable=annotation-type-mismatch
+
+
     class OneOfUnsupportedProtocolVersionsOptionsDef:
+        option_type: GlobalOptionTypeDef
+        value: NoDecryptAndDropStringDef  # pytype: disable=annotation-type-mismatch
+
+
+    class OneOfUnsupportedCipherSuitesOptionsDef:
         option_type: GlobalOptionTypeDef
         value: NoDecryptAndDropStringDef  # pytype: disable=annotation-type-mismatch
 
@@ -136,14 +149,16 @@ Models
         failure_mode: Optional[OneOfFailureModeOptionsDef]
         key_modulus: Optional[OneOfKeyModulusOptionsDef]
         min_tls_ver: Optional[OneOfMinTlsVerOptionsDef]
-        unknown_status: Optional[OneOfExpiredCertificateOptionsDef]
+        unknown_status: Optional[OneOfUnknownStatusOptionsDef]
         unsupported_cipher_suites: Optional[
-            OneOfUnsupportedProtocolVersionsOptionsDef
+            OneOfUnsupportedCipherSuitesOptionsDef
         ]
         unsupported_protocol_versions: Optional[
             OneOfUnsupportedProtocolVersionsOptionsDef
         ]
-        untrusted_certificate: Optional[OneOfExpiredCertificateOptionsDef]
+        untrusted_certificate: Optional[
+            OneOfUntrustedCertificateOptionsDef
+        ]
 
 
     class CreateSecurityProfileParcelPostRequest2:
@@ -151,8 +166,51 @@ Models
         # Will be auto generated
         description: str
         name: str
-        # This is the documentation for POST request schema for ssl-decryption profile parcel
-        documentation: Optional[Any]
+        metadata: Optional[Any]
+
+
+    class Payload1:
+        data: Data
+        # Will be auto generated
+        description: str
+        name: str
+        metadata: Optional[Any]
+
+
+    class UnifiedSslDecryptionData:
+        ssl_enable: OneOfSslEnableOptionsDef
+        ca_cert_bundle: Optional[
+            Union[
+                OneOfCaCertBundleOptionsDef1, OneOfCaCertBundleOptionsDef2
+            ]
+        ]
+        ca_tp_label: Optional[OneOfCaTpLabelOptionsDef]
+        certificate_lifetime: Optional[OneOfCertificateLifetimeOptionsDef]
+        certificate_revocation_status: Optional[
+            OneOfCertificateRevocationStatusOptionsDef
+        ]
+        eckey_type: Optional[OneOfEckeyTypeOptionsDef]
+        expired_certificate: Optional[OneOfExpiredCertificateOptionsDef]
+        failure_mode: Optional[OneOfFailureModeOptionsDef]
+        key_modulus: Optional[OneOfKeyModulusOptionsDef]
+        min_tls_ver: Optional[OneOfMinTlsVerOptionsDef]
+        unknown_status: Optional[OneOfUnknownStatusOptionsDef]
+        unsupported_cipher_suites: Optional[
+            OneOfUnsupportedCipherSuitesOptionsDef
+        ]
+        unsupported_protocol_versions: Optional[
+            OneOfUnsupportedProtocolVersionsOptionsDef
+        ]
+        untrusted_certificate: Optional[
+            OneOfUntrustedCertificateOptionsDef
+        ]
+
+
+    class Payload2:
+        data: UnifiedSslDecryptionData
+        # Will be auto generated
+        description: str
+        name: str
         metadata: Optional[Any]
 
 
@@ -164,11 +222,6 @@ Models
         parcel_id: Optional[str]
         parcel_type: Optional[str]
         # ssl-decryption profile parcel schema for POST request
-        payload: Optional[
-            Union[
-                CreateSecurityProfileParcelPostRequest1,
-                CreateSecurityProfileParcelPostRequest2,
-            ]
-        ]
+        payload: Optional[Union[Payload1, Payload2]]
 
 

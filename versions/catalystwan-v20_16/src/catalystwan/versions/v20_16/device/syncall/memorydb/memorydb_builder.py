@@ -12,9 +12,10 @@ class MemorydbBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def sync_all_devices_mem_db(self, **kw):
+    def post(self, **kw):
         """
         Synchronize memory database for all devices
+        POST /dataservice/device/syncall/memorydb
 
         :returns: None
         """

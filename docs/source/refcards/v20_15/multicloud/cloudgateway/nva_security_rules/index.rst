@@ -11,9 +11,7 @@ Get NVA Security Rules
 
 .. code:: python
 
-    def get_nva_security_rules(
-        cloud_gateway_name: str,
-    ) -> NvaRulesResponse: ...
+    def get(cloud_gateway_name: str) -> NvaRulesResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.nva_security_rules.get_nva_security_rules()
+        client.multicloud.cloudgateway.nva_security_rules.get()
 
 
 Operation: PUT /dataservice/multicloud/cloudgateway/nvaSecurityRules/{cloudGatewayName}
@@ -42,7 +40,7 @@ Update NVA Security Rules
 
 .. code:: python
 
-    def update_nva_security_rules(
+    def put(
         cloud_gateway_name: str, payload: NvaRulesListRequest
     ) -> Taskid: ...
 
@@ -62,7 +60,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.nva_security_rules.update_nva_security_rules()
+        client.multicloud.cloudgateway.nva_security_rules.put()
 
 
 .. toctree::

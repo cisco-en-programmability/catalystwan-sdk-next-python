@@ -11,9 +11,7 @@ Detects duplicate system IP from a list of devices<br><br><br>Note: In a multite
 
 .. code:: python
 
-    def get_devices_with_duplicate_location_name(
-        payload: Optional[Any] = None,
-    ) -> List[Any]: ...
+    def post(payload: Any) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.duplicatelocationname.get_devices_with_duplicate_location_name()
+        client.template.device.config.duplicatelocationname.post()
 
 

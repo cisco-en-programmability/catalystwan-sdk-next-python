@@ -11,9 +11,7 @@ Delete Manual Onboard Device details
 
 .. code:: python
 
-    def delete_devices(
-        payload: Optional[DeleteDetails] = None,
-    ) -> List[DeleteResponseInner]: ...
+    def post(payload: DeleteDetails) -> List[DeleteResponseInner]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.onboard.delete_devices.delete_devices()
+        client.onboard.delete_devices.post()
 
 
 .. toctree::

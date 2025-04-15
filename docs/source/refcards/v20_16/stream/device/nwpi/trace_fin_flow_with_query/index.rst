@@ -13,7 +13,7 @@ Retrieve Certain Fin Flows
 
 .. code:: python
 
-    def trace_fin_flow_with_query(
+    def get(
         trace_id: int, timestamp: int, query: Optional[str] = None
     ) -> NwpitraceFlowRespPayload: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.trace_fin_flow_with_query.trace_fin_flow_with_query()
+        client.stream.device.nwpi.trace_fin_flow_with_query.get()
 
 
 .. toctree::

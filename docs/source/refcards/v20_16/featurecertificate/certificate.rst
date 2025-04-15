@@ -11,7 +11,7 @@ Get feature cert from cEdge device<br><br><br>Note: In a multitenant vManage sys
 
 .. code:: python
 
-    def get_device_certificate(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.featurecertificate.certificate.get_device_certificate()
+        client.featurecertificate.certificate.get()
 
 
 Operation: PUT /dataservice/featurecertificate/certificate
@@ -40,9 +40,7 @@ Upload feature cert for cEdge device<br><br><br>Note: In a multitenant vManage s
 
 .. code:: python
 
-    def install_feature_certificate(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def put(payload: Any) -> Any: ...
 
 
 Example:
@@ -60,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.featurecertificate.certificate.install_feature_certificate()
+        client.featurecertificate.certificate.put()
 
 

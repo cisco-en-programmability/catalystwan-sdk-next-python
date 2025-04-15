@@ -14,9 +14,10 @@ class InterfaceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_ospf_interface(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get OSPF interface list from device (Real Time)
+        GET /dataservice/device/ospf/interface
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

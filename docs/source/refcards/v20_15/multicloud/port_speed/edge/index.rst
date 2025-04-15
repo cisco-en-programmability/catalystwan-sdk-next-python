@@ -13,7 +13,7 @@ Get supported port speed
 
 .. code:: python
 
-    def get_port_speed(
+    def get(
         edge_type: EdgeTypeParam,
         edge_account_id: str,
         connectivity_type: str,
@@ -41,7 +41,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.port_speed.edge.get_port_speed()
+        client.multicloud.port_speed.edge.get()
 
 
 .. toctree::

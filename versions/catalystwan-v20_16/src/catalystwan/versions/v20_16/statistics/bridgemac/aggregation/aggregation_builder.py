@@ -14,9 +14,10 @@ class AggregationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_aggregation_data_by_query_7(self, query: Optional[str] = None, **kw) -> Any:
+    def get(self, query: Optional[str] = None, **kw) -> Any:
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
+        GET /dataservice/statistics/bridgemac/aggregation
 
         :param query: Query filter
         :returns: Any
@@ -28,9 +29,10 @@ class AggregationBuilder:
             "GET", "/dataservice/statistics/bridgemac/aggregation", params=params, **kw
         )
 
-    def get_post_aggregation_data_by_query_7(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
+        POST /dataservice/statistics/bridgemac/aggregation
 
         :param payload: Stats query string
         :returns: Any

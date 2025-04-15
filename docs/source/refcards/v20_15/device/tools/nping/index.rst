@@ -11,9 +11,7 @@ NPing device
 
 .. code:: python
 
-    def nping_device(
-        device_ip: str, payload: Optional[NPingRequest] = None
-    ) -> NPingResponse: ...
+    def post(device_ip: str, payload: NPingRequest) -> NPingResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.nping.nping_device()
+        client.device.tools.nping.post()
 
 
 .. toctree::

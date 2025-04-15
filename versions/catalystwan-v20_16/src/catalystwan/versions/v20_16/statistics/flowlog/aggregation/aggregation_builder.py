@@ -19,11 +19,10 @@ class AggregationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_aggregation_data_by_query_28(
-        self, query: Optional[str] = None, **kw
-    ) -> FlowlogAggregationResponse:
+    def get(self, query: Optional[str] = None, **kw) -> FlowlogAggregationResponse:
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
+        GET /dataservice/statistics/flowlog/aggregation
 
         :param query: Query
         :returns: FlowlogAggregationResponse
@@ -39,11 +38,10 @@ class AggregationBuilder:
             **kw,
         )
 
-    def get_post_aggregation_data_by_query_31(
-        self, payload: Optional[Any] = None, **kw
-    ) -> FlowlogAggregationResponse:
+    def post(self, payload: Any, **kw) -> FlowlogAggregationResponse:
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
+        POST /dataservice/statistics/flowlog/aggregation
 
         :param payload: Stats query string
         :returns: FlowlogAggregationResponse

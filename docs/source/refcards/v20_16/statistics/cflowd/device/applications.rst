@@ -13,7 +13,7 @@ Generate cflowd flows list in a grid table
 
 .. code:: python
 
-    def create_flow_device_data(query: Optional[str] = None) -> Any: ...
+    def get(query: Optional[str] = None) -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.cflowd.device.applications.create_flow_device_data()
+        client.statistics.cflowd.device.applications.get()
 
 

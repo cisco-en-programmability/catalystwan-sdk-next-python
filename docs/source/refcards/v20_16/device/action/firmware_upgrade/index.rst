@@ -11,9 +11,7 @@ Eemote firmware on device
 
 .. code:: python
 
-    def remote_firmware_image_upgrade(
-        payload: Optional[Any] = None,
-    ) -> FirmwareImageRemoteUpgrade: ...
+    def post(payload: Any) -> FirmwareImageRemoteUpgrade: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.firmware_upgrade.remote_firmware_image_upgrade()
+        client.device.action.firmware_upgrade.post()
 
 
 Operation: DELETE /dataservice/device/action/firmware-upgrade/{versionId}
@@ -42,7 +40,7 @@ Download software package file
 
 .. code:: python
 
-    def delete_firmware_upgarde_remote_image(version_id: str) -> None: ...
+    def delete(version_id: str) -> None: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.firmware_upgrade.delete_firmware_upgarde_remote_image()
+        client.device.action.firmware_upgrade.delete()
 
 
 .. toctree::

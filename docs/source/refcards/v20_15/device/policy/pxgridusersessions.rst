@@ -11,7 +11,7 @@ show Pxgrid sessions From Vsmart
 
 .. code:: python
 
-    def show_vsmart_px_grid_user_sessions(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.policy.pxgridusersessions.show_vsmart_px_grid_user_sessions()
+        client.device.policy.pxgridusersessions.get()
 
 

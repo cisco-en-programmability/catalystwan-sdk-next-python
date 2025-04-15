@@ -11,7 +11,7 @@ Initiate application name compliance task
 
 .. code:: python
 
-    def initiate_application_compliance_check() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.application.initiate_compliance.initiate_application_compliance_check()
+        client.sdavc.protocol_pack.compliance.application.initiate_compliance.post()
 
 

@@ -11,9 +11,7 @@ Change template resource group
 
 .. code:: python
 
-    def change_template_resource_group_1(
-        template_id: str, resource_group_name: str
-    ) -> None: ...
+    def post(template_id: str, resource_group_name: str) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.resource_group.change_template_resource_group_1()
+        client.template.device.resource_group.post()
 
 

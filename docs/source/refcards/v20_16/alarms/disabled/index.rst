@@ -11,7 +11,7 @@ List all disabled alarms
 
 .. code:: python
 
-    def list_disabled_alarm() -> List[DisabledAlarmDetails]: ...
+    def get() -> List[DisabledAlarmDetails]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.disabled.list_disabled_alarm()
+        client.alarms.disabled.get()
 
 
 Operation: POST /dataservice/alarms/disabled
@@ -40,7 +40,7 @@ Enable/Disable alarms by event name
 
 .. code:: python
 
-    def disable_enable_alarm(
+    def post(
         event_name: str,
         disable: Optional[bool] = None,
         time: Optional[int] = None,
@@ -62,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.disabled.disable_enable_alarm()
+        client.alarms.disabled.post()
 
 
 .. toctree::

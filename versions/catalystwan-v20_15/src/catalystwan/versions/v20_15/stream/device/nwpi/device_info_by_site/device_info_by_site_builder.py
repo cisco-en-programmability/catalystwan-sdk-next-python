@@ -20,11 +20,10 @@ class DeviceInfoBySiteBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_devices_and_interfaces_by_site(
-        self, site_id: str, mode: Optional[str] = None, **kw
-    ) -> DeviceInfoResponsePayloadData:
+    def get(self, site_id: str, mode: Optional[str] = None, **kw) -> DeviceInfoResponsePayloadData:
         """
         Get device and interface data by site
+        GET /dataservice/stream/device/nwpi/deviceInfoBySite
 
         :param site_id: Site id
         :param mode: mode

@@ -11,7 +11,7 @@ authenticate user for sle
 
 .. code:: python
 
-    def sleauthenticate(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.smart_licensing.authenticate.sleauthenticate()
+        client.smart_licensing.authenticate.post()
 
 

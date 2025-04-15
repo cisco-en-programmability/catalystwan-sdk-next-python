@@ -13,7 +13,7 @@ Get Trace Event Application Performance Score and Bandwidth for NWPI.
 
 .. code:: python
 
-    def get_event_app_score_bandwidth(
+    def get(
         trace_id: int,
         timestamp: int,
         received_timestamp: int,
@@ -40,7 +40,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.event_app_score_bandwidth.get_event_app_score_bandwidth()
+        client.stream.device.nwpi.event_app_score_bandwidth.get()
 
 
 .. toctree::

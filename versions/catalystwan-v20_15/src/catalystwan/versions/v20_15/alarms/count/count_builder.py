@@ -19,19 +19,19 @@ class CountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_count_1(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get the count of alarms which are active and not acknowledged by user.
+        GET /dataservice/alarms/count
 
         :returns: Any
         """
         return self._request_adapter.request("GET", "/dataservice/alarms/count", **kw)
 
-    def post_count(
-        self, payload: Optional[Any] = None, site_id: Optional[str] = None, **kw
-    ) -> List[AlarmCountPost]:
+    def post(self, payload: Any, site_id: Optional[str] = None, **kw) -> List[AlarmCountPost]:
         """
         Get the count of alarms as per the query passed.
+        POST /dataservice/alarms/count
 
         :param site_id: Specify the site-id to filter the alarms
         :param payload: Query

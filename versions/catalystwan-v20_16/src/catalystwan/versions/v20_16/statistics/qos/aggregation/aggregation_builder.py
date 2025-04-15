@@ -19,11 +19,10 @@ class AggregationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_aggregation_data_by_query_13(
-        self, query: Optional[str] = None, **kw
-    ) -> List[QoSAggResp]:
+    def get(self, query: Optional[str] = None, **kw) -> List[QoSAggResp]:
         """
         Monitoring - QoS
+        GET /dataservice/statistics/qos/aggregation
 
         :param query: Query
         :returns: List[QoSAggResp]
@@ -39,11 +38,10 @@ class AggregationBuilder:
             **kw,
         )
 
-    def get_post_aggregation_data_by_query_13(
-        self, payload: Optional[Any] = None, **kw
-    ) -> List[QoSAggResp]:
+    def post(self, payload: Any, **kw) -> List[QoSAggResp]:
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
+        POST /dataservice/statistics/qos/aggregation
 
         :param payload: Stats query string
         :returns: List[QoSAggResp]

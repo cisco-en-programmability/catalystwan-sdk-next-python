@@ -11,7 +11,7 @@ Process stats data
 
 .. code:: python
 
-    def process_statistics_data() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.process.process_statistics_data()
+        client.statistics.process.get()
 
 
 .. toctree::

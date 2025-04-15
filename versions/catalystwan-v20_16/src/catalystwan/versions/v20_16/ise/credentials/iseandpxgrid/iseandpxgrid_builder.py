@@ -12,9 +12,10 @@ class IseandpxgridBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def delete_ise_and_px_grid_account(self, **kw) -> bool:
+    def delete(self, **kw) -> bool:
         """
         Delete PxGrid and Ise information on vManage. Also Deletes PxGrid Client on ISE
+        DELETE /dataservice/ise/credentials/iseandpxgrid
 
         :returns: bool
         """

@@ -14,12 +14,13 @@ class SwitchBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def switch_tenant(self, tenant_id: str, **kw) -> Any:
+    def post(self, tenant_id: str, **kw) -> Any:
         """
         Switch to a specific tenant
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        POST /dataservice/tenant/{tenantId}/switch
 
         :param tenant_id: Tenant Id
         :returns: Any

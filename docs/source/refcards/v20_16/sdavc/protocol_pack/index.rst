@@ -11,7 +11,7 @@ Get all protocol packs details
 
 .. code:: python
 
-    def get_all_protocol_packs() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.get_all_protocol_packs()
+        client.sdavc.protocol_pack.get()
 
 
 .. toctree::

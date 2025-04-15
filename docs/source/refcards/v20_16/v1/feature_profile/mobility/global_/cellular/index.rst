@@ -3,37 +3,6 @@ v1.feature_profile.mobility.global_.cellular
 ============================================
 
 
-Operation: GET /dataservice/v1/feature-profile/mobility/global/{profileId}/cellular
------------------------------------------------------------------------------------
-
-
-Get an Mobility Cellular Profile Parcel list for Mobility Global Feature Profile
-
-.. code:: python
-
-    def get_cellular_profile_parcel_list_for_mobility(
-        profile_id: str,
-    ) -> str: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.mobility.global_.cellular.get_cellular_profile_parcel_list_for_mobility()
-
-
 Operation: POST /dataservice/v1/feature-profile/mobility/global/{profileId}/cellular
 ------------------------------------------------------------------------------------
 
@@ -42,9 +11,7 @@ Create an cellular Profile Parcel for Mobility Global Feature Profile
 
 .. code:: python
 
-    def create_cellular_profile_parcel_for_mobility(
-        profile_id: str, payload: Optional[CellularProfile] = None
-    ) -> str: ...
+    def post(profile_id: str, payload: CellularProfile) -> str: ...
 
 
 Example:
@@ -62,38 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.mobility.global_.cellular.create_cellular_profile_parcel_for_mobility()
-
-
-Operation: GET /dataservice/v1/feature-profile/mobility/global/{profileId}/cellular/{cellularId}
-------------------------------------------------------------------------------------------------
-
-
-Get an Mobility Cellular Profile Parcel for Mobility Global Feature Profile
-
-.. code:: python
-
-    def get_cellular_profile_parcel_for_mobility(
-        profile_id: str, cellular_id: str
-    ) -> str: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.mobility.global_.cellular.get_cellular_profile_parcel_for_mobility()
+        client.v1.feature_profile.mobility.global_.cellular.post()
 
 
 Operation: PUT /dataservice/v1/feature-profile/mobility/global/{profileId}/cellular/{cellularId}
@@ -104,12 +40,10 @@ Edit an Cellular Profile Parcel for Mobility Global Feature Profile
 
 .. code:: python
 
-    def edit_cellular_profile_parcel_for_mobility(
+    def put(
         profile_id: str,
         cellular_id: str,
-        payload: Optional[
-            EditCellularProfileParcelForMobilityPutRequest
-        ] = None,
+        payload: EditCellularProfileParcelForMobilityPutRequest,
     ) -> None: ...
 
 
@@ -128,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.mobility.global_.cellular.edit_cellular_profile_parcel_for_mobility()
+        client.v1.feature_profile.mobility.global_.cellular.put()
 
 
 Operation: DELETE /dataservice/v1/feature-profile/mobility/global/{profileId}/cellular/{cellularId}
@@ -139,9 +73,7 @@ Delete a Cellular Profile Parcel for Mobility Global Feature Profile
 
 .. code:: python
 
-    def delete_a_cellular_profile_parcel_for_mobility(
-        profile_id: str, cellular_id: str
-    ) -> None: ...
+    def delete(profile_id: str, cellular_id: str) -> None: ...
 
 
 Example:
@@ -159,7 +91,65 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.mobility.global_.cellular.delete_a_cellular_profile_parcel_for_mobility()
+        client.v1.feature_profile.mobility.global_.cellular.delete()
+
+
+Operation: GET /dataservice/v1/feature-profile/mobility/global/{profileId}/cellular
+-----------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(profile_id: str) -> GetListMobilityGlobalCellularPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.mobility.global_.cellular.get()
+
+
+Operation: GET /dataservice/v1/feature-profile/mobility/global/{profileId}/cellular/{cellularId}
+------------------------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        profile_id: str, cellular_id: str
+    ) -> GetSingleMobilityGlobalCellularPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.mobility.global_.cellular.get()
 
 
 .. toctree::

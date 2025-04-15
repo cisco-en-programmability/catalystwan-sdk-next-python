@@ -11,7 +11,7 @@ Get attached client site list
 
 .. code:: python
 
-    def get_attached_client_list() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cloudx.attachedclient.get_attached_client_list()
+        client.template.cloudx.attachedclient.get()
 
 

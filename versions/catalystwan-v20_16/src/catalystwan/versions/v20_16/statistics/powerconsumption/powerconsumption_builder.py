@@ -26,9 +26,9 @@ class PowerconsumptionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stats_raw_data_3(
+    def post(
         self,
-        payload: Optional[Any] = None,
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -37,6 +37,7 @@ class PowerconsumptionBuilder:
     ) -> List[PowerConsumptionResp]:
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
+        POST /dataservice/statistics/powerconsumption
 
         :param page: Page
         :param page_size: Page size

@@ -14,9 +14,10 @@ class ProfilesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_profile_list(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get cellular profile list from device
+        GET /dataservice/device/cellular/profiles
 
         :param device_id: Device IP
         :returns: List[Any]

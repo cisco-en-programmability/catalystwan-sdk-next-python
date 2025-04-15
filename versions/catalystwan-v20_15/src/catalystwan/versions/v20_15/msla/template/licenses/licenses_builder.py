@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -20,11 +20,10 @@ class LicensesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_subscriptions_1(
-        self, payload: Optional[GetSubscriptions1PostRequest] = None, **kw
-    ) -> Any:
+    def post(self, payload: GetSubscriptions1PostRequest, **kw) -> Any:
         """
         Retrieve MSLA subscription/licenses
+        POST /dataservice/msla/template/licenses
 
         :param payload: Payload
         :returns: Any

@@ -11,7 +11,7 @@ Retrieve devices in group
 
 .. code:: python
 
-    def list_group_devices(
+    def get(
         group_id: Optional[str] = None,
         ssh: Optional[bool] = False,
         vpn_id: Optional[List[Vpnid]] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.group.devices.list_group_devices()
+        client.group.devices.get()
 
 
 .. toctree::

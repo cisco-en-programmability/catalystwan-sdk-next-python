@@ -11,7 +11,7 @@ Get aggregated data based on input query and filters. The data can be filtered o
 
 .. code:: python
 
-    def get_aggregation_data_by_query_27(
+    def get(
         query: Optional[str] = None,
     ) -> FlowlogAggregationResponse: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.flowlog.aggregation.get_aggregation_data_by_query_27()
+        client.statistics.flowlog.aggregation.get()
 
 
 Operation: POST /dataservice/statistics/flowlog/aggregation
@@ -42,9 +42,7 @@ Get aggregated data based on input query and filters. The data can be filtered o
 
 .. code:: python
 
-    def get_post_aggregation_data_by_query_29(
-        payload: Optional[Any] = None,
-    ) -> FlowlogAggregationResponse: ...
+    def post(payload: Any) -> FlowlogAggregationResponse: ...
 
 
 Example:
@@ -62,7 +60,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.flowlog.aggregation.get_post_aggregation_data_by_query_29()
+        client.statistics.flowlog.aggregation.post()
 
 
 .. toctree::

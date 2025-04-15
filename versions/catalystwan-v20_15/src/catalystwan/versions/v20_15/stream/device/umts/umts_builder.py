@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional
+from typing import TYPE_CHECKING, Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -23,9 +23,10 @@ class UmtsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def enable_session(self, payload: Optional[UmtsInput] = None, **kw) -> List[UmtsSession]:
+    def post(self, payload: UmtsInput, **kw) -> List[UmtsSession]:
         """
         assign sessionId to client if there is no conflict ongoing sessions
+        POST /dataservice/stream/device/umts
 
         :param payload: Input query
         :returns: List[UmtsSession]
@@ -38,9 +39,10 @@ class UmtsBuilder:
             **kw,
         )
 
-    def update_umts_session_status(self, operation: str, session_id: str, **kw) -> Any:
+    def get(self, operation: str, session_id: str, **kw) -> Any:
         """
         start, stop,status,download or disable session
+        GET /dataservice/stream/device/umts/{operation}/{sessionId}
 
         :param operation: Operation
         :param session_id: Session id

@@ -11,7 +11,7 @@ Delete all or a specific backup file stored in vManage
 
 .. code:: python
 
-    def delete_schduled_backup(
+    def delete(
         task_id: Optional[str] = None,
         backup_info_id: Optional[str] = None,
     ) -> Any: ...
@@ -32,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.backup.backupinfo.delete_schduled_backup()
+        client.backup.backupinfo.delete()
 
 
 Operation: GET /dataservice/backup/backupinfo/{localBackupInfoId}
@@ -43,9 +43,7 @@ Get a localBackupInfo record by localBackupInfoId
 
 .. code:: python
 
-    def get_local_backup_info(
-        local_backup_info_id: str,
-    ) -> LocalBackupInfo: ...
+    def get(local_backup_info_id: str) -> LocalBackupInfo: ...
 
 
 Example:
@@ -63,7 +61,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.backup.backupinfo.get_local_backup_info()
+        client.backup.backupinfo.get()
 
 
 .. toctree::

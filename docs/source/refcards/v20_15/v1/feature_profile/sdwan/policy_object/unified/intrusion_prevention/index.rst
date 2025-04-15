@@ -11,9 +11,9 @@ Create Parcel for Security Policy
 
 .. code:: python
 
-    def create_security_profile_parcel(
+    def post(
         policy_object_id: str,
-        payload: Optional[CreateSecurityProfileParcelPostRequest] = None,
+        payload: CreateSecurityProfileParcelPostRequest,
     ) -> CreateSecurityProfileParcelPostResponse: ...
 
 
@@ -32,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.policy_object.unified.intrusion_prevention.create_security_profile_parcel()
+        client.v1.feature_profile.sdwan.policy_object.unified.intrusion_prevention.post()
 
 
 Operation: GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/intrusion-prevention/{parcelId}
@@ -43,7 +43,7 @@ Get Security Profile Parcels for a given ParcelType
 
 .. code:: python
 
-    def get_security_profile_parcel(
+    def get(
         policy_object_id: str,
         parcel_id: str,
         reference_count: Optional[bool] = False,
@@ -65,7 +65,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.policy_object.unified.intrusion_prevention.get_security_profile_parcel()
+        client.v1.feature_profile.sdwan.policy_object.unified.intrusion_prevention.get()
 
 
 .. toctree::

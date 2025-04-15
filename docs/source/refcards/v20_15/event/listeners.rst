@@ -11,7 +11,7 @@ Retrieve listener information
 
 .. code:: python
 
-    def get_listeners_info() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.event.listeners.get_listeners_info()
+        client.event.listeners.get()
 
 

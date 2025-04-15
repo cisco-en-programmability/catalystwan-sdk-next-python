@@ -19,7 +19,7 @@ class TopologyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_site_health_topology(
+    def get(
         self,
         last_n_hours: Optional[int] = None,
         start_time: Optional[int] = None,
@@ -29,6 +29,7 @@ class TopologyBuilder:
     ) -> List[SiteHealthTopologyItem]:
         """
         Get all site health topology
+        GET /dataservice/statistics/sitehealth/topology
 
         :param last_n_hours: Last n hours
         :param start_time: Start time

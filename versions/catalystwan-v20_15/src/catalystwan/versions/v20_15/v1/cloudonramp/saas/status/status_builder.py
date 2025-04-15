@@ -12,9 +12,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cor_saas_status_per_device(self, device_ip: str, **kw):
+    def get(self, device_ip: str, **kw):
         """
         Get Cloud On Ramp App details per device
+        GET /dataservice/v1/cloudonramp/saas/status
 
         :param device_ip: DeviceIp/SystemIp
         :returns: None

@@ -11,7 +11,7 @@ Return testbed mode information staging or production
 
 .. code:: python
 
-    def testbed_mode() -> TestbedMode: ...
+    def get() -> TestbedMode: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.hsec.testbed_mode.testbed_mode()
+        client.hsec.testbed_mode.get()
 
 
 .. toctree::

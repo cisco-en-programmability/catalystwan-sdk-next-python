@@ -23,14 +23,12 @@ class IntrusionPreventionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_security_profile_parcel(
-        self,
-        policy_object_id: str,
-        payload: Optional[CreateSecurityProfileParcelPostRequest] = None,
-        **kw,
+    def post(
+        self, policy_object_id: str, payload: CreateSecurityProfileParcelPostRequest, **kw
     ) -> CreateSecurityProfileParcelPostResponse:
         """
         Create Parcel for Security Policy
+        POST /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/intrusion-prevention
 
         :param policy_object_id: Feature Profile ID
         :param payload: Security Profile Parcel
@@ -48,11 +46,12 @@ class IntrusionPreventionBuilder:
             **kw,
         )
 
-    def get_security_profile_parcel(
+    def get(
         self, policy_object_id: str, parcel_id: str, reference_count: Optional[bool] = False, **kw
     ) -> GetSecurityProfileParcelGetResponse:
         """
         Get Security Profile Parcels for a given ParcelType
+        GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/intrusion-prevention/{parcelId}
 
         :param policy_object_id: Feature Profile ID
         :param reference_count: get reference count

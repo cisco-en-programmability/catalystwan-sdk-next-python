@@ -20,11 +20,12 @@ class ConcurrentDomainDataBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_concurrent_domain_data(
+    def get(
         self, trace_id: int, timestamp: int, query: Optional[str] = None, **kw
     ) -> List[ConcurrentDomainDataResponsePayloadInner]:
         """
         Get concurrent domain data for NWPI.
+        GET /dataservice/stream/device/nwpi/concurrentDomainData
 
         :param trace_id: Trace id
         :param timestamp: Timestamp

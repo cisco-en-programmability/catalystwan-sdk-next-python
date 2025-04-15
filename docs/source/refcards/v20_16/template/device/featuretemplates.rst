@@ -11,9 +11,7 @@ get Associated Feature Templates Details
 
 .. code:: python
 
-    def get_associated_feature_templates_details(
-        template_id: str,
-    ) -> None: ...
+    def get(template_id: str) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.featuretemplates.get_associated_feature_templates_details()
+        client.template.device.featuretemplates.get()
 
 

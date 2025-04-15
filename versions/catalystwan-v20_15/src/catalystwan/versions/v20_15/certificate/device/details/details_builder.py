@@ -12,9 +12,10 @@ class DetailsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_view_right_menus(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         Get device detail view
+        GET /dataservice/certificate/device/details
 
         :returns: str
         """

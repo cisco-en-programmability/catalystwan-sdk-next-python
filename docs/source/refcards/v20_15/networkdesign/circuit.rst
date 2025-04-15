@@ -13,7 +13,7 @@ Get network circuits
 
 .. code:: python
 
-    def get_circuits() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.circuit.get_circuits()
+        client.networkdesign.circuit.get()
 
 
 Operation: POST /dataservice/networkdesign/circuit
@@ -44,7 +44,7 @@ Create network circuits
 
 .. code:: python
 
-    def create_circuit(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -62,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.circuit.create_circuit()
+        client.networkdesign.circuit.post()
 
 
 Operation: DELETE /dataservice/networkdesign/circuit/{id}
@@ -75,7 +75,7 @@ Delete network circuits
 
 .. code:: python
 
-    def delete_circuit(id: str) -> None: ...
+    def delete(id: str) -> None: ...
 
 
 Example:
@@ -93,6 +93,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.circuit.delete_circuit()
+        client.networkdesign.circuit.delete()
 
 

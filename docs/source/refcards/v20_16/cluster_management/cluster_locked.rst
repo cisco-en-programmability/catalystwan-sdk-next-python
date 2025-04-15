@@ -11,7 +11,7 @@ Check whether cluster is locked<br><br><br>Note: In a multitenant vManage system
 
 .. code:: python
 
-    def check_if_cluster_locked() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.cluster_locked.check_if_cluster_locked()
+        client.cluster_management.cluster_locked.get()
 
 

@@ -17,9 +17,10 @@ class DeviceAuthorizationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def device_authorization(self, client_id: str, region_base_uri: str, **kw) -> Codes:
+    def post(self, client_id: str, region_base_uri: str, **kw) -> Codes:
         """
         User authorization for Cisco vManage SecureX integration
+        POST /dataservice/device_authorization/{regionBaseUri}/{clientId}
 
         :param client_id: Client id
         :param region_base_uri: Region base uri

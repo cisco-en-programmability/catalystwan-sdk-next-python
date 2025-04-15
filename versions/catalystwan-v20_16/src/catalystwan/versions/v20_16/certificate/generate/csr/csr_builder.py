@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class CsrBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_csr(self, payload: Optional[Any] = None, **kw) -> str:
+    def post(self, payload: Any, **kw) -> str:
         """
         get certificaate details
+        POST /dataservice/certificate/generate/csr
 
         :param payload: Device IP
         :returns: str

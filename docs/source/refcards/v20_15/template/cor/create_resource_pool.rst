@@ -13,7 +13,7 @@ Add resource pool
 
 .. code:: python
 
-    def create_resource_pool(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.create_resource_pool.create_resource_pool()
+        client.template.cor.create_resource_pool.post()
 
 

@@ -11,9 +11,7 @@ Ping device
 
 .. code:: python
 
-    def ping_device(
-        device_ip: str, payload: Optional[PingRequest] = None
-    ) -> PingResponse: ...
+    def post(device_ip: str, payload: PingRequest) -> PingResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.ping.ping_device()
+        client.device.tools.ping.post()
 
 
 .. toctree::

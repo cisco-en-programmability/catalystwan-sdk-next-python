@@ -14,9 +14,10 @@ class RebootcountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_reboot_count(self, is_cached: bool, **kw) -> Any:
+    def get(self, is_cached: bool, **kw) -> Any:
         """
         Retrieve reboot count
+        GET /dataservice/network/issues/rebootcount
 
         :param is_cached: Is cached flag
         :returns: Any

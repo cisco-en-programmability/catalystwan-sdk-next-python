@@ -11,9 +11,7 @@ Download a report preview file
 
 .. code:: python
 
-    def download_report_preview_file(
-        template_type: Optional[TemplateTypeParam] = None,
-    ) -> str: ...
+    def get(template_type: Optional[TemplateTypeParam] = None) -> str: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.reports.preview.download.download_report_preview_file()
+        client.v1.reports.preview.download.get()
 
 
 .. toctree::

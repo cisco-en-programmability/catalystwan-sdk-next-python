@@ -11,7 +11,7 @@ Discover Azure Virtual HUBs
 
 .. code:: python
 
-    def get_azure_virtual_vnets_attached(
+    def get(
         cloud_type: str, cloud_gateway_name: str
     ) -> IsVnetAttached: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.vnets_noof_attached.get_azure_virtual_vnets_attached()
+        client.multicloud.cloudgateway.vnets_noof_attached.get()
 
 
 .. toctree::

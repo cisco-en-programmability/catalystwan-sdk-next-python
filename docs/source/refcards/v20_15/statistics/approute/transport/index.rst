@@ -11,7 +11,7 @@ Get application-aware routing statistics from device
 
 .. code:: python
 
-    def get_app_route_transport_type(
+    def get(
         type_: str, limit: int, query: Optional[str] = None
     ) -> AppRouteTransportResp: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.approute.transport.get_app_route_transport_type()
+        client.statistics.approute.transport.get()
 
 
 .. toctree::

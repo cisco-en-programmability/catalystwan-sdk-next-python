@@ -11,7 +11,7 @@ Get response count of a query
 
 .. code:: python
 
-    def get_count_with_interface_statistics(
+    def get(
         start_date: str, end_date: str, time_zone: Optional[str] = None
     ) -> DocCountRes: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v2.data.device.statistics.interfacestatistics.doccount.get_count_with_interface_statistics()
+        client.v2.data.device.statistics.interfacestatistics.doccount.get()
 
 
 .. toctree::

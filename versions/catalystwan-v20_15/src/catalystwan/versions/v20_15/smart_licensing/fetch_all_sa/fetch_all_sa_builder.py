@@ -14,9 +14,10 @@ class FetchAllSaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def fetch_reports_1(self, payload: Optional[Any] = None, **kw) -> Any:
+    def get(self, payload: Optional[Any] = None, **kw) -> Any:
         """
         fetch reports offline for sle
+        GET /dataservice/smartLicensing/fetchAllSa
 
         :param payload: Partner
         :returns: Any

@@ -13,7 +13,7 @@ Proxy API for SCM Widget
 
 .. code:: python
 
-    def get_call() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.opentaccase.scmwidget.get_call()
+        client.opentaccase.scmwidget.get()
 
 
 Operation: POST /dataservice/opentaccase/scmwidget/{var}
@@ -44,7 +44,7 @@ Prxoy API for SCM Widget
 
 .. code:: python
 
-    def post_call() -> List[Any]: ...
+    def post() -> List[Any]: ...
 
 
 Example:
@@ -62,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.opentaccase.scmwidget.post_call()
+        client.opentaccase.scmwidget.post()
 
 
 Operation: DELETE /dataservice/opentaccase/scmwidget/{var}
@@ -75,7 +75,7 @@ Proxy API for SCM Widget
 
 .. code:: python
 
-    def delete_call() -> List[Any]: ...
+    def delete() -> List[Any]: ...
 
 
 Example:
@@ -93,6 +93,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.opentaccase.scmwidget.delete_call()
+        client.opentaccase.scmwidget.delete()
 
 

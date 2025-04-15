@@ -17,9 +17,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_speed_test_status(self, session_id: Uuid, **kw) -> SpeedTestStatusResponse:
+    def get(self, session_id: Uuid, **kw) -> SpeedTestStatusResponse:
         """
-        Get speed test status
+        Get
+        GET /dataservice/stream/device/speed/status/{sessionId}
 
         :param session_id: sessionId
         :returns: SpeedTestStatusResponse

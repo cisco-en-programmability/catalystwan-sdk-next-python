@@ -11,7 +11,7 @@ Get vEdge software version
 
 .. code:: python
 
-    def find_v_edge_software_version() -> FindVEdgeSoftwareVersion: ...
+    def get() -> FindVEdgeSoftwareVersion: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.vedge.version.find_v_edge_software_version()
+        client.device.action.software.vedge.version.get()
 
 
 .. toctree::

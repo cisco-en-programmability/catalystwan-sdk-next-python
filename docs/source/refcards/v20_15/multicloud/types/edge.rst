@@ -13,7 +13,7 @@ Get edge types
 
 .. code:: python
 
-    def get_edge_types() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.types.edge.get_edge_types()
+        client.multicloud.types.edge.get()
 
 

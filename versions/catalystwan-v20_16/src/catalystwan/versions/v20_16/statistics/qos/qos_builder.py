@@ -28,7 +28,7 @@ class QosBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_data_raw_data_13(
+    def get(
         self,
         query: Optional[str] = None,
         page: Optional[int] = None,
@@ -39,6 +39,7 @@ class QosBuilder:
     ) -> List[QoSRespWithPageInfo]:
         """
         Get stats raw data
+        GET /dataservice/statistics/qos
 
         :param query: Query
         :param page: Page
@@ -62,9 +63,9 @@ class QosBuilder:
             **kw,
         )
 
-    def get_stats_raw_data12(
+    def post(
         self,
-        payload: Optional[Any] = None,
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -73,6 +74,7 @@ class QosBuilder:
     ) -> List[QoSRespWithPageInfo]:
         """
         Get stats raw data
+        POST /dataservice/statistics/qos
 
         :param page: Page
         :param page_size: Page size

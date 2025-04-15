@@ -12,9 +12,10 @@ class CancelBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def cancel_scheduled_deploy_job(self, **kw):
+    def post(self, **kw):
         """
         Cancel a Scheduled Deploy protocol pack job
+        POST /dataservice/sdavc/protocol-pack/maintenance/upgrade/cancel
 
         :returns: None
         """

@@ -11,7 +11,7 @@ Stop packet capture session
 
 .. code:: python
 
-    def stop_pcap_session(session_id: str) -> PacketCaptureInfo: ...
+    def get(session_id: str) -> PacketCaptureInfo: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.capture.stop.stop_pcap_session()
+        client.stream.device.capture.stop.get()
 
 
 .. toctree::

@@ -19,7 +19,7 @@ class V4FibBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_i_pv4_fib_list(
+    def get(
         self,
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
@@ -30,6 +30,7 @@ class V4FibBuilder:
     ) -> Any:
         """
         Get IPv4 FIB list from device (Real Time)
+        GET /dataservice/device/ip/v4fib
 
         :param vpn_id: VPN Id
         :param prefix: IP prefix

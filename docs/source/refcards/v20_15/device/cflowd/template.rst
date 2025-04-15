@@ -11,7 +11,7 @@ Get cflowd template from device
 
 .. code:: python
 
-    def create_cflowd_template(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cflowd.template.create_cflowd_template()
+        client.device.cflowd.template.get()
 
 

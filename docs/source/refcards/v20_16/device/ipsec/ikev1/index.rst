@@ -11,7 +11,7 @@ Get Crypto IKEv1 SA entry from device
 
 .. code:: python
 
-    def create_cryptov1_local_sa_list(
+    def get(
         device_id: str,
         remote_tloc_address: Optional[str] = None,
         remote_tloc_color: Optional[RemoteTlocColorParam] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ipsec.ikev1.create_cryptov1_local_sa_list()
+        client.device.ipsec.ikev1.get()
 
 
 .. toctree::

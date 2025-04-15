@@ -19,11 +19,10 @@ class PageBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_bulk_raw_property_data(
-        self, query: str, count: int, scroll_id: Optional[str] = None, **kw
-    ) -> GetAuditLogData:
+    def get(self, query: str, count: int, scroll_id: Optional[str] = None, **kw) -> GetAuditLogData:
         """
         Get raw property data in bulk
+        GET /dataservice/auditlog/page
 
         :param query: Query
         :param scroll_id: Scroll id
@@ -39,11 +38,12 @@ class PageBuilder:
             "GET", "/dataservice/auditlog/page", return_type=GetAuditLogData, params=params, **kw
         )
 
-    def get_post_stat_bulk_raw_property_data(
-        self, count: int, payload: Optional[Any] = None, scroll_id: Optional[str] = None, **kw
+    def post(
+        self, count: int, payload: Any, scroll_id: Optional[str] = None, **kw
     ) -> GetAuditLogData:
         """
         Get raw property data in bulk with post action
+        POST /dataservice/auditlog/page
 
         :param scroll_id: Scroll id
         :param count: Count

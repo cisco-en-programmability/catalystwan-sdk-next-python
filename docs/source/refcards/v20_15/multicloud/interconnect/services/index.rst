@@ -11,7 +11,7 @@ API to retrieve the Interconnect Services Information from vManage.
 
 .. code:: python
 
-    def get_interconnect_services(
+    def get(
         interconnect_service_vendor_name: str,
         interconnect_type: str,
         interconnect_service_type: str,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.services.get_interconnect_services()
+        client.multicloud.interconnect.services.get()
 
 
 .. toctree::

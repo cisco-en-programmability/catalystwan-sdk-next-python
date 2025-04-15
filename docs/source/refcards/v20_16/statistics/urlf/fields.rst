@@ -11,7 +11,7 @@ Get fields and type
 
 .. code:: python
 
-    def get_stat_data_fields_24() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.urlf.fields.get_stat_data_fields_24()
+        client.statistics.urlf.fields.get()
 
 

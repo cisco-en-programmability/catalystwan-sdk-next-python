@@ -11,7 +11,7 @@ Get DOT1x interface from device (Real Time)
 
 .. code:: python
 
-    def get_wlandot1x_interfaces(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.dot1x.interfaces.get_wlandot1x_interfaces()
+        client.device.dot1x.interfaces.get()
 
 

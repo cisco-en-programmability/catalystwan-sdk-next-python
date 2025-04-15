@@ -14,9 +14,10 @@ class NicsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_vbranch_vm_lifecycle_nics(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get vbranch vm lifecycle state (NIC)
+        GET /dataservice/device/vm/nics
 
         :param device_id: deviceId - Device IP
         :returns: Any

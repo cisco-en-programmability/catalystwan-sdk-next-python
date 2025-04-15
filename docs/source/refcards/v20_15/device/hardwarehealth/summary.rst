@@ -11,7 +11,7 @@ Get hardware health summary for device
 
 .. code:: python
 
-    def get_hardware_health_summary(
+    def get(
         vpn_id: List[str], is_cached: Optional[bool] = False
     ) -> List[Any]: ...
 
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.hardwarehealth.summary.get_hardware_health_summary()
+        client.device.hardwarehealth.summary.get()
 
 

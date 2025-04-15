@@ -13,7 +13,7 @@ To do VNF actions such as start, stop and restart
 
 .. code:: python
 
-    def vnf_actions(
+    def post(
         vm_name: str, action: str, device_id: Optional[DeviceUuid] = None
     ) -> None: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.colocation.monitor.vnf.action.vnf_actions()
+        client.colocation.monitor.vnf.action.post()
 
 
 .. toctree::

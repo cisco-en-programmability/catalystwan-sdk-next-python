@@ -11,7 +11,7 @@ Cellular DataUsage Dashlet
 
 .. code:: python
 
-    def data_usage(
+    def get(
         last_n_hours: Optional[LastNHoursParam] = None,
         drill_down: Optional[bool] = None,
     ) -> List[CellularDataUsage]: ...
@@ -32,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cellular.data_usage.data_usage()
+        client.device.cellular.data_usage.get()
 
 
 .. toctree::

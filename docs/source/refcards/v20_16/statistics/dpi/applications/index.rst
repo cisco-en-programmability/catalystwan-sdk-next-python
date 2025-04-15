@@ -11,7 +11,7 @@ Get detailed DPI application flows list in a grid table
 
 .. code:: python
 
-    def get_agg_app_flows(
+    def get(
         query: str, limit: Optional[int] = None
     ) -> DpiAppResponse: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.dpi.applications.get_agg_app_flows()
+        client.statistics.dpi.applications.get()
 
 
 .. toctree::

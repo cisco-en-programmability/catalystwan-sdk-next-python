@@ -11,7 +11,7 @@ Get crash log
 
 .. code:: python
 
-    def get_crash_logs(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.device.crashlog.details.get_crash_logs()
+        client.dca.device.crashlog.details.post()
 
 

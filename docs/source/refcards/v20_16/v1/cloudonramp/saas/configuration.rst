@@ -11,7 +11,7 @@ Get Policy Groups that are deployed with Cloud on Ramp for Saas intent
 
 .. code:: python
 
-    def get_policy_groups_with_cor_saas_apps() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.cloudonramp.saas.configuration.get_policy_groups_with_cor_saas_apps()
+        client.v1.cloudonramp.saas.configuration.get()
 
 

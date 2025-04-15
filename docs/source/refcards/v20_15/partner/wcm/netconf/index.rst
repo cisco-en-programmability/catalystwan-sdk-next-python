@@ -11,7 +11,7 @@ Push device configs
 
 .. code:: python
 
-    def push_netconf_configs(
+    def post(
         nms_id: str, payload: WcmNetconfConfigRequest
     ) -> WcmNetconfConfigRes: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.wcm.netconf.push_netconf_configs()
+        client.partner.wcm.netconf.post()
 
 
 .. toctree::

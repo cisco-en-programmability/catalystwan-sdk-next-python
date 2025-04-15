@@ -14,9 +14,10 @@ class TunnelsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sig_zscaler_tunnels(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get SIG Zscaler tunnels from device
+        GET /dataservice/device/sig/zscaler/tunnels
 
         :param device_id: deviceId - Device IP
         :returns: Any

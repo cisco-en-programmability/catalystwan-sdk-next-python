@@ -11,7 +11,7 @@ Get ACI events
 
 .. code:: python
 
-    def get_events_1(
+    def get(
         partner_id: str,
         starttime: Optional[int] = None,
         endtime: Optional[int] = None,
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.aci.policy.events.get_events_1()
+        client.partner.aci.policy.events.get()
 
 

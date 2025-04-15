@@ -11,9 +11,7 @@ Get the count of alarms as per the query passed.
 
 .. code:: python
 
-    def get_doc_count(
-        query: str, site_id: Optional[str] = None
-    ) -> Any: ...
+    def get(query: str, site_id: Optional[str] = None) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.doccount.get_doc_count()
+        client.alarms.doccount.get()
 
 
 Operation: POST /dataservice/alarms/doccount
@@ -42,9 +40,7 @@ Get the count of alarms as per the query passed.
 
 .. code:: python
 
-    def post_doc_count(
-        payload: Optional[Any] = None, site_id: Optional[str] = None
-    ) -> Any: ...
+    def post(payload: Any, site_id: Optional[str] = None) -> Any: ...
 
 
 Example:
@@ -62,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.doccount.post_doc_count()
+        client.alarms.doccount.post()
 
 

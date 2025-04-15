@@ -15,9 +15,10 @@ class VwanBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_virtual_wan(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create Virtual WAN
+        POST /dataservice/multicloud/vwan
 
         :param payload: Virtual WAN
         :returns: Any
@@ -27,7 +28,7 @@ class VwanBuilder:
             "POST", "/dataservice/multicloud/vwan", payload=payload, **kw
         )
 
-    def delete_virtual_wan(
+    def delete(
         self,
         cloud_provider: str,
         v_wan_name: str,
@@ -37,6 +38,7 @@ class VwanBuilder:
     ) -> Any:
         """
         Delete Virtual Wan
+        DELETE /dataservice/multicloud/vwan/{cloudProvider}/{vWanName}
 
         :param cloud_provider: Cloud Provider
         :param v_wan_name: Virtual Wan name

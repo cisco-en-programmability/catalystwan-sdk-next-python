@@ -11,7 +11,7 @@ Get policy filter memory usage from device
 
 .. code:: python
 
-    def trustsec(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.interface.trustsec.trustsec()
+        client.device.interface.trustsec.get()
 
 

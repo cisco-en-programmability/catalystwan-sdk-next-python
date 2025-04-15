@@ -3,35 +3,6 @@ v1.reports
 ==========
 
 
-Operation: GET /dataservice/v1/reports
---------------------------------------
-
-
-Get all reports information
-
-.. code:: python
-
-    def get_all_report_templates() -> ReportSummaryResponse: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.reports.get_all_report_templates()
-
-
 Operation: POST /dataservice/v1/reports
 ---------------------------------------
 
@@ -40,9 +11,7 @@ create a new report template
 
 .. code:: python
 
-    def create_report_template(
-        payload: ExecutiveSummaryReport,
-    ) -> ReportInfo: ...
+    def post(payload: ExecutiveSummaryReport) -> ReportInfo: ...
 
 
 Example:
@@ -60,38 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.reports.create_report_template()
-
-
-Operation: GET /dataservice/v1/reports/{reportId}
--------------------------------------------------
-
-
-Get the report template information by report ID
-
-.. code:: python
-
-    def get_report_template_by_id(
-        report_id: str,
-    ) -> ReportSummaryResponse: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.reports.get_report_template_by_id()
+        client.v1.reports.post()
 
 
 Operation: PUT /dataservice/v1/reports/{reportId}
@@ -102,7 +40,7 @@ Update the report template by report ID
 
 .. code:: python
 
-    def update_report_template(
+    def put(
         report_id: str, payload: ExecutiveSummaryReport
     ) -> ReportInfo: ...
 
@@ -122,7 +60,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.reports.update_report_template()
+        client.v1.reports.put()
 
 
 Operation: DELETE /dataservice/v1/reports/{reportId}
@@ -133,9 +71,7 @@ Delete the report template and all report files associated with it
 
 .. code:: python
 
-    def delete_report_template(
-        report_id: str,
-    ) -> UpdateReportTemplateResponse: ...
+    def delete(report_id: str) -> UpdateReportTemplateResponse: ...
 
 
 Example:
@@ -153,7 +89,63 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.reports.delete_report_template()
+        client.v1.reports.delete()
+
+
+Operation: GET /dataservice/v1/reports
+--------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get() -> ReportSummaryResponse: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.reports.get()
+
+
+Operation: GET /dataservice/v1/reports/{reportId}
+-------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(report_id: str) -> ReportSummaryResponse: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.reports.get()
 
 
 .. toctree::

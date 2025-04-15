@@ -11,9 +11,7 @@ Get the count of events as per the query passed.
 
 .. code:: python
 
-    def get_doc_count_2(
-        query: str, site_id: Optional[str] = None
-    ) -> Any: ...
+    def get(query: str, site_id: Optional[str] = None) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.event.doccount.get_doc_count_2()
+        client.event.doccount.get()
 
 
 Operation: POST /dataservice/event/doccount
@@ -42,9 +40,7 @@ Get the count of events as per the query passed.
 
 .. code:: python
 
-    def post_doc_count_1(
-        payload: Optional[Any] = None, site_id: Optional[str] = None
-    ) -> Any: ...
+    def post(payload: Any, site_id: Optional[str] = None) -> Any: ...
 
 
 Example:
@@ -62,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.event.doccount.post_doc_count_1()
+        client.event.doccount.post()
 
 

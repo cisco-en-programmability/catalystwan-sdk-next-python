@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -20,9 +20,10 @@ class SyncLicensesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def sync_licenses(self, payload: Optional[LicenseUplodFile] = None, **kw) -> Any:
+    def post(self, payload: LicenseUplodFile, **kw) -> Any:
         """
         get all licenses for sa/va
+        POST /dataservice/smartLicensing/syncLicenses
 
         :param payload: Partner
         :returns: Any

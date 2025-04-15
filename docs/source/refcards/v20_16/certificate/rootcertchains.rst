@@ -11,7 +11,7 @@ get root cert chain in the system
 
 .. code:: python
 
-    def get_root_cert_chains(action: str) -> List[str]: ...
+    def get(action: str) -> List[str]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.rootcertchains.get_root_cert_chains()
+        client.certificate.rootcertchains.get()
 
 
 Operation: PUT /dataservice/certificate/rootcertchains
@@ -40,7 +40,7 @@ save root cert chain in the system
 
 .. code:: python
 
-    def save_root_cert_chain(payload: Optional[str] = None) -> str: ...
+    def put(payload: str) -> str: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.rootcertchains.save_root_cert_chain()
+        client.certificate.rootcertchains.put()
 
 

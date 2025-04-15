@@ -19,9 +19,10 @@ class ReferencedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_list_reference(self, list_type: str, **kw) -> List[ReferencedList]:
+    def get(self, list_type: str, **kw) -> List[ReferencedList]:
         """
         Get all referenced Lists
+        GET /dataservice/template/policy/ise/identity/referenced/{listType}
 
         :param list_type: List type
         :returns: List[ReferencedList]

@@ -14,9 +14,10 @@ class AssociationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_devices_for_template(self, template_id: Optional[str] = None, **kw) -> Any:
+    def get(self, template_id: Optional[str] = None, **kw) -> Any:
         """
         Get the devices associated with a template
+        GET /dataservice/v1/smart-licensing/association
 
         :param template_id: template Id
         :returns: Any

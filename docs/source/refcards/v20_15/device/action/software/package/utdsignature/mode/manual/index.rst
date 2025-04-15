@@ -11,9 +11,7 @@ upload Utd image
 
 .. code:: python
 
-    def upload_utd_image(
-        type_: str, payload: Optional[InstallPkg] = None
-    ) -> None: ...
+    def post(type_: str, payload: InstallPkg) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.package.utdsignature.mode.manual.upload_utd_image()
+        client.device.action.software.package.utdsignature.mode.manual.post()
 
 
 .. toctree::

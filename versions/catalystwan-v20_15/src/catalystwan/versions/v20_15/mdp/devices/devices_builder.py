@@ -14,9 +14,10 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def retrieve_mdp_supported_devices_(self, nms_id: str, **kw) -> List[Any]:
+    def get(self, nms_id: str, **kw) -> List[Any]:
         """
         Retrieve MDP supported devices
+        GET /dataservice/mdp/devices/{nmsId}
 
         :param nms_id: Nms id
         :returns: List[Any]

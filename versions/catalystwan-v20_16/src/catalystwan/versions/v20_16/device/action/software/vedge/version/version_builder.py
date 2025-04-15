@@ -17,9 +17,10 @@ class VersionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def find_v_edge_software_version(self, **kw) -> FindVEdgeSoftwareVersion:
+    def get(self, **kw) -> FindVEdgeSoftwareVersion:
         """
         Get vEdge software version
+        GET /dataservice/device/action/software/vedge/version
 
         :returns: FindVEdgeSoftwareVersion
         """

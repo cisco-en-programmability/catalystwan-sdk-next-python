@@ -11,11 +11,11 @@ Get alarms for given query. If query is empty then last 30 mins data will be ret
 
 .. code:: python
 
-    def get_raw_alarm_data(
+    def get(
         query: Optional[str] = None,
         site_id: Optional[str] = None,
         include_tenants: Optional[bool] = None,
-    ) -> List[Alarm]: ...
+    ) -> AlarmResponse: ...
 
 
 Example:
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.get_raw_alarm_data()
+        client.alarms.get()
 
 
 Operation: POST /dataservice/alarms
@@ -44,15 +44,15 @@ Get alarms for given query.
 
 .. code:: python
 
-    def post_raw_alarm_data(
-        payload: Optional[Any] = None,
+    def post(
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
         sort_order: Optional[str] = None,
         site_id: Optional[str] = None,
         include_tenants: Optional[bool] = None,
-    ) -> List[Alarm]: ...
+    ) -> AlarmResponse: ...
 
 
 Example:
@@ -70,7 +70,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.post_raw_alarm_data()
+        client.alarms.post()
 
 
 .. toctree::

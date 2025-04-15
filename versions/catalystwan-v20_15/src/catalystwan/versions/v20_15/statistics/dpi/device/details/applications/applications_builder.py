@@ -17,9 +17,10 @@ class ApplicationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dpi_device_app_details(self, query: str, **kw) -> DeviceAppDetailResponse:
+    def get(self, query: str, **kw) -> DeviceAppDetailResponse:
         """
         Get detailed DPI device and application list
+        GET /dataservice/statistics/dpi/device/details/applications
 
         :param query: Query
         :returns: DeviceAppDetailResponse

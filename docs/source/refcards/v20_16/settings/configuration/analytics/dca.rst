@@ -11,7 +11,7 @@ Create analytics data file
 
 .. code:: python
 
-    def create_analytics_data_file() -> str: ...
+    def post() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.analytics.dca.create_analytics_data_file()
+        client.settings.configuration.analytics.dca.post()
 
 

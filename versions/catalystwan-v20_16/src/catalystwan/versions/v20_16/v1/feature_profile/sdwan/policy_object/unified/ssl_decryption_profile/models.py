@@ -101,12 +101,28 @@ ThresholdDef = Literal["high-risk", "low-risk", "moderate-risk", "suspicious", "
 
 
 @dataclass
-class CreateSecurityProfileParcelPostResponse:
+class CreateSdwanSecurityFeaturePostResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
 
 
 @dataclass
 class OneOfDecryptCategoriesOptionsDef:
+    option_type: GlobalOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: List[CategoriesDef]  # pytype: disable=annotation-type-mismatch
+
+
+@dataclass
+class OneOfNeverDecryptCategoriesOptionsDef:
+    option_type: GlobalOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: List[CategoriesDef]  # pytype: disable=annotation-type-mismatch
+
+
+@dataclass
+class OneOfSkipDecryptCategoriesOptionsDef:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
@@ -130,6 +146,22 @@ class OneOfDecryptThresholdOptionsDef:
 
 
 @dataclass
+class OneOfSkipDecryptThresholdOptionsDef:
+    option_type: GlobalOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: ThresholdDef  # pytype: disable=annotation-type-mismatch
+
+
+@dataclass
+class OneOfFailDecryptOptionsDef:
+    option_type: GlobalOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: bool
+
+
+@dataclass
 class RefIdOptionDef:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
@@ -143,34 +175,39 @@ class UrlAllowedList:
 
 
 @dataclass
+class UrlBlockedList:
+    ref_id: Optional[RefIdOptionDef] = _field(default=None, metadata={"alias": "refId"})
+
+
+@dataclass
 class Data:
     decrypt_categories: OneOfDecryptCategoriesOptionsDef = _field(
         metadata={"alias": "decryptCategories"}
     )
-    fail_decrypt: OneOfReputationOptionsDef = _field(metadata={"alias": "failDecrypt"})
-    never_decrypt_categories: OneOfDecryptCategoriesOptionsDef = _field(
+    fail_decrypt: OneOfFailDecryptOptionsDef = _field(metadata={"alias": "failDecrypt"})
+    never_decrypt_categories: OneOfNeverDecryptCategoriesOptionsDef = _field(
         metadata={"alias": "neverDecryptCategories"}
     )
     reputation: OneOfReputationOptionsDef
     decrypt_threshold: Optional[OneOfDecryptThresholdOptionsDef] = _field(
         default=None, metadata={"alias": "decryptThreshold"}
     )
-    skip_decrypt_categories: Optional[OneOfDecryptCategoriesOptionsDef] = _field(
+    skip_decrypt_categories: Optional[OneOfSkipDecryptCategoriesOptionsDef] = _field(
         default=None, metadata={"alias": "skipDecryptCategories"}
     )
-    skip_decrypt_threshold: Optional[OneOfDecryptThresholdOptionsDef] = _field(
+    skip_decrypt_threshold: Optional[OneOfSkipDecryptThresholdOptionsDef] = _field(
         default=None, metadata={"alias": "skipDecryptThreshold"}
     )
     url_allowed_list: Optional[UrlAllowedList] = _field(
         default=None, metadata={"alias": "urlAllowedList"}
     )
-    url_blocked_list: Optional[UrlAllowedList] = _field(
+    url_blocked_list: Optional[UrlBlockedList] = _field(
         default=None, metadata={"alias": "urlBlockedList"}
     )
 
 
 @dataclass
-class CreateSecurityProfileParcelPostRequest:
+class CreateSdwanSecurityFeaturePostRequest:
     """
     ssl-decryption-profile profile parcel schema for POST request
     """
@@ -178,13 +215,23 @@ class CreateSecurityProfileParcelPostRequest:
     data: Data
     description: str
     name: str
-    # This is the documentation for POST request schema for ssl-decryption-profile profile parcel
-    documentation: Optional[Any] = _field(default=None)
     metadata: Optional[Any] = _field(default=None)
 
 
 @dataclass
-class GetSecurityProfileParcelGetResponse:
+class Payload:
+    """
+    ssl-decryption-profile profile parcel schema for POST request
+    """
+
+    data: Data
+    description: str
+    name: str
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class GetSdwanSecurityFeatureGetResponse:
     created_by: Optional[str] = _field(default=None, metadata={"alias": "createdBy"})
     created_on: Optional[int] = _field(default=None, metadata={"alias": "createdOn"})
     last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
@@ -192,4 +239,4 @@ class GetSecurityProfileParcelGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # ssl-decryption-profile profile parcel schema for POST request
-    payload: Optional[CreateSecurityProfileParcelPostRequest] = _field(default=None)
+    payload: Optional[Payload] = _field(default=None)

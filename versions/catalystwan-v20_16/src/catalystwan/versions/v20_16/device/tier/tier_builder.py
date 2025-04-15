@@ -12,17 +12,19 @@ class TierBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_tiers(self, **kw):
+    def get(self, **kw):
         """
         getTiers
+        GET /dataservice/device/tier
 
         :returns: None
         """
         return self._request_adapter.request("GET", "/dataservice/device/tier", **kw)
 
-    def add_tier(self, add_tier: str, **kw):
+    def post(self, add_tier: str, **kw):
         """
         add tier
+        POST /dataservice/device/tier
 
         :param add_tier: addTier
         :returns: None
@@ -34,9 +36,10 @@ class TierBuilder:
             "POST", "/dataservice/device/tier", params=params, **kw
         )
 
-    def delete_tier(self, tier_name: str, **kw):
+    def delete(self, tier_name: str, **kw):
         """
         deleteTier
+        DELETE /dataservice/device/tier/{tierName}
 
         :param tier_name: deletetier
         :returns: None

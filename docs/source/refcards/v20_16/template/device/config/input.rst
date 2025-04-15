@@ -11,7 +11,7 @@ Create device input<br><br><br>Note: In a multitenant vManage system, this API i
 
 .. code:: python
 
-    def create_device_input(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.input.create_device_input()
+        client.template.device.config.input.post()
 
 

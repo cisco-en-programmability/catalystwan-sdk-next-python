@@ -1,12 +1,10 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import DeployTopologyGroupPostRequest
+from .models import DeployTopologyGroupPostRequest, DeployTopologyGroupPostResponse
 
 
 class DeployBuilder:
@@ -19,15 +17,16 @@ class DeployBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def deploy_topology_group(
-        self, topology_group_id: str, payload: Optional[DeployTopologyGroupPostRequest] = None, **kw
-    ) -> str:
+    def post(
+        self, topology_group_id: str, payload: DeployTopologyGroupPostRequest, **kw
+    ) -> DeployTopologyGroupPostResponse:
         """
         deploy Topology group to devices
+        POST /dataservice/v1/topology-group/{topologyGroupId}/device/deploy
 
         :param topology_group_id: Topology Group Id
         :param payload: Payload
-        :returns: str
+        :returns: DeployTopologyGroupPostResponse
         """
         params = {
             "topologyGroupId": topology_group_id,
@@ -35,7 +34,7 @@ class DeployBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/topology-group/{topologyGroupId}/device/deploy",
-            return_type=str,
+            return_type=DeployTopologyGroupPostResponse,
             params=params,
             payload=payload,
             **kw,

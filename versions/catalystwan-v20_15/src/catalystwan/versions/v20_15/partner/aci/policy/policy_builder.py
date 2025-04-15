@@ -20,9 +20,10 @@ class PolicyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_aci_definitions(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get ACI definitions
+        GET /dataservice/partner/aci/policy
 
         :returns: Any
         """

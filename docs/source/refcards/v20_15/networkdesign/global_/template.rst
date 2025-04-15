@@ -13,7 +13,7 @@ Get global template
 
 .. code:: python
 
-    def get_global_template(template_id: str) -> Any: ...
+    def get(template_id: str) -> Any: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.global_.template.get_global_template()
+        client.networkdesign.global_.template.get()
 
 
 Operation: PUT /dataservice/networkdesign/global/template/{templateId}
@@ -44,9 +44,7 @@ Edit global template
 
 .. code:: python
 
-    def edit_global_template(
-        template_id: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def put(template_id: str, payload: Any) -> None: ...
 
 
 Example:
@@ -64,6 +62,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.global_.template.edit_global_template()
+        client.networkdesign.global_.template.put()
 
 

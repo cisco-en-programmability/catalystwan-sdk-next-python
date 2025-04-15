@@ -11,7 +11,7 @@ Pause DR for Local datacenter
 
 .. code:: python
 
-    def pause_local_dc_for_dr() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.pause_local_dc.pause_local_dc_for_dr()
+        client.disasterrecovery.pause_local_dc.post()
 
 

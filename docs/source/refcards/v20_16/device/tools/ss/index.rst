@@ -11,7 +11,7 @@ Get device tool ss
 
 .. code:: python
 
-    def get_device_tools_ss(
+    def get(
         device_id: str,
         vpn: Optional[VpnParam] = None,
         options: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.ss.get_device_tools_ss()
+        client.device.tools.ss.get()
 
 
 .. toctree::

@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 
@@ -14,9 +12,10 @@ class SearchBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def search_device_log(self, session_id: str, payload: Optional[str] = None, **kw):
+    def post(self, session_id: str, payload: str, **kw):
         """
-        Search device log
+        Post
+        POST /dataservice/stream/device/log/search/{sessionId}
 
         :param session_id: Session Id
         :param payload: Payload

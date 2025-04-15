@@ -11,7 +11,7 @@ firmware supported devices
 
 .. code:: python
 
-    def get_firmware_devices() -> ProcessGetFirmwareRemoteImageReq: ...
+    def get() -> ProcessGetFirmwareRemoteImageReq: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.firmware_upgrade.devices.get_firmware_devices()
+        client.device.action.firmware_upgrade.devices.get()
 
 
 .. toctree::

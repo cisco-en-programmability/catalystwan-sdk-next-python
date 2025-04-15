@@ -17,9 +17,10 @@ class DisableBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def disable_speed_test_session(self, session_id: Uuid, **kw) -> SpeedTestStatusResponse:
+    def get(self, session_id: Uuid, **kw) -> SpeedTestStatusResponse:
         """
-        Disable speed test session
+        Get
+        GET /dataservice/stream/device/speed/disable/{sessionId}
 
         :param session_id: sessionId
         :returns: SpeedTestStatusResponse

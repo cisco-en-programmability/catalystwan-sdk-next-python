@@ -11,7 +11,7 @@ Get IPsec IKE sessions from device
 
 .. code:: python
 
-    def create_ike_sessions(
+    def get(
         device_id: str,
         remote_tloc_address: Optional[str] = None,
         remote_tloc_color: Optional[RemoteTlocColorParam] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ipsec.ike.sessions.create_ike_sessions()
+        client.device.ipsec.ike.sessions.get()
 
 
 .. toctree::

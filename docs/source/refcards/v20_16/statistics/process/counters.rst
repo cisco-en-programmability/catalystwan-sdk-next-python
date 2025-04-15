@@ -11,7 +11,7 @@ Get statistics processing counters
 
 .. code:: python
 
-    def get_statistics_processing_counters() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.process.counters.get_statistics_processing_counters()
+        client.statistics.process.counters.get()
 
 

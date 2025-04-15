@@ -11,7 +11,7 @@ Get ipv6 data from device
 
 .. code:: python
 
-    def get_ipv6_data(device_id: DeviceIp) -> Any: ...
+    def get(device_id: DeviceIp) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ipv6.nd6.get_ipv6_data()
+        client.device.ipv6.nd6.get()
 
 
 .. toctree::

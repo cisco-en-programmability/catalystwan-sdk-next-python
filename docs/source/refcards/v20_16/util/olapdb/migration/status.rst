@@ -13,7 +13,7 @@ Get migration status
 
 .. code:: python
 
-    def get_stats_migration_status() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.olapdb.migration.status.get_stats_migration_status()
+        client.util.olapdb.migration.status.get()
 
 

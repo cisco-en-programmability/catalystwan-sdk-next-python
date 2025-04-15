@@ -11,9 +11,7 @@ Get aggregated data based on input query and filters. The data can be filtered o
 
 .. code:: python
 
-    def get_aggregation_data_by_query_20(
-        query: Optional[str] = None,
-    ) -> Any: ...
+    def get(query: Optional[str] = None) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.endpoint_tracker.aggregation.get_aggregation_data_by_query_20()
+        client.statistics.endpoint_tracker.aggregation.get()
 
 
 Operation: POST /dataservice/statistics/endpointTracker/aggregation
@@ -42,9 +40,7 @@ Get aggregated data based on input query and filters. The data can be filtered o
 
 .. code:: python
 
-    def get_post_aggregation_data_by_query_21(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -62,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.endpoint_tracker.aggregation.get_post_aggregation_data_by_query_21()
+        client.statistics.endpoint_tracker.aggregation.post()
 
 

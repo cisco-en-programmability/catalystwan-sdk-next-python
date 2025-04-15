@@ -9,6 +9,12 @@ Models
 
     AppsHealth = Literal["fair", "good", "poor"]
 
+    DevicesHealth = Literal["fair", "good", "poor"]
+
+    SiteHealth = Literal["fair", "good", "poor"]
+
+    TunnelsHealth = Literal["fair", "good", "poor"]
+
     HealthParam = Literal["FAIR", "GOOD", "POOR"]
 
     DeviceTypeParam = Literal["all", "controller", "vedge"]
@@ -20,14 +26,14 @@ Models
         )
         apps_usage: int
         devices_health: (
-            AppsHealth  # pytype: disable=annotation-type-mismatch
+            DevicesHealth  # pytype: disable=annotation-type-mismatch
         )
         site_health: (
-            AppsHealth  # pytype: disable=annotation-type-mismatch
+            SiteHealth  # pytype: disable=annotation-type-mismatch
         )
         site_id: str
         tunnels_health: (
-            AppsHealth  # pytype: disable=annotation-type-mismatch
+            TunnelsHealth  # pytype: disable=annotation-type-mismatch
         )
 
 

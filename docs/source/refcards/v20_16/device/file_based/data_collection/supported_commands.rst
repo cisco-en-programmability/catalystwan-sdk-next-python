@@ -11,7 +11,7 @@ Get Supported Command list for given Device UUID
 
 .. code:: python
 
-    def get_supported_commands_list(device_uuid: str) -> str: ...
+    def get(device_uuid: str) -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.file_based.data_collection.supported_commands.get_supported_commands_list()
+        client.device.file_based.data_collection.supported_commands.get()
 
 

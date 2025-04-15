@@ -11,11 +11,11 @@ Get IPSEC pairwise key outbound entry from device
 
 .. code:: python
 
-    def create_i_psec_pwk_outbound_connections(
+    def get(
         device_id: str,
         remote_tloc_address: Optional[str] = None,
         remote_tloc_color: Optional[RemoteTlocColorParam] = None,
-        local_tloc_color: Optional[RemoteTlocColorParam] = None,
+        local_tloc_color: Optional[LocalTlocColorParam] = None,
     ) -> Any: ...
 
 
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ipsec.pwk.outbound.create_i_psec_pwk_outbound_connections()
+        client.device.ipsec.pwk.outbound.get()
 
 
 .. toctree::

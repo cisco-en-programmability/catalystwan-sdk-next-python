@@ -14,9 +14,10 @@ class VManageResourceUtilizationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def getv_manage_resource_utilization(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get vManage resource utilization
+        GET /dataservice/management/vManageResourceUtilization
 
         :returns: Any
         """

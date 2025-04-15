@@ -11,7 +11,7 @@ Get pnic stats from device
 
 .. code:: python
 
-    def get_pnic_stats_from_device(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.csp.pnic.synced.get_pnic_stats_from_device()
+        client.device.csp.pnic.synced.get()
 
 

@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
+from typing import List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateLanVpnInterfaceSviAndDhcpServerParcelAssociationForTransportPostRequest,
+    CreateLanVpnInterfaceSviAndDhcpServerParcelAssociationForTransportPostResponse,
+    EditLanVpnInterfaceSviAndDhcpServerParcelAssociationForTransportPutRequest,
+    EditLanVpnInterfaceSviAndDhcpServerParcelAssociationForTransportPutResponse,
+    GetLanVpnInterfaceSviAssociatedDhcpServerParcelsForTransportGetResponse,
+    GetSingleSdwanServiceLanVpnInterfaceSviDhcpServerPayload,
+)
 
 
 class DhcpServerBuilder:
@@ -11,77 +21,30 @@ class DhcpServerBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}/dhcp-server
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_lan_vpn_interface_svi_associated_dhcp_server_parcels_for_transport(
-        self, service_id: str, vpn_id: str, svi_id: str, **kw
-    ) -> str:
-        """
-        Get LanVpnInterfaceSvi associated DhcpServer Parcels for service feature profile
-
-        :param service_id: Feature Profile ID
-        :param vpn_id: Feature Parcel ID
-        :param svi_id: Interface Profile Parcel ID
-        :returns: str
-        """
-        params = {
-            "serviceId": service_id,
-            "vpnId": vpn_id,
-            "sviId": svi_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}/dhcp-server",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def get_lan_vpn_interface_svi_associated_dhcp_server_parcel_by_parcel_id_for_transport(
-        self, service_id: str, vpn_id: str, svi_id: str, dhcp_server_id: str, **kw
-    ) -> str:
-        """
-        Get LanVpnInterfaceSvi associated DhcpServer Parcel by dhcpServerId for service feature profile
-
-        :param service_id: Feature Profile ID
-        :param vpn_id: Profile Parcel ID
-        :param svi_id: Interface Profile Parcel ID
-        :param dhcp_server_id: DhcpServer Parcel ID
-        :returns: str
-        """
-        params = {
-            "serviceId": service_id,
-            "vpnId": vpn_id,
-            "sviId": svi_id,
-            "dhcpServerId": dhcp_server_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}/dhcp-server/{dhcpServerId}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def edit_lan_vpn_interface_svi_and_dhcp_server_parcel_association_for_transport(
+    def put(
         self,
         service_id: str,
         vpn_id: str,
         svi_id: str,
         dhcp_server_id: str,
-        payload: Optional[str] = None,
+        payload: EditLanVpnInterfaceSviAndDhcpServerParcelAssociationForTransportPutRequest,
         **kw,
-    ) -> str:
+    ) -> EditLanVpnInterfaceSviAndDhcpServerParcelAssociationForTransportPutResponse:
         """
         Update a LanVpnInterfaceSvi parcel and a DhcpServer Parcel association for service feature profile
+        PUT /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}/dhcp-server/{dhcpServerId}
 
         :param service_id: Feature Profile ID
         :param vpn_id: Profile Parcel ID
         :param svi_id: Interface Profile Parcel ID
         :param dhcp_server_id: DhcpServer ID
         :param payload: DhcpServer Profile Parcel
-        :returns: str
+        :returns: EditLanVpnInterfaceSviAndDhcpServerParcelAssociationForTransportPutResponse
         """
         params = {
             "serviceId": service_id,
@@ -92,17 +55,16 @@ class DhcpServerBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}/dhcp-server/{dhcpServerId}",
-            return_type=str,
+            return_type=EditLanVpnInterfaceSviAndDhcpServerParcelAssociationForTransportPutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_lan_vpn_interface_svi_and_dhcp_server_association_for_transport(
-        self, service_id: str, vpn_id: str, svi_id: str, dhcp_server_id: str, **kw
-    ):
+    def delete(self, service_id: str, vpn_id: str, svi_id: str, dhcp_server_id: str, **kw):
         """
         Delete a LanVpnInterfaceSvi and a DhcpServer Parcel association for service feature profile
+        DELETE /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}/dhcp-server/{dhcpServerId}
 
         :param service_id: Feature Profile ID
         :param vpn_id: Profile Parcel ID
@@ -123,17 +85,23 @@ class DhcpServerBuilder:
             **kw,
         )
 
-    def create_lan_vpn_interface_svi_and_dhcp_server_parcel_association_for_transport(
-        self, service_id: str, vpn_parcel_id: str, svi_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self,
+        service_id: str,
+        vpn_parcel_id: str,
+        svi_id: str,
+        payload: CreateLanVpnInterfaceSviAndDhcpServerParcelAssociationForTransportPostRequest,
+        **kw,
+    ) -> CreateLanVpnInterfaceSviAndDhcpServerParcelAssociationForTransportPostResponse:
         """
         Associate a LanVpnInterfaceSvi parcel with a DhcpServer Parcel for service feature profile
+        POST /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnParcelId}/interface/svi/{sviId}/dhcp-server
 
         :param service_id: Feature Profile ID
         :param vpn_parcel_id: VPN Profile Parcel ID
         :param svi_id: Interface Profile Parcel ID
         :param payload: DhcpServer Profile Parcel Id
-        :returns: str
+        :returns: CreateLanVpnInterfaceSviAndDhcpServerParcelAssociationForTransportPostResponse
         """
         params = {
             "serviceId": service_id,
@@ -143,8 +111,82 @@ class DhcpServerBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnParcelId}/interface/svi/{sviId}/dhcp-server",
-            return_type=str,
+            return_type=CreateLanVpnInterfaceSviAndDhcpServerParcelAssociationForTransportPostResponse,
             params=params,
             payload=payload,
             **kw,
         )
+
+    @overload
+    def get(
+        self, service_id: str, vpn_id: str, svi_id: str, dhcp_server_id: str, **kw
+    ) -> GetSingleSdwanServiceLanVpnInterfaceSviDhcpServerPayload:
+        """
+        Get LanVpnInterfaceSvi associated DhcpServer Parcel by dhcpServerId for service feature profile
+        GET /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}/dhcp-server/{dhcpServerId}
+
+        :param service_id: Feature Profile ID
+        :param vpn_id: Profile Parcel ID
+        :param svi_id: Interface Profile Parcel ID
+        :param dhcp_server_id: DhcpServer Parcel ID
+        :returns: GetSingleSdwanServiceLanVpnInterfaceSviDhcpServerPayload
+        """
+        ...
+
+    @overload
+    def get(
+        self, service_id: str, vpn_id: str, svi_id: str, **kw
+    ) -> List[GetLanVpnInterfaceSviAssociatedDhcpServerParcelsForTransportGetResponse]:
+        """
+        Get LanVpnInterfaceSvi associated DhcpServer Parcels for service feature profile
+        GET /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}/dhcp-server
+
+        :param service_id: Feature Profile ID
+        :param vpn_id: Feature Parcel ID
+        :param svi_id: Interface Profile Parcel ID
+        :returns: List[GetLanVpnInterfaceSviAssociatedDhcpServerParcelsForTransportGetResponse]
+        """
+        ...
+
+    def get(
+        self, service_id: str, vpn_id: str, svi_id: str, dhcp_server_id: Optional[str] = None, **kw
+    ) -> Union[
+        List[GetLanVpnInterfaceSviAssociatedDhcpServerParcelsForTransportGetResponse],
+        GetSingleSdwanServiceLanVpnInterfaceSviDhcpServerPayload,
+    ]:
+        # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}/dhcp-server/{dhcpServerId}
+        if self._request_adapter.param_checker(
+            [(service_id, str), (vpn_id, str), (svi_id, str), (dhcp_server_id, str)], []
+        ):
+            params = {
+                "serviceId": service_id,
+                "vpnId": vpn_id,
+                "sviId": svi_id,
+                "dhcpServerId": dhcp_server_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}/dhcp-server/{dhcpServerId}",
+                return_type=GetSingleSdwanServiceLanVpnInterfaceSviDhcpServerPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}/dhcp-server
+        if self._request_adapter.param_checker(
+            [(service_id, str), (vpn_id, str), (svi_id, str)], [dhcp_server_id]
+        ):
+            params = {
+                "serviceId": service_id,
+                "vpnId": vpn_id,
+                "sviId": svi_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}/dhcp-server",
+                return_type=List[
+                    GetLanVpnInterfaceSviAssociatedDhcpServerParcelsForTransportGetResponse
+                ],
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")

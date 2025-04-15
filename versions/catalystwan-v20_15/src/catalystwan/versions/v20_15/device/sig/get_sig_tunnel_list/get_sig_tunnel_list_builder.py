@@ -14,7 +14,7 @@ class GetSigTunnelListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sig_tunnel_list(
+    def get(
         self,
         page_size: Optional[str] = None,
         offset: Optional[str] = None,
@@ -24,6 +24,7 @@ class GetSigTunnelListBuilder:
     ) -> Any:
         """
         get Sig TunnelList
+        GET /dataservice/device/sig/getSigTunnelList
 
         :param page_size: Page Size
         :param offset: Page offset

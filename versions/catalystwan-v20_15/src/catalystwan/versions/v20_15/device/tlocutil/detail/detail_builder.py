@@ -14,11 +14,10 @@ class DetailBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_tloc_util_details(
-        self, util: Optional[str] = None, site_id: Optional[str] = None, **kw
-    ) -> Any:
+    def get(self, util: Optional[str] = None, site_id: Optional[str] = None, **kw) -> Any:
         """
         Get detailed TLOC list
+        GET /dataservice/device/tlocutil/detail
 
         :param util: Tloc util
         :param site_id: Optional site ID  to filter devices

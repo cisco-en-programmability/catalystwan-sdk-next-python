@@ -11,7 +11,7 @@ Get stats process thread report
 
 .. code:: python
 
-    def generate_stats_process_thread_report() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.process.thread.status.generate_stats_process_thread_report()
+        client.statistics.process.thread.status.get()
 
 

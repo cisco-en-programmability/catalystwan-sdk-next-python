@@ -11,7 +11,7 @@ Get connections list from device (Real Time)
 
 .. code:: python
 
-    def create_real_time_connection_list_1(
+    def get(
         device_id: str,
         peer_type: Optional[PeerTypeParam] = None,
         system_ip: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.control.connectionsinfo.create_real_time_connection_list_1()
+        client.device.control.connectionsinfo.get()
 
 
 .. toctree::

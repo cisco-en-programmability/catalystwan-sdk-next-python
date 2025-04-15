@@ -23,7 +23,7 @@ class StateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_device_state_data(
+    def get(
         self,
         state_data_type: str,
         start_id: Optional[str] = None,
@@ -32,6 +32,7 @@ class StateBuilder:
     ) -> GenerateDeviceStateData:
         """
         Get device state data
+        GET /dataservice/data/device/state/{state_data_type}
 
         :param state_data_type: State data type
         :param start_id: Start id

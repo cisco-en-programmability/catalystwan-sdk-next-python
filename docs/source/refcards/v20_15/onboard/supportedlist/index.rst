@@ -11,9 +11,7 @@ Manual Onboard Supported Device features
 
 .. code:: python
 
-    def get_supported_features(
-        payload: Optional[List[str]] = None,
-    ) -> SupportedResponse: ...
+    def post(payload: List[str]) -> SupportedResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.onboard.supportedlist.get_supported_features()
+        client.onboard.supportedlist.post()
 
 
 .. toctree::

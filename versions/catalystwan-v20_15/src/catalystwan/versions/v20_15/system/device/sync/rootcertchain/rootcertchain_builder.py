@@ -17,9 +17,10 @@ class RootcertchainBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def sync_root_cert_chain(self, **kw) -> SyncRootCertChain:
+    def get(self, **kw) -> SyncRootCertChain:
         """
         Sync root certificate
+        GET /dataservice/system/device/sync/rootcertchain
 
         :returns: SyncRootCertChain
         """

@@ -11,7 +11,7 @@ Get device detail view
 
 .. code:: python
 
-    def get_device_view_right_menus() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.device.details.get_device_view_right_menus()
+        client.certificate.device.details.get()
 
 

@@ -7,13 +7,10 @@ Operation: GET /dataservice/device/history/config
 -------------------------------------------------
 
 
-Get device config history
-
 .. code:: python
 
-    def get_last_thousand_config_list(
-        device_id: str, query: str
-    ) -> Any: ...
+    @overload
+    def get(device_id: str, query: str) -> Any: ...
 
 
 Example:
@@ -31,18 +28,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.history.config.get_last_thousand_config_list()
+        client.device.history.config.get()
 
 
 Operation: GET /dataservice/device/history/config/{config_id}
 -------------------------------------------------------------
 
 
-Get device config
-
 .. code:: python
 
-    def get_device_config(config_id: str) -> Any: ...
+    @overload
+    def get(config_id: str) -> Any: ...
 
 
 Example:
@@ -60,7 +56,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.history.config.get_device_config()
+        client.device.history.config.get()
 
 
 .. toctree::

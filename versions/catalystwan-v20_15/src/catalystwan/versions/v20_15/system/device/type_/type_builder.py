@@ -23,11 +23,10 @@ class TypeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_dock_data_based_on_device_type(
-        self, device_category: DeviceCategoryParam, **kw
-    ) -> List[Any]:
+    def get(self, device_category: DeviceCategoryParam, **kw) -> List[Any]:
         """
         Get devices details
+        GET /dataservice/system/device/type/{deviceCategory}
 
         :param device_category: Device category
         :returns: List[Any]

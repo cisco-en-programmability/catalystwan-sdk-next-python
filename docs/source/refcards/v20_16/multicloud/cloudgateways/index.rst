@@ -11,7 +11,7 @@ Get sites with connectivity to the cloud by cloud type
 
 .. code:: python
 
-    def get_cloud_gateways(
+    def get(
         cloud_type: CloudTypeParam,
     ) -> List[CloudGatewayListResponse]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateways.get_cloud_gateways()
+        client.multicloud.cloudgateways.get()
 
 
 .. toctree::

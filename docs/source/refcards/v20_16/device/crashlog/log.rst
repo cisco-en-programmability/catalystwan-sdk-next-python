@@ -11,9 +11,7 @@ Get device crash info from device
 
 .. code:: python
 
-    def get_device_crash_information(
-        device_id: str, filename: str
-    ) -> str: ...
+    def get(device_id: str, filename: str) -> str: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.crashlog.log.get_device_crash_information()
+        client.device.crashlog.log.get()
 
 

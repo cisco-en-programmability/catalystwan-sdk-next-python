@@ -11,7 +11,7 @@ Get available sites
 
 .. code:: python
 
-    def get_sites(
+    def get(
         color: Optional[str] = None,
         attached: Optional[str] = None,
         solution: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.site.get_sites()
+        client.multicloud.site.get()
 
 
 .. toctree::

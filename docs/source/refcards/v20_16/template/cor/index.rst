@@ -13,7 +13,7 @@ Get Cloud On Ramp list
 
 .. code:: python
 
-    def get_cor_status() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.get_cor_status()
+        client.template.cor.get()
 
 
 Operation: POST /dataservice/template/cor
@@ -44,7 +44,7 @@ Map Host to Transit VPC/VNet
 
 .. code:: python
 
-    def create_and_map(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -62,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.create_and_map()
+        client.template.cor.post()
 
 
 .. toctree::

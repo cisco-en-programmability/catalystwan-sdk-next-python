@@ -14,9 +14,10 @@ class LocalBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_on_demand_local(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get on-demand local (Real Time)
+        GET /dataservice/device/ondemand/local
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

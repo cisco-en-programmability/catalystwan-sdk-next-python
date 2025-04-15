@@ -11,7 +11,7 @@ Get OMP services list
 
 .. code:: python
 
-    def create_omp_services(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.omp.services.create_omp_services()
+        client.device.omp.services.get()
 
 

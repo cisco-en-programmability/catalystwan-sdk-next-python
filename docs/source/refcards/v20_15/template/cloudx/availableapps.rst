@@ -11,7 +11,7 @@ Get CloudX available apps list
 
 .. code:: python
 
-    def get_cloud_x_available_apps() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cloudx.availableapps.get_cloud_x_available_apps()
+        client.template.cloudx.availableapps.get()
 
 

@@ -11,7 +11,7 @@ Get URL for Secure Device Onboarding Identity Service that generates Session ID 
 
 .. code:: python
 
-    def get_url_for_sdo_identity_service() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.securedeviceonboarding.get_url_for_sdo_identity_service.get_url_for_sdo_identity_service()
+        client.v1.securedeviceonboarding.get_url_for_sdo_identity_service.get()
 
 

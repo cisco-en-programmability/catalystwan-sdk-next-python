@@ -19,7 +19,7 @@ class PartnerPortsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_partner_ports(
+    def get(
         self,
         interconnect_type: str,
         interconnect_account_id: str,
@@ -32,6 +32,7 @@ class PartnerPortsBuilder:
     ) -> InlineResponse2006:
         """
         API to retrieve supported partner regions for an Interconnect provider.
+        GET /dataservice/multicloud/interconnect/{interconnect-type}/accounts/{interconnect-account-id}/cloud/{cloud-type}/connectivity/connections/partner-ports
 
         :param interconnect_type: Interconnect provider Type
         :param interconnect_account_id: Interconnect provider account id

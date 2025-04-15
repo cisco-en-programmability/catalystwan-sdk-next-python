@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class StageBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def stage_device(self, payload: Optional[Any] = None, **kw) -> str:
+    def post(self, payload: Any, **kw) -> str:
         """
         Stop data traffic to device
+        POST /dataservice/certificate/device/stage
 
         :param payload: Payload
         :returns: str

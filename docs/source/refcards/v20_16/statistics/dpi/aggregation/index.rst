@@ -11,9 +11,7 @@ Get aggregated data based on input query and filters. The data can be filtered o
 
 .. code:: python
 
-    def get_dpi_stats_aggregation_data(
-        query: Optional[str] = None,
-    ) -> DpiAggregationResponse: ...
+    def get(query: Optional[str] = None) -> DpiAggregationResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.dpi.aggregation.get_dpi_stats_aggregation_data()
+        client.statistics.dpi.aggregation.get()
 
 
 Operation: POST /dataservice/statistics/dpi/aggregation
@@ -42,9 +40,7 @@ Get raw aggregated data and display applications with the highest utilization fo
 
 .. code:: python
 
-    def get_dpi_stats_aggregation_data_post(
-        payload: Optional[Any] = None,
-    ) -> DpiAggregationResponse: ...
+    def post(payload: Any) -> DpiAggregationResponse: ...
 
 
 Example:
@@ -62,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.dpi.aggregation.get_dpi_stats_aggregation_data_post()
+        client.statistics.dpi.aggregation.post()
 
 
 .. toctree::

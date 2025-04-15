@@ -11,9 +11,7 @@ Get packet capture session status
 
 .. code:: python
 
-    def get_file_download_status(
-        session_id: str,
-    ) -> GetFileDownloadStatusRes: ...
+    def get(session_id: str) -> GetFileDownloadStatusRes: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.capture.status.get_file_download_status()
+        client.stream.device.capture.status.get()
 
 
 .. toctree::

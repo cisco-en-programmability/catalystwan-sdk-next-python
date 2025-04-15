@@ -9,9 +9,7 @@ Operation: GET /dataservice/stream/device/speed/status/{sessionId}
 
 .. code:: python
 
-    def get_speed_test_status(
-        session_id: Uuid,
-    ) -> SpeedTestStatusResponse: ...
+    def get(session_id: Uuid) -> SpeedTestStatusResponse: ...
 
 
 Example:
@@ -29,7 +27,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.speed.status.get_speed_test_status()
+        client.stream.device.speed.status.get()
 
 
 .. toctree::

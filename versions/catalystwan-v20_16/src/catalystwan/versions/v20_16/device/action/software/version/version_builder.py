@@ -17,9 +17,10 @@ class VersionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def find_software_version(self, **kw) -> FindSoftwareVersion:
+    def get(self, **kw) -> FindSoftwareVersion:
         """
         Get software version
+        GET /dataservice/device/action/software/version
 
         :returns: FindSoftwareVersion
         """

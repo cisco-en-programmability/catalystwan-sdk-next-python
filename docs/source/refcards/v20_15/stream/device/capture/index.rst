@@ -7,13 +7,10 @@ Operation: POST /dataservice/stream/device/capture
 --------------------------------------------------
 
 
-Create packet capture session
-
 .. code:: python
 
-    def get_session_info_capture(
-        payload: CreatePacketCaptureReq,
-    ) -> PacketCaptureInfo: ...
+    @overload
+    def post(payload: CreatePacketCaptureReq) -> PacketCaptureInfo: ...
 
 
 Example:
@@ -31,18 +28,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.capture.get_session_info_capture()
+        client.stream.device.capture.post()
 
 
 Operation: POST /dataservice/stream/device/capture/{deviceUUID}/{sessionId}
 ---------------------------------------------------------------------------
 
 
-Form post packet capture
-
 .. code:: python
 
-    def form_post_packet_capture(
+    @overload
+    def post(
         device_uuid: str, session_id: str
     ) -> FormPacketCaptureRes: ...
 
@@ -62,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.capture.form_post_packet_capture()
+        client.stream.device.capture.post()
 
 
 .. toctree::

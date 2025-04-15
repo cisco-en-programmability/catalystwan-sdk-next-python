@@ -7,11 +7,10 @@ Operation: GET /dataservice/multicloud/widget
 ---------------------------------------------
 
 
-Get All cloud widgets
-
 .. code:: python
 
-    def get_all_cloud_widgets() -> List[CloudWidget]: ...
+    @overload
+    def get() -> List[CloudWidget]: ...
 
 
 Example:
@@ -29,18 +28,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.widget.get_all_cloud_widgets()
+        client.multicloud.widget.get()
 
 
 Operation: GET /dataservice/multicloud/widget/{cloudType}
 ---------------------------------------------------------
 
 
-Get cloud widget by cloud type
-
 .. code:: python
 
-    def get_cloud_widget(cloud_type: str) -> CloudWidget: ...
+    @overload
+    def get(cloud_type: str) -> CloudWidget: ...
 
 
 Example:
@@ -58,7 +56,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.widget.get_cloud_widget()
+        client.multicloud.widget.get()
 
 
 .. toctree::

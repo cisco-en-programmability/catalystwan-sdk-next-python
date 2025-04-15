@@ -14,9 +14,10 @@ class DefinitionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_group_grid_columns(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get user groups in a grid table
+        GET /dataservice/admin/usergroup/definition
 
         :returns: Any
         """

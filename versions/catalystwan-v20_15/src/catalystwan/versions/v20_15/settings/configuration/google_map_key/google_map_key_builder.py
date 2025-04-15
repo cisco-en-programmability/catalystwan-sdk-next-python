@@ -12,9 +12,10 @@ class GoogleMapKeyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_google_map_key(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         Retrieve Google map key
+        GET /dataservice/settings/configuration/googleMapKey
 
         :returns: str
         """

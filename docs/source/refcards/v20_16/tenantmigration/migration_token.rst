@@ -11,7 +11,7 @@ Get migration token
 
 .. code:: python
 
-    def get_migration_token(migration_id: str) -> Any: ...
+    def get(migration_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenantmigration.migration_token.get_migration_token()
+        client.tenantmigration.migration_token.get()
 
 

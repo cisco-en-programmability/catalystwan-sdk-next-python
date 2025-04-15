@@ -11,7 +11,7 @@ Get WAN interface list
 
 .. code:: python
 
-    def create_wan_interface_synced_list(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.control.synced.waninterface.create_wan_interface_synced_list()
+        client.device.control.synced.waninterface.get()
 
 

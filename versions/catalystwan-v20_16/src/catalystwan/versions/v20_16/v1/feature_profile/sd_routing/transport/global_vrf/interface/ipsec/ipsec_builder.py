@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
+from typing import Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateSdroutingTransportGlobalVrfInterfaceIpsecFeatureForTransportPostRequest,
+    CreateSdroutingTransportGlobalVrfInterfaceIpsecFeatureForTransportPostResponse,
+    EditSdroutingTransportGlobalVrfInterfaceIpsecFeatureForTransportPutRequest,
+    EditSdroutingTransportGlobalVrfInterfaceIpsecFeatureForTransportPutResponse,
+    GetListSdRoutingTransportGlobalVrfWanInterfaceIpsecPayload,
+    GetSingleSdRoutingTransportGlobalVrfWanInterfaceIpsecPayload,
+)
 
 
 class IpsecBuilder:
@@ -11,41 +21,26 @@ class IpsecBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdrouting_transport_global_vrf_interface_ipsec_features_for_transport(
-        self, transport_id: str, vrf_id: str, **kw
-    ) -> str:
-        """
-        Get all  IPSec interface features in the global VRF from a specific transport feature profile
-
-        :param transport_id: Transport Profile ID
-        :param vrf_id: Transport Global VRF Feature ID
-        :returns: str
-        """
-        params = {
-            "transportId": transport_id,
-            "vrfId": vrf_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def create_sdrouting_transport_global_vrf_interface_ipsec_feature_for_transport(
-        self, transport_id: str, vrf_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self,
+        transport_id: str,
+        vrf_id: str,
+        payload: CreateSdroutingTransportGlobalVrfInterfaceIpsecFeatureForTransportPostRequest,
+        **kw,
+    ) -> CreateSdroutingTransportGlobalVrfInterfaceIpsecFeatureForTransportPostResponse:
         """
         Create a SD-Routing IPSec interface feature in the global VRF from a specific transport feature profile
+        POST /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec
 
         :param transport_id: Transport Profile ID
         :param vrf_id: Transport Global VRF Feature ID
         :param payload:  IPSec interface feature in the global VRF from a specific transport feature profile
-        :returns: str
+        :returns: CreateSdroutingTransportGlobalVrfInterfaceIpsecFeatureForTransportPostResponse
         """
         params = {
             "transportId": transport_id,
@@ -54,47 +49,29 @@ class IpsecBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec",
-            return_type=str,
+            return_type=CreateSdroutingTransportGlobalVrfInterfaceIpsecFeatureForTransportPostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_sdrouting_transport_global_vrf_interface_ipsec_feature_by_feature_id_for_transport(
-        self, transport_id: str, vrf_id: str, ipsec_id: str, **kw
-    ) -> str:
-        """
-        Get the SD-Routing IPSec interface feature in the global VRF from a specific transport feature profile
-
-        :param transport_id: Transport Profile ID
-        :param vrf_id: Transport Global VRF Feature ID
-        :param ipsec_id: Interface Ipsec Feature ID
-        :returns: str
-        """
-        params = {
-            "transportId": transport_id,
-            "vrfId": vrf_id,
-            "ipsecId": ipsec_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec/{ipsecId}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def edit_sdrouting_transport_global_vrf_interface_ipsec_feature_for_transport(
-        self, transport_id: str, vrf_id: str, ipsec_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self,
+        transport_id: str,
+        vrf_id: str,
+        ipsec_id: str,
+        payload: EditSdroutingTransportGlobalVrfInterfaceIpsecFeatureForTransportPutRequest,
+        **kw,
+    ) -> EditSdroutingTransportGlobalVrfInterfaceIpsecFeatureForTransportPutResponse:
         """
         Edit the SD-Routing IPSec interface feature in the global VRF from a specific transport feature profile
+        PUT /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec/{ipsecId}
 
         :param transport_id: Transport Profile ID
         :param vrf_id: Transport Global VRF Feature ID
         :param ipsec_id: Interface Ipsec Feature ID
         :param payload:  IPSec interface feature in the global VRF from a specific transport feature profile
-        :returns: str
+        :returns: EditSdroutingTransportGlobalVrfInterfaceIpsecFeatureForTransportPutResponse
         """
         params = {
             "transportId": transport_id,
@@ -104,17 +81,16 @@ class IpsecBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec/{ipsecId}",
-            return_type=str,
+            return_type=EditSdroutingTransportGlobalVrfInterfaceIpsecFeatureForTransportPutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_sdrouting_transport_global_vrf_interface_ipsec_feature_for_transport(
-        self, transport_id: str, vrf_id: str, ipsec_id: str, **kw
-    ):
+    def delete(self, transport_id: str, vrf_id: str, ipsec_id: str, **kw):
         """
         Delete the SD-Routing IPSec interface feature in the global VRF from a specific transport feature profile
+        DELETE /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec/{ipsecId}
 
         :param transport_id: Transport Profile ID
         :param vrf_id: Transport Global VRF Feature ID
@@ -132,3 +108,69 @@ class IpsecBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(
+        self, transport_id: str, vrf_id: str, ipsec_id: str, **kw
+    ) -> GetSingleSdRoutingTransportGlobalVrfWanInterfaceIpsecPayload:
+        """
+        Get the SD-Routing IPSec interface feature in the global VRF from a specific transport feature profile
+        GET /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec/{ipsecId}
+
+        :param transport_id: Transport Profile ID
+        :param vrf_id: Transport Global VRF Feature ID
+        :param ipsec_id: Interface Ipsec Feature ID
+        :returns: GetSingleSdRoutingTransportGlobalVrfWanInterfaceIpsecPayload
+        """
+        ...
+
+    @overload
+    def get(
+        self, transport_id: str, vrf_id: str, **kw
+    ) -> GetListSdRoutingTransportGlobalVrfWanInterfaceIpsecPayload:
+        """
+        Get all  IPSec interface features in the global VRF from a specific transport feature profile
+        GET /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec
+
+        :param transport_id: Transport Profile ID
+        :param vrf_id: Transport Global VRF Feature ID
+        :returns: GetListSdRoutingTransportGlobalVrfWanInterfaceIpsecPayload
+        """
+        ...
+
+    def get(
+        self, transport_id: str, vrf_id: str, ipsec_id: Optional[str] = None, **kw
+    ) -> Union[
+        GetListSdRoutingTransportGlobalVrfWanInterfaceIpsecPayload,
+        GetSingleSdRoutingTransportGlobalVrfWanInterfaceIpsecPayload,
+    ]:
+        # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec/{ipsecId}
+        if self._request_adapter.param_checker(
+            [(transport_id, str), (vrf_id, str), (ipsec_id, str)], []
+        ):
+            params = {
+                "transportId": transport_id,
+                "vrfId": vrf_id,
+                "ipsecId": ipsec_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec/{ipsecId}",
+                return_type=GetSingleSdRoutingTransportGlobalVrfWanInterfaceIpsecPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec
+        if self._request_adapter.param_checker([(transport_id, str), (vrf_id, str)], [ipsec_id]):
+            params = {
+                "transportId": transport_id,
+                "vrfId": vrf_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec",
+                return_type=GetListSdRoutingTransportGlobalVrfWanInterfaceIpsecPayload,
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")

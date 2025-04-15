@@ -14,9 +14,10 @@ class ReplicatorBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_replicator_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get replicator list from device
+        GET /dataservice/device/multicast/replicator
 
         :param device_id: deviceId - Device IP
         :returns: Any

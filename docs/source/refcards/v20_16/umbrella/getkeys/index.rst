@@ -11,7 +11,7 @@ Get keys from Umbrella
 
 .. code:: python
 
-    def get_all_keys_from_umbrella() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.umbrella.getkeys.get_all_keys_from_umbrella()
+        client.umbrella.getkeys.get()
 
 
 .. toctree::

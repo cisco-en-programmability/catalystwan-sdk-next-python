@@ -11,7 +11,7 @@ show ip to sgt binding from Vsmart
 
 .. code:: python
 
-    def show_vsmart_ipto_sgt_binding(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.policy.iptosgtbindings.show_vsmart_ipto_sgt_binding()
+        client.device.policy.iptosgtbindings.get()
 
 

@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
+from typing import Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateConfigFeatureForMobilityPostRequest,
+    CreateConfigFeatureForMobilityPostResponse,
+    EditConfigFeatureForMobilityPutRequest,
+    EditConfigFeatureForMobilityPutResponse,
+    GetListMobilityCliConfigPayload,
+    GetSingleMobilityCliConfigPayload,
+)
 
 
 class ConfigBuilder:
@@ -11,36 +21,21 @@ class ConfigBuilder:
     Builds and executes requests for operations under /v1/feature-profile/mobility/cli/{cliId}/config
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_config_feature_for_mobility(self, cli_id: str, **kw) -> str:
-        """
-        Get config Features for cli feature profile
-
-        :param cli_id: Feature Profile ID
-        :returns: str
-        """
-        params = {
-            "cliId": cli_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/mobility/cli/{cliId}/config",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def create_config_feature_for_mobility(
-        self, cli_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self, cli_id: str, payload: CreateConfigFeatureForMobilityPostRequest, **kw
+    ) -> CreateConfigFeatureForMobilityPostResponse:
         """
         Create a config Feature for cli feature profile
+        POST /dataservice/v1/feature-profile/mobility/cli/{cliId}/config
 
         :param cli_id: Feature Profile ID
         :param payload: cli config Feature
-        :returns: str
+        :returns: CreateConfigFeatureForMobilityPostResponse
         """
         params = {
             "cliId": cli_id,
@@ -48,44 +43,23 @@ class ConfigBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/mobility/cli/{cliId}/config",
-            return_type=str,
+            return_type=CreateConfigFeatureForMobilityPostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_config_feature_for_mobility_by_parcel_id(
-        self, cli_id: str, config_id: str, **kw
-    ) -> str:
-        """
-        Get config Feature by configId for cli feature profile
-
-        :param cli_id: Feature Profile ID
-        :param config_id: Feature ID
-        :returns: str
-        """
-        params = {
-            "cliId": cli_id,
-            "configId": config_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/mobility/cli/{cliId}/config/{configId}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def edit_config_feature_for_mobility(
-        self, cli_id: str, config_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self, cli_id: str, config_id: str, payload: EditConfigFeatureForMobilityPutRequest, **kw
+    ) -> EditConfigFeatureForMobilityPutResponse:
         """
         Update a config Feature for cli feature profile
+        PUT /dataservice/v1/feature-profile/mobility/cli/{cliId}/config/{configId}
 
         :param cli_id: Feature Profile ID
         :param config_id: Feature ID
         :param payload: cli config Feature
-        :returns: str
+        :returns: EditConfigFeatureForMobilityPutResponse
         """
         params = {
             "cliId": cli_id,
@@ -94,15 +68,16 @@ class ConfigBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/mobility/cli/{cliId}/config/{configId}",
-            return_type=str,
+            return_type=EditConfigFeatureForMobilityPutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_config_feature_for_mobility(self, cli_id: str, config_id: str, **kw):
+    def delete(self, cli_id: str, config_id: str, **kw):
         """
         Delete a config Feature for cli feature profile
+        DELETE /dataservice/v1/feature-profile/mobility/cli/{cliId}/config/{configId}
 
         :param cli_id: Feature Profile ID
         :param config_id: Feature ID
@@ -118,3 +93,56 @@ class ConfigBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(self, cli_id: str, config_id: str, **kw) -> GetSingleMobilityCliConfigPayload:
+        """
+        Get config Feature by configId for cli feature profile
+        GET /dataservice/v1/feature-profile/mobility/cli/{cliId}/config/{configId}
+
+        :param cli_id: Feature Profile ID
+        :param config_id: Feature ID
+        :returns: GetSingleMobilityCliConfigPayload
+        """
+        ...
+
+    @overload
+    def get(self, cli_id: str, **kw) -> GetListMobilityCliConfigPayload:
+        """
+        Get config Features for cli feature profile
+        GET /dataservice/v1/feature-profile/mobility/cli/{cliId}/config
+
+        :param cli_id: Feature Profile ID
+        :returns: GetListMobilityCliConfigPayload
+        """
+        ...
+
+    def get(
+        self, cli_id: str, config_id: Optional[str] = None, **kw
+    ) -> Union[GetListMobilityCliConfigPayload, GetSingleMobilityCliConfigPayload]:
+        # /dataservice/v1/feature-profile/mobility/cli/{cliId}/config/{configId}
+        if self._request_adapter.param_checker([(cli_id, str), (config_id, str)], []):
+            params = {
+                "cliId": cli_id,
+                "configId": config_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/mobility/cli/{cliId}/config/{configId}",
+                return_type=GetSingleMobilityCliConfigPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/mobility/cli/{cliId}/config
+        if self._request_adapter.param_checker([(cli_id, str)], [config_id]):
+            params = {
+                "cliId": cli_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/mobility/cli/{cliId}/config",
+                return_type=GetListMobilityCliConfigPayload,
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")

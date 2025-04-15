@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class RegisterBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def update_1(self, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, payload: Any, **kw) -> Any:
         """
         Update data centers for disaster recovery
+        PUT /dataservice/disasterrecovery/register
 
         :param payload: Datacenter registration request
         :returns: Any
@@ -25,9 +26,10 @@ class RegisterBuilder:
             "PUT", "/dataservice/disasterrecovery/register", payload=payload, **kw
         )
 
-    def register(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Register data centers for disaster recovery
+        POST /dataservice/disasterrecovery/register
 
         :param payload: Datacenter registration request
         :returns: Any

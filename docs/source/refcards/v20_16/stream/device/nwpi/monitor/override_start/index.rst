@@ -13,8 +13,8 @@ CXP Monitor Action - Override Start
 
 .. code:: python
 
-    def monitor_override_start(
-        payload: Optional[NwpiMonitorReqPayload] = None,
+    def post(
+        payload: NwpiMonitorReqPayload,
     ) -> NwpiMonitorRespPayload: ...
 
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.monitor.override_start.monitor_override_start()
+        client.stream.device.nwpi.monitor.override_start.post()
 
 
 .. toctree::

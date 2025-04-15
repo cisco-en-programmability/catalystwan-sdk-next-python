@@ -11,7 +11,7 @@ Telemetry Opt In
 
 .. code:: python
 
-    def connect() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.connect.connect()
+        client.cloudservices.connect.get()
 
 

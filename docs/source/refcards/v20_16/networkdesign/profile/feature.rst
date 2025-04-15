@@ -13,7 +13,7 @@ Generate device profile template list
 
 .. code:: python
 
-    def get_device_profile_feature_template_list() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.profile.feature.get_device_profile_feature_template_list()
+        client.networkdesign.profile.feature.get()
 
 

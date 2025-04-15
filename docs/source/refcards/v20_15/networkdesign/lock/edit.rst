@@ -13,7 +13,7 @@ Acquire edit lock
 
 .. code:: python
 
-    def acquire_edit_lock() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.lock.edit.acquire_edit_lock()
+        client.networkdesign.lock.edit.post()
 
 

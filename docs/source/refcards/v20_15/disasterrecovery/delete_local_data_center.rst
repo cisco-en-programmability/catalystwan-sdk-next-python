@@ -11,7 +11,7 @@ Delete local data center
 
 .. code:: python
 
-    def delete_local_dc() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.delete_local_data_center.delete_local_dc()
+        client.disasterrecovery.delete_local_data_center.post()
 
 

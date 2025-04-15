@@ -11,7 +11,7 @@ Get feature lists synchronously from device
 
 .. code:: python
 
-    def get_synced_feature_list(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.featurelist.synced.get_synced_feature_list()
+        client.device.featurelist.synced.get()
 
 

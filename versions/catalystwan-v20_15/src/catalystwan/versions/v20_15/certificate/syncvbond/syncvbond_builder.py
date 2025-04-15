@@ -12,9 +12,10 @@ class SyncvbondBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def syncv_bond(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         sync vManage UUID to all vBond
+        GET /dataservice/certificate/syncvbond
 
         :returns: str
         """

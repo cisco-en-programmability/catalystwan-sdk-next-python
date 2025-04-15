@@ -14,9 +14,10 @@ class InventoryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_inventory_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get hardware inventory list from device
+        GET /dataservice/device/hardware/inventory
 
         :param device_id: deviceId - Device IP
         :returns: Any

@@ -14,9 +14,10 @@ class IsdnstatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_t1e1_isdn_status(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Retrieve Voice ISDN Status from device
+        GET /dataservice/device/voiceisdninfo/isdnstatus
 
         :param device_id: deviceId - Device IP
         :returns: Any

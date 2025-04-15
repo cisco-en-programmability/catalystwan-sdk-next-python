@@ -30,6 +30,7 @@ class EdgeBuilder:
     ) -> Any:
         """
         Get Interconnect Connectivity details
+        GET /dataservice/multicloud/connectivity/edge
 
         :param edge_type: Edge type
         :param connectivity_name: Connectivity Name
@@ -48,9 +49,10 @@ class EdgeBuilder:
             "GET", "/dataservice/multicloud/connectivity/edge", params=params, **kw
         )
 
-    def update_edge_connectivity(self, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, payload: Any, **kw) -> Any:
         """
         Update Interconnect connectivity
+        PUT /dataservice/multicloud/connectivity/edge
 
         :param payload: Edge connectivity
         :returns: Any
@@ -60,9 +62,10 @@ class EdgeBuilder:
             "PUT", "/dataservice/multicloud/connectivity/edge", payload=payload, **kw
         )
 
-    def create_edge_connectivity(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create Interconnect connectivity
+        POST /dataservice/multicloud/connectivity/edge
 
         :param payload: Edge connectivity
         :returns: Any
@@ -72,11 +75,12 @@ class EdgeBuilder:
             "POST", "/dataservice/multicloud/connectivity/edge", payload=payload, **kw
         )
 
-    def delete_edge_connectivity(
+    def delete(
         self, connection_name: str, delete_cloud_resources: Optional[str] = None, **kw
     ) -> Any:
         """
         Delete Interconnect connectivity
+        DELETE /dataservice/multicloud/connectivity/edge/{connectionName}
 
         :param connection_name: Edge connectivity name
         :param delete_cloud_resources: Delete Cloud Resources
@@ -94,9 +98,10 @@ class EdgeBuilder:
             **kw,
         )
 
-    def get_edge_connectivity_detail_by_name(self, connectivity_name: str, **kw) -> Any:
+    def get(self, connectivity_name: str, **kw) -> Any:
         """
         Get Interconnect Connectivity by name
+        GET /dataservice/multicloud/connectivity/edge/{connectivityName}
 
         :param connectivity_name: IC-GW connectivity name
         :returns: Any

@@ -11,9 +11,7 @@ Upload protocol pack to SDAVC
 
 .. code:: python
 
-    def upload_protocol_pack(
-        payload: Optional[ProtocolPackUploadRequest] = None,
-    ) -> Any: ...
+    def post(payload: ProtocolPackUploadRequest) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.maintenance.upload.upload_protocol_pack()
+        client.sdavc.protocol_pack.maintenance.upload.post()
 
 
 .. toctree::

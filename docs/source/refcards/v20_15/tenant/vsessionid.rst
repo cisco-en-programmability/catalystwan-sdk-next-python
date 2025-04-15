@@ -11,7 +11,7 @@ Get VSessionId for a specific tenant<br><br><br>Note: In a multitenant vManage s
 
 .. code:: python
 
-    def v_session_id(tenant_id: str) -> Any: ...
+    def post(tenant_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenant.vsessionid.v_session_id()
+        client.tenant.vsessionid.post()
 
 

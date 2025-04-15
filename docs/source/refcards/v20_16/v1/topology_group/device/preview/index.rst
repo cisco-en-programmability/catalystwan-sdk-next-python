@@ -11,13 +11,11 @@ Get a preview of the configuration for a device
 
 .. code:: python
 
-    def get_topology_group_device_configuration_preview(
+    def post(
         topology_group_id: str,
         device_id: str,
-        payload: Optional[
-            GetTopologyGroupDeviceConfigurationPreviewPostRequest
-        ] = None,
-    ) -> str: ...
+        payload: GetTopologyGroupDeviceConfigurationPreviewPostRequest,
+    ) -> GetTopologyGroupDeviceConfigurationPreviewPostResponse: ...
 
 
 Example:
@@ -35,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.topology_group.device.preview.get_topology_group_device_configuration_preview()
+        client.v1.topology_group.device.preview.post()
 
 
 .. toctree::

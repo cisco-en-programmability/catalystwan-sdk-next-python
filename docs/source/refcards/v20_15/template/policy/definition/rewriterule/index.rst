@@ -3,35 +3,6 @@ template.policy.definition.rewriterule
 ======================================
 
 
-Operation: GET /dataservice/template/policy/definition/rewriterule
-------------------------------------------------------------------
-
-
-Get policy definitions
-
-.. code:: python
-
-    def get_definitions_19() -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.template.policy.definition.rewriterule.get_definitions_19()
-
-
 Operation: POST /dataservice/template/policy/definition/rewriterule
 -------------------------------------------------------------------
 
@@ -40,9 +11,7 @@ Create policy definition
 
 .. code:: python
 
-    def create_policy_definition_19(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -60,36 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.rewriterule.create_policy_definition_19()
-
-
-Operation: GET /dataservice/template/policy/definition/rewriterule/{id}
------------------------------------------------------------------------
-
-
-Get a specific policy definitions
-
-.. code:: python
-
-    def get_policy_definition_19(id: str) -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.template.policy.definition.rewriterule.get_policy_definition_19()
+        client.template.policy.definition.rewriterule.post()
 
 
 Operation: PUT /dataservice/template/policy/definition/rewriterule/{id}
@@ -100,9 +40,7 @@ Edit a policy definitions
 
 .. code:: python
 
-    def edit_policy_definition_19(
-        id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -120,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.rewriterule.edit_policy_definition_19()
+        client.template.policy.definition.rewriterule.put()
 
 
 Operation: DELETE /dataservice/template/policy/definition/rewriterule/{id}
@@ -131,7 +69,7 @@ Delete policy definition
 
 .. code:: python
 
-    def delete_policy_definition_19(id: str) -> None: ...
+    def delete(id: str) -> None: ...
 
 
 Example:
@@ -149,7 +87,63 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.rewriterule.delete_policy_definition_19()
+        client.template.policy.definition.rewriterule.delete()
+
+
+Operation: GET /dataservice/template/policy/definition/rewriterule
+------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get() -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.template.policy.definition.rewriterule.get()
+
+
+Operation: GET /dataservice/template/policy/definition/rewriterule/{id}
+-----------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.template.policy.definition.rewriterule.get()
 
 
 .. toctree::

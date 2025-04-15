@@ -14,9 +14,10 @@ class KeyvalueBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def find_user_groups_as_key_value(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get user groups as key value map
+        GET /dataservice/admin/usergroup/keyvalue
 
         :returns: List[Any]
         """

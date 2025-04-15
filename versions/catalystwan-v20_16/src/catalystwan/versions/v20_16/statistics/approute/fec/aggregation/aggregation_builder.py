@@ -19,11 +19,12 @@ class AggregationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_route_fec_agg(
-        self, payload: Optional[Any] = None, site_id: Optional[str] = None, **kw
+    def post(
+        self, payload: Any, site_id: Optional[str] = None, **kw
     ) -> List[AppRouteFecAggRespInner]:
         """
         Get aggregation data and fec recovery rate
+        POST /dataservice/statistics/approute/fec/aggregation
 
         :param site_id: Site id
         :param payload: Query filter

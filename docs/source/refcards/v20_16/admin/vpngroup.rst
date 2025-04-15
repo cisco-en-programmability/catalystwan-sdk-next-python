@@ -11,7 +11,7 @@ Get VPN groups
 
 .. code:: python
 
-    def get_vpn_groups() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.vpngroup.get_vpn_groups()
+        client.admin.vpngroup.get()
 
 
 Operation: POST /dataservice/admin/vpngroup
@@ -40,7 +40,7 @@ Add VPN group
 
 .. code:: python
 
-    def create_vpn_group(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.vpngroup.create_vpn_group()
+        client.admin.vpngroup.post()
 
 
 Operation: PUT /dataservice/admin/vpngroup/{id}
@@ -69,9 +69,7 @@ Update VPN group
 
 .. code:: python
 
-    def edit_vpn_group(
-        id: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def put(id: str, payload: Any) -> None: ...
 
 
 Example:
@@ -89,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.vpngroup.edit_vpn_group()
+        client.admin.vpngroup.put()
 
 
 Operation: DELETE /dataservice/admin/vpngroup/{id}
@@ -100,7 +98,7 @@ Delete VPN group
 
 .. code:: python
 
-    def delete_vpn_group(id: str) -> None: ...
+    def delete(id: str) -> None: ...
 
 
 Example:
@@ -118,6 +116,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.vpngroup.delete_vpn_group()
+        client.admin.vpngroup.delete()
 
 

@@ -7,9 +7,9 @@ from catalystwan.abc import RequestAdapterInterface
 
 from . import models
 from .models import (
-    CreateSecurityProfileParcelPostRequest,
-    CreateSecurityProfileParcelPostResponse,
-    GetSecurityProfileParcelGetResponse,
+    CreateSdwanSecurityFeaturePostRequest,
+    CreateSdwanSecurityFeaturePostResponse,
+    GetSdwanSecurityFeatureGetResponse,
 )
 
 
@@ -23,18 +23,16 @@ class AdvancedInspectionProfileBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_security_profile_parcel(
-        self,
-        policy_object_id: str,
-        payload: Optional[CreateSecurityProfileParcelPostRequest] = None,
-        **kw,
-    ) -> CreateSecurityProfileParcelPostResponse:
+    def post(
+        self, policy_object_id: str, payload: CreateSdwanSecurityFeaturePostRequest, **kw
+    ) -> CreateSdwanSecurityFeaturePostResponse:
         """
         Create Feature for Security Policy
+        POST /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/advanced-inspection-profile
 
         :param policy_object_id: Feature Profile ID
         :param payload: Security Feature
-        :returns: CreateSecurityProfileParcelPostResponse
+        :returns: CreateSdwanSecurityFeaturePostResponse
         """
         params = {
             "policyObjectId": policy_object_id,
@@ -42,22 +40,23 @@ class AdvancedInspectionProfileBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/advanced-inspection-profile",
-            return_type=CreateSecurityProfileParcelPostResponse,
+            return_type=CreateSdwanSecurityFeaturePostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_security_profile_parcel(
+    def get(
         self, policy_object_id: str, parcel_id: str, reference_count: Optional[bool] = False, **kw
-    ) -> GetSecurityProfileParcelGetResponse:
+    ) -> GetSdwanSecurityFeatureGetResponse:
         """
         Get Security Features for a given ParcelType
+        GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/advanced-inspection-profile/{parcelId}
 
         :param policy_object_id: Feature Profile ID
         :param reference_count: get reference count
         :param parcel_id: Parcel ID
-        :returns: GetSecurityProfileParcelGetResponse
+        :returns: GetSdwanSecurityFeatureGetResponse
         """
         params = {
             "policyObjectId": policy_object_id,
@@ -67,7 +66,7 @@ class AdvancedInspectionProfileBuilder:
         return self._request_adapter.request(
             "GET",
             "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/advanced-inspection-profile/{parcelId}",
-            return_type=GetSecurityProfileParcelGetResponse,
+            return_type=GetSdwanSecurityFeatureGetResponse,
             params=params,
             **kw,
         )

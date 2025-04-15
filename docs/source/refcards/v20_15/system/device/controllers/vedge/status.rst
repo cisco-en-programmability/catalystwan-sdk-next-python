@@ -11,7 +11,7 @@ Get controllers vEdge sync status
 
 .. code:: python
 
-    def get_controller_v_edge_sync_status_1() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.controllers.vedge.status.get_controller_v_edge_sync_status_1()
+        client.system.device.controllers.vedge.status.get()
 
 

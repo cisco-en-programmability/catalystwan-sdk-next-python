@@ -14,9 +14,10 @@ class FilteredBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_policy_lists_with_info_tag_42(self, info_tag: Optional[str] = None, **kw) -> List[Any]:
+    def get(self, info_tag: Optional[str] = None, **kw) -> List[Any]:
         """
         Get policy lists with specific info tag
+        GET /dataservice/template/policy/list/vpn/filtered
 
         :param info_tag: InfoTag
         :returns: List[Any]

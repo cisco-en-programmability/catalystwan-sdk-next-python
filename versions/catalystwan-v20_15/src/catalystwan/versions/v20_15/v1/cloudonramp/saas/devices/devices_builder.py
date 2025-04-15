@@ -12,9 +12,10 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cor_sites_per_device(self, **kw):
+    def get(self, **kw):
         """
         Get site, apps and device role information for cloud on ramp devices
+        GET /dataservice/v1/cloudonramp/saas/devices
 
         :returns: None
         """

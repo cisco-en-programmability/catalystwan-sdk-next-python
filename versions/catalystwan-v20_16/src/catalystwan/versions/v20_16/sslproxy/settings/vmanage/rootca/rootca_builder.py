@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class RootcaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def getv_manage_root_ca(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get vManage root certificate
+        GET /dataservice/sslproxy/settings/vmanage/rootca
 
         :returns: Any
         """
@@ -24,9 +25,10 @@ class RootcaBuilder:
             "GET", "/dataservice/sslproxy/settings/vmanage/rootca", **kw
         )
 
-    def setv_manage_root_ca(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Set vManage root certificate
+        POST /dataservice/sslproxy/settings/vmanage/rootca
 
         :param payload: Set vManage root CA request
         :returns: Any

@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 
@@ -14,9 +12,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def process_device_status(self, device_uuid: str, payload: Optional[str] = None, **kw):
+    def post(self, device_uuid: str, payload: str, **kw):
         """
         Get device status stream
+        POST /dataservice/stream/device/status/{deviceUUID}
 
         :param device_uuid: Device uuid
         :param payload: Payload

@@ -11,9 +11,7 @@ Get raw data with optional query as CSV
 
 .. code:: python
 
-    def get_stat_data_raw_data_as_csv_5(
-        query: Optional[str] = None,
-    ) -> str: ...
+    def get(query: Optional[str] = None) -> str: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.bfd.csv.get_stat_data_raw_data_as_csv_5()
+        client.statistics.bfd.csv.get()
 
 

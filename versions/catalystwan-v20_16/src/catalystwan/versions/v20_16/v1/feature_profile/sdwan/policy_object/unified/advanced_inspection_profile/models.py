@@ -9,7 +9,7 @@ TlsDecryptionActionDef = Literal["decrypt", "neverDecrypt", "skipDecrypt"]
 
 
 @dataclass
-class CreateSecurityProfileParcelPostResponse:
+class CreateSdwanSecurityFeaturePostResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
 
 
@@ -84,7 +84,7 @@ class Data3:
 
 
 @dataclass
-class CreateSecurityProfileParcelPostRequest:
+class CreateSdwanSecurityFeaturePostRequest:
     """
     advanced-malware-protection profile parcel schema for POST request
     """
@@ -93,13 +93,24 @@ class CreateSecurityProfileParcelPostRequest:
     data: Union[Data1, Data2, Data3]
     description: str
     name: str
-    # This is the documentation for POST request schema for advanced-malware-protection profile parcel
-    documentation: Optional[Any] = _field(default=None)
     metadata: Optional[Any] = _field(default=None)
 
 
 @dataclass
-class GetSecurityProfileParcelGetResponse:
+class Payload:
+    """
+    advanced-malware-protection profile parcel schema for POST request
+    """
+
+    # requires tlsDecryptionAction and at least one of Intrusion Prevention or URL Filtering or Advanced Malware Protection policies
+    data: Union[Data1, Data2, Data3]
+    description: str
+    name: str
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class GetSdwanSecurityFeatureGetResponse:
     created_by: Optional[str] = _field(default=None, metadata={"alias": "createdBy"})
     created_on: Optional[int] = _field(default=None, metadata={"alias": "createdOn"})
     last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
@@ -107,4 +118,4 @@ class GetSecurityProfileParcelGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # advanced-malware-protection profile parcel schema for POST request
-    payload: Optional[CreateSecurityProfileParcelPostRequest] = _field(default=None)
+    payload: Optional[Payload] = _field(default=None)

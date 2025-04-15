@@ -11,9 +11,7 @@ Get device state data
 
 .. code:: python
 
-    def generate_dca_device_state_data(
-        state_data_type: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def post(state_data_type: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.data.device.state.generate_dca_device_state_data()
+        client.dca.data.device.state.post()
 
 

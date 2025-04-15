@@ -11,7 +11,7 @@ Enable cloudx gateway
 
 .. code:: python
 
-    def add_cloudx_interfaces(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cloudx.interfaces.add_cloudx_interfaces()
+        client.template.cloudx.interfaces.post()
 
 

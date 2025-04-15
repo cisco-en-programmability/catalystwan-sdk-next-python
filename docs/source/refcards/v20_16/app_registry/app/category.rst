@@ -11,7 +11,7 @@ Get the stats of all type of apps
 
 .. code:: python
 
-    def get_app_list_category() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.app.category.get_app_list_category()
+        client.app_registry.app.category.get()
 
 

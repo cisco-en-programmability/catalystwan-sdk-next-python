@@ -11,7 +11,7 @@ Activate cluster to start working as primary
 
 .. code:: python
 
-    def activate() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.activate.activate()
+        client.disasterrecovery.activate.post()
 
 

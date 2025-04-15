@@ -19,7 +19,7 @@ class Ikev1Builder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_cryptov1_local_sa_list(
+    def get(
         self,
         device_id: str,
         remote_tloc_address: Optional[str] = None,
@@ -28,6 +28,7 @@ class Ikev1Builder:
     ) -> Any:
         """
         Get Crypto IKEv1 SA entry from device
+        GET /dataservice/device/ipsec/ikev1
 
         :param remote_tloc_address: Remote TLOC address
         :param remote_tloc_color: Remote tloc color

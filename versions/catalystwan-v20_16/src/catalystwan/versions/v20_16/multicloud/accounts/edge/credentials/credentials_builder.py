@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,11 +15,10 @@ class CredentialsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def validate_edge_account_update_credentials(
-        self, account_id: str, payload: Optional[Any] = None, **kw
-    ):
+    def put(self, account_id: str, payload: Any, **kw):
         """
         Update Multicloud edge account credential
+        PUT /dataservice/multicloud/accounts/edge/{accountId}/credentials
 
         :param account_id: Multicloud Edge Account Id
         :param payload: Multicloud edge account info

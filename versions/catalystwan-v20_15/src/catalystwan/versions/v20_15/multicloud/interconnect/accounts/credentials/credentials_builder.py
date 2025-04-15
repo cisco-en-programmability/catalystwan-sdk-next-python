@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,11 +17,12 @@ class CredentialsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def update_interconnect_account_credentials(
-        self, interconnect_account_id: str, payload: Optional[InterconnectAccount] = None, **kw
+    def put(
+        self, interconnect_account_id: str, payload: InterconnectAccount, **kw
     ) -> InterconnectAccount:
         """
         API to edit associated Interconnect provider account credentials.
+        PUT /dataservice/multicloud/interconnect/accounts/{interconnect-account-id}/credentials
 
         :param interconnect_account_id: Interconnect provider account id
         :param payload: Request Payload for Multicloud Interconnect Accounts

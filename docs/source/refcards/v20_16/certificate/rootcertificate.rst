@@ -11,7 +11,7 @@ Get device root certificate detail view
 
 .. code:: python
 
-    def get_root_certificate() -> List[str]: ...
+    def get() -> List[str]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.rootcertificate.get_root_certificate()
+        client.certificate.rootcertificate.get()
 
 

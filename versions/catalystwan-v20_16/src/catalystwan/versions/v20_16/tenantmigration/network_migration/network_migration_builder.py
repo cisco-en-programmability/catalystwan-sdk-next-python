@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class NetworkMigrationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def re_trigger_network_migration(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Re-trigger network migration
+        GET /dataservice/tenantmigration/networkMigration
 
         :returns: Any
         """
@@ -24,9 +25,10 @@ class NetworkMigrationBuilder:
             "GET", "/dataservice/tenantmigration/networkMigration", **kw
         )
 
-    def migrate_network(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Migrate network
+        POST /dataservice/tenantmigration/networkMigration
 
         :param payload: Network migration
         :returns: Any

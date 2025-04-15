@@ -19,7 +19,7 @@ class SessionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_ike_sessions(
+    def get(
         self,
         device_id: str,
         remote_tloc_address: Optional[str] = None,
@@ -28,6 +28,7 @@ class SessionsBuilder:
     ) -> List[Any]:
         """
         Get IPsec IKE sessions from device
+        GET /dataservice/device/ipsec/ike/sessions
 
         :param remote_tloc_address: Remote TLOC address
         :param remote_tloc_color: Remote tloc color

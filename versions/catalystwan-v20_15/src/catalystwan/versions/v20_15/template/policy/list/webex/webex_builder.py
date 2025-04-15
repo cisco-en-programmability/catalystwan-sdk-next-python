@@ -17,9 +17,10 @@ class WebexBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_webex_prefix_lists(self, **kw) -> List[Any]:
+    def post(self, **kw) -> List[Any]:
         """
         TEMP-Create Webex policy lists
+        POST /dataservice/template/policy/list/webex
 
         :returns: List[Any]
         """

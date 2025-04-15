@@ -11,7 +11,7 @@ Get Unsupported CLI Config for device
 
 .. code:: python
 
-    def get_unsupported_cli_config(
+    def get(
         device_uuid: str,
         highlight_unsupported_clis: Optional[bool] = True,
     ) -> str: ...
@@ -32,6 +32,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.device.unsupported_cli_config.get_unsupported_cli_config()
+        client.v1.device.unsupported_cli_config.get()
 
 

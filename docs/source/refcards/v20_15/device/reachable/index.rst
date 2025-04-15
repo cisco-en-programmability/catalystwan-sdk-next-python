@@ -11,7 +11,7 @@ Get list of reachable devices
 
 .. code:: python
 
-    def list_reachable_devices() -> DeviceReachableData: ...
+    def get() -> DeviceReachableData: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.reachable.list_reachable_devices()
+        client.device.reachable.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Retrieve network issues summary
 
 .. code:: python
 
-    def get_network_issues_summary() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.network.issues.summary.get_network_issues_summary()
+        client.network.issues.summary.get()
 
 

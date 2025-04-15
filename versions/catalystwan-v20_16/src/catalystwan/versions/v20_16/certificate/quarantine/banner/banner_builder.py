@@ -14,9 +14,10 @@ class BannerBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_quarantine_banner(self, **kw) -> List[str]:
+    def get(self, **kw) -> List[str]:
         """
         get quarantine banner data
+        GET /dataservice/certificate/quarantine/banner
 
         :returns: List[str]
         """

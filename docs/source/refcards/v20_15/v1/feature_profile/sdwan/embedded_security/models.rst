@@ -26,8 +26,6 @@ Models
         """
 
         id: str
-        # This is the documentation for POST response schema for feature profile
-        documentation: Optional[Any]
 
 
     class FromFeatureProfileDef:
@@ -41,8 +39,6 @@ Models
 
         description: str
         name: str
-        # This is the documentation for POST request api schema for feature profile
-        documentation: Optional[Any]
         from_feature_profile: Optional[FromFeatureProfileDef]
 
 
@@ -62,5 +58,23 @@ Models
         profile_name: Optional[str]
         profile_type: Optional[ProfileType]
         solution: Optional[Solution]
+
+
+    class EditSdwanEmbeddedSecurityFeatureProfilePutResponse:
+        """
+        Feature Profile POST Response schema
+        """
+
+        id: str
+
+
+    class EditSdwanEmbeddedSecurityFeatureProfilePutRequest:
+        """
+        Feature Profile Schema for POST Request
+        """
+
+        description: str
+        name: str
+        from_feature_profile: Optional[FromFeatureProfileDef]
 
 

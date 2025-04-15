@@ -11,7 +11,7 @@ Get tacacs configuration<br><br><br>Note: In a multitenant vManage system, this 
 
 .. code:: python
 
-    def get_tacacs_config() -> Tacacs: ...
+    def get() -> Tacacs: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.tacacs.get_tacacs_config()
+        client.admin.tacacs.get()
 
 
 Operation: PUT /dataservice/admin/tacacs
@@ -40,9 +40,7 @@ Update tacacs configuration<br><br><br>Note: In a multitenant vManage system, th
 
 .. code:: python
 
-    def update_tacacs_config(
-        payload: Optional[Tacacs] = None,
-    ) -> None: ...
+    def put(payload: Tacacs) -> None: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.tacacs.update_tacacs_config()
+        client.admin.tacacs.put()
 
 
 Operation: POST /dataservice/admin/tacacs
@@ -71,9 +69,7 @@ Create tacacs configuration<br><br><br>Note: In a multitenant vManage system, th
 
 .. code:: python
 
-    def create_tacacs_config(
-        payload: Optional[Tacacs] = None,
-    ) -> None: ...
+    def post(payload: Tacacs) -> None: ...
 
 
 Example:
@@ -91,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.tacacs.create_tacacs_config()
+        client.admin.tacacs.post()
 
 
 Operation: DELETE /dataservice/admin/tacacs
@@ -102,7 +98,7 @@ Delete tacacs configuration<br><br><br>Note: In a multitenant vManage system, th
 
 .. code:: python
 
-    def delete_tacacs_config() -> Tacacs: ...
+    def delete() -> Tacacs: ...
 
 
 Example:
@@ -120,7 +116,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.tacacs.delete_tacacs_config()
+        client.admin.tacacs.delete()
 
 
 .. toctree::

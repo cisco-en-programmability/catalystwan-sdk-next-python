@@ -11,7 +11,7 @@ Update data centers and vBonds passwords for disaster recovery
 
 .. code:: python
 
-    def update(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.password.update()
+        client.disasterrecovery.password.post()
 
 

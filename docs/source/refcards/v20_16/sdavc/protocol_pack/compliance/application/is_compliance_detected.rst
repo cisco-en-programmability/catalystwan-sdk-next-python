@@ -11,7 +11,7 @@ Check if there is any Application Compliance detected in the system
 
 .. code:: python
 
-    def is_application_compliance_detected() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.application.is_compliance_detected.is_application_compliance_detected()
+        client.sdavc.protocol_pack.compliance.application.is_compliance_detected.get()
 
 

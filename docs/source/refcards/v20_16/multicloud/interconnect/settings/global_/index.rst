@@ -11,7 +11,7 @@ API to retrieve global settings for an Interconnect provider type.
 
 .. code:: python
 
-    def get_interconnect_global_settings(
+    def get(
         interconnect_type: InterconnectTypeParam,
     ) -> InterconnectGlobalSettings: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.settings.global_.get_interconnect_global_settings()
+        client.multicloud.interconnect.settings.global_.get()
 
 
 Operation: PUT /dataservice/multicloud/interconnect/settings/global
@@ -42,9 +42,7 @@ API to update global settings for an Interconnect provider.
 
 .. code:: python
 
-    def update_interconnect_global_settings(
-        payload: Optional[InterconnectGlobalSettings] = None,
-    ) -> None: ...
+    def put(payload: InterconnectGlobalSettings) -> None: ...
 
 
 Example:
@@ -62,7 +60,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.settings.global_.update_interconnect_global_settings()
+        client.multicloud.interconnect.settings.global_.put()
 
 
 Operation: POST /dataservice/multicloud/interconnect/settings/global
@@ -73,9 +71,7 @@ API to add global settings for an Interconnect provider.
 
 .. code:: python
 
-    def add_interconnect_global_settings(
-        payload: Optional[InterconnectGlobalSettings] = None,
-    ) -> None: ...
+    def post(payload: InterconnectGlobalSettings) -> None: ...
 
 
 Example:
@@ -93,7 +89,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.settings.global_.add_interconnect_global_settings()
+        client.multicloud.interconnect.settings.global_.post()
 
 
 .. toctree::

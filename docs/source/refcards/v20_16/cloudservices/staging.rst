@@ -11,7 +11,7 @@ Check if testbed or production
 
 .. code:: python
 
-    def is_staging() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.staging.is_staging()
+        client.cloudservices.staging.get()
 
 

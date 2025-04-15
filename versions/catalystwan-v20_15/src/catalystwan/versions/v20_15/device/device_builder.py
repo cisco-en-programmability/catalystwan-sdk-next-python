@@ -154,9 +154,10 @@ class DeviceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_all_devices(self, site_id: Optional[str] = None, **kw) -> List[DeviceData]:
+    def get(self, site_id: Optional[str] = None, **kw) -> List[DeviceData]:
         """
         List all devices
+        GET /dataservice/device
 
         :param site_id: Site id
         :returns: List[DeviceData]

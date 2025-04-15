@@ -15,9 +15,10 @@ class DeviceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_on_ramp_devices(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get available device list
+        GET /dataservice/template/cor/device
 
         :returns: List[Any]
         """

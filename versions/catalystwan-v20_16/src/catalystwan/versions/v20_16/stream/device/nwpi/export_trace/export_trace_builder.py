@@ -14,9 +14,10 @@ class ExportTraceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def export_trace(self, trace_id: int, timestamp: int, **kw) -> Any:
+    def get(self, trace_id: int, timestamp: int, **kw) -> Any:
         """
         Export NWPI Trace Data
+        GET /dataservice/stream/device/nwpi/exportTrace
 
         :param trace_id: trace id
         :param timestamp: start time

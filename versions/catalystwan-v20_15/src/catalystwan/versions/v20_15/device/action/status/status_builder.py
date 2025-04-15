@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -10,7 +10,6 @@ if TYPE_CHECKING:
     from .clean.clean_builder import CleanBuilder
     from .clear.clear_builder import ClearBuilder
     from .mw.mw_builder import MwBuilder
-    from .preupgrade.preupgrade_builder import PreupgradeBuilder
     from .tasks.tasks_builder import TasksBuilder
 
 
@@ -22,20 +21,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def update_device_action_task_status(self, payload: Optional[Any] = None, **kw):
-        """
-        Update device action status
-
-        :param payload: Update device action status
-        :returns: None
-        """
-        return self._request_adapter.request(
-            "PUT", "/dataservice/device/action/status", payload=payload, **kw
-        )
-
-    def find_status(self, process_id: str, **kw) -> Any:
+    def get(self, process_id: str, **kw) -> Any:
         """
         Find status of action
+        GET /dataservice/device/action/status/{processId}
 
         :param process_id: processId
         :returns: Any
@@ -82,15 +71,6 @@ class StatusBuilder:
         from .mw.mw_builder import MwBuilder
 
         return MwBuilder(self._request_adapter)
-
-    @property
-    def preupgrade(self) -> PreupgradeBuilder:
-        """
-        The preupgrade property
-        """
-        from .preupgrade.preupgrade_builder import PreupgradeBuilder
-
-        return PreupgradeBuilder(self._request_adapter)
 
     @property
     def tasks(self) -> TasksBuilder:

@@ -19,7 +19,7 @@ class PktSizeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_interface_pkt_sizes(
+    def get(
         self,
         device_id: str,
         vpn_id: Optional[str] = None,
@@ -29,6 +29,7 @@ class PktSizeBuilder:
     ) -> Any:
         """
         Get interface packet size
+        GET /dataservice/device/interface/pkt_size
 
         :param vpn_id: VPN Id
         :param ifname: IF Name

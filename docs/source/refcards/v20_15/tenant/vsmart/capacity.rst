@@ -11,7 +11,7 @@ Lists all the vsmarts on the vManage and its tenant hosting capacity<br><br><br>
 
 .. code:: python
 
-    def get_tenant_hosting_capacity_onv_smarts() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenant.vsmart.capacity.get_tenant_hosting_capacity_onv_smarts()
+        client.tenant.vsmart.capacity.get()
 
 

@@ -38,7 +38,87 @@ Models
         protocol: str
 
 
+    class NetworkProtocol:
+        # Name of the Profile Parcel. Must be unique.
+        name: str
+        type_: Type
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # Description of the Profile Parcel.
+        description: Optional[str]
+        dhcp_pool: Optional[DhcpPool]
+        dns_settings: Optional[str]
+        # System generated unique identifier of the Profile Parcel in UUID format.
+        id: Optional[str]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        nat_rules: Optional[List[NatRule]]
+        ntp_inherit: Optional[bool]
+        ntp_settings: Optional[List[str]]
+        variables: Optional[List[Variable]]
+
+
+    class Data:
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        parcel_id: Optional[str]
+        parcel_type: Optional[str]
+        payload: Optional[NetworkProtocol]
+
+
+    class GetListMobilityGlobalNetworkprotocolPayload:
+        data: Optional[List[Data]]
+
+
     class CreateNetworkProtocolProfileParcelForMobilityPostRequest:
+        # Name of the Profile Parcel. Must be unique.
+        name: str
+        type_: Type
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # Description of the Profile Parcel.
+        description: Optional[str]
+        dhcp_pool: Optional[DhcpPool]
+        dns_settings: Optional[str]
+        # System generated unique identifier of the Profile Parcel in UUID format.
+        id: Optional[str]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        nat_rules: Optional[List[NatRule]]
+        ntp_inherit: Optional[bool]
+        ntp_settings: Optional[List[str]]
+        variables: Optional[List[Variable]]
+
+
+    class GetSingleMobilityGlobalNetworkprotocolPayload:
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        parcel_id: Optional[str]
+        parcel_type: Optional[str]
+        payload: Optional[NetworkProtocol]
+
+
+    class EditNetworkProtocolProfileParcelForMobilityPutRequest:
         # Name of the Profile Parcel. Must be unique.
         name: str
         type_: Type

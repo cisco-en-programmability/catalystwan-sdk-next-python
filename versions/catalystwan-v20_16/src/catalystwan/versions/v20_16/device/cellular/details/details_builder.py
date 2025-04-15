@@ -19,11 +19,10 @@ class DetailsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def cellular_count_dashlet_details(
-        self, last_n_hours: Optional[LastNHoursParam] = None, **kw
-    ) -> List[CellularDetail]:
+    def get(self, last_n_hours: Optional[LastNHoursParam] = None, **kw) -> List[CellularDetail]:
         """
         Cellular count dashlet details
+        GET /dataservice/device/cellular/details
 
         :param last_n_hours: last N hours
         :returns: List[CellularDetail]

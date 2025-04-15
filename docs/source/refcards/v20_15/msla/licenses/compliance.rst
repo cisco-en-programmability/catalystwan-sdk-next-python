@@ -11,7 +11,7 @@ Retrieve list of devices and their subscription information
 
 .. code:: python
 
-    def get_licenses_compliance() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.msla.licenses.compliance.get_licenses_compliance()
+        client.msla.licenses.compliance.get()
 
 

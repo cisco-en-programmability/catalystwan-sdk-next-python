@@ -7,15 +7,14 @@ Operation: GET /dataservice/v1/feature-profile/mobility/cli
 -----------------------------------------------------------
 
 
-Get Mobility Cli Feature Profiles
-
 .. code:: python
 
-    def get_mobility_cli_feature_profile(
+    @overload
+    def get(
         offset: Optional[int] = None,
         limit: Optional[int] = 0,
         reference_count: Optional[bool] = False,
-    ) -> Any: ...
+    ) -> List[GetMobilityCliFeatureProfileGetResponse]: ...
 
 
 Example:
@@ -33,20 +32,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.mobility.cli.get_mobility_cli_feature_profile()
+        client.v1.feature_profile.mobility.cli.get()
 
 
 Operation: GET /dataservice/v1/feature-profile/mobility/cli/{cliId}
 -------------------------------------------------------------------
 
 
-Get a Mobility Feature Profile with Cli profile type
-
 .. code:: python
 
-    def get_mobility_cli_feature_profile_by_cli_id(
-        cli_id: str,
-    ) -> Any: ...
+    @overload
+    def get(cli_id: str) -> GetSingleMobilityCliPayload: ...
 
 
 Example:
@@ -64,11 +60,12 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.mobility.cli.get_mobility_cli_feature_profile_by_cli_id()
+        client.v1.feature_profile.mobility.cli.get()
 
 
 .. toctree::
     :maxdepth: 1
 
-    config
+    config/index
+    models
 

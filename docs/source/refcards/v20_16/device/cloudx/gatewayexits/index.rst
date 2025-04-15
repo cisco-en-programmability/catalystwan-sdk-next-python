@@ -11,7 +11,7 @@ Get list of cloudexpress gateway exits from device (Real Time)
 
 .. code:: python
 
-    def create_gateway_exits_list(
+    def get(
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
         application: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cloudx.gatewayexits.create_gateway_exits_list()
+        client.device.cloudx.gatewayexits.get()
 
 
 .. toctree::

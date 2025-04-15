@@ -23,7 +23,7 @@ class MetricsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def return_metric(
+    def get(
         self,
         metric_name: str,
         start_date: str,
@@ -36,6 +36,7 @@ class MetricsBuilder:
     ) -> Neo4JMetricsResponse:
         """
         By passing in the appropriate metric, it will return the values of  the respective metric within the timeframe provided
+        GET /dataservice/util/configdb/metrics
 
         :param metric_name: Pass the metric name
         :param start_date: Date in yyyy-MM-dd format or any Number format. If a number is passed, that will be the number of minutes. The start/end will be translated as <current date/time – minutes passed> and <current date/time> respectively.

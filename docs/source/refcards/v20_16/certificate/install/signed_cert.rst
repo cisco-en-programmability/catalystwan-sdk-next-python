@@ -11,7 +11,7 @@ install Certificate
 
 .. code:: python
 
-    def install_certificate(payload: Optional[Any] = None) -> str: ...
+    def post(payload: Any) -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.install.signed_cert.install_certificate()
+        client.certificate.install.signed_cert.post()
 
 

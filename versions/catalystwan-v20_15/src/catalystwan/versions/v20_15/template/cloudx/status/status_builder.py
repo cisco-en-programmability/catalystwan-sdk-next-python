@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def site_per_app(self, app_name: str, vpn_id: Optional[int] = None, **kw) -> List[Any]:
+    def get(self, app_name: str, vpn_id: Optional[int] = None, **kw) -> List[Any]:
         """
         Get sites per application per vpn
+        GET /dataservice/template/cloudx/status
 
         :param app_name: App name
         :param vpn_id: VPN Id

@@ -14,9 +14,10 @@ class LinksBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_link_list(self, state: str, **kw) -> List[Any]:
+    def get(self, state: str, **kw) -> List[Any]:
         """
         Get connections list
+        GET /dataservice/device/control/links
 
         :param state: Device State
         :returns: List[Any]

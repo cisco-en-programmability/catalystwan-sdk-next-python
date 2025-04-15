@@ -19,11 +19,12 @@ class FetchAccountsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def fetch_accounts(
+    def get(
         self, mode: str, payload: Optional[Any] = None, **kw
     ) -> SmartLicensingfetchAccountsResp:
         """
         fetch sava for sle
+        GET /dataservice/smartLicensing/fetchAccounts
 
         :param mode: mode
         :param payload: Partner

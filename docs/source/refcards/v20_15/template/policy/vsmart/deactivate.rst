@@ -11,7 +11,7 @@ Deactivate vsmart policy for a given policy id
 
 .. code:: python
 
-    def de_activate_policy(policy_id: str) -> Any: ...
+    def post(policy_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.vsmart.deactivate.de_activate_policy()
+        client.template.policy.vsmart.deactivate.post()
 
 

@@ -13,9 +13,7 @@ Get Interconnect Gateway custom setting by Interconnect Gateway name
 
 .. code:: python
 
-    def get_icgw_custom_setting_details(
-        edge_gateway_name: str,
-    ) -> Any: ...
+    def get(edge_gateway_name: str) -> Any: ...
 
 
 Example:
@@ -33,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.gateway.edge.setting.get_icgw_custom_setting_details()
+        client.multicloud.gateway.edge.setting.get()
 
 

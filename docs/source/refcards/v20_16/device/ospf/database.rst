@@ -11,7 +11,7 @@ Get OSPF database list from device (Real Time)
 
 .. code:: python
 
-    def create_ospf_database_list(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ospf.database.create_ospf_database_list()
+        client.device.ospf.database.get()
 
 

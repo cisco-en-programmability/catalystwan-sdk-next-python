@@ -17,9 +17,10 @@ class StarttrackingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def start_tracking(self, test_name: str, **kw) -> SimpleMessageResponse:
+    def post(self, test_name: str, **kw) -> SimpleMessageResponse:
         """
         Start tracking events
+        POST /dataservice/alarms/starttracking/{testName}
 
         :param test_name: Test Name
         :returns: SimpleMessageResponse

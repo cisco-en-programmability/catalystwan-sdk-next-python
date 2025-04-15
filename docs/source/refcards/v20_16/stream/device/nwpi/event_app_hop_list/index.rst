@@ -13,7 +13,7 @@ Get Trace Application and HopList for NWPI.
 
 .. code:: python
 
-    def get_event_app_hop_list(
+    def get(
         trace_id: int,
         timestamp: int,
         state: Optional[str] = None,
@@ -39,7 +39,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.event_app_hop_list.get_event_app_hop_list()
+        client.stream.device.nwpi.event_app_hop_list.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Day N- Update Webex App
 
 .. code:: python
 
-    def enable_webex_1(payload: Optional[Any] = None) -> List[Any]: ...
+    def put(payload: Any) -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.app.webex.enable_webex_1()
+        client.cloudservices.app.webex.put()
 
 
 Operation: POST /dataservice/cloudservices/app/webex
@@ -40,7 +40,7 @@ Add Webex App
 
 .. code:: python
 
-    def enable_webex(payload: Optional[Any] = None) -> List[Any]: ...
+    def post(payload: Any) -> List[Any]: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.app.webex.enable_webex()
+        client.cloudservices.app.webex.post()
 
 
 Operation: DELETE /dataservice/cloudservices/app/webex
@@ -69,9 +69,7 @@ deleteWebexPrefixLists
 
 .. code:: python
 
-    def delete_webex_prefix_lists(
-        payload: Optional[Any] = None,
-    ) -> List[Any]: ...
+    def delete(payload: Optional[Any] = None) -> List[Any]: ...
 
 
 Example:
@@ -89,6 +87,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.app.webex.delete_webex_prefix_lists()
+        client.cloudservices.app.webex.delete()
 
 

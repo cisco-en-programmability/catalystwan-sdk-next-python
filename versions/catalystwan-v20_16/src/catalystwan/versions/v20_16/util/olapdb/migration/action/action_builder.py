@@ -17,9 +17,10 @@ class ActionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def post_stats_migration_action(self, action: ActionParam, **kw) -> str:
+    def post(self, action: ActionParam, **kw) -> str:
         """
         Migration actions - start pause or restart migration
+        POST /dataservice/util/olapdb/migration/action/{action}
 
         :param action: Migration action
         :returns: str

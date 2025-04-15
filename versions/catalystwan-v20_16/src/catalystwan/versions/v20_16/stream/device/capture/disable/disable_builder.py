@@ -17,9 +17,10 @@ class DisableBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def disable_packet_capture_session(self, session_id: str, **kw) -> DisablePacketCaptureRes:
+    def get(self, session_id: str, **kw) -> DisablePacketCaptureRes:
         """
         Disable packet capture session
+        GET /dataservice/stream/device/capture/disable/{sessionId}
 
         :param session_id: Session id
         :returns: DisablePacketCaptureRes

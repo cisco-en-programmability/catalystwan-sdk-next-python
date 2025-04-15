@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -23,9 +23,10 @@ class ConfigurationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_configuration_by_setting_type(self, type_: str, **kw) -> str:
+    def get(self, type_: str, **kw) -> str:
         """
         Retrieve configuration value by type
+        GET /dataservice/settings/configuration/{type}
 
         :param type_: Type of the certificate configuration
         :returns: str
@@ -41,9 +42,10 @@ class ConfigurationBuilder:
             **kw,
         )
 
-    def edit_configuration(self, type_: str, payload: Optional[Any] = None, **kw) -> str:
+    def put(self, type_: str, payload: Any, **kw) -> str:
         """
         Update configuration setting
+        PUT /dataservice/settings/configuration/{type}
 
         :param type_: Type of the certificate configuration
         :param payload: Vmanage configuration setting
@@ -61,9 +63,10 @@ class ConfigurationBuilder:
             **kw,
         )
 
-    def new_configuration(self, type_: str, payload: Optional[Any] = None, **kw) -> str:
+    def post(self, type_: str, payload: Any, **kw) -> str:
         """
         Add new certificate configuration
+        POST /dataservice/settings/configuration/{type}
 
         :param type_: Type of the certificate configuration
         :param payload: Vmanage configuration setting

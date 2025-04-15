@@ -45,7 +45,7 @@ API to create an Interconnect OnRamp gateway connection.
 
 .. code:: python
 
-    def create_interconnect_on_ramp_gateway_connection(
+    def post(
         payload: List[
             CreateInterconnectOnRampGatewayConnectionPostRequest
         ],
@@ -67,7 +67,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.cloud_onramp_gateway_connections.create_interconnect_on_ramp_gateway_connection()
+        client.multicloud.interconnect.connectivity.cloud_onramp_gateway_connections.post()
 
 
 Operation: GET /dataservice/multicloud/interconnect/connectivity/cloud-onramp-gateway-connections/{connection-name}
@@ -78,7 +78,7 @@ API to retrieve a specific Interconnect OnRamp gateway connection.
 
 .. code:: python
 
-    def get_interconnect_on_ramp_gateway_connection(
+    def get(
         connection_name: str,
     ) -> InterconnectOnRampGatewayConnection: ...
 
@@ -98,7 +98,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.cloud_onramp_gateway_connections.get_interconnect_on_ramp_gateway_connection()
+        client.multicloud.interconnect.connectivity.cloud_onramp_gateway_connections.get()
 
 
 Operation: PUT /dataservice/multicloud/interconnect/connectivity/cloud-onramp-gateway-connections/{connection-name}
@@ -109,7 +109,7 @@ API to update an Interconnect OnRamp gateway connection.
 
 .. code:: python
 
-    def update_interconnect_on_ramp_gateway_connection(
+    def put(
         connection_name: str,
         payload: UpdateInterconnectOnRampGatewayConnectionPutRequest,
     ) -> ProcessResponse: ...
@@ -130,7 +130,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.cloud_onramp_gateway_connections.update_interconnect_on_ramp_gateway_connection()
+        client.multicloud.interconnect.connectivity.cloud_onramp_gateway_connections.put()
 
 
 Operation: DELETE /dataservice/multicloud/interconnect/connectivity/cloud-onramp-gateway-connections/{connection-name}
@@ -141,7 +141,7 @@ API to delete an Interconnect OnRamp gateway connection.
 
 .. code:: python
 
-    def delete_interconnect_on_ramp_gateway_connection(
+    def delete(
         connection_name: str,
         delete_cloud_resources: Optional[str] = "false",
     ) -> ProcessResponse: ...
@@ -162,7 +162,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.cloud_onramp_gateway_connections.delete_interconnect_on_ramp_gateway_connection()
+        client.multicloud.interconnect.connectivity.cloud_onramp_gateway_connections.delete()
 
 
 .. toctree::

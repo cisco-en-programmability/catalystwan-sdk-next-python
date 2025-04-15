@@ -7,11 +7,10 @@ Operation: GET /dataservice/partner/dnac/sda/device/{partnerId}
 ---------------------------------------------------------------
 
 
-Get SDA enabled devices
-
 .. code:: python
 
-    def get_sda_enabled_devices(partner_id: str) -> SdaDevicesRes: ...
+    @overload
+    def get(partner_id: str) -> SdaDevicesRes: ...
 
 
 Example:
@@ -29,20 +28,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.dnac.sda.device.get_sda_enabled_devices()
+        client.partner.dnac.sda.device.get()
 
 
 Operation: GET /dataservice/partner/dnac/sda/device/{partnerId}/{uuid}
 ----------------------------------------------------------------------
 
 
-Get SDA enabled devices detail
-
 .. code:: python
 
-    def get_device_details(
-        partner_id: str, uuid: str
-    ) -> SdaDevicesRes: ...
+    @overload
+    def get(partner_id: str, uuid: str) -> SdaDevicesRes: ...
 
 
 Example:
@@ -60,7 +56,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.dnac.sda.device.get_device_details()
+        client.partner.dnac.sda.device.get()
 
 
 .. toctree::

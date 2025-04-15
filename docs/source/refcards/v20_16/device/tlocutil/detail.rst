@@ -11,7 +11,7 @@ Get detailed TLOC list
 
 .. code:: python
 
-    def get_device_tloc_util_details(
+    def get(
         util: Optional[str] = None, site_id: Optional[str] = None
     ) -> Any: ...
 
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tlocutil.detail.get_device_tloc_util_details()
+        client.device.tlocutil.detail.get()
 
 

@@ -19,11 +19,12 @@ class TagsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_mapping_tags(
+    def get(
         self, cloud_type: str, cloud_account_id: str, resource_group: Optional[str] = None, **kw
     ) -> InlineResponse2002:
         """
         API to retrieve configured Interconnect host VPC/VNET mapping tags.
+        GET /dataservice/multicloud/interconnect/connectivity/connections/tags
 
         :param cloud_type: Cloud provider type
         :param cloud_account_id: Cloud account id

@@ -14,9 +14,10 @@ class RewriteassociationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_policy_rewrite_associations_info(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get rewrite associations information from device
+        GET /dataservice/device/policy/rewriteassociations
 
         :param device_id: deviceId - Device IP
         :returns: Any

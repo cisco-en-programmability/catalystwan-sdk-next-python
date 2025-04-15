@@ -11,8 +11,8 @@ Create bootstrap config for software vEdges
 
 .. code:: python
 
-    def generate_bootstrap_config_for_vedges(
-        payload: Optional[VEdgeBootstrapConfig] = None,
+    def post(
+        payload: VEdgeBootstrapConfig,
     ) -> GenerateBootstrapConfigForVedgesResponse: ...
 
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.bootstrap.devices.generate_bootstrap_config_for_vedges()
+        client.system.device.bootstrap.devices.post()
 
 
 .. toctree::

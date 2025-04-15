@@ -23,7 +23,7 @@ class NwaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_aggregation_data_by_query_3(
+    def post(
         self,
         query: str,
         page: Optional[int] = None,
@@ -34,6 +34,7 @@ class NwaBuilder:
     ) -> List[NetworkAvailabilityResp]:
         """
         Get network availability raw data based on input query and filters.
+        POST /dataservice/statistics/nwa
 
         :param query: Query
         :param page: Page

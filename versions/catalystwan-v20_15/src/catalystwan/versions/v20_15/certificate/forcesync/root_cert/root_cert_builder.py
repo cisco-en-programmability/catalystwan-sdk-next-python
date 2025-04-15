@@ -12,9 +12,10 @@ class RootCertBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def force_sync_root_cert(self, **kw) -> str:
+    def post(self, **kw) -> str:
         """
         force Sync RootCert to all devices
+        POST /dataservice/certificate/forcesync/rootCert
 
         :returns: str
         """

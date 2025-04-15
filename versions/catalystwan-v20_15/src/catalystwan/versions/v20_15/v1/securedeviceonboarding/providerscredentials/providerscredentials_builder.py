@@ -3,21 +3,30 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
+from .models import ProviderAccountDetails
+
 
 class ProviderscredentialsBuilder:
     """
     Builds and executes requests for operations under /v1/securedeviceonboarding/providerscredentials
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_accounts(self, **kw):
+    def get(self, **kw) -> ProviderAccountDetails:
         """
         Get all providers credentials
+        GET /dataservice/v1/securedeviceonboarding/providerscredentials
 
-        :returns: None
+        :returns: ProviderAccountDetails
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/securedeviceonboarding/providerscredentials", **kw
+            "GET",
+            "/dataservice/v1/securedeviceonboarding/providerscredentials",
+            return_type=ProviderAccountDetails,
+            **kw,
         )

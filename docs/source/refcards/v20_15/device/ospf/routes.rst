@@ -11,7 +11,7 @@ Get OSPF route list from device (Real Time)
 
 .. code:: python
 
-    def create_ospf_routes_list(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ospf.routes.create_ospf_routes_list()
+        client.device.ospf.routes.get()
 
 

@@ -14,9 +14,10 @@ class SettingsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_device_system_setting(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get device system settings from device
+        GET /dataservice/device/csp/system/settings
 
         :param device_id: deviceId - Device IP
         :returns: Any

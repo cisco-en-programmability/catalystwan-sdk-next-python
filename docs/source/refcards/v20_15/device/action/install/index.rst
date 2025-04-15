@@ -11,7 +11,7 @@ Generate install info
 
 .. code:: python
 
-    def generate_install_info(device_id: List[DeviceIp]) -> None: ...
+    def get(device_id: List[DeviceIp]) -> None: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.install.generate_install_info()
+        client.device.action.install.get()
 
 
 Operation: POST /dataservice/device/action/install
@@ -40,7 +40,7 @@ Process an installation operation
 
 .. code:: python
 
-    def process_install(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.install.process_install()
+        client.device.action.install.post()
 
 
 .. toctree::

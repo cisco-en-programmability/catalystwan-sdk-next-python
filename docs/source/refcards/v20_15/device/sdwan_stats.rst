@@ -11,7 +11,7 @@ Get SD-WAN statistics detail from device (Real Time)
 
 .. code:: python
 
-    def get_sd_wan_stats(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.sdwan_stats.get_sd_wan_stats()
+        client.device.sdwan_stats.get()
 
 

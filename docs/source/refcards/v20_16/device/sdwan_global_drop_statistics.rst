@@ -11,7 +11,7 @@ Get SD-WAN global drop statistics detail from device (Real Time)
 
 .. code:: python
 
-    def get_sd_wan_global_drop_statistics(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.sdwan_global_drop_statistics.get_sd_wan_global_drop_statistics()
+        client.device.sdwan_global_drop_statistics.get()
 
 

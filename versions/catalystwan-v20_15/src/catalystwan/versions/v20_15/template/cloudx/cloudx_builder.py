@@ -28,9 +28,10 @@ class CloudxBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_x_status(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get CloudX feature list
+        GET /dataservice/template/cloudx
 
         :returns: List[Any]
         """

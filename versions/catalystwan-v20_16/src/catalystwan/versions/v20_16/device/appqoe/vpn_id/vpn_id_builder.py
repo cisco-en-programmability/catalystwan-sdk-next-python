@@ -14,7 +14,7 @@ class VpnIdBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_appqoe_vpn_id_list(
+    def get(
         self,
         vpn_id: str,
         device_id: str,
@@ -25,6 +25,7 @@ class VpnIdBuilder:
     ) -> Any:
         """
         Get Appqoe Active vpn Id details from device
+        GET /dataservice/device/appqoe/vpn-id
 
         :param vpn_id: VPN Id
         :param client_ip: Client Ip

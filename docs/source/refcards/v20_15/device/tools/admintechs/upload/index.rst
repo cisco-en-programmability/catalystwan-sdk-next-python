@@ -11,9 +11,7 @@ upload admin tech to SR
 
 .. code:: python
 
-    def upload_admin_tech(
-        payload: Optional[AdminTechsUploadReq] = None,
-    ) -> None: ...
+    def post(payload: AdminTechsUploadReq) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.admintechs.upload.upload_admin_tech()
+        client.device.tools.admintechs.upload.post()
 
 
 .. toctree::

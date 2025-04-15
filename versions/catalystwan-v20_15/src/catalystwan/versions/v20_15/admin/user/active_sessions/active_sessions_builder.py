@@ -14,9 +14,10 @@ class ActiveSessionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_active_sessions_1(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get active sessions
+        GET /dataservice/admin/user/activeSessions
 
         :returns: Any
         """

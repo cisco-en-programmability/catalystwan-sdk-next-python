@@ -11,7 +11,7 @@ Get BGP neighbors list (Real Time)
 
 .. code:: python
 
-    def create_bgp_neighbors_list(
+    def get(
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
         peer_addr: Optional[str] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bgp.neighbors.create_bgp_neighbors_list()
+        client.device.bgp.neighbors.get()
 
 
 .. toctree::

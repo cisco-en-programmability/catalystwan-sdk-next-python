@@ -14,9 +14,10 @@ class AppqoeRmStatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_appqoe_rm_stats(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get Appqoe RM Statistics from device
+        GET /dataservice/device/appqoe/appqoe-rm-stats
 
         :param device_id: Device Id
         :returns: Any

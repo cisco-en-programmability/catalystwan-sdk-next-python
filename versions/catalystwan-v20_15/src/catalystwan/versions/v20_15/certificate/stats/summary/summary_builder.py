@@ -14,9 +14,10 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_certificate_stats(self, **kw) -> List[str]:
+    def get(self, **kw) -> List[str]:
         """
         Get certificate expiration status
+        GET /dataservice/certificate/stats/summary
 
         :returns: List[str]
         """

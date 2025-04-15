@@ -11,9 +11,7 @@ Initialize SDWAN as a Platform
 
 .. code:: python
 
-    def init_aas_properties(
-        payload: Optional[InitBlob] = None,
-    ) -> None: ...
+    def post(payload: InitBlob) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.aas.init.init_aas_properties()
+        client.aas.init.post()
 
 
 .. toctree::

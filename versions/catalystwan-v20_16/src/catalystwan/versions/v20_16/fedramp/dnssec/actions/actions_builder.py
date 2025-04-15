@@ -14,9 +14,10 @@ class ActionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def reques_dns_sec_actions(self, action: str, **kw) -> Any:
+    def get(self, action: str, **kw) -> Any:
         """
         Request DNS-Sec actions
+        GET /dataservice/fedramp/dnssec/actions
 
         :param action: DNS-Sec action
         :returns: Any

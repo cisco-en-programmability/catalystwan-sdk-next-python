@@ -17,9 +17,10 @@ class CommplansBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_comm_plans_by_acct_id(self, account_id: str, **kw) -> CommunicationPlansResponse:
+    def get(self, account_id: str, **kw) -> CommunicationPlansResponse:
         """
         Get communication plans by account Id
+        GET /dataservice/v1/securedeviceonboarding/{accountId}/commplans
 
         :param account_id: Service User Account ID
         :returns: CommunicationPlansResponse

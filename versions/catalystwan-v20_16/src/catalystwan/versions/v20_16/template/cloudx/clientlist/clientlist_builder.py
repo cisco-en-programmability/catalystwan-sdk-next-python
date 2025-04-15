@@ -14,9 +14,10 @@ class ClientlistBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_site_list(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get site list
+        GET /dataservice/template/cloudx/clientlist
 
         :returns: List[Any]
         """

@@ -11,7 +11,7 @@ Get AWS Cloudwan core network policy
 
 .. code:: python
 
-    def get_cwan_core_network_policy() -> CoreNetworkPolicyResponse: ...
+    def get() -> CoreNetworkPolicyResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.corenetworkpolicy.get_cwan_core_network_policy()
+        client.multicloud.corenetworkpolicy.get()
 
 
 .. toctree::

@@ -14,9 +14,10 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_voice_policy_summary(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get templates that map a device model
+        GET /dataservice/template/policy/voice/summary
 
         :returns: List[Any]
         """

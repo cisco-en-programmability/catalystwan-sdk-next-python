@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class AutoBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def add_utd_remote_image(self, type_: str, payload: Optional[Any] = None, **kw):
+    def post(self, type_: str, payload: Any, **kw):
         """
         add Utd remote image
+        POST /dataservice/device/action/software/package/utdsignature/{type}/mode/auto
 
         :param type_: Type
         :param payload: Request body

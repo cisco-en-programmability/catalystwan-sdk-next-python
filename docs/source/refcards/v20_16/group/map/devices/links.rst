@@ -11,9 +11,7 @@ Retrieve devices in group for map
 
 .. code:: python
 
-    def list_group_links_for_map(
-        group_id: Optional[str] = None,
-    ) -> List[Any]: ...
+    def get(group_id: Optional[str] = None) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.group.map.devices.links.list_group_links_for_map()
+        client.group.map.devices.links.get()
 
 

@@ -11,7 +11,7 @@ Get AAA users from device (Real Time)
 
 .. code:: python
 
-    def get_aaa_users(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.aaa.users.get_aaa_users()
+        client.device.aaa.users.get()
 
 

@@ -22,7 +22,7 @@ class InstancesizeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_supported_instance_size(
+    def get(
         self,
         cloud_type: CloudTypeParam,
         account_id: Optional[str] = None,
@@ -31,6 +31,7 @@ class InstancesizeBuilder:
     ) -> List[InstanceSizeResponse]:
         """
         Get Transit VPC supported size
+        GET /dataservice/multicloud/instancesize
 
         :param cloud_type: Cloud type
         :param account_id: Account id

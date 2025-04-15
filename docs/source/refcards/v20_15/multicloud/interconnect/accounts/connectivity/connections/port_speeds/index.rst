@@ -11,7 +11,7 @@ API to retrieve supported port speeds for an Interconnect connectivity.
 
 .. code:: python
 
-    def get_interconnect_port_speeds(
+    def get(
         interconnect_type: str,
         interconnect_account_id: str,
         connection_type: str,
@@ -39,7 +39,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.accounts.connectivity.connections.port_speeds.get_interconnect_port_speeds()
+        client.multicloud.interconnect.accounts.connectivity.connections.port_speeds.get()
 
 
 .. toctree::

@@ -23,9 +23,10 @@ class VedgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_installed_cert(self, uuid: str, **kw) -> List[InstalledCertsInner]:
+    def get(self, uuid: str, **kw) -> List[InstalledCertsInner]:
         """
         get device installed cert
+        GET /dataservice/certificate/vedge
 
         :param uuid: Uuid
         :returns: List[InstalledCertsInner]

@@ -11,7 +11,7 @@ Get Secure Internet Gateway Tunnel List
 
 .. code:: python
 
-    def get_cloud_tunnel_list(device_ip: str) -> None: ...
+    def get(device_ip: str) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.cloudonramp.saas.cloud_tunnels.get_cloud_tunnel_list()
+        client.v1.cloudonramp.saas.cloud_tunnels.get()
 
 

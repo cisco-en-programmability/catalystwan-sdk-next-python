@@ -14,9 +14,10 @@ class ScheduleBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_disaster_recovery_local_replication_schedule(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get disaster recovery local replication schedule
+        GET /dataservice/disasterrecovery/schedule
 
         :returns: Any
         """

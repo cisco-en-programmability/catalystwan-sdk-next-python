@@ -14,9 +14,10 @@ class VpnBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_vpn_for_device(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get list of configured VPN (excluding reserved VPN) for a device
+        GET /dataservice/template/config/vpn/{deviceId}
 
         :param device_id: Device Model ID
         :returns: List[Any]

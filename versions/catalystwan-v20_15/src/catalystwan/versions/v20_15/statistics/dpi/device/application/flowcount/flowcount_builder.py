@@ -14,7 +14,7 @@ class FlowcountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dpi_device_app_unique_flow_count(
+    def get(
         self,
         device_id: str,
         interval: str,
@@ -25,6 +25,7 @@ class FlowcountBuilder:
     ) -> Any:
         """
         Get application flow count per tunnel
+        GET /dataservice/statistics/dpi/device/application/flowcount
 
         :param device_id: Device id
         :param interval: Interval

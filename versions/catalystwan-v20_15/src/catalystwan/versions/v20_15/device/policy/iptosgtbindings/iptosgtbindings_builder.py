@@ -14,9 +14,10 @@ class IptosgtbindingsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def show_vsmart_ipto_sgt_binding(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         show ip to sgt binding from Vsmart
+        GET /dataservice/device/policy/iptosgtbindings
 
         :param device_id: Device Id
         :returns: Any

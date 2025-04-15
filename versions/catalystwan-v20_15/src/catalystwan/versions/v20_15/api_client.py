@@ -20,7 +20,6 @@ if TYPE_CHECKING:
     from .cluster_management.cluster_management_builder import ClusterManagementBuilder
     from .colocation.colocation_builder import ColocationBuilder
     from .container_manager.container_manager_builder import ContainerManagerBuilder
-    from .dashboard.dashboard_builder import DashboardBuilder
     from .data.data_builder import DataBuilder
     from .dca.dca_builder import DcaBuilder
     from .device.device_builder import DeviceBuilder
@@ -218,15 +217,6 @@ class ApiClient:
         from .container_manager.container_manager_builder import ContainerManagerBuilder
 
         return ContainerManagerBuilder(self._request_adapter)
-
-    @property
-    def dashboard(self) -> DashboardBuilder:
-        """
-        The dashboard property
-        """
-        from .dashboard.dashboard_builder import DashboardBuilder
-
-        return DashboardBuilder(self._request_adapter)
 
     @property
     def data(self) -> DataBuilder:

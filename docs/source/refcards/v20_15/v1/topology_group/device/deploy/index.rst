@@ -11,10 +11,9 @@ deploy Topology group to devices
 
 .. code:: python
 
-    def deploy_topology_group(
-        topology_group_id: str,
-        payload: Optional[DeployTopologyGroupPostRequest] = None,
-    ) -> str: ...
+    def post(
+        topology_group_id: str, payload: DeployTopologyGroupPostRequest
+    ) -> DeployTopologyGroupPostResponse: ...
 
 
 Example:
@@ -32,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.topology_group.device.deploy.deploy_topology_group()
+        client.v1.topology_group.device.deploy.post()
 
 
 .. toctree::

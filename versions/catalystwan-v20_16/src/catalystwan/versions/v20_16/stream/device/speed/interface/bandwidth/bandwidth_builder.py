@@ -19,7 +19,7 @@ class BandwidthBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interface_bandwidth(
+    def get(
         self,
         device_uuid: DeviceUuid,
         circuit: Optional[str] = None,
@@ -27,7 +27,8 @@ class BandwidthBuilder:
         **kw,
     ) -> SpeedTestInterfaceResponse:
         """
-        Get interface bandwidth
+        Get
+        GET /dataservice/stream/device/speed/interface/bandwidth
 
         :param device_uuid: Device uuid
         :param circuit: Circuit

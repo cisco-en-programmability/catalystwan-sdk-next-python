@@ -14,9 +14,10 @@ class UpdateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_webex_prefix_lists_1(self, **kw) -> List[Any]:
+    def post(self, **kw) -> List[Any]:
         """
         TEMP-Update Webex policy lists from Webex config
+        POST /dataservice/template/policy/list/webex/update
 
         :returns: List[Any]
         """

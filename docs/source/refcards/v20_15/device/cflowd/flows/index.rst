@@ -11,7 +11,7 @@ Get list of cflowd flows from device
 
 .. code:: python
 
-    def create_cflow_collector_list(
+    def get(
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
         src_ip: Optional[str] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cflowd.flows.create_cflow_collector_list()
+        client.device.cflowd.flows.get()
 
 
 .. toctree::

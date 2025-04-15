@@ -11,7 +11,7 @@ Get images list from device
 
 .. code:: python
 
-    def create_software_list(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.downloaded_images.create_software_list()
+        client.device.downloaded_images.get()
 
 

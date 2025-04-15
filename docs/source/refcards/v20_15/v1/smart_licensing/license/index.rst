@@ -11,7 +11,7 @@ Get licenses from vManage db
 
 .. code:: python
 
-    def license(
+    def get(
         virtual_account_id: str, license_type: str
     ) -> List[GetLicenseResponseInner]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.smart_licensing.license.license()
+        client.v1.smart_licensing.license.get()
 
 
 .. toctree::

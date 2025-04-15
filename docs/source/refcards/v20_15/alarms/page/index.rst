@@ -11,12 +11,12 @@ Get paginated alarms
 
 .. code:: python
 
-    def get_page(
+    def get(
         query: str,
         scroll_id: Optional[str] = None,
         count: Optional[int] = None,
         site_id: Optional[str] = None,
-    ) -> List[Alarm]: ...
+    ) -> AlarmResponse: ...
 
 
 Example:
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.page.get_page()
+        client.alarms.page.get()
 
 
 Operation: POST /dataservice/alarms/page
@@ -45,12 +45,12 @@ Get paginated alarm raw data
 
 .. code:: python
 
-    def post_page(
-        payload: Optional[Any] = None,
+    def post(
+        payload: Any,
         scroll_id: Optional[str] = None,
         count: Optional[int] = None,
         site_id: Optional[str] = None,
-    ) -> List[Alarm]: ...
+    ) -> AlarmResponse: ...
 
 
 Example:
@@ -68,7 +68,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.page.post_page()
+        client.alarms.page.post()
 
 
 .. toctree::

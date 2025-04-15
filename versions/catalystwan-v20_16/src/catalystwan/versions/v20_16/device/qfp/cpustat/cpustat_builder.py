@@ -17,9 +17,10 @@ class CpustatBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def cpustat(self, device_id: str, **kw) -> QfpCpuState:
+    def get(self, device_id: str, **kw) -> QfpCpuState:
         """
         Get QFP cpu status
+        GET /dataservice/device/qfp/cpustat
 
         :param device_id: deviceId - Device IP
         :returns: QfpCpuState

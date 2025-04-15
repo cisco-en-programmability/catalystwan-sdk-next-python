@@ -11,9 +11,7 @@ Get bandwidth distribution
 
 .. code:: python
 
-    def get_bandwidth_distribution(
-        site_id: Optional[str] = None,
-    ) -> CapacityResp: ...
+    def get(site_id: Optional[str] = None) -> CapacityResp: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.interface.ccapacity.distribution.get_bandwidth_distribution()
+        client.statistics.interface.ccapacity.distribution.get()
 
 
 .. toctree::

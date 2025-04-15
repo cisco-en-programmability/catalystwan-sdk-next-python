@@ -11,7 +11,7 @@ Process an installation operation
 
 .. code:: python
 
-    def process_lxc_install(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.lxcinstall.process_lxc_install()
+        client.device.action.lxcinstall.post()
 
 

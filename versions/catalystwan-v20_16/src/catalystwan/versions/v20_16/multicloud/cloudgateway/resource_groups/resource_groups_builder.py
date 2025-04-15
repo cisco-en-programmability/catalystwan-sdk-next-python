@@ -19,11 +19,10 @@ class ResourceGroupsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_azure_resource_groups(
-        self, cloud_type: str, account_id: str, **kw
-    ) -> List[ResourceGroupsResponse]:
+    def get(self, cloud_type: str, account_id: str, **kw) -> List[ResourceGroupsResponse]:
         """
         Discover Azure Resource Groups
+        GET /dataservice/multicloud/cloudgateway/resourceGroups
 
         :param cloud_type: Multicloud provider type
         :param account_id: Multicloud account id

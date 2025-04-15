@@ -11,7 +11,7 @@ List loggers
 
 .. code:: python
 
-    def list_loggers() -> List[Loggers]: ...
+    def get() -> List[Loggers]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.logging.loggers.list_loggers()
+        client.util.logging.loggers.get()
 
 
 .. toctree::

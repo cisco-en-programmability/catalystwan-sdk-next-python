@@ -15,11 +15,12 @@ class HostvpcBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_host_vp_cs(
+    def get(
         self, accountid: str, cloudregion: str, cloudtype: Optional[str] = "AWS", **kw
     ) -> List[Any]:
         """
         Get host VPC/VNet list
+        GET /dataservice/template/cor/hostvpc
 
         :param accountid: Account Id
         :param cloudregion: Cloud region

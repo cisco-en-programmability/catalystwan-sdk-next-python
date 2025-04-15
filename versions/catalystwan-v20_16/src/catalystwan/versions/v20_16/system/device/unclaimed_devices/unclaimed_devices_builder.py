@@ -17,9 +17,10 @@ class UnclaimedDevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_unclaimed_devices(self, **kw) -> GetAllUnclaimedDevices:
+    def get(self, **kw) -> GetAllUnclaimedDevices:
         """
         Get list of all unclaimed devices
+        GET /dataservice/system/device/unclaimedDevices
 
         :returns: GetAllUnclaimedDevices
         """

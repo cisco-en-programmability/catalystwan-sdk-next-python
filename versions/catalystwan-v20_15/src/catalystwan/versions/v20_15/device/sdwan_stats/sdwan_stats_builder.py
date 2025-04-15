@@ -14,9 +14,10 @@ class SdwanStatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sd_wan_stats(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get SD-WAN statistics detail from device (Real Time)
+        GET /dataservice/device/sdwan-stats
 
         :param device_id: deviceId - Device IP
         :returns: Any

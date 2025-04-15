@@ -11,9 +11,7 @@ Per tenant api to check which Wani recommendations have been applied for a given
 
 .. code:: python
 
-    def get_applied_wani_recommendations() -> (
-        List[AppliedRecommendationsResEntry]
-    ): ...
+    def get() -> List[AppliedRecommendationsResEntry]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.wani.recommendations.applied.get_applied_wani_recommendations()
+        client.wani.recommendations.applied.get()
 
 
 .. toctree::

@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,12 +14,13 @@ class DevicecsrBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_csr(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get CSR from cEdge device
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        GET /dataservice/featurecertificate/devicecsr
 
         :param device_id: Device Id
         :returns: Any
@@ -31,12 +32,13 @@ class DevicecsrBuilder:
             "GET", "/dataservice/featurecertificate/devicecsr", params=params, **kw
         )
 
-    def gen_device_csr(self, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, payload: Any, **kw) -> Any:
         """
         Create CSR for cEdge device
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        PUT /dataservice/featurecertificate/devicecsr
 
         :param payload: CSR request for cEdge
         :returns: Any

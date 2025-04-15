@@ -14,9 +14,10 @@ class WebexBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def enable_webex_1(self, payload: Optional[Any] = None, **kw) -> List[Any]:
+    def put(self, payload: Any, **kw) -> List[Any]:
         """
         Day N- Update Webex App
+        PUT /dataservice/cloudservices/app/webex
 
         :param payload: Cloudx apps and vpns
         :returns: List[Any]
@@ -29,9 +30,10 @@ class WebexBuilder:
             **kw,
         )
 
-    def enable_webex(self, payload: Optional[Any] = None, **kw) -> List[Any]:
+    def post(self, payload: Any, **kw) -> List[Any]:
         """
         Add Webex App
+        POST /dataservice/cloudservices/app/webex
 
         :param payload: Cloudx apps and vpns
         :returns: List[Any]
@@ -44,9 +46,10 @@ class WebexBuilder:
             **kw,
         )
 
-    def delete_webex_prefix_lists(self, payload: Optional[Any] = None, **kw) -> List[Any]:
+    def delete(self, payload: Optional[Any] = None, **kw) -> List[Any]:
         """
         deleteWebexPrefixLists
+        DELETE /dataservice/cloudservices/app/webex
 
         :param payload: TMP-Cloudx apps and vpns
         :returns: List[Any]

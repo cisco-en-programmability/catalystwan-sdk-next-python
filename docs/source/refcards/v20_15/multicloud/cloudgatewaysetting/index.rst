@@ -11,9 +11,7 @@ Get cloud gateway custom setting by cloud gateway name
 
 .. code:: python
 
-    def get_cgw_custom_setting_details(
-        cloud_gateway_name: str,
-    ) -> CustomSettings: ...
+    def get(cloud_gateway_name: str) -> CustomSettings: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgatewaysetting.get_cgw_custom_setting_details()
+        client.multicloud.cloudgatewaysetting.get()
 
 
 .. toctree::

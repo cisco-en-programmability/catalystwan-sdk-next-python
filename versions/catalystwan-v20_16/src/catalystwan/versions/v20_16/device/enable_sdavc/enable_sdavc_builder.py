@@ -12,9 +12,10 @@ class EnableSdavcBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def enable_sdavc_on_device(self, device_ip: str, enable: bool, **kw):
+    def post(self, device_ip: str, enable: bool, **kw):
         """
         Enable/Disable SDAVC on device
+        POST /dataservice/device/enableSDAVC/{deviceIP}/{enable}
 
         :param device_ip: Device IP
         :param enable: Enable/Disable flag

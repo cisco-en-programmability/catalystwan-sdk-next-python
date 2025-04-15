@@ -20,9 +20,10 @@ class PortspeedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dl_port_speed(self, edge_type: EdgeTypeParam, **kw) -> Any:
+    def get(self, edge_type: EdgeTypeParam, **kw) -> Any:
         """
         Get supported port speed for Device Link
+        GET /dataservice/multicloud/devicelink/edge/portspeed/{edgeType}
 
         :param edge_type: Interconnect Provider
         :returns: Any

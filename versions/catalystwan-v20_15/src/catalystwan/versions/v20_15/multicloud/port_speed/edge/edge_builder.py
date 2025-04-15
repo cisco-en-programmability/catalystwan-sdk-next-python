@@ -20,7 +20,7 @@ class EdgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_port_speed(
+    def get(
         self,
         edge_type: EdgeTypeParam,
         edge_account_id: str,
@@ -35,6 +35,7 @@ class EdgeBuilder:
     ) -> Any:
         """
         Get supported port speed
+        GET /dataservice/multicloud/portSpeed/edge/{edgeType}/{edgeAccountId}/{connectivityType}
 
         :param edge_type: Interconnect Provider
         :param edge_account_id: Interconnect Provider Account ID

@@ -17,11 +17,10 @@ class ActionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def report_action(
-        self, report_id: str, action: ActionParam, **kw
-    ) -> UpdateReportTemplateResponse:
+    def put(self, report_id: str, action: ActionParam, **kw) -> UpdateReportTemplateResponse:
         """
         User operations for specific report template, which includes activate,deactivate and run immediately
+        PUT /dataservice/v1/reports/{reportId}/action/{action}
 
         :param report_id: Report id
         :param action: Action

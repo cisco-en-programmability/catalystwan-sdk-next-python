@@ -14,9 +14,10 @@ class Current15MinstatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_controller_t1e1_info_current15_min_stats(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Retrieve T1E1 controller last 15 min stats from device (Real Time)
+        GET /dataservice/device/voicet1e1controllerinfo/current15minstats
 
         :param device_id: deviceId - Device IP
         :returns: Any

@@ -11,7 +11,7 @@ Get data plane global from Device
 
 .. code:: python
 
-    def get_utd_dataplane_global(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.utd.dataplane_global.get_utd_dataplane_global()
+        client.device.utd.dataplane_global.get()
 
 

@@ -7,6 +7,6 @@ v1.feature_profile.sdwan.application_priority
     :maxdepth: 1
 
     cloud_probe
-    qos_policy
-    traffic_policy
+    qos_policy/index
+    traffic_policy/index
 

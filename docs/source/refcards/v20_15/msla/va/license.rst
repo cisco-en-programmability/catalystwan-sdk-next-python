@@ -13,7 +13,7 @@ Retrieve MSLA subscription/licenses
 
 .. code:: python
 
-    def get_subscriptions(
+    def get(
         virtual_account_id: Optional[str] = None,
         license_type: Optional[str] = None,
     ) -> Any: ...
@@ -34,6 +34,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.msla.va.license.get_subscriptions()
+        client.msla.va.license.get()
 
 

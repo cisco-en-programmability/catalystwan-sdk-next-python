@@ -11,9 +11,7 @@ API to retrieve supported Colors for Interconnect tunnel type.
 
 .. code:: python
 
-    def get_interconnect_colors(
-        tunnel_type: TunnelTypeParam,
-    ) -> InlineResponse2002: ...
+    def get(tunnel_type: TunnelTypeParam) -> InlineResponse2002: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.colors.get_interconnect_colors()
+        client.multicloud.interconnect.colors.get()
 
 
 .. toctree::

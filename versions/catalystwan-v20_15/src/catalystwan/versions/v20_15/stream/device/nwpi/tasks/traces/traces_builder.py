@@ -17,9 +17,10 @@ class TracesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_task_trace(self, task_id: str, **kw) -> TaskTracesResponsePayload:
+    def get(self, task_id: str, **kw) -> TaskTracesResponsePayload:
         """
         Get all traces in one task
+        GET /dataservice/stream/device/nwpi/tasks/{taskId}/traces
 
         :param task_id: taskId
         :returns: TaskTracesResponsePayload

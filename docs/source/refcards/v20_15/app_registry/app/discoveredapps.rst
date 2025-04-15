@@ -11,7 +11,7 @@ Get All network discovered apps
 
 .. code:: python
 
-    def get_network_discovered_apps() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.app.discoveredapps.get_network_discovered_apps()
+        client.app_registry.app.discoveredapps.get()
 
 

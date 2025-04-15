@@ -11,7 +11,7 @@ Get stats raw data
 
 .. code:: python
 
-    def get_stats_pagination_raw_data_19(
+    def get(
         query: Optional[str] = None,
         scroll_id: Optional[str] = None,
         count: Optional[int] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.ipsalert.page.get_stats_pagination_raw_data_19()
+        client.statistics.ipsalert.page.get()
 
 
 Operation: POST /dataservice/statistics/ipsalert/page
@@ -44,8 +44,8 @@ Get stats raw data
 
 .. code:: python
 
-    def get_post_stats_pagination_raw_data_19(
-        payload: Optional[Any] = None,
+    def post(
+        payload: Any,
         scroll_id: Optional[str] = None,
         count: Optional[int] = None,
     ) -> Any: ...
@@ -66,6 +66,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.ipsalert.page.get_post_stats_pagination_raw_data_19()
+        client.statistics.ipsalert.page.post()
 
 

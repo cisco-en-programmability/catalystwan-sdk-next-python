@@ -11,9 +11,7 @@ Get device system native settings from device
 
 .. code:: python
 
-    def create_device_system_setting_native_info(
-        device_id: str,
-    ) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.csp.system.native.create_device_system_setting_native_info()
+        client.device.csp.system.native.get()
 
 

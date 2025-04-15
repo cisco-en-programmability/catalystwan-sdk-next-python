@@ -11,7 +11,7 @@ retrieve devices without subject sudi
 
 .. code:: python
 
-    def devices_without_subject_sudi() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.devices_without_subject_sudi.devices_without_subject_sudi()
+        client.system.device.devices_without_subject_sudi.get()
 
 

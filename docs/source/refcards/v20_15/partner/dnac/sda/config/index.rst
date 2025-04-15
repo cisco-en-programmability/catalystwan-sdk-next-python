@@ -11,7 +11,7 @@ Create SDA enabled device
 
 .. code:: python
 
-    def create_sda_config(
+    def post(
         partner_id: str, payload: SdaConfigRequest
     ) -> SdaDeviceConfigRes: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.dnac.sda.config.create_sda_config()
+        client.partner.dnac.sda.config.post()
 
 
 .. toctree::

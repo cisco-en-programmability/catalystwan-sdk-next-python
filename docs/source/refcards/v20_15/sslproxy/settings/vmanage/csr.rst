@@ -11,7 +11,7 @@ Get vManage CSR
 
 .. code:: python
 
-    def getv_manage_csr() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.settings.vmanage.csr.getv_manage_csr()
+        client.sslproxy.settings.vmanage.csr.get()
 
 

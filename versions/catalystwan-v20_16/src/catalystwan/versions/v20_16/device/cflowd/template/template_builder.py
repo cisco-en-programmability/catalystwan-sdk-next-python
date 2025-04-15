@@ -14,9 +14,10 @@ class TemplateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_cflowd_template(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get cflowd template from device
+        GET /dataservice/device/cflowd/template
 
         :param device_id: Device IP
         :returns: Any

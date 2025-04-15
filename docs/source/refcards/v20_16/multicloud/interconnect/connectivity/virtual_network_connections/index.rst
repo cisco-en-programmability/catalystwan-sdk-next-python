@@ -45,10 +45,8 @@ API to create a Interconnect virtual network connection between virtual network 
 
 .. code:: python
 
-    def create_interconenct_virtual_network_connection(
-        payload: Optional[
-            List[InterconnectVirtualNetworkConnection]
-        ] = None,
+    def post(
+        payload: List[InterconnectVirtualNetworkConnection],
     ) -> ProcessResponse: ...
 
 
@@ -67,7 +65,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.virtual_network_connections.create_interconenct_virtual_network_connection()
+        client.multicloud.interconnect.connectivity.virtual_network_connections.post()
 
 
 Operation: GET /dataservice/multicloud/interconnect/connectivity/virtual-network-connections/{connection-name}
@@ -78,7 +76,7 @@ API to retrieve an exisiting Interconnect Interconnect virtual network connectio
 
 .. code:: python
 
-    def get_interconnect_virtual_network_connection(
+    def get(
         connection_name: str,
     ) -> InterconnectVirtualNetworkConnection: ...
 
@@ -98,7 +96,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.virtual_network_connections.get_interconnect_virtual_network_connection()
+        client.multicloud.interconnect.connectivity.virtual_network_connections.get()
 
 
 Operation: PUT /dataservice/multicloud/interconnect/connectivity/virtual-network-connections/{connection-name}
@@ -109,9 +107,9 @@ API to update a virtual network connection between virtual network Tags and onRa
 
 .. code:: python
 
-    def update_interconnect_virtual_network_connection(
+    def put(
         connection_name: str,
-        payload: Optional[InterconnectVirtualNetworkConnection] = None,
+        payload: InterconnectVirtualNetworkConnection,
     ) -> ProcessResponse: ...
 
 
@@ -130,7 +128,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.virtual_network_connections.update_interconnect_virtual_network_connection()
+        client.multicloud.interconnect.connectivity.virtual_network_connections.put()
 
 
 Operation: DELETE /dataservice/multicloud/interconnect/connectivity/virtual-network-connections/{connection-name}
@@ -141,9 +139,7 @@ API to delete an Interconnect virtual network connection.
 
 .. code:: python
 
-    def delete_interconnect_virtual_network_connection(
-        connection_name: str,
-    ) -> ProcessResponse: ...
+    def delete(connection_name: str) -> ProcessResponse: ...
 
 
 Example:
@@ -161,7 +157,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.virtual_network_connections.delete_interconnect_virtual_network_connection()
+        client.multicloud.interconnect.connectivity.virtual_network_connections.delete()
 
 
 .. toctree::

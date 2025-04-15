@@ -14,7 +14,7 @@ class AppFwdCflowdFlowsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_app_fwd_cflowd_flows_list(
+    def get(
         self,
         device_id: str,
         vpn_id: Optional[int] = None,
@@ -26,6 +26,7 @@ class AppFwdCflowdFlowsBuilder:
     ):
         """
         Get list of app fwd cflowd flows from device
+        GET /dataservice/device/cedgecflowd/app-fwd-cflowd-flows
 
         :param device_id: Device id
         :param vpn_id: Vpn id

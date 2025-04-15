@@ -11,7 +11,7 @@ Get default network interface<br><br><br>Note: In a multitenant vManage system, 
 
 .. code:: python
 
-    def get_network_interface(device_model: DeviceModelParam) -> Any: ...
+    def get(device_model: DeviceModelParam) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.feature.default.networkinterface.get_network_interface()
+        client.template.feature.default.networkinterface.get()
 
 
 .. toctree::

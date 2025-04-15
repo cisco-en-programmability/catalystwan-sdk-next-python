@@ -17,11 +17,10 @@ class QueryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_device_state_data_with_query_string(
-        self, state_data_type: str, **kw
-    ) -> GenerateDeviceStateDataWithQueryString:
+    def get(self, state_data_type: str, **kw) -> GenerateDeviceStateDataWithQueryString:
         """
         Get device state data fileds
+        GET /dataservice/data/device/state/{state_data_type}/query
 
         :param state_data_type: State data type
         :returns: GenerateDeviceStateDataWithQueryString

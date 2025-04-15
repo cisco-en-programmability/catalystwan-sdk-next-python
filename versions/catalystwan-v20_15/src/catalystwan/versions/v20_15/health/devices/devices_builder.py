@@ -22,7 +22,7 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_devices_health(
+    def get(
         self,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
@@ -42,6 +42,7 @@ class DevicesBuilder:
     ) -> Any:
         """
         get the devices health properties
+        GET /dataservice/health/devices
 
         :param page: Page Number
         :param page_size: Page Size

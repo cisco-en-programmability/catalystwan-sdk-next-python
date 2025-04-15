@@ -14,7 +14,7 @@ class AutoBypassStatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dre_auto_bypass_stats(
+    def get(
         self,
         device_id: str,
         appqoe_dre_auto_bypass_server_ip: Optional[str] = None,
@@ -23,6 +23,7 @@ class AutoBypassStatsBuilder:
     ) -> Any:
         """
         Get DRE auto-bypass statistics
+        GET /dataservice/device/dre/auto-bypass-stats
 
         :param appqoe_dre_auto_bypass_server_ip: Server IP
         :param appqoe_dre_auto_bypass_port: Port

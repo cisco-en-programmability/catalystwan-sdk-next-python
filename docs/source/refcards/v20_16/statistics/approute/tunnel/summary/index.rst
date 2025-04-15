@@ -11,7 +11,7 @@ Get tunnel top statistics in as chart
 
 .. code:: python
 
-    def get_app_route_tunnel_summary_type(
+    def get(
         type_: str, query: Optional[str] = None
     ) -> List[AppRouteRespWithPageInfo]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.approute.tunnel.summary.get_app_route_tunnel_summary_type()
+        client.statistics.approute.tunnel.summary.get()
 
 
 .. toctree::

@@ -14,9 +14,10 @@ class DemomodeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def enable_statistics_demo_mode(self, enable: Optional[bool] = True, **kw) -> Any:
+    def get(self, enable: Optional[bool] = True, **kw) -> Any:
         """
         Enable statistic demo mode
+        GET /dataservice/statistics/demomode
 
         :param enable: Demo mode flag
         :returns: Any

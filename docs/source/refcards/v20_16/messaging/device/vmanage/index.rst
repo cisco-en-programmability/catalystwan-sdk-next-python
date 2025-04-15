@@ -11,9 +11,7 @@ Create device vManage connection list
 
 .. code:: python
 
-    def create_device_vmanage_connection_list() -> (
-        List[MessagingResp]
-    ): ...
+    def get() -> List[MessagingResp]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.messaging.device.vmanage.create_device_vmanage_connection_list()
+        client.messaging.device.vmanage.get()
 
 
 .. toctree::

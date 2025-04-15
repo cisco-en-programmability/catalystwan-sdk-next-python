@@ -11,7 +11,7 @@ Upload device certificates
 
 .. code:: python
 
-    def upload_certificiates(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.certificates.upload_certificiates()
+        client.sslproxy.certificates.post()
 
 

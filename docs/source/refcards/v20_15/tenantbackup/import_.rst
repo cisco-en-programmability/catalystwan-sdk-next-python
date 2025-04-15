@@ -11,7 +11,7 @@ Submit a previously backed up file and import the data and apply it to the confi
 
 .. code:: python
 
-    def import_tenant_backup() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenantbackup.import_.import_tenant_backup()
+        client.tenantbackup.import_.post()
 
 

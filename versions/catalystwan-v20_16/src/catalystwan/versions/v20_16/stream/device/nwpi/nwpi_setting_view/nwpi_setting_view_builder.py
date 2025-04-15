@@ -20,9 +20,10 @@ class NwpiSettingViewBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def nwpi_setting_view(self, type_: Optional[str] = None, **kw) -> NwpiSettingDataPayload:
+    def get(self, type_: Optional[str] = None, **kw) -> NwpiSettingDataPayload:
         """
         get NWPI setting
+        GET /dataservice/stream/device/nwpi/nwpiSettingView
 
         :param type_: setting type
         :returns: NwpiSettingDataPayload

@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING
 from catalystwan.abc import RequestAdapterInterface
 
 if TYPE_CHECKING:
+    from .analyze_cli_config.analyze_cli_config_builder import AnalyzeCliConfigBuilder
     from .running_ios_cli_config.running_ios_cli_config_builder import RunningIosCliConfigBuilder
     from .unsupported_cli_config.unsupported_cli_config_builder import UnsupportedCliConfigBuilder
 
@@ -17,6 +18,15 @@ class DeviceBuilder:
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
+
+    @property
+    def analyze_cli_config(self) -> AnalyzeCliConfigBuilder:
+        """
+        The analyzeCliConfig property
+        """
+        from .analyze_cli_config.analyze_cli_config_builder import AnalyzeCliConfigBuilder
+
+        return AnalyzeCliConfigBuilder(self._request_adapter)
 
     @property
     def running_ios_cli_config(self) -> RunningIosCliConfigBuilder:

@@ -11,9 +11,7 @@ Get SD-WAN Remote Access Head-end summary
 
 .. code:: python
 
-    def get_sdra_headend_summary(
-        site: Optional[int] = None,
-    ) -> SdraHeadendSummary: ...
+    def get(site: Optional[int] = None) -> SdraHeadendSummary: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.sdra.headends.get_sdra_headend_summary()
+        client.statistics.sdra.headends.get()
 
 
 .. toctree::

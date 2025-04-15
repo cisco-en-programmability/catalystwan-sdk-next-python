@@ -11,9 +11,7 @@ Process marking default partition operation
 
 .. code:: python
 
-    def process_default_partition(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.defaultpartition.process_default_partition()
+        client.device.action.defaultpartition.post()
 
 

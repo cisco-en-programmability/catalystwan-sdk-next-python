@@ -50,3 +50,23 @@ class Alarm:
     uuid: Optional[str] = _field(default=None)
     values: Optional[List[GeneralSchema]] = _field(default=None)
     values_short_display: Optional[List[GeneralSchema]] = _field(default=None)
+
+
+@dataclass
+class PageInfo:
+    # number of alarms to be fetched
+    count: Optional[int] = _field(default=None)
+    # end time of alarms to be fetched
+    end_time: Optional[int] = _field(default=None, metadata={"alias": "endTime"})
+    # start time of alarms to be fetched
+    start_time: Optional[int] = _field(default=None, metadata={"alias": "startTime"})
+
+
+@dataclass
+class AlarmResponse:
+    """
+    AlarmResponse is used for GET/POST /alarms call.
+    """
+
+    data: Optional[List[Alarm]] = _field(default=None)
+    page_info: Optional[PageInfo] = _field(default=None, metadata={"alias": "pageInfo"})

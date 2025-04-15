@@ -11,8 +11,8 @@ Get Smart account and virtual account distribution of selected licenses
 
 .. code:: python
 
-    def get_sava_distribution(
-        payload: Optional[SaVaDistributionRequest] = None,
+    def post(
+        payload: SaVaDistributionRequest,
     ) -> SaVaDistributionResponse: ...
 
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.licensing.sa_va_distribution.get_sava_distribution()
+        client.v1.licensing.sa_va_distribution.post()
 
 
 .. toctree::

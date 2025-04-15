@@ -11,7 +11,7 @@ Get CloudExpress routes received list
 
 .. code:: python
 
-    def create_omp_cloud_x_recv(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.omp.cloudx.create_omp_cloud_x_recv()
+        client.device.omp.cloudx.get()
 
 

@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,11 +17,10 @@ class ApplicationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def application_compliance_with_extended_applications(
-        self, payload: Optional[ExtendedApplicationRequestData] = None, **kw
-    ) -> Application:
+    def post(self, payload: ExtendedApplicationRequestData, **kw) -> Application:
         """
-        Application compliance with extended applications
+        Post
+        POST /dataservice/sdavc/cloud-sourced/compliance/application
 
         :param payload: Payload
         :returns: Application

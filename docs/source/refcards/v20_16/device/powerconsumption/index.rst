@@ -11,9 +11,7 @@ Get Power Consumption Information
 
 .. code:: python
 
-    def get_power_consumption(
-        device_id: DeviceIp,
-    ) -> PowerConsumptionRealTime: ...
+    def get(device_id: DeviceIp) -> PowerConsumptionRealTime: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.powerconsumption.get_power_consumption()
+        client.device.powerconsumption.get()
 
 
 .. toctree::

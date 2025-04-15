@@ -11,7 +11,7 @@ Add internal policy from vmanage
 
 .. code:: python
 
-    def add_internal_policy(payload: Optional[Any] = None) -> Any: ...
+    def put(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.mdp.policies.mdpconfig.add_internal_policy()
+        client.mdp.policies.mdpconfig.put()
 
 
 Operation: GET /dataservice/mdp/policies/mdpconfig/{deviceId}
@@ -40,7 +40,7 @@ Retrieve MDP ConfigObject
 
 .. code:: python
 
-    def retrieve_mdp_config_object(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.mdp.policies.mdpconfig.retrieve_mdp_config_object()
+        client.mdp.policies.mdpconfig.get()
 
 

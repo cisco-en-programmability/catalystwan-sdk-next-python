@@ -11,7 +11,7 @@ Get BFD session history from device (Real Time)
 
 .. code:: python
 
-    def create_bfd_history_list(
+    def get(
         device_id: str,
         system_ip: Optional[str] = None,
         color: Optional[ColorParam] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bfd.history.create_bfd_history_list()
+        client.device.bfd.history.get()
 
 
 .. toctree::

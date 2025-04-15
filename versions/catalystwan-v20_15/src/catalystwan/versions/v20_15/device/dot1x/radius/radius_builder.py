@@ -14,9 +14,10 @@ class RadiusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dot1x_radius(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get DOT1x Radius from device (Real Time)
+        GET /dataservice/device/dot1x/radius
 
         :param device_id: deviceId - Device IP
         :returns: Any

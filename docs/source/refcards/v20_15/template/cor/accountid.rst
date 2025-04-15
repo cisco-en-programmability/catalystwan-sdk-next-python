@@ -13,7 +13,7 @@ Delete transit VPC/VNet
 
 .. code:: python
 
-    def remove_transit_vpc(
+    def delete(
         accountid: str,
         transitvpcid: str,
         cloudregion: str,
@@ -36,6 +36,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.accountid.remove_transit_vpc()
+        client.template.cor.accountid.delete()
 
 

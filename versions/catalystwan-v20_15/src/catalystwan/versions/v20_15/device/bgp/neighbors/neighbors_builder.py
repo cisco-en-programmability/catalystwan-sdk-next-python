@@ -19,7 +19,7 @@ class NeighborsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_bgp_neighbors_list(
+    def get(
         self,
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
@@ -29,6 +29,7 @@ class NeighborsBuilder:
     ) -> List[Any]:
         """
         Get BGP neighbors list (Real Time)
+        GET /dataservice/device/bgp/neighbors
 
         :param vpn_id: VPN Id
         :param peer_addr: Peer address

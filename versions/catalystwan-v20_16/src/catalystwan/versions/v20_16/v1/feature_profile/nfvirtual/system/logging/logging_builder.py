@@ -1,9 +1,16 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateNfvirtualLoggingParcelPostRequest,
+    CreateNfvirtualLoggingParcelPostResponse,
+    EditNfvirtualLoggingParcelPutRequest,
+    EditNfvirtualLoggingParcelPutResponse,
+    GetSingleNfvirtualSystemLoggingPayload,
+)
 
 
 class LoggingBuilder:
@@ -11,18 +18,21 @@ class LoggingBuilder:
     Builds and executes requests for operations under /v1/feature-profile/nfvirtual/system/{systemId}/logging
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_nfvirtual_logging_parcel(
-        self, system_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self, system_id: str, payload: CreateNfvirtualLoggingParcelPostRequest, **kw
+    ) -> CreateNfvirtualLoggingParcelPostResponse:
         """
         Create Logging Profile Parcel for System feature profile
+        POST /dataservice/v1/feature-profile/nfvirtual/system/{systemId}/logging
 
         :param system_id: Feature Profile ID
         :param payload: Logging config Profile Parcel
-        :returns: str
+        :returns: CreateNfvirtualLoggingParcelPostResponse
         """
         params = {
             "systemId": system_id,
@@ -30,19 +40,20 @@ class LoggingBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/nfvirtual/system/{systemId}/logging",
-            return_type=str,
+            return_type=CreateNfvirtualLoggingParcelPostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_nfvirtual_logging_parcel(self, system_id: str, logging_id: str, **kw) -> str:
+    def get(self, system_id: str, logging_id: str, **kw) -> GetSingleNfvirtualSystemLoggingPayload:
         """
         Get Logging Profile Parcels for System feature profile
+        GET /dataservice/v1/feature-profile/nfvirtual/system/{systemId}/logging/{loggingId}
 
         :param system_id: Feature Profile ID
         :param logging_id: Profile Parcel ID
-        :returns: str
+        :returns: GetSingleNfvirtualSystemLoggingPayload
         """
         params = {
             "systemId": system_id,
@@ -51,21 +62,22 @@ class LoggingBuilder:
         return self._request_adapter.request(
             "GET",
             "/dataservice/v1/feature-profile/nfvirtual/system/{systemId}/logging/{loggingId}",
-            return_type=str,
+            return_type=GetSingleNfvirtualSystemLoggingPayload,
             params=params,
             **kw,
         )
 
-    def edit_nfvirtual_logging_parcel(
-        self, system_id: str, logging_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self, system_id: str, logging_id: str, payload: EditNfvirtualLoggingParcelPutRequest, **kw
+    ) -> EditNfvirtualLoggingParcelPutResponse:
         """
         Edit a  Logging Profile Parcel for System feature profile
+        PUT /dataservice/v1/feature-profile/nfvirtual/system/{systemId}/logging/{loggingId}
 
         :param system_id: Feature Profile ID
         :param logging_id: Profile Parcel ID
         :param payload: Logging Profile Parcel
-        :returns: str
+        :returns: EditNfvirtualLoggingParcelPutResponse
         """
         params = {
             "systemId": system_id,
@@ -74,15 +86,16 @@ class LoggingBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/nfvirtual/system/{systemId}/logging/{loggingId}",
-            return_type=str,
+            return_type=EditNfvirtualLoggingParcelPutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_nfvirtual_logging_parcel(self, system_id: str, logging_id: str, **kw):
+    def delete(self, system_id: str, logging_id: str, **kw):
         """
         Delete a Logging Profile Parcel for System feature profile
+        DELETE /dataservice/v1/feature-profile/nfvirtual/system/{systemId}/logging/{loggingId}
 
         :param system_id: Feature Profile ID
         :param logging_id: Profile Parcel ID

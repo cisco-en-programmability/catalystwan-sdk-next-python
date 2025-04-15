@@ -19,9 +19,10 @@ class AttachedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_attached_config(self, device_id: str, type_: Optional[TypeParam] = "CFS", **kw) -> Any:
+    def get(self, device_id: str, type_: Optional[TypeParam] = "CFS", **kw) -> Any:
         """
         Get local template attached config for given device
+        GET /dataservice/template/config/attached/{deviceId}
 
         :param device_id: Device Model ID
         :param type_: Config type

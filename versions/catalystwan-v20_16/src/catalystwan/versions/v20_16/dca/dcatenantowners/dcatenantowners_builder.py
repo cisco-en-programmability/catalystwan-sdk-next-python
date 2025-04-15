@@ -14,9 +14,10 @@ class DcatenantownersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dca_tenant_owners(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get DCA tenant owners
+        GET /dataservice/dca/dcatenantowners
 
         :returns: Any
         """

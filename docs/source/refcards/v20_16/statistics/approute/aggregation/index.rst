@@ -11,9 +11,7 @@ Get aggregated data based on input query and filters. The data can be filtered o
 
 .. code:: python
 
-    def get_aggregation_data_by_query_2(
-        query: Optional[str] = None,
-    ) -> List[AppRouteAggResp]: ...
+    def get(query: Optional[str] = None) -> List[AppRouteAggResp]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.approute.aggregation.get_aggregation_data_by_query_2()
+        client.statistics.approute.aggregation.get()
 
 
 Operation: POST /dataservice/statistics/approute/aggregation
@@ -42,9 +40,7 @@ Get aggregated data based on input query and filters. The data can be filtered o
 
 .. code:: python
 
-    def get_post_aggregation_data_by_query_2(
-        payload: Optional[Any] = None,
-    ) -> List[AppRouteAggResp]: ...
+    def post(payload: Any) -> List[AppRouteAggResp]: ...
 
 
 Example:
@@ -62,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.approute.aggregation.get_post_aggregation_data_by_query_2()
+        client.statistics.approute.aggregation.post()
 
 
 .. toctree::

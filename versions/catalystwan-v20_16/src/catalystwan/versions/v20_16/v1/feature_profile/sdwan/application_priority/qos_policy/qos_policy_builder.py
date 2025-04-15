@@ -1,9 +1,16 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreatePolicyApplicationProfileParcelPostRequest,
+    CreatePolicyApplicationProfileParcelPostResponse,
+    EditPolicyApplicationProfileParcelPutRequest,
+    EditPolicyApplicationProfileParcelPutResponse,
+    GetSingleSdwanApplicationPriorityQosPolicyPayload,
+)
 
 
 class QosPolicyBuilder:
@@ -11,18 +18,24 @@ class QosPolicyBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/qos-policy
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_policy_application_profile_parcel(
-        self, application_priority_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self,
+        application_priority_id: str,
+        payload: CreatePolicyApplicationProfileParcelPostRequest,
+        **kw,
+    ) -> CreatePolicyApplicationProfileParcelPostResponse:
         """
         Create QOS Policy feature for application-priority feature profile
+        POST /dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/qos-policy
 
         :param application_priority_id: Application priority id
         :param payload: QOS Profile Parcel
-        :returns: str
+        :returns: CreatePolicyApplicationProfileParcelPostResponse
         """
         params = {
             "applicationPriorityId": application_priority_id,
@@ -30,21 +43,22 @@ class QosPolicyBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/qos-policy",
-            return_type=str,
+            return_type=CreatePolicyApplicationProfileParcelPostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_policy_application_profile_parcel(
+    def get(
         self, application_priority_id: str, qos_policy_id: str, **kw
-    ) -> str:
+    ) -> GetSingleSdwanApplicationPriorityQosPolicyPayload:
         """
         Get QOS Policy feature for application-priority feature profile
+        GET /dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/qos-policy/{qosPolicyId}
 
         :param application_priority_id: Application priority id
         :param qos_policy_id: Qos policy id
-        :returns: str
+        :returns: GetSingleSdwanApplicationPriorityQosPolicyPayload
         """
         params = {
             "applicationPriorityId": application_priority_id,
@@ -53,21 +67,26 @@ class QosPolicyBuilder:
         return self._request_adapter.request(
             "GET",
             "/dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/qos-policy/{qosPolicyId}",
-            return_type=str,
+            return_type=GetSingleSdwanApplicationPriorityQosPolicyPayload,
             params=params,
             **kw,
         )
 
-    def edit_policy_application_profile_parcel(
-        self, application_priority_id: str, qos_policy_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self,
+        application_priority_id: str,
+        qos_policy_id: str,
+        payload: EditPolicyApplicationProfileParcelPutRequest,
+        **kw,
+    ) -> EditPolicyApplicationProfileParcelPutResponse:
         """
         Edit QOS Policy feature for application-priority feature profile
+        PUT /dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/qos-policy/{qosPolicyId}
 
         :param application_priority_id: Application priority id
         :param qos_policy_id: Qos policy id
         :param payload: QOS Profile Parcel
-        :returns: str
+        :returns: EditPolicyApplicationProfileParcelPutResponse
         """
         params = {
             "applicationPriorityId": application_priority_id,
@@ -76,17 +95,16 @@ class QosPolicyBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/qos-policy/{qosPolicyId}",
-            return_type=str,
+            return_type=EditPolicyApplicationProfileParcelPutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_policy_application_profile_parcel(
-        self, application_priority_id: str, qos_policy_id: str, **kw
-    ):
+    def delete(self, application_priority_id: str, qos_policy_id: str, **kw):
         """
         Delete QOS Policy feature for application-priority feature profile
+        DELETE /dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/qos-policy/{qosPolicyId}
 
         :param application_priority_id: Application priority id
         :param qos_policy_id: Qos policy id

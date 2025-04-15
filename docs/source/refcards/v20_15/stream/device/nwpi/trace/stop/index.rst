@@ -11,7 +11,7 @@ Trace Action - Stop
 
 .. code:: python
 
-    def trace_stop(trace_id: str) -> NwpiTraceStopRespPayload: ...
+    def post(trace_id: str) -> NwpiTraceStopRespPayload: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.trace.stop.trace_stop()
+        client.stream.device.nwpi.trace.stop.post()
 
 
 .. toctree::

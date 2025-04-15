@@ -17,9 +17,10 @@ class CountersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_counters(self, **kw) -> DeviceCountersResponse:
+    def get(self, **kw) -> DeviceCountersResponse:
         """
         Get device counters
+        GET /dataservice/device/counters
 
         :returns: DeviceCountersResponse
         """

@@ -11,7 +11,7 @@ Get detailed DPI application flows summary
 
 .. code:: python
 
-    def get_agg_app_flows_summary(
+    def get(
         query: str,
         limit: Optional[int] = None,
         site_id: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.dpi.applications.summary.get_agg_app_flows_summary()
+        client.statistics.dpi.applications.summary.get()
 
 
 .. toctree::

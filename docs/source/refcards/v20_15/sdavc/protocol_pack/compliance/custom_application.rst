@@ -11,7 +11,7 @@ Get All Custom Applications
 
 .. code:: python
 
-    def get_custom_application_list() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.custom_application.get_custom_application_list()
+        client.sdavc.protocol_pack.compliance.custom_application.get()
 
 

@@ -11,7 +11,7 @@ Get users from device (Real Time)
 
 .. code:: python
 
-    def get_users_from_device(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.users.get_users_from_device()
+        client.device.users.get()
 
 
 .. toctree::

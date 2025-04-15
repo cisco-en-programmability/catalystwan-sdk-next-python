@@ -11,7 +11,7 @@ Get licenses associated to device
 
 .. code:: python
 
-    def get_device_details_for_dashboard() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.msla.monitoring.licensed_device_count.get_device_details_for_dashboard()
+        client.msla.monitoring.licensed_device_count.get()
 
 

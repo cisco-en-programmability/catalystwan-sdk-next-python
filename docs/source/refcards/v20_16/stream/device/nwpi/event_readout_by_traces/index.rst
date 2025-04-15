@@ -13,7 +13,7 @@ Get event Readout By Traces
 
 .. code:: python
 
-    def get_event_readout_by_traces(
+    def get(
         trace_id: List[int],
         entry_time: List[int],
         vpn: Optional[str] = None,
@@ -36,7 +36,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.event_readout_by_traces.get_event_readout_by_traces()
+        client.stream.device.nwpi.event_readout_by_traces.get()
 
 
 .. toctree::

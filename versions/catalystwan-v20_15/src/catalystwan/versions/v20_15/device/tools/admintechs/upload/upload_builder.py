@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,9 +17,10 @@ class UploadBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def upload_admin_tech(self, payload: Optional[AdminTechsUploadReq] = None, **kw):
+    def post(self, payload: AdminTechsUploadReq, **kw):
         """
         upload admin tech to SR
+        POST /dataservice/device/tools/admintechs/upload
 
         :param payload: Admin tech upload request
         :returns: None

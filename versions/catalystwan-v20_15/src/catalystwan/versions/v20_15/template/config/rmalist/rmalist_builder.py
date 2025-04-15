@@ -14,9 +14,10 @@ class RmalistBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_compatible_devices(self, old_device_id: str, **kw) -> List[Any]:
+    def get(self, old_device_id: str, **kw) -> List[Any]:
         """
         Get compatible devices of model, chassis number, certificate serial number with the old device
+        GET /dataservice/template/config/rmalist/{oldDeviceId}
 
         :param old_device_id: Device Model ID
         :returns: List[Any]

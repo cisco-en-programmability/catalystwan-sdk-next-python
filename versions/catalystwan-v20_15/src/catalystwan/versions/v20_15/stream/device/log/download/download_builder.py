@@ -12,9 +12,10 @@ class DownloadBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def download_debug_log(self, session_id: str, **kw):
+    def get(self, session_id: str, **kw):
         """
-        Download debug log
+        Get
+        GET /dataservice/stream/device/log/download/{sessionId}
 
         :param session_id: Session Id
         :returns: None

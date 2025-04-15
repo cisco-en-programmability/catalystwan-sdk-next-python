@@ -1,12 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional
+from typing import TYPE_CHECKING, Any, Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import Alarm
+from .models import AlarmResponse
 
 if TYPE_CHECKING:
     from .aggregation.aggregation_builder import AggregationBuilder
@@ -47,36 +47,38 @@ class AlarmsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_raw_alarm_data(
+    def get(
         self, query: Optional[str] = None, site_id: Optional[str] = None, **kw
-    ) -> List[Alarm]:
+    ) -> AlarmResponse:
         """
         Get alarms for given query. If query is empty then last 30 mins data will be returned.
+        GET /dataservice/alarms
 
         :param query: Query
         :param site_id: Specify the site-id to filter the alarms
-        :returns: List[Alarm]
+        :returns: AlarmResponse
         """
         params = {
             "query": query,
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/alarms", return_type=List[Alarm], params=params, **kw
+            "GET", "/dataservice/alarms", return_type=AlarmResponse, params=params, **kw
         )
 
-    def post_raw_alarm_data(
+    def post(
         self,
-        payload: Optional[Any] = None,
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
         sort_order: Optional[str] = None,
         site_id: Optional[str] = None,
         **kw,
-    ) -> List[Alarm]:
+    ) -> AlarmResponse:
         """
         Get alarms for given query.
+        POST /dataservice/alarms
 
         :param page: Specify page number. Value should be a positive integer
         :param page_size: Specify page size. Value should be a positive integer
@@ -84,7 +86,7 @@ class AlarmsBuilder:
         :param sort_order: Select sorting order. Use ASC for ascending and DESC for descending
         :param site_id: Specify the site-id to filter the alarms
         :param payload: Alarm query string
-        :returns: List[Alarm]
+        :returns: AlarmResponse
         """
         params = {
             "page": page,
@@ -96,7 +98,7 @@ class AlarmsBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/alarms",
-            return_type=List[Alarm],
+            return_type=AlarmResponse,
             params=params,
             payload=payload,
             **kw,

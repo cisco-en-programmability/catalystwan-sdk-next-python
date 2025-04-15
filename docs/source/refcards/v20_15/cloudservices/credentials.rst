@@ -11,7 +11,7 @@ Get cloud service credentials
 
 .. code:: python
 
-    def get_cloud_credentials() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.credentials.get_cloud_credentials()
+        client.cloudservices.credentials.get()
 
 
 Operation: POST /dataservice/cloudservices/credentials
@@ -40,7 +40,7 @@ Add cloud service credentials
 
 .. code:: python
 
-    def add_cloud_credentials(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.credentials.add_cloud_credentials()
+        client.cloudservices.credentials.post()
 
 

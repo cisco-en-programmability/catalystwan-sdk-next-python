@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional
+from typing import Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,9 +19,10 @@ class MonitorBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_url_monitor(self, **kw) -> List[UrlMonitoringInfoInner]:
+    def get(self, **kw) -> List[UrlMonitoringInfoInner]:
         """
         List url's with monitoring configuration and details about the current state of alarm.
+        GET /dataservice/url/monitor
 
         :returns: List[UrlMonitoringInfoInner]
         """
@@ -29,9 +30,10 @@ class MonitorBuilder:
             "GET", "/dataservice/url/monitor", return_type=List[UrlMonitoringInfoInner], **kw
         )
 
-    def update_url_monitor(self, payload: Optional[Any] = None, **kw):
+    def put(self, payload: Any, **kw):
         """
         Update monitor configuration related to the url
+        PUT /dataservice/url/monitor
 
         :param payload: Payload
         :returns: None
@@ -40,9 +42,10 @@ class MonitorBuilder:
             "PUT", "/dataservice/url/monitor", payload=payload, **kw
         )
 
-    def create_url_monitor(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Monitor the url with specified configuration.
+        POST /dataservice/url/monitor
 
         :param payload: Payload
         :returns: None
@@ -51,9 +54,10 @@ class MonitorBuilder:
             "POST", "/dataservice/url/monitor", payload=payload, **kw
         )
 
-    def delete_url_monitor(self, url: str, **kw):
+    def delete(self, url: str, **kw):
         """
         Delete an url which is already being monitored.
+        DELETE /dataservice/url/monitor
 
         :param url: Url
         :returns: None

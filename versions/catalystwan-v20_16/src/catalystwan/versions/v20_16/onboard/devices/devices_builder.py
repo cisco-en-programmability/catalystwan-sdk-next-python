@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional
+from typing import Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,9 +19,10 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_devices(self, status: str, **kw) -> List[DeviceDetailsData]:
+    def get(self, status: str, **kw) -> List[DeviceDetailsData]:
         """
         GET Manual Onboard Device details
+        GET /dataservice/onboard/devices
 
         :param status: Status
         :returns: List[DeviceDetailsData]
@@ -37,9 +38,10 @@ class DevicesBuilder:
             **kw,
         )
 
-    def manual_onboard_devices(self, payload: Optional[DeviceDetailsData] = None, **kw) -> Any:
+    def post(self, payload: DeviceDetailsData, **kw) -> Any:
         """
         Manual Onboard added Device details
+        POST /dataservice/onboard/devices
 
         :param payload: On board Devices
         :returns: Any

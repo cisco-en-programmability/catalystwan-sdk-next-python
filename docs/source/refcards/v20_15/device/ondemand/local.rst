@@ -11,7 +11,7 @@ Get on-demand local (Real Time)
 
 .. code:: python
 
-    def get_on_demand_local(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ondemand.local.get_on_demand_local()
+        client.device.ondemand.local.get()
 
 

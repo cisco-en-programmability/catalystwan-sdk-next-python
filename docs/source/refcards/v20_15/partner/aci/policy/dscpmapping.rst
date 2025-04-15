@@ -11,7 +11,7 @@ Get DSCP policy
 
 .. code:: python
 
-    def get_dscp_mappings(partner_id: str) -> Any: ...
+    def get(partner_id: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.aci.policy.dscpmapping.get_dscp_mappings()
+        client.partner.aci.policy.dscpmapping.get()
 
 
 Operation: POST /dataservice/partner/aci/policy/dscpmapping/{partnerId}
@@ -40,9 +40,7 @@ Create an ACI definition entry
 
 .. code:: python
 
-    def create_dscp_mappings(
-        partner_id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def post(partner_id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.aci.policy.dscpmapping.create_dscp_mappings()
+        client.partner.aci.policy.dscpmapping.post()
 
 
 Operation: DELETE /dataservice/partner/aci/policy/dscpmapping/{partnerId}
@@ -71,7 +69,7 @@ Delete DSCP mapping
 
 .. code:: python
 
-    def delete_dscp_mappings(partner_id: str) -> Any: ...
+    def delete(partner_id: str) -> Any: ...
 
 
 Example:
@@ -89,6 +87,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.aci.policy.dscpmapping.delete_dscp_mappings()
+        client.partner.aci.policy.dscpmapping.delete()
 
 

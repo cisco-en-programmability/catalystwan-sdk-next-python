@@ -11,7 +11,7 @@ Get OMP received routes list (Real Time)
 
 .. code:: python
 
-    def create_received_routes_list(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.omp.routes.received.create_received_routes_list()
+        client.device.omp.routes.received.get()
 
 
 .. toctree::

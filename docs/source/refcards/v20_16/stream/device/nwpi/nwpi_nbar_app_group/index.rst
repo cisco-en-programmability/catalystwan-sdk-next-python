@@ -11,9 +11,7 @@ Deprecated!!!
 
 .. code:: python
 
-    def get_nwpi_nbar_app_group() -> (
-        List[NwpiNbarAppGroupResponsePayloadInner]
-    ): ...
+    def get() -> List[NwpiNbarAppGroupResponsePayloadInner]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.nwpi_nbar_app_group.get_nwpi_nbar_app_group()
+        client.stream.device.nwpi.nwpi_nbar_app_group.get()
 
 
 .. toctree::

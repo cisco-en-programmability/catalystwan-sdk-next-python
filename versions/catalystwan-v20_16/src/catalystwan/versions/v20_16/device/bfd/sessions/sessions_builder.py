@@ -6,7 +6,7 @@ from typing import Any, List, Optional
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import ColorParam, RegionTypeParam
+from .models import ColorParam, LocalColorParam, RegionTypeParam
 
 
 class SessionsBuilder:
@@ -19,17 +19,18 @@ class SessionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_bfd_sessions(
+    def get(
         self,
         device_id: str,
         system_ip: Optional[str] = None,
         color: Optional[ColorParam] = None,
-        local_color: Optional[ColorParam] = None,
+        local_color: Optional[LocalColorParam] = None,
         region_type: Optional[RegionTypeParam] = None,
         **kw,
     ) -> List[Any]:
         """
         Get list of BFD sessions from vManage (Real Time)
+        GET /dataservice/device/bfd/sessions
 
         :param system_ip: System IP
         :param color: Remote color

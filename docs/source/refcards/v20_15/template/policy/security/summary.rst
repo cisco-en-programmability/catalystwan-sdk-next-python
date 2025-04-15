@@ -11,7 +11,7 @@ Generate security policy summary
 
 .. code:: python
 
-    def generate_security_policy_summary() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.security.summary.generate_security_policy_summary()
+        client.template.policy.security.summary.get()
 
 

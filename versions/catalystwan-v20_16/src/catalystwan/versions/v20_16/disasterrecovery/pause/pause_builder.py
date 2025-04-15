@@ -14,9 +14,10 @@ class PauseBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def pause_dr(self, **kw) -> Any:
+    def post(self, **kw) -> Any:
         """
         Pause DR
+        POST /dataservice/disasterrecovery/pause
 
         :returns: Any
         """

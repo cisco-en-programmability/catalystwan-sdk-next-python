@@ -14,9 +14,10 @@ class TunnelDashboardBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def tunnel_dashboard(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get SIG Zscaler tunnels from device
+        GET /dataservice/device/sig/tunnelDashboard
 
         :returns: Any
         """

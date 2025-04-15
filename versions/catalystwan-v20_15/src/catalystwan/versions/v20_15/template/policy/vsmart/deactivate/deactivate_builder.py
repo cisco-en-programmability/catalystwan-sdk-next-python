@@ -14,9 +14,10 @@ class DeactivateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def de_activate_policy(self, policy_id: str, **kw) -> Any:
+    def post(self, policy_id: str, **kw) -> Any:
         """
         Deactivate vsmart policy for a given policy id
+        POST /dataservice/template/policy/vsmart/deactivate/{policyId}
 
         :param policy_id: Policy Id
         :returns: Any

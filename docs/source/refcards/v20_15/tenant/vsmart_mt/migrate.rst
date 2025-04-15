@@ -11,7 +11,7 @@ Migrate tenants from single tenant vSmarts to multi-tenant capable vSmarts<br><b
 
 .. code:: python
 
-    def tenantv_smart_mt_migrate() -> List[Any]: ...
+    def post() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenant.vsmart_mt.migrate.tenantv_smart_mt_migrate()
+        client.tenant.vsmart_mt.migrate.post()
 
 

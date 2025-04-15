@@ -19,11 +19,10 @@ class SshkeysBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_ssh_key_list(
-        self, cloud_type: str, account_id: str, cloud_region: str, **kw
-    ) -> List[SshKeyList]:
+    def get(self, cloud_type: str, account_id: str, cloud_region: str, **kw) -> List[SshKeyList]:
         """
         Get ssh keyList for cloud type
+        GET /dataservice/multicloud/sshkeys
 
         :param cloud_type: Cloud type
         :param account_id: Account id

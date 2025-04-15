@@ -11,7 +11,7 @@ Get applications health for all sites
 
 .. code:: python
 
-    def get_applications_sites_health(
+    def get(
         is_heat_map: Optional[bool] = None,
         last_n_hours: Optional[LastNHoursParam] = None,
         health: Optional[HealthParam] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.perfmon.applications.sites.health.get_applications_sites_health()
+        client.statistics.perfmon.applications.sites.health.get()
 
 
 .. toctree::

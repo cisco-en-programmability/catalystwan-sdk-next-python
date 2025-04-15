@@ -12,9 +12,10 @@ class ListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_devices_list(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         get device list
+        GET /dataservice/certificate/device/list
 
         :returns: str
         """

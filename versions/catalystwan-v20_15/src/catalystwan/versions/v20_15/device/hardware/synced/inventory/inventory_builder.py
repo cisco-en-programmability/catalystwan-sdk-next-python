@@ -14,9 +14,10 @@ class InventoryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_synced_inventory_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get hardware inventory list synchronously from device
+        GET /dataservice/device/hardware/synced/inventory
 
         :param device_id: deviceId - Device IP
         :returns: Any

@@ -15,9 +15,10 @@ class HtmlBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_running_config_html(self, device_id: List[str], **kw) -> str:
+    def get(self, device_id: List[str], **kw) -> str:
         """
         Get device running configuration in HTML format
+        GET /dataservice/device/config/html
 
         :param device_id: Device Id list
         :returns: str

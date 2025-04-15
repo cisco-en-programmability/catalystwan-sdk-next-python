@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -24,9 +24,10 @@ class UploadBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def upload_protocol_pack(self, payload: Optional[ProtocolPackUploadRequest] = None, **kw):
+    def post(self, payload: ProtocolPackUploadRequest, **kw):
         """
         Upload protocol pack to SDAVC
+        POST /dataservice/sdavc/protocol-pack/maintenance/upload
 
         :param payload: Protocol Pack File
         :returns: None

@@ -17,9 +17,10 @@ class ActiveCountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_active_task_count(self, **kw) -> DeviceTaskStatus:
+    def get(self, **kw) -> DeviceTaskStatus:
         """
         Get active task count
+        GET /dataservice/device/action/status/tasks/activeCount
 
         :returns: DeviceTaskStatus
         """

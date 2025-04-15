@@ -149,6 +149,10 @@ Models
         ref_id: Optional[RefIdOptionDef]
 
 
+    class UrlBlockedList:
+        ref_id: Optional[RefIdOptionDef]
+
+
     class OneOfBlockPageActionOptionsDef:
         option_type: GlobalOptionTypeDef
         value: (
@@ -185,7 +189,7 @@ Models
         block_page_contents: Optional[OneOfBlockPageContentsOptionsDef]
         redirect_url: Optional[OneOfRedirectUrlOptionsDef]
         url_allowed_list: Optional[UrlAllowedList]
-        url_blocked_list: Optional[UrlAllowedList]
+        url_blocked_list: Optional[UrlBlockedList]
         web_categories: Optional[OneOfWebCategoriesOptionsDef]
 
 
@@ -203,8 +207,22 @@ Models
         metadata: Optional[Any]
 
 
+    class CreateSecurityProfileParcelPostRequest22:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
     class CreateSecurityProfileParcelPostRequest31:
         data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class CreateSecurityProfileParcelPostRequest32:
+        data: Data
         name: str
         description: Optional[str]
         metadata: Optional[Any]
@@ -217,8 +235,148 @@ Models
         metadata: Optional[Any]
 
 
+    class CreateSecurityProfileParcelPostRequest42:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class CreateSecurityProfileParcelPostRequest51:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class CreateSecurityProfileParcelPostRequest52:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
     class CreateSecurityProfileParcelPostRequest61:
         data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class CreateSecurityProfileParcelPostRequest62:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class CreateSecurityProfileParcelPostRequest71:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class CreateSecurityProfileParcelPostRequest72:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload11:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload12:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload21:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload22:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload31:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload32:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload41:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload42:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload51:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload52:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload61:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload62:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload71:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload72:
+        data: Data
         name: str
         description: Optional[str]
         metadata: Optional[Any]
@@ -234,34 +392,13 @@ Models
         # url-filtering profile parcel schema for POST request
         payload: Optional[
             Union[
-                Union[
-                    CreateSecurityProfileParcelPostRequest11,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest21,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest31,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest41,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest31,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest61,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest31,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
+                Union[Payload11, Payload12],
+                Union[Payload21, Payload22],
+                Union[Payload31, Payload32],
+                Union[Payload41, Payload42],
+                Union[Payload51, Payload52],
+                Union[Payload61, Payload62],
+                Union[Payload71, Payload72],
             ]
         ]
 

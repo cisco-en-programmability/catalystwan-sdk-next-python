@@ -11,7 +11,7 @@ Get BGP routes list (Real Time)
 
 .. code:: python
 
-    def create_bgp_routes_list(
+    def get(
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
         prefix: Optional[str] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bgp.routes.create_bgp_routes_list()
+        client.device.bgp.routes.get()
 
 
 .. toctree::

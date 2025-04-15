@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,9 +17,10 @@ class GlobalBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_global_settings(self, cloud_type: CloudTypeParam, **kw) -> GlobalSettings:
+    def get(self, cloud_type: CloudTypeParam, **kw) -> GlobalSettings:
         """
         Get global settings
+        GET /dataservice/multicloud/settings/global
 
         :param cloud_type: Cloud type
         :returns: GlobalSettings
@@ -37,9 +36,10 @@ class GlobalBuilder:
             **kw,
         )
 
-    def update_global_settings(self, payload: Optional[GlobalSettings] = None, **kw):
+    def put(self, payload: GlobalSettings, **kw):
         """
         Update global settings
+        PUT /dataservice/multicloud/settings/global
 
         :param payload: Payload for updating Global Settings based on CloudType
         :returns: None
@@ -48,9 +48,10 @@ class GlobalBuilder:
             "PUT", "/dataservice/multicloud/settings/global", payload=payload, **kw
         )
 
-    def add_global_settings(self, payload: Optional[GlobalSettings] = None, **kw) -> Taskid:
+    def post(self, payload: GlobalSettings, **kw) -> Taskid:
         """
         Add global settings
+        POST /dataservice/multicloud/settings/global
 
         :param payload: Responses for get Global Settings based CloudType
         :returns: Taskid

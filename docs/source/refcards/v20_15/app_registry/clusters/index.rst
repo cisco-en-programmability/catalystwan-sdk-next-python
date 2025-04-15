@@ -11,7 +11,7 @@ Obtain all clusters with associated cloud accounts
 
 .. code:: python
 
-    def get_kubernetes_cluster(
+    def get(
         is_cached: Optional[bool] = True,
         offset: Optional[int] = 0,
         limit: Optional[int] = 0,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.clusters.get_kubernetes_cluster()
+        client.app_registry.clusters.get()
 
 
 Operation: POST /dataservice/app-registry/clusters
@@ -44,7 +44,7 @@ Manually upload kubeConfig
 
 .. code:: python
 
-    def post_cluster() -> None: ...
+    def post() -> None: ...
 
 
 Example:
@@ -62,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.clusters.post_cluster()
+        client.app_registry.clusters.post()
 
 
 Operation: PUT /dataservice/app-registry/clusters/{id}
@@ -73,9 +73,7 @@ Edit the discovery status of a cluster
 
 .. code:: python
 
-    def edit_kubernetes_cluster(
-        id: str, payload: Optional[PutProperties] = None
-    ) -> None: ...
+    def put(id: str, payload: PutProperties) -> None: ...
 
 
 Example:
@@ -93,7 +91,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.clusters.edit_kubernetes_cluster()
+        client.app_registry.clusters.put()
 
 
 Operation: DELETE /dataservice/app-registry/clusters/{id}
@@ -104,7 +102,7 @@ Delete manually uploaded cluster
 
 .. code:: python
 
-    def delete_kubernetes_cluster(id: str) -> None: ...
+    def delete(id: str) -> None: ...
 
 
 Example:
@@ -122,7 +120,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.clusters.delete_kubernetes_cluster()
+        client.app_registry.clusters.delete()
 
 
 .. toctree::

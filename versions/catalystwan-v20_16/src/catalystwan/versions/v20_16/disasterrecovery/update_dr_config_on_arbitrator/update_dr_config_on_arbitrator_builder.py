@@ -14,9 +14,10 @@ class UpdateDrConfigOnArbitratorBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def update_dr_state(self, **kw) -> Any:
+    def post(self, **kw) -> Any:
         """
         Update arbitrator with primary and secondary states cluster
+        POST /dataservice/disasterrecovery/updateDRConfigOnArbitrator
 
         :returns: Any
         """

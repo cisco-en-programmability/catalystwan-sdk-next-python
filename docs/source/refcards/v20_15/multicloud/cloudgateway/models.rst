@@ -192,7 +192,6 @@ Models
         region: str
         # Used for AZURE updateCgw
         resource_group_name: str
-        settings: AllOfupdateCgwSettings
         # Used for AZURE updateCgw
         vhub_id: str
         description: Optional[str]
@@ -203,5 +202,6 @@ Models
         mrf_router_role: Optional[str]
         # Used for GCP updateCgw
         s2s_permitted: Optional[str]
+        settings: Optional[AllOfupdateCgwSettings]
 
 

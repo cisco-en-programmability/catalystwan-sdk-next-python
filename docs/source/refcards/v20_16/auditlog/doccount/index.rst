@@ -11,7 +11,7 @@ Get response count of a query
 
 .. code:: python
 
-    def get_count(query: str) -> GetAuditLogDoccount: ...
+    def get(query: str) -> GetAuditLogDoccount: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.auditlog.doccount.get_count()
+        client.auditlog.doccount.get()
 
 
 Operation: POST /dataservice/auditlog/doccount
@@ -40,9 +40,7 @@ Get response count of a query
 
 .. code:: python
 
-    def get_count_post(
-        payload: Optional[Any] = None,
-    ) -> GetAuditLogDoccount: ...
+    def post(payload: Any) -> GetAuditLogDoccount: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.auditlog.doccount.get_count_post()
+        client.auditlog.doccount.post()
 
 
 .. toctree::

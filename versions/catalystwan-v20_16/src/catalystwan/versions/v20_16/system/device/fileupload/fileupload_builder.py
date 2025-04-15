@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,9 +19,10 @@ class FileuploadBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def form_post(self, payload: Optional[Any] = None, **kw) -> FormPostResp:
+    def post(self, payload: Any, **kw) -> FormPostResp:
         """
         Upload file to vEdge
+        POST /dataservice/system/device/fileupload
 
         :param payload: Request body for Upload file to vEdge
         :returns: FormPostResp

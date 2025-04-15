@@ -14,9 +14,10 @@ class ListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_schedules(self, limit: Optional[int] = 100, **kw) -> Any:
+    def get(self, limit: Optional[int] = 100, **kw) -> Any:
         """
         Get a schedule record for backup by scheduler id
+        GET /dataservice/schedule/list
 
         :param limit: size
         :returns: Any

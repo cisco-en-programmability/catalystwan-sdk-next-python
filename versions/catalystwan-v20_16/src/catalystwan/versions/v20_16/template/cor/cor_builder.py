@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Any, List, Optional
+from typing import TYPE_CHECKING, Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -35,9 +35,10 @@ class CorBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cor_status(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get Cloud On Ramp list
+        GET /dataservice/template/cor
 
         :returns: List[Any]
         """
@@ -46,9 +47,10 @@ class CorBuilder:
             "GET", "/dataservice/template/cor", return_type=List[Any], **kw
         )
 
-    def create_and_map(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Map Host to Transit VPC/VNet
+        POST /dataservice/template/cor
 
         :param payload: Map host to transit VPC request
         :returns: Any

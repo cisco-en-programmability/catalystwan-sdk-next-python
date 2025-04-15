@@ -11,7 +11,7 @@ Get container settings
 
 .. code:: python
 
-    def get_container_settings(
+    def get(
         container_name: str, host_ip: Optional[str] = None
     ) -> Any: ...
 
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.container_manager.settings.get_container_settings()
+        client.container_manager.settings.get()
 
 

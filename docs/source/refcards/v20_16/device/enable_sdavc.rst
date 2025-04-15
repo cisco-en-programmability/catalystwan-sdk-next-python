@@ -11,7 +11,7 @@ Enable/Disable SDAVC on device
 
 .. code:: python
 
-    def enable_sdavc_on_device(device_ip: str, enable: bool) -> None: ...
+    def post(device_ip: str, enable: bool) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.enable_sdavc.enable_sdavc_on_device()
+        client.device.enable_sdavc.post()
 
 

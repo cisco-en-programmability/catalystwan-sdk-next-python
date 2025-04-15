@@ -11,7 +11,7 @@ API to retrieve Cloud Connectivity Gateway create options.
 
 .. code:: python
 
-    def get_cloud_connectivity_gateway_create_options(
+    def get(
         cloud_type: str,
         cloud_account_id: str,
         connectivity_gateway_type: Optional[
@@ -36,7 +36,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.cloud.cloud_connectivity_gateways.create_options.get_cloud_connectivity_gateway_create_options()
+        client.multicloud.interconnect.cloud.cloud_connectivity_gateways.create_options.get()
 
 
 .. toctree::

@@ -13,7 +13,7 @@ Get all Connectivity Gateways
 
 .. code:: python
 
-    def get_connectivity_gateways(
+    def get(
         account_id: Optional[str] = None,
         cloud_type: Optional[str] = None,
         connectivity_type: Optional[str] = None,
@@ -41,7 +41,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.connectivitygateway.get_connectivity_gateways()
+        client.multicloud.connectivitygateway.get()
 
 
 Operation: POST /dataservice/multicloud/connectivitygateway
@@ -54,9 +54,7 @@ Create Connectivity gateway
 
 .. code:: python
 
-    def create_connectivity_gateway(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -74,7 +72,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.connectivitygateway.create_connectivity_gateway()
+        client.multicloud.connectivitygateway.post()
 
 
 Operation: DELETE /dataservice/multicloud/connectivitygateway
@@ -83,13 +81,10 @@ Operation: DELETE /dataservice/multicloud/connectivitygateway
 
 Deprecated!!!
 
-Delete all Connectivity Gateways in local DB
-
 .. code:: python
 
-    def clean_up_all_connectivity_gateways_in_local_db(
-        deletion_type: Optional[str] = None,
-    ) -> Any: ...
+    @overload
+    def delete(deletion_type: Optional[str] = None) -> Any: ...
 
 
 Example:
@@ -107,7 +102,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.connectivitygateway.clean_up_all_connectivity_gateways_in_local_db()
+        client.multicloud.connectivitygateway.delete()
 
 
 Operation: DELETE /dataservice/multicloud/connectivitygateway/{cloudProvider}/{connectivityGatewayName}
@@ -116,11 +111,10 @@ Operation: DELETE /dataservice/multicloud/connectivitygateway/{cloudProvider}/{c
 
 Deprecated!!!
 
-Delete Connectivity Gateway
-
 .. code:: python
 
-    def delete_connectivity_gateway(
+    @overload
+    def delete(
         cloud_provider: str,
         connectivity_gateway_name: str,
         connectivity_type: Optional[str] = None,
@@ -142,7 +136,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.connectivitygateway.delete_connectivity_gateway()
+        client.multicloud.connectivitygateway.delete()
 
 
 .. toctree::

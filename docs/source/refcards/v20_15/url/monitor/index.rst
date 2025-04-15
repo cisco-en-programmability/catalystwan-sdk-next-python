@@ -11,7 +11,7 @@ List url's with monitoring configuration and details about the current state of 
 
 .. code:: python
 
-    def get_url_monitor() -> List[UrlMonitoringInfoInner]: ...
+    def get() -> List[UrlMonitoringInfoInner]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.url.monitor.get_url_monitor()
+        client.url.monitor.get()
 
 
 Operation: PUT /dataservice/url/monitor
@@ -40,7 +40,7 @@ Update monitor configuration related to the url
 
 .. code:: python
 
-    def update_url_monitor(payload: Optional[Any] = None) -> None: ...
+    def put(payload: Any) -> None: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.url.monitor.update_url_monitor()
+        client.url.monitor.put()
 
 
 Operation: POST /dataservice/url/monitor
@@ -69,7 +69,7 @@ Monitor the url with specified configuration.
 
 .. code:: python
 
-    def create_url_monitor(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -87,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.url.monitor.create_url_monitor()
+        client.url.monitor.post()
 
 
 Operation: DELETE /dataservice/url/monitor
@@ -98,7 +98,7 @@ Delete an url which is already being monitored.
 
 .. code:: python
 
-    def delete_url_monitor(url: str) -> None: ...
+    def delete(url: str) -> None: ...
 
 
 Example:
@@ -116,7 +116,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.url.monitor.delete_url_monitor()
+        client.url.monitor.delete()
 
 
 .. toctree::

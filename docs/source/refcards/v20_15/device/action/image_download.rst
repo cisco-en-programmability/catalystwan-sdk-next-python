@@ -11,9 +11,7 @@ Intitate image download on the given device.
 
 .. code:: python
 
-    def initiate_image_download(
-        payload: Optional[Any] = None,
-    ) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.image_download.initiate_image_download()
+        client.device.action.image_download.post()
 
 

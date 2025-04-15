@@ -11,9 +11,7 @@ Get attached config to device
 
 .. code:: python
 
-    def get_dca_attached_config_to_device(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.template.device.config.attachedconfig.get_dca_attached_config_to_device()
+        client.dca.template.device.config.attachedconfig.post()
 
 

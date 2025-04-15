@@ -11,7 +11,7 @@ Get SLA class list from device (Real Time)
 
 .. code:: python
 
-    def create_app_route_sla_class_list(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.app_route.sla_class.create_app_route_sla_class_list()
+        client.device.app_route.sla_class.get()
 
 

@@ -11,7 +11,7 @@ Get fields and type
 
 .. code:: python
 
-    def get_stat_data_fields_12() -> List[InterfaceDocCountRequest]: ...
+    def get() -> List[InterfaceDocCountRequest]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.interface.fields.get_stat_data_fields_12()
+        client.statistics.interface.fields.get()
 
 
 .. toctree::

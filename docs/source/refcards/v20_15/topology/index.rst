@@ -11,7 +11,7 @@ Create full topology
 
 .. code:: python
 
-    def create_full_topology() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.topology.create_full_topology()
+        client.topology.get()
 
 
 .. toctree::

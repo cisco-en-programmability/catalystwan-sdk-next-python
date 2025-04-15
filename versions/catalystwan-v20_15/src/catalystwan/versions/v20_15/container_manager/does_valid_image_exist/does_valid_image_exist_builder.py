@@ -15,9 +15,10 @@ class DoesValidImageExistBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def does_valid_image_exist(self, container_name: str, **kw) -> Any:
+    def get(self, container_name: str, **kw) -> Any:
         """
         Get container image checksum
+        GET /dataservice/container-manager/doesValidImageExist/{containerName}
 
         :param container_name: Container name
         :returns: Any

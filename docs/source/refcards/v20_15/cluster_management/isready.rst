@@ -11,7 +11,7 @@ Is cluster ready<br><br><br>Note: In a multitenant vManage system, this API is o
 
 .. code:: python
 
-    def is_cluster_ready() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.isready.is_cluster_ready()
+        client.cluster_management.isready.get()
 
 

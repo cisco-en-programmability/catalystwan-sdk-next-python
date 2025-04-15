@@ -14,9 +14,10 @@ class ListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_device_users(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get all users from device
+        GET /dataservice/device/users/list
 
         :param device_id: Device IP
         :returns: List[Any]

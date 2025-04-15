@@ -19,7 +19,7 @@ class SessionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_sessions_list(
+    def get(
         self,
         device_id: str,
         if_name: Optional[IfNameParam] = None,
@@ -28,6 +28,7 @@ class SessionsBuilder:
     ) -> List[Any]:
         """
         Get cellular session list from device
+        GET /dataservice/device/cellular/sessions
 
         :param if_name: Interface name
         :param ipv4_dns_pri: DNS primary IP

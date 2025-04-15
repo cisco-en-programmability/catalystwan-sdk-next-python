@@ -12,9 +12,10 @@ class ResourceGroupBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def change_template_resource_group(self, template_id: str, resource_group_name: str, **kw):
+    def post(self, template_id: str, resource_group_name: str, **kw):
         """
         Change template resource group
+        POST /dataservice/template/feature/resource-group/{resourceGroupName}/{templateId}
 
         :param template_id: Template Id
         :param resource_group_name: Resrouce group name

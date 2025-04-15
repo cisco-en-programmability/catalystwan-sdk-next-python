@@ -11,7 +11,7 @@ Get default mapping values
 
 .. code:: python
 
-    def get_mapping_vpns() -> MapVpnsResponse: ...
+    def get() -> MapVpnsResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.map.vpns.get_mapping_vpns()
+        client.multicloud.map.vpns.get()
 
 
 .. toctree::

@@ -21,9 +21,10 @@ class ProtocolPackBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_protocol_packs(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get all protocol packs details
+        GET /dataservice/sdavc/protocol-pack
 
         :returns: Any
         """

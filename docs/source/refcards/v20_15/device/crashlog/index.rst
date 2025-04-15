@@ -11,7 +11,7 @@ Get device crash logs from device
 
 .. code:: python
 
-    def get_device_crash_logs(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.crashlog.get_device_crash_logs()
+        client.device.crashlog.get()
 
 
 .. toctree::

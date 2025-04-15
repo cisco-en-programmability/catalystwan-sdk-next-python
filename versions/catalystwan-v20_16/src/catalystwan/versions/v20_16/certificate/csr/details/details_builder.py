@@ -12,9 +12,10 @@ class DetailsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_csr_view_right_menus(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         Get CSR detail view
+        GET /dataservice/certificate/csr/details
 
         :returns: str
         """

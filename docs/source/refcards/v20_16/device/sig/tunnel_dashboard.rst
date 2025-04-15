@@ -11,7 +11,7 @@ Get SIG Zscaler tunnels from device
 
 .. code:: python
 
-    def tunnel_dashboard() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.sig.tunnel_dashboard.tunnel_dashboard()
+        client.device.sig.tunnel_dashboard.get()
 
 

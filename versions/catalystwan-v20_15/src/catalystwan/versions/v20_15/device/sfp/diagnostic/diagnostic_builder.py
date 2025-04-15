@@ -19,9 +19,10 @@ class DiagnosticBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_diagnostic(self, device_id: str, ifname: Optional[IfnameParam] = None, **kw) -> Any:
+    def get(self, device_id: str, ifname: Optional[IfnameParam] = None, **kw) -> Any:
         """
         Get SFP diagnostic
+        GET /dataservice/device/sfp/diagnostic
 
         :param ifname: IF Name
         :param device_id: deviceId - Device IP

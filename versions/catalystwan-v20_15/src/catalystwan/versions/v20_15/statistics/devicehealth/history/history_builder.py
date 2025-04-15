@@ -19,7 +19,7 @@ class HistoryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_health_history(
+    def get(
         self,
         last_n_hours: Optional[int] = 12,
         site: Optional[str] = None,
@@ -28,6 +28,7 @@ class HistoryBuilder:
     ) -> List[DeviceHealthHistoryItem]:
         """
         Get all device health history
+        GET /dataservice/statistics/devicehealth/history
 
         :param last_n_hours: Last n hours
         :param site: Site

@@ -3,37 +3,6 @@ v1.feature_profile.sdwan.transport.wan.vpn.interface.ipsec
 ==========================================================
 
 
-Operation: GET /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ipsec
-------------------------------------------------------------------------------------------------------------
-
-
-Get InterfaceIpsec Parcels for transport WanVpn Parcel
-
-.. code:: python
-
-    def get_list_of_profile_parcels_1(
-        transport_id: str, vpn_id: str
-    ) -> str: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.sdwan.transport.wan.vpn.interface.ipsec.get_list_of_profile_parcels_1()
-
-
 Operation: POST /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ipsec
 -------------------------------------------------------------------------------------------------------------
 
@@ -42,9 +11,11 @@ Create a WanVpn InterfaceIpsec parcel for transport feature profile
 
 .. code:: python
 
-    def create_ip_sec_profile_parcel_1(
-        transport_id: str, vpn_id: str, payload: Optional[str] = None
-    ) -> str: ...
+    def post(
+        transport_id: str,
+        vpn_id: str,
+        payload: CreateIpSecProfileParcel1PostRequest,
+    ) -> CreateIpSecProfileParcel1PostResponse: ...
 
 
 Example:
@@ -62,38 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.transport.wan.vpn.interface.ipsec.create_ip_sec_profile_parcel_1()
-
-
-Operation: GET /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ipsec/{ipsecId}
-----------------------------------------------------------------------------------------------------------------------
-
-
-Get WanVpn InterfaceIpsec Parcel by ethernetId for transport feature profile
-
-.. code:: python
-
-    def get_profile_parcel_by_parcel_id_1(
-        transport_id: str, vpn_id: str, ipsec_id: str
-    ) -> str: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.sdwan.transport.wan.vpn.interface.ipsec.get_profile_parcel_by_parcel_id_1()
+        client.v1.feature_profile.sdwan.transport.wan.vpn.interface.ipsec.post()
 
 
 Operation: PUT /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ipsec/{ipsecId}
@@ -104,12 +44,12 @@ Update a WanVpn InterfaceIpsec Parcel for transport feature profile
 
 .. code:: python
 
-    def edit_profile_parcel_1(
+    def put(
         transport_id: str,
         vpn_id: str,
         ipsec_id: str,
-        payload: Optional[str] = None,
-    ) -> str: ...
+        payload: EditProfileParcel1PutRequest,
+    ) -> EditProfileParcel1PutResponse: ...
 
 
 Example:
@@ -127,7 +67,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.transport.wan.vpn.interface.ipsec.edit_profile_parcel_1()
+        client.v1.feature_profile.sdwan.transport.wan.vpn.interface.ipsec.put()
 
 
 Operation: DELETE /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ipsec/{ipsecId}
@@ -138,9 +78,7 @@ Delete a  WanVpn InterfaceIpsec Parcel for transport feature profile
 
 .. code:: python
 
-    def delete_profile_parcel_1(
-        transport_id: str, vpn_id: str, ipsec_id: str
-    ) -> None: ...
+    def delete(transport_id: str, vpn_id: str, ipsec_id: str) -> None: ...
 
 
 Example:
@@ -158,12 +96,73 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.transport.wan.vpn.interface.ipsec.delete_profile_parcel_1()
+        client.v1.feature_profile.sdwan.transport.wan.vpn.interface.ipsec.delete()
+
+
+Operation: GET /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ipsec
+------------------------------------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        transport_id: str, vpn_id: str
+    ) -> GetListSdwanTransportWanVpnInterfaceIpsecPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sdwan.transport.wan.vpn.interface.ipsec.get()
+
+
+Operation: GET /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ipsec/{ipsecId}
+----------------------------------------------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        transport_id: str, vpn_id: str, ipsec_id: str
+    ) -> GetSingleSdwanTransportWanVpnInterfaceIpsecPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sdwan.transport.wan.vpn.interface.ipsec.get()
 
 
 .. toctree::
     :maxdepth: 1
 
     schema/index
-    tracker
+    tracker/index
+    models
 

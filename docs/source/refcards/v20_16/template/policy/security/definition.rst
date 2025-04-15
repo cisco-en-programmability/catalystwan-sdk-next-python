@@ -11,7 +11,7 @@ Get Template
 
 .. code:: python
 
-    def get_security_template(policy_id: str) -> Any: ...
+    def get(policy_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.security.definition.get_security_template()
+        client.template.policy.security.definition.get()
 
 

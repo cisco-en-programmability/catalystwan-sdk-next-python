@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -17,9 +17,10 @@ class CertificateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def show_info(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         Retrieves Certificate Signing Request information
+        GET /dataservice/setting/configuration/webserver/certificate
 
         :returns: str
         """
@@ -27,9 +28,10 @@ class CertificateBuilder:
             "GET", "/dataservice/setting/configuration/webserver/certificate", return_type=str, **kw
         )
 
-    def import_certificate(self, payload: Optional[Any] = None, **kw) -> str:
+    def put(self, payload: Any, **kw) -> str:
         """
         Import a signed web server certificate
+        PUT /dataservice/setting/configuration/webserver/certificate
 
         :param payload: Web Server Certificate configuration
         :returns: str
@@ -42,9 +44,10 @@ class CertificateBuilder:
             **kw,
         )
 
-    def get_csr(self, payload: Optional[Any] = None, **kw) -> str:
+    def post(self, payload: Any, **kw) -> str:
         """
         Generate Certificate Signing Request
+        POST /dataservice/setting/configuration/webserver/certificate
 
         :param payload: Web Server Certificate configuration
         :returns: str

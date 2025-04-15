@@ -26,7 +26,7 @@ class EventBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_events(
+    def get(
         self,
         query: Optional[str] = None,
         page: Optional[int] = None,
@@ -38,6 +38,7 @@ class EventBuilder:
     ) -> Any:
         """
         Get events for given query. If query is empty then last 30 mins data will be returned.
+        GET /dataservice/event
 
         :param query: Query
         :param page: Specify page number. Value should be a positive integer
@@ -57,9 +58,9 @@ class EventBuilder:
         }
         return self._request_adapter.request("GET", "/dataservice/event", params=params, **kw)
 
-    def post_events(
+    def post(
         self,
-        payload: Optional[Any] = None,
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -69,6 +70,7 @@ class EventBuilder:
     ) -> Any:
         """
         Get events for given query.
+        POST /dataservice/event
 
         :param page: Specify page number. Value should be a positive integer
         :param page_size: Specify page size. Value should be a positive integer

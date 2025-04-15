@@ -3,39 +3,6 @@ v1.feature_profile.sdwan.policy_object
 ======================================
 
 
-Operation: GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}
-----------------------------------------------------------------------------------------------------------
-
-
-Get Data Prefix Profile Parcels for Policy Object feature profile
-
-.. code:: python
-
-    def get_data_prefix_profile_parcel_for_policy_object(
-        policy_object_id: str,
-        policy_object_list_type: PolicyObjectListTypeParam,
-        reference_count: Optional[bool] = False,
-    ) -> str: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.sdwan.policy_object.get_data_prefix_profile_parcel_for_policy_object()
-
-
 Operation: POST /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}
 -----------------------------------------------------------------------------------------------------------
 
@@ -44,11 +11,44 @@ Create a Data Prefix Profile Parcel for Security Policy Object feature profile
 
 .. code:: python
 
-    def create_data_prefix_profile_parcel_for_security_policy_object(
+    def post(
         policy_object_id: str,
         policy_object_list_type: PolicyObjectListTypeParam,
-        payload: Optional[str] = None,
-    ) -> str: ...
+        payload: Union[
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest1,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest2,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest3,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest4,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest5,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest6,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest7,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest8,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest9,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest10,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest11,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest12,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest13,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest14,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest15,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest16,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest17,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest18,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest19,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest20,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest21,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest22,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest23,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest24,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest25,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest26,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest27,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest28,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest29,
+            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest30,
+        ],
+    ) -> (
+        CreateDataPrefixProfileParcelForSecurityPolicyObjectPostResponse
+    ): ...
 
 
 Example:
@@ -66,41 +66,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.policy_object.create_data_prefix_profile_parcel_for_security_policy_object()
-
-
-Operation: GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}/{listObjectId}
--------------------------------------------------------------------------------------------------------------------------
-
-
-Get Data Prefix Profile Parcel by parcelId for Policy Object feature profile
-
-.. code:: python
-
-    def get_data_prefix_profile_parcel_by_parcel_id_for_policy_object(
-        policy_object_id: str,
-        policy_object_list_type: PolicyObjectListTypeParam,
-        list_object_id: str,
-        references: Optional[bool] = False,
-    ) -> str: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.sdwan.policy_object.get_data_prefix_profile_parcel_by_parcel_id_for_policy_object()
+        client.v1.feature_profile.sdwan.policy_object.post()
 
 
 Operation: PUT /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}/{listObjectId}
@@ -111,12 +77,43 @@ Update a Data Prefix Profile Parcel for Policy Object feature profile
 
 .. code:: python
 
-    def edit_data_prefix_profile_parcel_for_policy_object(
+    def put(
         policy_object_id: str,
         policy_object_list_type: PolicyObjectListTypeParam,
         list_object_id: str,
-        payload: Optional[str] = None,
-    ) -> str: ...
+        payload: Union[
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest1,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest2,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest3,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest4,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest5,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest6,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest7,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest8,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest9,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest10,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest11,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest12,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest13,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest14,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest15,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest16,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest17,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest18,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest19,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest20,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest21,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest22,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest23,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest24,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest25,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest26,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest27,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest28,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest29,
+            EditDataPrefixProfileParcelForPolicyObjectPutRequest30,
+        ],
+    ) -> EditDataPrefixProfileParcelForPolicyObjectPutResponse: ...
 
 
 Example:
@@ -134,7 +131,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.policy_object.edit_data_prefix_profile_parcel_for_policy_object()
+        client.v1.feature_profile.sdwan.policy_object.put()
 
 
 Operation: DELETE /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}/{listObjectId}
@@ -145,7 +142,7 @@ Delete a Data Prefix Profile Parcel for Policy Object feature profile
 
 .. code:: python
 
-    def delete_data_prefix_profile_parcel_for_policy_object(
+    def delete(
         policy_object_id: str,
         policy_object_list_type: PolicyObjectListTypeParam,
         list_object_id: str,
@@ -167,7 +164,72 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.policy_object.delete_data_prefix_profile_parcel_for_policy_object()
+        client.v1.feature_profile.sdwan.policy_object.delete()
+
+
+Operation: GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}
+----------------------------------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        policy_object_id: str,
+        policy_object_list_type: PolicyObjectListTypeParam,
+        reference_count: Optional[bool] = False,
+    ) -> GetListSdwanPolicyObjectSecurityDataIpPrefixPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sdwan.policy_object.get()
+
+
+Operation: GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}/{listObjectId}
+-------------------------------------------------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        policy_object_id: str,
+        policy_object_list_type: PolicyObjectListTypeParam,
+        list_object_id: str,
+        references: Optional[bool] = False,
+    ) -> GetSingleSdwanPolicyObjectSecurityDataIpPrefixPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sdwan.policy_object.get()
 
 
 .. toctree::
@@ -194,8 +256,6 @@ Example:
     data_prefix/index
     expanded_community/index
     ext_community/index
-    ipv4_network_object_group/index
-    ipv4_service_object_group/index
     ipv6_prefix/index
     mirror/index
     policer/index

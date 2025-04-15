@@ -11,7 +11,7 @@ Cellular count dashlet details
 
 .. code:: python
 
-    def cellular_count_dashlet_details(
+    def get(
         last_n_hours: Optional[LastNHoursParam] = None,
     ) -> List[CellularDetail]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cellular.details.cellular_count_dashlet_details()
+        client.device.cellular.details.get()
 
 
 .. toctree::

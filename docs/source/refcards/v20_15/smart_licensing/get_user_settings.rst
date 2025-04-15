@@ -13,7 +13,7 @@ get settings
 
 .. code:: python
 
-    def get_settings() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.smart_licensing.get_user_settings.get_settings()
+        client.smart_licensing.get_user_settings.get()
 
 

@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,9 +17,10 @@ class ManualBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def upload_utd_image(self, type_: str, payload: Optional[InstallPkg] = None, **kw):
+    def post(self, type_: str, payload: InstallPkg, **kw):
         """
         upload Utd image
+        POST /dataservice/device/action/software/package/utdsignature/{type}/mode/manual
 
         :param type_: Type
         :param payload: Utd image File

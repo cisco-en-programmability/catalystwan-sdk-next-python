@@ -11,7 +11,7 @@ Get list of cloudexpress load balance applications from device (Real Time)
 
 .. code:: python
 
-    def create_lb_applications_list(
+    def get(
         vpn_id: Optional[VpnIdParam] = None,
         application: Optional[str] = None,
         query: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cloudx.loadbalance.create_lb_applications_list()
+        client.device.cloudx.loadbalance.get()
 
 
 .. toctree::

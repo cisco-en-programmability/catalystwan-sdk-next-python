@@ -14,9 +14,10 @@ class SccpConnectionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sccp_connections(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get DSPFarm SCCP Connections info from device
+        GET /dataservice/device/voice/sccpConnections
 
         :param device_id: deviceId - Device IP
         :returns: Any

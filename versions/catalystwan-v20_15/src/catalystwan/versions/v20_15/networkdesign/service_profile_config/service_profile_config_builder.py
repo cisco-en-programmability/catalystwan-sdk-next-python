@@ -15,9 +15,10 @@ class ServiceProfileConfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_service_profile_config(self, profile_id: str, device_model: str, **kw) -> Any:
+    def get(self, profile_id: str, device_model: str, **kw) -> Any:
         """
         Get the service profile config for a given device profile id
+        GET /dataservice/networkdesign/serviceProfileConfig/{profileId}
 
         :param profile_id: Device profile Id
         :param device_model: Device model

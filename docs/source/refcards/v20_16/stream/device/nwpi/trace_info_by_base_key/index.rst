@@ -13,7 +13,7 @@ Get TraceInfoByBaseKey
 
 .. code:: python
 
-    def get_trace_info_by_base_key(
+    def get(
         trace_id: int, entry_time: int, trace_model: Optional[str] = None
     ) -> TraceInfoResponsePayload: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.trace_info_by_base_key.get_trace_info_by_base_key()
+        client.stream.device.nwpi.trace_info_by_base_key.get()
 
 
 .. toctree::

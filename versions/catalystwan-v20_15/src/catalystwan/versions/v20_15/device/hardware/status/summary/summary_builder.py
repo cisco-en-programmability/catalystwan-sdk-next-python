@@ -14,9 +14,10 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_status_summary(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get hardware status summary from device
+        GET /dataservice/device/hardware/status/summary
 
         :param device_id: deviceId - Device IP
         :returns: Any

@@ -14,9 +14,10 @@ class ActivateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def activate(self, **kw) -> Any:
+    def post(self, **kw) -> Any:
         """
         Activate cluster to start working as primary
+        POST /dataservice/disasterrecovery/activate
 
         :returns: Any
         """

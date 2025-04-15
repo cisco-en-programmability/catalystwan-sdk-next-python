@@ -20,9 +20,10 @@ class CortexBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cortex_status(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get Cortex List
+        GET /dataservice/template/cortex
 
         :returns: List[Any]
         """

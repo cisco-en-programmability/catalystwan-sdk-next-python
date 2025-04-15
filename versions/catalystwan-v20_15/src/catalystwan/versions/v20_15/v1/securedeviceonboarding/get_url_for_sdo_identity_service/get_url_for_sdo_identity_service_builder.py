@@ -12,9 +12,10 @@ class GetUrlForSdoIdentityServiceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_url_for_sdo_identity_service(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         Get URL for Secure Device Onboarding Identity Service that generates Session ID required for authentication to get Secure Device Onboarding token
+        GET /dataservice/v1/securedeviceonboarding/getUrlForSdoIdentityService
 
         :returns: str
         """

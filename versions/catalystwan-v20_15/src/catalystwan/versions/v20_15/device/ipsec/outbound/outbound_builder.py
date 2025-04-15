@@ -19,7 +19,7 @@ class OutboundBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_out_bound_list(
+    def get(
         self,
         device_id: str,
         remote_tloc_address: Optional[str] = None,
@@ -28,6 +28,7 @@ class OutboundBuilder:
     ) -> List[Any]:
         """
         Get IPsec outbound connection list from device (Real Time)
+        GET /dataservice/device/ipsec/outbound
 
         :param remote_tloc_address: Remote TLOC address
         :param remote_tloc_color: Remote tloc color

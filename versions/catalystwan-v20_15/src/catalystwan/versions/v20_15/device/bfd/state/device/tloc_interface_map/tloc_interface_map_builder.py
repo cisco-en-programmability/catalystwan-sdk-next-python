@@ -14,9 +14,10 @@ class TlocInterfaceMapBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_tloc_to_intf_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get device tloc color to Intf Mapping Relationship
+        GET /dataservice/device/bfd/state/device/tlocInterfaceMap
 
         :param device_id: deviceId - Device IP
         :returns: Any

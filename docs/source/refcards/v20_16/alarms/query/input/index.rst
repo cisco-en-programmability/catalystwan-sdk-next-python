@@ -11,7 +11,7 @@ Get alarm field details
 
 .. code:: python
 
-    def get_field_details() -> AlarmQueryInputResponse: ...
+    def get() -> AlarmQueryInputResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.query.input.get_field_details()
+        client.alarms.query.input.get()
 
 
 .. toctree::

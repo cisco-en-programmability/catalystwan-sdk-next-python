@@ -19,11 +19,12 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_monitoring_interconnect_devices(
+    def get(
         self, interconnect_type: str, interconnect_gateway_name: Optional[str] = None, **kw
     ) -> List[InterconnectDeviceInfoExtended]:
         """
         API to retrieve Interconnect devices by Interconnect type for monitoring.
+        GET /dataservice/multicloud/interconnect/{interconnect-type}/monitoring/devices
 
         :param interconnect_type: Interconnect provider type
         :param interconnect_gateway_name: Interconnect Gateway Name

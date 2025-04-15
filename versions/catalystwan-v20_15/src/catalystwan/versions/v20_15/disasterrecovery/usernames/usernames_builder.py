@@ -17,6 +17,7 @@ class UsernamesBuilder:
     def get(self, payload: Optional[Any] = None, **kw) -> Any:
         """
         Fetch data centers and vBonds usernames for disaster recovery
+        GET /dataservice/disasterrecovery/usernames
 
         :param payload: Datacenter/vBond password update request
         :returns: Any

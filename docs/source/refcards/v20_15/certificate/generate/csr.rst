@@ -11,7 +11,7 @@ get certificaate details
 
 .. code:: python
 
-    def generate_csr(payload: Optional[Any] = None) -> str: ...
+    def post(payload: Any) -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.generate.csr.generate_csr()
+        client.certificate.generate.csr.post()
 
 

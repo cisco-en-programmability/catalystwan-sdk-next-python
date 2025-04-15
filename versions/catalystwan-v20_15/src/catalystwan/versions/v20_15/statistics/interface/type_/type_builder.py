@@ -17,9 +17,10 @@ class TypeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_statistics_per_interface(self, query: str, **kw) -> InterfaceAggResp:
+    def get(self, query: str, **kw) -> InterfaceAggResp:
         """
         Get statistics per interface
+        GET /dataservice/statistics/interface/type
 
         :param query: Query
         :returns: InterfaceAggResp

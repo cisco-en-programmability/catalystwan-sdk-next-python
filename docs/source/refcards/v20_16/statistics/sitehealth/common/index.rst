@@ -11,7 +11,7 @@ Get all site health
 
 .. code:: python
 
-    def get_site_health(
+    def get(
         is_heat_map: Optional[str] = "false",
         last_n_hours: Optional[int] = None,
         interval: Optional[int] = 30,
@@ -40,7 +40,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.sitehealth.common.get_site_health()
+        client.statistics.sitehealth.common.get()
 
 
 .. toctree::

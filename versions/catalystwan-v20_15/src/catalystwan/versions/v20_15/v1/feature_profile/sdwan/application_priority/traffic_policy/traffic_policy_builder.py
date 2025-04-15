@@ -1,9 +1,16 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateTrafficPolicyProfileParcelForapplicationPriorityPostRequest,
+    CreateTrafficPolicyProfileParcelForapplicationPriorityPostResponse,
+    EditTrafficPolicyProfileParcelForapplicationPriorityPutRequest,
+    EditTrafficPolicyProfileParcelForapplicationPriorityPutResponse,
+    GetSingleSdwanApplicationPriorityTrafficPolicyPayload,
+)
 
 
 class TrafficPolicyBuilder:
@@ -11,18 +18,24 @@ class TrafficPolicyBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/traffic-policy
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_traffic_policy_profile_parcel_forapplication_priority(
-        self, application_priority_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self,
+        application_priority_id: str,
+        payload: CreateTrafficPolicyProfileParcelForapplicationPriorityPostRequest,
+        **kw,
+    ) -> CreateTrafficPolicyProfileParcelForapplicationPriorityPostResponse:
         """
         Create a Traffic Policy Profile Parcel for application-priority feature profile
+        POST /dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/traffic-policy
 
         :param application_priority_id: Feature Profile ID
         :param payload: Traffic Policy Profile Parcel
-        :returns: str
+        :returns: CreateTrafficPolicyProfileParcelForapplicationPriorityPostResponse
         """
         params = {
             "applicationPriorityId": application_priority_id,
@@ -30,21 +43,22 @@ class TrafficPolicyBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/traffic-policy",
-            return_type=str,
+            return_type=CreateTrafficPolicyProfileParcelForapplicationPriorityPostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_traffic_policy_profile_parcel_by_parcel_id_forapplication_priority(
+    def get(
         self, application_priority_id: str, traffic_policy_id: str, **kw
-    ) -> str:
+    ) -> GetSingleSdwanApplicationPriorityTrafficPolicyPayload:
         """
         Get Traffic Policy Profile Parcel by parcelId for application-priority feature profile
+        GET /dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/traffic-policy/{trafficPolicyId}
 
         :param application_priority_id: Feature Profile ID
         :param traffic_policy_id: Profile Parcel ID
-        :returns: str
+        :returns: GetSingleSdwanApplicationPriorityTrafficPolicyPayload
         """
         params = {
             "applicationPriorityId": application_priority_id,
@@ -53,25 +67,26 @@ class TrafficPolicyBuilder:
         return self._request_adapter.request(
             "GET",
             "/dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/traffic-policy/{trafficPolicyId}",
-            return_type=str,
+            return_type=GetSingleSdwanApplicationPriorityTrafficPolicyPayload,
             params=params,
             **kw,
         )
 
-    def edit_traffic_policy_profile_parcel_forapplication_priority(
+    def put(
         self,
         application_priority_id: str,
         traffic_policy_id: str,
-        payload: Optional[str] = None,
+        payload: EditTrafficPolicyProfileParcelForapplicationPriorityPutRequest,
         **kw,
-    ) -> str:
+    ) -> EditTrafficPolicyProfileParcelForapplicationPriorityPutResponse:
         """
         Update a Traffic Policy Profile Parcel for application-priority feature profile
+        PUT /dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/traffic-policy/{trafficPolicyId}
 
         :param application_priority_id: Feature Profile ID
         :param traffic_policy_id: Profile Parcel ID
         :param payload: Traffic Policy Profile Parcel
-        :returns: str
+        :returns: EditTrafficPolicyProfileParcelForapplicationPriorityPutResponse
         """
         params = {
             "applicationPriorityId": application_priority_id,
@@ -80,17 +95,16 @@ class TrafficPolicyBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/traffic-policy/{trafficPolicyId}",
-            return_type=str,
+            return_type=EditTrafficPolicyProfileParcelForapplicationPriorityPutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_traffic_policy_profile_parcel_forapplication_priority(
-        self, application_priority_id: str, traffic_policy_id: str, **kw
-    ):
+    def delete(self, application_priority_id: str, traffic_policy_id: str, **kw):
         """
         Delete a Traffic Policy Profile Parcel for application-priority feature profile
+        DELETE /dataservice/v1/feature-profile/sdwan/application-priority/{applicationPriorityId}/traffic-policy/{trafficPolicyId}
 
         :param application_priority_id: Feature Profile ID
         :param traffic_policy_id: Profile Parcel ID

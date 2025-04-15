@@ -8,7 +8,7 @@ v1.feature_profile.sdwan.service.routing
 
     bgp/index
     multicast/index
-    eigrp
-    ospf
+    eigrp/index
+    ospf/index
     ospfv3/index
 

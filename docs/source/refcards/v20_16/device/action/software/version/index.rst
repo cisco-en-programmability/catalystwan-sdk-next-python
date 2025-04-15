@@ -11,7 +11,7 @@ Get software version
 
 .. code:: python
 
-    def find_software_version() -> FindSoftwareVersion: ...
+    def get() -> FindSoftwareVersion: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.version.find_software_version()
+        client.device.action.software.version.get()
 
 
 .. toctree::

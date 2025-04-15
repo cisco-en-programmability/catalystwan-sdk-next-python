@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateNfvirtualSystemFeatureProfilePostRequest,
+    CreateNfvirtualSystemFeatureProfilePostResponse,
+    EditNfvirtualSystemFeatureProfilePutRequest,
+    EditNfvirtualSystemFeatureProfilePutResponse,
+    GetAllNfvirtualSystemFeatureProfilesGetResponse,
+    GetSingleNfvirtualSystemPayload,
+)
 
 if TYPE_CHECKING:
     from .aaa.aaa_builder import AaaBuilder
@@ -19,68 +29,39 @@ class SystemBuilder:
     Builds and executes requests for operations under /v1/feature-profile/nfvirtual/system
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_nfvirtual_system_feature_profiles(
-        self, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
-    ) -> Any:
-        """
-        Get all Nfvirtual System Feature Profiles
-
-        :param offset: Pagination offset
-        :param limit: Pagination limit
-        :returns: Any
-        """
-        params = {
-            "offset": offset,
-            "limit": limit,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/nfvirtual/system", params=params, **kw
-        )
-
-    def create_nfvirtual_system_feature_profile(self, payload: Optional[str] = None, **kw) -> str:
+    def post(
+        self, payload: CreateNfvirtualSystemFeatureProfilePostRequest, **kw
+    ) -> CreateNfvirtualSystemFeatureProfilePostResponse:
         """
         Create a nfvirtual System Feature Profile
+        POST /dataservice/v1/feature-profile/nfvirtual/system
 
         :param payload: Nfvirtual Feature profile
-        :returns: str
+        :returns: CreateNfvirtualSystemFeatureProfilePostResponse
         """
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/nfvirtual/system",
-            return_type=str,
+            return_type=CreateNfvirtualSystemFeatureProfilePostResponse,
             payload=payload,
             **kw,
         )
 
-    def get_nfvirtual_system_feature_profile_by_profile_id(self, system_id: str, **kw) -> Any:
-        """
-        Get a Nfvirtual System Feature Profile with systemId
-
-        :param system_id: Feature Profile Id
-        :returns: Any
-        """
-        params = {
-            "systemId": system_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/nfvirtual/system/{systemId}",
-            params=params,
-            **kw,
-        )
-
-    def edit_nfvirtual_system_feature_profile(
-        self, system_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self, system_id: str, payload: EditNfvirtualSystemFeatureProfilePutRequest, **kw
+    ) -> EditNfvirtualSystemFeatureProfilePutResponse:
         """
         Edit a Nfvirtual System Feature Profile
+        PUT /dataservice/v1/feature-profile/nfvirtual/system/{systemId}
 
         :param system_id: Feature Profile Id
         :param payload: Nfvirtual Feature profile
-        :returns: str
+        :returns: EditNfvirtualSystemFeatureProfilePutResponse
         """
         params = {
             "systemId": system_id,
@@ -88,15 +69,16 @@ class SystemBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/nfvirtual/system/{systemId}",
-            return_type=str,
+            return_type=EditNfvirtualSystemFeatureProfilePutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_nfvirtual_system_feature_profile(self, system_id: str, **kw):
+    def delete(self, system_id: str, **kw):
         """
         Delete a Nfvirtual System Feature Profile
+        DELETE /dataservice/v1/feature-profile/nfvirtual/system/{systemId}
 
         :param system_id: Feature Profile Id
         :returns: None
@@ -110,6 +92,68 @@ class SystemBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(self, *, system_id: str, **kw) -> GetSingleNfvirtualSystemPayload:
+        """
+        Get a Nfvirtual System Feature Profile with systemId
+        GET /dataservice/v1/feature-profile/nfvirtual/system/{systemId}
+
+        :param system_id: Feature Profile Id
+        :returns: GetSingleNfvirtualSystemPayload
+        """
+        ...
+
+    @overload
+    def get(
+        self, *, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
+    ) -> List[GetAllNfvirtualSystemFeatureProfilesGetResponse]:
+        """
+        Get all Nfvirtual System Feature Profiles
+        GET /dataservice/v1/feature-profile/nfvirtual/system
+
+        :param offset: Pagination offset
+        :param limit: Pagination limit
+        :returns: List[GetAllNfvirtualSystemFeatureProfilesGetResponse]
+        """
+        ...
+
+    def get(
+        self,
+        *,
+        offset: Optional[int] = None,
+        limit: Optional[int] = None,
+        system_id: Optional[str] = None,
+        **kw,
+    ) -> Union[
+        List[GetAllNfvirtualSystemFeatureProfilesGetResponse], GetSingleNfvirtualSystemPayload
+    ]:
+        # /dataservice/v1/feature-profile/nfvirtual/system/{systemId}
+        if self._request_adapter.param_checker([(system_id, str)], [offset, limit]):
+            params = {
+                "systemId": system_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/nfvirtual/system/{systemId}",
+                return_type=GetSingleNfvirtualSystemPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/nfvirtual/system
+        if self._request_adapter.param_checker([], [system_id]):
+            params = {
+                "offset": offset,
+                "limit": limit,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/nfvirtual/system",
+                return_type=List[GetAllNfvirtualSystemFeatureProfilesGetResponse],
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def aaa(self) -> AaaBuilder:

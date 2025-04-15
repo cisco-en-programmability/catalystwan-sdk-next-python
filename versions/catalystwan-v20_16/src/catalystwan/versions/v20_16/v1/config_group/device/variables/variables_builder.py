@@ -6,7 +6,11 @@ from typing import TYPE_CHECKING, Any, Optional
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import CreateConfigGroupDeviceVariablesPutRequest, ResponseSchema2
+from .models import (
+    CreateConfigGroupDeviceVariablesPutRequest,
+    FetchConfigGroupDeviceVariablesPostRequest,
+    GetConfigGroupDeviceVariablesGetResponse,
+)
 
 if TYPE_CHECKING:
     from .schema.schema_builder import SchemaBuilder
@@ -22,20 +26,21 @@ class VariablesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_config_group_device_variables(
+    def get(
         self,
         config_group_id: str,
         device_id: Optional[str] = None,
         suggestions: Optional[bool] = None,
         **kw,
-    ) -> ResponseSchema2:
+    ) -> GetConfigGroupDeviceVariablesGetResponse:
         """
         Get device variables
+        GET /dataservice/v1/config-group/{configGroupId}/device/variables
 
         :param config_group_id: Config Group Id
         :param device_id: Comma separated device id's like d1,d2
         :param suggestions: Suggestions for possible values
-        :returns: ResponseSchema2
+        :returns: GetConfigGroupDeviceVariablesGetResponse
         """
         params = {
             "configGroupId": config_group_id,
@@ -45,19 +50,17 @@ class VariablesBuilder:
         return self._request_adapter.request(
             "GET",
             "/dataservice/v1/config-group/{configGroupId}/device/variables",
-            return_type=ResponseSchema2,
+            return_type=GetConfigGroupDeviceVariablesGetResponse,
             params=params,
             **kw,
         )
 
-    def create_config_group_device_variables(
-        self,
-        config_group_id: str,
-        payload: Optional[CreateConfigGroupDeviceVariablesPutRequest] = None,
-        **kw,
+    def put(
+        self, config_group_id: str, payload: CreateConfigGroupDeviceVariablesPutRequest, **kw
     ) -> Any:
         """
         assign values to device variables
+        PUT /dataservice/v1/config-group/{configGroupId}/device/variables
 
         :param config_group_id: Config Group Id
         :param payload: Payload
@@ -74,14 +77,12 @@ class VariablesBuilder:
             **kw,
         )
 
-    def fetch_config_group_device_variables(
-        self,
-        config_group_id: str,
-        payload: Optional[CreateConfigGroupDeviceVariablesPutRequest] = None,
-        **kw,
+    def post(
+        self, config_group_id: str, payload: FetchConfigGroupDeviceVariablesPostRequest, **kw
     ) -> Any:
         """
         Fetch device variables
+        POST /dataservice/v1/config-group/{configGroupId}/device/variables
 
         :param config_group_id: Config Group Id
         :param payload: Payload

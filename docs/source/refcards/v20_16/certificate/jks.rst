@@ -11,7 +11,7 @@ update JKS
 
 .. code:: python
 
-    def update_jks(payload: Optional[str] = None) -> str: ...
+    def put(payload: str) -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.jks.update_jks()
+        client.certificate.jks.put()
 
 

@@ -13,7 +13,7 @@ Get edge global settings
 
 .. code:: python
 
-    def get_edge_global_settings(edge_type: EdgeTypeParam) -> Any: ...
+    def get(edge_type: EdgeTypeParam) -> Any: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.settings.edge.global_.get_edge_global_settings()
+        client.multicloud.settings.edge.global_.get()
 
 
 Operation: PUT /dataservice/multicloud/settings/edge/global
@@ -44,9 +44,7 @@ Update edge global settings for Edge provider
 
 .. code:: python
 
-    def update_edge_global_settings(
-        payload: Optional[Any] = None,
-    ) -> None: ...
+    def put(payload: Any) -> None: ...
 
 
 Example:
@@ -64,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.settings.edge.global_.update_edge_global_settings()
+        client.multicloud.settings.edge.global_.put()
 
 
 Operation: POST /dataservice/multicloud/settings/edge/global
@@ -77,9 +75,7 @@ Add global settings for Edge provider
 
 .. code:: python
 
-    def add_edge_global_settings(
-        payload: Optional[Any] = None,
-    ) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -97,7 +93,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.settings.edge.global_.add_edge_global_settings()
+        client.multicloud.settings.edge.global_.post()
 
 
 .. toctree::

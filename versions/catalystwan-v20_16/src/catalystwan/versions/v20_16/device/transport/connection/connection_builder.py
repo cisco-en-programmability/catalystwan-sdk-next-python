@@ -14,9 +14,10 @@ class ConnectionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_transport_connection_list(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get transport connection list from device
+        GET /dataservice/device/transport/connection
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

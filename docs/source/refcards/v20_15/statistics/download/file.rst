@@ -11,7 +11,7 @@ Downloading stats file
 
 .. code:: python
 
-    def download(
+    def get(
         process_type: str,
         file_type: str,
         queue: str,
@@ -36,6 +36,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.download.file.download()
+        client.statistics.download.file.get()
 
 

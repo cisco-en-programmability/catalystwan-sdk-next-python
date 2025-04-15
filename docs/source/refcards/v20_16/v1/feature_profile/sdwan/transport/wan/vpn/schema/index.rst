@@ -11,9 +11,7 @@ Get a SDWAN Transport WanVpn Parcel Schema by Schema Type
 
 .. code:: python
 
-    def get_sdwan_transport_wan_vpn_parcel_schema_by_schema_type(
-        schema_type: SchemaTypeParam,
-    ) -> str: ...
+    def get(schema_type: SchemaTypeParam) -> str: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.transport.wan.vpn.schema.get_sdwan_transport_wan_vpn_parcel_schema_by_schema_type()
+        client.v1.feature_profile.sdwan.transport.wan.vpn.schema.get()
 
 
 .. toctree::

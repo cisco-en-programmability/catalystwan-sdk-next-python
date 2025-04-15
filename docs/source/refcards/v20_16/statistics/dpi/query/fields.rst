@@ -11,7 +11,7 @@ Get query fields
 
 .. code:: python
 
-    def get_dpi_query_fields() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.dpi.query.fields.get_dpi_query_fields()
+        client.statistics.dpi.query.fields.get()
 
 

@@ -13,9 +13,7 @@ Retrieve total Fin Flow counts
 
 .. code:: python
 
-    def get_finalized_flow_count(
-        trace_id: int, timestamp: int
-    ) -> InlineResponse200: ...
+    def get(trace_id: int, timestamp: int) -> InlineResponse200: ...
 
 
 Example:
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.trace_fin_flow_count.get_finalized_flow_count()
+        client.stream.device.nwpi.trace_fin_flow_count.get()
 
 
 .. toctree::

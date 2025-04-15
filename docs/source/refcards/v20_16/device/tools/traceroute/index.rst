@@ -11,8 +11,8 @@ Traceroute
 
 .. code:: python
 
-    def traceroute_device(
-        device_ip: str, payload: Optional[TracerouteRequest] = None
+    def post(
+        device_ip: str, payload: TracerouteRequest
     ) -> TracerouteResponse: ...
 
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.traceroute.traceroute_device()
+        client.device.tools.traceroute.post()
 
 
 .. toctree::

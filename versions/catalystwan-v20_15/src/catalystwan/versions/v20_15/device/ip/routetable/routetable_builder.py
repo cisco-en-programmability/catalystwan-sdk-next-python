@@ -19,7 +19,7 @@ class RoutetableBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_route_table_list(
+    def get(
         self,
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
@@ -30,6 +30,7 @@ class RoutetableBuilder:
     ) -> Any:
         """
         Get route table list from device (Real Time)
+        GET /dataservice/device/ip/routetable
 
         :param vpn_id: VPN Id
         :param address_family: Address family

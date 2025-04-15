@@ -22,9 +22,10 @@ class TagsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_mapping_tags(self, cloud_type: Optional[CloudTypeParam] = None, **kw) -> TagsResponse:
+    def get(self, cloud_type: Optional[CloudTypeParam] = None, **kw) -> TagsResponse:
         """
         Get cloud gateway types for specified cloudType
+        GET /dataservice/multicloud/map/tags
 
         :param cloud_type: Cloud type
         :returns: TagsResponse

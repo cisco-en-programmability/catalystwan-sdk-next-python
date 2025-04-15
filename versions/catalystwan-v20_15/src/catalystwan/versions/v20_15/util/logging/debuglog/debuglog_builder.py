@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import logging
-from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -20,9 +19,10 @@ class DebuglogBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def debug_log(self, payload: Optional[DebugLogPostRequest] = None, **kw):
+    def post(self, payload: DebugLogPostRequest, **kw):
         """
         Test whether logging works
+        POST /dataservice/util/logging/debuglog
 
         :param payload: Payload
         :returns: None

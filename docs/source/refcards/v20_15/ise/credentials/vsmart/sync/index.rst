@@ -11,7 +11,7 @@ Send pxGrid and ISE server configuration to vSmarts
 
 .. code:: python
 
-    def sync_vsmart() -> VsmartSyncResponse: ...
+    def post() -> VsmartSyncResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.ise.credentials.vsmart.sync.sync_vsmart()
+        client.ise.credentials.vsmart.sync.post()
 
 
 .. toctree::

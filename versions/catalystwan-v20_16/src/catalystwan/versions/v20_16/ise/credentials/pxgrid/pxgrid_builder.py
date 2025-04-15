@@ -22,9 +22,10 @@ class PxgridBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_px_grid_account(self, **kw) -> PxGridInfo:
+    def get(self, **kw) -> PxGridInfo:
         """
         Get PxGrid account
+        GET /dataservice/ise/credentials/pxgrid
 
         :returns: PxGridInfo
         """
@@ -32,9 +33,10 @@ class PxgridBuilder:
             "GET", "/dataservice/ise/credentials/pxgrid", return_type=PxGridInfo, **kw
         )
 
-    def delete_px_grid(self, **kw) -> bool:
+    def delete(self, **kw) -> bool:
         """
         Delete PxGrid account information
+        DELETE /dataservice/ise/credentials/pxgrid
 
         :returns: bool
         """

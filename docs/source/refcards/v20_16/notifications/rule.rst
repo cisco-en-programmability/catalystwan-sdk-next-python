@@ -11,9 +11,7 @@ Update notification rule
 
 .. code:: python
 
-    def update_notification_rule(
-        rule_id: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def put(rule_id: str, payload: Any) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.notifications.rule.update_notification_rule()
+        client.notifications.rule.put()
 
 
 Operation: POST /dataservice/notifications/rule
@@ -42,9 +40,7 @@ Add notification rule
 
 .. code:: python
 
-    def create_notification_rule(
-        payload: Optional[Any] = None,
-    ) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -62,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.notifications.rule.create_notification_rule()
+        client.notifications.rule.post()
 
 

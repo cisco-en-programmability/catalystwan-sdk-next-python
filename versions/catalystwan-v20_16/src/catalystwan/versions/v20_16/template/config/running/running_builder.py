@@ -14,9 +14,10 @@ class RunningBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_running_config(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get device running config
+        GET /dataservice/template/config/running/{deviceId}
 
         :param device_id: Device Model ID
         :returns: Any

@@ -14,9 +14,10 @@ class SiteBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_site_topology(self, site_id: str, **kw) -> Any:
+    def get(self, site_id: str, **kw) -> Any:
         """
         Get topology for a given site id
+        GET /dataservice/topology/device/site/{siteId}
 
         :param site_id: Site Id
         :returns: Any

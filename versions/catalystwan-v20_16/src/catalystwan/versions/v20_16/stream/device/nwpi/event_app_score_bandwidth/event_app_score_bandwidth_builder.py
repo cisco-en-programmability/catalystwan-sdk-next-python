@@ -20,7 +20,7 @@ class EventAppScoreBandwidthBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_event_app_score_bandwidth(
+    def get(
         self,
         trace_id: int,
         timestamp: int,
@@ -34,6 +34,7 @@ class EventAppScoreBandwidthBuilder:
     ) -> List[EventAppScoreBandwidthResponsePayloadInner]:
         """
         Get Trace Event Application Performance Score and Bandwidth for NWPI.
+        GET /dataservice/stream/device/nwpi/eventAppScoreBandwidth
 
         :param trace_id: Trace id
         :param timestamp: Timestamp

@@ -11,9 +11,7 @@ Get detailed vEdge inventory
 
 .. code:: python
 
-    def get_vedge_inventory(
-        status: Optional[str] = None,
-    ) -> VedgeInventoryData: ...
+    def get(status: Optional[str] = None) -> VedgeInventoryData: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.vedgeinventory.detail.get_vedge_inventory()
+        client.device.vedgeinventory.detail.get()
 
 
 .. toctree::

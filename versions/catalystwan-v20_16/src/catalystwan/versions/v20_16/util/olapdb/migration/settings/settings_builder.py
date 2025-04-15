@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,9 +15,10 @@ class SettingsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stats_migration_settings(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get migration generic settings
+        GET /dataservice/util/olapdb/migration/settings
 
         :returns: Any
         """
@@ -26,9 +27,10 @@ class SettingsBuilder:
             "GET", "/dataservice/util/olapdb/migration/settings", **kw
         )
 
-    def post_stats_migration_settings(self, payload: Optional[str] = None, **kw) -> Any:
+    def post(self, payload: str, **kw) -> Any:
         """
         Config generic settings
+        POST /dataservice/util/olapdb/migration/settings
 
         :param payload: generic settings
         :returns: Any

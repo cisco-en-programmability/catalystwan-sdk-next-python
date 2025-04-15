@@ -11,7 +11,7 @@ Get data plane stats from Device
 
 .. code:: python
 
-    def get_utd_dataplane_stats(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.utd.dataplane_stats.get_utd_dataplane_stats()
+        client.device.utd.dataplane_stats.get()
 
 

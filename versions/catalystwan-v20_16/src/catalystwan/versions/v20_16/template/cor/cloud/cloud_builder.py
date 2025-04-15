@@ -21,9 +21,10 @@ class CloudBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_list(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get cloud list
+        GET /dataservice/template/cor/cloud
 
         :returns: List[Any]
         """

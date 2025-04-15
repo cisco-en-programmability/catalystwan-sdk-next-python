@@ -11,7 +11,7 @@ Get device commit list
 
 .. code:: python
 
-    def get_device_configuration_commit_list(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.configuration.commit_list.get_device_configuration_commit_list()
+        client.device.configuration.commit_list.get()
 
 

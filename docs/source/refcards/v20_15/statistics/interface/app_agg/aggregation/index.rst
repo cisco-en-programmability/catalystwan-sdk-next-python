@@ -11,9 +11,7 @@ Get aggregated data based on input query and filters. The data can be filtered o
 
 .. code:: python
 
-    def get_post_aggregation_app_data_by_query_1(
-        payload: Optional[Any] = None,
-    ) -> List[InterfaceAggResp]: ...
+    def post(payload: Any) -> List[InterfaceAggResp]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.interface.app_agg.aggregation.get_post_aggregation_app_data_by_query_1()
+        client.statistics.interface.app_agg.aggregation.post()
 
 
 .. toctree::

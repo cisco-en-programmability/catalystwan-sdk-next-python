@@ -11,7 +11,7 @@ API to retrieve AWS Transit Gateways.
 
 .. code:: python
 
-    def get_aws_transit_gateways(
+    def get(
         cloud_type: CloudTypeParam,
         cloud_account_id: str,
         transit_gateway_name: Optional[str] = None,
@@ -36,7 +36,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.cloud.accounts.transit_gateways.get_aws_transit_gateways()
+        client.multicloud.interconnect.cloud.accounts.transit_gateways.get()
 
 
 .. toctree::

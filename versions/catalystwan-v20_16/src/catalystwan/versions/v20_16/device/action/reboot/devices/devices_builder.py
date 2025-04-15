@@ -17,11 +17,10 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_reboot_device_list(
-        self, device_type: str, group_id: str, **kw
-    ) -> GenerateRebootDeviceList:
+    def get(self, device_type: str, group_id: str, **kw) -> GenerateRebootDeviceList:
         """
         Get list of rebooted devices
+        GET /dataservice/device/action/reboot/devices/{deviceType}
 
         :param device_type: Device type
         :param group_id: groupId

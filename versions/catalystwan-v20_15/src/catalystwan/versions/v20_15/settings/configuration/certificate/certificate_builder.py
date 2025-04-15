@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class CertificateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cert_configuration(self, type_: str, **kw) -> str:
+    def get(self, type_: str, **kw) -> str:
         """
         Retrieve certificate configuration value by type
+        GET /dataservice/settings/configuration/certificate/{type}
 
         :param type_: Type of the certificate configuration
         :returns: str
@@ -32,9 +33,10 @@ class CertificateBuilder:
             **kw,
         )
 
-    def edit_cert_configuration(self, type_: str, payload: Optional[Any] = None, **kw) -> str:
+    def put(self, type_: str, payload: Any, **kw) -> str:
         """
         Update certificate configuration
+        PUT /dataservice/settings/configuration/certificate/{type}
 
         :param type_: Type of the certificate configuration
         :param payload: Certificate configuration
@@ -52,9 +54,10 @@ class CertificateBuilder:
             **kw,
         )
 
-    def new_cert_configuration(self, type_: str, payload: Optional[Any] = None, **kw) -> str:
+    def post(self, type_: str, payload: Any, **kw) -> str:
         """
         Add new certificate configuration
+        POST /dataservice/settings/configuration/certificate/{type}
 
         :param type_: Type of the certificate configuration
         :param payload: Certificate configuration

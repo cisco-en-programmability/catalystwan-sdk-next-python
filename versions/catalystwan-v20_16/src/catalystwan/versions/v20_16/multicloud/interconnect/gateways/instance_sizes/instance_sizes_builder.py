@@ -17,11 +17,10 @@ class InstanceSizesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_gateway_instance_sizes(
-        self, interconnect_type: InterconnectTypeParam, **kw
-    ) -> InlineResponse2004:
+    def get(self, interconnect_type: InterconnectTypeParam, **kw) -> InlineResponse2004:
         """
         API to retrieve Interconnect Gateway instance sizes supported by an  Interconnect provider.
+        GET /dataservice/multicloud/interconnect/gateways/instance-sizes
 
         :param interconnect_type: Interconnect provider type
         :returns: InlineResponse2004

@@ -11,7 +11,7 @@ Retrieve device group list
 
 .. code:: python
 
-    def list_device_group_list() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.group.list_device_group_list()
+        client.group.get()
 
 
 .. toctree::

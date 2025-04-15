@@ -17,11 +17,10 @@ class SupportedfeaturesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_supported_admin_tech_features(
-        self, device_model: DeviceModel, device_ip: DeviceIp, personality: str, **kw
-    ):
+    def get(self, device_model: DeviceModel, device_ip: DeviceIp, personality: str, **kw):
         """
         Get supported admin tech features
+        GET /dataservice/device/tools/admintech/supportedfeatures/{deviceModel}/{deviceIP}/{personality}
 
         :param device_model: device Model
         :param device_ip: Device IP

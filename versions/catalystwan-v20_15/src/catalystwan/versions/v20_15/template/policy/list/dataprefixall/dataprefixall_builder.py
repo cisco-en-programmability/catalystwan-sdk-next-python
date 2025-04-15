@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional
+from typing import TYPE_CHECKING, Any, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -18,19 +18,10 @@ class DataprefixallBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_lists_for_all_data_prefixes(self, **kw) -> List[Any]:
-        """
-        Get policy lists for all data prefixes
-
-        :returns: List[Any]
-        """
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/list/dataprefixall", return_type=List[Any], **kw
-        )
-
-    def create_policy_list_9(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create policy list
+        POST /dataservice/template/policy/list/dataprefixall
 
         :param payload: Policy list
         :returns: Any
@@ -39,43 +30,10 @@ class DataprefixallBuilder:
             "POST", "/dataservice/template/policy/list/dataprefixall", payload=payload, **kw
         )
 
-    def delete_policy_lists_with_info_tag_9(
-        self, info_tag: Optional[str] = None, **kw
-    ) -> List[Any]:
-        """
-        Delete policy lists with specific info tag
-
-        :param info_tag: InfoTag
-        :returns: List[Any]
-        """
-        params = {
-            "infoTag": info_tag,
-        }
-        return self._request_adapter.request(
-            "DELETE",
-            "/dataservice/template/policy/list/dataprefixall",
-            return_type=List[Any],
-            params=params,
-            **kw,
-        )
-
-    def get_lists_by_id_9(self, id: str, **kw) -> Any:
-        """
-        Get a specific policy list based on the id
-
-        :param id: Policy Id
-        :returns: Any
-        """
-        params = {
-            "id": id,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/list/dataprefixall/{id}", params=params, **kw
-        )
-
-    def edit_policy_list_9(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, id: str, payload: Any, **kw) -> Any:
         """
         Edit policy list entries for a specific type of policy list
+        PUT /dataservice/template/policy/list/dataprefixall/{id}
 
         :param id: Policy Id
         :param payload: Policy list
@@ -92,19 +50,95 @@ class DataprefixallBuilder:
             **kw,
         )
 
-    def delete_policy_list_9(self, id: str, **kw):
+    @overload
+    def get(self, id: str, **kw) -> Any:
+        """
+        Get a specific policy list based on the id
+        GET /dataservice/template/policy/list/dataprefixall/{id}
+
+        :param id: Policy Id
+        :returns: Any
+        """
+        ...
+
+    @overload
+    def get(self, **kw) -> List[Any]:
+        """
+        Get policy lists for all data prefixes
+        GET /dataservice/template/policy/list/dataprefixall
+
+        :returns: List[Any]
+        """
+        ...
+
+    def get(self, id: Optional[str] = None, **kw) -> Union[List[Any], Any]:
+        # /dataservice/template/policy/list/dataprefixall/{id}
+        if self._request_adapter.param_checker([(id, str)], []):
+            params = {
+                "id": id,
+            }
+            return self._request_adapter.request(
+                "GET", "/dataservice/template/policy/list/dataprefixall/{id}", params=params, **kw
+            )
+        # /dataservice/template/policy/list/dataprefixall
+        if self._request_adapter.param_checker([], [id]):
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/template/policy/list/dataprefixall",
+                return_type=List[Any],
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
+
+    @overload
+    def delete(self, *, id: str, **kw):
         """
         Delete policy list entry for a specific type of policy list
+        DELETE /dataservice/template/policy/list/dataprefixall/{id}
 
         :param id: Policy Id
         :returns: None
         """
-        params = {
-            "id": id,
-        }
-        return self._request_adapter.request(
-            "DELETE", "/dataservice/template/policy/list/dataprefixall/{id}", params=params, **kw
-        )
+        ...
+
+    @overload
+    def delete(self, *, info_tag: Optional[str] = None, **kw) -> List[Any]:
+        """
+        Delete policy lists with specific info tag
+        DELETE /dataservice/template/policy/list/dataprefixall
+
+        :param info_tag: InfoTag
+        :returns: List[Any]
+        """
+        ...
+
+    def delete(
+        self, *, info_tag: Optional[str] = None, id: Optional[str] = None, **kw
+    ) -> Union[List[Any], None]:
+        # /dataservice/template/policy/list/dataprefixall/{id}
+        if self._request_adapter.param_checker([(id, str)], [info_tag]):
+            params = {
+                "id": id,
+            }
+            return self._request_adapter.request(
+                "DELETE",
+                "/dataservice/template/policy/list/dataprefixall/{id}",
+                params=params,
+                **kw,
+            )
+        # /dataservice/template/policy/list/dataprefixall
+        if self._request_adapter.param_checker([], [id]):
+            params = {
+                "infoTag": info_tag,
+            }
+            return self._request_adapter.request(
+                "DELETE",
+                "/dataservice/template/policy/list/dataprefixall",
+                return_type=List[Any],
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def filtered(self) -> FilteredBuilder:

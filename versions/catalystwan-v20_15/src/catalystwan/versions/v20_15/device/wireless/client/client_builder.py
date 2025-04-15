@@ -14,9 +14,10 @@ class ClientBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_wireless_clients(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get wireless clients from device
+        GET /dataservice/device/wireless/client
 
         :param device_id: deviceId - Device IP
         :returns: Any

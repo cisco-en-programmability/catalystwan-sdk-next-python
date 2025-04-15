@@ -14,11 +14,12 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_severity_histogram(
+    def get(
         self, device_id: List[str], query: Optional[str] = None, site_id: Optional[str] = None, **kw
     ) -> Any:
         """
         Get event severity histogram
+        GET /dataservice/event/severity/summary
 
         :param device_id: Device system ip
         :param query: Query

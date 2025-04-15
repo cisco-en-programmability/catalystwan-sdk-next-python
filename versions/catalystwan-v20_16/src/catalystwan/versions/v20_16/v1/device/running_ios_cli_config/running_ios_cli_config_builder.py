@@ -12,9 +12,10 @@ class RunningIosCliConfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_running_ios_cli_config(self, device_uuid: str, **kw) -> str:
+    def get(self, device_uuid: str, **kw) -> str:
         """
         Get Running iOS CLI Config for device
+        GET /dataservice/v1/device/runningIosCliConfig/{deviceUUID}
 
         :param device_uuid: Device uuid
         :returns: str

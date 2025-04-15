@@ -11,7 +11,7 @@ Update new device
 
 .. code:: python
 
-    def rma_update(payload: Optional[Any] = None) -> None: ...
+    def put(payload: Any) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.config.rmaupdate.rma_update()
+        client.template.config.rmaupdate.put()
 
 

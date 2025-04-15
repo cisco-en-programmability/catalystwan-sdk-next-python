@@ -13,7 +13,7 @@ Process an installation operation
 
 .. code:: python
 
-    def process_vnf_install(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.vnfinstall.process_vnf_install()
+        client.device.action.vnfinstall.post()
 
 

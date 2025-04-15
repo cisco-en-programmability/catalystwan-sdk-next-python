@@ -14,9 +14,10 @@ class DiscoveredappsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_network_discovered_apps(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get All network discovered apps
+        GET /dataservice/app-registry/app/discoveredapps
 
         :returns: List[Any]
         """

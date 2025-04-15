@@ -11,7 +11,7 @@ Find running tasks
 
 .. code:: python
 
-    def find_running_tasks() -> InlineResponse200: ...
+    def get() -> InlineResponse200: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.status.tasks.find_running_tasks()
+        client.device.action.status.tasks.get()
 
 
 .. toctree::

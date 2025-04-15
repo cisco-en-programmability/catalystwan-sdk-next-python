@@ -11,7 +11,7 @@ Get ssh keyList for cloud type
 
 .. code:: python
 
-    def get_ssh_key_list(
+    def get(
         cloud_type: str, account_id: str, cloud_region: str
     ) -> List[SshKeyList]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.sshkeys.get_ssh_key_list()
+        client.multicloud.sshkeys.get()
 
 
 .. toctree::

@@ -11,9 +11,7 @@ Get detailed BFD tloc details
 
 .. code:: python
 
-    def get_bfd_tloc_state_detail(
-        state: Optional[StateParam] = None,
-    ) -> Any: ...
+    def get(state: Optional[StateParam] = None) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bfd.tloc.detail.get_bfd_tloc_state_detail()
+        client.device.bfd.tloc.detail.get()
 
 
 .. toctree::

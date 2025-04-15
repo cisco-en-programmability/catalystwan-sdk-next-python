@@ -19,7 +19,7 @@ class FetchaccountsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def fetch_sava_accounts(
+    def get(
         self,
         username: Optional[str] = None,
         pwd: Optional[str] = None,
@@ -28,6 +28,7 @@ class FetchaccountsBuilder:
     ) -> SmartLicensingfetchAccountsResp:
         """
         Authenticate User and Sync Licenses
+        GET /dataservice/hsec/fetchaccounts
 
         :param username: Username
         :param pwd: Pwd
@@ -47,11 +48,10 @@ class FetchaccountsBuilder:
             **kw,
         )
 
-    def fetch_accounts_1(
-        self, payload: Optional[FetchAccounts1PostRequest] = None, **kw
-    ) -> SmartLicensingfetchAccountsResp:
+    def post(self, payload: FetchAccounts1PostRequest, **kw) -> SmartLicensingfetchAccountsResp:
         """
         Authenticate User and Sync Licenses
+        POST /dataservice/hsec/fetchaccounts
 
         :param payload: Hsec License sync request payload
         :returns: SmartLicensingfetchAccountsResp

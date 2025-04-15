@@ -11,9 +11,8 @@ Downloading list of stats file
 
 .. code:: python
 
-    def download_list(
-        process_type: str,
-        payload: Optional[DownloadListPostRequest] = None,
+    def post(
+        process_type: str, payload: DownloadListPostRequest
     ) -> None: ...
 
 
@@ -32,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.download.filelist.download_list()
+        client.statistics.download.filelist.post()
 
 
 .. toctree::

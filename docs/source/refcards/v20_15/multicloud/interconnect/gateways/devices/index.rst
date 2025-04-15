@@ -11,7 +11,7 @@ API to retrieve available Interconnect Gateway devices.
 
 .. code:: python
 
-    def get_interconnect_gateway_devices(
+    def get(
         interconnect_type: InterconnectTypeParam,
     ) -> List[InlineResponse2003]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.gateways.devices.get_interconnect_gateway_devices()
+        client.multicloud.interconnect.gateways.devices.get()
 
 
 .. toctree::

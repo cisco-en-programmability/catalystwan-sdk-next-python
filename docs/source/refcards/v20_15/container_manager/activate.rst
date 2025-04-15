@@ -11,7 +11,7 @@ Activate container on remote host
 
 .. code:: python
 
-    def activate_container_on_remote_host(
+    def post(
         container_name: str,
         url: Optional[str] = None,
         host_ip: Optional[str] = None,
@@ -34,6 +34,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.container_manager.activate.activate_container_on_remote_host()
+        client.container_manager.activate.post()
 
 

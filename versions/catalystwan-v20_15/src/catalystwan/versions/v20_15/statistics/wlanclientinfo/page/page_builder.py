@@ -14,7 +14,7 @@ class PageBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stats_pagination_raw_data_17(
+    def get(
         self,
         query: Optional[str] = None,
         scroll_id: Optional[str] = None,
@@ -23,6 +23,7 @@ class PageBuilder:
     ) -> Any:
         """
         Get stats raw data
+        GET /dataservice/statistics/wlanclientinfo/page
 
         :param query: Query string
         :param scroll_id: ES scroll Id
@@ -38,15 +39,12 @@ class PageBuilder:
             "GET", "/dataservice/statistics/wlanclientinfo/page", params=params, **kw
         )
 
-    def get_post_stats_pagination_raw_data_17(
-        self,
-        payload: Optional[Any] = None,
-        scroll_id: Optional[str] = None,
-        count: Optional[int] = None,
-        **kw,
+    def post(
+        self, payload: Any, scroll_id: Optional[str] = None, count: Optional[int] = None, **kw
     ) -> Any:
         """
         Get stats raw data
+        POST /dataservice/statistics/wlanclientinfo/page
 
         :param scroll_id: ES scroll Id
         :param count: Result size

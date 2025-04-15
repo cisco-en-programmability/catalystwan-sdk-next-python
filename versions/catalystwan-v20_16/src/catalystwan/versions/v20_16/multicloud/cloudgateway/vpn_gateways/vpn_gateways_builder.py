@@ -19,7 +19,7 @@ class VpnGatewaysBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_azure_vpn_gateways(
+    def get(
         self,
         cloud_type: str,
         account_id: str,
@@ -32,6 +32,7 @@ class VpnGatewaysBuilder:
     ) -> List[VpnGatewayResponse]:
         """
         Discover Azure Vpn Gateways
+        GET /dataservice/multicloud/cloudgateway/vpn-gateways
 
         :param cloud_type: Cloud type
         :param account_id: Account id

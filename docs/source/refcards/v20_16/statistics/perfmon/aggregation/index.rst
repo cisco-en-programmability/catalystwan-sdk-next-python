@@ -11,9 +11,7 @@ Get one application one site line chart data
 
 .. code:: python
 
-    def get_post_aggregation_data_by_query_15(
-        payload: Optional[str] = None,
-    ) -> List[ApplicationSiteChartItem]: ...
+    def post(payload: str) -> List[ApplicationSiteChartItem]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.perfmon.aggregation.get_post_aggregation_data_by_query_15()
+        client.statistics.perfmon.aggregation.post()
 
 
 .. toctree::

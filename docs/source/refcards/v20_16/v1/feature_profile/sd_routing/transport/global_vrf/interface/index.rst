@@ -7,6 +7,6 @@ v1.feature_profile.sd_routing.transport.global_vrf.interface
     :maxdepth: 1
 
     cellular/index
-    ethernet
-    ipsec
+    ethernet/index
+    ipsec/index
 

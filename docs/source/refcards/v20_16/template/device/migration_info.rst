@@ -11,7 +11,7 @@ Returns the mapping between old and migrated templates<br><br><br>Note: In a mul
 
 .. code:: python
 
-    def migration_info() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.migration_info.migration_info()
+        client.template.device.migration_info.get()
 
 

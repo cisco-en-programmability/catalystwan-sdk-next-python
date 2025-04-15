@@ -17,9 +17,10 @@ class DownloadBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_bootstrap_config_zip(self, id: str, **kw) -> GetBootstrapConfigZip:
+    def get(self, id: str, **kw) -> GetBootstrapConfigZip:
         """
         Download vEdge device config
+        GET /dataservice/system/device/bootstrap/download/{id}
 
         :param id: id
         :returns: GetBootstrapConfigZip

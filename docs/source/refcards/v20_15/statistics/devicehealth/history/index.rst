@@ -11,7 +11,7 @@ Get all device health history
 
 .. code:: python
 
-    def get_device_health_history(
+    def get(
         last_n_hours: Optional[int] = 12,
         site: Optional[str] = None,
         limit: Optional[int] = 30,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.devicehealth.history.get_device_health_history()
+        client.statistics.devicehealth.history.get()
 
 
 .. toctree::

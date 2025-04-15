@@ -14,9 +14,10 @@ class PxgridusersessionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def show_vsmart_px_grid_user_sessions(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         show Pxgrid sessions From Vsmart
+        GET /dataservice/device/policy/pxgridusersessions
 
         :param device_id: Device Id
         :returns: Any

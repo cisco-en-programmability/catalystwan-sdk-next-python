@@ -11,7 +11,7 @@ Get compliance information for devices
 
 .. code:: python
 
-    def get_compliance_details(
+    def get(
         offset: Optional[int] = 0,
         limit: Optional[int] = 25,
         device_type: Optional[List[str]] = None,
@@ -37,7 +37,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.compliance.get_compliance_details()
+        client.device.compliance.get()
 
 
 .. toctree::

@@ -15,9 +15,10 @@ class CleanBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def clean_status(self, clean_status: Optional[bool] = None, **kw):
+    def get(self, clean_status: Optional[bool] = None, **kw):
         """
         Delete task and status vertex
+        GET /dataservice/device/action/status/clean
 
         :param clean_status: Clean status
         :returns: None

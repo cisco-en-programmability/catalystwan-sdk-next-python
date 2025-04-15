@@ -13,7 +13,7 @@ Get transit VPN list
 
 .. code:: python
 
-    def get_transit_vpc_vpn_list(account_id: str) -> List[Any]: ...
+    def get(account_id: str) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.get_transit_vpn_list.get_transit_vpc_vpn_list()
+        client.template.cor.get_transit_vpn_list.get()
 
 

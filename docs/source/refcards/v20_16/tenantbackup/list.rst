@@ -11,7 +11,7 @@ List all backup files of a tenant stored in vManage<br><br><br>Note: In a multit
 
 .. code:: python
 
-    def list_tenant_backup() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenantbackup.list.list_tenant_backup()
+        client.tenantbackup.list.get()
 
 

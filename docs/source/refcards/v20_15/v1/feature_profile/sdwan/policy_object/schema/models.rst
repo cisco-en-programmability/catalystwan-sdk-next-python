@@ -19,8 +19,6 @@ Models
         "data-prefix",
         "expanded-community",
         "ext-community",
-        "ipv4-network-object-group",
-        "ipv4-service-object-group",
         "ipv6-prefix",
         "mirror",
         "policer",

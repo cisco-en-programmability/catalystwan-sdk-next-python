@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -25,17 +25,19 @@ class SoftwareBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def find_software_images(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get software images
+        GET /dataservice/device/action/software
 
         :returns: Any
         """
         return self._request_adapter.request("GET", "/dataservice/device/action/software", **kw)
 
-    def create_image_url(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Create software image URL
+        POST /dataservice/device/action/software
 
         :param payload: Request body
         :returns: None
@@ -44,9 +46,10 @@ class SoftwareBuilder:
             "POST", "/dataservice/device/action/software", payload=payload, **kw
         )
 
-    def update_image_url(self, version_id: str, payload: Optional[Any] = None, **kw):
+    def put(self, version_id: str, payload: Any, **kw):
         """
         Update software image URL
+        PUT /dataservice/device/action/software/{versionId}
 
         :param version_id: Version
         :param payload: Update software image request payload
@@ -64,9 +67,10 @@ class SoftwareBuilder:
             **kw,
         )
 
-    def delete_image_url(self, version_id: str, **kw):
+    def delete(self, version_id: str, **kw):
         """
         Delete software image URL
+        DELETE /dataservice/device/action/software/{versionId}
 
         :param version_id: Version
         :returns: None

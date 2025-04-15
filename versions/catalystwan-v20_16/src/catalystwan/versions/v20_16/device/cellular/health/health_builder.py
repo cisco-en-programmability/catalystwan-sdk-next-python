@@ -19,7 +19,7 @@ class HealthBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def cellular_health_dashlet(
+    def get(
         self,
         type_: Optional[TypeParam] = None,
         last_n_hours: Optional[LastNHoursParam] = None,
@@ -27,6 +27,7 @@ class HealthBuilder:
     ) -> List[CellularHealth]:
         """
         Cellular Health Dashlet
+        GET /dataservice/device/cellular/health
 
         :param type_: type
         :param last_n_hours: last N hours

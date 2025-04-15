@@ -11,7 +11,7 @@ Retrieve MDP attached devices
 
 .. code:: python
 
-    def retrieve_mdp_attached_devices(nms_id: str) -> List[Any]: ...
+    def get(nms_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.mdp.attach_devices.retrieve_mdp_attached_devices()
+        client.mdp.attach_devices.get()
 
 
 Operation: PUT /dataservice/mdp/attachDevices/{nmsId}
@@ -40,9 +40,7 @@ Edit attached devices
 
 .. code:: python
 
-    def edit_attached_devices(
-        nms_id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(nms_id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.mdp.attach_devices.edit_attached_devices()
+        client.mdp.attach_devices.put()
 
 
 Operation: POST /dataservice/mdp/attachDevices/{nmsId}
@@ -71,9 +69,7 @@ Share devices with MDP
 
 .. code:: python
 
-    def attach_devices(
-        nms_id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def post(nms_id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -91,6 +87,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.mdp.attach_devices.attach_devices()
+        client.mdp.attach_devices.post()
 
 

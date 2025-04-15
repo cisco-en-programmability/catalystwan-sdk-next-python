@@ -11,7 +11,7 @@ Retrieve group devices for map
 
 .. code:: python
 
-    def list_group_devices_for_map(
+    def get(
         group_id: Optional[str] = None,
         vpn_id: Optional[List[Vpnid]] = None,
     ) -> None: ...
@@ -32,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.group.map.devices.list_group_devices_for_map()
+        client.group.map.devices.get()
 
 
 .. toctree::

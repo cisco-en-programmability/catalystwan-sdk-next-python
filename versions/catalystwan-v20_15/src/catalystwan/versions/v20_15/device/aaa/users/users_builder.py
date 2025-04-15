@@ -14,9 +14,10 @@ class UsersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_aaa_users(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get AAA users from device (Real Time)
+        GET /dataservice/device/aaa/users
 
         :param device_id: deviceId - Device IP
         :returns: Any

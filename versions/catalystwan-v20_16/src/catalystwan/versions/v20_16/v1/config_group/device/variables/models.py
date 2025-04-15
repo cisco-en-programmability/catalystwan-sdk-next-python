@@ -1,9 +1,11 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from dataclasses import dataclass
 from dataclasses import field as _field
-from typing import Any, List, Literal, Optional
+from typing import Any, List, Literal, Optional, Union
 
-ValueType = Literal["ARRAY", "FALSE", "NULL", "NUMBER", "OBJECT", "STRING", "TRUE"]
+SolutionDef = Literal[
+    "cellulargateway", "mobility", "nfvirtual", "sd-routing", "sdwan", "service-insertion"
+]
 
 
 @dataclass
@@ -32,7 +34,7 @@ class Groups:
 
 
 @dataclass
-class ResponseSchema2:
+class GetConfigGroupDeviceVariablesGetResponse:
     """
     Schema for the response of a GET request to retrieve config group variables
     """
@@ -44,6 +46,52 @@ class ResponseSchema2:
 
 
 @dataclass
+class VariablesVariables:
+    name: str
+    value: Union[str, int, int, bool, List[None]]
+
+
+@dataclass
+class DevicesDef:
+    # Device unique id
+    device_id: str = _field(metadata={"alias": "device-id"})
+    # Variable object for the device
+    variables: List[VariablesVariables]
+
+
+@dataclass
+class GroupVariables:
+    name: str
+    value: Union[str, int, int, bool, List[None]]
+
+
+@dataclass
+class VariablesGroups:
+    # global variables object for the group
+    group_variables: List[GroupVariables] = _field(metadata={"alias": "group-variables"})
+    name: str
+
+
+@dataclass
 class CreateConfigGroupDeviceVariablesPutRequest:
-    empty: Optional[bool] = _field(default=None)
-    value_type: Optional[ValueType] = _field(default=None, metadata={"alias": "valueType"})
+    """
+    Variables PUT request Schema
+    """
+
+    # Variables for devices
+    devices: List[DevicesDef]
+    solution: SolutionDef  # pytype: disable=annotation-type-mismatch
+    # Variables for groups
+    groups: Optional[List[VariablesGroups]] = _field(default=None)
+
+
+@dataclass
+class FetchConfigGroupDeviceVariablesPostRequest:
+    """
+    Variables POST request Schema
+    """
+
+    # ID of devices for which Variables need to be fetched
+    device_ids: Optional[List[str]] = _field(default=None, metadata={"alias": "deviceIds"})
+    # Variable object for the device
+    suggestions: Optional[bool] = _field(default=None)

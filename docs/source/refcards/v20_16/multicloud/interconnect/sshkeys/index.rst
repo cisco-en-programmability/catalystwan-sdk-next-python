@@ -11,7 +11,7 @@ Get ssh keys for Interconnect provider.
 
 .. code:: python
 
-    def get_interconnect_ssh_keys(
+    def get(
         interconnect_provider_name: str, interconnect_account_id: str
     ) -> InlineResponse20016: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.sshkeys.get_interconnect_ssh_keys()
+        client.multicloud.interconnect.sshkeys.get()
 
 
 .. toctree::

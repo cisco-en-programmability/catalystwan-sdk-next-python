@@ -14,9 +14,10 @@ class ImageCountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_upload_images_count(self, image_type: Optional[List[str]] = None, **kw):
+    def get(self, image_type: Optional[List[str]] = None, **kw):
         """
         Number of software image presented in vManage repository
+        GET /dataservice/device/action/software/package/imageCount
 
         :param image_type: imageType
         :returns: None

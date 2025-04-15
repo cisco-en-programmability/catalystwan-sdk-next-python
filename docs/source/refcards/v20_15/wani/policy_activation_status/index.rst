@@ -11,9 +11,7 @@ Get if specified policy is apart of a activated centralized policy, if it is the
 
 .. code:: python
 
-    def get_policy_activation_status(
-        policy_type: str, policy_id: str
-    ) -> ActivationStatusRes: ...
+    def get(policy_type: str, policy_id: str) -> ActivationStatusRes: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.wani.policy_activation_status.get_policy_activation_status()
+        client.wani.policy_activation_status.get()
 
 
 .. toctree::

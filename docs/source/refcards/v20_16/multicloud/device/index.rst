@@ -11,7 +11,7 @@ Get available WAN edge devices
 
 .. code:: python
 
-    def get_wan_devices() -> WanEdgeDevicesResponse: ...
+    def get() -> WanEdgeDevicesResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.device.get_wan_devices()
+        client.multicloud.device.get()
 
 
 .. toctree::

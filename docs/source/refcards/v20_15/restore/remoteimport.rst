@@ -11,7 +11,7 @@ Remote import backup from a remote URL and import the data and apply it to the c
 
 .. code:: python
 
-    def remote_import_backup(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.restore.remoteimport.remote_import_backup()
+        client.restore.remoteimport.post()
 
 

@@ -19,7 +19,7 @@ class ErrorStatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_interface_error_stats(
+    def get(
         self,
         device_id: str,
         vpn_id: Optional[str] = None,
@@ -29,6 +29,7 @@ class ErrorStatsBuilder:
     ) -> Any:
         """
         Get interface error stats
+        GET /dataservice/device/interface/error_stats
 
         :param vpn_id: VPN Id
         :param ifname: IF Name

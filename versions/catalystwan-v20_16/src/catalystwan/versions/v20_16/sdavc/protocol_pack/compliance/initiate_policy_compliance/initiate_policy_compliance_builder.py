@@ -14,9 +14,10 @@ class InitiatePolicyComplianceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def initiate_policy_compliance(self, **kw) -> Any:
+    def post(self, **kw) -> Any:
         """
         Initiate policy compliance task
+        POST /dataservice/sdavc/protocol-pack/compliance/initiate-policy-compliance
 
         :returns: Any
         """

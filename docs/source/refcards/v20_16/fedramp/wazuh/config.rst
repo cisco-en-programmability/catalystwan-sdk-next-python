@@ -11,7 +11,7 @@ Configure Wazuh agent
 
 .. code:: python
 
-    def configure_wazuh_client(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.fedramp.wazuh.config.configure_wazuh_client()
+        client.fedramp.wazuh.config.post()
 
 

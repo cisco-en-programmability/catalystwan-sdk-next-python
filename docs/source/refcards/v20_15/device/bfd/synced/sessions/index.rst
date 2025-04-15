@@ -11,11 +11,11 @@ Get list of BFD sessions from vManage synchronously
 
 .. code:: python
 
-    def create_synced_bfd_session(
+    def get(
         device_id: str,
         system_ip: Optional[str] = None,
         color: Optional[ColorParam] = None,
-        local_color: Optional[ColorParam] = None,
+        local_color: Optional[LocalColorParam] = None,
     ) -> List[Any]: ...
 
 
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bfd.synced.sessions.create_synced_bfd_session()
+        client.device.bfd.synced.sessions.get()
 
 
 .. toctree::

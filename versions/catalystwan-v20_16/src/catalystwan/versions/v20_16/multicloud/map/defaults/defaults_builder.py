@@ -19,9 +19,10 @@ class DefaultsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_default_mapping_values(self, cloud_type: CloudTypeParam, **kw) -> List[MapDefaults]:
+    def get(self, cloud_type: CloudTypeParam, **kw) -> List[MapDefaults]:
         """
         Get default mapping values
+        GET /dataservice/multicloud/map/defaults
 
         :param cloud_type: Cloud type
         :returns: List[MapDefaults]

@@ -11,7 +11,7 @@ Get nms running state from device
 
 .. code:: python
 
-    def get_running(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.nms.running.get_running()
+        client.device.nms.running.get()
 
 

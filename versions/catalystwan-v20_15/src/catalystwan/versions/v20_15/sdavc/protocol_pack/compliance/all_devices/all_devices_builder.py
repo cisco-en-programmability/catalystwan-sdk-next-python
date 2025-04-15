@@ -12,9 +12,10 @@ class AllDevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_sdavc_device(self, **kw):
+    def get(self, **kw):
         """
         Get all device compliance details
+        GET /dataservice/sdavc/protocol-pack/compliance/all-devices
 
         :returns: None
         """

@@ -11,8 +11,8 @@ Get raw aggregated data and display applications with the highest utilization fo
 
 .. code:: python
 
-    def get_agg_app_data_post(
-        payload: Optional[Any] = None, site_id: Optional[str] = None
+    def post(
+        payload: Any, site_id: Optional[str] = None
     ) -> DpiAggregationResponse: ...
 
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.dpi.agg_app.aggregation.get_agg_app_data_post()
+        client.statistics.dpi.agg_app.aggregation.post()
 
 
 .. toctree::

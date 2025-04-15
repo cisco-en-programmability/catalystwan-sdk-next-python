@@ -11,9 +11,7 @@ Wazuh agent action
 
 .. code:: python
 
-    def request_wazuh_actions(
-        action: Optional[str] = None,
-    ) -> List[Any]: ...
+    def get(action: Optional[str] = None) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.fedramp.wazuh.actions.request_wazuh_actions()
+        client.fedramp.wazuh.actions.get()
 
 

@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -17,9 +17,10 @@ class PasswordBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def update_password_1(self, user_name: str, payload: Optional[Any] = None, **kw):
+    def put(self, user_name: str, payload: Any, **kw):
         """
         Update user password
+        PUT /dataservice/admin/user/password/{userName}
 
         :param user_name: User name
         :param payload: User

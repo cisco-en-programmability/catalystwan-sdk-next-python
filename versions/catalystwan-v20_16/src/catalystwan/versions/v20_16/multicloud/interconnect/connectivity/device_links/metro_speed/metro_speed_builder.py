@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,14 +17,12 @@ class MetroSpeedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_device_link_metro_speed(
-        self,
-        interconnect_type: InterconnectTypeParam,
-        payload: Optional[InterconnectDeviceLink] = None,
-        **kw,
+    def post(
+        self, interconnect_type: InterconnectTypeParam, payload: InterconnectDeviceLink, **kw
     ) -> InlineResponse20012:
         """
         API to get metro speed for Device-Link by Device-Link Configuration.
+        POST /dataservice/multicloud/interconnect/{interconnect-type}/connectivity/device-links/metro-speed
 
         :param interconnect_type: Interconnect Provider Type
         :param payload: Request Payload for Multicloud Interconnect Device Links

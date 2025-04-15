@@ -20,9 +20,10 @@ class NwpiProtocolBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_nwpi_protocol(self, **kw) -> List[NwpiProtocolResponsePayloadInner]:
+    def get(self, **kw) -> List[NwpiProtocolResponsePayloadInner]:
         """
-        Get nwpi protocol
+        Get
+        GET /dataservice/stream/device/nwpi/nwpiProtocol
 
         :returns: List[NwpiProtocolResponsePayloadInner]
         """

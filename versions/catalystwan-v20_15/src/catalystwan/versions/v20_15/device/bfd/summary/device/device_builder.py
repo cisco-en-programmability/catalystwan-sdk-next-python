@@ -14,9 +14,10 @@ class DeviceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_bfd_status_summary(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get device BFD status summary
+        GET /dataservice/device/bfd/summary/device
 
         :param device_id: deviceId - Device IP
         :returns: Any

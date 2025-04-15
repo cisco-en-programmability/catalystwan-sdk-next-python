@@ -20,7 +20,7 @@ class EdgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_licenses(
+    def get(
         self,
         edge_type: Optional[EdgeTypeParam] = None,
         account_id: Optional[str] = None,
@@ -30,6 +30,7 @@ class EdgeBuilder:
     ) -> Any:
         """
         Get License Info for Edge Gateways/Connections
+        GET /dataservice/multicloud/license/edge
 
         :param edge_type: Edge type
         :param account_id: Edge Account Id

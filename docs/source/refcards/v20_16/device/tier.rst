@@ -11,7 +11,7 @@ getTiers
 
 .. code:: python
 
-    def get_tiers() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tier.get_tiers()
+        client.device.tier.get()
 
 
 Operation: POST /dataservice/device/tier
@@ -40,7 +40,7 @@ add tier
 
 .. code:: python
 
-    def add_tier(add_tier: str) -> None: ...
+    def post(add_tier: str) -> None: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tier.add_tier()
+        client.device.tier.post()
 
 
 Operation: DELETE /dataservice/device/tier/{tierName}
@@ -69,7 +69,7 @@ deleteTier
 
 .. code:: python
 
-    def delete_tier(tier_name: str) -> None: ...
+    def delete(tier_name: str) -> None: ...
 
 
 Example:
@@ -87,6 +87,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tier.delete_tier()
+        client.device.tier.delete()
 
 

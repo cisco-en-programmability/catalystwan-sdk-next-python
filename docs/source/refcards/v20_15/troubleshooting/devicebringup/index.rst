@@ -11,7 +11,7 @@ Debug device bring up
 
 .. code:: python
 
-    def get_device_configuration(uuid: str) -> GetDeviceConfiguration: ...
+    def get(uuid: str) -> GetDeviceConfiguration: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.troubleshooting.devicebringup.get_device_configuration()
+        client.troubleshooting.devicebringup.get()
 
 
 .. toctree::

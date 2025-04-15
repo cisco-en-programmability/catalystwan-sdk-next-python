@@ -14,9 +14,10 @@ class DetailsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_device_crash_logs(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get device crash logs for all device
+        GET /dataservice/device/crashlog/details
 
         :returns: Any
         """

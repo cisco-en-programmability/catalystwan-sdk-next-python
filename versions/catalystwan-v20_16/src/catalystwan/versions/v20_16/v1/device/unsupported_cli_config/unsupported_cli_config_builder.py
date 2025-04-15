@@ -14,11 +14,10 @@ class UnsupportedCliConfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_unsupported_cli_config(
-        self, device_uuid: str, highlight_unsupported_clis: Optional[bool] = True, **kw
-    ) -> str:
+    def get(self, device_uuid: str, highlight_unsupported_clis: Optional[bool] = True, **kw) -> str:
         """
         Get Unsupported CLI Config for device
+        GET /dataservice/v1/device/unsupportedCliConfig/{deviceUUID}
 
         :param device_uuid: Device uuid
         :param highlight_unsupported_clis: Highlight unsupported clis

@@ -11,7 +11,7 @@ Get metadata from db and send to Umbrella
 
 .. code:: python
 
-    def send_meta_data_to_umbrella() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.umbrella.syncnow.send_meta_data_to_umbrella()
+        client.umbrella.syncnow.get()
 
 

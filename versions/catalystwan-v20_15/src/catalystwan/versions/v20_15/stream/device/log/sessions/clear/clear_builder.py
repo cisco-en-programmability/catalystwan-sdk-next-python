@@ -12,9 +12,10 @@ class ClearBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def clear_session(self, session_id: str, **kw):
+    def get(self, session_id: str, **kw):
         """
-        Clear session
+        Get
+        GET /dataservice/stream/device/log/sessions/clear/{sessionId}
 
         :param session_id: Session Id
         :returns: None

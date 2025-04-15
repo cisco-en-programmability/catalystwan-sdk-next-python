@@ -11,9 +11,7 @@ Get SD-WAN Remote Access session summary
 
 .. code:: python
 
-    def get_sdra_session_summary(
-        site: Optional[int] = None,
-    ) -> SdraSessionSummary: ...
+    def get(site: Optional[int] = None) -> SdraSessionSummary: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.sdra.sessions.get_sdra_session_summary()
+        client.statistics.sdra.sessions.get()
 
 
 .. toctree::

@@ -14,9 +14,10 @@ class StatisticsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_statistics_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get tunnel statistics all devices
+        GET /dataservice/device/tunnel/statistics
 
         :param device_id: deviceId - Device IP
         :returns: Any

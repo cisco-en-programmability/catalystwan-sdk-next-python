@@ -14,12 +14,13 @@ class MigrationInfoBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def migration_info(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Returns the mapping between old and migrated templates
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/template/device/migration_info
 
         :returns: Any
         """

@@ -13,7 +13,7 @@ Get transit VPC PEM key list
 
 .. code:: python
 
-    def get_pem_key_list(
+    def get(
         accountid: str, cloudregion: str, cloudtype: str
     ) -> List[Any]: ...
 
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.pem.get_pem_key_list()
+        client.template.cor.pem.get()
 
 

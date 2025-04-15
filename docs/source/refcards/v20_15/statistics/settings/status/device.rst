@@ -11,7 +11,7 @@ Get list of enabled device for statistics index
 
 .. code:: python
 
-    def get_enabled_index_for_device(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.settings.status.device.get_enabled_index_for_device()
+        client.statistics.settings.status.device.get()
 
 

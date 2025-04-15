@@ -11,9 +11,7 @@ Delete a tenant by Id<br><br><br>Note: In a multitenant vManage system, this API
 
 .. code:: python
 
-    def delete_tenant(
-        tenant_id: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def post(tenant_id: str, payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenant.delete.delete_tenant()
+        client.tenant.delete.post()
 
 

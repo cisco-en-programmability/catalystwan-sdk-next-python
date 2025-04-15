@@ -11,7 +11,7 @@ Fetches the list of enabled metrics
 
 .. code:: python
 
-    def get_metrics_list() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.configdb.metrics.listmetrics.get_metrics_list()
+        client.util.configdb.metrics.listmetrics.get()
 
 

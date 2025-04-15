@@ -15,9 +15,10 @@ class AccountdetailsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_host_vpc_account_details(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get cloud host VPC account details
+        GET /dataservice/template/cor/cloud/host/accountdetails
 
         :returns: Any
         """

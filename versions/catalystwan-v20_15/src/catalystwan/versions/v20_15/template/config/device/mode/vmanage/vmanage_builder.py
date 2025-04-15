@@ -19,9 +19,10 @@ class VmanageBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generatev_manage_mode_devices(self, type_: TypeParam, **kw) -> List[Any]:
+    def get(self, type_: TypeParam, **kw) -> List[Any]:
         """
         Get list of devices that are allowable for vmanage modes
+        GET /dataservice/template/config/device/mode/vmanage
 
         :param type_: Device type
         :returns: List[Any]

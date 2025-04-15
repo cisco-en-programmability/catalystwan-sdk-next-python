@@ -11,7 +11,7 @@ Get WAN interface list (Real Time)
 
 .. code:: python
 
-    def create_wan_interface_list_list(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.control.waninterface.create_wan_interface_list_list()
+        client.device.control.waninterface.get()
 
 
 .. toctree::

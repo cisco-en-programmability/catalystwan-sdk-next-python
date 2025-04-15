@@ -14,9 +14,10 @@ class ListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def setv_smart_mt_hub_list(self, **kw) -> List[str]:
+    def get(self, **kw) -> List[str]:
         """
         vSmart Mthub list
+        GET /dataservice/certificate/mthub/list
 
         :returns: List[str]
         """

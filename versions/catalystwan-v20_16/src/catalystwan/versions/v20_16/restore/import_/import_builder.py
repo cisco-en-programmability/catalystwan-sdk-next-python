@@ -14,9 +14,10 @@ class ImportBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def import_scheduled_backup(self, **kw) -> Any:
+    def post(self, **kw) -> Any:
         """
         Submit a previously backed up file and import the data and apply it to the configuraion database
+        POST /dataservice/restore/import
 
         :returns: Any
         """

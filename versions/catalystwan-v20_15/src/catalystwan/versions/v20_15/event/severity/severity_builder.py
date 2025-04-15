@@ -22,7 +22,7 @@ class SeverityBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_by_severities(
+    def get(
         self,
         severity_level: List[str],
         device_id: Optional[List[str]] = None,
@@ -32,6 +32,7 @@ class SeverityBuilder:
     ) -> List[EventsBySeverity]:
         """
         Get alarms by severity
+        GET /dataservice/event/severity
 
         :param severity_level: Severity level
         :param device_id: Device System IP

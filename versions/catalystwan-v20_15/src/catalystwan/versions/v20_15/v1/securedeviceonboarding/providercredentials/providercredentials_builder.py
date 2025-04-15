@@ -1,12 +1,10 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import ProviderAccountDetails
+from .models import ProviderAccountDetails, ProviderAccountDetailsList
 
 
 class ProvidercredentialsBuilder:
@@ -19,9 +17,10 @@ class ProvidercredentialsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_provider_credentials(self, payload: Optional[ProviderAccountDetails] = None, **kw):
+    def post(self, payload: None, **kw):
         """
         Create service provider credentials
+        POST /dataservice/v1/securedeviceonboarding/providercredentials
 
         :param payload: Create Provider Credentials
         :returns: None
@@ -33,12 +32,13 @@ class ProvidercredentialsBuilder:
             **kw,
         )
 
-    def get_provider_credentials_by_account_id(self, account_id: str, **kw) -> str:
+    def get(self, account_id: str, **kw) -> ProviderAccountDetailsList:
         """
         Get provider credentials by account id
+        GET /dataservice/v1/securedeviceonboarding/{accountId}/providercredentials
 
         :param account_id: Service User Account ID
-        :returns: str
+        :returns: ProviderAccountDetailsList
         """
         params = {
             "accountId": account_id,
@@ -46,16 +46,15 @@ class ProvidercredentialsBuilder:
         return self._request_adapter.request(
             "GET",
             "/dataservice/v1/securedeviceonboarding/{accountId}/providercredentials",
-            return_type=str,
+            return_type=ProviderAccountDetailsList,
             params=params,
             **kw,
         )
 
-    def edit_provider_credentials(
-        self, account_id: str, payload: Optional[ProviderAccountDetails] = None, **kw
-    ):
+    def put(self, account_id: str, payload: ProviderAccountDetails, **kw):
         """
         Edit service provider credentials
+        PUT /dataservice/v1/securedeviceonboarding/{accountId}/providercredentials
 
         :param account_id: Service User Account ID
         :param payload: Provider Credentials

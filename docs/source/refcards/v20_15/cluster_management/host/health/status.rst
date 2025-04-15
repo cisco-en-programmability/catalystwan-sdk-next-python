@@ -11,7 +11,7 @@ Get vManage cluster health check details<br><br><br>Note: In a multitenant vMana
 
 .. code:: python
 
-    def host_health_status() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.host.health.status.host_health_status()
+        client.cluster_management.host.health.status.get()
 
 

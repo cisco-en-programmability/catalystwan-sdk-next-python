@@ -19,9 +19,10 @@ class HeadendsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdra_headend_summary(self, site: Optional[int] = None, **kw) -> SdraHeadendSummary:
+    def get(self, site: Optional[int] = None, **kw) -> SdraHeadendSummary:
         """
         Get SD-WAN Remote Access Head-end summary
+        GET /dataservice/statistics/sdra/headends
 
         :param site: Site
         :returns: SdraHeadendSummary

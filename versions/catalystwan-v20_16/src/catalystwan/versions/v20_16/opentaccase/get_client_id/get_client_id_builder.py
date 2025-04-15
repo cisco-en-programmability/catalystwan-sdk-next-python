@@ -15,9 +15,10 @@ class GetClientIdBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_client_id(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Gets vManage Client ID
+        GET /dataservice/opentaccase/getClientID
 
         :returns: List[Any]
         """

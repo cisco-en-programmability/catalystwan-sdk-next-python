@@ -14,9 +14,10 @@ class McastautodiscoverrecvBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_omp_mcast_auto_discover_recv(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get OMP multicast autodiscover received list
+        GET /dataservice/device/omp/mcastautodiscoverrecv
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

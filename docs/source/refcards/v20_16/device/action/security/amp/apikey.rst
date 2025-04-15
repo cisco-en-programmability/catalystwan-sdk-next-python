@@ -11,7 +11,7 @@ Process amp api key deletion operation
 
 .. code:: python
 
-    def process_delete_amp_api_key(uuid: str) -> Any: ...
+    def delete(uuid: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.security.amp.apikey.process_delete_amp_api_key()
+        client.device.action.security.amp.apikey.delete()
 
 

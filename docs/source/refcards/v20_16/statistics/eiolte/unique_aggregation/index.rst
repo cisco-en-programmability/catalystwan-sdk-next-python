@@ -11,9 +11,7 @@ Get unique aggregated data based on input query and filters. The data can be fil
 
 .. code:: python
 
-    def unique_aggregation(
-        payload: Optional[StatisticsDbQueryParam] = None,
-    ) -> Any: ...
+    def post(payload: StatisticsDbQueryParam) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.eiolte.unique_aggregation.unique_aggregation()
+        client.statistics.eiolte.unique_aggregation.post()
 
 
 .. toctree::

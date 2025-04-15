@@ -11,9 +11,7 @@ Sync devices from Smart-Account
 
 .. code:: python
 
-    def sync_devices(
-        payload: Optional[Any] = None,
-    ) -> SyncDevicesResp: ...
+    def post(payload: Any) -> SyncDevicesResp: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.smartaccount.sync.sync_devices()
+        client.system.device.smartaccount.sync.post()
 
 
 .. toctree::

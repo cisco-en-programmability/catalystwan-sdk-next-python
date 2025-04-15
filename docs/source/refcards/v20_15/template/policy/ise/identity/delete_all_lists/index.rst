@@ -11,9 +11,7 @@ Delete all lists of the specified list type
 
 .. code:: python
 
-    def delete_all_lists(
-        payload: Optional[DeleteAllListsBody] = None,
-    ) -> bool: ...
+    def delete(payload: Optional[DeleteAllListsBody] = None) -> bool: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.ise.identity.delete_all_lists.delete_all_lists()
+        client.template.policy.ise.identity.delete_all_lists.delete()
 
 
 .. toctree::

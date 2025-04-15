@@ -11,11 +11,11 @@ Get IPSEC pairwise key local SA entry from device
 
 .. code:: python
 
-    def create_i_psec_pwk_local_sa(
+    def get(
         device_id: str,
         remote_tloc_address: Optional[str] = None,
         remote_tloc_color: Optional[RemoteTlocColorParam] = None,
-        local_tloc_color: Optional[RemoteTlocColorParam] = None,
+        local_tloc_color: Optional[LocalTlocColorParam] = None,
     ) -> Any: ...
 
 
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ipsec.pwk.localsa.create_i_psec_pwk_local_sa()
+        client.device.ipsec.pwk.localsa.get()
 
 
 .. toctree::

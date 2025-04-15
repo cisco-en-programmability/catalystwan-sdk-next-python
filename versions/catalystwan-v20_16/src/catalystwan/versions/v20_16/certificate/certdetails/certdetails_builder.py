@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 
@@ -14,9 +12,10 @@ class CertdetailsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cert_details(self, payload: Optional[str] = None, **kw) -> str:
+    def post(self, payload: str, **kw) -> str:
         """
         get certificaate details
+        POST /dataservice/certificate/certdetails
 
         :param payload: Single certificate provided as string in a json formatted request body.
         :returns: str

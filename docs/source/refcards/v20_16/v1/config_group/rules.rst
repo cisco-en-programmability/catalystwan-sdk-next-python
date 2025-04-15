@@ -11,9 +11,7 @@ Get Rule by associated object Id, example : get rules by config group Id
 
 .. code:: python
 
-    def get_rule_association_by_config_group_id(
-        config_group_id: str,
-    ) -> str: ...
+    def get(config_group_id: str) -> str: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.config_group.rules.get_rule_association_by_config_group_id()
+        client.v1.config_group.rules.get()
 
 

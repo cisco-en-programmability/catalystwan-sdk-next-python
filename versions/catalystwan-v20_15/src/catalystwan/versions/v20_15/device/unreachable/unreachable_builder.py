@@ -14,9 +14,10 @@ class UnreachableBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_unreachable_devices(self, personality: str, **kw) -> List[Any]:
+    def get(self, personality: str, **kw) -> List[Any]:
         """
         Get list of unreachable devices
+        GET /dataservice/device/unreachable
 
         :param personality: Device personality (vedge OR vsmart OR vbond... )
         :returns: List[Any]
@@ -28,9 +29,10 @@ class UnreachableBuilder:
             "GET", "/dataservice/device/unreachable", return_type=List[Any], params=params, **kw
         )
 
-    def remove_unreachable_device(self, device_ip: str, **kw):
+    def delete(self, device_ip: str, **kw):
         """
         Delete unreachable device
+        DELETE /dataservice/device/unreachable/{deviceIP}
 
         :param device_ip: Device IP
         :returns: None

@@ -11,9 +11,7 @@ Get aggregated data based on input query and filters. The data can be filtered o
 
 .. code:: python
 
-    def cellular_aggregation(
-        payload: Optional[StatisticsDbQueryParam] = None,
-    ) -> Any: ...
+    def post(payload: StatisticsDbQueryParam) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.eiolte.cellular_aggregation.cellular_aggregation()
+        client.statistics.eiolte.cellular_aggregation.post()
 
 
 .. toctree::

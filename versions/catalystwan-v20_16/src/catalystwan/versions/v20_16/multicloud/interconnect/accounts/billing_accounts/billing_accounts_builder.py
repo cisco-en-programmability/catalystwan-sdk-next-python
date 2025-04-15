@@ -19,7 +19,7 @@ class BillingAccountsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_billing_accounts(
+    def get(
         self,
         interconnect_type: str,
         interconnect_account_id: str,
@@ -28,6 +28,7 @@ class BillingAccountsBuilder:
     ) -> InlineResponse2001:
         """
         API to retrieve billing accounts for an Interconnect provider type and account.
+        GET /dataservice/multicloud/interconnect/{interconnect-type}/accounts/{interconnect-account-id}/billing-accounts
 
         :param interconnect_type: Interconnect provider type
         :param interconnect_account_id: Interconnect provider account id

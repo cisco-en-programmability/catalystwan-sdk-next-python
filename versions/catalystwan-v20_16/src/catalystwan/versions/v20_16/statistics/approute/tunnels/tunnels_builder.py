@@ -23,11 +23,12 @@ class TunnelsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_route_tunnel_type(
+    def get(
         self, type_: str, query: Optional[str] = None, limit: Optional[int] = None, **kw
     ) -> List[AppRouteRespWithPageInfo]:
         """
         Get tunnel top statistics from device
+        GET /dataservice/statistics/approute/tunnels/{type}
 
         :param type_: Type
         :param query: Query filter

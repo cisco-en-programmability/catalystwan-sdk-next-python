@@ -14,9 +14,10 @@ class SyncStatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_currently_syncing_devices(self, group_id: str, **kw) -> List[Any]:
+    def get(self, group_id: str, **kw) -> List[Any]:
         """
         Get list of currently syncing devices
+        GET /dataservice/device/sync_status
 
         :param group_id: Group Id
         :returns: List[Any]

@@ -11,7 +11,7 @@ Get device OMP status
 
 .. code:: python
 
-    def get_device_omp_status() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.omp.status.get_device_omp_status()
+        client.device.omp.status.get()
 
 

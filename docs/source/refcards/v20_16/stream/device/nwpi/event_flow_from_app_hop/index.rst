@@ -13,7 +13,7 @@ Get Trace Event Flow From Application And Hop for NWPI.
 
 .. code:: python
 
-    def get_event_flow_from_app_hop(
+    def get(
         trace_id: int,
         timestamp: int,
         direction: str,
@@ -44,7 +44,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.event_flow_from_app_hop.get_event_flow_from_app_hop()
+        client.stream.device.nwpi.event_flow_from_app_hop.get()
 
 
 .. toctree::

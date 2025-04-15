@@ -17,7 +17,7 @@ class PolicyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_compliance_policy(
+    def get(
         self,
         offset: Optional[int] = None,
         limit: Optional[int] = None,
@@ -26,6 +26,7 @@ class PolicyBuilder:
     ):
         """
         Get all policy compliance details
+        GET /dataservice/sdavc/protocol-pack/compliance/policy
 
         :param offset: Starting position of records
         :param limit: Total records to query after offset

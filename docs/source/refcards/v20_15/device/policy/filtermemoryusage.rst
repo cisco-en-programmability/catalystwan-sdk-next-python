@@ -11,7 +11,7 @@ Get data policy filter memory usage from device
 
 .. code:: python
 
-    def create_policy_filter_memory_usage(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.policy.filtermemoryusage.create_policy_filter_memory_usage()
+        client.device.policy.filtermemoryusage.get()
 
 

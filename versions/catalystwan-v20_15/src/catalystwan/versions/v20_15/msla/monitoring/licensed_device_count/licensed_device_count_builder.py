@@ -14,9 +14,10 @@ class LicensedDeviceCountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_details_for_dashboard(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get licenses associated to device
+        GET /dataservice/msla/monitoring/licensedDeviceCount
 
         :returns: Any
         """

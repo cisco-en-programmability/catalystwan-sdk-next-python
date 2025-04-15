@@ -11,7 +11,7 @@ Get device admin-tech information
 
 .. code:: python
 
-    def list_admin_techs() -> List[AdminTechsRes]: ...
+    def get() -> List[AdminTechsRes]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.admintechs.list_admin_techs()
+        client.device.tools.admintechs.get()
 
 
 .. toctree::

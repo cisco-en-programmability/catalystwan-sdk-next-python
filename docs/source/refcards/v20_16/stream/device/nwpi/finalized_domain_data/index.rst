@@ -13,7 +13,7 @@ Get Domain data for NWPI.
 
 .. code:: python
 
-    def get_finalized_domain_data(
+    def get(
         trace_id: int, timestamp: int, query: Optional[str] = None
     ) -> List[FinalizedDomainDataResponsePayloadInner]: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.finalized_domain_data.get_finalized_domain_data()
+        client.stream.device.nwpi.finalized_domain_data.get()
 
 
 .. toctree::

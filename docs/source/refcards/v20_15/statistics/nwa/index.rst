@@ -11,7 +11,7 @@ Get network availability raw data based on input query and filters.
 
 .. code:: python
 
-    def get_aggregation_data_by_query_3(
+    def post(
         query: str,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.nwa.get_aggregation_data_by_query_3()
+        client.statistics.nwa.post()
 
 
 .. toctree::

@@ -17,11 +17,10 @@ class TopologyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_config_group_topology(
-        self, interconnect_type: str, config_group_id: str, **kw
-    ) -> InlineResponse20013:
+    def get(self, interconnect_type: str, config_group_id: str, **kw) -> InlineResponse20013:
         """
         API to retrieve current Multicloud Interconnect topology for the Config Group.
+        GET /dataservice/multicloud/interconnect/{interconnect-type}/config-group/{config-group-id}/topology
 
         :param interconnect_type: Interconnect provider type
         :param config_group_id: Config Group Id
@@ -39,11 +38,10 @@ class TopologyBuilder:
             **kw,
         )
 
-    def update_interconnect_config_group_topology(
-        self, interconnect_type: str, config_group_id: str, **kw
-    ) -> InlineResponse20013:
+    def put(self, interconnect_type: str, config_group_id: str, **kw) -> InlineResponse20013:
         """
         API to update current Multicloud Interconnect topology for the Config Group.
+        PUT /dataservice/multicloud/interconnect/{interconnect-type}/config-group/{config-group-id}/topology
 
         :param interconnect_type: Interconnect provider type
         :param config_group_id: Config Group Id

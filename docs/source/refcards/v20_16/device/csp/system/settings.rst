@@ -11,7 +11,7 @@ Get device system settings from device
 
 .. code:: python
 
-    def create_device_system_setting(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.csp.system.settings.create_device_system_setting()
+        client.device.csp.system.settings.get()
 
 

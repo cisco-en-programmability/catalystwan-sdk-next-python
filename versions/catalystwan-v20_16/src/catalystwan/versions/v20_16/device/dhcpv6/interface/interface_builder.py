@@ -14,9 +14,10 @@ class InterfaceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dhc_pv6_interface(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get DHCPv6 interfaces from device
+        GET /dataservice/device/dhcpv6/interface
 
         :param device_id: deviceId - Device IP
         :returns: Any

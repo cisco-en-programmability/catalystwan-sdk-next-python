@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class MetadataBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_image_metadata(self, version_id: str, **kw):
+    def get(self, version_id: str, **kw):
         """
         Update Package Metadata
+        GET /dataservice/device/action/software/package/{versionId}/metadata
 
         :param version_id: versionId
         :returns: None
@@ -31,12 +32,13 @@ class MetadataBuilder:
             **kw,
         )
 
-    def edit_image_metadata(self, version_id: str, payload: Optional[Any] = None, **kw):
+    def put(self, version_id: str, payload: Any, **kw):
         """
         Update Package Metadata
+        PUT /dataservice/device/action/software/package/{versionId}/metadata
 
         :param version_id: versionId
-        :param payload: Request body for Device bootstrap configuration
+        :param payload: Request body to Update Package Metadata
         :returns: None
         """
         params = {

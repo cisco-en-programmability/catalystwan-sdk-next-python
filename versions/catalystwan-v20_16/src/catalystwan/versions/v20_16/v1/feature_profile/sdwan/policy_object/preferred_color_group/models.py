@@ -89,6 +89,20 @@ class SecondaryPreference:
 
 
 @dataclass
+class TertiaryPreference:
+    """
+    Object with an color and path preference
+    """
+
+    color_preference: Optional[OneOfEntriesColorPreferenceOptionsDef] = _field(
+        default=None, metadata={"alias": "colorPreference"}
+    )
+    path_preference: Optional[OneOfEntriesPathPreferenceOptionsDef] = _field(
+        default=None, metadata={"alias": "pathPreference"}
+    )
+
+
+@dataclass
 class Entries:
     # Object with an color and path preference
     primary_preference: Union[PrimaryPreference1, PrimaryPreference2] = _field(
@@ -99,7 +113,7 @@ class Entries:
         default=None, metadata={"alias": "secondaryPreference"}
     )
     # Object with an color and path preference
-    tertiary_preference: Optional[SecondaryPreference] = _field(
+    tertiary_preference: Optional[TertiaryPreference] = _field(
         default=None, metadata={"alias": "tertiaryPreference"}
     )
 
@@ -118,8 +132,18 @@ class CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest:
 
     data: Data
     description: Optional[str] = _field(default=None)
-    # This is the documentation for POST request schema for preferred-color-group profile parcel
-    documentation: Optional[Any] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+    name: Optional[str] = _field(default=None)
+
+
+@dataclass
+class Payload:
+    """
+    preferred-color-group profile parcel schema for POST request
+    """
+
+    data: Data
+    description: Optional[str] = _field(default=None)
     metadata: Optional[Any] = _field(default=None)
     name: Optional[str] = _field(default=None)
 
@@ -133,6 +157,4 @@ class GetDataPrefixProfileParcelForPolicyObjectGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # preferred-color-group profile parcel schema for POST request
-    payload: Optional[CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest] = _field(
-        default=None
-    )
+    payload: Optional[Payload] = _field(default=None)

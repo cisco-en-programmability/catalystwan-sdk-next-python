@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dns_sec_status(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get DNS-Sec status
+        GET /dataservice/fedramp/dnssec/status
 
         :returns: Any
         """

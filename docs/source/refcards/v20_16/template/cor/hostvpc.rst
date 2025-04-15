@@ -13,7 +13,7 @@ Get host VPC/VNet list
 
 .. code:: python
 
-    def get_cloud_host_vp_cs(
+    def get(
         accountid: str, cloudregion: str, cloudtype: Optional[str] = "AWS"
     ) -> List[Any]: ...
 
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.hostvpc.get_cloud_host_vp_cs()
+        client.template.cor.hostvpc.get()
 
 

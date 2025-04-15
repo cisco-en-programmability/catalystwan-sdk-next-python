@@ -17,9 +17,10 @@ class StopBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def trace_stop(self, trace_id: str, **kw) -> NwpiTraceStopRespPayload:
+    def post(self, trace_id: str, **kw) -> NwpiTraceStopRespPayload:
         """
         Trace Action - Stop
+        POST /dataservice/stream/device/nwpi/trace/stop/{traceId}
 
         :param trace_id: traceId
         :returns: NwpiTraceStopRespPayload

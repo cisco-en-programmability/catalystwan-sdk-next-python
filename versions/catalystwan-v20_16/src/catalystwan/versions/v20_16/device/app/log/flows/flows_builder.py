@@ -14,9 +14,10 @@ class FlowsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_log_flows(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get App log flows from device (Real Time)
+        GET /dataservice/device/app/log/flows
 
         :param device_id: Device IP
         :returns: Any

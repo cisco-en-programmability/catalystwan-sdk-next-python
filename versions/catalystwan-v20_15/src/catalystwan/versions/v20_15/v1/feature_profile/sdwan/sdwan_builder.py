@@ -31,11 +31,12 @@ class SdwanBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdwan_feature_profile_by_sdwan_family(
+    def get(
         self, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
     ) -> List[GetSdwanFeatureProfileBySdwanFamilyGetResponse]:
         """
         Get all SDWAN Feature Profiles
+        GET /dataservice/v1/feature-profile/sdwan
 
         :param offset: Pagination offset
         :param limit: Pagination limit

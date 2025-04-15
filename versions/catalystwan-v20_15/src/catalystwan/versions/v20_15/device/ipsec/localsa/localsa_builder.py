@@ -14,9 +14,10 @@ class LocalsaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_local_sa_list(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get IPsec local SA list from device
+        GET /dataservice/device/ipsec/localsa
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

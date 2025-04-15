@@ -11,7 +11,7 @@ Switch to a specific tenant<br><br><br>Note: In a multitenant vManage system, th
 
 .. code:: python
 
-    def switch_tenant(tenant_id: str) -> Any: ...
+    def post(tenant_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenant.switch.switch_tenant()
+        client.tenant.switch.post()
 
 

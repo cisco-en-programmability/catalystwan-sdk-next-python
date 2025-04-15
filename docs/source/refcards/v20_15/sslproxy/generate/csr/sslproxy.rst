@@ -13,7 +13,7 @@ CSR request SSL proxy for edge
 
 .. code:: python
 
-    def generate_ssl_proxy_csr(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.generate.csr.sslproxy.generate_ssl_proxy_csr()
+        client.sslproxy.generate.csr.sslproxy.post()
 
 

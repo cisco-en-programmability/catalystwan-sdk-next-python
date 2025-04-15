@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional
+from typing import Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class AppsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_apps(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get apps and vpns
+        GET /dataservice/template/cloudx/manage/apps
 
         :returns: List[Any]
         """
@@ -24,9 +25,10 @@ class AppsBuilder:
             "GET", "/dataservice/template/cloudx/manage/apps", return_type=List[Any], **kw
         )
 
-    def edit_apps(self, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, payload: Any, **kw) -> Any:
         """
         Edit apps and vpns
+        PUT /dataservice/template/cloudx/manage/apps
 
         :param payload: Cloudx apps and vpns
         :returns: Any
@@ -35,9 +37,10 @@ class AppsBuilder:
             "PUT", "/dataservice/template/cloudx/manage/apps", payload=payload, **kw
         )
 
-    def add_apps(self, payload: Optional[Any] = None, **kw) -> List[Any]:
+    def post(self, payload: Any, **kw) -> List[Any]:
         """
         Add apps and vpns
+        POST /dataservice/template/cloudx/manage/apps
 
         :param payload: Cloudx apps and vpns
         :returns: List[Any]

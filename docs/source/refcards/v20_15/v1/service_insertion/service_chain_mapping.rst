@@ -11,7 +11,7 @@ Gets all the Service Chain Mapping with service chain definition name and servic
 
 .. code:: python
 
-    def service_chain_mapping() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.service_insertion.service_chain_mapping.service_chain_mapping()
+        client.v1.service_insertion.service_chain_mapping.get()
 
 

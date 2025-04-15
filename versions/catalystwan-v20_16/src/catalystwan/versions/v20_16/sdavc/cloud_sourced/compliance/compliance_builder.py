@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -22,11 +22,10 @@ class ComplianceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def compliance_with_extended_applications(
-        self, payload: Optional[ExtendedApplicationRequestData] = None, **kw
-    ) -> PolicyComplianceResponse:
+    def post(self, payload: ExtendedApplicationRequestData, **kw) -> PolicyComplianceResponse:
         """
-        Compliance with extended applications
+        Post
+        POST /dataservice/sdavc/cloud-sourced/compliance
 
         :param payload: Payload
         :returns: PolicyComplianceResponse

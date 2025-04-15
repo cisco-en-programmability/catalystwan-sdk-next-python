@@ -11,7 +11,7 @@ Get software image list
 
 .. code:: python
 
-    def get_supported_software_image_list(
+    def get(
         cloud_type: CloudTypeParam,
         account_id: Optional[str] = None,
         cloud_region: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.swimages.get_supported_software_image_list()
+        client.multicloud.swimages.get()
 
 
 .. toctree::

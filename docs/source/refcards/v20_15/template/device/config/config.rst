@@ -11,9 +11,7 @@ Get device configuration<br><br><br>Note: In a multitenant vManage system, this 
 
 .. code:: python
 
-    def get_device_configuration_preview(
-        payload: Optional[Any] = None,
-    ) -> str: ...
+    def post(payload: Any) -> str: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.config.get_device_configuration_preview()
+        client.template.device.config.config.post()
 
 

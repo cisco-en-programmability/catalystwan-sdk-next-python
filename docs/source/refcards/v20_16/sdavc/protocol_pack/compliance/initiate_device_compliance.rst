@@ -11,7 +11,7 @@ Initiate device compliance task
 
 .. code:: python
 
-    def initiate_device_compliance() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.initiate_device_compliance.initiate_device_compliance()
+        client.sdavc.protocol_pack.compliance.initiate_device_compliance.post()
 
 

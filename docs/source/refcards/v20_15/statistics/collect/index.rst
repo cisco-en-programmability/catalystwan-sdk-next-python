@@ -11,7 +11,7 @@ Start stats collect
 
 .. code:: python
 
-    def start_stats_collection() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.collect.start_stats_collection()
+        client.statistics.collect.get()
 
 
 .. toctree::

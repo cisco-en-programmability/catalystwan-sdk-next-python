@@ -11,7 +11,7 @@ Get DPI common application list from device
 
 .. code:: python
 
-    def get_common_application_list() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.dpi.common.applications.get_common_application_list()
+        client.device.dpi.common.applications.get()
 
 

@@ -14,9 +14,10 @@ class AccesslistassociationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_policy_access_list_associations_ipv6(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get access list associations from device
+        GET /dataservice/device/policy/ipv6/accesslistassociations
 
         :param device_id: deviceId - Device IP
         :returns: Any

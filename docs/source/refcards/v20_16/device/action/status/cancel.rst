@@ -11,7 +11,7 @@ Bulk cancel task status
 
 .. code:: python
 
-    def cancel_pending_tasks(process_id: str) -> None: ...
+    def post(process_id: str) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.status.cancel.cancel_pending_tasks()
+        client.device.action.status.cancel.post()
 
 

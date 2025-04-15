@@ -14,9 +14,10 @@ class SessionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_aon_ipsec_interface_sessionnfo(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get cellular ipsec interface info from device
+        GET /dataservice/device/cellularEiolte/ipsec/interface/session
 
         :param device_id: Device Id
         :returns: Any

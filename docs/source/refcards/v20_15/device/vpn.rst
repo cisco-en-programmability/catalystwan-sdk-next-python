@@ -11,7 +11,7 @@ Get VPN instance list from device (Real Time)
 
 .. code:: python
 
-    def get_vpn_instances(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.vpn.get_vpn_instances()
+        client.device.vpn.get()
 
 

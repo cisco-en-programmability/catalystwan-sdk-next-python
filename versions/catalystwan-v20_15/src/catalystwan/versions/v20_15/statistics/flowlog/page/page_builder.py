@@ -19,7 +19,7 @@ class PageBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stats_pagination_raw_data_23(
+    def get(
         self,
         query: Optional[str] = None,
         scroll_id: Optional[str] = None,
@@ -28,6 +28,7 @@ class PageBuilder:
     ) -> FlowlogPaginationResponse:
         """
         Get stats pagination raw data
+        GET /dataservice/statistics/flowlog/page
 
         :param query: Query string
         :param scroll_id: Scroll Id
@@ -47,15 +48,12 @@ class PageBuilder:
             **kw,
         )
 
-    def get_stats_pagination_raw_data_post(
-        self,
-        payload: Optional[Any] = None,
-        scroll_id: Optional[str] = None,
-        count: Optional[int] = None,
-        **kw,
+    def post(
+        self, payload: Any, scroll_id: Optional[str] = None, count: Optional[int] = None, **kw
     ) -> FlowlogPaginationResponse:
         """
         Get stats pagination raw data
+        POST /dataservice/statistics/flowlog/page
 
         :param scroll_id: Scroll Id
         :param count: Result size

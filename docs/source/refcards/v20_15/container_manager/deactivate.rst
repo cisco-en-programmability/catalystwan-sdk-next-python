@@ -11,7 +11,7 @@ Deactivate container on remote host
 
 .. code:: python
 
-    def de_activate_container(
+    def post(
         container_name: str, host_ip: Optional[str] = None
     ) -> None: ...
 
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.container_manager.deactivate.de_activate_container()
+        client.container_manager.deactivate.post()
 
 

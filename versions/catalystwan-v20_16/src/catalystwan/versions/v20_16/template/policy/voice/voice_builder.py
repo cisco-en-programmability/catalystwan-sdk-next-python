@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional
+from typing import TYPE_CHECKING, Any, List, Optional, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -24,19 +24,10 @@ class VoiceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_voice_template_list(self, **kw) -> List[Any]:
-        """
-        Generate template list
-
-        :returns: List[Any]
-        """
-        return self._request_adapter.request(
-            "GET", "/dataservice/template/policy/voice", return_type=List[Any], **kw
-        )
-
-    def create_voice_template(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create Template
+        POST /dataservice/template/policy/voice
 
         :param payload: Policy template
         :returns: Any
@@ -45,27 +36,10 @@ class VoiceBuilder:
             "POST", "/dataservice/template/policy/voice", payload=payload, **kw
         )
 
-    def get_voice_templates_for_device(self, device_model: DeviceModel, **kw) -> List[Any]:
-        """
-        Get templates that map a device model
-
-        :param device_model: Device model
-        :returns: List[Any]
-        """
-        params = {
-            "deviceModel": device_model,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/template/policy/voice/{deviceModel}",
-            return_type=List[Any],
-            params=params,
-            **kw,
-        )
-
-    def edit_voice_template(self, policy_id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, policy_id: str, payload: Any, **kw) -> Any:
         """
         Edit Template
+        PUT /dataservice/template/policy/voice/{policyId}
 
         :param policy_id: Policy Id
         :param payload: Policy template
@@ -82,9 +56,10 @@ class VoiceBuilder:
             **kw,
         )
 
-    def delete_voice_template(self, policy_id: str, **kw):
+    def delete(self, policy_id: str, **kw):
         """
         Delete Template
+        DELETE /dataservice/template/policy/voice/{policyId}
 
         :param policy_id: Policy Id
         :returns: None
@@ -95,6 +70,47 @@ class VoiceBuilder:
         return self._request_adapter.request(
             "DELETE", "/dataservice/template/policy/voice/{policyId}", params=params, **kw
         )
+
+    @overload
+    def get(self, device_model: DeviceModel, **kw) -> List[Any]:
+        """
+        Get templates that map a device model
+        GET /dataservice/template/policy/voice/{deviceModel}
+
+        :param device_model: Device model
+        :returns: List[Any]
+        """
+        ...
+
+    @overload
+    def get(self, **kw) -> List[Any]:
+        """
+        Generate template list
+        GET /dataservice/template/policy/voice
+
+        :returns: List[Any]
+        """
+        ...
+
+    def get(self, device_model: Optional[DeviceModel] = None, **kw) -> List[Any]:
+        # /dataservice/template/policy/voice/{deviceModel}
+        if self._request_adapter.param_checker([(device_model, DeviceModel)], []):
+            params = {
+                "deviceModel": device_model,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/template/policy/voice/{deviceModel}",
+                return_type=List[Any],
+                params=params,
+                **kw,
+            )
+        # /dataservice/template/policy/voice
+        if self._request_adapter.param_checker([], [device_model]):
+            return self._request_adapter.request(
+                "GET", "/dataservice/template/policy/voice", return_type=List[Any], **kw
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def definition(self) -> DefinitionBuilder:

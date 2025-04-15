@@ -19,7 +19,7 @@ class UpdateConfigurationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def update_logger_configuration(
+    def post(
         self,
         logger_name: LoggerNameParam,
         size_limit: Optional[int] = None,
@@ -28,6 +28,7 @@ class UpdateConfigurationBuilder:
     ):
         """
         Update logger configuration for rollover size and max file number
+        POST /dataservice/util/logging/updateConfiguration
 
         :param logger_name: Logger Configuration
         :param size_limit: File size, unit is MB, range (16 - 250)

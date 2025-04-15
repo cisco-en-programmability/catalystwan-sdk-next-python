@@ -17,11 +17,10 @@ class NetconfconfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_sda_config_from_netconf(
-        self, partner_id: str, payload: SdaConfigRequest, **kw
-    ) -> SdaDeviceConfigRes:
+    def post(self, partner_id: str, payload: SdaConfigRequest, **kw) -> SdaDeviceConfigRes:
         """
         Create SDA enabled device from Netconf
+        POST /dataservice/partner/dnac/sda/netconfconfig/{partnerId}
 
         :param partner_id: Partner id
         :param payload: Device SDA configuration

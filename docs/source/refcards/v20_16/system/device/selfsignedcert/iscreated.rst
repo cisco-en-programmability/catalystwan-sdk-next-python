@@ -11,7 +11,7 @@ Whether self signed certificate created
 
 .. code:: python
 
-    def check_self_signed_cert_1() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.selfsignedcert.iscreated.check_self_signed_cert_1()
+        client.system.device.selfsignedcert.iscreated.get()
 
 

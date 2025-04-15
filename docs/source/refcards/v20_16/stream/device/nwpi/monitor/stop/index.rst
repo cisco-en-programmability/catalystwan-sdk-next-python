@@ -13,8 +13,8 @@ CXP Monitor Action - Stop
 
 .. code:: python
 
-    def monitor_stop(
-        payload: Optional[NwpiMonitorReqPayload] = None,
+    def post(
+        payload: NwpiMonitorReqPayload,
     ) -> NwpiMonitorRespPayload: ...
 
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.monitor.stop.monitor_stop()
+        client.stream.device.nwpi.monitor.stop.post()
 
 
 .. toctree::

@@ -11,9 +11,7 @@ Edit Template
 
 .. code:: python
 
-    def edit_template_with_lenient_lock(
-        policy_id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(policy_id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.security.staging.edit_template_with_lenient_lock()
+        client.template.policy.security.staging.put()
 
 

@@ -11,9 +11,7 @@ Generate a list of templates which require migration<br><br><br>Note: In a multi
 
 .. code:: python
 
-    def generate_template_for_migration(
-        has_aaa: Optional[bool] = None,
-    ) -> List[Any]: ...
+    def get(has_aaa: Optional[bool] = None) -> List[Any]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.migration.generate_template_for_migration()
+        client.template.device.migration.get()
 
 
 Operation: POST /dataservice/template/device/migration
@@ -42,7 +40,7 @@ Migrate the device templates given the template Ids
 
 .. code:: python
 
-    def migrate_templates(
+    def post(
         id: List[str],
         prefix: Optional[str] = "cisco",
         include_all: Optional[bool] = True,
@@ -64,6 +62,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.migration.migrate_templates()
+        client.template.device.migration.post()
 
 

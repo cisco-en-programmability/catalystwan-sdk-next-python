@@ -14,9 +14,10 @@ class NotificationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_dock_vm_lifecycle_nics(self, user_group: str, **kw) -> Any:
+    def get(self, user_group: str, **kw) -> Any:
         """
         Get CloudDock vm lifecycle state
+        GET /dataservice/device/vm/notifications
 
         :param user_group: userGroup Name
         :returns: Any

@@ -11,9 +11,7 @@ Activate pxGrid account
 
 .. code:: python
 
-    def account_activate(
-        payload: Optional[ActivateBody] = None,
-    ) -> ActivateResponse: ...
+    def post(payload: ActivateBody) -> ActivateResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.ise.pxgrid.activate.account_activate()
+        client.ise.pxgrid.activate.post()
 
 
 .. toctree::

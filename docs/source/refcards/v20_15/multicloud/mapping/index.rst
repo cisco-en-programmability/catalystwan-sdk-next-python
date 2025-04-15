@@ -11,7 +11,7 @@ Get associated mappings to the CGW
 
 .. code:: python
 
-    def get_cgw_associated_mappings(
+    def get(
         cloud_type: str,
         cloud_gateway_name: str,
         site_uuid: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.mapping.get_cgw_associated_mappings()
+        client.multicloud.mapping.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Get interface queue stats
 
 .. code:: python
 
-    def get_device_interface_queue_stats(
+    def get(
         device_id: str,
         vpn_id: Optional[str] = None,
         ifname: Optional[IfnameParam] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.interface.queue_stats.get_device_interface_queue_stats()
+        client.device.interface.queue_stats.get()
 
 
 .. toctree::

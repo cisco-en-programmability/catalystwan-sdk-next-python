@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,11 +17,12 @@ class ConfigGroupBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_cloud_gateway_config_group(
-        self, cloud_type: str, payload: Optional[MultiCloudGatewaysConfiggroupBody] = None, **kw
+    def post(
+        self, cloud_type: str, payload: MultiCloudGatewaysConfiggroupBody, **kw
     ) -> PostCgwConfigGroupResponse:
         """
         API to initiate a config group creation for a cloud gateway.
+        POST /dataservice/multicloud/cloudgateway/config-group
 
         :param cloud_type: Multicloud provider type
         :param payload: Request Payload for Multicloud Gateway Config Group Creation

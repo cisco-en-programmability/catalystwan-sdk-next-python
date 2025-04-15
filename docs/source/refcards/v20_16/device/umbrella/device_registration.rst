@@ -11,7 +11,7 @@ Get Umbrella device registration from device
 
 .. code:: python
 
-    def get_umbrella_dev_reg(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.umbrella.device_registration.get_umbrella_dev_reg()
+        client.device.umbrella.device_registration.get()
 
 

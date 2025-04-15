@@ -11,7 +11,7 @@ Get properties of vManage being added to  cluster<br><br><br>Note: In a multiten
 
 .. code:: python
 
-    def node_properties() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.node_properties.node_properties()
+        client.cluster_management.node_properties.get()
 
 

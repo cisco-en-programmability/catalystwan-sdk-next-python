@@ -19,7 +19,7 @@ class SiteBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sites(
+    def get(
         self,
         color: Optional[str] = None,
         attached: Optional[str] = None,
@@ -28,6 +28,7 @@ class SiteBuilder:
     ) -> GetSitesResponse:
         """
         Get available sites
+        GET /dataservice/multicloud/site
 
         :param color: color
         :param attached: Get attached Sites

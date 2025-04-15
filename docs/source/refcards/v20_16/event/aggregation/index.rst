@@ -11,7 +11,7 @@ Get aggregated count of events based on given query.
 
 .. code:: python
 
-    def get_aggregation_data_1(
+    def get(
         query: str,
         site_id: Optional[str] = None,
         include_tenants: Optional[bool] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.event.aggregation.get_aggregation_data_1()
+        client.event.aggregation.get()
 
 
 Operation: POST /dataservice/event/aggregation
@@ -44,8 +44,8 @@ Get aggregated count of events based on given query.
 
 .. code:: python
 
-    def post_aggregation_data_1(
-        payload: Optional[Any] = None,
+    def post(
+        payload: Any,
         site_id: Optional[str] = None,
         include_tenants: Optional[bool] = None,
     ) -> AlarmAggregationResponse: ...
@@ -66,7 +66,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.event.aggregation.post_aggregation_data_1()
+        client.event.aggregation.post()
 
 
 .. toctree::

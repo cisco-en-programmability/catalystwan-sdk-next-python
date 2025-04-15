@@ -17,9 +17,10 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_firmware_devices(self, **kw) -> ProcessGetFirmwareRemoteImageReq:
+    def get(self, **kw) -> ProcessGetFirmwareRemoteImageReq:
         """
         firmware supported devices
+        GET /dataservice/device/action/firmware-upgrade/devices
 
         :returns: ProcessGetFirmwareRemoteImageReq
         """

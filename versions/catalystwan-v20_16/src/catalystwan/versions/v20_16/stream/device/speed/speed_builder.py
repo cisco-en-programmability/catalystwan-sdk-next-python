@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -33,50 +33,10 @@ class SpeedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_session(self, payload: SpeedTestSession, **kw) -> SpeedTestResponse:
+    def get(self, session_id: Uuid, log_id: Optional[int] = 0, **kw) -> SpeedTestResultResponse:
         """
-        Get session
-
-        :param payload: Payload
-        :returns: SpeedTestResponse
-        """
-        return self._request_adapter.request(
-            "POST",
-            "/dataservice/stream/device/speed",
-            return_type=SpeedTestResponse,
-            payload=payload,
-            **kw,
-        )
-
-    def save_speed_test_results(
-        self, device_uuid: str, session_id: Uuid, payload: Optional[SpeedTestResult] = None, **kw
-    ) -> SpeedTestStatusResponse:
-        """
-        Save speed test results
-
-        :param device_uuid: Device uuid
-        :param session_id: sessionId
-        :param payload: SpeedTestResult
-        :returns: SpeedTestStatusResponse
-        """
-        params = {
-            "deviceUUID": device_uuid,
-            "sessionId": session_id,
-        }
-        return self._request_adapter.request(
-            "POST",
-            "/dataservice/stream/device/speed/{deviceUUID}/{sessionId}",
-            return_type=SpeedTestStatusResponse,
-            params=params,
-            payload=payload,
-            **kw,
-        )
-
-    def get_speed_test(
-        self, session_id: Uuid, log_id: Optional[int] = 0, **kw
-    ) -> SpeedTestResultResponse:
-        """
-        Get speed test
+        Get
+        GET /dataservice/stream/device/speed/{sessionId}
 
         :param session_id: sessionId
         :param log_id: Log id
@@ -93,6 +53,68 @@ class SpeedBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def post(
+        self, payload: SpeedTestResult, device_uuid: str, session_id: Uuid, **kw
+    ) -> SpeedTestStatusResponse:
+        """
+        Save speed test results
+        POST /dataservice/stream/device/speed/{deviceUUID}/{sessionId}
+
+        :param payload: SpeedTestResult
+        :param device_uuid: Device uuid
+        :param session_id: sessionId
+        :returns: SpeedTestStatusResponse
+        """
+        ...
+
+    @overload
+    def post(self, payload: SpeedTestSession, **kw) -> SpeedTestResponse:
+        """
+        Get session
+        POST /dataservice/stream/device/speed
+
+        :param payload: Payload
+        :returns: SpeedTestResponse
+        """
+        ...
+
+    def post(
+        self,
+        payload: Union[SpeedTestSession, SpeedTestResult],
+        device_uuid: Optional[str] = None,
+        session_id: Optional[Uuid] = None,
+        **kw,
+    ) -> Union[SpeedTestResponse, SpeedTestStatusResponse]:
+        # /dataservice/stream/device/speed/{deviceUUID}/{sessionId}
+        if self._request_adapter.param_checker(
+            [(payload, SpeedTestResult), (device_uuid, str), (session_id, Uuid)], []
+        ):
+            params = {
+                "deviceUUID": device_uuid,
+                "sessionId": session_id,
+            }
+            return self._request_adapter.request(
+                "POST",
+                "/dataservice/stream/device/speed/{deviceUUID}/{sessionId}",
+                return_type=SpeedTestStatusResponse,
+                params=params,
+                payload=payload,
+                **kw,
+            )
+        # /dataservice/stream/device/speed
+        if self._request_adapter.param_checker(
+            [(payload, SpeedTestSession)], [device_uuid, session_id]
+        ):
+            return self._request_adapter.request(
+                "POST",
+                "/dataservice/stream/device/speed",
+                return_type=SpeedTestResponse,
+                payload=payload,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def disable(self) -> DisableBuilder:

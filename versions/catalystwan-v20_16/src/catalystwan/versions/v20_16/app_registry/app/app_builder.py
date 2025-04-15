@@ -20,7 +20,7 @@ class AppBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_app_list(
+    def get(
         self,
         filter_attribute_type: Optional[str] = None,
         filter_attribute_value: Optional[str] = None,
@@ -28,6 +28,7 @@ class AppBuilder:
     ) -> List[Any]:
         """
         Get All the App for the given conditions
+        GET /dataservice/app-registry/app
 
         :param filter_attribute_type: Filter attribute type
         :param filter_attribute_value: Filter attribute value

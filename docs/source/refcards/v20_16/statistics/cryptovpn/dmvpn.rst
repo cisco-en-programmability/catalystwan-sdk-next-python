@@ -11,9 +11,7 @@ Get crypto vpn dmvpn data
 
 .. code:: python
 
-    def get_post_crypto_dmvpn_data_by_query(
-        payload: Optional[Any] = None,
-    ) -> List[Any]: ...
+    def post(payload: Any) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.cryptovpn.dmvpn.get_post_crypto_dmvpn_data_by_query()
+        client.statistics.cryptovpn.dmvpn.post()
 
 

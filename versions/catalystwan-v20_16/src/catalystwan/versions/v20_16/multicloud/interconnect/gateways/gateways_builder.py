@@ -29,7 +29,7 @@ class GatewaysBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_gateways(
+    def get_list(
         self,
         interconnect_type: Optional[InterconnectTypeParam] = None,
         interconnect_account_id: Optional[str] = None,
@@ -43,6 +43,7 @@ class GatewaysBuilder:
     ) -> List[InterconnectGatewayExtended]:
         """
         API to retrieve all Interconnect Gateways from vManage.
+        GET /dataservice/multicloud/interconnect/gateways
 
         :param interconnect_type: Interconnect provider type
         :param interconnect_account_id: Interconnect provider account id
@@ -72,11 +73,10 @@ class GatewaysBuilder:
             **kw,
         )
 
-    def create_interconnect_gateway(
-        self, payload: Optional[InterconnectGatewayExtended] = None, **kw
-    ) -> ProcessResponse:
+    def post(self, payload: InterconnectGatewayExtended, **kw) -> ProcessResponse:
         """
         API to create an Intercoonect gateway in an Interconnect provider.
+        POST /dataservice/multicloud/interconnect/gateways
 
         :param payload: Request Payload for Multicloud Interconnect Gateways
         :returns: ProcessResponse
@@ -89,11 +89,10 @@ class GatewaysBuilder:
             **kw,
         )
 
-    def get_interconnect_gateway(
-        self, interconnect_gateway_name: str, **kw
-    ) -> InterconnectGatewayExtended:
+    def get(self, interconnect_gateway_name: str, **kw) -> InterconnectGatewayExtended:
         """
         API to retrieve the Interconnect Gateway Information from vManage.
+        GET /dataservice/multicloud/interconnect/gateways/{interconnect-gateway-name}
 
         :param interconnect_gateway_name: Interconnect gateway name
         :returns: InterconnectGatewayExtended
@@ -109,14 +108,12 @@ class GatewaysBuilder:
             **kw,
         )
 
-    def update_interconnect_gateway(
-        self,
-        interconnect_gateway_name: str,
-        payload: Optional[InterconnectGatewayExtended] = None,
-        **kw,
+    def put(
+        self, interconnect_gateway_name: str, payload: InterconnectGatewayExtended, **kw
     ) -> InterconnectGatewayExtended:
         """
         API to update the Interconnect Gateway Information in vManage.
+        PUT /dataservice/multicloud/interconnect/gateways/{interconnect-gateway-name}
 
         :param interconnect_gateway_name: Interconnect gateway name
         :param payload: Request Payload for Multicloud Interconnect Gateways
@@ -134,9 +131,10 @@ class GatewaysBuilder:
             **kw,
         )
 
-    def delete_interconnect_gateway(self, interconnect_gateway_name: str, **kw) -> ProcessResponse:
+    def delete(self, interconnect_gateway_name: str, **kw) -> ProcessResponse:
         """
         API to delete an Interconnect Gateway from an Interconnect provider.
+        DELETE /dataservice/multicloud/interconnect/gateways/{interconnect-gateway-name}
 
         :param interconnect_gateway_name: Interconnect gateway name
         :returns: ProcessResponse

@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_local_device_status(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get local device status
+        GET /dataservice/device/control/status
 
         :returns: Any
         """

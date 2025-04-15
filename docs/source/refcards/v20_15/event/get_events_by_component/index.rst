@@ -11,9 +11,7 @@ Get event names by component.
 
 .. code:: python
 
-    def get_event_names_by_component(
-        query: str,
-    ) -> ComponentEventMapping: ...
+    def get(query: str) -> ComponentEventMapping: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.event.get_events_by_component.get_event_names_by_component()
+        client.event.get_events_by_component.get()
 
 
 .. toctree::

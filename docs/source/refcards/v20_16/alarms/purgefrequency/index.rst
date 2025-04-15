@@ -11,7 +11,7 @@ Set alarm purge timer
 
 .. code:: python
 
-    def set_periodic_purge_timer(
+    def get(
         interval: Optional[str] = None, active_time: Optional[str] = None
     ) -> PurgeFrequency: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.purgefrequency.set_periodic_purge_timer()
+        client.alarms.purgefrequency.get()
 
 
 .. toctree::

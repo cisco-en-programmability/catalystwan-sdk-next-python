@@ -14,7 +14,7 @@ class ActiveBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_active_alarms(
+    def get(
         self,
         scroll_id: Optional[str] = None,
         start_date: Optional[str] = None,
@@ -25,6 +25,7 @@ class ActiveBuilder:
     ) -> List[Any]:
         """
         Get active alarms
+        GET /dataservice/data/device/statistics/alarm/active
 
         :param scroll_id: SrollId
         :param start_date: Start date (example:2023-10-31T14:30:00)

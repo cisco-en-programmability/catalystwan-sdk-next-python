@@ -11,7 +11,7 @@ Troubleshoot control connections
 
 .. code:: python
 
-    def get_control_connections(uuid: str) -> GetControlConnections: ...
+    def get(uuid: str) -> GetControlConnections: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.troubleshooting.control.get_control_connections()
+        client.troubleshooting.control.get()
 
 
 .. toctree::

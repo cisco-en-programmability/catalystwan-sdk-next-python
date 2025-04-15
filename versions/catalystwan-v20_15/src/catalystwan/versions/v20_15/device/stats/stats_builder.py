@@ -14,9 +14,10 @@ class StatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stats_queues(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get stats queue information
+        GET /dataservice/device/stats
 
         :returns: Any
         """

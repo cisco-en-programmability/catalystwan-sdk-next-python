@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def check_v_smart_connectivity_status(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Check VSmart Connectivity Status
+        GET /dataservice/template/policy/vsmart/connectivity/status
 
         :returns: Any
         """

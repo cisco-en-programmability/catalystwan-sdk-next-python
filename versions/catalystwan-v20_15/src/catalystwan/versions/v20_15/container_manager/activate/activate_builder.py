@@ -14,7 +14,7 @@ class ActivateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def activate_container_on_remote_host(
+    def post(
         self,
         container_name: str,
         url: Optional[str] = None,
@@ -24,6 +24,7 @@ class ActivateBuilder:
     ):
         """
         Activate container on remote host
+        POST /dataservice/container-manager/activate/{containerName}
 
         :param container_name: Container name
         :param url: Container image URL

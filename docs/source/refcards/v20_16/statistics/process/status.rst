@@ -11,9 +11,7 @@ Get stats process report
 
 .. code:: python
 
-    def generate_stats_process_report(
-        process_queue: Optional[int] = None,
-    ) -> List[Any]: ...
+    def get(process_queue: Optional[int] = None) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.process.status.generate_stats_process_report()
+        client.statistics.process.status.get()
 
 

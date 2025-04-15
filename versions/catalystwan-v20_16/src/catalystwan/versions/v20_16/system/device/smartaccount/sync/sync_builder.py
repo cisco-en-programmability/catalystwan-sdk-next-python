@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,9 +19,10 @@ class SyncBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def sync_devices(self, payload: Optional[Any] = None, **kw) -> SyncDevicesResp:
+    def post(self, payload: Any, **kw) -> SyncDevicesResp:
         """
         Sync devices from Smart-Account
+        POST /dataservice/system/device/smartaccount/sync
 
         :param payload: Request body for Sync devices from Smart-Account
         :returns: SyncDevicesResp

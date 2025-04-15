@@ -11,7 +11,7 @@ Get tunnel health
 
 .. code:: python
 
-    def get_app_route_tunnel_health(
+    def get(
         type_: str,
         limit: Optional[int] = 10,
         last_n_hours: Optional[int] = 3,
@@ -37,7 +37,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.approute.tunnels.health.get_app_route_tunnel_health()
+        client.statistics.approute.tunnels.health.get()
 
 
 .. toctree::

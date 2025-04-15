@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -20,9 +20,10 @@ class GlobalBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_edge_global_settings(self, edge_type: EdgeTypeParam, **kw) -> Any:
+    def get(self, edge_type: EdgeTypeParam, **kw) -> Any:
         """
         Get edge global settings
+        GET /dataservice/multicloud/settings/edge/global
 
         :param edge_type: Edge type
         :returns: Any
@@ -35,9 +36,10 @@ class GlobalBuilder:
             "GET", "/dataservice/multicloud/settings/edge/global", params=params, **kw
         )
 
-    def update_edge_global_settings(self, payload: Optional[Any] = None, **kw):
+    def put(self, payload: Any, **kw):
         """
         Update edge global settings for Edge provider
+        PUT /dataservice/multicloud/settings/edge/global
 
         :param payload: Global setting
         :returns: None
@@ -47,9 +49,10 @@ class GlobalBuilder:
             "PUT", "/dataservice/multicloud/settings/edge/global", payload=payload, **kw
         )
 
-    def add_edge_global_settings(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Add global settings for Edge provider
+        POST /dataservice/multicloud/settings/edge/global
 
         :param payload: Global setting
         :returns: None

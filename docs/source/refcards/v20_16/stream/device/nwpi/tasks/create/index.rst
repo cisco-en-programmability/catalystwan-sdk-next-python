@@ -11,9 +11,7 @@ Task Action - Create
 
 .. code:: python
 
-    def task_create(
-        payload: Optional[Any] = None,
-    ) -> TasksCreateResponsePayload: ...
+    def post(payload: Any) -> TasksCreateResponsePayload: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.tasks.create.task_create()
+        client.stream.device.nwpi.tasks.create.post()
 
 
 .. toctree::

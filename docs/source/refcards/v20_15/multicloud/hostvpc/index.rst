@@ -11,7 +11,7 @@ Get all Host VPCs
 
 .. code:: python
 
-    def get_host_vpcs(
+    def get(
         cloud_type: str,
         account_ids: Optional[str] = None,
         region: Optional[str] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.hostvpc.get_host_vpcs()
+        client.multicloud.hostvpc.get()
 
 
 .. toctree::

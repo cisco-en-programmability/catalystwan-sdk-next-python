@@ -11,7 +11,7 @@ Get App hosting network interface from device
 
 .. code:: python
 
-    def get_app_hosting_network_devices(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.app_hosting.network_interfaces.get_app_hosting_network_devices()
+        client.device.app_hosting.network_interfaces.get()
 
 

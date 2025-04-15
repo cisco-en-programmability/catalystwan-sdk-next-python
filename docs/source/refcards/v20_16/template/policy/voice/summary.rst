@@ -11,7 +11,7 @@ Get templates that map a device model
 
 .. code:: python
 
-    def generate_voice_policy_summary() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.voice.summary.generate_voice_policy_summary()
+        client.template.policy.voice.summary.get()
 
 

@@ -13,7 +13,7 @@ Gets vManage Client ID
 
 .. code:: python
 
-    def get_client_id() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.opentaccase.get_client_id.get_client_id()
+        client.opentaccase.get_client_id.get()
 
 

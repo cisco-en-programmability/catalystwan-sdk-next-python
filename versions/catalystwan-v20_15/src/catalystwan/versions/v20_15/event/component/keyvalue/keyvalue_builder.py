@@ -17,9 +17,10 @@ class KeyvalueBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_components_as_key_value(self, **kw) -> SimpleKeyValueMapping:
+    def get(self, **kw) -> SimpleKeyValueMapping:
         """
         Get event component types.
+        GET /dataservice/event/component/keyvalue
 
         :returns: SimpleKeyValueMapping
         """

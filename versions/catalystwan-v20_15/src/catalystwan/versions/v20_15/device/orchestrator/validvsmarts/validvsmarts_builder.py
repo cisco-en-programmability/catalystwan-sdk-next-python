@@ -14,9 +14,10 @@ class ValidvsmartsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_valid_v_smarts_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get valid vSmart list from device
+        GET /dataservice/device/orchestrator/validvsmarts
 
         :param device_id: deviceId - Device IP
         :returns: Any

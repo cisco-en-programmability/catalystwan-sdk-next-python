@@ -100,7 +100,102 @@ class AdvancedRadioSetting:
 
 
 @dataclass
+class Wifi:
+    # Name of the Profile Parcel. Must be unique.
+    name: str
+    type_: Type = _field(metadata={"alias": "type"})  # pytype: disable=annotation-type-mismatch
+    advanced_radio_setting: Optional[AdvancedRadioSetting] = _field(
+        default=None, metadata={"alias": "advancedRadioSetting"}
+    )
+    corporate_wifi: Optional[CorporateWifi] = _field(
+        default=None, metadata={"alias": "corporateWifi"}
+    )
+    # User who last created this.
+    created_by: Optional[str] = _field(default=None, metadata={"alias": "createdBy"})
+    # Timestamp of creation
+    created_on: Optional[int] = _field(default=None, metadata={"alias": "createdOn"})
+    # Description of the Profile Parcel.
+    description: Optional[str] = _field(default=None)
+    guest_wifi: Optional[GuestWifi] = _field(default=None, metadata={"alias": "guestWifi"})
+    # System generated unique identifier of the Profile Parcel in UUID format.
+    id: Optional[str] = _field(default=None)
+    # User who last updated this.
+    last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
+    # Timestamp of last update
+    last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
+    ssid_config_list: Optional[List[SsidConfig]] = _field(
+        default=None, metadata={"alias": "ssidConfigList"}
+    )
+    variables: Optional[List[Variable]] = _field(default=None)
+
+
+@dataclass
+class Data:
+    # User who last created this.
+    created_by: Optional[str] = _field(default=None, metadata={"alias": "createdBy"})
+    # Timestamp of creation
+    created_on: Optional[int] = _field(default=None, metadata={"alias": "createdOn"})
+    # User who last updated this.
+    last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
+    # Timestamp of last update
+    last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
+    parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
+    parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
+    payload: Optional[Wifi] = _field(default=None)
+
+
+@dataclass
+class GetListMobilityGlobalWifiPayload:
+    data: Optional[List[Data]] = _field(default=None)
+
+
+@dataclass
 class CreateWifiProfileParcelForMobilityPostRequest:
+    # Name of the Profile Parcel. Must be unique.
+    name: str
+    type_: Type = _field(metadata={"alias": "type"})  # pytype: disable=annotation-type-mismatch
+    advanced_radio_setting: Optional[AdvancedRadioSetting] = _field(
+        default=None, metadata={"alias": "advancedRadioSetting"}
+    )
+    corporate_wifi: Optional[CorporateWifi] = _field(
+        default=None, metadata={"alias": "corporateWifi"}
+    )
+    # User who last created this.
+    created_by: Optional[str] = _field(default=None, metadata={"alias": "createdBy"})
+    # Timestamp of creation
+    created_on: Optional[int] = _field(default=None, metadata={"alias": "createdOn"})
+    # Description of the Profile Parcel.
+    description: Optional[str] = _field(default=None)
+    guest_wifi: Optional[GuestWifi] = _field(default=None, metadata={"alias": "guestWifi"})
+    # System generated unique identifier of the Profile Parcel in UUID format.
+    id: Optional[str] = _field(default=None)
+    # User who last updated this.
+    last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
+    # Timestamp of last update
+    last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
+    ssid_config_list: Optional[List[SsidConfig]] = _field(
+        default=None, metadata={"alias": "ssidConfigList"}
+    )
+    variables: Optional[List[Variable]] = _field(default=None)
+
+
+@dataclass
+class GetSingleMobilityGlobalWifiPayload:
+    # User who last created this.
+    created_by: Optional[str] = _field(default=None, metadata={"alias": "createdBy"})
+    # Timestamp of creation
+    created_on: Optional[int] = _field(default=None, metadata={"alias": "createdOn"})
+    # User who last updated this.
+    last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
+    # Timestamp of last update
+    last_updated_on: Optional[int] = _field(default=None, metadata={"alias": "lastUpdatedOn"})
+    parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
+    parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
+    payload: Optional[Wifi] = _field(default=None)
+
+
+@dataclass
+class EditWifiProfileParcelForMobilityPutRequest:
     # Name of the Profile Parcel. Must be unique.
     name: str
     type_: Type = _field(metadata={"alias": "type"})  # pytype: disable=annotation-type-mismatch

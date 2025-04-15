@@ -12,9 +12,10 @@ class ConfigurationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_policy_groups_with_cor_saas_apps(self, **kw):
+    def get(self, **kw):
         """
         Get Policy Groups that are deployed with Cloud on Ramp for Saas intent
+        GET /dataservice/v1/cloudonramp/saas/configuration
 
         :returns: None
         """

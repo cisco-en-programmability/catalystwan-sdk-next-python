@@ -12,9 +12,10 @@ class ResetCredentialsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def reset_credentials(self, cred_type: str, **kw):
+    def post(self, cred_type: str, **kw):
         """
         SDWAN as a Platform - Manage Credentials
+        POST /dataservice/aas/reset-credentials/{credType}
 
         :param cred_type: Cred type
         :returns: None

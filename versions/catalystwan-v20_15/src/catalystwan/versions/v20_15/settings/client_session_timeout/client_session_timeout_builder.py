@@ -12,9 +12,10 @@ class ClientSessionTimeoutBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_session_timout(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         Get client session timeout
+        GET /dataservice/settings/clientSessionTimeout
 
         :returns: str
         """

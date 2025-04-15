@@ -11,9 +11,7 @@ Unlock device
 
 .. code:: python
 
-    def unlock_device(
-        uuid: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def post(uuid: str, payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.unlock.unlock_device()
+        client.system.device.unlock.post()
 
 

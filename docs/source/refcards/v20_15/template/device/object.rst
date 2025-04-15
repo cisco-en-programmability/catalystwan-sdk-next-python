@@ -11,7 +11,7 @@ Generate template by Id<br><br><br>Note: In a multitenant vManage system, this A
 
 .. code:: python
 
-    def get_master_template_definition(template_id: str) -> Any: ...
+    def get(template_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.object.get_master_template_definition()
+        client.template.device.object.get()
 
 

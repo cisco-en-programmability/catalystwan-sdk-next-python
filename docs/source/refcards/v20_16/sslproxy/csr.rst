@@ -11,7 +11,7 @@ Get SSL proxy CSR
 
 .. code:: python
 
-    def get_ssl_proxy_csr(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.csr.get_ssl_proxy_csr()
+        client.sslproxy.csr.get()
 
 

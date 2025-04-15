@@ -17,9 +17,10 @@ class DumpBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def dump_correlation_engine_data(self, **kw) -> SimpleMessageResponse:
+    def post(self, **kw) -> SimpleMessageResponse:
         """
         Dump correlation engine server cache in log file
+        POST /dataservice/alarms/dump
 
         :returns: SimpleMessageResponse
         """

@@ -5,15 +5,27 @@ Models
 
 .. code:: python
 
-    from typing import Any, Dict, List, Literal, Optional, Union
+    from typing import Optional, List, Dict, Union, Any, Literal
 
-    ValueType = Literal[
-        "ARRAY", "FALSE", "NULL", "NUMBER", "OBJECT", "STRING", "TRUE"
-    ]
+
+    class DeployConfigGroupPostResponse:
+        """
+        Config Group deploy Response schema
+        """
+
+        parent_task_id: str
+
+
+    class DeviceIdDef:
+        id: str
 
 
     class DeployConfigGroupPostRequest:
-        empty: Optional[bool]
-        value_type: Optional[ValueType]
+        """
+        Config Group Deploy Request schema
+        """
+
+        # list of device ids that config group need to be deployed
+        devices: Optional[List[DeviceIdDef]]
 
 

@@ -14,9 +14,10 @@ class LocaldcBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_local_data_center_state(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get local data center details
+        GET /dataservice/disasterrecovery/localdc
 
         :returns: List[Any]
         """

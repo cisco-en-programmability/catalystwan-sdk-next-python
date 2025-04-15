@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,11 +17,10 @@ class FetchSdoTokenBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def fetch_sdo_token(
-        self, payload: Optional[DetailsForIdentityVerificationForSdoToken] = None, **kw
-    ):
+    def post(self, payload: DetailsForIdentityVerificationForSdoToken, **kw):
         """
         POST for fetching Secure Device Onboarding Token needed for Secure Device Onboarding APIs for eSim
+        POST /dataservice/v1/securedeviceonboarding/fetchSdoToken
 
         :param payload: Fetch SDO Token
         :returns: None

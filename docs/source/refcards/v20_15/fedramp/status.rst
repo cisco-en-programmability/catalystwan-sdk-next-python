@@ -11,7 +11,7 @@ Set network deployment mode
 
 .. code:: python
 
-    def config_fedramp_mode(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.fedramp.status.config_fedramp_mode()
+        client.fedramp.status.post()
 
 

@@ -14,9 +14,10 @@ class SlaClassBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_app_route_sla_class_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get SLA class list from device (Real Time)
+        GET /dataservice/device/app-route/sla-class
 
         :param device_id: deviceId - Device IP
         :returns: Any

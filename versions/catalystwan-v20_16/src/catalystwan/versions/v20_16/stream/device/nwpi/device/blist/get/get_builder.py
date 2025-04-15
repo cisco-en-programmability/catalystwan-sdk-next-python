@@ -20,9 +20,10 @@ class GetBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_b_list(self, **kw) -> List[DeviceBlistResponsePayloadInner]:
+    def get(self, **kw) -> List[DeviceBlistResponsePayloadInner]:
         """
         Get Device BlackList for NWPI.
+        GET /dataservice/stream/device/nwpi/device/blist/get
 
         :returns: List[DeviceBlistResponsePayloadInner]
         """

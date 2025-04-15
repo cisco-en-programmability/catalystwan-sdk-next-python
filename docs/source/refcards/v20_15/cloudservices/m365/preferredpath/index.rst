@@ -11,10 +11,8 @@ Get vAnalytics Preferred Path for Office365 over time. The data can be filtered 
 
 .. code:: python
 
-    def get_o365_preferred_path_from_v_analytics(
-        payload: Optional[
-            GetO365PreferredPathFromVAnalyticsPostRequest
-        ] = None,
+    def post(
+        payload: GetO365PreferredPathFromVAnalyticsPostRequest,
     ) -> None: ...
 
 
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.m365.preferredpath.get_o365_preferred_path_from_v_analytics()
+        client.cloudservices.m365.preferredpath.post()
 
 
 .. toctree::

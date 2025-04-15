@@ -11,9 +11,7 @@ Enable statistic demo mode
 
 .. code:: python
 
-    def enable_statistics_demo_mode(
-        enable: Optional[bool] = True,
-    ) -> Any: ...
+    def get(enable: Optional[bool] = True) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.demomode.enable_statistics_demo_mode()
+        client.statistics.demomode.get()
 
 

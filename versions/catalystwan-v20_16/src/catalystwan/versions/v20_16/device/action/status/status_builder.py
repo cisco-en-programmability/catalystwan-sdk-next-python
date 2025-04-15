@@ -21,9 +21,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def find_status(self, process_id: str, **kw) -> Any:
+    def get(self, process_id: str, **kw) -> Any:
         """
         Find status of action
+        GET /dataservice/device/action/status/{processId}
 
         :param process_id: processId
         :returns: Any

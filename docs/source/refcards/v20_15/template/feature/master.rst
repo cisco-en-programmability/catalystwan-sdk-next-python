@@ -11,7 +11,7 @@ Generate template type definition by device type<br><br><br>Note: In a multitena
 
 .. code:: python
 
-    def generate_master_template_definition(type_name: str) -> Any: ...
+    def get(type_name: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.feature.master.generate_master_template_definition()
+        client.template.feature.master.get()
 
 

@@ -11,7 +11,7 @@ Get query fields
 
 .. code:: python
 
-    def get_stat_query_fields_14() -> QoSQueryFieldsResp: ...
+    def get() -> QoSQueryFieldsResp: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.qos.query.fields.get_stat_query_fields_14()
+        client.statistics.qos.query.fields.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ disconnect from mpd controller
 
 .. code:: python
 
-    def disconnect_from_mdp(nms_id: str) -> List[Any]: ...
+    def get(nms_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.mdp.disconnect.disconnect_from_mdp()
+        client.mdp.disconnect.get()
 
 

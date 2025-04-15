@@ -11,7 +11,7 @@ Get DSPFarm SCCP CCM Groups info from device
 
 .. code:: python
 
-    def get_sccp_ccm_groups(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.voice.sccp_ccm_groups.get_sccp_ccm_groups()
+        client.device.voice.sccp_ccm_groups.get()
 
 

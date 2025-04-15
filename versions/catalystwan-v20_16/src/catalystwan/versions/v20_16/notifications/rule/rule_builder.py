@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class RuleBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def update_notification_rule(self, rule_id: str, payload: Optional[Any] = None, **kw):
+    def put(self, rule_id: str, payload: Any, **kw):
         """
         Update notification rule
+        PUT /dataservice/notifications/rule
 
         :param rule_id: Rule Id
         :param payload: Notification rule
@@ -29,9 +30,10 @@ class RuleBuilder:
             "PUT", "/dataservice/notifications/rule", params=params, payload=payload, **kw
         )
 
-    def create_notification_rule(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Add notification rule
+        POST /dataservice/notifications/rule
 
         :param payload: Notification rule
         :returns: None

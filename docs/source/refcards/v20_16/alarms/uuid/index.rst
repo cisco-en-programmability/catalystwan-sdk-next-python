@@ -11,9 +11,9 @@ Get alarm details for given UUID
 
 .. code:: python
 
-    def get_alarm_details(
+    def get(
         alarm_uuid: str, include_tenants: Optional[bool] = None
-    ) -> List[Alarm]: ...
+    ) -> AlarmResponse: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.uuid.get_alarm_details()
+        client.alarms.uuid.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Get software images
 
 .. code:: python
 
-    def find_software_images_with_filters(
+    def get(
         image_type: List[Image], vnf_type: Optional[str] = None
     ) -> Any: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.images.find_software_images_with_filters()
+        client.device.action.software.images.get()
 
 
 .. toctree::

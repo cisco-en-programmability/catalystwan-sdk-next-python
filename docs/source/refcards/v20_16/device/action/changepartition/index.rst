@@ -11,9 +11,7 @@ Get change partition information
 
 .. code:: python
 
-    def generate_change_partition_info(
-        device_id: List[DeviceIp],
-    ) -> Any: ...
+    def get(device_id: List[DeviceIp]) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.changepartition.generate_change_partition_info()
+        client.device.action.changepartition.get()
 
 
 Operation: POST /dataservice/device/action/changepartition
@@ -42,9 +40,7 @@ Process change partition operation
 
 .. code:: python
 
-    def process_change_partition(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -62,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.changepartition.process_change_partition()
+        client.device.action.changepartition.post()
 
 
 .. toctree::

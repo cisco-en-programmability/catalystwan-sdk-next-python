@@ -21,6 +21,7 @@ if TYPE_CHECKING:
     from .revoke.revoke_builder import RevokeBuilder
     from .rootcertchains.rootcertchains_builder import RootcertchainsBuilder
     from .rootcertificate.rootcertificate_builder import RootcertificateBuilder
+    from .rsakeylengthdefault.rsakeylengthdefault_builder import RsakeylengthdefaultBuilder
     from .save.save_builder import SaveBuilder
     from .stats.stats_builder import StatsBuilder
     from .syncvbond.syncvbond_builder import SyncvbondBuilder
@@ -39,7 +40,7 @@ class CertificateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def delete_configuration(
+    def delete(
         self,
         uuid: str,
         replace_controller: Optional[bool] = None,
@@ -48,6 +49,7 @@ class CertificateBuilder:
     ) -> str:
         """
         invalid device
+        DELETE /dataservice/certificate/{uuid}
 
         :param uuid: Uuid
         :param replace_controller: Replace controller
@@ -197,6 +199,15 @@ class CertificateBuilder:
         from .rootcertificate.rootcertificate_builder import RootcertificateBuilder
 
         return RootcertificateBuilder(self._request_adapter)
+
+    @property
+    def rsakeylengthdefault(self) -> RsakeylengthdefaultBuilder:
+        """
+        The rsakeylengthdefault property
+        """
+        from .rsakeylengthdefault.rsakeylengthdefault_builder import RsakeylengthdefaultBuilder
+
+        return RsakeylengthdefaultBuilder(self._request_adapter)
 
     @property
     def save(self) -> SaveBuilder:

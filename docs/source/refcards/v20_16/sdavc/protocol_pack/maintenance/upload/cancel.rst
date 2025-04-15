@@ -11,7 +11,7 @@ Cancel or discard an uploaded protocol pack
 
 .. code:: python
 
-    def cancel_protocol_pack_upload(uuid: str) -> Any: ...
+    def post(uuid: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.maintenance.upload.cancel.cancel_protocol_pack_upload()
+        client.sdavc.protocol_pack.maintenance.upload.cancel.post()
 
 

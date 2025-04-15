@@ -19,9 +19,10 @@ class DevicelistBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_security_policy_device_list(self, **kw) -> List[SecurityPolicyDeviceList]:
+    def get(self, **kw) -> List[SecurityPolicyDeviceList]:
         """
         Get security policy device list
+        GET /dataservice/security/policy/devicelist
 
         :returns: List[SecurityPolicyDeviceList]
         """

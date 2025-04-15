@@ -19,11 +19,10 @@ class TraceFlowBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_trace_flow(
-        self, trace_id: int, timestamp: int, state: str, **kw
-    ) -> NwpitraceFlowRespPayload:
+    def get(self, trace_id: int, timestamp: int, state: str, **kw) -> NwpitraceFlowRespPayload:
         """
         getTraceFlow
+        GET /dataservice/stream/device/nwpi/traceFlow
 
         :param trace_id: trace id
         :param timestamp: start time

@@ -14,9 +14,10 @@ class RemoteDcStateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_remote_dc_members_state(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Gets remote data center member state
+        GET /dataservice/disasterrecovery/remoteDcState
 
         :returns: List[Any]
         """

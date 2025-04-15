@@ -14,9 +14,10 @@ class BytenantsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_tenants_devices_and_sites(self, tenant: Optional[List[str]] = None, **kw):
+    def get(self, tenant: Optional[List[str]] = None, **kw):
         """
         Gets devices and sites for all tenants
+        GET /dataservice/device/bytenants
 
         :param tenant: Tenant
         :returns: None

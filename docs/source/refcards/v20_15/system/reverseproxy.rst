@@ -11,7 +11,7 @@ Get reverse proxy IP/Port mappings for controller
 
 .. code:: python
 
-    def get_reverse_proxy_mappings(uuid: str) -> Any: ...
+    def get(uuid: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.reverseproxy.get_reverse_proxy_mappings()
+        client.system.reverseproxy.get()
 
 
 Operation: POST /dataservice/system/reverseproxy/{uuid}
@@ -40,9 +40,7 @@ Create reverse proxy IP/Port mappings for controller
 
 .. code:: python
 
-    def create_reverse_proxy_mappings(
-        uuid: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def post(uuid: str, payload: Any) -> None: ...
 
 
 Example:
@@ -60,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.reverseproxy.create_reverse_proxy_mappings()
+        client.system.reverseproxy.post()
 
 

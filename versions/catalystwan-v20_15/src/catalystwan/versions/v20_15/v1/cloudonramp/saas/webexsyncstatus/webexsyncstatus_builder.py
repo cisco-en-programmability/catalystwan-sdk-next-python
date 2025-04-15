@@ -12,9 +12,10 @@ class WebexsyncstatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_webex_sync_status(self, **kw):
+    def get(self, **kw):
         """
         Get Webex's sync Status for devices with COR Saas enabled via config group or device template
+        GET /dataservice/v1/cloudonramp/saas/webexsyncstatus
 
         :returns: None
         """

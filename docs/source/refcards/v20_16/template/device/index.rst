@@ -11,9 +11,7 @@ Generate template list<br><br><br>Note: In a multitenant vManage system, this AP
 
 .. code:: python
 
-    def generate_master_template_list(
-        feature: FeatureParam,
-    ) -> List[Any]: ...
+    def get(feature: FeatureParam) -> List[Any]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.generate_master_template_list()
+        client.template.device.get()
 
 
 Operation: PUT /dataservice/template/device/{templateId}
@@ -42,9 +40,7 @@ Edit template<br><br><br>Note: In a multitenant vManage system, this API is only
 
 .. code:: python
 
-    def edit_master_template(
-        template_id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(template_id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -62,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.edit_master_template()
+        client.template.device.put()
 
 
 Operation: DELETE /dataservice/template/device/{templateId}
@@ -73,7 +69,7 @@ Delete template<br><br><br>Note: In a multitenant vManage system, this API is on
 
 .. code:: python
 
-    def delete_master_template(template_id: str) -> None: ...
+    def delete(template_id: str) -> None: ...
 
 
 Example:
@@ -91,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.delete_master_template()
+        client.template.device.delete()
 
 
 .. toctree::

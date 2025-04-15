@@ -11,7 +11,7 @@ Get all the auto on tasks
 
 .. code:: python
 
-    def get_task_history() -> TaskHistoryResponsePayload: ...
+    def get() -> TaskHistoryResponsePayload: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.tasks.task_history.get_task_history()
+        client.stream.device.nwpi.tasks.task_history.get()
 
 
 .. toctree::

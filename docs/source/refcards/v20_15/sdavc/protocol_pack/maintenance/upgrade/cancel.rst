@@ -11,7 +11,7 @@ Cancel a Scheduled Deploy protocol pack job
 
 .. code:: python
 
-    def cancel_scheduled_deploy_job() -> None: ...
+    def post() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.maintenance.upgrade.cancel.cancel_scheduled_deploy_job()
+        client.sdavc.protocol_pack.maintenance.upgrade.cancel.post()
 
 

@@ -11,7 +11,7 @@ Trace Action - Delete
 
 .. code:: python
 
-    def trace_delete(
+    def delete(
         trace_id: str, timestamp: int
     ) -> NwpiTraceDeleteRespPayload: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.trace.delete.trace_delete()
+        client.stream.device.nwpi.trace.delete.delete()
 
 
 .. toctree::

@@ -12,9 +12,10 @@ class AllStatusesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_data_collection_status_for_device(self, device_uuid: str, **kw) -> str:
+    def get(self, device_uuid: str, **kw) -> str:
         """
         Get Data Collection status for given Device UUID
+        GET /dataservice/device/file-based/data-collection/all-statuses/{deviceUUID}
 
         :param device_uuid: Device UUID
         :returns: str

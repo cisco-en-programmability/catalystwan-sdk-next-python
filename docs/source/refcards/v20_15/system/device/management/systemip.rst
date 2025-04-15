@@ -11,7 +11,7 @@ Get management system IP mapping
 
 .. code:: python
 
-    def get_management_system_ip_info_1() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.management.systemip.get_management_system_ip_info_1()
+        client.system.device.management.systemip.get()
 
 

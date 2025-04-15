@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,11 +17,10 @@ class LicensesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_msla_licenses(
-        self, payload: Optional[LicensesRequest] = None, **kw
-    ) -> LicensesResponse:
+    def post(self, payload: LicensesRequest, **kw) -> LicensesResponse:
         """
         Get applicable licenses based on platform class
+        POST /dataservice/v1/licensing/licenses
 
         :param payload: List of device UUIDs and filters
         :returns: LicensesResponse

@@ -11,7 +11,7 @@ API to retrieve Interconnect devices by Interconnect type for monitoring.
 
 .. code:: python
 
-    def get_monitoring_interconnect_connected_sites(
+    def get(
         interconnect_type: str,
         interconnect_gateway_name: Optional[str] = None,
     ) -> List[InterconnectConnectedSite]: ...
@@ -32,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.monitoring.connected_sites.get_monitoring_interconnect_connected_sites()
+        client.multicloud.interconnect.monitoring.connected_sites.get()
 
 
 .. toctree::

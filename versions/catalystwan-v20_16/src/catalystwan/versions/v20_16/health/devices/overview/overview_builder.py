@@ -14,9 +14,10 @@ class OverviewBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_devices_health_overview(self, vpn_id: Optional[str] = None, **kw) -> Any:
+    def get(self, vpn_id: Optional[str] = None, **kw) -> Any:
         """
         gets devices health overview
+        GET /dataservice/health/devices/overview
 
         :param vpn_id: Optional vpn ID to filter devices
         :returns: Any

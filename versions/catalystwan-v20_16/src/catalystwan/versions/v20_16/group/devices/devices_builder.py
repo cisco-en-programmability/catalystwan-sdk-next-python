@@ -19,7 +19,7 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_group_devices(
+    def get(
         self,
         group_id: Optional[str] = None,
         ssh: Optional[bool] = False,
@@ -28,6 +28,7 @@ class DevicesBuilder:
     ) -> List[Any]:
         """
         Retrieve devices in group
+        GET /dataservice/group/devices
 
         :param group_id: groupId
         :param ssh: Ssh

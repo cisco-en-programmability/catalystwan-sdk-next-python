@@ -11,7 +11,7 @@ Decomission vEdge device
 
 .. code:: python
 
-    def decommission_vedge_cloud(uuid: str) -> DecommissionVedgeCloud: ...
+    def put(uuid: str) -> DecommissionVedgeCloud: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.decommission.decommission_vedge_cloud()
+        client.system.device.decommission.put()
 
 
 .. toctree::

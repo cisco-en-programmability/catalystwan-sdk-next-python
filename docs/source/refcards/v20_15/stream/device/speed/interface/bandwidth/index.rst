@@ -9,7 +9,7 @@ Operation: GET /dataservice/stream/device/speed/interface/bandwidth
 
 .. code:: python
 
-    def get_interface_bandwidth(
+    def get(
         device_uuid: DeviceUuid,
         circuit: Optional[str] = None,
         source_interface: Optional[str] = None,
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.speed.interface.bandwidth.get_interface_bandwidth()
+        client.stream.device.speed.interface.bandwidth.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Get active alarms
 
 .. code:: python
 
-    def get_active_alarms(
+    def get(
         scroll_id: Optional[str] = None,
         start_date: Optional[str] = None,
         end_date: Optional[str] = None,
@@ -35,6 +35,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.data.device.statistics.alarm.active.get_active_alarms()
+        client.data.device.statistics.alarm.active.get()
 
 

@@ -5,15 +5,25 @@ Models
 
 .. code:: python
 
-    from typing import Any, Dict, List, Literal, Optional, Union
+    from typing import Optional, List, Dict, Union, Any, Literal
 
-    ValueType = Literal[
-        "ARRAY", "FALSE", "NULL", "NUMBER", "OBJECT", "STRING", "TRUE"
-    ]
+
+    class GetTopologyGroupDeviceConfigurationPreviewPostResponse:
+        """
+        topology Group preview Response schema
+        """
+
+        existing_config: str
+        new_config: str
+        unsupported_parcels: Optional[List[Any]]
 
 
     class GetTopologyGroupDeviceConfigurationPreviewPostRequest:
-        empty: Optional[bool]
-        value_type: Optional[ValueType]
+        """
+        Preview POST request Schema
+        """
+
+        # Preview vSmart configuration with Topology Group config removed
+        deactivate_topology: Optional[bool]
 
 

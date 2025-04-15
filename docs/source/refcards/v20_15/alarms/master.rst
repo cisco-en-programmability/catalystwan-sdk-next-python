@@ -11,7 +11,7 @@ Get topic details.
 
 .. code:: python
 
-    def get_master_manager_state() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.master.get_master_manager_state()
+        client.alarms.master.get()
 
 

@@ -13,7 +13,7 @@ Get Edge Billing Accounts
 
 .. code:: python
 
-    def get_edge_billing_accounts(
+    def get(
         edge_type: EdgeTypeParam,
         edge_account_id: str,
         region: Optional[str] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.billingaccounts.edge.get_edge_billing_accounts()
+        client.multicloud.billingaccounts.edge.get()
 
 
 .. toctree::

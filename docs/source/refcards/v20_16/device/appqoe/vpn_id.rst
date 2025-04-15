@@ -11,7 +11,7 @@ Get Appqoe Active vpn Id details from device
 
 .. code:: python
 
-    def create_appqoe_vpn_id_list(
+    def get(
         vpn_id: str,
         device_id: str,
         client_ip: Optional[str] = None,
@@ -35,6 +35,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.appqoe.vpn_id.create_appqoe_vpn_id_list()
+        client.device.appqoe.vpn_id.get()
 
 

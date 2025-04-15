@@ -17,9 +17,10 @@ class TypesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_types(self, **kw) -> InlineResponse200:
+    def get(self, **kw) -> InlineResponse200:
         """
         API to retrieve list of supported Interconnect provider Types.
+        GET /dataservice/multicloud/interconnect/types
 
         :returns: InlineResponse200
         """

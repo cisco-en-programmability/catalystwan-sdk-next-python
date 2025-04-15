@@ -11,9 +11,7 @@ Get all the licenses
 
 .. code:: python
 
-    def get_msla_licenses(
-        uuid: Optional[str] = None,
-    ) -> List[MslaLicensesInner]: ...
+    def get(uuid: Optional[str] = None) -> List[MslaLicensesInner]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.msla.licenses.get_msla_licenses()
+        client.msla.licenses.get()
 
 
 .. toctree::

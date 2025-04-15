@@ -17,9 +17,10 @@ class LicensedDistributionDetailsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_license_distribution_details(self, **kw) -> LicenseDistribution:
+    def get(self, **kw) -> LicenseDistribution:
         """
         Get all license distribution
+        GET /dataservice/msla/monitoring/licensedDistributionDetails
 
         :returns: LicenseDistribution
         """

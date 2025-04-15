@@ -17,9 +17,10 @@ class DeviceusageBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_data_usage(self, device_uuid: str, **kw) -> DeviceUsageDetails:
+    def get(self, device_uuid: str, **kw) -> DeviceUsageDetails:
         """
         Get device data usage using device uuid
+        GET /dataservice/v1/securedeviceonboarding/{deviceUUID}/deviceusage
 
         :param device_uuid: DeviceUUID
         :returns: DeviceUsageDetails

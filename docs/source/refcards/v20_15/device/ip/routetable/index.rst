@@ -11,7 +11,7 @@ Get route table list from device (Real Time)
 
 .. code:: python
 
-    def create_route_table_list(
+    def get(
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
         address_family: Optional[AddressFamilyParam] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ip.routetable.create_route_table_list()
+        client.device.ip.routetable.get()
 
 
 .. toctree::

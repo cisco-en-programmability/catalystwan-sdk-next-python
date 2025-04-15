@@ -14,9 +14,10 @@ class FetchReportsForSaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def fetch_reports(self, sa_domain: str, sa_id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def get(self, sa_domain: str, sa_id: str, payload: Optional[Any] = None, **kw) -> Any:
         """
         fetch reports offline for sle
+        GET /dataservice/smartLicensing/fetchReportsForSa
 
         :param sa_domain: saDomain
         :param sa_id: saId

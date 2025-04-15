@@ -17,9 +17,10 @@ class VpnBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_vpn_list(self, **kw) -> CreateVpnList:
+    def get(self, **kw) -> CreateVpnList:
         """
         Create VPN list
+        GET /dataservice/device/action/vpn
 
         :returns: CreateVpnList
         """

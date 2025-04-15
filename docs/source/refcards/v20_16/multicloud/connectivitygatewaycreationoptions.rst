@@ -13,7 +13,7 @@ Get connectivity gateway creation options
 
 .. code:: python
 
-    def get_connectivity_gateway_creation_options(
+    def get(
         account_id: Optional[str] = None,
         cloud_type: Optional[str] = None,
         connectivity_type: Optional[str] = None,
@@ -36,6 +36,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.connectivitygatewaycreationoptions.get_connectivity_gateway_creation_options()
+        client.multicloud.connectivitygatewaycreationoptions.get()
 
 

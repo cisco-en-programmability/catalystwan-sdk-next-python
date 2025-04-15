@@ -22,7 +22,7 @@ class ComplianceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_compliance_details(
+    def get(
         self,
         offset: Optional[int] = 0,
         limit: Optional[int] = 25,
@@ -35,6 +35,7 @@ class ComplianceBuilder:
     ) -> DeviceComplianceApiResponse:
         """
         Get compliance information for devices
+        GET /dataservice/device/compliance
 
         :param offset: Offset
         :param limit: Limit

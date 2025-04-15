@@ -14,12 +14,13 @@ class DetailsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_v_manage_details(self, vmanage_ip: str, **kw) -> Any:
+    def get(self, vmanage_ip: str, **kw) -> Any:
         """
         Get vManage detail
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/clusterManagement/vManage/details/{vmanageIP}
 
         :param vmanage_ip: vManage IP
         :returns: Any

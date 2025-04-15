@@ -12,9 +12,10 @@ class CustomApplicationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_custom_application_list(self, **kw):
+    def get(self, **kw):
         """
         Get All Custom Applications
+        GET /dataservice/sdavc/protocol-pack/compliance/custom-application
 
         :returns: None
         """

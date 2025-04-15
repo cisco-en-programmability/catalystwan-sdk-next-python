@@ -19,9 +19,10 @@ class UnconfiguredBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_unconfigured(self, **kw) -> List[Device]:
+    def get(self, **kw) -> List[Device]:
         """
         Get wan edge devices not configured by vManage (that is, those in CLI mode)
+        GET /dataservice/device/unconfigured
 
         :returns: List[Device]
         """

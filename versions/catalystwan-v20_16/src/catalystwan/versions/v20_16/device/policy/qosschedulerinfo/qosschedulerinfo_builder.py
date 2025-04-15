@@ -14,9 +14,10 @@ class QosschedulerinfoBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_polic_qos_scheduler_info(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get QoS scheduler information from device
+        GET /dataservice/device/policy/qosschedulerinfo
 
         :param device_id: deviceId - Device IP
         :returns: Any

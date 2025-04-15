@@ -11,7 +11,7 @@ Discover Azure Virtual WANS
 
 .. code:: python
 
-    def get_azure_virtual_wans(
+    def get(
         cloud_type: str,
         account_id: str,
         resource_group_name: str,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.vwans.get_azure_virtual_wans()
+        client.multicloud.cloudgateway.vwans.get()
 
 
 .. toctree::

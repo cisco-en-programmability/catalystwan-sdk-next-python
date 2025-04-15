@@ -20,7 +20,7 @@ class TraceCftRecordBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_trace_cft_record(
+    def get(
         self,
         trace_id: int,
         entry_time: int,
@@ -33,6 +33,7 @@ class TraceCftRecordBuilder:
     ) -> TraceCftRecordResponsePayload:
         """
         Get Trace CFT record
+        GET /dataservice/stream/device/nwpi/traceCftRecord
 
         :param trace_id: TraceId
         :param entry_time: entryTime

@@ -11,9 +11,7 @@ Get connection variables to be configured
 
 .. code:: python
 
-    def get_quick_connect_variables(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.quickconnectvariable.get_quick_connect_variables()
+        client.template.device.config.quickconnectvariable.post()
 
 

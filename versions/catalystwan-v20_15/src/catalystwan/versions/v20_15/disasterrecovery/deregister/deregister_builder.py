@@ -14,9 +14,10 @@ class DeregisterBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def delete(self, **kw) -> Any:
+    def post(self, **kw) -> Any:
         """
         Delete disaster recovery
+        POST /dataservice/disasterrecovery/deregister
 
         :returns: Any
         """

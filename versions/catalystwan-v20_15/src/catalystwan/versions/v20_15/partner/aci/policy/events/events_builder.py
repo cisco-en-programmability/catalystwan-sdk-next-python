@@ -14,11 +14,12 @@ class EventsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_events_1(
+    def get(
         self, partner_id: str, starttime: Optional[int] = None, endtime: Optional[int] = None, **kw
     ) -> List[Any]:
         """
         Get ACI events
+        GET /dataservice/partner/aci/policy/events/{partnerId}
 
         :param partner_id: Partner Id
         :param starttime: Start time

@@ -11,7 +11,7 @@ Get Appqoe flow closed error from device
 
 .. code:: python
 
-    def get_appqoe_flow_closed_error(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.appqoe.flow_closed_error.get_appqoe_flow_closed_error()
+        client.device.appqoe.flow_closed_error.get()
 
 

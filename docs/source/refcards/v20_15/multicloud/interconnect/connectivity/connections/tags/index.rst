@@ -11,7 +11,7 @@ API to retrieve configured Interconnect host VPC/VNET mapping tags.
 
 .. code:: python
 
-    def get_interconnect_mapping_tags(
+    def get(
         cloud_type: str,
         cloud_account_id: str,
         resource_group: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.connections.tags.get_interconnect_mapping_tags()
+        client.multicloud.interconnect.connectivity.connections.tags.get()
 
 
 .. toctree::

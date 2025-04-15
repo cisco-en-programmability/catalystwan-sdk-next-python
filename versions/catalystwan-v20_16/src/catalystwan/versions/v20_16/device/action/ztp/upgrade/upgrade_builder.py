@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -17,17 +17,19 @@ class UpgradeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_ztp_upgrade_config(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get ZTP upgrade configuration
+        GET /dataservice/device/action/ztp/upgrade
 
         :returns: Any
         """
         return self._request_adapter.request("GET", "/dataservice/device/action/ztp/upgrade", **kw)
 
-    def postprocess_ztp_upgrade_config_setting(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Process ZTP upgrade configuration setting
+        POST /dataservice/device/action/ztp/upgrade
 
         :param payload: Request body for ZTP upgrade configuration setting
         :returns: None

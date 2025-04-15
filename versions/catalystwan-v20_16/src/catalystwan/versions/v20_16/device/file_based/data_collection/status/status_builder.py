@@ -12,9 +12,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_data_collection_status_for_uuid(self, request_uuid: str, **kw) -> str:
+    def get(self, request_uuid: str, **kw) -> str:
         """
         Get Data Collection status for given Request UUID
+        GET /dataservice/device/file-based/data-collection/status/{requestUUID}
 
         :param request_uuid: request UUID
         :returns: str

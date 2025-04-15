@@ -11,9 +11,7 @@ Gets devices and sites for all tenants
 
 .. code:: python
 
-    def get_tenants_devices_and_sites(
-        tenant: Optional[List[str]] = None,
-    ) -> None: ...
+    def get(tenant: Optional[List[str]] = None) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bytenants.get_tenants_devices_and_sites()
+        client.device.bytenants.get()
 
 

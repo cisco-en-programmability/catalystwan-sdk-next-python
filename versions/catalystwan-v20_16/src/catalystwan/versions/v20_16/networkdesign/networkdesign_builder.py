@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -24,18 +24,20 @@ class NetworkdesignBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_network_design(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get existing network design
+        GET /dataservice/networkdesign
 
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "getNetworkDesign")
         return self._request_adapter.request("GET", "/dataservice/networkdesign", **kw)
 
-    def edit_network_design(self, id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, id: str, payload: Any, **kw) -> Any:
         """
         Edit network segment
+        PUT /dataservice/networkdesign
 
         :param id: Id
         :param payload: Network design payload
@@ -49,9 +51,10 @@ class NetworkdesignBuilder:
             "PUT", "/dataservice/networkdesign", params=params, payload=payload, **kw
         )
 
-    def create_network_design(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create network design
+        POST /dataservice/networkdesign
 
         :param payload: Network design payload
         :returns: Any

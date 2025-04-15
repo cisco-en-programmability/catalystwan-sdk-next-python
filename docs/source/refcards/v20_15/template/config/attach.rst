@@ -11,9 +11,7 @@ Upload device config
 
 .. code:: python
 
-    def upload_config(
-        device_id: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def put(device_id: str, payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.config.attach.upload_config()
+        client.template.config.attach.put()
 
 

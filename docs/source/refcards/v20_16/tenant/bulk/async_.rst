@@ -11,9 +11,7 @@ Create multiple tenants on vManage asynchronously<br><br><br>Note: In a multiten
 
 .. code:: python
 
-    def create_tenant_async_bulk(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenant.bulk.async_.create_tenant_async_bulk()
+        client.tenant.bulk.async_.post()
 
 
 Operation: DELETE /dataservice/tenant/bulk/async
@@ -42,9 +40,7 @@ Delete multiple tenants on vManage asynchronously<br><br><br>Note: In a multiten
 
 .. code:: python
 
-    def delete_tenant_async_bulk(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def delete(payload: Optional[Any] = None) -> Any: ...
 
 
 Example:
@@ -62,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenant.bulk.async_.delete_tenant_async_bulk()
+        client.tenant.bulk.async_.delete()
 
 

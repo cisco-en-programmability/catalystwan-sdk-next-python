@@ -11,7 +11,7 @@ Get endpoint tracker group info from device
 
 .. code:: python
 
-    def get_endpoint_tracker_group_info(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.endpoint_tracker_group.get_endpoint_tracker_group_info()
+        client.device.endpoint_tracker_group.get()
 
 

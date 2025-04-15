@@ -11,7 +11,7 @@ Get WLAN Radios from device
 
 .. code:: python
 
-    def get_wlan_radios(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.wlan.radios.get_wlan_radios()
+        client.device.wlan.radios.get()
 
 

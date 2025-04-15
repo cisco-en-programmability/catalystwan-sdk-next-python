@@ -11,7 +11,7 @@ Get cloud service settings
 
 .. code:: python
 
-    def get_cloud_settings() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.cloudservices.get_cloud_settings()
+        client.dca.cloudservices.get()
 
 
 .. toctree::

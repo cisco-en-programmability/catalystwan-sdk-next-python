@@ -17,11 +17,10 @@ class PortSpeedsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_device_link_port_speeds(
-        self, interconnect_type: str, **kw
-    ) -> InlineResponse20011:
+    def get(self, interconnect_type: str, **kw) -> InlineResponse20011:
         """
         API to get supported port speeds for Device-Link by Interconnect provider.
+        GET /dataservice/multicloud/interconnect/{interconnect-type}/connectivity/device-links/port-speeds
 
         :param interconnect_type: Interconnect Provider Type
         :returns: InlineResponse20011

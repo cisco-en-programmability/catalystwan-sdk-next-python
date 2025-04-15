@@ -14,9 +14,10 @@ class RbacBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_rbac_interface(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get RBAC interfaces from device
+        GET /dataservice/device/csp/rbac
 
         :param device_id: deviceId - Device IP
         :returns: Any

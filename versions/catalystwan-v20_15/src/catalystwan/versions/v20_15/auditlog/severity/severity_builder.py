@@ -22,7 +22,7 @@ class SeverityBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_audit_log(
+    def get(
         self,
         query: str,
         page: Optional[int] = None,
@@ -34,6 +34,7 @@ class SeverityBuilder:
     ) -> GetAuditLogBySeverity:
         """
         Get audit logs for last 3 hours
+        GET /dataservice/auditlog/severity
 
         :param query: Query
         :param page: Page

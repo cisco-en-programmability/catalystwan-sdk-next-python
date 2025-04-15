@@ -14,9 +14,10 @@ class AppqoeSppiPipeResourceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_appqoe_sppi_pipe_stats(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get Appqoe Sppi Pipe Stats from device
+        GET /dataservice/device/appqoe/appqoe-sppi-pipe-resource
 
         :param device_id: Device Id
         :returns: Any

@@ -14,9 +14,10 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_devices_fw_upgrade(self, **kw):
+    def get(self, **kw):
         """
         Get list of devices that support firmware upgrade
+        GET /dataservice/device/action/firmware/devices
 
         :returns: None
         """

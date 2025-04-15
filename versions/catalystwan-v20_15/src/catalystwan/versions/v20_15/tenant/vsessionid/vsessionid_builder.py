@@ -14,12 +14,13 @@ class VsessionidBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def v_session_id(self, tenant_id: str, **kw) -> Any:
+    def post(self, tenant_id: str, **kw) -> Any:
         """
         Get VSessionId for a specific tenant
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        POST /dataservice/tenant/{tenantId}/vsessionid
 
         :param tenant_id: Tenant Id
         :returns: Any

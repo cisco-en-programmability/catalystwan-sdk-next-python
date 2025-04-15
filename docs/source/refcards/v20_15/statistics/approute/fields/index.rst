@@ -11,7 +11,7 @@ Get fields and type
 
 .. code:: python
 
-    def get_stat_data_fields_3() -> List[AppRouteDocCountResponse]: ...
+    def get() -> List[AppRouteDocCountResponse]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.approute.fields.get_stat_data_fields_3()
+        client.statistics.approute.fields.get()
 
 
 .. toctree::

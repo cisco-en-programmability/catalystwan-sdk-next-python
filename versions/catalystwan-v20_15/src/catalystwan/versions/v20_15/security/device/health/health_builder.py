@@ -19,11 +19,10 @@ class HealthBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_security_device_health(
-        self, device_ip: Optional[str] = None, **kw
-    ) -> List[SecurityDeviceHealth]:
+    def get(self, device_ip: Optional[str] = None, **kw) -> List[SecurityDeviceHealth]:
         """
         Get security device health
+        GET /dataservice/security/device/health
 
         :param device_ip: deviceIp - Device IP
         :returns: List[SecurityDeviceHealth]

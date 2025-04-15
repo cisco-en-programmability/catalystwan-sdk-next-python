@@ -11,7 +11,7 @@ invalid device
 
 .. code:: python
 
-    def delete_configuration(
+    def delete(
         uuid: str,
         replace_controller: Optional[bool] = None,
         device_id: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.delete_configuration()
+        client.certificate.delete()
 
 
 .. toctree::
@@ -54,6 +54,7 @@ Example:
     revoke/index
     rootcertchains
     rootcertificate
+    rsakeylengthdefault
     save/index
     stats/index
     syncvbond

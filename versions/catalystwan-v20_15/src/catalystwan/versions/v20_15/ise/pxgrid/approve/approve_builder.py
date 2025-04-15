@@ -12,9 +12,10 @@ class ApproveBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def approve(self, **kw) -> bool:
+    def put(self, **kw) -> bool:
         """
         Approve pxGrid account
+        PUT /dataservice/ise/pxgrid/approve
 
         :returns: bool
         """

@@ -11,7 +11,7 @@ Get vManage server information
 
 .. code:: python
 
-    def create_server_info() -> ClientServerInfoResponse: ...
+    def get() -> ClientServerInfoResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.client.server.create_server_info()
+        client.client.server.get()
 
 
 .. toctree::

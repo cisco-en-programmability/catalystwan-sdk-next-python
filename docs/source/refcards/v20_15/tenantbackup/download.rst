@@ -11,7 +11,7 @@ Download a Backup File that is already stored in vManage<br><br><br>Note: In a m
 
 .. code:: python
 
-    def download_existing_backup_file(path: str) -> Any: ...
+    def get(path: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenantbackup.download.download_existing_backup_file()
+        client.tenantbackup.download.get()
 
 

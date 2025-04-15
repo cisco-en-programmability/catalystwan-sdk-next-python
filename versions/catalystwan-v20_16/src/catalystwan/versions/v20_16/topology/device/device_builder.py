@@ -22,9 +22,10 @@ class DeviceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_device_topology(self, device_id: List[DeviceIp], **kw) -> Any:
+    def get(self, device_id: List[DeviceIp], **kw) -> Any:
         """
         Create device topology
+        GET /dataservice/topology/device
 
         :param device_id: Device Id list
         :returns: Any

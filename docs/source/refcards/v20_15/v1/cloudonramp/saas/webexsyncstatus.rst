@@ -11,7 +11,7 @@ Get Webex's sync Status for devices with COR Saas enabled via config group or de
 
 .. code:: python
 
-    def get_webex_sync_status() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.cloudonramp.saas.webexsyncstatus.get_webex_sync_status()
+        client.v1.cloudonramp.saas.webexsyncstatus.get()
 
 

@@ -11,9 +11,7 @@ Retrieve device groups
 
 .. code:: python
 
-    def list_device_groups(
-        site_id: Optional[str] = None,
-    ) -> List[Any]: ...
+    def get(site_id: Optional[str] = None) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.group.device.list_device_groups()
+        client.group.device.get()
 
 

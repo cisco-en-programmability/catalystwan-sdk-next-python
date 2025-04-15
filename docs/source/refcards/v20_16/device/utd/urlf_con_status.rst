@@ -11,7 +11,7 @@ Get UTD URLF Connection status from device (Real Time)
 
 .. code:: python
 
-    def get_utd_urlf_connection_status(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.utd.urlf_con_status.get_utd_urlf_connection_status()
+        client.device.utd.urlf_con_status.get()
 
 

@@ -13,7 +13,7 @@ getTraceFlow
 
 .. code:: python
 
-    def get_trace_flow(
+    def get(
         trace_id: int, timestamp: int, state: str
     ) -> NwpitraceFlowRespPayload: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.trace_flow.get_trace_flow()
+        client.stream.device.nwpi.trace_flow.get()
 
 
 .. toctree::

@@ -15,7 +15,7 @@ class AccountidBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def remove_transit_vpc(
+    def delete(
         self,
         accountid: str,
         transitvpcid: str,
@@ -25,6 +25,7 @@ class AccountidBuilder:
     ) -> Any:
         """
         Delete transit VPC/VNet
+        DELETE /dataservice/template/cor/accountid/{accountid}
 
         :param accountid: Account Id
         :param transitvpcid: Cloud VPC Id

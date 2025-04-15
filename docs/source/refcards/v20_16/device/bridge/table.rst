@@ -11,7 +11,7 @@ Get device bridge interface table (Real Time)
 
 .. code:: python
 
-    def get_bridge_interface_table(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bridge.table.get_bridge_interface_table()
+        client.device.bridge.table.get()
 
 

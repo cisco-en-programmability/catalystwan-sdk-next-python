@@ -11,7 +11,7 @@ Get device state data fileds
 
 .. code:: python
 
-    def generate_device_state_data_fields(
+    def get(
         state_data_type: str,
     ) -> List[GenerateDeviceStateDataFieldsInner]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.data.device.state.fields.generate_device_state_data_fields()
+        client.data.device.state.fields.get()
 
 
 .. toctree::

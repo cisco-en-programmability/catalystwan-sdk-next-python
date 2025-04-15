@@ -11,7 +11,7 @@ Stop data traffic to device
 
 .. code:: python
 
-    def stage_device(payload: Optional[Any] = None) -> str: ...
+    def post(payload: Any) -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.device.stage.stage_device()
+        client.certificate.device.stage.post()
 
 

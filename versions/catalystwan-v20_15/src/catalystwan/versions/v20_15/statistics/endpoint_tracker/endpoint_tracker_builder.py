@@ -22,7 +22,7 @@ class EndpointTrackerBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_data_raw_data_18(
+    def get(
         self,
         query: Optional[str] = None,
         page: Optional[int] = None,
@@ -33,6 +33,7 @@ class EndpointTrackerBuilder:
     ) -> Any:
         """
         Get stats raw data
+        GET /dataservice/statistics/endpointTracker
 
         :param query: Query string
         :param page: page number
@@ -52,9 +53,9 @@ class EndpointTrackerBuilder:
             "GET", "/dataservice/statistics/endpointTracker", params=params, **kw
         )
 
-    def get_stats_raw_data_18(
+    def post(
         self,
-        payload: Optional[Any] = None,
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -63,6 +64,7 @@ class EndpointTrackerBuilder:
     ) -> Any:
         """
         Get stats raw data
+        POST /dataservice/statistics/endpointTracker
 
         :param page: page number
         :param page_size: page size

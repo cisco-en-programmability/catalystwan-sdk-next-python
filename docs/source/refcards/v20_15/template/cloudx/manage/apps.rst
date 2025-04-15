@@ -11,7 +11,7 @@ Get apps and vpns
 
 .. code:: python
 
-    def get_apps() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cloudx.manage.apps.get_apps()
+        client.template.cloudx.manage.apps.get()
 
 
 Operation: PUT /dataservice/template/cloudx/manage/apps
@@ -40,7 +40,7 @@ Edit apps and vpns
 
 .. code:: python
 
-    def edit_apps(payload: Optional[Any] = None) -> Any: ...
+    def put(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cloudx.manage.apps.edit_apps()
+        client.template.cloudx.manage.apps.put()
 
 
 Operation: POST /dataservice/template/cloudx/manage/apps
@@ -69,7 +69,7 @@ Add apps and vpns
 
 .. code:: python
 
-    def add_apps(payload: Optional[Any] = None) -> List[Any]: ...
+    def post(payload: Any) -> List[Any]: ...
 
 
 Example:
@@ -87,6 +87,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cloudx.manage.apps.add_apps()
+        client.template.cloudx.manage.apps.post()
 
 

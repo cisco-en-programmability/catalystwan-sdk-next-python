@@ -14,9 +14,10 @@ class CategoryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_list_category(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get the stats of all type of apps
+        GET /dataservice/app-registry/app/category
 
         :returns: List[Any]
         """

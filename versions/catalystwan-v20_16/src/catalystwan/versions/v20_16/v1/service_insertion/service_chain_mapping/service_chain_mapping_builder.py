@@ -14,9 +14,10 @@ class ServiceChainMappingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def service_chain_mapping(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Gets all the Service Chain Mapping with service chain definition name and service chain number.
+        GET /dataservice/v1/service-insertion/service-chain-mapping
 
         :returns: List[Any]
         """

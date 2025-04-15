@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_omp_status(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get device OMP status
+        GET /dataservice/device/omp/status
 
         :returns: Any
         """

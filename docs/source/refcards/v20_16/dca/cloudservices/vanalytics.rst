@@ -11,7 +11,7 @@ Get session from DCS for vAnalytics
 
 .. code:: python
 
-    def getv_analytics(payload: Optional[str] = None) -> Any: ...
+    def post(payload: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.cloudservices.vanalytics.getv_analytics()
+        client.dca.cloudservices.vanalytics.post()
 
 

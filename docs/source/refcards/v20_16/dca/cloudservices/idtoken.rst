@@ -11,7 +11,7 @@ Get DCA Id token
 
 .. code:: python
 
-    def get_id_token() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.cloudservices.idtoken.get_id_token()
+        client.dca.cloudservices.idtoken.get()
 
 
 Operation: POST /dataservice/dca/cloudservices/idtoken
@@ -40,7 +40,7 @@ Set DCA Id token
 
 .. code:: python
 
-    def store_id_token(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.cloudservices.idtoken.store_id_token()
+        client.dca.cloudservices.idtoken.post()
 
 

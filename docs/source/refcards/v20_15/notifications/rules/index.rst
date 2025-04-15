@@ -11,7 +11,7 @@ Get all rules or specific notification rule by its Id
 
 .. code:: python
 
-    def get_notification_rule(
+    def get(
         rule_id: Optional[str] = None, site_id: Optional[str] = None
     ) -> NotificationsRulesResponse: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.notifications.rules.get_notification_rule()
+        client.notifications.rules.get()
 
 
 Operation: DELETE /dataservice/notifications/rules
@@ -42,7 +42,7 @@ Delete notification rule
 
 .. code:: python
 
-    def delete_notification_rule(rule_id: str) -> None: ...
+    def delete(rule_id: str) -> None: ...
 
 
 Example:
@@ -60,7 +60,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.notifications.rules.delete_notification_rule()
+        client.notifications.rules.delete()
 
 
 .. toctree::

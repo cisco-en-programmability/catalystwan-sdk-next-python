@@ -11,9 +11,7 @@ List mapped devices for the partner
 
 .. code:: python
 
-    def get_partner_devices(
-        partner_type: str, nms_id: str
-    ) -> PartnerDevicesRes: ...
+    def get(partner_type: str, nms_id: str) -> PartnerDevicesRes: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.map.get_partner_devices()
+        client.partner.map.get()
 
 
 Operation: POST /dataservice/partner/{partnerType}/map/{nmsId}
@@ -42,7 +40,7 @@ Map devices for the partner
 
 .. code:: python
 
-    def map_devices(
+    def post(
         partner_type: str, nms_id: str, payload: MapDevicesRequest
     ) -> StatusResponse: ...
 
@@ -62,7 +60,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.map.map_devices()
+        client.partner.map.post()
 
 
 Operation: DELETE /dataservice/partner/{partnerType}/map/{nmsId}
@@ -73,9 +71,7 @@ Unmap all devices for the partner
 
 .. code:: python
 
-    def unmap_devices(
-        partner_type: str, nms_id: str
-    ) -> StatusResponse: ...
+    def delete(partner_type: str, nms_id: str) -> StatusResponse: ...
 
 
 Example:
@@ -93,7 +89,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.map.unmap_devices()
+        client.partner.map.delete()
 
 
 .. toctree::

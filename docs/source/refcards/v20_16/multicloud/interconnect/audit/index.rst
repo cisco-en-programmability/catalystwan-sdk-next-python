@@ -11,7 +11,7 @@ API to generate audit report for resources.
 
 .. code:: python
 
-    def get_audit_report(
+    def get(
         interconnect_type: str,
         connection_type: Optional[str] = None,
         cloud_type: Optional[str] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.audit.get_audit_report()
+        client.multicloud.interconnect.audit.get()
 
 
 .. toctree::

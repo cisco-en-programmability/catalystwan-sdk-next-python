@@ -17,9 +17,10 @@ class NvaskuBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_azure_nva_sku_resources(self, cloud_type: str, **kw) -> NvaSkuListResponse:
+    def get(self, cloud_type: str, **kw) -> NvaSkuListResponse:
         """
         Get Azure NVA SKUs
+        GET /dataservice/multicloud/cloudgateway/nvasku
 
         :param cloud_type: Multicloud provider type
         :returns: NvaSkuListResponse

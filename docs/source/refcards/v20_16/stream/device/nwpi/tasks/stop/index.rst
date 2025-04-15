@@ -11,7 +11,7 @@ Task Action - Stop
 
 .. code:: python
 
-    def task_stop(task_id: str) -> TasksStopResponsePayload: ...
+    def post(task_id: str) -> TasksStopResponsePayload: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.tasks.stop.task_stop()
+        client.stream.device.nwpi.tasks.stop.post()
 
 
 .. toctree::

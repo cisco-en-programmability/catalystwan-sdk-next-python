@@ -11,7 +11,7 @@ Get certificate expiration status
 
 .. code:: python
 
-    def get_certificate_stats() -> List[str]: ...
+    def get() -> List[str]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.stats.summary.get_certificate_stats()
+        client.certificate.stats.summary.get()
 
 

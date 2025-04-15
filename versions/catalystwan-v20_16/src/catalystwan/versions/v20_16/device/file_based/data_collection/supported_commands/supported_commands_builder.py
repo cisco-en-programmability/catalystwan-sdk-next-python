@@ -12,9 +12,10 @@ class SupportedCommandsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_supported_commands_list(self, device_uuid: str, **kw) -> str:
+    def get(self, device_uuid: str, **kw) -> str:
         """
         Get Supported Command list for given Device UUID
+        GET /dataservice/device/file-based/data-collection/supported-commands/{deviceUUID}
 
         :param device_uuid: Device UUID
         :returns: str

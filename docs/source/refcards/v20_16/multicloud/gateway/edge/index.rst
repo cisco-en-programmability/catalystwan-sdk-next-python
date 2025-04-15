@@ -52,7 +52,7 @@ Create Interconnect Gateway
 
 .. code:: python
 
-    def create_icgw(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -70,7 +70,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.gateway.edge.create_icgw()
+        client.multicloud.gateway.edge.post()
 
 
 Operation: GET /dataservice/multicloud/gateway/edge/{edgeGatewayName}
@@ -83,7 +83,7 @@ Get Interconnect Gateway by name
 
 .. code:: python
 
-    def get_icgw_details(edge_gateway_name: str) -> Any: ...
+    def get(edge_gateway_name: str) -> Any: ...
 
 
 Example:
@@ -101,7 +101,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.gateway.edge.get_icgw_details()
+        client.multicloud.gateway.edge.get()
 
 
 Operation: PUT /dataservice/multicloud/gateway/edge/{edgeGatewayName}
@@ -114,9 +114,8 @@ Update Interconnect Gateway
 
 .. code:: python
 
-    def update_icgw(
-        edge_gateway_name: str,
-        payload: Optional[UpdateIcgwPutRequest] = None,
+    def put(
+        edge_gateway_name: str, payload: UpdateIcgwPutRequest
     ) -> Any: ...
 
 
@@ -135,7 +134,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.gateway.edge.update_icgw()
+        client.multicloud.gateway.edge.put()
 
 
 Operation: DELETE /dataservice/multicloud/gateway/edge/{edgeGatewayName}
@@ -148,7 +147,7 @@ Delete Interconnect Gateway
 
 .. code:: python
 
-    def delete_icgw(edge_gateway_name: str) -> Any: ...
+    def delete(edge_gateway_name: str) -> Any: ...
 
 
 Example:
@@ -166,7 +165,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.gateway.edge.delete_icgw()
+        client.multicloud.gateway.edge.delete()
 
 
 .. toctree::

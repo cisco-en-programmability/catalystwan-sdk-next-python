@@ -14,9 +14,10 @@ class TableBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_bridge_interface_table(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get device bridge interface table (Real Time)
+        GET /dataservice/device/bridge/table
 
         :param device_id: deviceId - Device IP
         :returns: Any

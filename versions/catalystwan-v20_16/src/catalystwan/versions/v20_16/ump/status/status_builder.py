@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_status(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get last N minutes UMP historic data
+        GET /dataservice/ump/status
 
         :returns: Any
         """

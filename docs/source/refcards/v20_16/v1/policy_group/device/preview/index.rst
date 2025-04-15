@@ -11,13 +11,11 @@ Get a preview of the configuration for a device
 
 .. code:: python
 
-    def get_policy_group_device_configuration_preview(
+    def post(
         policy_group_id: str,
         device_id: str,
-        payload: Optional[
-            GetPolicyGroupDeviceConfigurationPreviewPostRequest
-        ] = None,
-    ) -> Any: ...
+        payload: GetPolicyGroupDeviceConfigurationPreviewPostRequest,
+    ) -> GetPolicyGroupDeviceConfigurationPreviewPostResponse: ...
 
 
 Example:
@@ -35,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.policy_group.device.preview.get_policy_group_device_configuration_preview()
+        client.v1.policy_group.device.preview.post()
 
 
 .. toctree::

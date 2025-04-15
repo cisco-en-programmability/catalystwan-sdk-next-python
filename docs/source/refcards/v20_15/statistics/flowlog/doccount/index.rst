@@ -11,7 +11,7 @@ Get response count of a query
 
 .. code:: python
 
-    def get_flowlog_count(query: str) -> CountResponse: ...
+    def get(query: str) -> CountResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.flowlog.doccount.get_flowlog_count()
+        client.statistics.flowlog.doccount.get()
 
 
 Operation: POST /dataservice/statistics/flowlog/doccount
@@ -40,9 +40,7 @@ Get response count of a query
 
 .. code:: python
 
-    def get_flowlog_count_post(
-        payload: Optional[Any] = None,
-    ) -> CountResponse: ...
+    def post(payload: Any) -> CountResponse: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.flowlog.doccount.get_flowlog_count_post()
+        client.statistics.flowlog.doccount.post()
 
 
 .. toctree::

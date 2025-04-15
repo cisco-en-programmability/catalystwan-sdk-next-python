@@ -14,9 +14,10 @@ class VedgesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_unclaimed_vedges(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get unclaimed vEdges from vbond
+        GET /dataservice/device/unclaimed/vedges
 
         :param device_id: deviceId - Device IP
         :returns: Any

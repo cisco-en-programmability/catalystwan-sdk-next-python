@@ -11,7 +11,7 @@ Get WAN interface colors
 
 .. code:: python
 
-    def get_wan_interface_colors() -> List[str]: ...
+    def get() -> List[str]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interfacecolor.get_wan_interface_colors()
+        client.multicloud.interfacecolor.get()
 
 

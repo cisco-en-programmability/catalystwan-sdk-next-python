@@ -11,7 +11,7 @@ Get the list of child org IDs given the type management or device
 
 .. code:: python
 
-    def get_child_orgs(type_: str) -> None: ...
+    def get(type_: str) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sig.umbrella.child_org.get_child_orgs()
+        client.sig.umbrella.child_org.get()
 
 

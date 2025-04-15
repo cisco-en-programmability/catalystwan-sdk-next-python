@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_compliance_status(self, uuid: str, **kw) -> Any:
+    def get(self, uuid: str, **kw) -> Any:
         """
         Get device compliance task status
+        GET /dataservice/sdavc/protocol-pack/compliance/device/status/{uuid}
 
         :param uuid: Uuid
         :returns: Any

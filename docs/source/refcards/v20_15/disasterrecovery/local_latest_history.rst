@@ -11,7 +11,7 @@ Get disaster recovery local switchover history
 
 .. code:: python
 
-    def get_local_history() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.local_latest_history.get_local_history()
+        client.disasterrecovery.local_latest_history.get()
 
 

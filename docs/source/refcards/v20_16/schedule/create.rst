@@ -11,7 +11,7 @@ create  backup scheduler config-db and statstics database with startDateTime and
 
 .. code:: python
 
-    def schedule_backup(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.schedule.create.schedule_backup()
+        client.schedule.create.post()
 
 

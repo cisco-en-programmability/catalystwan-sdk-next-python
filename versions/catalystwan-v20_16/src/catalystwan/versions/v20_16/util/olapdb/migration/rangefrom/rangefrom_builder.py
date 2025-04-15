@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,9 +15,10 @@ class RangefromBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stats_migration_range_config(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get migration historical data range configuration from upgrade time
+        GET /dataservice/util/olapdb/migration/rangefrom
 
         :returns: Any
         """
@@ -26,9 +27,10 @@ class RangefromBuilder:
             "GET", "/dataservice/util/olapdb/migration/rangefrom", **kw
         )
 
-    def post_stats_migration_range_config(self, payload: Optional[str] = None, **kw) -> Any:
+    def post(self, payload: str, **kw) -> Any:
         """
         Config migration historical data range from upgrade time in seconds. -1 to keep all.
+        POST /dataservice/util/olapdb/migration/rangefrom
 
         :param payload: Range from config
         :returns: Any

@@ -11,9 +11,8 @@ API to initiate a config group creation for a cloud gateway.
 
 .. code:: python
 
-    def create_cloud_gateway_config_group(
-        cloud_type: str,
-        payload: Optional[MultiCloudGatewaysConfiggroupBody] = None,
+    def post(
+        cloud_type: str, payload: MultiCloudGatewaysConfiggroupBody
     ) -> PostCgwConfigGroupResponse: ...
 
 
@@ -32,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.config_group.create_cloud_gateway_config_group()
+        client.multicloud.cloudgateway.config_group.post()
 
 
 .. toctree::

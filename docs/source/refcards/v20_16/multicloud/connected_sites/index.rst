@@ -11,7 +11,7 @@ Get sites with connectivity to the cloud by cloud type
 
 .. code:: python
 
-    def get_cloud_connected_sites(
+    def get(
         cloud_type: str, cloud_gateway_name: Optional[str] = None
     ) -> ConnectedSitesResponse: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.connected_sites.get_cloud_connected_sites()
+        client.multicloud.connected_sites.get()
 
 
 .. toctree::

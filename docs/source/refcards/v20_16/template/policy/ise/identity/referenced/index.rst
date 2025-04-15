@@ -11,7 +11,7 @@ Get all referenced Lists
 
 .. code:: python
 
-    def get_list_reference(list_type: str) -> List[ReferencedList]: ...
+    def get(list_type: str) -> List[ReferencedList]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.ise.identity.referenced.get_list_reference()
+        client.template.policy.ise.identity.referenced.get()
 
 
 .. toctree::

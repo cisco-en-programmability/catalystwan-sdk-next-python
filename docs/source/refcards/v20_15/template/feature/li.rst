@@ -11,7 +11,7 @@ Get LI feature template
 
 .. code:: python
 
-    def list_li_template() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.feature.li.list_li_template()
+        client.template.feature.li.get()
 
 
 Operation: POST /dataservice/template/feature/li
@@ -40,7 +40,7 @@ Create LI feature template<br><br><br>Note: In a multitenant vManage system, thi
 
 .. code:: python
 
-    def create_li_template(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.feature.li.create_li_template()
+        client.template.feature.li.post()
 
 
 Operation: PUT /dataservice/template/feature/li/{templateId}
@@ -69,9 +69,7 @@ Update LI feature template<br><br><br>Note: In a multitenant vManage system, thi
 
 .. code:: python
 
-    def edit_li_template(
-        template_id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(template_id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -89,6 +87,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.feature.li.edit_li_template()
+        client.template.feature.li.put()
 
 

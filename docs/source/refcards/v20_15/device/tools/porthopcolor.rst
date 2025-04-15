@@ -11,9 +11,7 @@ Request port hop color
 
 .. code:: python
 
-    def process_port_hop_color(
-        device_ip: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def post(device_ip: str, payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.porthopcolor.process_port_hop_color()
+        client.device.tools.porthopcolor.post()
 
 

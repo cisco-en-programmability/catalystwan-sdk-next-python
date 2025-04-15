@@ -9,8 +9,8 @@ Operation: POST /dataservice/sdavc/cloud-sourced/approve
 
 .. code:: python
 
-    def approve_extended_applications(
-        payload: Optional[ExtendedApplicationRequestData] = None,
+    def post(
+        payload: ExtendedApplicationRequestData,
     ) -> DefaultSuccessResponse: ...
 
 
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.cloud_sourced.approve.approve_extended_applications()
+        client.sdavc.cloud_sourced.approve.post()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Delete task and status vertex
 
 .. code:: python
 
-    def get_clean_status(process_id: str) -> DeviceTaskStatus: ...
+    def get(process_id: str) -> DeviceTaskStatus: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.status.tasks.clean.get_clean_status()
+        client.device.action.status.tasks.clean.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Get All the App for the given conditions
 
 .. code:: python
 
-    def get_app_list(
+    def get(
         traffic_class: Optional[str] = None,
         business_relevance: Optional[str] = None,
     ) -> List[Any]: ...
@@ -32,20 +32,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.applications.get_app_list()
+        client.app_registry.applications.get()
 
 
 Operation: PUT /dataservice/app-registry/applications
 -----------------------------------------------------
 
 
-Edit App Details
-
 .. code:: python
 
-    def edit_app_details(
-        payload: Optional[List[EditAppDetailsPutRequest]] = None,
-    ) -> List[Any]: ...
+    @overload
+    def put(payload: List[EditAppDetailsPutRequest]) -> List[Any]: ...
 
 
 Example:
@@ -63,20 +60,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.applications.edit_app_details()
+        client.app_registry.applications.put()
 
 
 Operation: PUT /dataservice/app-registry/applications/{appId}
 -------------------------------------------------------------
 
 
-Edit App Details
-
 .. code:: python
 
-    def edit_app_details_with_uuid(
-        app_id: str, payload: Optional[Any] = None
-    ) -> PayloadItems: ...
+    @overload
+    def put(payload: Any, app_id: str) -> PayloadItems: ...
 
 
 Example:
@@ -94,7 +88,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.applications.edit_app_details_with_uuid()
+        client.app_registry.applications.put()
 
 
 .. toctree::

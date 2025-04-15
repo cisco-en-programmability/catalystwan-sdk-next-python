@@ -11,7 +11,7 @@ Update data centers for disaster recovery
 
 .. code:: python
 
-    def update_1(payload: Optional[Any] = None) -> Any: ...
+    def put(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.register.update_1()
+        client.disasterrecovery.register.put()
 
 
 Operation: POST /dataservice/disasterrecovery/register
@@ -40,7 +40,7 @@ Register data centers for disaster recovery
 
 .. code:: python
 
-    def register(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.register.register()
+        client.disasterrecovery.register.post()
 
 

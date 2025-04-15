@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class LocaleBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def update_profile_locale_1(self, payload: Optional[Any] = None, **kw):
+    def put(self, payload: Any, **kw):
         """
         Update profile locale
+        PUT /dataservice/admin/user/profile/locale
 
         :param payload: User
         :returns: None

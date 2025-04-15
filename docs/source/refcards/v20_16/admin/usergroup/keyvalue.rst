@@ -11,7 +11,7 @@ Get user groups as key value map
 
 .. code:: python
 
-    def find_user_groups_as_key_value() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.usergroup.keyvalue.find_user_groups_as_key_value()
+        client.admin.usergroup.keyvalue.get()
 
 

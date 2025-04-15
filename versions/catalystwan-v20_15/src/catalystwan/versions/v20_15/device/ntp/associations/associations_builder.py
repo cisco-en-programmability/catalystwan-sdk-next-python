@@ -14,9 +14,10 @@ class AssociationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_associations_list(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get NTP peer associations list from device (Real Time)
+        GET /dataservice/device/ntp/associations
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

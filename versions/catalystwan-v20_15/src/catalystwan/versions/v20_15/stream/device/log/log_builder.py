@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -27,45 +27,10 @@ class LogBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_session_info_log(self, payload: Optional[str] = None, **kw):
+    def get(self, session_id: Uuid, log_id: Optional[int] = -1, **kw):
         """
-        Get session info log
-
-        :param payload: Payload
-        :returns: None
-        """
-        return self._request_adapter.request(
-            "POST", "/dataservice/stream/device/log", payload=payload, **kw
-        )
-
-    def stream_log(
-        self, log_type: str, device_uuid: str, session_id: str, payload: Optional[str] = None, **kw
-    ):
-        """
-        Stream log
-
-        :param log_type: Log type
-        :param device_uuid: Device uuid
-        :param session_id: Session Id
-        :param payload: Payload
-        :returns: None
-        """
-        params = {
-            "logType": log_type,
-            "deviceUUID": device_uuid,
-            "sessionId": session_id,
-        }
-        return self._request_adapter.request(
-            "POST",
-            "/dataservice/stream/device/log/{logType}/{deviceUUID}/{sessionId}",
-            params=params,
-            payload=payload,
-            **kw,
-        )
-
-    def get_device_log(self, session_id: Uuid, log_id: Optional[int] = -1, **kw):
-        """
-        Get device log
+        Get
+        GET /dataservice/stream/device/log/{sessionId}
 
         :param session_id: Session id
         :param log_id: Log id
@@ -78,6 +43,64 @@ class LogBuilder:
         return self._request_adapter.request(
             "GET", "/dataservice/stream/device/log/{sessionId}", params=params, **kw
         )
+
+    @overload
+    def post(self, payload: str, log_type: str, device_uuid: str, session_id: str, **kw):
+        """
+        Stream log
+        POST /dataservice/stream/device/log/{logType}/{deviceUUID}/{sessionId}
+
+        :param payload: Payload
+        :param log_type: Log type
+        :param device_uuid: Device uuid
+        :param session_id: Session Id
+        :returns: None
+        """
+        ...
+
+    @overload
+    def post(self, payload: str, **kw):
+        """
+        Get session info log
+        POST /dataservice/stream/device/log
+
+        :param payload: Payload
+        :returns: None
+        """
+        ...
+
+    def post(
+        self,
+        payload: str,
+        log_type: Optional[str] = None,
+        device_uuid: Optional[str] = None,
+        session_id: Optional[str] = None,
+        **kw,
+    ):
+        # /dataservice/stream/device/log/{logType}/{deviceUUID}/{sessionId}
+        if self._request_adapter.param_checker(
+            [(payload, str), (log_type, str), (device_uuid, str), (session_id, str)], []
+        ):
+            params = {
+                "logType": log_type,
+                "deviceUUID": device_uuid,
+                "sessionId": session_id,
+            }
+            return self._request_adapter.request(
+                "POST",
+                "/dataservice/stream/device/log/{logType}/{deviceUUID}/{sessionId}",
+                params=params,
+                payload=payload,
+                **kw,
+            )
+        # /dataservice/stream/device/log
+        if self._request_adapter.param_checker(
+            [(payload, str)], [log_type, device_uuid, session_id]
+        ):
+            return self._request_adapter.request(
+                "POST", "/dataservice/stream/device/log", payload=payload, **kw
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def disable(self) -> DisableBuilder:

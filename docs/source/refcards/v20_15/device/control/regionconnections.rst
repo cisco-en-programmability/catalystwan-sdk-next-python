@@ -11,9 +11,7 @@ Get connections list from device (Real Time)
 
 .. code:: python
 
-    def create_real_time_region_connection_list(
-        device_id: str,
-    ) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.control.regionconnections.create_real_time_region_connection_list()
+        client.device.control.regionconnections.get()
 
 

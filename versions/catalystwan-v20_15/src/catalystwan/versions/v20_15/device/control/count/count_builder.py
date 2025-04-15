@@ -14,11 +14,10 @@ class CountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_total_count_for_device_states(
-        self, is_cached: Optional[bool] = False, site_id: Optional[str] = None, **kw
-    ) -> Any:
+    def get(self, is_cached: Optional[bool] = False, site_id: Optional[str] = None, **kw) -> Any:
         """
         Get number of vedges and vsmart device in different control states
+        GET /dataservice/device/control/count
 
         :param is_cached: Device State cached
         :param site_id: Optional site ID  to filter devices

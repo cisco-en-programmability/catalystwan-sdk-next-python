@@ -11,7 +11,7 @@ Get gateway list
 
 .. code:: python
 
-    def get_gateway_list() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cloudx.gatewaylist.get_gateway_list()
+        client.template.cloudx.gatewaylist.get()
 
 

@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,11 +15,10 @@ class AttachmentBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def push_device_profile_template(
-        self, profile_id: str, payload: Optional[Any] = None, **kw
-    ) -> Any:
+    def post(self, profile_id: str, payload: Any, **kw) -> Any:
         """
         Attach to device profile
+        POST /dataservice/networkdesign/profile/attachment/{profileId}
 
         :param profile_id: Device profile Id
         :param payload: Device template

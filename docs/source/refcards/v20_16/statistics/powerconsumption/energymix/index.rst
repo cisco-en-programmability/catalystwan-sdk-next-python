@@ -11,9 +11,7 @@ Get Power Consumption Energy Mix
 
 .. code:: python
 
-    def get_power_consumption_energy_mix(
-        payload: Optional[Any] = None,
-    ) -> PowerConsumptionEnergyMixResp: ...
+    def post(payload: Any) -> PowerConsumptionEnergyMixResp: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.powerconsumption.energymix.get_power_consumption_energy_mix()
+        client.statistics.powerconsumption.energymix.post()
 
 
 .. toctree::

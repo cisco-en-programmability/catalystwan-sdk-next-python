@@ -11,7 +11,7 @@ Check whether a user has admin role
 
 .. code:: python
 
-    def find_user_role_1() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.user.role.find_user_role_1()
+        client.admin.user.role.get()
 
 

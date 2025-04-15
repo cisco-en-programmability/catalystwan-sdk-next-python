@@ -14,9 +14,10 @@ class TreeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def entity_ownership_info(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Entity ownership info grouped by buckets
+        GET /dataservice/entityownership/tree
 
         :returns: Any
         """

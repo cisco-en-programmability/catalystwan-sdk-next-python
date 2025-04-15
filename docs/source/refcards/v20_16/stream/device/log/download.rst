@@ -9,7 +9,7 @@ Operation: GET /dataservice/stream/device/log/download/{sessionId}
 
 .. code:: python
 
-    def download_debug_log(session_id: str) -> None: ...
+    def get(session_id: str) -> None: ...
 
 
 Example:
@@ -27,6 +27,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.log.download.download_debug_log()
+        client.stream.device.log.download.get()
 
 

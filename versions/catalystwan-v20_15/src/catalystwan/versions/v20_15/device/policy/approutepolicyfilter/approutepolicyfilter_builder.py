@@ -14,9 +14,10 @@ class ApproutepolicyfilterBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_policy_app_route_policy_filter(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get approute policy filter from device
+        GET /dataservice/device/policy/approutepolicyfilter
 
         :param device_id: deviceId - Device IP
         :returns: Any

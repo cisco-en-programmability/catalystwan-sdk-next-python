@@ -11,7 +11,7 @@ Get device BFD state summary
 
 .. code:: python
 
-    def get_device_bfd_state_summary(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bfd.state.device.get_device_bfd_state_summary()
+        client.device.bfd.state.device.get()
 
 
 .. toctree::

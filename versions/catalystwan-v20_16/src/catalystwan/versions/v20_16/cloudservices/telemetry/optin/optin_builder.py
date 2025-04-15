@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class OptinBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def opt_in(self, payload: Optional[str] = None, **kw) -> Any:
+    def put(self, payload: str, **kw) -> Any:
         """
         Telemetry Opt In
+        PUT /dataservice/cloudservices/telemetry/optin
 
         :param payload: Payload
         :returns: Any

@@ -14,9 +14,10 @@ class RpMappingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_pim_rp_mapping_list(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get PIM Rp-mapping list from device
+        GET /dataservice/device/pim/rp-mapping
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

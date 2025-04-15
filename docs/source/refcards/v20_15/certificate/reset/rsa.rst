@@ -11,7 +11,7 @@ resetRSA for controllers
 
 .. code:: python
 
-    def reset_rsa(payload: Optional[str] = None) -> str: ...
+    def post(payload: str) -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.reset.rsa.reset_rsa()
+        client.certificate.reset.rsa.post()
 
 

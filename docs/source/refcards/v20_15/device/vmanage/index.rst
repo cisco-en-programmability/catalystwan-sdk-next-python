@@ -11,7 +11,7 @@ Get vManage system IP
 
 .. code:: python
 
-    def get_v_manage_system_ip() -> DeviceVmanageResponse: ...
+    def get() -> DeviceVmanageResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.vmanage.get_v_manage_system_ip()
+        client.device.vmanage.get()
 
 
 .. toctree::

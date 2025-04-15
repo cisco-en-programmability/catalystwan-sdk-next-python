@@ -11,9 +11,7 @@ Add Manual Onboard Device details
 
 .. code:: python
 
-    def add_devices(
-        payload: Optional[DeviceDetailsData] = None,
-    ) -> None: ...
+    def post(payload: DeviceDetailsData) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.onboard.details.add_devices()
+        client.onboard.details.post()
 
 
 .. toctree::

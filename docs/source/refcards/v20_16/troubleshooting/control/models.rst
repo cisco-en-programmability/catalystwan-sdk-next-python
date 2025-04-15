@@ -13,7 +13,11 @@ Models
         "nonSDWAN", "vbond", "vedge", "vedge-vbond", "vmanage", "vsmart"
     ]
 
+    RemoteStatus = Literal["green", "red"]
+
     State = Literal["down", "up"]
+
+    TlocStatus = Literal["green", "red"]
 
 
     class TlocControl:
@@ -22,7 +26,7 @@ Models
         local_status: Optional[LocalStatus]
         local_status_info: Optional[str]
         peer_type: Optional[PeerType]
-        remote_status: Optional[LocalStatus]
+        remote_status: Optional[RemoteStatus]
         remote_status_info: Optional[str]
         state: Optional[State]
         system_ip: Optional[str]
@@ -39,7 +43,7 @@ Models
         private_port: Optional[str]
         public_ip: Optional[str]
         public_port: Optional[str]
-        tloc_status: Optional[LocalStatus]
+        tloc_status: Optional[TlocStatus]
         tloc_type: Optional[str]
 
 

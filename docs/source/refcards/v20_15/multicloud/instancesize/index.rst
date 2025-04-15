@@ -11,7 +11,7 @@ Get Transit VPC supported size
 
 .. code:: python
 
-    def get_supported_instance_size(
+    def get(
         cloud_type: CloudTypeParam,
         account_id: Optional[str] = None,
         cloud_region: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.instancesize.get_supported_instance_size()
+        client.multicloud.instancesize.get()
 
 
 .. toctree::

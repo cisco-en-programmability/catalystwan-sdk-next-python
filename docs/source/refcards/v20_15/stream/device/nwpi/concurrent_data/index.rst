@@ -13,7 +13,7 @@ Get concurrent data for NWPI.
 
 .. code:: python
 
-    def get_concurrent_data(
+    def get(
         trace_id: int, timestamp: int
     ) -> NwpitraceFlowRespPayload: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.concurrent_data.get_concurrent_data()
+        client.stream.device.nwpi.concurrent_data.get()
 
 
 .. toctree::

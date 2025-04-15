@@ -11,11 +11,11 @@ Get device variables
 
 .. code:: python
 
-    def get_config_group_device_variables(
+    def get(
         config_group_id: str,
         device_id: Optional[str] = None,
         suggestions: Optional[bool] = None,
-    ) -> ResponseSchema2: ...
+    ) -> GetConfigGroupDeviceVariablesGetResponse: ...
 
 
 Example:
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.config_group.device.variables.get_config_group_device_variables()
+        client.v1.config_group.device.variables.get()
 
 
 Operation: PUT /dataservice/v1/config-group/{configGroupId}/device/variables
@@ -44,11 +44,9 @@ assign values to device variables
 
 .. code:: python
 
-    def create_config_group_device_variables(
+    def put(
         config_group_id: str,
-        payload: Optional[
-            CreateConfigGroupDeviceVariablesPutRequest
-        ] = None,
+        payload: CreateConfigGroupDeviceVariablesPutRequest,
     ) -> Any: ...
 
 
@@ -67,7 +65,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.config_group.device.variables.create_config_group_device_variables()
+        client.v1.config_group.device.variables.put()
 
 
 Operation: POST /dataservice/v1/config-group/{configGroupId}/device/variables
@@ -78,11 +76,9 @@ Fetch device variables
 
 .. code:: python
 
-    def fetch_config_group_device_variables(
+    def post(
         config_group_id: str,
-        payload: Optional[
-            CreateConfigGroupDeviceVariablesPutRequest
-        ] = None,
+        payload: FetchConfigGroupDeviceVariablesPostRequest,
     ) -> Any: ...
 
 
@@ -101,7 +97,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.config_group.device.variables.fetch_config_group_device_variables()
+        client.v1.config_group.device.variables.post()
 
 
 .. toctree::

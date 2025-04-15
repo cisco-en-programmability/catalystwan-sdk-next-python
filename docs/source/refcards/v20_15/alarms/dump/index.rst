@@ -11,7 +11,7 @@ Dump correlation engine server cache in log file
 
 .. code:: python
 
-    def dump_correlation_engine_data() -> SimpleMessageResponse: ...
+    def post() -> SimpleMessageResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.dump.dump_correlation_engine_data()
+        client.alarms.dump.post()
 
 
 .. toctree::

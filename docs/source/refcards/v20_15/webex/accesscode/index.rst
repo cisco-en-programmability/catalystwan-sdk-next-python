@@ -11,7 +11,7 @@ Webex Access Code Details
 
 .. code:: python
 
-    def webex_access_code() -> AccessCodeResponse: ...
+    def get() -> AccessCodeResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.webex.accesscode.webex_access_code()
+        client.webex.accesscode.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Get DPI flow list from device (Real Time)
 
 .. code:: python
 
-    def create_dpi_flows_list(
+    def get(
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
         src_ip: Optional[str] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.dpi.flows.create_dpi_flows_list()
+        client.device.dpi.flows.get()
 
 
 .. toctree::

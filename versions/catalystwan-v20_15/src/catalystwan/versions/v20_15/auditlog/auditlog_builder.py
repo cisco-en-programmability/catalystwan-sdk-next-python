@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -27,9 +27,10 @@ class AuditlogBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_data_raw_audit_log_data(self, query: str, **kw) -> GetAuditLogData:
+    def get(self, query: str, **kw) -> GetAuditLogData:
         """
         Get stat raw data
+        GET /dataservice/auditlog
 
         :param query: Query
         :returns: GetAuditLogData
@@ -41,9 +42,10 @@ class AuditlogBuilder:
             "GET", "/dataservice/auditlog", return_type=GetAuditLogData, params=params, **kw
         )
 
-    def get_raw_property_data(self, payload: Optional[Any] = None, **kw) -> GetAuditLogData:
+    def post(self, payload: Any, **kw) -> GetAuditLogData:
         """
         Get raw property data with post action
+        POST /dataservice/auditlog
 
         :param payload: Stats query string
         :returns: GetAuditLogData

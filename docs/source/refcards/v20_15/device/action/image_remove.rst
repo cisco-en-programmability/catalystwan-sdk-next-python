@@ -11,9 +11,7 @@ Process remove software image operation
 
 .. code:: python
 
-    def process_remove_software_image(
-        payload: Optional[Any] = None,
-    ) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.image_remove.process_remove_software_image()
+        client.device.action.image_remove.post()
 
 

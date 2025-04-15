@@ -11,7 +11,7 @@ Call an audit with dry run
 
 .. code:: python
 
-    def audit_dry_run(
+    def get(
         cloud_type: CloudTypeParam,
         cloud_region: Optional[str] = None,
         refresh: Optional[str] = "true",
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.audit.audit_dry_run()
+        client.multicloud.audit.get()
 
 
 Operation: POST /dataservice/multicloud/audit
@@ -44,7 +44,7 @@ Call an audit
 
 .. code:: python
 
-    def audit(payload: Optional[AuditFix] = None) -> Taskid: ...
+    def post(payload: AuditFix) -> Taskid: ...
 
 
 Example:
@@ -62,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.audit.audit()
+        client.multicloud.audit.post()
 
 
 .. toctree::

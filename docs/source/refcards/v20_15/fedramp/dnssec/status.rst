@@ -11,7 +11,7 @@ Get DNS-Sec status
 
 .. code:: python
 
-    def get_dns_sec_status() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.fedramp.dnssec.status.get_dns_sec_status()
+        client.fedramp.dnssec.status.get()
 
 

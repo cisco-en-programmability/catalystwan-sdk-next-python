@@ -14,11 +14,10 @@ class FieldsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cflowd_dpi_device_field_json(
-        self, is_device_dash_board: Optional[bool] = False, **kw
-    ) -> Any:
+    def get(self, is_device_dash_board: Optional[bool] = False, **kw) -> Any:
         """
         Get Cflowd DPI query field JSON
+        GET /dataservice/device/cflowd/application/fields
 
         :param is_device_dash_board: Flag whether it is device dashboard request
         :returns: Any

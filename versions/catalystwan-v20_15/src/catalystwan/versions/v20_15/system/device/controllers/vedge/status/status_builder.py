@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_controller_v_edge_sync_status_1(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get controllers vEdge sync status
+        GET /dataservice/system/device/controllers/vedge/status
 
         :returns: List[Any]
         """

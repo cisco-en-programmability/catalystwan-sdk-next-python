@@ -13,7 +13,7 @@ Retrieve cloudx configuration value
 
 .. code:: python
 
-    def get_cloudx_configuration() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.cloudx.get_cloudx_configuration()
+        client.settings.configuration.cloudx.get()
 
 
 Operation: PUT /dataservice/settings/configuration/cloudx
@@ -44,9 +44,7 @@ Update cloudx configuration setting
 
 .. code:: python
 
-    def edit_cloudx_configuration(
-        payload: Optional[str] = None,
-    ) -> Any: ...
+    def put(payload: str) -> Any: ...
 
 
 Example:
@@ -64,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.cloudx.edit_cloudx_configuration()
+        client.settings.configuration.cloudx.put()
 
 
 Operation: POST /dataservice/settings/configuration/cloudx
@@ -77,9 +75,7 @@ Add new cloudx configuration
 
 .. code:: python
 
-    def new_cloudx_configuration(
-        payload: Optional[str] = None,
-    ) -> str: ...
+    def post(payload: str) -> str: ...
 
 
 Example:
@@ -97,6 +93,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.cloudx.new_cloudx_configuration()
+        client.settings.configuration.cloudx.post()
 
 

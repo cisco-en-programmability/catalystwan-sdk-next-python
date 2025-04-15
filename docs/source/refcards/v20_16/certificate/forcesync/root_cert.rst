@@ -11,7 +11,7 @@ force Sync RootCert to all devices
 
 .. code:: python
 
-    def force_sync_root_cert() -> str: ...
+    def post() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.forcesync.root_cert.force_sync_root_cert()
+        client.certificate.forcesync.root_cert.post()
 
 

@@ -11,11 +11,11 @@ Get IPsec inbound connection list from device (Real Time)
 
 .. code:: python
 
-    def create_in_bound_list(
+    def get(
         device_id: str,
         remote_tloc_address: Optional[str] = None,
         remote_tloc_color: Optional[RemoteTlocColorParam] = None,
-        local_tloc_color: Optional[RemoteTlocColorParam] = None,
+        local_tloc_color: Optional[LocalTlocColorParam] = None,
     ) -> List[Any]: ...
 
 
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ipsec.inbound.create_in_bound_list()
+        client.device.ipsec.inbound.get()
 
 
 .. toctree::

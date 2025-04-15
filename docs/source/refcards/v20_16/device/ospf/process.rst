@@ -11,7 +11,7 @@ Get OSPF process list from device (Real Time)
 
 .. code:: python
 
-    def create_ospf_process(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ospf.process.create_ospf_process()
+        client.device.ospf.process.get()
 
 

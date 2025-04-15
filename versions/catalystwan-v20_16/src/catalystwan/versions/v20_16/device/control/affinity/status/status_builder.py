@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_affinity_status(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get affinity status from device (Real Time)
+        GET /dataservice/device/control/affinity/status
 
         :param device_id: deviceId - Device IP
         :returns: Any

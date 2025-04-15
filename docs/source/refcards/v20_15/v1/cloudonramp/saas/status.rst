@@ -11,7 +11,7 @@ Get Cloud On Ramp App details per device
 
 .. code:: python
 
-    def get_cor_saas_status_per_device(device_ip: str) -> None: ...
+    def get(device_ip: str) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.cloudonramp.saas.status.get_cor_saas_status_per_device()
+        client.v1.cloudonramp.saas.status.get()
 
 

@@ -19,9 +19,10 @@ class TraceFinFlowCountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_finalized_flow_count(self, trace_id: int, timestamp: int, **kw) -> InlineResponse200:
+    def get(self, trace_id: int, timestamp: int, **kw) -> InlineResponse200:
         """
         Retrieve total Fin Flow counts
+        GET /dataservice/stream/device/nwpi/traceFinFlowCount
 
         :param trace_id: trace id
         :param timestamp: start time

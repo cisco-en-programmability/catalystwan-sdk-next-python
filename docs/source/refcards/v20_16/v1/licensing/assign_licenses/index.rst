@@ -11,9 +11,7 @@ Assign licenses to devices
 
 .. code:: python
 
-    def assign_msla_licenses(
-        payload: Optional[AssignLicensesRequest] = None,
-    ) -> None: ...
+    def post(payload: AssignLicensesRequest) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.licensing.assign_licenses.assign_msla_licenses()
+        client.v1.licensing.assign_licenses.post()
 
 
 .. toctree::

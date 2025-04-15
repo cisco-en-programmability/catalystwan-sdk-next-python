@@ -19,11 +19,10 @@ class AggregationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_agg_app_data_post(
-        self, payload: Optional[Any] = None, site_id: Optional[str] = None, **kw
-    ) -> DpiAggregationResponse:
+    def post(self, payload: Any, site_id: Optional[str] = None, **kw) -> DpiAggregationResponse:
         """
         Get raw aggregated data and display applications with the highest utilization for a device
+        POST /dataservice/statistics/dpi/agg-app/aggregation
 
         :param site_id: Site id
         :param payload: Query filter

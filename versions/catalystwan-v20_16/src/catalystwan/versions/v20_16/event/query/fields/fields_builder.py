@@ -17,9 +17,10 @@ class FieldsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_query_fields(self, **kw) -> EventQueryInputResponse:
+    def get(self, **kw) -> EventQueryInputResponse:
         """
         Get query fields
+        GET /dataservice/event/query/fields
 
         :returns: EventQueryInputResponse
         """

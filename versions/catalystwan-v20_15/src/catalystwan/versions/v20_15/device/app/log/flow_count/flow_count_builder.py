@@ -14,9 +14,10 @@ class FlowCountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_log_flow_count(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get App log flows count from device (Real Time)
+        GET /dataservice/device/app/log/flow-count
 
         :param device_id: Device IP
         :returns: Any

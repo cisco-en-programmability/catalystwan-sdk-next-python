@@ -11,7 +11,7 @@ Get last N minutes UMP historic data
 
 .. code:: python
 
-    def get_status() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.ump.status.get_status()
+        client.ump.status.get()
 
 

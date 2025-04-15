@@ -11,9 +11,7 @@ Block IP based on list
 
 .. code:: python
 
-    def check_given_ip_list(
-        payload: Optional[Any] = None,
-    ) -> List[Any]: ...
+    def post(payload: Any) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.software.compliance.ip.origin.check.check_given_ip_list()
+        client.software.compliance.ip.origin.check.post()
 
 

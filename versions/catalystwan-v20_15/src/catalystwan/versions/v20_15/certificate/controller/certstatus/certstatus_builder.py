@@ -12,9 +12,10 @@ class CertstatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_controller_cert_status(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         invalidate the device
+        GET /dataservice/certificate/controller/certstatus
 
         :returns: str
         """

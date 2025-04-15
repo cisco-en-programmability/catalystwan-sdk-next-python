@@ -11,7 +11,7 @@ Restart correlation engine.
 
 .. code:: python
 
-    def restart_correlation_engine() -> SimpleMessageResponse: ...
+    def get() -> SimpleMessageResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.restart.restart_correlation_engine()
+        client.alarms.restart.get()
 
 
 .. toctree::

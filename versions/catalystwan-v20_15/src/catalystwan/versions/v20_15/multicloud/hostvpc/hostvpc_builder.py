@@ -22,7 +22,7 @@ class HostvpcBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_host_vpcs(
+    def get(
         self,
         cloud_type: str,
         account_ids: Optional[str] = None,
@@ -32,6 +32,7 @@ class HostvpcBuilder:
     ) -> List[HostVpcsResponse]:
         """
         Get all Host VPCs
+        GET /dataservice/multicloud/hostvpc
 
         :param cloud_type: Multicloud provider type
         :param account_ids: Multicloud cloud gateway enabled

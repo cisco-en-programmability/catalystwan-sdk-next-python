@@ -13,9 +13,7 @@ Get cloud mapped accounts view
 
 .. code:: python
 
-    def get_cloud_mapped_host_accounts(
-        accountid: str, cloudtype: str
-    ) -> Any: ...
+    def get(accountid: str, cloudtype: str) -> Any: ...
 
 
 Example:
@@ -33,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.cloud.mappedhostaccounts.get_cloud_mapped_host_accounts()
+        client.template.cor.cloud.mappedhostaccounts.get()
 
 

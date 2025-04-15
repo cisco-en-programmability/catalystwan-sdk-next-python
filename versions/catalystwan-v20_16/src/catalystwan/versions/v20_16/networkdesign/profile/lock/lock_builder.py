@@ -15,9 +15,10 @@ class LockBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def acquire_attach_lock(self, profile_id: str, **kw) -> Any:
+    def post(self, profile_id: str, **kw) -> Any:
         """
         Get the service profile config for a given device profile id
+        POST /dataservice/networkdesign/profile/lock/{profileId}
 
         :param profile_id: Device profile Id
         :returns: Any

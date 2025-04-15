@@ -19,11 +19,12 @@ class VpnBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_filter_vpn_list(
+    def get(
         self, site_id: Optional[str] = None, device_id: Optional[str] = None, **kw
     ) -> CreateFilterVpnList:
         """
         Get filter VPN list
+        GET /dataservice/device/action/filter/vpn
 
         :param site_id: site-id
         :param device_id: deviceId

@@ -11,7 +11,7 @@ Get hardware health details for device
 
 .. code:: python
 
-    def get_hardware_health_details(
+    def get(
         device_id: Optional[str] = None, state: Optional[str] = None
     ) -> List[DeviceHardwareHealthDetail]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.hardwarehealth.detail.get_hardware_health_details()
+        client.device.hardwarehealth.detail.get()
 
 
 .. toctree::

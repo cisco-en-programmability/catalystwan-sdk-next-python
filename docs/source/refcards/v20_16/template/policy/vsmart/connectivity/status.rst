@@ -11,7 +11,7 @@ Check VSmart Connectivity Status
 
 .. code:: python
 
-    def check_v_smart_connectivity_status() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.vsmart.connectivity.status.check_v_smart_connectivity_status()
+        client.template.policy.vsmart.connectivity.status.get()
 
 

@@ -14,9 +14,10 @@ class DownloadedImagesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_software_list(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get images list from device
+        GET /dataservice/device/downloadedImages
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

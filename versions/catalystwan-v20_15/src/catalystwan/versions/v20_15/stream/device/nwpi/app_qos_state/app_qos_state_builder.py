@@ -20,11 +20,12 @@ class AppQosStateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_qos_state(
+    def get(
         self, trace_id: int, timestamp: int, trace_state: str, **kw
     ) -> List[AppQosStateResponsePayloadInner]:
         """
         Get QoS Application state to received timestamp mapping for NWPI.
+        GET /dataservice/stream/device/nwpi/appQosState
 
         :param trace_id: Trace id
         :param timestamp: Timestamp

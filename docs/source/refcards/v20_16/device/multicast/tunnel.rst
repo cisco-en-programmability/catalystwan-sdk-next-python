@@ -11,7 +11,7 @@ Get PIM tunnel from device
 
 .. code:: python
 
-    def create_pim_tunnel_list(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.multicast.tunnel.create_pim_tunnel_list()
+        client.device.multicast.tunnel.get()
 
 

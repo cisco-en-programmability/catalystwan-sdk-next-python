@@ -22,9 +22,10 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def fetch_device_details(self, **kw) -> List[GetHsecDevicesPayloadInner]:
+    def get(self, **kw) -> List[GetHsecDevicesPayloadInner]:
         """
         Retrieve list of devices which are valid for fetch of HSEC license
+        GET /dataservice/hsec/devices
 
         :returns: List[GetHsecDevicesPayloadInner]
         """

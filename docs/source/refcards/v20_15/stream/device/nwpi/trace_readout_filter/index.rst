@@ -13,7 +13,7 @@ Get event Readout Filter By Traces
 
 .. code:: python
 
-    def get_trace_readout_filter(
+    def get(
         trace_id: List[int], entry_time: List[int]
     ) -> EventReadoutFilterResponsePayload: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.trace_readout_filter.get_trace_readout_filter()
+        client.stream.device.nwpi.trace_readout_filter.get()
 
 
 .. toctree::

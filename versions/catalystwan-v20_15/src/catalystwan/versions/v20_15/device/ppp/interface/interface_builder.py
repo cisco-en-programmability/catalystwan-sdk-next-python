@@ -14,9 +14,10 @@ class InterfaceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_ppp_interface_list(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get PPP interface list from device (Real Time)
+        GET /dataservice/device/ppp/interface
 
         :param device_id: Device IP
         :returns: List[Any]

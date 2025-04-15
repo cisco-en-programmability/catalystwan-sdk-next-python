@@ -3,35 +3,6 @@ template.policy.definition.dnssecurity
 ======================================
 
 
-Operation: GET /dataservice/template/policy/definition/dnssecurity
-------------------------------------------------------------------
-
-
-Get policy definitions
-
-.. code:: python
-
-    def get_definitions() -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.template.policy.definition.dnssecurity.get_definitions()
-
-
 Operation: POST /dataservice/template/policy/definition/dnssecurity
 -------------------------------------------------------------------
 
@@ -40,9 +11,7 @@ Create policy definition
 
 .. code:: python
 
-    def create_policy_definition(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -60,36 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.dnssecurity.create_policy_definition()
-
-
-Operation: GET /dataservice/template/policy/definition/dnssecurity/{id}
------------------------------------------------------------------------
-
-
-Get a specific policy definitions
-
-.. code:: python
-
-    def get_policy_definition(id: str) -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.template.policy.definition.dnssecurity.get_policy_definition()
+        client.template.policy.definition.dnssecurity.post()
 
 
 Operation: PUT /dataservice/template/policy/definition/dnssecurity/{id}
@@ -100,9 +40,7 @@ Edit a policy definitions
 
 .. code:: python
 
-    def edit_policy_definition(
-        id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -120,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.dnssecurity.edit_policy_definition()
+        client.template.policy.definition.dnssecurity.put()
 
 
 Operation: DELETE /dataservice/template/policy/definition/dnssecurity/{id}
@@ -131,7 +69,7 @@ Delete policy definition
 
 .. code:: python
 
-    def delete_policy_definition(id: str) -> None: ...
+    def delete(id: str) -> None: ...
 
 
 Example:
@@ -149,7 +87,63 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.dnssecurity.delete_policy_definition()
+        client.template.policy.definition.dnssecurity.delete()
+
+
+Operation: GET /dataservice/template/policy/definition/dnssecurity
+------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get() -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.template.policy.definition.dnssecurity.get()
+
+
+Operation: GET /dataservice/template/policy/definition/dnssecurity/{id}
+-----------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.template.policy.definition.dnssecurity.get()
 
 
 .. toctree::

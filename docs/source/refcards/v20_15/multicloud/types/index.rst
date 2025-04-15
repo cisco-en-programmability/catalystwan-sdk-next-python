@@ -11,7 +11,7 @@ Obtain all supported Cloud Service Provider (CSP) types
 
 .. code:: python
 
-    def get_cloud_types() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.types.get_cloud_types()
+        client.multicloud.types.get()
 
 
 .. toctree::

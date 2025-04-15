@@ -6,7 +6,7 @@ from typing import Any, List, Optional
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import RemoteTlocColorParam
+from .models import LocalTlocColorParam, RemoteTlocColorParam
 
 
 class InboundBuilder:
@@ -19,16 +19,17 @@ class InboundBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_in_bound_list(
+    def get(
         self,
         device_id: str,
         remote_tloc_address: Optional[str] = None,
         remote_tloc_color: Optional[RemoteTlocColorParam] = None,
-        local_tloc_color: Optional[RemoteTlocColorParam] = None,
+        local_tloc_color: Optional[LocalTlocColorParam] = None,
         **kw,
     ) -> List[Any]:
         """
         Get IPsec inbound connection list from device (Real Time)
+        GET /dataservice/device/ipsec/inbound
 
         :param remote_tloc_address: Remote TLOC address
         :param remote_tloc_color: Remote tloc color

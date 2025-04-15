@@ -14,9 +14,10 @@ class UnpauseBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def unpause_dr(self, **kw) -> Any:
+    def post(self, **kw) -> Any:
         """
         Unpause DR
+        POST /dataservice/disasterrecovery/unpause
 
         :returns: Any
         """

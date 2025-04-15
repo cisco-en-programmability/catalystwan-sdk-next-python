@@ -19,7 +19,7 @@ class OverviewBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_health_overview(
+    def get(
         self,
         type_: str,
         last_n_hours: Optional[int] = 12,
@@ -30,6 +30,7 @@ class OverviewBuilder:
     ) -> DeviceHealthOverview:
         """
         Get all device health overview
+        GET /dataservice/statistics/devicehealth/overview/{type}
 
         :param type_: Type
         :param last_n_hours: Last n hours

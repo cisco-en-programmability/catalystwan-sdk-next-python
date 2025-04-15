@@ -11,9 +11,7 @@ Create service provider credentials
 
 .. code:: python
 
-    def create_provider_credentials(
-        payload: Optional[None] = None,
-    ) -> None: ...
+    def post(payload: None) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.securedeviceonboarding.providercredentials.create_provider_credentials()
+        client.v1.securedeviceonboarding.providercredentials.post()
 
 
 Operation: GET /dataservice/v1/securedeviceonboarding/{accountId}/providercredentials
@@ -42,9 +40,7 @@ Get provider credentials by account id
 
 .. code:: python
 
-    def get_provider_credentials_by_account_id(
-        account_id: str,
-    ) -> ProviderAccountDetailsList: ...
+    def get(account_id: str) -> ProviderAccountDetailsList: ...
 
 
 Example:
@@ -62,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.securedeviceonboarding.providercredentials.get_provider_credentials_by_account_id()
+        client.v1.securedeviceonboarding.providercredentials.get()
 
 
 Operation: PUT /dataservice/v1/securedeviceonboarding/{accountId}/providercredentials
@@ -73,9 +69,7 @@ Edit service provider credentials
 
 .. code:: python
 
-    def edit_provider_credentials(
-        account_id: str, payload: Optional[ProviderAccountDetails] = None
-    ) -> None: ...
+    def put(account_id: str, payload: ProviderAccountDetails) -> None: ...
 
 
 Example:
@@ -93,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.securedeviceonboarding.providercredentials.edit_provider_credentials()
+        client.v1.securedeviceonboarding.providercredentials.put()
 
 
 .. toctree::

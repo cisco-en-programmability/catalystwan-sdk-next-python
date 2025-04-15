@@ -11,7 +11,7 @@ get certificaate details
 
 .. code:: python
 
-    def get_cert_details(payload: Optional[str] = None) -> str: ...
+    def post(payload: str) -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.certdetails.get_cert_details()
+        client.certificate.certdetails.post()
 
 

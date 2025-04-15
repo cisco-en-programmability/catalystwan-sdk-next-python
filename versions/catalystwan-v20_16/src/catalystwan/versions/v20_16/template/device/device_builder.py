@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional
+from typing import TYPE_CHECKING, Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -31,12 +31,13 @@ class DeviceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_master_template_list(self, feature: FeatureParam, **kw) -> List[Any]:
+    def get(self, feature: FeatureParam, **kw) -> List[Any]:
         """
         Generate template list
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/template/device
 
         :param feature: Feature
         :returns: List[Any]
@@ -48,12 +49,13 @@ class DeviceBuilder:
             "GET", "/dataservice/template/device", return_type=List[Any], params=params, **kw
         )
 
-    def edit_master_template(self, template_id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, template_id: str, payload: Any, **kw) -> Any:
         """
         Edit template
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        PUT /dataservice/template/device/{templateId}
 
         :param template_id: Template Id
         :param payload: Template
@@ -66,12 +68,13 @@ class DeviceBuilder:
             "PUT", "/dataservice/template/device/{templateId}", params=params, payload=payload, **kw
         )
 
-    def delete_master_template(self, template_id: str, **kw):
+    def delete(self, template_id: str, **kw):
         """
         Delete template
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        DELETE /dataservice/template/device/{templateId}
 
         :param template_id: Template Id
         :returns: None

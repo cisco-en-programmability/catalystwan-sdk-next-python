@@ -11,7 +11,7 @@ Get cellular modem list from device
 
 .. code:: python
 
-    def create_modem_list(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cellular.modem.create_modem_list()
+        client.device.cellular.modem.get()
 
 

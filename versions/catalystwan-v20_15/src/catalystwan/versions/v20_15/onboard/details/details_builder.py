@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,9 +17,10 @@ class DetailsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def add_devices(self, payload: Optional[DeviceDetailsData] = None, **kw):
+    def post(self, payload: DeviceDetailsData, **kw):
         """
         Add Manual Onboard Device details
+        POST /dataservice/onboard/details
 
         :param payload: On board Device details
         :returns: None

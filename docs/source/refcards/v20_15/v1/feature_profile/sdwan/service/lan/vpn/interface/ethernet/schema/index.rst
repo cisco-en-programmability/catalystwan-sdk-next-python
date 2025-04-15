@@ -11,9 +11,7 @@ Get a SDWAN Service LanVpn InterfaceEthernet Schema by Schema Type
 
 .. code:: python
 
-    def get_sdwan_service_lan_vpn_interface_ethernet_parcel_schema_by_schema(
-        schema_type: SchemaTypeParam,
-    ) -> str: ...
+    def get(schema_type: SchemaTypeParam) -> str: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.service.lan.vpn.interface.ethernet.schema.get_sdwan_service_lan_vpn_interface_ethernet_parcel_schema_by_schema()
+        client.v1.feature_profile.sdwan.service.lan.vpn.interface.ethernet.schema.get()
 
 
 .. toctree::

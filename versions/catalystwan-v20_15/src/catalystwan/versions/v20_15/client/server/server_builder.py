@@ -17,9 +17,10 @@ class ServerBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_server_info(self, **kw) -> ClientServerInfoResponse:
+    def get(self, **kw) -> ClientServerInfoResponse:
         """
         Get vManage server information
+        GET /dataservice/client/server
 
         :returns: ClientServerInfoResponse
         """

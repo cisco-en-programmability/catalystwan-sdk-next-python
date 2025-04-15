@@ -19,7 +19,7 @@ class ApplicationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_applications_list(
+    def get(
         self,
         vpn_id: Optional[VpnIdParam] = None,
         application: Optional[str] = None,
@@ -28,6 +28,7 @@ class ApplicationsBuilder:
     ) -> Any:
         """
         Get list of cloudexpress applications from device (Real Time)
+        GET /dataservice/device/cloudx/applications
 
         :param vpn_id: VPN Id
         :param application: Application

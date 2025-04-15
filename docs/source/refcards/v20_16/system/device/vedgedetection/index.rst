@@ -11,7 +11,7 @@ Check for Vedge Device Presence
 
 .. code:: python
 
-    def checkv_edge_device_presence() -> VedgeCheckResponse: ...
+    def get() -> VedgeCheckResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.vedgedetection.checkv_edge_device_presence()
+        client.system.device.vedgedetection.get()
 
 
 .. toctree::

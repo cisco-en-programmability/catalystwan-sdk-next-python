@@ -14,9 +14,10 @@ class UserusergroupbindingsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def show_vsmart_user_usergroup_bindings(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Show User-Usergroup bindings from Vsmart
+        GET /dataservice/device/policy/userusergroupbindings
 
         :param device_id: Device Id
         :returns: Any

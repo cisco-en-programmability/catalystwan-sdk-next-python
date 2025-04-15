@@ -11,7 +11,7 @@ Find status of action
 
 .. code:: python
 
-    def find_status(process_id: str) -> Any: ...
+    def get(process_id: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.status.find_status()
+        client.device.action.status.get()
 
 
 .. toctree::

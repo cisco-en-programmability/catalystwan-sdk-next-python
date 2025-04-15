@@ -11,7 +11,7 @@ Batch processing multiple REST API calls
 
 .. code:: python
 
-    def batch_execute(payload: Optional[BatchFlow] = None) -> str: ...
+    def post(payload: BatchFlow) -> str: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.jobs.batch.batch_execute()
+        client.jobs.batch.post()
 
 
 .. toctree::

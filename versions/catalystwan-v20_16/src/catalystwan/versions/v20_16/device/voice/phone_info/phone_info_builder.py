@@ -14,9 +14,10 @@ class PhoneInfoBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_phone_info(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get phone registration info from device
+        GET /dataservice/device/voice/phoneInfo
 
         :param device_id: deviceId - Device IP
         :returns: Any

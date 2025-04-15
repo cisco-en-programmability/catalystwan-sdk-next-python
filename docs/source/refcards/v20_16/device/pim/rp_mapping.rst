@@ -11,7 +11,7 @@ Get PIM Rp-mapping list from device
 
 .. code:: python
 
-    def create_pim_rp_mapping_list(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.pim.rp_mapping.create_pim_rp_mapping_list()
+        client.device.pim.rp_mapping.get()
 
 

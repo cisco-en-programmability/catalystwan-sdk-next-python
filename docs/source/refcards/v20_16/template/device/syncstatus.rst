@@ -7,11 +7,10 @@ Operation: GET /dataservice/template/device/syncstatus
 ------------------------------------------------------
 
 
-Get template sync status<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
-
 .. code:: python
 
-    def get_out_of_sync_templates() -> List[Any]: ...
+    @overload
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,18 +28,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.syncstatus.get_out_of_sync_templates()
+        client.template.device.syncstatus.get()
 
 
 Operation: GET /dataservice/template/device/syncstatus/{templateId}
 -------------------------------------------------------------------
 
 
-Get out of sync devices<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
-
 .. code:: python
 
-    def get_out_of_sync_devices(template_id: str) -> List[Any]: ...
+    @overload
+    def get(template_id: str) -> List[Any]: ...
 
 
 Example:
@@ -58,6 +56,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.syncstatus.get_out_of_sync_devices()
+        client.template.device.syncstatus.get()
 
 

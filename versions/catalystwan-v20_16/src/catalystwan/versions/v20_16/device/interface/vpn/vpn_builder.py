@@ -14,9 +14,10 @@ class VpnBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_device_interface_vpn(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get device interfaces per VPN
+        GET /dataservice/device/interface/vpn
 
         :param device_id: deviceId - Device IP
         :returns: Any

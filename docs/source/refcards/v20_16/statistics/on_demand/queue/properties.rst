@@ -11,7 +11,7 @@ gets current size of on-demand queue
 
 .. code:: python
 
-    def get_queue_properties() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.on_demand.queue.properties.get_queue_properties()
+        client.statistics.on_demand.queue.properties.get()
 
 

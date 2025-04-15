@@ -17,9 +17,10 @@ class CollectBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def start_stats_collection(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Start stats collect
+        GET /dataservice/statistics/collect
 
         :returns: Any
         """

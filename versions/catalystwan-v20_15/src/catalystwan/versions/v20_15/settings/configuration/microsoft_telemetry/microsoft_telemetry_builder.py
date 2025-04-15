@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,9 +15,10 @@ class MicrosoftTelemetryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_microsoft_telemetry_configuration(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Retrieve Microsoft telemetry configuration value
+        GET /dataservice/settings/configuration/microsoftTelemetry
 
         :returns: Any
         """
@@ -26,9 +27,10 @@ class MicrosoftTelemetryBuilder:
             "GET", "/dataservice/settings/configuration/microsoftTelemetry", **kw
         )
 
-    def edit_microsoft_telemetry_configuration(self, payload: Optional[str] = None, **kw) -> Any:
+    def put(self, payload: str, **kw) -> Any:
         """
         Update Microsoft telemetry configuration setting
+        PUT /dataservice/settings/configuration/microsoftTelemetry
 
         :param payload: Payload
         :returns: Any
@@ -38,9 +40,10 @@ class MicrosoftTelemetryBuilder:
             "PUT", "/dataservice/settings/configuration/microsoftTelemetry", payload=payload, **kw
         )
 
-    def new_microsoft_telemetry_configuration(self, payload: Optional[str] = None, **kw) -> str:
+    def post(self, payload: str, **kw) -> str:
         """
         Add new Microsoft telemetry configuration
+        POST /dataservice/settings/configuration/microsoftTelemetry
 
         :param payload: Payload
         :returns: str

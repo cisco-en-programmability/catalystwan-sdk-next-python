@@ -11,7 +11,7 @@ Retrieve network status summary
 
 .. code:: python
 
-    def get_network_status_summary() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.network.status.get_network_status_summary()
+        client.network.status.get()
 
 

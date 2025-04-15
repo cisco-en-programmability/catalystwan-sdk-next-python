@@ -11,9 +11,7 @@ API to initiate a configuration push for an Interconnect gateway.
 
 .. code:: python
 
-    def push_interconnect_gateway_config(
-        payload: Optional[GatewaysPushconfigBody] = None,
-    ) -> ProcessResponse: ...
+    def post(payload: GatewaysPushconfigBody) -> ProcessResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.gateways.push_config.push_interconnect_gateway_config()
+        client.multicloud.interconnect.gateways.push_config.post()
 
 
 .. toctree::

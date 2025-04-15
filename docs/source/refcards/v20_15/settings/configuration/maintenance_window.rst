@@ -11,7 +11,7 @@ Retrieve maintenance window
 
 .. code:: python
 
-    def get_maintenance_window() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.configuration.maintenance_window.get_maintenance_window()
+        client.settings.configuration.maintenance_window.get()
 
 

@@ -11,9 +11,7 @@ Get the devices associated with a template
 
 .. code:: python
 
-    def get_devices_for_template(
-        template_id: Optional[str] = None,
-    ) -> Any: ...
+    def get(template_id: Optional[str] = None) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.smart_licensing.association.get_devices_for_template()
+        client.v1.smart_licensing.association.get()
 
 

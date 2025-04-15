@@ -14,11 +14,10 @@ class MarkallasviewedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def mark_all_alarms_as_viewed(
-        self, payload: Optional[Any] = None, type_: Optional[str] = None, **kw
-    ):
+    def post(self, payload: Any, type_: Optional[str] = None, **kw):
         """
         Mark all alarms as acknowledged by the user
+        POST /dataservice/alarms/markallasviewed
 
         :param type_: Specify type. Allowed values: ["active", "cleared"]
         :param payload: Query

@@ -14,9 +14,10 @@ class CpeStatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cpe_stats(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get CPE stats from device
+        GET /dataservice/device/vdslService/cpeStats
 
         :param device_id: deviceId - Device IP
         :returns: Any

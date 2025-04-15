@@ -11,7 +11,7 @@ Get transport connection list from device
 
 .. code:: python
 
-    def create_transport_connection_list(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.transport.connection.create_transport_connection_list()
+        client.device.transport.connection.get()
 
 

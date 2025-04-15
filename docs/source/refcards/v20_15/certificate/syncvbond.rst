@@ -11,7 +11,7 @@ sync vManage UUID to all vBond
 
 .. code:: python
 
-    def syncv_bond() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.syncvbond.syncv_bond()
+        client.certificate.syncvbond.get()
 
 

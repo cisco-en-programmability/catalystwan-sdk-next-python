@@ -11,7 +11,7 @@ Get CDNA Server Details
 
 .. code:: python
 
-    def get_cdna_server() -> EnrollOtpResponse: ...
+    def get() -> EnrollOtpResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cdna.server.get_cdna_server()
+        client.cdna.server.get()
 
 
 Operation: PUT /dataservice/cdna/server
@@ -40,9 +40,7 @@ Enroll CDNA Server with OTP
 
 .. code:: python
 
-    def enroll_cdna_server(
-        payload: EnrollOtpSettings,
-    ) -> EnrollOtpResponse: ...
+    def put(payload: EnrollOtpSettings) -> EnrollOtpResponse: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cdna.server.enroll_cdna_server()
+        client.cdna.server.put()
 
 
 Operation: DELETE /dataservice/cdna/server
@@ -71,7 +69,7 @@ Delete CDNA Server Details
 
 .. code:: python
 
-    def delete_cdna_server() -> None: ...
+    def delete() -> None: ...
 
 
 Example:
@@ -89,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cdna.server.delete_cdna_server()
+        client.cdna.server.delete()
 
 
 .. toctree::

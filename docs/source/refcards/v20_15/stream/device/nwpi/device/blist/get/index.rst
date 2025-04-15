@@ -13,7 +13,7 @@ Get Device BlackList for NWPI.
 
 .. code:: python
 
-    def get_device_b_list() -> List[DeviceBlistResponsePayloadInner]: ...
+    def get() -> List[DeviceBlistResponsePayloadInner]: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.device.blist.get.get_device_b_list()
+        client.stream.device.nwpi.device.blist.get.get()
 
 
 .. toctree::

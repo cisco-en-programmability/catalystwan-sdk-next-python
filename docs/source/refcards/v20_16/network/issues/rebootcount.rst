@@ -11,7 +11,7 @@ Retrieve reboot count
 
 .. code:: python
 
-    def get_reboot_count(is_cached: bool) -> Any: ...
+    def get(is_cached: bool) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.network.issues.rebootcount.get_reboot_count()
+        client.network.issues.rebootcount.get()
 
 

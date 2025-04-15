@@ -11,7 +11,7 @@ Get device system stats list (Real Time)
 
 .. code:: python
 
-    def create_device_system_stats_list(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.system.statistics.create_device_system_stats_list()
+        client.device.system.statistics.get()
 
 

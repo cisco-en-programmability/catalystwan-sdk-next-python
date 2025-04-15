@@ -11,7 +11,7 @@ Get DPI applications from device (Real Time)
 
 .. code:: python
 
-    def create_dpi_collector_list(
+    def get(
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
         application: Optional[str] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.dpi.applications.create_dpi_collector_list()
+        client.device.dpi.applications.get()
 
 
 .. toctree::

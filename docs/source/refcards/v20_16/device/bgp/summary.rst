@@ -11,7 +11,7 @@ Get BGP summary (Real Time)
 
 .. code:: python
 
-    def create_bgp_summary(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bgp.summary.create_bgp_summary()
+        client.device.bgp.summary.get()
 
 

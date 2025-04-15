@@ -14,12 +14,13 @@ class SyslogconfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_feature_ca_state(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get Feature CA state
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        GET /dataservice/featurecertificate/syslogconfig
 
         :returns: Any
         """

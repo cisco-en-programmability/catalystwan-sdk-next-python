@@ -11,7 +11,7 @@ Get cflowd flow count from device
 
 .. code:: python
 
-    def create_cflowd_flows_count_list(
+    def get(
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
         src_ip: Optional[str] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cflowd.flows_count.create_cflowd_flows_count_list()
+        client.device.cflowd.flows_count.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ fetch reports offline for sle
 
 .. code:: python
 
-    def fetch_reports_1(payload: Optional[Any] = None) -> Any: ...
+    def get(payload: Optional[Any] = None) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.smart_licensing.fetch_all_sa.fetch_reports_1()
+        client.smart_licensing.fetch_all_sa.get()
 
 

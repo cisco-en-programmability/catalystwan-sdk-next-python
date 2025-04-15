@@ -11,7 +11,7 @@ API to retrieve Interconnect Gateway instance sizes supported by an  Interconnec
 
 .. code:: python
 
-    def get_interconnect_gateway_instance_sizes(
+    def get(
         interconnect_type: InterconnectTypeParam,
     ) -> InlineResponse2004: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.gateways.instance_sizes.get_interconnect_gateway_instance_sizes()
+        client.multicloud.interconnect.gateways.instance_sizes.get()
 
 
 .. toctree::

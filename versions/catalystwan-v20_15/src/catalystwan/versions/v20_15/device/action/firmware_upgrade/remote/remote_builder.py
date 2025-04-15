@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,9 +19,10 @@ class RemoteBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_firmware_remote_image(self, **kw) -> ProcessGetFirmwareRemoteImageReq:
+    def get(self, **kw) -> ProcessGetFirmwareRemoteImageReq:
         """
         firmware remote image package
+        GET /dataservice/device/action/firmware-upgrade/remote
 
         :returns: ProcessGetFirmwareRemoteImageReq
         """
@@ -32,13 +33,12 @@ class RemoteBuilder:
             **kw,
         )
 
-    def process_firmware_remote_image(
-        self, payload: Optional[Any] = None, **kw
-    ) -> ProcessFirmwareRemoteImageReq:
+    def post(self, payload: Any, **kw) -> ProcessFirmwareRemoteImageReq:
         """
         firmware remote image package
+        POST /dataservice/device/action/firmware-upgrade/remote
 
-        :param payload: Request body for Device bootstrap configuration
+        :param payload: Request body
         :returns: ProcessFirmwareRemoteImageReq
         """
         return self._request_adapter.request(
@@ -49,11 +49,10 @@ class RemoteBuilder:
             **kw,
         )
 
-    def edit_firmware_upgarde_remote_image(
-        self, version_id: str, payload: Optional[Any] = None, **kw
-    ) -> ProcessGetFirmwareRemoteImageReq:
+    def put(self, version_id: str, payload: Any, **kw) -> ProcessGetFirmwareRemoteImageReq:
         """
         Download software package file
+        PUT /dataservice/device/action/firmware-upgrade/remote/{versionId}
 
         :param version_id: Version id
         :param payload: Request body

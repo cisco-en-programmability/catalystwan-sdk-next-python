@@ -14,9 +14,10 @@ class ExportClientStatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_fn_f_export_client_stats(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get FnF export client stats from device
+        GET /dataservice/device/cflowd/fnf/export-client-stats
 
         :param device_id: Device IP
         :returns: Any

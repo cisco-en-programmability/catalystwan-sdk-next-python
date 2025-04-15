@@ -11,7 +11,7 @@ Get TLOC list
 
 .. code:: python
 
-    def get_device_tloc_util(site_id: Optional[str] = None) -> Any: ...
+    def get(site_id: Optional[str] = None) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tlocutil.get_device_tloc_util()
+        client.device.tlocutil.get()
 
 
 .. toctree::

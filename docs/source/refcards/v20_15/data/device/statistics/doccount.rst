@@ -11,7 +11,7 @@ Get response count of a query
 
 .. code:: python
 
-    def get_count_with_state_data_type(
+    def get(
         state_data_type: str,
         start_date: str,
         end_date: str,
@@ -34,6 +34,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.data.device.statistics.doccount.get_count_with_state_data_type()
+        client.data.device.statistics.doccount.get()
 
 

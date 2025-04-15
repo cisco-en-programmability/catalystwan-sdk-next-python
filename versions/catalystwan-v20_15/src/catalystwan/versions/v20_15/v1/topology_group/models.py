@@ -7,6 +7,10 @@ Solution = Literal[
     "cellulargateway", "common", "mobility", "nfvirtual", "sd-routing", "sdwan", "service-insertion"
 ]
 
+TopologyGroupSolution = Literal["sdwan"]
+
+V1TopologyGroupSolution = Literal["sdwan"]
+
 
 @dataclass
 class FeatureProfile:
@@ -49,6 +53,7 @@ class TopologyGroup:
     #  Group Version Flag
     version: int
     active_status: Optional[bool] = _field(default=None, metadata={"alias": "activeStatus"})
+    copy_info: Optional[str] = _field(default=None, metadata={"alias": "copyInfo"})
     # User who last created this.
     created_by: Optional[str] = _field(default=None, metadata={"alias": "createdBy"})
     # Timestamp of creation
@@ -72,3 +77,47 @@ class TopologyGroup:
     profiles: Optional[List[FeatureProfile]] = _field(default=None)
     # Source of group
     source: Optional[str] = _field(default=None)
+
+
+@dataclass
+class ProfileIdObjDef:
+    id: str
+
+
+@dataclass
+class FromTopologyGroupDef:
+    copy: str
+
+
+@dataclass
+class CreateTopologyGroupPostRequest:
+    """
+    Topology Group POST Request schema
+    """
+
+    description: str
+    name: str
+    solution: TopologyGroupSolution  # pytype: disable=annotation-type-mismatch
+    from_topology_group: Optional[FromTopologyGroupDef] = _field(
+        default=None, metadata={"alias": "fromTopologyGroup"}
+    )
+    # list of profile ids that belongs to the topology group
+    profiles: Optional[List[ProfileIdObjDef]] = _field(default=None)
+
+
+@dataclass
+class TopologyGroupProfileIdObjDef:
+    id: str
+
+
+@dataclass
+class EditTopologyGroupPutRequest:
+    """
+    Topology Group PUT Request schema
+    """
+
+    description: str
+    name: str
+    solution: V1TopologyGroupSolution  # pytype: disable=annotation-type-mismatch
+    # list of profile ids that belongs to the topology group
+    profiles: Optional[List[TopologyGroupProfileIdObjDef]] = _field(default=None)

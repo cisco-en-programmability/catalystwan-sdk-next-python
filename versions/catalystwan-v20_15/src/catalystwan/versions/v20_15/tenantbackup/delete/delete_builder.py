@@ -14,12 +14,13 @@ class DeleteBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def delete_tenant_backup(self, file_name: str, **kw) -> Any:
+    def delete(self, file_name: str, **kw) -> Any:
         """
         Delete all or a specific backup file stored in vManage
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        DELETE /dataservice/tenantbackup/delete
 
         :param file_name: File name
         :returns: Any

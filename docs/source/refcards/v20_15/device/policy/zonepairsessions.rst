@@ -11,7 +11,7 @@ Get zone pair sessions from device
 
 .. code:: python
 
-    def get_zone_pair_sessions(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.policy.zonepairsessions.get_zone_pair_sessions()
+        client.device.policy.zonepairsessions.get()
 
 

@@ -11,7 +11,7 @@ Get all traces in one task
 
 .. code:: python
 
-    def get_task_trace(task_id: str) -> TaskTracesResponsePayload: ...
+    def get(task_id: str) -> TaskTracesResponsePayload: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.tasks.traces.get_task_trace()
+        client.stream.device.nwpi.tasks.traces.get()
 
 
 .. toctree::

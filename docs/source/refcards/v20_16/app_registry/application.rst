@@ -11,7 +11,7 @@ Get  app detail for particular App uuid
 
 .. code:: python
 
-    def get_app_by_uuid(app_uuid: str) -> List[Any]: ...
+    def get(app_uuid: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.application.get_app_by_uuid()
+        client.app_registry.application.get()
 
 

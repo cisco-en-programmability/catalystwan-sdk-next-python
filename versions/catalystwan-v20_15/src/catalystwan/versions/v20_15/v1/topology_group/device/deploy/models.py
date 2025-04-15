@@ -1,12 +1,24 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from dataclasses import dataclass
 from dataclasses import field as _field
-from typing import Literal, Optional
+from typing import Optional
 
-ValueType = Literal["ARRAY", "FALSE", "NULL", "NUMBER", "OBJECT", "STRING", "TRUE"]
+
+@dataclass
+class DeployTopologyGroupPostResponse:
+    """
+    Topology Group deploy Response schema
+    """
+
+    parent_task_id: str = _field(metadata={"alias": "parentTaskId"})
 
 
 @dataclass
 class DeployTopologyGroupPostRequest:
-    empty: Optional[bool] = _field(default=None)
-    value_type: Optional[ValueType] = _field(default=None, metadata={"alias": "valueType"})
+    """
+    Topology Group Deploy Request schema
+    """
+
+    deactivate_topology: Optional[bool] = _field(
+        default=False, metadata={"alias": "deactivateTopology"}
+    )

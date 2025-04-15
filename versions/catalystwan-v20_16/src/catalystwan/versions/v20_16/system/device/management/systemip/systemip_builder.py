@@ -14,9 +14,10 @@ class SystemipBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_management_system_ip_info_1(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get management system IP mapping
+        GET /dataservice/system/device/management/systemip
 
         :returns: Any
         """

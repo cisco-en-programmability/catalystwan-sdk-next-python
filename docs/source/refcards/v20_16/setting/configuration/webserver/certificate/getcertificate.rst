@@ -11,7 +11,7 @@ Get certificate for alias server
 
 .. code:: python
 
-    def get_certificate() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.setting.configuration.webserver.certificate.getcertificate.get_certificate()
+        client.setting.configuration.webserver.certificate.getcertificate.get()
 
 

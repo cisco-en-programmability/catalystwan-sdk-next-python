@@ -11,7 +11,7 @@ Get Azure token
 
 .. code:: python
 
-    def get_azure_token(payload: Optional[str] = None) -> Any: ...
+    def post(payload: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.authtoken.get_azure_token()
+        client.cloudservices.authtoken.post()
 
 

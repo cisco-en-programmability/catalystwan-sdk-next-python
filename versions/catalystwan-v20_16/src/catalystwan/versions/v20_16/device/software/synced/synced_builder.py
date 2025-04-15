@@ -14,9 +14,10 @@ class SyncedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_synced_software_list(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get software list from device synchronously
+        GET /dataservice/device/software/synced
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

@@ -11,9 +11,7 @@ Export the device template to CSV format for given template id<br><br><br>Note: 
 
 .. code:: python
 
-    def create_input_without_device(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.exportcsv.create_input_without_device()
+        client.template.device.config.exportcsv.post()
 
 

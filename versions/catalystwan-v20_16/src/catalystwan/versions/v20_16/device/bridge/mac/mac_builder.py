@@ -19,7 +19,7 @@ class MacBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_bridge_interface_mac(
+    def get(
         self,
         device_id: str,
         bridge_id: Optional[str] = None,
@@ -29,6 +29,7 @@ class MacBuilder:
     ) -> Any:
         """
         Get device bridge interface MAC (Real Time)
+        GET /dataservice/device/bridge/mac
 
         :param bridge_id: Bridge ID
         :param if_name: Interface name

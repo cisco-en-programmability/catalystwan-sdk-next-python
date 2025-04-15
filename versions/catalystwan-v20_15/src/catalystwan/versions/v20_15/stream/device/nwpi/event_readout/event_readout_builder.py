@@ -20,7 +20,7 @@ class EventReadoutBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_event_readout(
+    def get(
         self,
         trace_id: int,
         timestamp: int,
@@ -32,6 +32,7 @@ class EventReadoutBuilder:
     ) -> List[EventReadoutResponsePayloadInner]:
         """
         Get Trace Event Readout for NWPI.
+        GET /dataservice/stream/device/nwpi/eventReadout
 
         :param trace_id: Trace id
         :param timestamp: Timestamp

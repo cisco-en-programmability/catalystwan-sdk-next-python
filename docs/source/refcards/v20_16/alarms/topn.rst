@@ -11,8 +11,8 @@ Returns top-n alarm count based on given query
 
 .. code:: python
 
-    def get_top_n(
-        payload: Optional[Any] = None,
+    def post(
+        payload: Any,
         site_id: Optional[str] = None,
         include_tenants: Optional[bool] = None,
     ) -> Any: ...
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.topn.get_top_n()
+        client.alarms.topn.post()
 
 

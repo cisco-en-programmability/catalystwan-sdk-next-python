@@ -14,7 +14,7 @@ class FileBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def download(
+    def get(
         self,
         process_type: str,
         file_type: str,
@@ -26,6 +26,7 @@ class FileBuilder:
     ) -> Any:
         """
         Downloading stats file
+        GET /dataservice/statistics/download/{processType}/file/{fileType}/{queue}/{deviceIp}/{token}/{fileName}
 
         :param process_type: Process type
         :param file_type: File type

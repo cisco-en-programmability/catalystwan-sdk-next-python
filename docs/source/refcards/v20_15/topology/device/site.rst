@@ -11,7 +11,7 @@ Get topology for a given site id
 
 .. code:: python
 
-    def get_site_topology(site_id: str) -> Any: ...
+    def get(site_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.topology.device.site.get_site_topology()
+        client.topology.device.site.get()
 
 

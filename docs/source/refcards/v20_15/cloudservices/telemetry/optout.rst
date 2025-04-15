@@ -11,7 +11,7 @@ Telemetry Opt Out
 
 .. code:: python
 
-    def opt_out(payload: Optional[str] = None) -> Any: ...
+    def delete(payload: Optional[str] = None) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cloudservices.telemetry.optout.opt_out()
+        client.cloudservices.telemetry.optout.delete()
 
 

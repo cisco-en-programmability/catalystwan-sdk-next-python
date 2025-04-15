@@ -14,12 +14,13 @@ class IplistBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_configured_ip_list(self, vmanage_id: str, **kw) -> List[Any]:
+    def get(self, vmanage_id: str, **kw) -> List[Any]:
         """
         Get configured IP addresses
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/clusterManagement/iplist/{vmanageID}
 
         :param vmanage_id: vManage Id
         :returns: List[Any]

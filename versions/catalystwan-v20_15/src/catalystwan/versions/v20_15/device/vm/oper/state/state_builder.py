@@ -14,9 +14,10 @@ class StateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_vbranch_vm_lifecycle(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get vbranch vm lifecycle state
+        GET /dataservice/device/vm/oper/state
 
         :param device_id: deviceId - Device IP
         :returns: Any

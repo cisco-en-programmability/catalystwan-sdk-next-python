@@ -17,9 +17,10 @@ class SyncstatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_webex_data_centers_sync_status(self, **kw) -> SyncStatusResponse:
+    def get(self, **kw) -> SyncStatusResponse:
         """
         Get webex data center sync status from DB
+        GET /dataservice/webex/datacenter/syncstatus
 
         :returns: SyncStatusResponse
         """
@@ -27,9 +28,10 @@ class SyncstatusBuilder:
             "GET", "/dataservice/webex/datacenter/syncstatus", return_type=SyncStatusResponse, **kw
         )
 
-    def set_webex_data_centers_sync_status(self, **kw) -> bool:
+    def put(self, **kw) -> bool:
         """
         Set webex data center sync needed            to false
+        PUT /dataservice/webex/datacenter/syncstatus
 
         :returns: bool
         """

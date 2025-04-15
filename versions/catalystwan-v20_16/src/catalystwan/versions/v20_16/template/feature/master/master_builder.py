@@ -14,12 +14,13 @@ class MasterBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_master_template_definition(self, type_name: str, **kw) -> Any:
+    def get(self, type_name: str, **kw) -> Any:
         """
         Generate template type definition by device type
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/template/feature/master/{type_name}
 
         :param type_name: Device type
         :returns: Any

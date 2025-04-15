@@ -19,7 +19,7 @@ class HealthBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_applications_sites_health(
+    def get(
         self,
         is_heat_map: Optional[bool] = None,
         last_n_hours: Optional[LastNHoursParam] = None,
@@ -30,6 +30,7 @@ class HealthBuilder:
     ) -> List[ApplicationsSitesItem]:
         """
         Get applications health for all sites
+        GET /dataservice/statistics/perfmon/applications/sites/health
 
         :param is_heat_map: Is heat map
         :param last_n_hours: Last n hours

@@ -11,7 +11,7 @@ Remove vManage from cluster<br><br><br>Note: In a multitenant vManage system, th
 
 .. code:: python
 
-    def remove_vmanage(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.remove.remove_vmanage()
+        client.cluster_management.remove.post()
 
 

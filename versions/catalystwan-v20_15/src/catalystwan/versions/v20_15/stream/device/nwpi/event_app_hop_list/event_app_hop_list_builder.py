@@ -20,7 +20,7 @@ class EventAppHopListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_event_app_hop_list(
+    def get(
         self,
         trace_id: int,
         timestamp: int,
@@ -33,6 +33,7 @@ class EventAppHopListBuilder:
     ) -> List[EventAppHopListResponsePayloadInner]:
         """
         Get Trace Application and HopList for NWPI.
+        GET /dataservice/stream/device/nwpi/eventAppHopList
 
         :param trace_id: Trace id
         :param timestamp: Timestamp

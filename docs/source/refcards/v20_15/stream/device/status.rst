@@ -11,9 +11,7 @@ Get device status stream
 
 .. code:: python
 
-    def process_device_status(
-        device_uuid: str, payload: Optional[str] = None
-    ) -> None: ...
+    def post(device_uuid: str, payload: str) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.status.process_device_status()
+        client.stream.device.status.post()
 
 

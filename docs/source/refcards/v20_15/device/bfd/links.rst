@@ -11,7 +11,7 @@ Get list of BFD connections
 
 .. code:: python
 
-    def create_bfd_link_list(state: str) -> List[Any]: ...
+    def get(state: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bfd.links.create_bfd_link_list()
+        client.device.bfd.links.get()
 
 

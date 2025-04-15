@@ -18,9 +18,10 @@ class ReboothistoryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_reboot_history_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get device reboot history
+        GET /dataservice/device/reboothistory
 
         :param device_id: deviceId - Device IP
         :returns: Any

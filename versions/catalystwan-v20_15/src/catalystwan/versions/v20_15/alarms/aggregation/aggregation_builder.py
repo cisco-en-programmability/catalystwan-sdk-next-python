@@ -19,11 +19,10 @@ class AggregationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_aggregation_data(
-        self, query: str, site_id: Optional[str] = None, **kw
-    ) -> AlarmAggregationResponse:
+    def get(self, query: str, site_id: Optional[str] = None, **kw) -> AlarmAggregationResponse:
         """
         Get aggregated count of alarms based on given query.
+        GET /dataservice/alarms/aggregation
 
         :param query: Query
         :param site_id: Specify the site-id to filter the alarms
@@ -41,11 +40,10 @@ class AggregationBuilder:
             **kw,
         )
 
-    def post_aggregation_data(
-        self, payload: Optional[Any] = None, site_id: Optional[str] = None, **kw
-    ) -> AlarmAggregationResponse:
+    def post(self, payload: Any, site_id: Optional[str] = None, **kw) -> AlarmAggregationResponse:
         """
         Get aggregated count of alarms based on given query.
+        POST /dataservice/alarms/aggregation
 
         :param site_id: Specify the site-id to filter the alarms
         :param payload: Query

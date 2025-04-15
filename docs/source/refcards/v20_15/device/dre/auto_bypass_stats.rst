@@ -11,7 +11,7 @@ Get DRE auto-bypass statistics
 
 .. code:: python
 
-    def get_dre_auto_bypass_stats(
+    def get(
         device_id: str,
         appqoe_dre_auto_bypass_server_ip: Optional[str] = None,
         appqoe_dre_auto_bypass_port: Optional[int] = None,
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.dre.auto_bypass_stats.get_dre_auto_bypass_stats()
+        client.device.dre.auto_bypass_stats.get()
 
 

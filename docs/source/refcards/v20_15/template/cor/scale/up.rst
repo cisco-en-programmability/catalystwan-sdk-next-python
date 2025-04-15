@@ -13,7 +13,7 @@ Scale up cloud on ramp
 
 .. code:: python
 
-    def scale_up(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.scale.up.scale_up()
+        client.template.cor.scale.up.post()
 
 

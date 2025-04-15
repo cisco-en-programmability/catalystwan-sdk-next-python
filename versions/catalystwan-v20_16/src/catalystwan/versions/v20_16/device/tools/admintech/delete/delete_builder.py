@@ -19,9 +19,10 @@ class DeleteBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def delete_admin_tech_on_device(self, payload: Optional[AdminTechReq] = None, **kw):
+    def delete(self, payload: Optional[AdminTechReq] = None, **kw):
         """
         delete admin tech logs
+        DELETE /dataservice/device/tools/admintech/delete
 
         :param payload: Admin tech delete request
         :returns: None

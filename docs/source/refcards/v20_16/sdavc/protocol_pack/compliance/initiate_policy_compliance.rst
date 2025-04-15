@@ -11,7 +11,7 @@ Initiate policy compliance task
 
 .. code:: python
 
-    def initiate_policy_compliance() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.compliance.initiate_policy_compliance.initiate_policy_compliance()
+        client.sdavc.protocol_pack.compliance.initiate_policy_compliance.post()
 
 

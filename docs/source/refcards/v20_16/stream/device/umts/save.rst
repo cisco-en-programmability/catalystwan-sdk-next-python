@@ -11,9 +11,7 @@ Save UMTS Data, this api is called by device side
 
 .. code:: python
 
-    def save_umts_data(
-        device_uuid: str, payload: Optional[Any] = None
-    ) -> str: ...
+    def post(device_uuid: str, payload: Any) -> str: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.umts.save.save_umts_data()
+        client.stream.device.umts.save.post()
 
 

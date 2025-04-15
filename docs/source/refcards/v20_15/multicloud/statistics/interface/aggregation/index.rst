@@ -11,9 +11,7 @@ Get aggregated data based on input query and filter. The data can be filtered on
 
 .. code:: python
 
-    def get_post_aggregation_data_by_query_28(
-        payload: Optional[Any] = None,
-    ) -> InlineResponse2001: ...
+    def post(payload: Any) -> InlineResponse2001: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.statistics.interface.aggregation.get_post_aggregation_data_by_query_28()
+        client.multicloud.statistics.interface.aggregation.post()
 
 
 .. toctree::

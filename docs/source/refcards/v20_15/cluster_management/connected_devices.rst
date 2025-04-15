@@ -7,11 +7,10 @@ Operation: GET /dataservice/clusterManagement/connectedDevices/{vmanageIP}
 --------------------------------------------------------------------------
 
 
-Get connected device for vManage<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
-
 .. code:: python
 
-    def get_connected_devices(vmanage_ip: str) -> List[Any]: ...
+    @overload
+    def get(vmanage_ip: str) -> List[Any]: ...
 
 
 Example:
@@ -29,20 +28,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.connected_devices.get_connected_devices()
+        client.cluster_management.connected_devices.get()
 
 
 Operation: GET /dataservice/clusterManagement/{tenantId}/connectedDevices/{vmanageIP}
 -------------------------------------------------------------------------------------
 
 
-Get connected device for vManage for a tenant<br><br><br>Note: In a multitenant vManage system, this API is only available in the Provider view.
-
 .. code:: python
 
-    def get_connected_devices_per_tenant(
-        tenant_id: str, vmanage_ip: str
-    ) -> List[Any]: ...
+    @overload
+    def get(vmanage_ip: str, tenant_id: str) -> List[Any]: ...
 
 
 Example:
@@ -60,6 +56,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.connected_devices.get_connected_devices_per_tenant()
+        client.cluster_management.connected_devices.get()
 
 

@@ -11,7 +11,7 @@ Get vEdge inventory
 
 .. code:: python
 
-    def get_vedge_inventory_summary() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.vedgeinventory.summary.get_vedge_inventory_summary()
+        client.device.vedgeinventory.summary.get()
 
 

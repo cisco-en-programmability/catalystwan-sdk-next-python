@@ -19,7 +19,7 @@ class PageBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dpi_stats_pagination_raw_data(
+    def get(
         self,
         query: Optional[str] = None,
         scroll_id: Optional[str] = None,
@@ -28,6 +28,7 @@ class PageBuilder:
     ) -> DpiPaginationResponse:
         """
         Get DPI stats pagination raw data
+        GET /dataservice/statistics/dpi/page
 
         :param query: Query
         :param scroll_id: Scroll id
@@ -47,15 +48,12 @@ class PageBuilder:
             **kw,
         )
 
-    def get_dpi_stats_pagination_raw_data_post(
-        self,
-        payload: Optional[Any] = None,
-        scroll_id: Optional[str] = None,
-        count: Optional[int] = None,
-        **kw,
+    def post(
+        self, payload: Any, scroll_id: Optional[str] = None, count: Optional[int] = None, **kw
     ) -> DpiPaginationResponse:
         """
         Get DPI stats pagination raw data
+        POST /dataservice/statistics/dpi/page
 
         :param scroll_id: Scroll id
         :param count: Count

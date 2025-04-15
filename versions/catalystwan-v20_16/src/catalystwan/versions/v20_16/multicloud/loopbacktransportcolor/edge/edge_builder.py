@@ -15,9 +15,10 @@ class EdgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_supported_loopback_transport_colors(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get Edge Loopback Tunnel supported colors
+        GET /dataservice/multicloud/loopbacktransportcolor/edge
 
         :returns: Any
         """

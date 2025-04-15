@@ -11,7 +11,7 @@ Get software images
 
 .. code:: python
 
-    def find_software_images() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.find_software_images()
+        client.device.action.software.get()
 
 
 Operation: POST /dataservice/device/action/software
@@ -40,7 +40,7 @@ Create software image URL
 
 .. code:: python
 
-    def create_image_url(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.create_image_url()
+        client.device.action.software.post()
 
 
 Operation: PUT /dataservice/device/action/software/{versionId}
@@ -71,9 +71,7 @@ Update software image URL
 
 .. code:: python
 
-    def update_image_url(
-        version_id: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def put(version_id: str, payload: Any) -> None: ...
 
 
 Example:
@@ -91,7 +89,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.update_image_url()
+        client.device.action.software.put()
 
 
 Operation: DELETE /dataservice/device/action/software/{versionId}
@@ -102,7 +100,7 @@ Delete software image URL
 
 .. code:: python
 
-    def delete_image_url(version_id: str) -> None: ...
+    def delete(version_id: str) -> None: ...
 
 
 Example:
@@ -120,7 +118,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.delete_image_url()
+        client.device.action.software.delete()
 
 
 .. toctree::

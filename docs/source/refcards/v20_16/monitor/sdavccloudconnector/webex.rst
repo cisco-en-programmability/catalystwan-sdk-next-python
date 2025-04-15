@@ -11,7 +11,7 @@ Get SD AVC App Rules for Webex
 
 .. code:: python
 
-    def get_webex_app_data() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.monitor.sdavccloudconnector.webex.get_webex_app_data()
+        client.monitor.sdavccloudconnector.webex.get()
 
 

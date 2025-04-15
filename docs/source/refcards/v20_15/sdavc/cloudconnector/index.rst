@@ -11,7 +11,7 @@ Get SD_AVC Cloud Connector Config
 
 .. code:: python
 
-    def get_cloud_connector() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.cloudconnector.get_cloud_connector()
+        client.sdavc.cloudconnector.get()
 
 
 Operation: PUT /dataservice/sdavc/cloudconnector
@@ -40,9 +40,7 @@ Disable SD_AVC Cloud Connector
 
 .. code:: python
 
-    def disable_cloud_connector(
-        payload: Optional[DisableCloudConnectorPutRequest] = None,
-    ) -> Any: ...
+    def put(payload: DisableCloudConnectorPutRequest) -> Any: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.cloudconnector.disable_cloud_connector()
+        client.sdavc.cloudconnector.put()
 
 
 Operation: POST /dataservice/sdavc/cloudconnector
@@ -71,9 +69,7 @@ Enable SD_AVC Cloud Connector
 
 .. code:: python
 
-    def enable_cloud_connector(
-        payload: Optional[DisableCloudConnectorPutRequest] = None,
-    ) -> Any: ...
+    def post(payload: EnableCloudConnectorPostRequest) -> Any: ...
 
 
 Example:
@@ -91,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.cloudconnector.enable_cloud_connector()
+        client.sdavc.cloudconnector.post()
 
 
 .. toctree::

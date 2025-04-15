@@ -17,9 +17,10 @@ class SessionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sessions(self, **kw):
+    def get(self, **kw):
         """
-        Get sessions
+        Get
+        GET /dataservice/stream/device/log/sessions
 
         :returns: None
         """

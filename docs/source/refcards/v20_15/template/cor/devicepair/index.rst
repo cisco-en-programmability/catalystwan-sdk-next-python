@@ -13,7 +13,7 @@ Add device pair
 
 .. code:: python
 
-    def add_device_pair(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.devicepair.add_device_pair()
+        client.template.cor.devicepair.post()
 
 
 .. toctree::

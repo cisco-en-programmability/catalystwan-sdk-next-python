@@ -11,9 +11,7 @@ Get all devices
 
 .. code:: python
 
-    def list_all_devices_dca(
-        payload: Optional[Any] = None,
-    ) -> List[Any]: ...
+    def post(payload: Any) -> List[Any]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.device.list_all_devices_dca()
+        client.dca.device.post()
 
 
 .. toctree::

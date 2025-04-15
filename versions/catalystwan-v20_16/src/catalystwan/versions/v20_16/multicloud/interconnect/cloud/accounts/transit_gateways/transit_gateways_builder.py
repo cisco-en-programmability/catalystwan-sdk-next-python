@@ -19,7 +19,7 @@ class TransitGatewaysBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_aws_transit_gateways(
+    def get(
         self,
         cloud_type: CloudTypeParam,
         cloud_account_id: str,
@@ -31,6 +31,7 @@ class TransitGatewaysBuilder:
     ) -> InlineResponse2008:
         """
         API to retrieve AWS Transit Gateways.
+        GET /dataservice/multicloud/interconnect/cloud/{cloud-type}/accounts/{cloud-account-id}/transit-gateways
 
         :param cloud_type: Cloud Provider Type
         :param cloud_account_id: Cloud account id

@@ -11,9 +11,7 @@ Get a Cedge Transport WanVpn InterfaceSerial Schema by Schema Type
 
 .. code:: python
 
-    def get_cedge_transport_wan_vpn_interface_serial_parcel_schema_by_schema(
-        schema_type: SchemaTypeParam,
-    ) -> str: ...
+    def get(schema_type: SchemaTypeParam) -> str: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.transport.wan.vpn.interface.serial.schema.get_cedge_transport_wan_vpn_interface_serial_parcel_schema_by_schema()
+        client.v1.feature_profile.sdwan.transport.wan.vpn.interface.serial.schema.get()
 
 
 .. toctree::

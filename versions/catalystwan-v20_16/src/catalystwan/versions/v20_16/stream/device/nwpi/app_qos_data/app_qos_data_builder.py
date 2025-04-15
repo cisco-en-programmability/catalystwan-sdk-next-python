@@ -20,7 +20,7 @@ class AppQosDataBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_qos_data(
+    def get(
         self,
         trace_id: int,
         timestamp: int,
@@ -30,6 +30,7 @@ class AppQosDataBuilder:
     ) -> List[AppQosDataResponsePayloadInner]:
         """
         Get QoS Application data for NWPI.
+        GET /dataservice/stream/device/nwpi/appQosData
 
         :param trace_id: Trace id
         :param timestamp: Timestamp

@@ -20,9 +20,10 @@ class NwpiDscpBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_nwpi_dscp(self, **kw) -> List[NwpiDscpResponsePayloadInner]:
+    def get(self, **kw) -> List[NwpiDscpResponsePayloadInner]:
         """
-        Get nwpi dscp
+        Get
+        GET /dataservice/stream/device/nwpi/nwpiDSCP
 
         :returns: List[NwpiDscpResponsePayloadInner]
         """

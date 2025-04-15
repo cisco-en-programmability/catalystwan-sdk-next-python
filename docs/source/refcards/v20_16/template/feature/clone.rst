@@ -11,7 +11,7 @@ Clone a feature template<br><br><br>Note: In a multitenant vManage system, this 
 
 .. code:: python
 
-    def clone_template(id: str, name: str, desc: str) -> Any: ...
+    def post(id: str, name: str, desc: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.feature.clone.clone_template()
+        client.template.feature.clone.post()
 
 

@@ -11,7 +11,7 @@ Get SD_AVC Cloud Connector Status
 
 .. code:: python
 
-    def get_cloud_connector_status() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.cloudconnector.status.get_cloud_connector_status()
+        client.sdavc.cloudconnector.status.get()
 
 

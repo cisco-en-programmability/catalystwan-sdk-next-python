@@ -15,9 +15,10 @@ class FeatureBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_profile_feature_template_list(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Generate device profile template list
+        GET /dataservice/networkdesign/profile/feature
 
         :returns: List[Any]
         """

@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,9 +15,10 @@ class AuthenticateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def authenticate_cred_and_update(self, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, payload: Any, **kw) -> Any:
         """
         Authenticate and update cloud account credentials
+        PUT /dataservice/template/cor/cloud/authenticate
 
         :param payload: Cloud account credential
         :returns: Any
@@ -27,9 +28,10 @@ class AuthenticateBuilder:
             "PUT", "/dataservice/template/cor/cloud/authenticate", payload=payload, **kw
         )
 
-    def authenticate_cloud_on_ramp_cred_and_add(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Authenticate cloud account credentials
+        POST /dataservice/template/cor/cloud/authenticate
 
         :param payload: Cloud account credential
         :returns: Any

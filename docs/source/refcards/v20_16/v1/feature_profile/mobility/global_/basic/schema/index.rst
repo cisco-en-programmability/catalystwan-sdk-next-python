@@ -11,9 +11,7 @@ Get a Mobility Global Basic Parcel Schema by Schema Type
 
 .. code:: python
 
-    def get_mobility_global_basic_parcel_schema_by_schema_type(
-        schema_type: SchemaTypeParam,
-    ) -> str: ...
+    def get(schema_type: SchemaTypeParam) -> str: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.mobility.global_.basic.schema.get_mobility_global_basic_parcel_schema_by_schema_type()
+        client.v1.feature_profile.mobility.global_.basic.schema.get()
 
 
 .. toctree::

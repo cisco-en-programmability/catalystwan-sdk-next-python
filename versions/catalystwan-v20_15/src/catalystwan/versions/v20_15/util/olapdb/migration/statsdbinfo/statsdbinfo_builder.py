@@ -14,9 +14,10 @@ class StatsdbinfoBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stats_migration_stats_db_info(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get stats db table information
+        GET /dataservice/util/olapdb/migration/statsdbinfo
 
         :returns: Any
         """

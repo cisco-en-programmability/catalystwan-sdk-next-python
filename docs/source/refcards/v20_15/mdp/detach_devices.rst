@@ -11,9 +11,7 @@ Disconnect devices from mpd controller
 
 .. code:: python
 
-    def detach_devices(
-        nms_id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def post(nms_id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.mdp.detach_devices.detach_devices()
+        client.mdp.detach_devices.post()
 
 

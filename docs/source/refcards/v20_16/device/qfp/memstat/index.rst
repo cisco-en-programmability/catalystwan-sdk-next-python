@@ -11,7 +11,7 @@ Get QFP memory status
 
 .. code:: python
 
-    def memstat(device_id: str) -> QfpMemoryState: ...
+    def get(device_id: str) -> QfpMemoryState: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.qfp.memstat.memstat()
+        client.device.qfp.memstat.get()
 
 
 .. toctree::

@@ -13,7 +13,7 @@ Get container image checksum
 
 .. code:: python
 
-    def does_valid_image_exist(container_name: str) -> Any: ...
+    def get(container_name: str) -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.container_manager.does_valid_image_exist.does_valid_image_exist()
+        client.container_manager.does_valid_image_exist.get()
 
 

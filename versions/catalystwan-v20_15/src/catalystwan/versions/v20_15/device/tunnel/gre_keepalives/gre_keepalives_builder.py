@@ -14,9 +14,10 @@ class GreKeepalivesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_gre_keepalives_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get GRE keep alive information
+        GET /dataservice/device/tunnel/gre-keepalives
 
         :param device_id: deviceId - Device IP
         :returns: Any

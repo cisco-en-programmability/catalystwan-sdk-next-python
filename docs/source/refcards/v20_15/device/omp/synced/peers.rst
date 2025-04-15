@@ -11,7 +11,7 @@ Get OP session list
 
 .. code:: python
 
-    def create_synced_omp_session_list(device_id: str) -> List[Any]: ...
+    def get(device_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.omp.synced.peers.create_synced_omp_session_list()
+        client.device.omp.synced.peers.get()
 
 

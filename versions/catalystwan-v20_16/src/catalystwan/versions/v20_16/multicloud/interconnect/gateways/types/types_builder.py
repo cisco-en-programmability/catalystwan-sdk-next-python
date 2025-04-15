@@ -19,11 +19,10 @@ class TypesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnet_gateway_types(
-        self, interconnect_type: InterconnectTypeParam, **kw
-    ) -> List[str]:
+    def get(self, interconnect_type: InterconnectTypeParam, **kw) -> List[str]:
         """
         API to retrieve the supported Interconnect Gateway solution types.
+        GET /dataservice/multicloud/interconnect/gateways/types
 
         :param interconnect_type: Interconnect provider type
         :returns: List[str]

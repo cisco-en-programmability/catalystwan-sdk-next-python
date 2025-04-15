@@ -11,9 +11,7 @@ Request reset user
 
 .. code:: python
 
-    def process_reset_user(
-        device_ip: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def post(device_ip: str, payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.resetuser.process_reset_user()
+        client.device.tools.resetuser.post()
 
 

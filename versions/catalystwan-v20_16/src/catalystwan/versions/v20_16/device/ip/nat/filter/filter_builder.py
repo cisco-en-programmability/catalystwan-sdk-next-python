@@ -19,7 +19,7 @@ class FilterBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_nat_filter_list(
+    def get(
         self,
         device_id: str,
         nat_vpn_id: Optional[str] = None,
@@ -30,6 +30,7 @@ class FilterBuilder:
     ) -> Any:
         """
         Get NAT filter list from device
+        GET /dataservice/device/ip/nat/filter
 
         :param nat_vpn_id: NAT VPN Id
         :param nat_ifname: NAT interface name

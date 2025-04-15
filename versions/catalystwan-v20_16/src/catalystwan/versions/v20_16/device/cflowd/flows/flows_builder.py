@@ -19,7 +19,7 @@ class FlowsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_cflow_collector_list(
+    def get(
         self,
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
@@ -29,6 +29,7 @@ class FlowsBuilder:
     ) -> List[Any]:
         """
         Get list of cflowd flows from device
+        GET /dataservice/device/cflowd/flows
 
         :param vpn_id: VPN Id
         :param src_ip: Source IP

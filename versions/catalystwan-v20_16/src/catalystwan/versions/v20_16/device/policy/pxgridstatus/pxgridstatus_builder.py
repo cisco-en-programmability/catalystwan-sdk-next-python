@@ -14,9 +14,10 @@ class PxgridstatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def show_vsmart_px_grid_status(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         show Pxgrid status From Vsmart
+        GET /dataservice/device/policy/pxgridstatus
 
         :param device_id: Device Id
         :returns: Any

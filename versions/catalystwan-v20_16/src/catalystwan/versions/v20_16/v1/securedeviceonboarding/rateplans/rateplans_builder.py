@@ -17,9 +17,10 @@ class RateplansBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_rate_plans_by_acct_id(self, account_id: str, **kw) -> RatePlansResponse:
+    def get(self, account_id: str, **kw) -> RatePlansResponse:
         """
         Get rate plans by account Id
+        GET /dataservice/v1/securedeviceonboarding/rateplans
 
         :param account_id: Account id
         :returns: RatePlansResponse

@@ -11,7 +11,7 @@ Get list of all unclaimed devices
 
 .. code:: python
 
-    def get_all_unclaimed_devices() -> GetAllUnclaimedDevices: ...
+    def get() -> GetAllUnclaimedDevices: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.unclaimed_devices.get_all_unclaimed_devices()
+        client.system.device.unclaimed_devices.get()
 
 
 .. toctree::

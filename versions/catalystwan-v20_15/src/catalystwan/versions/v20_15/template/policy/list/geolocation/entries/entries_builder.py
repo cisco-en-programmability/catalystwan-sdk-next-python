@@ -14,9 +14,10 @@ class EntriesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_geo_location_lists(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get list of countries and continents for geo location
+        GET /dataservice/template/policy/list/geolocation/entries
 
         :returns: Any
         """

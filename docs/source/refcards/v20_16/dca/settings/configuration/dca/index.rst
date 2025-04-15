@@ -11,9 +11,7 @@ Create analytics config data
 
 .. code:: python
 
-    def create_dca_analytics_data_file(
-        type_: TypeParam, payload: Optional[Any] = None
-    ) -> Any: ...
+    def post(type_: TypeParam, payload: Any) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.settings.configuration.dca.create_dca_analytics_data_file()
+        client.dca.settings.configuration.dca.post()
 
 
 .. toctree::

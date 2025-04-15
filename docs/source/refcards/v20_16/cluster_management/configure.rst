@@ -11,7 +11,7 @@ Configure vManage<br><br><br>Note: In a multitenant vManage system, this API is 
 
 .. code:: python
 
-    def configure_vmanage(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.configure.configure_vmanage()
+        client.cluster_management.configure.post()
 
 

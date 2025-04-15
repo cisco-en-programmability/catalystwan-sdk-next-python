@@ -13,9 +13,7 @@ Activate firmware on device
 
 .. code:: python
 
-    def activate_firmware_image(
-        payload: Optional[str] = None,
-    ) -> None: ...
+    def post(payload: str) -> None: ...
 
 
 Example:
@@ -33,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.firmware.activate.activate_firmware_image()
+        client.device.action.firmware.activate.post()
 
 

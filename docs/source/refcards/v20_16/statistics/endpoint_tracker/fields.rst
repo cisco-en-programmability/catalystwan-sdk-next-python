@@ -11,7 +11,7 @@ Get fields and type
 
 .. code:: python
 
-    def get_stat_data_fields_20() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.endpoint_tracker.fields.get_stat_data_fields_20()
+        client.statistics.endpoint_tracker.fields.get()
 
 

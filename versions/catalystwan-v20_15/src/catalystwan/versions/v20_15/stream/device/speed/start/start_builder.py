@@ -17,9 +17,10 @@ class StartBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def start_speed_test(self, session_id: Uuid, **kw) -> SpeedTestStatusResponse:
+    def get(self, session_id: Uuid, **kw) -> SpeedTestStatusResponse:
         """
-        Start speed test
+        Get
+        GET /dataservice/stream/device/speed/start/{sessionId}
 
         :param session_id: sessionId
         :returns: SpeedTestStatusResponse

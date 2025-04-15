@@ -11,9 +11,7 @@ Activate vsmart policy for a given policy id
 
 .. code:: python
 
-    def activate_policy_for_cloud_services(
-        policy_id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def post(policy_id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.vsmart.activate.central.activate_policy_for_cloud_services()
+        client.template.policy.vsmart.activate.central.post()
 
 

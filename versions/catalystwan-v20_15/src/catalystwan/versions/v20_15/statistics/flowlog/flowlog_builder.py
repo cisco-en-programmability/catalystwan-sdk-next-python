@@ -27,7 +27,7 @@ class FlowlogBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_data_raw_data_14(
+    def get(
         self,
         query: Optional[str] = None,
         page: Optional[int] = None,
@@ -39,6 +39,7 @@ class FlowlogBuilder:
     ) -> Any:
         """
         Get stats raw data
+        GET /dataservice/statistics/flowlog
 
         :param query: Query string
         :param page: page number
@@ -60,9 +61,9 @@ class FlowlogBuilder:
             "GET", "/dataservice/statistics/flowlog", params=params, **kw
         )
 
-    def get_stat_data_raw_data_post(
+    def post(
         self,
-        payload: Optional[Any] = None,
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -71,6 +72,7 @@ class FlowlogBuilder:
     ) -> Any:
         """
         Get stats raw data
+        POST /dataservice/statistics/flowlog
 
         :param page: Page
         :param page_size: Page size

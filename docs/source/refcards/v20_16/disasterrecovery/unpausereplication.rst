@@ -13,7 +13,7 @@ Un-Pause DR data replication
 
 .. code:: python
 
-    def disaster_recovery_un_pause_replication() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.unpausereplication.disaster_recovery_un_pause_replication()
+        client.disasterrecovery.unpausereplication.post()
 
 

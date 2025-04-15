@@ -11,7 +11,7 @@ Get synchronized queue information, returns information about syncing, queued an
 
 .. code:: python
 
-    def get_sync_queues() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.queues.get_sync_queues()
+        client.device.queues.get()
 
 

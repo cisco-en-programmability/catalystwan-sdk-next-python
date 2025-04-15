@@ -11,7 +11,7 @@ invalid device
 
 .. code:: python
 
-    def delete_configuration(
+    def delete(
         uuid: str,
         device_id: str,
         replace_controller: Optional[bool] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.delete_configuration()
+        client.certificate.delete()
 
 
 .. toctree::

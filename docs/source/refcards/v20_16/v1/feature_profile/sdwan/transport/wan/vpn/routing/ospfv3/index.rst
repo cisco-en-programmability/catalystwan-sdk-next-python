@@ -6,6 +6,6 @@ v1.feature_profile.sdwan.transport.wan.vpn.routing.ospfv3
 .. toctree::
     :maxdepth: 1
 
-    ipv4
-    ipv6
+    ipv4/index
+    ipv6/index
 

@@ -17,9 +17,10 @@ class StopBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def stop_pcap_session(self, session_id: str, **kw) -> PacketCaptureInfo:
+    def get(self, session_id: str, **kw) -> PacketCaptureInfo:
         """
         Stop packet capture session
+        GET /dataservice/stream/device/capture/stop/{sessionId}
 
         :param session_id: Session id
         :returns: PacketCaptureInfo

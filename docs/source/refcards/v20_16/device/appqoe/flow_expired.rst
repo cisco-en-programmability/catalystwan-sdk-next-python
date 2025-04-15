@@ -11,7 +11,7 @@ Get Appqoe expired from device
 
 .. code:: python
 
-    def get_appqoe_expired(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.appqoe.flow_expired.get_appqoe_expired()
+        client.device.appqoe.flow_expired.get()
 
 

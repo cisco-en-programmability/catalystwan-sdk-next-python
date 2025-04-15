@@ -14,9 +14,10 @@ class RemoveSessionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def remove_sessions_1(self, payload: Optional[List[Any]] = None, **kw) -> Any:
+    def delete(self, payload: Optional[List[Any]] = None, **kw) -> Any:
         """
         Remove sessions
+        DELETE /dataservice/admin/user/removeSessions
 
         :param payload: User
         :returns: Any

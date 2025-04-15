@@ -11,7 +11,7 @@ Update arbitrator with primary and secondary states cluster
 
 .. code:: python
 
-    def update_dr_state() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.update_dr_config_on_arbitrator.update_dr_state()
+        client.disasterrecovery.update_dr_config_on_arbitrator.post()
 
 

@@ -18,9 +18,10 @@ class AlarmsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_vnf_events_count_detail(self, user_group: str, **kw):
+    def get(self, user_group: str, **kw):
         """
         Get event detail of VNF
+        GET /dataservice/colocation/monitor/vnf/alarms
 
         :param user_group: User group
         :returns: None

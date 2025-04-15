@@ -11,7 +11,7 @@ Lists content of log file. This API accepts content type as text/plain. It is ma
 
 .. code:: python
 
-    def list_log_file_details() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.logfile.appserver.list_log_file_details()
+        client.util.logfile.appserver.get()
 
 
 .. toctree::

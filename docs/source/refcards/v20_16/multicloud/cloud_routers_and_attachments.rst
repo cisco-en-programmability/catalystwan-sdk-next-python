@@ -13,7 +13,7 @@ Get all Cloud Routers and their Attachments
 
 .. code:: python
 
-    def get_cloud_routers_and_attachments(
+    def get(
         account_id: Optional[str] = None,
         region: Optional[str] = None,
         network: Optional[str] = None,
@@ -39,6 +39,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloud_routers_and_attachments.get_cloud_routers_and_attachments()
+        client.multicloud.cloud_routers_and_attachments.get()
 
 

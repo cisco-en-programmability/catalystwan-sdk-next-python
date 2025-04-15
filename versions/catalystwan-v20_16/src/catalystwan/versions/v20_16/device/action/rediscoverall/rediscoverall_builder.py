@@ -12,9 +12,10 @@ class RediscoverallBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def re_discover_all_device(self, **kw):
+    def post(self, **kw):
         """
         Rediscover all devices
+        POST /dataservice/device/action/rediscoverall
 
         :returns: None
         """

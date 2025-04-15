@@ -20,11 +20,12 @@ class TraceInfoByBaseKeyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_trace_info_by_base_key(
+    def get(
         self, trace_id: int, entry_time: int, trace_model: Optional[str] = None, **kw
     ) -> TraceInfoResponsePayload:
         """
         Get TraceInfoByBaseKey
+        GET /dataservice/stream/device/nwpi/traceInfoByBaseKey
 
         :param trace_id: traceId
         :param entry_time: entryTime

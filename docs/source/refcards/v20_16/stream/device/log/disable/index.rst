@@ -9,7 +9,7 @@ Operation: GET /dataservice/stream/device/log/disable/{sessionId}
 
 .. code:: python
 
-    def disable_device_log(session_id: Uuid) -> None: ...
+    def get(session_id: Uuid) -> None: ...
 
 
 Example:
@@ -27,7 +27,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.log.disable.disable_device_log()
+        client.stream.device.log.disable.get()
 
 
 .. toctree::

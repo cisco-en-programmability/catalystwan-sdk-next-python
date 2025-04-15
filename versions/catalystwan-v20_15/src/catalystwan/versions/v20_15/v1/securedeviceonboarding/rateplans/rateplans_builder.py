@@ -3,25 +3,35 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
+from .models import RatePlansResponse
+
 
 class RateplansBuilder:
     """
     Builds and executes requests for operations under /v1/securedeviceonboarding/rateplans
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_rate_plans_by_acct_id(self, account_id: str, **kw):
+    def get(self, account_id: str, **kw) -> RatePlansResponse:
         """
         Get rate plans by account Id
+        GET /dataservice/v1/securedeviceonboarding/rateplans
 
         :param account_id: Account id
-        :returns: None
+        :returns: RatePlansResponse
         """
         params = {
             "accountId": account_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/securedeviceonboarding/rateplans", params=params, **kw
+            "GET",
+            "/dataservice/v1/securedeviceonboarding/rateplans",
+            return_type=RatePlansResponse,
+            params=params,
+            **kw,
         )

@@ -11,7 +11,7 @@ Get DPI application flows device aggregation data
 
 .. code:: python
 
-    def get_dpi_device_app_aggregation_data(
+    def get(
         query: str, limit: Optional[int] = None
     ) -> DeviceAppResponse: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.dpi.device.applications.get_dpi_device_app_aggregation_data()
+        client.statistics.dpi.device.applications.get()
 
 
 .. toctree::

@@ -15,11 +15,12 @@ class AmiBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_ami_list(
+    def get(
         self, accountid: str, cloudregion: str, cloudtype: Optional[str] = "AWS", **kw
     ) -> List[Any]:
         """
         Get AMI list
+        GET /dataservice/template/cor/ami
 
         :param accountid: Account Id
         :param cloudregion: Cloud region

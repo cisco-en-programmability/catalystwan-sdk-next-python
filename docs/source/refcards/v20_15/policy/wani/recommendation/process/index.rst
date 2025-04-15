@@ -11,7 +11,7 @@ Applies recommendations to a centralized policy
 
 .. code:: python
 
-    def apply_wani_recommendation(key: str) -> ApplyRecommendationRes: ...
+    def post(key: str) -> ApplyRecommendationRes: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.policy.wani.recommendation.process.apply_wani_recommendation()
+        client.policy.wani.recommendation.process.post()
 
 
 .. toctree::

@@ -17,9 +17,10 @@ class TypesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_types(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Obtain all supported Cloud Service Provider (CSP) types
+        GET /dataservice/multicloud/types
 
         :returns: Any
         """

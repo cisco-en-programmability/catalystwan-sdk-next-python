@@ -11,7 +11,7 @@ Get application flow count per tunnel
 
 .. code:: python
 
-    def get_dpi_device_app_unique_flow_count(
+    def get(
         device_id: str,
         interval: str,
         window: int,
@@ -35,6 +35,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.dpi.device.application.flowcount.get_dpi_device_app_unique_flow_count()
+        client.statistics.dpi.device.application.flowcount.get()
 
 

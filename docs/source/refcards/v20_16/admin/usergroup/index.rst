@@ -11,7 +11,7 @@ Get all user groups
 
 .. code:: python
 
-    def find_user_groups() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.usergroup.find_user_groups()
+        client.admin.usergroup.get()
 
 
 Operation: POST /dataservice/admin/usergroup
@@ -40,7 +40,7 @@ Create user group
 
 .. code:: python
 
-    def create_user_group(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.usergroup.create_user_group()
+        client.admin.usergroup.post()
 
 
 Operation: PUT /dataservice/admin/usergroup/{userGroupId}
@@ -69,9 +69,7 @@ Update user group
 
 .. code:: python
 
-    def update_user_group(
-        user_group_id: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def put(user_group_id: str, payload: Any) -> None: ...
 
 
 Example:
@@ -89,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.usergroup.update_user_group()
+        client.admin.usergroup.put()
 
 
 Operation: DELETE /dataservice/admin/usergroup/{userGroupId}
@@ -100,7 +98,7 @@ Delete user group
 
 .. code:: python
 
-    def delete_user_group(user_group_id: str) -> None: ...
+    def delete(user_group_id: str) -> None: ...
 
 
 Example:
@@ -118,7 +116,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.usergroup.delete_user_group()
+        client.admin.usergroup.delete()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Get vManage resource utilization
 
 .. code:: python
 
-    def getv_manage_resource_utilization() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.management.v_manage_resource_utilization.getv_manage_resource_utilization()
+        client.management.v_manage_resource_utilization.get()
 
 

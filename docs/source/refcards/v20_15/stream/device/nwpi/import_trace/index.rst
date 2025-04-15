@@ -11,9 +11,8 @@ Import Trace
 
 .. code:: python
 
-    def import_trace(
-        payload: Optional[ImportTraceRequest] = None,
-        new_trace_name: Optional[str] = None,
+    def post(
+        payload: ImportTraceRequest, new_trace_name: Optional[str] = None
     ) -> ImportTraceResponse: ...
 
 
@@ -32,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.import_trace.import_trace()
+        client.stream.device.nwpi.import_trace.post()
 
 
 .. toctree::

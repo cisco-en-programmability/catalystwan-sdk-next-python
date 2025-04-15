@@ -11,9 +11,7 @@ Get certificate details
 
 .. code:: python
 
-    def get_certificate_detail(
-        status: Optional[str] = None,
-    ) -> List[str]: ...
+    def get(status: Optional[str] = None) -> List[str]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.stats.detail.get_certificate_detail()
+        client.certificate.stats.detail.get()
 
 

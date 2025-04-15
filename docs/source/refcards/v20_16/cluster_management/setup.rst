@@ -11,7 +11,7 @@ Update vManage cluster info<br><br><br>Note: In a multitenant vManage system, th
 
 .. code:: python
 
-    def edit_vmanage(payload: Optional[Any] = None) -> None: ...
+    def put(payload: Any) -> None: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.setup.edit_vmanage()
+        client.cluster_management.setup.put()
 
 
 Operation: POST /dataservice/clusterManagement/setup
@@ -40,7 +40,7 @@ Add vManage to cluster
 
 .. code:: python
 
-    def add_vmanage(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.setup.add_vmanage()
+        client.cluster_management.setup.post()
 
 

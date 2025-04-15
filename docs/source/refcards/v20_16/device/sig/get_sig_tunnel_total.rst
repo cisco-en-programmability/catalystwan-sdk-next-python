@@ -11,7 +11,7 @@ get Sig Tunnel Total coount
 
 .. code:: python
 
-    def get_sig_tunnel_total() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.sig.get_sig_tunnel_total.get_sig_tunnel_total()
+        client.device.sig.get_sig_tunnel_total.get()
 
 

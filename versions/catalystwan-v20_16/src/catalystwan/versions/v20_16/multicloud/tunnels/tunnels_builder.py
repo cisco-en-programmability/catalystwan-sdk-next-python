@@ -19,11 +19,12 @@ class TunnelsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_tunnel_names(
+    def get(
         self, cloud_type: CloudTypeParam, cloud_gateway_name: str, **kw
     ) -> List[GetTunnelsResponse]:
         """
         Get the tunnels for cloudType
+        GET /dataservice/multicloud/tunnels/{cloudType}
 
         :param cloud_type: Cloud type
         :param cloud_gateway_name: Cloud gateway name

@@ -11,9 +11,7 @@ Discover Resource of CGW
 
 .. code:: python
 
-    def get_cgw_org_resources(
-        cloud_gateway_name: str,
-    ) -> List[CgwResourceResponse]: ...
+    def get(cloud_gateway_name: str) -> List[CgwResourceResponse]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.resource.get_cgw_org_resources()
+        client.multicloud.cloudgateway.resource.get()
 
 
 .. toctree::

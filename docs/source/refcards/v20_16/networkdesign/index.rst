@@ -13,7 +13,7 @@ Get existing network design
 
 .. code:: python
 
-    def get_network_design() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.get_network_design()
+        client.networkdesign.get()
 
 
 Operation: PUT /dataservice/networkdesign
@@ -44,9 +44,7 @@ Edit network segment
 
 .. code:: python
 
-    def edit_network_design(
-        id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -64,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.edit_network_design()
+        client.networkdesign.put()
 
 
 Operation: POST /dataservice/networkdesign
@@ -77,7 +75,7 @@ Create network design
 
 .. code:: python
 
-    def create_network_design(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -95,7 +93,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.create_network_design()
+        client.networkdesign.post()
 
 
 .. toctree::

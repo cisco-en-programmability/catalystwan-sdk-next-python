@@ -14,9 +14,7 @@ Validate full template"
 
 .. code:: python
 
-    def validate_template(
-        payload: Optional[ValidateTemplatePostRequest] = None,
-    ) -> None: ...
+    def post(payload: ValidateTemplatePostRequest) -> None: ...
 
 
 Example:
@@ -34,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.verify.validate_template()
+        client.template.device.config.verify.post()
 
 
 .. toctree::

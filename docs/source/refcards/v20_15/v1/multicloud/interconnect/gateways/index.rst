@@ -11,9 +11,9 @@ Asynchronous API to update the Interconnect Gateway Information in vManage.
 
 .. code:: python
 
-    def update_interconnect_gateway_1(
+    def put(
         interconnect_gateway_name: str,
-        payload: Optional[InterconnectGatewayExtended] = None,
+        payload: InterconnectGatewayExtended,
     ) -> ProcessResponse: ...
 
 
@@ -32,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.multicloud.interconnect.gateways.update_interconnect_gateway_1()
+        client.v1.multicloud.interconnect.gateways.put()
 
 
 .. toctree::

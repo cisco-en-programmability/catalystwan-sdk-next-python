@@ -17,9 +17,10 @@ class VmanagerootcaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def invalidate_vmanage_root_ca(self, uuid: str, **kw) -> InvalidateVmanageRootCa:
+    def delete(self, uuid: str, **kw) -> InvalidateVmanageRootCa:
         """
         Invalidate vManage root CA
+        DELETE /dataservice/system/device/vmanagerootca/{uuid}
 
         :param uuid: Device UUID
         :returns: InvalidateVmanageRootCa

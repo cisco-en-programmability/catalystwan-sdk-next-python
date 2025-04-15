@@ -11,7 +11,7 @@ Get query fields
 
 .. code:: python
 
-    def get_stat_query_fields() -> List[GetStatQueryFields]: ...
+    def get() -> List[GetStatQueryFields]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.auditlog.query.fields.get_stat_query_fields()
+        client.auditlog.query.fields.get()
 
 
 .. toctree::

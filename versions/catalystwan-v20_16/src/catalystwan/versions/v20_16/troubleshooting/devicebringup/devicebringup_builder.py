@@ -17,9 +17,10 @@ class DevicebringupBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_configuration(self, uuid: str, **kw) -> GetDeviceConfiguration:
+    def get(self, uuid: str, **kw) -> GetDeviceConfiguration:
         """
         Debug device bring up
+        GET /dataservice/troubleshooting/devicebringup
 
         :param uuid: Uuid
         :returns: GetDeviceConfiguration

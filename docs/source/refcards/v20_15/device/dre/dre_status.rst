@@ -11,7 +11,7 @@ Get DRE status
 
 .. code:: python
 
-    def get_dre_status(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.dre.dre_status.get_dre_status()
+        client.device.dre.dre_status.get()
 
 

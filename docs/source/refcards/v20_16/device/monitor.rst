@@ -11,7 +11,7 @@ Get all monitoring details of the devices
 
 .. code:: python
 
-    def list_all_monitor_details_devices() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.monitor.list_all_monitor_details_devices()
+        client.device.monitor.get()
 
 

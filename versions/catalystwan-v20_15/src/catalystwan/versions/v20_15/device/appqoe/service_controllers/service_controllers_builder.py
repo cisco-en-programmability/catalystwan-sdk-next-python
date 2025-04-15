@@ -14,9 +14,10 @@ class ServiceControllersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_appqoe_service_controllers(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get Appqoe service controllers from device
+        GET /dataservice/device/appqoe/service-controllers
 
         :param device_id: Device Id
         :returns: Any

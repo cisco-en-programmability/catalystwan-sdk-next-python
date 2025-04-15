@@ -20,7 +20,7 @@ class EdgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_partner_ports(
+    def get(
         self,
         edge_type: Optional[EdgeTypeParam] = None,
         account_id: Optional[str] = None,
@@ -33,6 +33,7 @@ class EdgeBuilder:
     ) -> Any:
         """
         Get partner ports
+        GET /dataservice/multicloud/partnerports/edge
 
         :param edge_type: Edge type
         :param account_id: Edge Account Id

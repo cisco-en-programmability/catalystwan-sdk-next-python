@@ -12,9 +12,10 @@ class EventsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def listen_auth_events(self, sse_session_id: str, **kw):
+    def get(self, sse_session_id: str, **kw):
         """
-        Listen auth events
+        Get
+        GET /dataservice/admin/events/{sseSessionId}
 
         :param sse_session_id: sse session Id
         :returns: None

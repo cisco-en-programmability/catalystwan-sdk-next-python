@@ -11,7 +11,7 @@ Get all available filters for applist
 
 .. code:: python
 
-    def get_attribute_mapping_for_apps() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.app.filtermap.get_attribute_mapping_for_apps()
+        client.app_registry.app.filtermap.get()
 
 

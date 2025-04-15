@@ -11,7 +11,7 @@ Get All Saas feed details of a particular application
 
 .. code:: python
 
-    def get_all_saas_feed_for_selected_app(feed_id: str) -> List[Any]: ...
+    def get(feed_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.saasfeed.app.get_all_saas_feed_for_selected_app()
+        client.app_registry.saasfeed.app.get()
 
 
 .. toctree::

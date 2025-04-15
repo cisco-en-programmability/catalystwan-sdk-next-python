@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class PreviewBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def preview_policy_list_25(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Preview a policy list based on the policy list type
+        POST /dataservice/template/policy/list/modempassthrough/preview
 
         :param payload: Policy list
         :returns: Any
@@ -28,9 +29,10 @@ class PreviewBuilder:
             **kw,
         )
 
-    def preview_policy_list_by_id_25(self, id: str, **kw) -> Any:
+    def get(self, id: str, **kw) -> Any:
         """
         Preview a specific policy list entry based on id provided
+        GET /dataservice/template/policy/list/modempassthrough/preview/{id}
 
         :param id: Policy Id
         :returns: Any

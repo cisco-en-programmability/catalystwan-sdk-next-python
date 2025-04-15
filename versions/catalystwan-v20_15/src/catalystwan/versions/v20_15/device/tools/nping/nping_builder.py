@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,11 +17,10 @@ class NpingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def nping_device(
-        self, device_ip: str, payload: Optional[NPingRequest] = None, **kw
-    ) -> NPingResponse:
+    def post(self, device_ip: str, payload: NPingRequest, **kw) -> NPingResponse:
         """
         NPing device
+        POST /dataservice/device/tools/nping/{deviceIP}
 
         :param device_ip: Device IP
         :param payload: Ping parameter

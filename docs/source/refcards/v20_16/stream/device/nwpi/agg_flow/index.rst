@@ -13,7 +13,7 @@ Get aggregated flow data for NWPI.
 
 .. code:: python
 
-    def get_agg_flow(
+    def get(
         trace_id: int,
         timestamp: int,
         trace_state: str,
@@ -36,7 +36,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.agg_flow.get_agg_flow()
+        client.stream.device.nwpi.agg_flow.get()
 
 
 .. toctree::

@@ -93,8 +93,18 @@ class CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest:
     data: Data
     name: str
     description: Optional[str] = _field(default=None)
-    # This is the documentation for POST request schema for tloc profile parcel
-    documentation: Optional[Any] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload:
+    """
+    tloc profile parcel schema for POST request
+    """
+
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
     metadata: Optional[Any] = _field(default=None)
 
 
@@ -107,6 +117,4 @@ class GetDataPrefixProfileParcelForPolicyObjectGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # tloc profile parcel schema for POST request
-    payload: Optional[CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest] = _field(
-        default=None
-    )
+    payload: Optional[Payload] = _field(default=None)

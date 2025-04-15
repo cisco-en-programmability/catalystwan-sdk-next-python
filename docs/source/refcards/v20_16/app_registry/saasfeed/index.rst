@@ -11,7 +11,7 @@ Get All Saas feed details
 
 .. code:: python
 
-    def get_active_saas_feeds() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.saasfeed.get_active_saas_feeds()
+        client.app_registry.saasfeed.get()
 
 
 .. toctree::

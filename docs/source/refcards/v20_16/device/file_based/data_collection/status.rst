@@ -11,7 +11,7 @@ Get Data Collection status for given Request UUID
 
 .. code:: python
 
-    def get_data_collection_status_for_uuid(request_uuid: str) -> str: ...
+    def get(request_uuid: str) -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.file_based.data_collection.status.get_data_collection_status_for_uuid()
+        client.device.file_based.data_collection.status.get()
 
 

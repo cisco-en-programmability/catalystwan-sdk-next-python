@@ -11,9 +11,7 @@ Get Software version from device
 
 .. code:: python
 
-    def get_autonomous_software_version(
-        device_id: str,
-    ) -> SoftwareVersion: ...
+    def get(device_id: str) -> SoftwareVersion: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.autonomousversion.get_autonomous_software_version()
+        client.device.autonomousversion.get()
 
 
 .. toctree::

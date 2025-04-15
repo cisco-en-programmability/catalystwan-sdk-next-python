@@ -11,9 +11,7 @@ Create/Edit policy definitions in bulk
 
 .. code:: python
 
-    def save_policy_definition_in_bulk_17(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def put(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.deviceaccesspolicyv6.bulk.save_policy_definition_in_bulk_17()
+        client.template.policy.definition.deviceaccesspolicyv6.bulk.put()
 
 

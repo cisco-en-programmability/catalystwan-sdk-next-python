@@ -14,9 +14,10 @@ class SystemNetfilterBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_system_netfilter(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get system netfilter info from device
+        GET /dataservice/device/tools/system-netfilter
 
         :param device_id: Device Id
         :returns: Any

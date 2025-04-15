@@ -14,9 +14,10 @@ class BulkcsrBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_cs_rfor_all_controller(self, csr_key_length: Optional[str] = None, **kw) -> str:
+    def post(self, csr_key_length: Optional[str] = None, **kw) -> str:
         """
         Generate CSR for all controller
+        POST /dataservice/certificate/controller/bulkcsr
 
         :param csr_key_length: Optional Parameter: CSR Key Length
         :returns: str

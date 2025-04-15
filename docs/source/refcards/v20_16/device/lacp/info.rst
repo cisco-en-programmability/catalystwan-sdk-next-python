@@ -11,7 +11,7 @@ Get device lacp port channel info list (Real Time)
 
 .. code:: python
 
-    def get_lacp_interface_list(
+    def get(
         device_id: str, channel_group: Optional[str] = None
     ) -> Any: ...
 
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.lacp.info.get_lacp_interface_list()
+        client.device.lacp.info.get()
 
 

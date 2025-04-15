@@ -22,9 +22,10 @@ class TasksBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_report_tasks_by_report_id(self, report_id: str, **kw) -> ReportTaskQueryResponse:
+    def get(self, report_id: str, **kw) -> ReportTaskQueryResponse:
         """
         Get all report task detail information by report ID
+        GET /dataservice/v1/reports/{reportId}/tasks
 
         :param report_id: Report id
         :returns: ReportTaskQueryResponse
@@ -40,9 +41,10 @@ class TasksBuilder:
             **kw,
         )
 
-    def delete_report_task_by_task_id(self, report_id: str, task_id: str, **kw) -> TaskIdResponse:
+    def delete(self, report_id: str, task_id: str, **kw) -> TaskIdResponse:
         """
         Delete the report task file by task ID
+        DELETE /dataservice/v1/reports/{reportId}/tasks/{taskId}
 
         :param report_id: Report id
         :param task_id: Task id

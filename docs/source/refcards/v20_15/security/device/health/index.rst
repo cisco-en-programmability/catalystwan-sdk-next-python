@@ -11,7 +11,7 @@ Get security device health
 
 .. code:: python
 
-    def get_security_device_health(
+    def get(
         device_ip: Optional[str] = None,
     ) -> List[SecurityDeviceHealth]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.security.device.health.get_security_device_health()
+        client.security.device.health.get()
 
 
 .. toctree::

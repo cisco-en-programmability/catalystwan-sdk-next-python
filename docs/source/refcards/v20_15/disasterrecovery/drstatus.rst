@@ -11,7 +11,7 @@ Disaster recovery status
 
 .. code:: python
 
-    def get_disaster_recovery_status() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.drstatus.get_disaster_recovery_status()
+        client.disasterrecovery.drstatus.get()
 
 

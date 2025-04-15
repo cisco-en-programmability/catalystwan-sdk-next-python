@@ -14,9 +14,10 @@ class RoleBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def find_user_role_1(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Check whether a user has admin role
+        GET /dataservice/admin/user/role
 
         :returns: Any
         """

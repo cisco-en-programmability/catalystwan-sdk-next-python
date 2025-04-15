@@ -14,9 +14,10 @@ class BlockSyncBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def set_block_sync(self, block_sync: str, **kw) -> Any:
+    def post(self, block_sync: str, **kw) -> Any:
         """
         Set collection manager block set flag
+        POST /dataservice/device/blockSync
 
         :param block_sync: Block sync flag
         :returns: Any

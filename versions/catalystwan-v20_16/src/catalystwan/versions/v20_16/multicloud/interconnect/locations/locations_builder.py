@@ -12,9 +12,10 @@ class LocationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def delete_all_interconnect_location_info(self, interconnect_type: str, **kw):
+    def delete(self, interconnect_type: str, **kw):
         """
         API to delete the stored regions for an Interconnect provider type from vManage.
+        DELETE /dataservice/multicloud/interconnect/{interconnect-type}/locations
 
         :param interconnect_type: Interconnect provider type
         :returns: None

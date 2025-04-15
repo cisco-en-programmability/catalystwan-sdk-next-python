@@ -14,9 +14,10 @@ class NetworkBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_network_list(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get cellular network list from device
+        GET /dataservice/device/cellular/network
 
         :param device_id: Device IP
         :returns: List[Any]

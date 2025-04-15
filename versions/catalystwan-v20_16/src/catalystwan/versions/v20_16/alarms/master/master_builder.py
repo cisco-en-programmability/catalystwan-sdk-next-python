@@ -12,9 +12,10 @@ class MasterBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_master_manager_state(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         Get topic details.
+        GET /dataservice/alarms/master
 
         :returns: str
         """

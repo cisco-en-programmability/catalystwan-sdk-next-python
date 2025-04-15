@@ -11,7 +11,7 @@ Get device lacp port channel interface table (Real Time)
 
 .. code:: python
 
-    def get_lacp_members(
+    def get(
         device_id: str,
         channel_group: Optional[str] = None,
         if_name: Optional[str] = None,
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.lacp.members.get_lacp_members()
+        client.device.lacp.members.get()
 
 

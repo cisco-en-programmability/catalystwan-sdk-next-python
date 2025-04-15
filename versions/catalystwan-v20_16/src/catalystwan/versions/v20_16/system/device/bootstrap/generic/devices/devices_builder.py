@@ -19,11 +19,12 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_generic_bootstrap_config_for_vedges(
+    def get(
         self, wanif: Optional[str] = None, sd_routing_device: Optional[bool] = None, **kw
     ) -> GenerateGenericBootstrapConfigForVedges:
         """
         Create bootstrap config for software vEdges
+        GET /dataservice/system/device/bootstrap/generic/devices
 
         :param wanif: Device WAN interface
         :param sd_routing_device: Flag indicating if this is SD-Routing device

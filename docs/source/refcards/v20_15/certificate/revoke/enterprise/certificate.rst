@@ -11,9 +11,7 @@ Revoking enterprise CSR for hardware vEdge
 
 .. code:: python
 
-    def decommission_enterprise_csr_for_vedge(
-        payload: Optional[str] = None,
-    ) -> str: ...
+    def post(payload: str) -> str: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.revoke.enterprise.certificate.decommission_enterprise_csr_for_vedge()
+        client.certificate.revoke.enterprise.certificate.post()
 
 

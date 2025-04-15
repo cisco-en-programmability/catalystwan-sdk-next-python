@@ -13,9 +13,7 @@ Attach to device profile
 
 .. code:: python
 
-    def push_device_profile_template(
-        profile_id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def post(profile_id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -33,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.profile.attachment.push_device_profile_template()
+        client.networkdesign.profile.attachment.post()
 
 

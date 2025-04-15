@@ -15,9 +15,10 @@ class PausereplicationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def disaster_recovery_pause_replication(self, **kw) -> Any:
+    def post(self, **kw) -> Any:
         """
         Pause DR data replication
+        POST /dataservice/disasterrecovery/pausereplication
 
         :returns: Any
         """

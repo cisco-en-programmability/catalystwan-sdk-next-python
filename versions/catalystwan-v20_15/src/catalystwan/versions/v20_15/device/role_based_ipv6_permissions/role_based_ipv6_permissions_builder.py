@@ -14,9 +14,10 @@ class RoleBasedIpv6PermissionsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_role_based_ipv6_permissions(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         get Cisco TrustSec Role Based ipv6 Permissions information from device
+        GET /dataservice/device/roleBasedIpv6Permissions
 
         :param device_id: deviceId - Device IP
         :returns: Any

@@ -11,9 +11,7 @@ Get CflowdvDPI query field JSON
 
 .. code:: python
 
-    def get_cflowd_dpi_field_json(
-        is_device_dash_board: Optional[bool] = False,
-    ) -> Any: ...
+    def get(is_device_dash_board: Optional[bool] = False) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cflowd.device.fields.get_cflowd_dpi_field_json()
+        client.device.cflowd.device.fields.get()
 
 

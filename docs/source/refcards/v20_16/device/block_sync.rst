@@ -11,7 +11,7 @@ Set collection manager block set flag
 
 .. code:: python
 
-    def set_block_sync(block_sync: str) -> Any: ...
+    def post(block_sync: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.block_sync.set_block_sync()
+        client.device.block_sync.post()
 
 

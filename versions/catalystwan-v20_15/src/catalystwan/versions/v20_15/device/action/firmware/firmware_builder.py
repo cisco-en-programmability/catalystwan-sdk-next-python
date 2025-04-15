@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -21,42 +21,20 @@ class FirmwareBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_firmware_images(self, **kw):
-        """
-        Get list of firmware images in the repository
-
-        :returns: None
-        """
-        logging.warning("Operation: %s is deprecated", "getFirmwareImages")
-        return self._request_adapter.request("GET", "/dataservice/device/action/firmware", **kw)
-
-    def process_firmware_image(self, **kw):
+    def post(self, **kw):
         """
         Upload firmware image package
+        POST /dataservice/device/action/firmware
 
         :returns: None
         """
         logging.warning("Operation: %s is deprecated", "processFirmwareImage")
         return self._request_adapter.request("POST", "/dataservice/device/action/firmware", **kw)
 
-    def get_firmware_image_details(self, version_id: str, **kw):
-        """
-        Get firmware image details for a given version
-
-        :param version_id: Firmware image version
-        :returns: None
-        """
-        logging.warning("Operation: %s is deprecated", "getFirmwareImageDetails")
-        params = {
-            "versionId": version_id,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/device/action/firmware/{versionId}", params=params, **kw
-        )
-
-    def delete_firmware_image(self, version_id: str, **kw):
+    def delete(self, version_id: str, **kw):
         """
         Delete firmware image package
+        DELETE /dataservice/device/action/firmware/{versionId}
 
         :param version_id: Firmware image version
         :returns: None
@@ -68,6 +46,43 @@ class FirmwareBuilder:
         return self._request_adapter.request(
             "DELETE", "/dataservice/device/action/firmware/{versionId}", params=params, **kw
         )
+
+    @overload
+    def get(self, version_id: str, **kw):
+        """
+        Get firmware image details for a given version
+        GET /dataservice/device/action/firmware/{versionId}
+
+        :param version_id: Firmware image version
+        :returns: None
+        """
+        ...
+
+    @overload
+    def get(self, **kw):
+        """
+        Get list of firmware images in the repository
+        GET /dataservice/device/action/firmware
+
+        :returns: None
+        """
+        ...
+
+    def get(self, version_id: Optional[str] = None, **kw):
+        # /dataservice/device/action/firmware/{versionId}
+        if self._request_adapter.param_checker([(version_id, str)], []):
+            logging.warning("Operation: %s is deprecated", "getFirmwareImageDetails")
+            params = {
+                "versionId": version_id,
+            }
+            return self._request_adapter.request(
+                "GET", "/dataservice/device/action/firmware/{versionId}", params=params, **kw
+            )
+        # /dataservice/device/action/firmware
+        if self._request_adapter.param_checker([], [version_id]):
+            logging.warning("Operation: %s is deprecated", "getFirmwareImages")
+            return self._request_adapter.request("GET", "/dataservice/device/action/firmware", **kw)
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def activate(self) -> ActivateBuilder:

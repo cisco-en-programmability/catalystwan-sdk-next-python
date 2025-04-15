@@ -11,7 +11,7 @@ List all entity ownership info
 
 .. code:: python
 
-    def list_entity_ownership_info() -> EntityOwnershipInfo: ...
+    def get() -> EntityOwnershipInfo: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.entityownership.list.list_entity_ownership_info()
+        client.entityownership.list.get()
 
 
 .. toctree::

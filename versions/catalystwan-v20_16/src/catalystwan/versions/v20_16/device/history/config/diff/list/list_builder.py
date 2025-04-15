@@ -14,9 +14,10 @@ class ListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_config_diff(self, config_id1: str, config_id2: str, **kw) -> Any:
+    def get(self, config_id1: str, config_id2: str, **kw) -> Any:
         """
         Get diff of two configs
+        GET /dataservice/device/history/config/diff/list
 
         :param config_id1: Config Id one
         :param config_id2: Config Id two

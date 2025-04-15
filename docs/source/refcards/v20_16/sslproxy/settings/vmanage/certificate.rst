@@ -11,7 +11,7 @@ Get vManage intermediate certificate
 
 .. code:: python
 
-    def getv_manage_certificate() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.settings.vmanage.certificate.getv_manage_certificate()
+        client.sslproxy.settings.vmanage.certificate.get()
 
 
 Operation: POST /dataservice/sslproxy/settings/vmanage/certificate
@@ -40,9 +40,7 @@ Set vManage root certificate
 
 .. code:: python
 
-    def setv_manageintermediate_cert(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -60,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.settings.vmanage.certificate.setv_manageintermediate_cert()
+        client.sslproxy.settings.vmanage.certificate.post()
 
 

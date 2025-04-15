@@ -11,7 +11,7 @@ Config-db restore status
 
 .. code:: python
 
-    def get_config_db_restore_status() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.dbrestorestatus.get_config_db_restore_status()
+        client.disasterrecovery.dbrestorestatus.get()
 
 

@@ -11,9 +11,7 @@ API to retrieve the supported Interconnect Gateway solution types.
 
 .. code:: python
 
-    def get_interconnet_gateway_types(
-        interconnect_type: InterconnectTypeParam,
-    ) -> List[str]: ...
+    def get(interconnect_type: InterconnectTypeParam) -> List[str]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.gateways.types.get_interconnet_gateway_types()
+        client.multicloud.interconnect.gateways.types.get()
 
 
 .. toctree::

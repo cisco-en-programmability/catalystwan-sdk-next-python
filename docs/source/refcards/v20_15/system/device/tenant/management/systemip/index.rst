@@ -11,9 +11,7 @@ Get management system IP<br><br><br>Note: In a multitenant vManage system, this 
 
 .. code:: python
 
-    def get_tenant_management_system_i_ps() -> (
-        List[GetTenantManagementSystemIPsInner]
-    ): ...
+    def get() -> List[GetTenantManagementSystemIPsInner]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.tenant.management.systemip.get_tenant_management_system_i_ps()
+        client.system.device.tenant.management.systemip.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Pause DR
 
 .. code:: python
 
-    def pause_dr() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.pause.pause_dr()
+        client.disasterrecovery.pause.post()
 
 

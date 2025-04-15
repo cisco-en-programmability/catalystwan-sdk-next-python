@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import logging
-from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -20,9 +19,10 @@ class UpsertSettingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def upsert_setting(self, payload: Optional[NwpiSettingDataPayload] = None, **kw):
+    def post(self, payload: NwpiSettingDataPayload, **kw):
         """
         insert or update setting
+        POST /dataservice/stream/device/nwpi/upsertSetting
 
         :param payload: Payload
         :returns: None

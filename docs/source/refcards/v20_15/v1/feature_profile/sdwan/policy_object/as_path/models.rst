@@ -47,8 +47,17 @@ Models
         data: Data
         name: str
         description: Optional[str]
-        # This is the documentation for POST request schema for AS Path profile parcel
-        documentation: Optional[Any]
+        metadata: Optional[Any]
+
+
+    class Payload:
+        """
+        as path profile parcel schema
+        """
+
+        data: Data
+        name: str
+        description: Optional[str]
         metadata: Optional[Any]
 
 
@@ -60,8 +69,6 @@ Models
         parcel_id: Optional[str]
         parcel_type: Optional[str]
         # as path profile parcel schema
-        payload: Optional[
-            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest
-        ]
+        payload: Optional[Payload]
 
 

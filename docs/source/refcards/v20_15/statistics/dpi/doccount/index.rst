@@ -11,9 +11,7 @@ Get response count of a query
 
 .. code:: python
 
-    def get_dpi_stats_count(
-        query: Optional[str] = None,
-    ) -> CountResponse: ...
+    def get(query: Optional[str] = None) -> CountResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.dpi.doccount.get_dpi_stats_count()
+        client.statistics.dpi.doccount.get()
 
 
 Operation: POST /dataservice/statistics/dpi/doccount
@@ -42,9 +40,7 @@ Get response count of a query
 
 .. code:: python
 
-    def get_dpi_stats_count_post(
-        payload: Optional[Any] = None,
-    ) -> CountResponse: ...
+    def post(payload: Any) -> CountResponse: ...
 
 
 Example:
@@ -62,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.dpi.doccount.get_dpi_stats_count_post()
+        client.statistics.dpi.doccount.post()
 
 
 .. toctree::

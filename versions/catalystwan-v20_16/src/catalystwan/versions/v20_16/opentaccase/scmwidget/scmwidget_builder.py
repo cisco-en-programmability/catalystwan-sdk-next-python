@@ -15,9 +15,10 @@ class ScmwidgetBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_call(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Proxy API for SCM Widget
+        GET /dataservice/opentaccase/scmwidget/{var}
 
         :returns: List[Any]
         """
@@ -26,9 +27,10 @@ class ScmwidgetBuilder:
             "GET", "/dataservice/opentaccase/scmwidget/{var}", return_type=List[Any], **kw
         )
 
-    def post_call(self, **kw) -> List[Any]:
+    def post(self, **kw) -> List[Any]:
         """
         Prxoy API for SCM Widget
+        POST /dataservice/opentaccase/scmwidget/{var}
 
         :returns: List[Any]
         """
@@ -37,9 +39,10 @@ class ScmwidgetBuilder:
             "POST", "/dataservice/opentaccase/scmwidget/{var}", return_type=List[Any], **kw
         )
 
-    def delete_call(self, **kw) -> List[Any]:
+    def delete(self, **kw) -> List[Any]:
         """
         Proxy API for SCM Widget
+        DELETE /dataservice/opentaccase/scmwidget/{var}
 
         :returns: List[Any]
         """

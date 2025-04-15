@@ -17,9 +17,10 @@ class TelemetryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def telemetry(self, payload: TelemetryRequests, **kw) -> Taskid:
+    def post(self, payload: TelemetryRequests, **kw) -> Taskid:
         """
         Reports telemetry data
+        POST /dataservice/multicloud/telemetry
 
         :param payload: telemetry
         :returns: Taskid

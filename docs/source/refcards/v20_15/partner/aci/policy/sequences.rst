@@ -11,7 +11,7 @@ Get data prefix sequence
 
 .. code:: python
 
-    def get_data_prefix_sequences() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.aci.policy.sequences.get_data_prefix_sequences()
+        client.partner.aci.policy.sequences.get()
 
 

@@ -14,9 +14,10 @@ class AlarmsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_synced_alarm_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get hardware alarm list synchronously from device
+        GET /dataservice/device/hardware/synced/alarms
 
         :param device_id: deviceId - Device IP
         :returns: Any

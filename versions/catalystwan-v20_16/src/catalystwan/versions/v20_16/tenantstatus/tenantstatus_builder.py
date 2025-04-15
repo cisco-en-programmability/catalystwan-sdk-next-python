@@ -17,12 +17,13 @@ class TenantstatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_tenant_statuses(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         List all tenant status
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/tenantstatus
 
         :returns: List[Any]
         """

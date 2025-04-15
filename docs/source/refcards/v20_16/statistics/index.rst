@@ -11,7 +11,7 @@ Get statistics types
 
 .. code:: python
 
-    def get_statistic_type() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.get_statistic_type()
+        client.statistics.get()
 
 
 Operation: POST /dataservice/statistics
@@ -40,8 +40,8 @@ Get stats raw data
 
 .. code:: python
 
-    def get_stats_raw_data_13(
-        payload: Optional[Any] = None,
+    def post(
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -64,7 +64,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.get_stats_raw_data_13()
+        client.statistics.post()
 
 
 .. toctree::

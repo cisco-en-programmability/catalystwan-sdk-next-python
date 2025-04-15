@@ -11,7 +11,7 @@ Get device statistics data
 
 .. code:: python
 
-    def generate_device_interface_statistics_data(
+    def get(
         start_date: Optional[str] = None,
         end_date: Optional[str] = None,
         scroll_id: Optional[str] = None,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v2.data.device.statistics.interfacestatistics.generate_device_interface_statistics_data()
+        client.v2.data.device.statistics.interfacestatistics.get()
 
 
 .. toctree::

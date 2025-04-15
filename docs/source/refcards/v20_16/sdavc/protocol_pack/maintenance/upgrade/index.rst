@@ -11,9 +11,7 @@ Deploy protocol pack to devices
 
 .. code:: python
 
-    def upgrade_protocol_pack(
-        payload: Optional[ProtocolPackUpgradeRequest] = None,
-    ) -> Any: ...
+    def post(payload: ProtocolPackUpgradeRequest) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.maintenance.upgrade.upgrade_protocol_pack()
+        client.sdavc.protocol_pack.maintenance.upgrade.post()
 
 
 .. toctree::

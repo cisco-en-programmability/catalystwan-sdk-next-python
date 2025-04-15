@@ -11,9 +11,7 @@ Update user password
 
 .. code:: python
 
-    def update_password_1(
-        user_name: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def put(user_name: str, payload: Any) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.user.password.update_password_1()
+        client.admin.user.password.put()
 
 
 .. toctree::

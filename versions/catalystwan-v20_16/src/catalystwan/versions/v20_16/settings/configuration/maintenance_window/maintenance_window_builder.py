@@ -12,9 +12,10 @@ class MaintenanceWindowBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_maintenance_window(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         Retrieve maintenance window
+        GET /dataservice/settings/configuration/maintenanceWindow
 
         :returns: str
         """

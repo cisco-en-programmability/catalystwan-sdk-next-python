@@ -19,11 +19,10 @@ class ImagesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def find_software_images_with_filters(
-        self, image_type: List[Image], vnf_type: Optional[str] = None, **kw
-    ) -> Any:
+    def get(self, image_type: List[Image], vnf_type: Optional[str] = None, **kw) -> Any:
         """
         Get software images
+        GET /dataservice/device/action/software/images
 
         :param image_type: imageType
         :param vnf_type: vnfType

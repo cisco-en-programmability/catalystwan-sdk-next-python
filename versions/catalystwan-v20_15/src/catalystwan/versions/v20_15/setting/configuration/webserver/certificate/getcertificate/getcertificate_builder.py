@@ -12,9 +12,10 @@ class GetcertificateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_certificate(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         Get certificate for alias server
+        GET /dataservice/setting/configuration/webserver/certificate/getcertificate
 
         :returns: str
         """

@@ -14,11 +14,10 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_alarm_severity_custom_histogram(
-        self, query: str, site_id: Optional[str] = None, **kw
-    ) -> Any:
+    def get(self, query: str, site_id: Optional[str] = None, **kw) -> Any:
         """
         Get alarm severity histogram
+        GET /dataservice/alarms/severity/summary
 
         :param query: Query
         :param site_id: Specify the site-id to filter the alarms

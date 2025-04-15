@@ -11,10 +11,8 @@ POST for fetching Secure Device Onboarding Token needed for Secure Device Onboar
 
 .. code:: python
 
-    def fetch_sdo_token(
-        payload: Optional[
-            DetailsForIdentityVerificationForSdoToken
-        ] = None,
+    def post(
+        payload: DetailsForIdentityVerificationForSdoToken,
     ) -> None: ...
 
 
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.securedeviceonboarding.fetch_sdo_token.fetch_sdo_token()
+        client.v1.securedeviceonboarding.fetch_sdo_token.post()
 
 
 .. toctree::

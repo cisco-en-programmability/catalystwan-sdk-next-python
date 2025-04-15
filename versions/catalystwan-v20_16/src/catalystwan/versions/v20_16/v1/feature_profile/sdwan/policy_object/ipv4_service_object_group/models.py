@@ -80,9 +80,19 @@ class OneOfEntriesPortLtValueOptionsDef1:
 
 
 @dataclass
+class OneOfEntriesPortLtValueOptionsDef2:
+    option_type: VariableOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: str
+    default: Optional[str] = _field(default=None)
+    description: Optional[str] = _field(default=None)
+
+
+@dataclass
 class SourcePorts1:
-    lt_value: Union[OneOfEntriesPortLtValueOptionsDef1, OneOfDescriptionOptionsDef2] = _field(
-        metadata={"alias": "ltValue"}
+    lt_value: Union[OneOfEntriesPortLtValueOptionsDef1, OneOfEntriesPortLtValueOptionsDef2] = (
+        _field(metadata={"alias": "ltValue"})
     )
     operator: OneOfEntriesOperatorLtOptionsDef
 
@@ -104,10 +114,20 @@ class OneOfEntriesTcpPortEqValueOptionsDef1:
 
 
 @dataclass
+class OneOfEntriesTcpPortEqValueOptionsDef2:
+    option_type: VariableOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: str
+    default: Optional[str] = _field(default=None)
+    description: Optional[str] = _field(default=None)
+
+
+@dataclass
 class EqValue1:
-    tcp_eq_value: Union[OneOfEntriesTcpPortEqValueOptionsDef1, OneOfDescriptionOptionsDef2] = (
-        _field(metadata={"alias": "tcpEqValue"})
-    )
+    tcp_eq_value: Union[
+        OneOfEntriesTcpPortEqValueOptionsDef1, OneOfEntriesTcpPortEqValueOptionsDef2
+    ] = _field(metadata={"alias": "tcpEqValue"})
 
 
 @dataclass
@@ -119,10 +139,20 @@ class OneOfEntriesUdpPortEqValueOptionsDef1:
 
 
 @dataclass
+class OneOfEntriesUdpPortEqValueOptionsDef2:
+    option_type: VariableOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: str
+    default: Optional[str] = _field(default=None)
+    description: Optional[str] = _field(default=None)
+
+
+@dataclass
 class EqValue2:
-    udp_eq_value: Union[OneOfEntriesUdpPortEqValueOptionsDef1, OneOfDescriptionOptionsDef2] = (
-        _field(metadata={"alias": "udpEqValue"})
-    )
+    udp_eq_value: Union[
+        OneOfEntriesUdpPortEqValueOptionsDef1, OneOfEntriesUdpPortEqValueOptionsDef2
+    ] = _field(metadata={"alias": "udpEqValue"})
 
 
 @dataclass
@@ -134,9 +164,19 @@ class OneOfEntriesTcpUdpPortEqValueOptionsDef1:
 
 
 @dataclass
+class OneOfEntriesTcpUdpPortEqValueOptionsDef2:
+    option_type: VariableOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: str
+    default: Optional[str] = _field(default=None)
+    description: Optional[str] = _field(default=None)
+
+
+@dataclass
 class EqValue3:
     tcp_udp_eq_value: Union[
-        OneOfEntriesTcpUdpPortEqValueOptionsDef1, OneOfDescriptionOptionsDef2
+        OneOfEntriesTcpUdpPortEqValueOptionsDef1, OneOfEntriesTcpUdpPortEqValueOptionsDef2
     ] = _field(metadata={"alias": "tcpUdpEqValue"})
 
 
@@ -164,9 +204,19 @@ class OneOfEntriesPortGtValueOptionsDef1:
 
 
 @dataclass
+class OneOfEntriesPortGtValueOptionsDef2:
+    option_type: VariableOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: str
+    default: Optional[str] = _field(default=None)
+    description: Optional[str] = _field(default=None)
+
+
+@dataclass
 class SourcePorts3:
-    gt_value: Union[OneOfEntriesPortGtValueOptionsDef1, OneOfDescriptionOptionsDef2] = _field(
-        metadata={"alias": "gtValue"}
+    gt_value: Union[OneOfEntriesPortGtValueOptionsDef1, OneOfEntriesPortGtValueOptionsDef2] = (
+        _field(metadata={"alias": "gtValue"})
     )
     operator: OneOfEntriesOperatorGtOptionsDef
 
@@ -188,6 +238,16 @@ class OneOfEntriesPortRangeStartOptionsDef1:
 
 
 @dataclass
+class OneOfEntriesPortRangeStartOptionsDef2:
+    option_type: VariableOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: str
+    default: Optional[str] = _field(default=None)
+    description: Optional[str] = _field(default=None)
+
+
+@dataclass
 class OneOfEntriesPortRangeEndOptionsDef1:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
@@ -196,13 +256,23 @@ class OneOfEntriesPortRangeEndOptionsDef1:
 
 
 @dataclass
+class OneOfEntriesPortRangeEndOptionsDef2:
+    option_type: VariableOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: str
+    default: Optional[str] = _field(default=None)
+    description: Optional[str] = _field(default=None)
+
+
+@dataclass
 class Range:
     """
     Source Port Range
     """
 
-    end: Union[OneOfEntriesPortRangeEndOptionsDef1, OneOfDescriptionOptionsDef2]
-    start: Union[OneOfEntriesPortRangeStartOptionsDef1, OneOfDescriptionOptionsDef2]
+    end: Union[OneOfEntriesPortRangeEndOptionsDef1, OneOfEntriesPortRangeEndOptionsDef2]
+    start: Union[OneOfEntriesPortRangeStartOptionsDef1, OneOfEntriesPortRangeStartOptionsDef2]
 
 
 @dataclass
@@ -226,13 +296,23 @@ class OneOfEntriesIcmpMsgOptionsDef1:
 
 
 @dataclass
+class OneOfEntriesIcmpMsgOptionsDef2:
+    option_type: VariableOptionTypeDef = _field(
+        metadata={"alias": "optionType"}
+    )  # pytype: disable=annotation-type-mismatch
+    value: str
+    default: Optional[str] = _field(default=None)
+    description: Optional[str] = _field(default=None)
+
+
+@dataclass
 class Entries21:
     protocol: Protocol
     destination_ports: Optional[DestinationPorts] = _field(
         default=None, metadata={"alias": "destinationPorts"}
     )
-    icmp_msg: Optional[Union[OneOfEntriesIcmpMsgOptionsDef1, OneOfDescriptionOptionsDef2]] = _field(
-        default=None, metadata={"alias": "icmpMsg"}
+    icmp_msg: Optional[Union[OneOfEntriesIcmpMsgOptionsDef1, OneOfEntriesIcmpMsgOptionsDef2]] = (
+        _field(default=None, metadata={"alias": "icmpMsg"})
     )
     # Source Ports
     source_ports: Optional[Union[SourcePorts1, SourcePorts2, SourcePorts3, SourcePorts4]] = _field(
@@ -249,10 +329,26 @@ class OneOfEntriesProtocolOptionsDef:
 
 
 @dataclass
+class DestinationPorts1:
+    lt_value: Union[OneOfEntriesPortLtValueOptionsDef1, OneOfEntriesPortLtValueOptionsDef2] = (
+        _field(metadata={"alias": "ltValue"})
+    )
+    operator: OneOfEntriesOperatorLtOptionsDef
+
+
+@dataclass
 class DestinationPorts2:
     # Destination Port That is Equal to This Value
     eq_value: Union[EqValue1, EqValue2, EqValue3] = _field(metadata={"alias": "eqValue"})
     operator: OneOfEntriesOperatorEqOptionsDef
+
+
+@dataclass
+class DestinationPorts3:
+    gt_value: Union[OneOfEntriesPortGtValueOptionsDef1, OneOfEntriesPortGtValueOptionsDef2] = (
+        _field(metadata={"alias": "gtValue"})
+    )
+    operator: OneOfEntriesOperatorGtOptionsDef
 
 
 @dataclass
@@ -261,8 +357,8 @@ class Ipv4ServiceObjectGroupRange:
     Destination Port Range
     """
 
-    end: Union[OneOfEntriesPortRangeEndOptionsDef1, OneOfDescriptionOptionsDef2]
-    start: Union[OneOfEntriesPortRangeStartOptionsDef1, OneOfDescriptionOptionsDef2]
+    end: Union[OneOfEntriesPortRangeEndOptionsDef1, OneOfEntriesPortRangeEndOptionsDef2]
+    start: Union[OneOfEntriesPortRangeStartOptionsDef1, OneOfEntriesPortRangeStartOptionsDef2]
 
 
 @dataclass
@@ -277,10 +373,10 @@ class Entries22:
     protocol: OneOfEntriesProtocolOptionsDef
     # Destination Ports
     destination_ports: Optional[
-        Union[SourcePorts1, DestinationPorts2, SourcePorts3, DestinationPorts4]
+        Union[DestinationPorts1, DestinationPorts2, DestinationPorts3, DestinationPorts4]
     ] = _field(default=None, metadata={"alias": "destinationPorts"})
-    icmp_msg: Optional[Union[OneOfEntriesIcmpMsgOptionsDef1, OneOfDescriptionOptionsDef2]] = _field(
-        default=None, metadata={"alias": "icmpMsg"}
+    icmp_msg: Optional[Union[OneOfEntriesIcmpMsgOptionsDef1, OneOfEntriesIcmpMsgOptionsDef2]] = (
+        _field(default=None, metadata={"alias": "icmpMsg"})
     )
     # Source Ports
     source_ports: Optional[Union[SourcePorts1, SourcePorts2, SourcePorts3, SourcePorts4]] = _field(
@@ -306,8 +402,18 @@ class CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest:
     data: Data
     name: str
     description: Optional[str] = _field(default=None)
-    # This is the documentation for POST/PUT request schema for Ipv4 Service Object Group profile parcel
-    documentation: Optional[Any] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload:
+    """
+    Ipv4 Service Object Group profile parcel schema
+    """
+
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
     metadata: Optional[Any] = _field(default=None)
 
 
@@ -320,6 +426,4 @@ class GetDataPrefixProfileParcelForPolicyObjectGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # Ipv4 Service Object Group profile parcel schema
-    payload: Optional[CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest] = _field(
-        default=None
-    )
+    payload: Optional[Payload] = _field(default=None)

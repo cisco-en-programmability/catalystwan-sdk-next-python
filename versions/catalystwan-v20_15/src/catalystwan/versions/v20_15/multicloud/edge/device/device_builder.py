@@ -20,9 +20,10 @@ class DeviceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_edge_wan_devices(self, edge_type: EdgeTypeParam, **kw) -> Any:
+    def get(self, edge_type: EdgeTypeParam, **kw) -> Any:
         """
         Get available WAN edge devices
+        GET /dataservice/multicloud/edge/{edgeType}/device
 
         :param edge_type: Edge Type
         :returns: Any

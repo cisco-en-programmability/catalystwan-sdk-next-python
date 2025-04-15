@@ -11,7 +11,7 @@ Get a SDWAN PolicyObject DataPrefix Parcel Schema by Schema Type
 
 .. code:: python
 
-    def get_sdwan_policy_object_data_prefix_parcel_schema_by_schema_type(
+    def get(
         schema_type: SchemaTypeParam,
         policy_object_list_type: PolicyObjectListTypeParam,
     ) -> str: ...
@@ -32,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.policy_object.schema.get_sdwan_policy_object_data_prefix_parcel_schema_by_schema_type()
+        client.v1.feature_profile.sdwan.policy_object.schema.get()
 
 
 .. toctree::

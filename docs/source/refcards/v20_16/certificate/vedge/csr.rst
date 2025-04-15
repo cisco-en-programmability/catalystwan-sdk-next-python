@@ -11,7 +11,7 @@ get device CSR
 
 .. code:: python
 
-    def getv_edge_csr(uuid: str) -> str: ...
+    def get(uuid: str) -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.vedge.csr.getv_edge_csr()
+        client.certificate.vedge.csr.get()
 
 

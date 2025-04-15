@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING, List, Optional
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import Alarm
+from .models import AlarmResponse
 
 if TYPE_CHECKING:
     from .summary.summary_builder import SummaryBuilder
@@ -22,22 +22,23 @@ class SeverityBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_by_severity(
+    def get(
         self,
         severity_level: List[str],
         device_id: Optional[List[str]] = None,
         query: Optional[str] = None,
         site_id: Optional[str] = None,
         **kw,
-    ) -> List[Alarm]:
+    ) -> AlarmResponse:
         """
         Get alarms by severity
+        GET /dataservice/alarms/severity
 
         :param severity_level: Severity level
         :param device_id: Device System IP
         :param query: Query
         :param site_id: Specify the site-id to filter the alarms
-        :returns: List[Alarm]
+        :returns: AlarmResponse
         """
         params = {
             "severity-level": severity_level,
@@ -46,7 +47,7 @@ class SeverityBuilder:
             "site-id": site_id,
         }
         return self._request_adapter.request(
-            "GET", "/dataservice/alarms/severity", return_type=List[Alarm], params=params, **kw
+            "GET", "/dataservice/alarms/severity", return_type=AlarmResponse, params=params, **kw
         )
 
     @property

@@ -11,9 +11,7 @@ Get alarm severity histogram
 
 .. code:: python
 
-    def get_alarm_severity_custom_histogram(
-        query: str, site_id: Optional[str] = None
-    ) -> Any: ...
+    def get(query: str, site_id: Optional[str] = None) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.severity.summary.get_alarm_severity_custom_histogram()
+        client.alarms.severity.summary.get()
 
 

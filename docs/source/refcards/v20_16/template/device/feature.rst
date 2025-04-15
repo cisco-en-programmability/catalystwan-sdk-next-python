@@ -11,7 +11,7 @@ Create a device template from feature templates and sub templates<br><br><br>Not
 
 .. code:: python
 
-    def create_master_template(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.feature.create_master_template()
+        client.template.device.feature.post()
 
 

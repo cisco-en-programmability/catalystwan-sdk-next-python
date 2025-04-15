@@ -11,9 +11,7 @@ Create/Edit policy definitions in bulk
 
 .. code:: python
 
-    def save_policy_definition_in_bulk_24(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def put(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.definition.vedgeroute.bulk.save_policy_definition_in_bulk_24()
+        client.template.policy.definition.vedgeroute.bulk.put()
 
 

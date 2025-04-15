@@ -11,9 +11,7 @@ Retrieve T1E1 controller last 15 min stats from device (Real Time)
 
 .. code:: python
 
-    def get_controller_t1e1_info_current15_min_stats(
-        device_id: str,
-    ) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.voicet1e1controllerinfo.current15minstats.get_controller_t1e1_info_current15_min_stats()
+        client.device.voicet1e1controllerinfo.current15minstats.get()
 
 

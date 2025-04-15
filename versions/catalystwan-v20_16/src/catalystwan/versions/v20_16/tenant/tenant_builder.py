@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Any, List, Optional
+from typing import TYPE_CHECKING, Any, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -23,41 +23,13 @@ class TenantBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_tenants(self, device_id: Optional[str] = None, **kw) -> List[Any]:
-        """
-        Lists all the tenants on the vManage
-
-
-        Note: In a multitenant vManage system, this API is only available in the Provider view.
-
-        :param device_id: List all tenants associated with a vSmart or MTEdge
-        :returns: List[Any]
-        """
-        params = {
-            "deviceId": device_id,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/tenant", return_type=List[Any], params=params, **kw
-        )
-
-    def update_tenant_bulk(self, payload: Optional[Any] = None, **kw) -> Any:
-        """
-        Update tenants in Multi-Tenant vManage
-
-
-        Note: In a multitenant vManage system, this API is only available in the Provider view.
-
-        :param payload: Tenant model
-        :returns: Any
-        """
-        return self._request_adapter.request("PUT", "/dataservice/tenant", payload=payload, **kw)
-
-    def create_tenant(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create a new tenant in Multi-Tenant vManage
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        POST /dataservice/tenant
 
         :param payload: Tenant model
         :returns: Any
@@ -65,40 +37,99 @@ class TenantBuilder:
         logging.warning("Operation: %s is deprecated", "createTenant")
         return self._request_adapter.request("POST", "/dataservice/tenant", payload=payload, **kw)
 
-    def get_tenant(self, tenant_id: str, **kw) -> Any:
+    @overload
+    def get(self, *, tenant_id: str, **kw) -> Any:
         """
         Get a tenant by Id
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/tenant/{tenantId}
 
         :param tenant_id: Tenant Id
         :returns: Any
         """
-        params = {
-            "tenantId": tenant_id,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/tenant/{tenantId}", params=params, **kw
-        )
+        ...
 
-    def update_tenant(self, tenant_id: str, payload: Optional[Any] = None, **kw) -> Any:
+    @overload
+    def get(self, *, device_id: Optional[str] = None, **kw) -> List[Any]:
+        """
+        Lists all the tenants on the vManage
+
+
+        Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/tenant
+
+        :param device_id: List all tenants associated with a vSmart or MTEdge
+        :returns: List[Any]
+        """
+        ...
+
+    def get(
+        self, *, device_id: Optional[str] = None, tenant_id: Optional[str] = None, **kw
+    ) -> Union[List[Any], Any]:
+        # /dataservice/tenant/{tenantId}
+        if self._request_adapter.param_checker([(tenant_id, str)], [device_id]):
+            params = {
+                "tenantId": tenant_id,
+            }
+            return self._request_adapter.request(
+                "GET", "/dataservice/tenant/{tenantId}", params=params, **kw
+            )
+        # /dataservice/tenant
+        if self._request_adapter.param_checker([], [tenant_id]):
+            params = {
+                "deviceId": device_id,
+            }
+            return self._request_adapter.request(
+                "GET", "/dataservice/tenant", return_type=List[Any], params=params, **kw
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
+
+    @overload
+    def put(self, payload: Any, tenant_id: str, **kw) -> Any:
         """
         Update a tenant in Multi-Tenant vManage
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        PUT /dataservice/tenant/{tenantId}
 
+        :param payload: Tenant model
         :param tenant_id: Tenant Id
+        :returns: Any
+        """
+        ...
+
+    @overload
+    def put(self, payload: Any, **kw) -> Any:
+        """
+        Update tenants in Multi-Tenant vManage
+
+
+        Note: In a multitenant vManage system, this API is only available in the Provider view.
+        PUT /dataservice/tenant
+
         :param payload: Tenant model
         :returns: Any
         """
-        params = {
-            "tenantId": tenant_id,
-        }
-        return self._request_adapter.request(
-            "PUT", "/dataservice/tenant/{tenantId}", params=params, payload=payload, **kw
-        )
+        ...
+
+    def put(self, payload: Any, tenant_id: Optional[str] = None, **kw) -> Any:
+        # /dataservice/tenant/{tenantId}
+        if self._request_adapter.param_checker([(payload, Any), (tenant_id, str)], []):
+            params = {
+                "tenantId": tenant_id,
+            }
+            return self._request_adapter.request(
+                "PUT", "/dataservice/tenant/{tenantId}", params=params, payload=payload, **kw
+            )
+        # /dataservice/tenant
+        if self._request_adapter.param_checker([(payload, Any)], [tenant_id]):
+            return self._request_adapter.request(
+                "PUT", "/dataservice/tenant", payload=payload, **kw
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def async_(self) -> AsyncBuilder:

@@ -14,9 +14,10 @@ class DeviceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_enabled_index_for_device(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get list of enabled device for statistics index
+        GET /dataservice/statistics/settings/status/device
 
         :param device_id: Device IP
         :returns: Any

@@ -11,7 +11,7 @@ Retrieve MDP policies
 
 .. code:: python
 
-    def retrieve_mdp_policies(nms_id: str) -> List[Any]: ...
+    def get(nms_id: str) -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.mdp.policies.retrieve_mdp_policies()
+        client.mdp.policies.get()
 
 
 Operation: PUT /dataservice/mdp/policies/{nmsId}
@@ -40,9 +40,7 @@ update policy status
 
 .. code:: python
 
-    def update_policy_status(
-        nms_id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(nms_id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.mdp.policies.update_policy_status()
+        client.mdp.policies.put()
 
 
 .. toctree::

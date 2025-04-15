@@ -14,9 +14,10 @@ class CategoryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_category(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get vManage resource category
+        GET /dataservice/management/category
 
         :returns: Any
         """

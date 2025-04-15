@@ -23,9 +23,10 @@ class AdmintechsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_admin_techs(self, **kw) -> List[AdminTechsRes]:
+    def get(self, **kw) -> List[AdminTechsRes]:
         """
         Get device admin-tech information
+        GET /dataservice/device/tools/admintechs
 
         :returns: List[AdminTechsRes]
         """

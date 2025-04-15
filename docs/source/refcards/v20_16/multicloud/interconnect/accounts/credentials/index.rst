@@ -11,9 +11,8 @@ API to edit associated Interconnect provider account credentials.
 
 .. code:: python
 
-    def update_interconnect_account_credentials(
-        interconnect_account_id: str,
-        payload: Optional[InterconnectAccount] = None,
+    def put(
+        interconnect_account_id: str, payload: InterconnectAccount
     ) -> InterconnectAccount: ...
 
 
@@ -32,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.accounts.credentials.update_interconnect_account_credentials()
+        client.multicloud.interconnect.accounts.credentials.put()
 
 
 .. toctree::

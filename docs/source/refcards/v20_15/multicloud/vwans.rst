@@ -13,7 +13,7 @@ Get Virtual Wans
 
 .. code:: python
 
-    def get_v_wans(
+    def get(
         account_id: Optional[str] = None,
         cloud_type: Optional[str] = None,
         resource_group: Optional[str] = None,
@@ -36,6 +36,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.vwans.get_v_wans()
+        client.multicloud.vwans.get()
 
 

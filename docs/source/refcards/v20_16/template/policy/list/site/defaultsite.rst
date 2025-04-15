@@ -11,7 +11,7 @@ Create default site list for sites missing from centralized policy
 
 .. code:: python
 
-    def create_default_site_list() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.list.site.defaultsite.create_default_site_list()
+        client.template.policy.list.site.defaultsite.post()
 
 

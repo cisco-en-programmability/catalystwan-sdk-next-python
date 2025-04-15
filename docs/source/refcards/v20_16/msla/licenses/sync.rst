@@ -11,7 +11,7 @@ Retrieve MSLA subscription/licenses
 
 .. code:: python
 
-    def sync_licenses_1(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.msla.licenses.sync.sync_licenses_1()
+        client.msla.licenses.sync.post()
 
 

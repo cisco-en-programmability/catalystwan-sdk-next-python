@@ -44,10 +44,17 @@ Models
         value: Any
 
 
+    class OneOfEntriesHostOptionsDef2:
+        option_type: VariableOptionTypeDef
+        value: str
+        default: Optional[str]
+        description: Optional[str]
+
+
     class Entries1:
         address_type: OneOfEntriesAddressTypeHostOptionsDef
         host: Union[
-            OneOfEntriesHostOptionsDef1, OneOfDescriptionOptionsDef2
+            OneOfEntriesHostOptionsDef1, OneOfEntriesHostOptionsDef2
         ]
 
 
@@ -61,10 +68,18 @@ Models
         value: str
 
 
+    class OneOfEntriesIpPrefixOptionsDef2:
+        option_type: VariableOptionTypeDef
+        value: str
+        default: Optional[str]
+        description: Optional[str]
+
+
     class Entries2:
         address_type: OneOfEntriesAddressTypeIpPrefixOptionsDef
         ip_prefix: Union[
-            OneOfEntriesIpPrefixOptionsDef1, OneOfDescriptionOptionsDef2
+            OneOfEntriesIpPrefixOptionsDef1,
+            OneOfEntriesIpPrefixOptionsDef2,
         ]
 
 
@@ -92,16 +107,42 @@ Models
         value: Any
 
 
+    class OneOfEntriesHostRangeStartOptionsDef1:
+        option_type: GlobalOptionTypeDef
+        value: Any
+
+
+    class OneOfEntriesHostRangeStartOptionsDef2:
+        option_type: VariableOptionTypeDef
+        value: str
+        default: Optional[str]
+        description: Optional[str]
+
+
+    class OneOfEntriesHostRangeEndOptionsDef1:
+        option_type: GlobalOptionTypeDef
+        value: Any
+
+
+    class OneOfEntriesHostRangeEndOptionsDef2:
+        option_type: VariableOptionTypeDef
+        value: str
+        default: Optional[str]
+        description: Optional[str]
+
+
     class HostRange:
         """
         Host Address Range
         """
 
         end: Union[
-            OneOfEntriesHostOptionsDef1, OneOfDescriptionOptionsDef2
+            OneOfEntriesHostRangeEndOptionsDef1,
+            OneOfEntriesHostRangeEndOptionsDef2,
         ]
         start: Union[
-            OneOfEntriesHostOptionsDef1, OneOfDescriptionOptionsDef2
+            OneOfEntriesHostRangeStartOptionsDef1,
+            OneOfEntriesHostRangeStartOptionsDef2,
         ]
 
 
@@ -131,8 +172,17 @@ Models
         data: Data
         name: str
         description: Optional[str]
-        # This is the documentation for POST/PUT request schema for Ipv4 Network Object Group profile parcel
-        documentation: Optional[Any]
+        metadata: Optional[Any]
+
+
+    class Payload:
+        """
+        Ipv4 Network Object Group profile parcel schema
+        """
+
+        data: Data
+        name: str
+        description: Optional[str]
         metadata: Optional[Any]
 
 
@@ -144,8 +194,6 @@ Models
         parcel_id: Optional[str]
         parcel_type: Optional[str]
         # Ipv4 Network Object Group profile parcel schema
-        payload: Optional[
-            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest
-        ]
+        payload: Optional[Payload]
 
 

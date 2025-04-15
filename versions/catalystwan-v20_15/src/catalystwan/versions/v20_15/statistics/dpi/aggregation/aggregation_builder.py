@@ -19,11 +19,10 @@ class AggregationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dpi_stats_aggregation_data(
-        self, query: Optional[str] = None, **kw
-    ) -> DpiAggregationResponse:
+    def get(self, query: Optional[str] = None, **kw) -> DpiAggregationResponse:
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
+        GET /dataservice/statistics/dpi/aggregation
 
         :param query: Query
         :returns: DpiAggregationResponse
@@ -39,11 +38,10 @@ class AggregationBuilder:
             **kw,
         )
 
-    def get_dpi_stats_aggregation_data_post(
-        self, payload: Optional[Any] = None, **kw
-    ) -> DpiAggregationResponse:
+    def post(self, payload: Any, **kw) -> DpiAggregationResponse:
         """
         Get raw aggregated data and display applications with the highest utilization for a device
+        POST /dataservice/statistics/dpi/aggregation
 
         :param payload: User
         :returns: DpiAggregationResponse

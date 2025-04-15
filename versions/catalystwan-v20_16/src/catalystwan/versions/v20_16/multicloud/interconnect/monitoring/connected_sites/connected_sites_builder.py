@@ -19,11 +19,12 @@ class ConnectedSitesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_monitoring_interconnect_connected_sites(
+    def get(
         self, interconnect_type: str, interconnect_gateway_name: Optional[str] = None, **kw
     ) -> List[InterconnectConnectedSite]:
         """
         API to retrieve Interconnect devices by Interconnect type for monitoring.
+        GET /dataservice/multicloud/interconnect/{interconnect-type}/monitoring/connected-sites
 
         :param interconnect_type: Interconnect provider type
         :param interconnect_gateway_name: Interconnect Gateway Name

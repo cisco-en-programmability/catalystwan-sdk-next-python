@@ -11,7 +11,7 @@ Migrate device software to vedge/cedge
 
 .. code:: python
 
-    def migrate_device(uuid: str) -> Any: ...
+    def put(uuid: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.migrate_device.migrate_device()
+        client.system.device.migrate_device.put()
 
 

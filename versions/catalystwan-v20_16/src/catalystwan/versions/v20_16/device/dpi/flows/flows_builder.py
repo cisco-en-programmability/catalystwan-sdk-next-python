@@ -19,7 +19,7 @@ class FlowsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_dpi_flows_list(
+    def get(
         self,
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
@@ -30,6 +30,7 @@ class FlowsBuilder:
     ) -> List[Any]:
         """
         Get DPI flow list from device (Real Time)
+        GET /dataservice/device/dpi/flows
 
         :param vpn_id: VPN Id
         :param src_ip: Source IP

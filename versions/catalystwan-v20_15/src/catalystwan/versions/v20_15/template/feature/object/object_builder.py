@@ -14,12 +14,13 @@ class ObjectBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_general_template(self, template_id: str, **kw) -> Any:
+    def get(self, template_id: str, **kw) -> Any:
         """
         Get template object definition for given template Id
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/template/feature/object/{templateId}
 
         :param template_id: Template Id
         :returns: Any

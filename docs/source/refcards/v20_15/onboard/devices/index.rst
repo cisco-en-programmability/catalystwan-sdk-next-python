@@ -11,7 +11,7 @@ GET Manual Onboard Device details
 
 .. code:: python
 
-    def get_devices(status: str) -> List[DeviceDetailsData]: ...
+    def get(status: str) -> List[DeviceDetailsData]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.onboard.devices.get_devices()
+        client.onboard.devices.get()
 
 
 Operation: POST /dataservice/onboard/devices
@@ -40,9 +40,7 @@ Manual Onboard added Device details
 
 .. code:: python
 
-    def manual_onboard_devices(
-        payload: Optional[DeviceDetailsData] = None,
-    ) -> Any: ...
+    def post(payload: DeviceDetailsData) -> Any: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.onboard.devices.manual_onboard_devices()
+        client.onboard.devices.post()
 
 
 .. toctree::

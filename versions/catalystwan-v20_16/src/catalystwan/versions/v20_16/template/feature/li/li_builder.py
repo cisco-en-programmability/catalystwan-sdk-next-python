@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional
+from typing import Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class LiBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_li_template(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get LI feature template
+        GET /dataservice/template/feature/li
 
         :returns: List[Any]
         """
@@ -24,12 +25,13 @@ class LiBuilder:
             "GET", "/dataservice/template/feature/li", return_type=List[Any], **kw
         )
 
-    def create_li_template(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create LI feature template
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        POST /dataservice/template/feature/li
 
         :param payload: LI template
         :returns: Any
@@ -38,12 +40,13 @@ class LiBuilder:
             "POST", "/dataservice/template/feature/li", payload=payload, **kw
         )
 
-    def edit_li_template(self, template_id: str, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, template_id: str, payload: Any, **kw) -> Any:
         """
         Update LI feature template
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        PUT /dataservice/template/feature/li/{templateId}
 
         :param template_id: Template Id
         :param payload: LI template

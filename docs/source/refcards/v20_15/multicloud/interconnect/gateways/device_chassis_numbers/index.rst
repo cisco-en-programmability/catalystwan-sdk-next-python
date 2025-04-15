@@ -11,7 +11,7 @@ API to retrieve available devices or devices associated to a config group.
 
 .. code:: python
 
-    def get_available_devices_or_by_cg_id_1(
+    def get(
         interconnect_type: InterconnectTypeParam,
         config_group_id: Optional[str] = None,
         device_solution_type: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.gateways.device_chassis_numbers.get_available_devices_or_by_cg_id_1()
+        client.multicloud.interconnect.gateways.device_chassis_numbers.get()
 
 
 .. toctree::

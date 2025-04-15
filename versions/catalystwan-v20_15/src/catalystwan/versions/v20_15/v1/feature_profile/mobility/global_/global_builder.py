@@ -1,9 +1,12 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import GetMobilityGlobalFeatureProfileGetResponse, GetSingleMobilityGlobalPayload
 
 if TYPE_CHECKING:
     from .aaaservers.aaaservers_builder import AaaserversBuilder
@@ -24,46 +27,80 @@ class GlobalBuilder:
     Builds and executes requests for operations under /v1/feature-profile/mobility/global
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_mobility_global_feature_profile(
+    @overload
+    def get(self, *, global_id: str, **kw) -> GetSingleMobilityGlobalPayload:
+        """
+        Get a Mobility Global Feature Profile by profileId
+        GET /dataservice/v1/feature-profile/mobility/global/{globalId}
+
+        :param global_id: Feature Profile Id
+        :returns: GetSingleMobilityGlobalPayload
+        """
+        ...
+
+    @overload
+    def get(
         self,
+        *,
         offset: Optional[int] = None,
         limit: Optional[int] = 0,
         reference_count: Optional[bool] = False,
         **kw,
-    ) -> Any:
+    ) -> List[GetMobilityGlobalFeatureProfileGetResponse]:
         """
         Get Mobility Global Feature Profiles
+        GET /dataservice/v1/feature-profile/mobility/global
 
         :param offset: Pagination offset
         :param limit: Pagination limit
         :param reference_count: get associated group details
-        :returns: Any
+        :returns: List[GetMobilityGlobalFeatureProfileGetResponse]
         """
-        params = {
-            "offset": offset,
-            "limit": limit,
-            "referenceCount": reference_count,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/mobility/global", params=params, **kw
-        )
+        ...
 
-    def get_mobility_feature_profile_by_global_id(self, global_id: str, **kw) -> Any:
-        """
-        Get a Mobility Global Feature Profile by profileId
-
-        :param global_id: Feature Profile Id
-        :returns: Any
-        """
-        params = {
-            "globalId": global_id,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/mobility/global/{globalId}", params=params, **kw
-        )
+    def get(
+        self,
+        *,
+        offset: Optional[int] = None,
+        limit: Optional[int] = None,
+        reference_count: Optional[bool] = None,
+        global_id: Optional[str] = None,
+        **kw,
+    ) -> Union[List[GetMobilityGlobalFeatureProfileGetResponse], GetSingleMobilityGlobalPayload]:
+        # /dataservice/v1/feature-profile/mobility/global/{globalId}
+        if self._request_adapter.param_checker(
+            [(global_id, str)], [offset, limit, reference_count]
+        ):
+            params = {
+                "globalId": global_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/mobility/global/{globalId}",
+                return_type=GetSingleMobilityGlobalPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/mobility/global
+        if self._request_adapter.param_checker([], [global_id]):
+            params = {
+                "offset": offset,
+                "limit": limit,
+                "referenceCount": reference_count,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/mobility/global",
+                return_type=List[GetMobilityGlobalFeatureProfileGetResponse],
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def aaaservers(self) -> AaaserversBuilder:

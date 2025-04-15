@@ -11,7 +11,7 @@ Get device counters
 
 .. code:: python
 
-    def get_device_counters() -> DeviceCountersResponse: ...
+    def get() -> DeviceCountersResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.counters.get_device_counters()
+        client.device.counters.get()
 
 
 .. toctree::

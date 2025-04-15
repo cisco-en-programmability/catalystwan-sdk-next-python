@@ -11,9 +11,7 @@ TunnelPath
 
 .. code:: python
 
-    def tunnel_path(
-        device_ip: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def post(device_ip: str, payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.tunnelpath.tunnel_path()
+        client.device.tools.tunnelpath.post()
 
 

@@ -12,9 +12,10 @@ class PasswordPolicyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_password_policy(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         Retrieve password policy from global settings
+        GET /dataservice/settings/passwordPolicy
 
         :returns: str
         """

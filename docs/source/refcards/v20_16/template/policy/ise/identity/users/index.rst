@@ -11,9 +11,7 @@ Get all identity users
 
 .. code:: python
 
-    def get_identity_users(
-        payload: Optional[UsersBody] = None,
-    ) -> UsersResponse: ...
+    def post(payload: UsersBody) -> UsersResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.ise.identity.users.get_identity_users()
+        client.template.policy.ise.identity.users.post()
 
 
 .. toctree::

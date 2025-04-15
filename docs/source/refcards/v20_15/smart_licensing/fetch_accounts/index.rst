@@ -11,7 +11,7 @@ fetch sava for sle
 
 .. code:: python
 
-    def fetch_accounts(
+    def get(
         mode: str, payload: Optional[Any] = None
     ) -> SmartLicensingfetchAccountsResp: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.smart_licensing.fetch_accounts.fetch_accounts()
+        client.smart_licensing.fetch_accounts.get()
 
 
 .. toctree::

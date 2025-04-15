@@ -11,9 +11,8 @@ Get network availability aggregated data with details based on input query and f
 
 .. code:: python
 
-    def get_detail_aggregation_data_by_query(
-        payload: Optional[Any] = None,
-        include_prev: Optional[bool] = False,
+    def post(
+        payload: Any, include_prev: Optional[bool] = False
     ) -> List[NetworkAvailabilityResp]: ...
 
 
@@ -32,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.nwa.details.get_detail_aggregation_data_by_query()
+        client.statistics.nwa.details.post()
 
 
 .. toctree::

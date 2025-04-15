@@ -11,7 +11,7 @@ Qosmos Nbar migration
 
 .. code:: python
 
-    def qosmos_nbar_migration_warning() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.vsmart.qosmos_nbar_migration_warning.qosmos_nbar_migration_warning()
+        client.template.policy.vsmart.qosmos_nbar_migration_warning.get()
 
 

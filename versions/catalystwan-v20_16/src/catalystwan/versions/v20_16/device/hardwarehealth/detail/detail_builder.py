@@ -19,11 +19,12 @@ class DetailBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_hardware_health_details(
+    def get(
         self, device_id: Optional[str] = None, state: Optional[str] = None, **kw
     ) -> List[DeviceHardwareHealthDetail]:
         """
         Get hardware health details for device
+        GET /dataservice/device/hardwarehealth/detail
 
         :param device_id: Device Id
         :param state: Device state

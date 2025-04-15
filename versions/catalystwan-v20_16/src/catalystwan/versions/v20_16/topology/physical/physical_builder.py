@@ -19,9 +19,10 @@ class PhysicalBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_physical_topology(self, device_id: List[DeviceIp], **kw) -> Any:
+    def get(self, device_id: List[DeviceIp], **kw) -> Any:
         """
         Create pysical topology
+        GET /dataservice/topology/physical
 
         :param device_id: Device Id list
         :returns: Any

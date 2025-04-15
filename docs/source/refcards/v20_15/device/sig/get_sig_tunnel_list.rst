@@ -11,7 +11,7 @@ get Sig TunnelList
 
 .. code:: python
 
-    def get_sig_tunnel_list(
+    def get(
         page_size: Optional[str] = None,
         offset: Optional[str] = None,
         last_n_hours: Optional[str] = None,
@@ -34,6 +34,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.sig.get_sig_tunnel_list.get_sig_tunnel_list()
+        client.device.sig.get_sig_tunnel_list.get()
 
 

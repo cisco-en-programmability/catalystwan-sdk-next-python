@@ -19,11 +19,10 @@ class RemovepartitionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_remove_partition_info(
-        self, device_id: Optional[List[DeviceIp]] = None, **kw
-    ) -> GenerateRemovePartitionInfo:
+    def get(self, device_id: Optional[List[DeviceIp]] = None, **kw) -> GenerateRemovePartitionInfo:
         """
         Get remove partition information
+        GET /dataservice/device/action/removepartition
 
         :param device_id: Device id
         :returns: GenerateRemovePartitionInfo
@@ -39,9 +38,10 @@ class RemovepartitionBuilder:
             **kw,
         )
 
-    def process_remove_partition(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Process remove partition operation
+        POST /dataservice/device/action/removepartition
 
         :param payload: Device remove partition request payload
         :returns: Any

@@ -17,11 +17,10 @@ class SchemaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdwan_transport_cellular_controller_parcel_schema_by_schema_type(
-        self, schema_type: SchemaTypeParam, **kw
-    ) -> str:
+    def get(self, schema_type: SchemaTypeParam, **kw) -> str:
         """
         Get a SDWAN Transport CellularController Parcel Schema by Schema Type
+        GET /dataservice/v1/feature-profile/sdwan/transport/cellular-controller/schema
 
         :param schema_type: Schema type
         :returns: str

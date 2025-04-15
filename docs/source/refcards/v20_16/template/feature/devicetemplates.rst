@@ -11,9 +11,7 @@ Get all device templates for this feature template<br><br><br>Note: In a multite
 
 .. code:: python
 
-    def get_device_templates_attached_to_feature(
-        template_id: str,
-    ) -> Any: ...
+    def get(template_id: str) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.feature.devicetemplates.get_device_templates_attached_to_feature()
+        client.template.feature.devicetemplates.get()
 
 

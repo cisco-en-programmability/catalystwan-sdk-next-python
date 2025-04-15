@@ -14,9 +14,10 @@ class DeleteLocalDataCenterBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def delete_local_dc(self, **kw) -> Any:
+    def post(self, **kw) -> Any:
         """
         Delete local data center
+        POST /dataservice/disasterrecovery/deleteLocalDataCenter
 
         :returns: Any
         """

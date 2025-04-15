@@ -11,7 +11,7 @@ get UMTS result by type, time, and device uuid
 
 .. code:: python
 
-    def get_umts_data(
+    def get(
         device_uuid: str,
         event_type: str,
         last_n_hours: Optional[int] = 24,
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.umts.statistics.get_umts_data()
+        client.stream.device.umts.statistics.get()
 
 

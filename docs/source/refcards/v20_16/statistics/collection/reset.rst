@@ -11,7 +11,7 @@ Reset stats collect thread report
 
 .. code:: python
 
-    def reset_stats_collection(process_queue: int) -> Any: ...
+    def get(process_queue: int) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.collection.reset.reset_stats_collection()
+        client.statistics.collection.reset.get()
 
 

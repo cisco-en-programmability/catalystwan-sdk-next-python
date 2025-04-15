@@ -11,7 +11,7 @@ Get disaster recovery local replication schedule
 
 .. code:: python
 
-    def get_disaster_recovery_local_replication_schedule() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.schedule.get_disaster_recovery_local_replication_schedule()
+        client.disasterrecovery.schedule.get()
 
 

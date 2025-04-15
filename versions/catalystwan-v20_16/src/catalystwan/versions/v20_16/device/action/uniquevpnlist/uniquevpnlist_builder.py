@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional
+from typing import Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class UniquevpnlistBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_unique_vpn_list(self, payload: Optional[Any] = None, **kw) -> List[Any]:
+    def post(self, payload: Any, **kw) -> List[Any]:
         """
         Create unique VPN list
+        POST /dataservice/device/action/uniquevpnlist
 
         :param payload: Device IPs
         :returns: List[Any]

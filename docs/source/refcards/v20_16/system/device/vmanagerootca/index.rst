@@ -11,9 +11,7 @@ Invalidate vManage root CA
 
 .. code:: python
 
-    def invalidate_vmanage_root_ca(
-        uuid: str,
-    ) -> InvalidateVmanageRootCa: ...
+    def delete(uuid: str) -> InvalidateVmanageRootCa: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.vmanagerootca.invalidate_vmanage_root_ca()
+        client.system.device.vmanagerootca.delete()
 
 
 .. toctree::

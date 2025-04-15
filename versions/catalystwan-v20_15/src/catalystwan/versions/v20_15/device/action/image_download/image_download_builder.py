@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,9 +14,10 @@ class ImageDownloadBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def initiate_image_download(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Intitate image download on the given device.
+        POST /dataservice/device/action/image-download
 
         :param payload: Request body to Intitate image download on the given device
         :returns: None

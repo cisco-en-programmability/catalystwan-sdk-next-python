@@ -11,7 +11,7 @@ Get hardware error list from device
 
 .. code:: python
 
-    def create_error_alarm_list() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.hardware.errors.create_error_alarm_list()
+        client.device.hardware.errors.get()
 
 

@@ -13,9 +13,7 @@ Get Device Link Metro Speed based on device link config
 
 .. code:: python
 
-    def get_device_link_metro_speed(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -33,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.devicelink.metro_speed.edge.get_device_link_metro_speed()
+        client.multicloud.devicelink.metro_speed.edge.post()
 
 

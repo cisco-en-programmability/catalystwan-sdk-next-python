@@ -11,7 +11,7 @@ Get current latest protocol pack details
 
 .. code:: python
 
-    def get_latest_system_pack() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.latest.get_latest_system_pack()
+        client.sdavc.protocol_pack.latest.get()
 
 

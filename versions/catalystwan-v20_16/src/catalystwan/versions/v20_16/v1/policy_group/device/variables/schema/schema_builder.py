@@ -14,9 +14,10 @@ class SchemaBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_policy_group_device_variables_schema(self, policy_group_id: str, **kw) -> Any:
+    def get(self, policy_group_id: str, **kw) -> Any:
         """
         get device variables schema
+        GET /dataservice/v1/policy-group/{policyGroupId}/device/variables/schema
 
         :param policy_group_id: Policy Group Id
         :returns: Any

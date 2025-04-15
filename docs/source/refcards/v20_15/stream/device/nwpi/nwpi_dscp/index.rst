@@ -11,7 +11,7 @@ Deprecated!!!
 
 .. code:: python
 
-    def get_nwpi_dscp() -> List[NwpiDscpResponsePayloadInner]: ...
+    def get() -> List[NwpiDscpResponsePayloadInner]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.nwpi_dscp.get_nwpi_dscp()
+        client.stream.device.nwpi.nwpi_dscp.get()
 
 
 .. toctree::

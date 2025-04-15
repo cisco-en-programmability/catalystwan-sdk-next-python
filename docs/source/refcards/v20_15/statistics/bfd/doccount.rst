@@ -11,7 +11,7 @@ Get response count of a query
 
 .. code:: python
 
-    def get_count_6(query: str) -> Any: ...
+    def get(query: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.bfd.doccount.get_count_6()
+        client.statistics.bfd.doccount.get()
 
 
 Operation: POST /dataservice/statistics/bfd/doccount
@@ -40,7 +40,7 @@ Get response count of a query
 
 .. code:: python
 
-    def get_count_post_5(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.bfd.doccount.get_count_post_5()
+        client.statistics.bfd.doccount.post()
 
 

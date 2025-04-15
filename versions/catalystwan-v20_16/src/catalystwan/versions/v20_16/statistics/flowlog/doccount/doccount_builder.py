@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,9 +19,10 @@ class DoccountBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_flowlog_count(self, query: str, **kw) -> CountResponse:
+    def get(self, query: str, **kw) -> CountResponse:
         """
         Get response count of a query
+        GET /dataservice/statistics/flowlog/doccount
 
         :param query: Query
         :returns: CountResponse
@@ -37,9 +38,10 @@ class DoccountBuilder:
             **kw,
         )
 
-    def get_flowlog_count_post(self, payload: Optional[Any] = None, **kw) -> CountResponse:
+    def post(self, payload: Any, **kw) -> CountResponse:
         """
         Get response count of a query
+        POST /dataservice/statistics/flowlog/doccount
 
         :param payload: Query
         :returns: CountResponse

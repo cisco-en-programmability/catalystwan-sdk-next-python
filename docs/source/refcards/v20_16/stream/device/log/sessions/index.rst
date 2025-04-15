@@ -9,7 +9,7 @@ Operation: GET /dataservice/stream/device/log/sessions
 
 .. code:: python
 
-    def get_sessions() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -27,7 +27,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.log.sessions.get_sessions()
+        client.stream.device.log.sessions.get()
 
 
 .. toctree::

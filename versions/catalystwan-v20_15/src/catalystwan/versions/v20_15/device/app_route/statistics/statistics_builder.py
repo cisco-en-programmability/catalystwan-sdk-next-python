@@ -6,7 +6,7 @@ from typing import Any, Optional
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import LocalColorParam
+from .models import LocalColorParam, RemoteColorParam
 
 
 class StatisticsBuilder:
@@ -19,16 +19,17 @@ class StatisticsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_app_route_statistics_list(
+    def get(
         self,
         device_id: str,
         remote_system_ip: Optional[str] = None,
         local_color: Optional[LocalColorParam] = None,
-        remote_color: Optional[LocalColorParam] = None,
+        remote_color: Optional[RemoteColorParam] = None,
         **kw,
     ) -> Any:
         """
         Get application-aware routing statistics from device (Real Time)
+        GET /dataservice/device/app-route/statistics
 
         :param remote_system_ip: Remote system IP
         :param local_color: Local color

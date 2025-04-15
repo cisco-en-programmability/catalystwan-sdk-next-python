@@ -14,9 +14,10 @@ class WebexBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_webex_app_data(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get SD AVC App Rules for Webex
+        GET /dataservice/monitor/sdavccloudconnector/webex
 
         :returns: Any
         """

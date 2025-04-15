@@ -12,9 +12,10 @@ class DownloadBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def download_file(self, session_id: str, **kw) -> str:
+    def get(self, session_id: str, **kw) -> str:
         """
         Download packet capture file
+        GET /dataservice/stream/device/capture/download/{sessionId}
 
         :param session_id: Session id
         :returns: str

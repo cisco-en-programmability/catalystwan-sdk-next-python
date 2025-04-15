@@ -14,9 +14,10 @@ class ProfilesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dsp_farm_profiles(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get DSPFarm Profiles info from device
+        GET /dataservice/device/voice/profiles
 
         :param device_id: deviceId - Device IP
         :returns: Any

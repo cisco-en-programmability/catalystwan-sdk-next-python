@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any, Optional, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -23,24 +23,10 @@ class EdgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_edge_accounts(self, edge_type: Optional[EdgeTypeParam] = None, **kw) -> Any:
-        """
-        Get all Multicloud edge accounts
-
-        :param edge_type: Edge type
-        :returns: Any
-        """
-        logging.warning("Operation: %s is deprecated", "getEdgeAccounts")
-        params = {
-            "edgeType": edge_type,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/accounts/edge", params=params, **kw
-        )
-
-    def validate_edge_account_add(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Authenticate edge account credentials
+        POST /dataservice/multicloud/accounts/edge
 
         :param payload: Multicloud edge account info
         :returns: None
@@ -50,24 +36,10 @@ class EdgeBuilder:
             "POST", "/dataservice/multicloud/accounts/edge", payload=payload, **kw
         )
 
-    def get_edge_account_details(self, account_id: str, **kw) -> Any:
-        """
-        Get edge account by account Id
-
-        :param account_id: Edge Account Id
-        :returns: Any
-        """
-        logging.warning("Operation: %s is deprecated", "getEdgeAccountDetails")
-        params = {
-            "accountId": account_id,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/accounts/edge/{accountId}", params=params, **kw
-        )
-
-    def update_edge_account(self, account_id: str, payload: Optional[Any] = None, **kw):
+    def put(self, account_id: str, payload: Any, **kw):
         """
         Update Multicloud edge account
+        PUT /dataservice/multicloud/accounts/edge/{accountId}
 
         :param account_id: Multicloud Edge Account Id
         :param payload: Multicloud edge account info
@@ -85,9 +57,10 @@ class EdgeBuilder:
             **kw,
         )
 
-    def delete_edge_account(self, account_id: str, **kw):
+    def delete(self, account_id: str, **kw):
         """
         Delete edge account
+        DELETE /dataservice/multicloud/accounts/edge/{accountId}
 
         :param account_id: Edge Account Id
         :returns: None
@@ -99,6 +72,51 @@ class EdgeBuilder:
         return self._request_adapter.request(
             "DELETE", "/dataservice/multicloud/accounts/edge/{accountId}", params=params, **kw
         )
+
+    @overload
+    def get(self, *, account_id: str, **kw) -> Any:
+        """
+        Get edge account by account Id
+        GET /dataservice/multicloud/accounts/edge/{accountId}
+
+        :param account_id: Edge Account Id
+        :returns: Any
+        """
+        ...
+
+    @overload
+    def get(self, *, edge_type: Optional[EdgeTypeParam] = None, **kw) -> Any:
+        """
+        Get all Multicloud edge accounts
+        GET /dataservice/multicloud/accounts/edge
+
+        :param edge_type: Edge type
+        :returns: Any
+        """
+        ...
+
+    def get(
+        self, *, edge_type: Optional[EdgeTypeParam] = None, account_id: Optional[str] = None, **kw
+    ) -> Any:
+        # /dataservice/multicloud/accounts/edge/{accountId}
+        if self._request_adapter.param_checker([(account_id, str)], [edge_type]):
+            logging.warning("Operation: %s is deprecated", "getEdgeAccountDetails")
+            params = {
+                "accountId": account_id,
+            }
+            return self._request_adapter.request(
+                "GET", "/dataservice/multicloud/accounts/edge/{accountId}", params=params, **kw
+            )
+        # /dataservice/multicloud/accounts/edge
+        if self._request_adapter.param_checker([], [account_id]):
+            logging.warning("Operation: %s is deprecated", "getEdgeAccounts")
+            params = {
+                "edgeType": edge_type,
+            }
+            return self._request_adapter.request(
+                "GET", "/dataservice/multicloud/accounts/edge", params=params, **kw
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def credentials(self) -> CredentialsBuilder:

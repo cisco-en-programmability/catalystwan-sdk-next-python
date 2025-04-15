@@ -14,9 +14,10 @@ class ClusterSummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_appqoe_cluster_summary(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get Appqoe Cluster Summary from device
+        GET /dataservice/device/appqoe/cluster-summary
 
         :param device_id: Device Id
         :returns: Any

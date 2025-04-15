@@ -11,9 +11,7 @@ Export tenant data
 
 .. code:: python
 
-    def export_tenant_data(
-        payload: Optional[MigrateTenantModel] = None,
-    ) -> Any: ...
+    def post(payload: MigrateTenantModel) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenantmigration.export.export_tenant_data()
+        client.tenantmigration.export.post()
 
 
 .. toctree::

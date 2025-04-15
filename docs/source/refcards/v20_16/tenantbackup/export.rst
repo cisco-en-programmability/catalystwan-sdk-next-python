@@ -11,7 +11,7 @@ Trigger a backup of configuration database and store it in vManage<br><br><br>No
 
 .. code:: python
 
-    def export_tenant_backup() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenantbackup.export.export_tenant_backup()
+        client.tenantbackup.export.get()
 
 

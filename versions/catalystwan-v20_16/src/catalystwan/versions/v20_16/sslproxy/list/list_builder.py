@@ -14,9 +14,10 @@ class ListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_ssl_proxy_list(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get SSL proxy certificate list
+        GET /dataservice/sslproxy/list
 
         :returns: List[Any]
         """

@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,11 +14,10 @@ class MultipleBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def edit_multiple_policy_definition_22(
-        self, id: str, payload: Optional[Any] = None, **kw
-    ) -> Any:
+    def put(self, id: str, payload: Any, **kw) -> Any:
         """
         Edit multiple policy definitions
+        PUT /dataservice/template/policy/definition/sslutdprofile/multiple/{id}
 
         :param id: Policy Id
         :param payload: Policy definition

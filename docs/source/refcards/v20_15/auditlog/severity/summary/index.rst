@@ -11,9 +11,7 @@ Get audit log severity histogram
 
 .. code:: python
 
-    def get_audit_severity_custom_histogram(
-        query: str,
-    ) -> InlineResponse200: ...
+    def get(query: str) -> InlineResponse200: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.auditlog.severity.summary.get_audit_severity_custom_histogram()
+        client.auditlog.severity.summary.get()
 
 
 .. toctree::

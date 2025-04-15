@@ -19,11 +19,10 @@ class ApplicationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dpi_device_app_aggregation_data(
-        self, query: str, limit: Optional[int] = None, **kw
-    ) -> DeviceAppResponse:
+    def get(self, query: str, limit: Optional[int] = None, **kw) -> DeviceAppResponse:
         """
         Get DPI application flows device aggregation data
+        GET /dataservice/statistics/dpi/device/applications
 
         :param query: Query
         :param limit: Limit

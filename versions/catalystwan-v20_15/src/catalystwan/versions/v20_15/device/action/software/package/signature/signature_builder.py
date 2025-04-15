@@ -17,11 +17,10 @@ class SignatureBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_utd_image_data(
-        self, utdsignature: UtdsignatureParam, type_: str, **kw
-    ) -> ImageData:
+    def get(self, utdsignature: UtdsignatureParam, type_: str, **kw) -> ImageData:
         """
         Get list of Utd images
+        GET /dataservice/device/action/software/package/signature/{utdsignature}
 
         :param utdsignature: utdsignature
         :param type_: Type

@@ -19,11 +19,12 @@ class SsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_tools_ss(
+    def get(
         self, device_id: str, vpn: Optional[VpnParam] = None, options: Optional[str] = None, **kw
     ) -> Any:
         """
         Get device tool ss
+        GET /dataservice/device/tools/ss
 
         :param vpn: VPN
         :param options: Options

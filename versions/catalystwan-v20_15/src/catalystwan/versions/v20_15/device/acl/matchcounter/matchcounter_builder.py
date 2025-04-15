@@ -14,9 +14,10 @@ class MatchcounterBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_acl_match_counter_users(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get ACL match counters from device (Real Time)
+        GET /dataservice/device/acl/matchcounter
 
         :param device_id: deviceId - Device IP
         :returns: Any

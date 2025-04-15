@@ -14,9 +14,10 @@ class CacheStatsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_fn_f_cache_stats(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get FnF cache stats from device
+        GET /dataservice/device/cflowd/fnf/cache-stats
 
         :param device_id: Device IP
         :returns: Any

@@ -11,7 +11,7 @@ Get cloud service OTP value
 
 .. code:: python
 
-    def get_otp() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.cloudservices.otp.get_otp()
+        client.dca.cloudservices.otp.get()
 
 
 Operation: PUT /dataservice/dca/cloudservices/otp
@@ -40,7 +40,7 @@ Update cloud service OTP value
 
 .. code:: python
 
-    def updatet_otp(payload: Optional[Any] = None) -> None: ...
+    def put(payload: Any) -> None: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.cloudservices.otp.updatet_otp()
+        client.dca.cloudservices.otp.put()
 
 

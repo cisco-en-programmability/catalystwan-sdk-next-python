@@ -19,7 +19,7 @@ class DetailBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_application_heat_map_detail(
+    def get(
         self,
         application: str,
         start_time: int,
@@ -30,6 +30,7 @@ class DetailBuilder:
     ) -> List[ApplicationHeatMapDetail]:
         """
         Get single applicaiton site health detail in a time range
+        GET /dataservice/statistics/perfmon/application/heatmap/detail
 
         :param application: Application
         :param siteid: Siteid

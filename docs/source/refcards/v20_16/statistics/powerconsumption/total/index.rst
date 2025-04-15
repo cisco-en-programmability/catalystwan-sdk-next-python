@@ -11,9 +11,7 @@ Get Power Consumption Total stats
 
 .. code:: python
 
-    def get_power_consumption_total(
-        payload: Optional[Any] = None,
-    ) -> PowerConsumptionTotalResp: ...
+    def post(payload: Any) -> PowerConsumptionTotalResp: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.powerconsumption.total.get_power_consumption_total()
+        client.statistics.powerconsumption.total.post()
 
 
 .. toctree::

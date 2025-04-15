@@ -12,9 +12,10 @@ class DefaultBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_default_system_pack(self, **kw):
+    def get(self, **kw):
         """
         Get all default protocol pack details
+        GET /dataservice/sdavc/protocol-pack/default
 
         :returns: None
         """

@@ -11,7 +11,7 @@ Start tracking events
 
 .. code:: python
 
-    def start_tracking(test_name: str) -> SimpleMessageResponse: ...
+    def post(test_name: str) -> SimpleMessageResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.starttracking.start_tracking()
+        client.alarms.starttracking.post()
 
 
 .. toctree::

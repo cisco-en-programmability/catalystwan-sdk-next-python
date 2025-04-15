@@ -3,35 +3,6 @@ template.policy.list.tloc
 =========================
 
 
-Operation: GET /dataservice/template/policy/list/tloc
------------------------------------------------------
-
-
-Get policy lists
-
-.. code:: python
-
-    def get_policy_lists_34() -> List[Any]: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.template.policy.list.tloc.get_policy_lists_34()
-
-
 Operation: POST /dataservice/template/policy/list/tloc
 ------------------------------------------------------
 
@@ -40,7 +11,7 @@ Create policy list
 
 .. code:: python
 
-    def create_policy_list_37(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,67 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.list.tloc.create_policy_list_37()
-
-
-Operation: DELETE /dataservice/template/policy/list/tloc
---------------------------------------------------------
-
-
-Delete policy lists with specific info tag
-
-.. code:: python
-
-    def delete_policy_lists_with_info_tag_37(
-        info_tag: Optional[str] = None,
-    ) -> List[Any]: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.template.policy.list.tloc.delete_policy_lists_with_info_tag_37()
-
-
-Operation: GET /dataservice/template/policy/list/tloc/{id}
-----------------------------------------------------------
-
-
-Get a specific policy list based on the id
-
-.. code:: python
-
-    def get_lists_by_id_37(id: str) -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.template.policy.list.tloc.get_lists_by_id_37()
+        client.template.policy.list.tloc.post()
 
 
 Operation: PUT /dataservice/template/policy/list/tloc/{id}
@@ -129,9 +40,7 @@ Edit policy list entries for a specific type of policy list
 
 .. code:: python
 
-    def edit_policy_list_37(
-        id: str, payload: Optional[Any] = None
-    ) -> Any: ...
+    def put(id: str, payload: Any) -> Any: ...
 
 
 Example:
@@ -149,18 +58,101 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.list.tloc.edit_policy_list_37()
+        client.template.policy.list.tloc.put()
+
+
+Operation: GET /dataservice/template/policy/list/tloc
+-----------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get() -> List[Any]: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.template.policy.list.tloc.get()
+
+
+Operation: GET /dataservice/template/policy/list/tloc/{id}
+----------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(id: str) -> Any: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.template.policy.list.tloc.get()
+
+
+Operation: DELETE /dataservice/template/policy/list/tloc
+--------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def delete(info_tag: Optional[str] = None) -> List[Any]: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.template.policy.list.tloc.delete()
 
 
 Operation: DELETE /dataservice/template/policy/list/tloc/{id}
 -------------------------------------------------------------
 
 
-Delete policy list entry for a specific type of policy list
-
 .. code:: python
 
-    def delete_policy_list_37(id: str) -> None: ...
+    @overload
+    def delete(id: str) -> None: ...
 
 
 Example:
@@ -178,7 +170,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.list.tloc.delete_policy_list_37()
+        client.template.policy.list.tloc.delete()
 
 
 .. toctree::

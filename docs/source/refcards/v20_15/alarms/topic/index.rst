@@ -11,7 +11,7 @@ Get topic on which alarms for given device are publishing.
 
 .. code:: python
 
-    def get_device_topic(ip: str) -> AlarmTopic: ...
+    def get(ip: str) -> AlarmTopic: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.topic.get_device_topic()
+        client.alarms.topic.get()
 
 
 .. toctree::

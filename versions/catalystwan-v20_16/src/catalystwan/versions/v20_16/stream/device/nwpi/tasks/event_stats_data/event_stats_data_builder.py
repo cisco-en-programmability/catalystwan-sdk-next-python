@@ -19,11 +19,12 @@ class EventStatsDataBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_event_stats_data(
+    def get(
         self, task_id: int, state: str, task_end_time: int, duration: int, **kw
     ) -> EventStatsDataResponsePayload:
         """
         Get auto on stats data in one task
+        GET /dataservice/stream/device/nwpi/tasks/eventStatsData
 
         :param task_id: Task id
         :param state: State

@@ -7,6 +7,6 @@ v1.feature_profile.sdwan.transport.routing
     :maxdepth: 1
 
     bgp/index
-    ospf
+    ospf/index
     ospfv3/index
 

@@ -11,7 +11,7 @@ SDWAN as a Platform - Manage Credentials
 
 .. code:: python
 
-    def reset_credentials(cred_type: str) -> None: ...
+    def post(cred_type: str) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.aas.reset_credentials.reset_credentials()
+        client.aas.reset_credentials.post()
 
 

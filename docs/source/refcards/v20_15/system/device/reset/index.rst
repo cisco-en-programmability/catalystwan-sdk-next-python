@@ -11,7 +11,7 @@ Reset vEdge device
 
 .. code:: python
 
-    def reset_vedge_cloud(uuid: str) -> ResetVedgeCloud: ...
+    def put(uuid: str) -> ResetVedgeCloud: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.reset.reset_vedge_cloud()
+        client.system.device.reset.put()
 
 
 .. toctree::

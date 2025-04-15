@@ -14,9 +14,10 @@ class VersionStatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_utd_version_status(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get UTD version status from device (Real Time)
+        GET /dataservice/device/utd/version-status
 
         :param device_id: deviceId - Device IP
         :returns: Any

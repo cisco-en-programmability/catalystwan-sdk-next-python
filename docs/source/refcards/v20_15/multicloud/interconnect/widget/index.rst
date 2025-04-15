@@ -7,11 +7,10 @@ Operation: GET /dataservice/multicloud/interconnect/widget
 ----------------------------------------------------------
 
 
-API to retrieve all Interconnect widgets.
-
 .. code:: python
 
-    def get_all_interconnect_widgets() -> List[InterconnectWidget]: ...
+    @overload
+    def get() -> List[InterconnectWidget]: ...
 
 
 Example:
@@ -29,20 +28,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.widget.get_all_interconnect_widgets()
+        client.multicloud.interconnect.widget.get()
 
 
 Operation: GET /dataservice/multicloud/interconnect/{interconnect-type}/widget
 ------------------------------------------------------------------------------
 
 
-API to retrieve an Interconnect widget for an Interconnect type.
-
 .. code:: python
 
-    def get_interconnect_widget(
-        interconnect_type: str,
-    ) -> InterconnectWidget: ...
+    @overload
+    def get(interconnect_type: str) -> InterconnectWidget: ...
 
 
 Example:
@@ -60,7 +56,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.widget.get_interconnect_widget()
+        client.multicloud.interconnect.widget.get()
 
 
 .. toctree::

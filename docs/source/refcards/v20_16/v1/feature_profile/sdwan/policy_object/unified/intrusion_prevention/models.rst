@@ -25,7 +25,7 @@ Models
     ]
 
 
-    class CreateSecurityProfileParcelPostResponse:
+    class CreateSdwanSecurityFeaturePostResponse:
         parcel_id: Optional[str]
 
 
@@ -71,7 +71,7 @@ Models
         signature_allowed_list: Optional[SignatureAllowedList]
 
 
-    class CreateSecurityProfileParcelPostRequest:
+    class CreateSdwanSecurityFeaturePostRequest:
         """
         Intrusion Prevention profile parcel schema for POST request
         """
@@ -79,12 +79,21 @@ Models
         data: Data
         name: str
         description: Optional[str]
-        # This is the documentation for POST request schema for Intrusion Prevention profile parcel
-        documentation: Optional[Any]
         metadata: Optional[Any]
 
 
-    class GetSecurityProfileParcelGetResponse:
+    class Payload:
+        """
+        Intrusion Prevention profile parcel schema for POST request
+        """
+
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class GetSdwanSecurityFeatureGetResponse:
         created_by: Optional[str]
         created_on: Optional[int]
         last_updated_by: Optional[str]
@@ -92,6 +101,6 @@ Models
         parcel_id: Optional[str]
         parcel_type: Optional[str]
         # Intrusion Prevention profile parcel schema for POST request
-        payload: Optional[CreateSecurityProfileParcelPostRequest]
+        payload: Optional[Payload]
 
 

@@ -11,7 +11,7 @@ Get All the App for the given conditions
 
 .. code:: python
 
-    def get_all_app_list(
+    def get(
         filter_attribute_type: Optional[str] = None,
         filter_attribute_value: Optional[str] = None,
     ) -> List[Any]: ...
@@ -32,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.app_registry.app.get_all_app_list()
+        client.app_registry.app.get()
 
 
 .. toctree::

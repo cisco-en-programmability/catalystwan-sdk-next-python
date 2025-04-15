@@ -17,9 +17,10 @@ class TopicBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_topic(self, ip: str, **kw) -> AlarmTopic:
+    def get(self, ip: str, **kw) -> AlarmTopic:
         """
         Get topic on which alarms for given device are publishing.
+        GET /dataservice/alarms/topic
 
         :param ip: Device system IP
         :returns: AlarmTopic

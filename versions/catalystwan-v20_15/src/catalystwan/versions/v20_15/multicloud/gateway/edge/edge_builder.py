@@ -37,6 +37,7 @@ class EdgeBuilder:
     ) -> Any:
         """
         Get Interconnect Gateways
+        GET /dataservice/multicloud/gateway/edge
 
         :param edge_type: Edge type
         :param account_id: Account Id
@@ -61,9 +62,10 @@ class EdgeBuilder:
             "GET", "/dataservice/multicloud/gateway/edge", params=params, **kw
         )
 
-    def create_icgw(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create Interconnect Gateway
+        POST /dataservice/multicloud/gateway/edge
 
         :param payload: Interconnect Gateway
         :returns: Any
@@ -73,9 +75,10 @@ class EdgeBuilder:
             "POST", "/dataservice/multicloud/gateway/edge", payload=payload, **kw
         )
 
-    def get_icgw_details(self, edge_gateway_name: str, **kw) -> Any:
+    def get(self, edge_gateway_name: str, **kw) -> Any:
         """
         Get Interconnect Gateway by name
+        GET /dataservice/multicloud/gateway/edge/{edgeGatewayName}
 
         :param edge_gateway_name: Edge gateway name
         :returns: Any
@@ -88,11 +91,10 @@ class EdgeBuilder:
             "GET", "/dataservice/multicloud/gateway/edge/{edgeGatewayName}", params=params, **kw
         )
 
-    def update_icgw(
-        self, edge_gateway_name: str, payload: Optional[UpdateIcgwPutRequest] = None, **kw
-    ) -> Any:
+    def put(self, edge_gateway_name: str, payload: UpdateIcgwPutRequest, **kw) -> Any:
         """
         Update Interconnect Gateway
+        PUT /dataservice/multicloud/gateway/edge/{edgeGatewayName}
 
         :param edge_gateway_name: Edge gateway name
         :param payload: Payload
@@ -110,9 +112,10 @@ class EdgeBuilder:
             **kw,
         )
 
-    def delete_icgw(self, edge_gateway_name: str, **kw) -> Any:
+    def delete(self, edge_gateway_name: str, **kw) -> Any:
         """
         Delete Interconnect Gateway
+        DELETE /dataservice/multicloud/gateway/edge/{edgeGatewayName}
 
         :param edge_gateway_name: Edge gateway name
         :returns: Any

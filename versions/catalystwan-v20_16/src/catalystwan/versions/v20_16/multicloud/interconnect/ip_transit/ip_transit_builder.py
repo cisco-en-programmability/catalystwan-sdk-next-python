@@ -17,11 +17,12 @@ class IpTransitBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_ip_transit(
+    def get(
         self, interconnect_service_type: str, interconnect_type: str, **kw
     ) -> InlineResponse20016:
         """
         API to retrieve Interconnect ip transit in MB supported by an  Interconnect provider.
+        GET /dataservice/multicloud/interconnect/ip-transit
 
         :param interconnect_service_type: Interconnect Service Type
         :param interconnect_type: Interconnect provider type

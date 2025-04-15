@@ -11,7 +11,7 @@ Deprecated!!!
 
 .. code:: python
 
-    def get_domain_metric(
+    def get(
         trace_id: int,
         timestamp: int,
         domain: str,
@@ -36,7 +36,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.domain_metric.get_domain_metric()
+        client.stream.device.nwpi.domain_metric.get()
 
 
 .. toctree::

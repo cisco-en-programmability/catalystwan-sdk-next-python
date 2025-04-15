@@ -14,9 +14,10 @@ class OptoutBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def opt_out(self, payload: Optional[str] = None, **kw) -> Any:
+    def delete(self, payload: Optional[str] = None, **kw) -> Any:
         """
         Telemetry Opt Out
+        DELETE /dataservice/cloudservices/telemetry/optout
 
         :param payload: Payload
         :returns: Any

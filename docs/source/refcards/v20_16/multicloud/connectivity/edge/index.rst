@@ -49,9 +49,7 @@ Update Interconnect connectivity
 
 .. code:: python
 
-    def update_edge_connectivity(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def put(payload: Any) -> Any: ...
 
 
 Example:
@@ -69,7 +67,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.connectivity.edge.update_edge_connectivity()
+        client.multicloud.connectivity.edge.put()
 
 
 Operation: POST /dataservice/multicloud/connectivity/edge
@@ -82,9 +80,7 @@ Create Interconnect connectivity
 
 .. code:: python
 
-    def create_edge_connectivity(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -102,7 +98,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.connectivity.edge.create_edge_connectivity()
+        client.multicloud.connectivity.edge.post()
 
 
 Operation: DELETE /dataservice/multicloud/connectivity/edge/{connectionName}
@@ -115,7 +111,7 @@ Delete Interconnect connectivity
 
 .. code:: python
 
-    def delete_edge_connectivity(
+    def delete(
         connection_name: str, delete_cloud_resources: Optional[str] = None
     ) -> Any: ...
 
@@ -135,7 +131,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.connectivity.edge.delete_edge_connectivity()
+        client.multicloud.connectivity.edge.delete()
 
 
 Operation: GET /dataservice/multicloud/connectivity/edge/{connectivityName}
@@ -148,9 +144,7 @@ Get Interconnect Connectivity by name
 
 .. code:: python
 
-    def get_edge_connectivity_detail_by_name(
-        connectivity_name: str,
-    ) -> Any: ...
+    def get(connectivity_name: str) -> Any: ...
 
 
 Example:
@@ -168,7 +162,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.connectivity.edge.get_edge_connectivity_detail_by_name()
+        client.multicloud.connectivity.edge.get()
 
 
 .. toctree::

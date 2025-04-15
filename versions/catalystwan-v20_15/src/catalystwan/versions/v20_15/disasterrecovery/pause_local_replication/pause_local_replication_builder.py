@@ -14,9 +14,10 @@ class PauseLocalReplicationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def pause_local_dc_replication(self, **kw) -> Any:
+    def post(self, **kw) -> Any:
         """
         Pause DR replication for Local datacenter
+        POST /dataservice/disasterrecovery/pauseLocalReplication
 
         :returns: Any
         """

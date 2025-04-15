@@ -15,9 +15,10 @@ class ParametersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_global_parameters(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get global parameter templates
+        GET /dataservice/networkdesign/global/parameters
 
         :returns: Any
         """

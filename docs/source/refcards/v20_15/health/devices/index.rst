@@ -11,7 +11,7 @@ get the devices health properties
 
 .. code:: python
 
-    def get_devices_health(
+    def get(
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -44,7 +44,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.health.devices.get_devices_health()
+        client.health.devices.get()
 
 
 .. toctree::

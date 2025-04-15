@@ -107,12 +107,12 @@ AlertsDef = Literal["blacklist", "categories-reputation", "whitelist"]
 
 
 @dataclass
-class CreateSecurityProfileParcelPostResponse:
+class CreateSdwanSecurityFeaturePostResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
 
 
 @dataclass
-class CreateSecurityProfileParcelPostRequest11:
+class CreateSdwanSecurityFeaturePostRequest11:
     data: Any
     name: str
     description: Optional[str] = _field(default=None)
@@ -153,6 +153,11 @@ class RefIdOptionDef:
 
 @dataclass
 class UrlAllowedList:
+    ref_id: Optional[RefIdOptionDef] = _field(default=None, metadata={"alias": "refId"})
+
+
+@dataclass
+class UrlBlockedList:
     ref_id: Optional[RefIdOptionDef] = _field(default=None, metadata={"alias": "refId"})
 
 
@@ -216,7 +221,7 @@ class Data:
     url_allowed_list: Optional[UrlAllowedList] = _field(
         default=None, metadata={"alias": "urlAllowedList"}
     )
-    url_blocked_list: Optional[UrlAllowedList] = _field(
+    url_blocked_list: Optional[UrlBlockedList] = _field(
         default=None, metadata={"alias": "urlBlockedList"}
     )
     web_categories: Optional[OneOfWebCategoriesOptionsDef] = _field(
@@ -225,7 +230,7 @@ class Data:
 
 
 @dataclass
-class CreateSecurityProfileParcelPostRequest12:
+class CreateSdwanSecurityFeaturePostRequest12:
     data: Data
     name: str
     description: Optional[str] = _field(default=None)
@@ -233,7 +238,7 @@ class CreateSecurityProfileParcelPostRequest12:
 
 
 @dataclass
-class CreateSecurityProfileParcelPostRequest21:
+class CreateSdwanSecurityFeaturePostRequest21:
     data: Any
     name: str
     description: Optional[str] = _field(default=None)
@@ -241,7 +246,15 @@ class CreateSecurityProfileParcelPostRequest21:
 
 
 @dataclass
-class CreateSecurityProfileParcelPostRequest31:
+class CreateSdwanSecurityFeaturePostRequest22:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class CreateSdwanSecurityFeaturePostRequest31:
     data: Any
     name: str
     description: Optional[str] = _field(default=None)
@@ -249,7 +262,15 @@ class CreateSecurityProfileParcelPostRequest31:
 
 
 @dataclass
-class CreateSecurityProfileParcelPostRequest41:
+class CreateSdwanSecurityFeaturePostRequest32:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class CreateSdwanSecurityFeaturePostRequest41:
     data: Any
     name: str
     description: Optional[str] = _field(default=None)
@@ -257,7 +278,15 @@ class CreateSecurityProfileParcelPostRequest41:
 
 
 @dataclass
-class CreateSecurityProfileParcelPostRequest61:
+class CreateSdwanSecurityFeaturePostRequest42:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class CreateSdwanSecurityFeaturePostRequest51:
     data: Any
     name: str
     description: Optional[str] = _field(default=None)
@@ -265,7 +294,159 @@ class CreateSecurityProfileParcelPostRequest61:
 
 
 @dataclass
-class GetSecurityProfileParcelGetResponse:
+class CreateSdwanSecurityFeaturePostRequest52:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class CreateSdwanSecurityFeaturePostRequest61:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class CreateSdwanSecurityFeaturePostRequest62:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class CreateSdwanSecurityFeaturePostRequest71:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class CreateSdwanSecurityFeaturePostRequest72:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload11:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload12:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload21:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload22:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload31:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload32:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload41:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload42:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload51:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload52:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload61:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload62:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload71:
+    data: Any
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class Payload72:
+    data: Data
+    name: str
+    description: Optional[str] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+
+
+@dataclass
+class GetSdwanSecurityFeatureGetResponse:
     created_by: Optional[str] = _field(default=None, metadata={"alias": "createdBy"})
     created_on: Optional[int] = _field(default=None, metadata={"alias": "createdOn"})
     last_updated_by: Optional[str] = _field(default=None, metadata={"alias": "lastUpdatedBy"})
@@ -275,26 +456,12 @@ class GetSecurityProfileParcelGetResponse:
     # url-filtering profile parcel schema for POST request
     payload: Optional[
         Union[
-            Union[
-                CreateSecurityProfileParcelPostRequest11, CreateSecurityProfileParcelPostRequest12
-            ],
-            Union[
-                CreateSecurityProfileParcelPostRequest21, CreateSecurityProfileParcelPostRequest12
-            ],
-            Union[
-                CreateSecurityProfileParcelPostRequest31, CreateSecurityProfileParcelPostRequest12
-            ],
-            Union[
-                CreateSecurityProfileParcelPostRequest41, CreateSecurityProfileParcelPostRequest12
-            ],
-            Union[
-                CreateSecurityProfileParcelPostRequest31, CreateSecurityProfileParcelPostRequest12
-            ],
-            Union[
-                CreateSecurityProfileParcelPostRequest61, CreateSecurityProfileParcelPostRequest12
-            ],
-            Union[
-                CreateSecurityProfileParcelPostRequest31, CreateSecurityProfileParcelPostRequest12
-            ],
+            Union[Payload11, Payload12],
+            Union[Payload21, Payload22],
+            Union[Payload31, Payload32],
+            Union[Payload41, Payload42],
+            Union[Payload51, Payload52],
+            Union[Payload61, Payload62],
+            Union[Payload71, Payload72],
         ]
     ] = _field(default=None)

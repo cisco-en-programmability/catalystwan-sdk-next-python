@@ -11,7 +11,7 @@ testIoxConfig
 
 .. code:: python
 
-    def test_iox_config(device_ip: DeviceIp) -> None: ...
+    def get(device_ip: DeviceIp) -> None: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.test.ioxconfig.test_iox_config()
+        client.device.action.test.ioxconfig.get()
 
 
 .. toctree::

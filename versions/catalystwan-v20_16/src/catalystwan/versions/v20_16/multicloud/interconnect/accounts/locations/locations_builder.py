@@ -19,7 +19,7 @@ class LocationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_location_info(
+    def get(
         self,
         interconnect_type: str,
         interconnect_account_id: str,
@@ -28,6 +28,7 @@ class LocationsBuilder:
     ) -> InterconnectLocations:
         """
         API to retrieve list of available regions for an Interconnect provider and account.
+        GET /dataservice/multicloud/interconnect/{interconnect-type}/accounts/{interconnect-account-id}/locations
 
         :param interconnect_type: Interconnect provider type
         :param interconnect_account_id: Interconnect account id
@@ -47,11 +48,12 @@ class LocationsBuilder:
             **kw,
         )
 
-    def update_interconnect_location_info(
+    def put(
         self, interconnect_type: str, interconnect_account_id: str, **kw
     ) -> InterconnectLocations:
         """
         API to retrieve and update the available regions for an Interconnect provider and account.
+        PUT /dataservice/multicloud/interconnect/{interconnect-type}/accounts/{interconnect-account-id}/locations
 
         :param interconnect_type: Interconnect provider type
         :param interconnect_account_id: Interconnect account id
@@ -69,11 +71,10 @@ class LocationsBuilder:
             **kw,
         )
 
-    def delete_interconnect_location_info(
-        self, interconnect_type: str, interconnect_account_id: str, **kw
-    ):
+    def delete(self, interconnect_type: str, interconnect_account_id: str, **kw):
         """
         API to delete the stored regions for an Interconnect provider and account from vManage.
+        DELETE /dataservice/multicloud/interconnect/{interconnect-type}/accounts/{interconnect-account-id}/locations
 
         :param interconnect_type: Interconnect provider type
         :param interconnect_account_id: Interconnect account id

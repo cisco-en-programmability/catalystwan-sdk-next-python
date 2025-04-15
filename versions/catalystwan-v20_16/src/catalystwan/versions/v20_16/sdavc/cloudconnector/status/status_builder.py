@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_connector_status(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get SD_AVC Cloud Connector Status
+        GET /dataservice/sdavc/cloudconnector/status
 
         :returns: Any
         """

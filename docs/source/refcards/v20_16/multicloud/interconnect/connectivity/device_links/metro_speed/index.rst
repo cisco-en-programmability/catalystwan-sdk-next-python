@@ -11,9 +11,9 @@ API to get metro speed for Device-Link by Device-Link Configuration.
 
 .. code:: python
 
-    def get_interconnect_device_link_metro_speed(
+    def post(
         interconnect_type: InterconnectTypeParam,
-        payload: Optional[InterconnectDeviceLink] = None,
+        payload: InterconnectDeviceLink,
     ) -> InlineResponse20012: ...
 
 
@@ -32,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.connectivity.device_links.metro_speed.get_interconnect_device_link_metro_speed()
+        client.multicloud.interconnect.connectivity.device_links.metro_speed.post()
 
 
 .. toctree::

@@ -14,9 +14,10 @@ class DashboardlistBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def getv_analytics_dashboard_list(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get vAnalytics Dashboard List
+        GET /dataservice/cloudservices/vanalytics/dashboardlist
 
         :returns: Any
         """

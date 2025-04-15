@@ -14,12 +14,13 @@ class CapacityBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_tenant_hosting_capacity_onv_smarts(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Lists all the vsmarts on the vManage and its tenant hosting capacity
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/tenant/vsmart/capacity
 
         :returns: List[Any]
         """

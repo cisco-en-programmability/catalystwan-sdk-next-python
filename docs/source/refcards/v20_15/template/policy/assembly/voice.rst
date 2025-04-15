@@ -11,7 +11,7 @@ Get policy assembly preview
 
 .. code:: python
 
-    def preview_2(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.assembly.voice.preview_2()
+        client.template.policy.assembly.voice.post()
 
 
 Operation: GET /dataservice/template/policy/assembly/voice/{id}
@@ -40,7 +40,7 @@ Get policy assembly preview for feature policy
 
 .. code:: python
 
-    def preview_by_id_2(id: str) -> Any: ...
+    def get(id: str) -> Any: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.assembly.voice.preview_by_id_2()
+        client.template.policy.assembly.voice.get()
 
 

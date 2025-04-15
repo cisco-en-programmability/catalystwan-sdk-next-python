@@ -11,7 +11,7 @@ API to retrieve the custom settings specified for an Interconnect Gateway
 
 .. code:: python
 
-    def get_interconnect_gateway_custom_settings(
+    def get(
         interconnect_gateway_name: str, interconnect_account_id: str
     ) -> InterconnectGatewaySettings: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.gateways.settings.get_interconnect_gateway_custom_settings()
+        client.multicloud.interconnect.gateways.settings.get()
 
 
 .. toctree::

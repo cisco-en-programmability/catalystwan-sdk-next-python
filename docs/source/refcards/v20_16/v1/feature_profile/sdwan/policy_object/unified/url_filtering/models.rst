@@ -116,11 +116,11 @@ Models
     AlertsDef = Literal["blacklist", "categories-reputation", "whitelist"]
 
 
-    class CreateSecurityProfileParcelPostResponse:
+    class CreateSdwanSecurityFeaturePostResponse:
         parcel_id: Optional[str]
 
 
-    class CreateSecurityProfileParcelPostRequest11:
+    class CreateSdwanSecurityFeaturePostRequest11:
         data: Any
         name: str
         description: Optional[str]
@@ -152,6 +152,10 @@ Models
 
 
     class UrlAllowedList:
+        ref_id: Optional[RefIdOptionDef]
+
+
+    class UrlBlockedList:
         ref_id: Optional[RefIdOptionDef]
 
 
@@ -191,46 +195,200 @@ Models
         block_page_contents: Optional[OneOfBlockPageContentsOptionsDef]
         redirect_url: Optional[OneOfRedirectUrlOptionsDef]
         url_allowed_list: Optional[UrlAllowedList]
-        url_blocked_list: Optional[UrlAllowedList]
+        url_blocked_list: Optional[UrlBlockedList]
         web_categories: Optional[OneOfWebCategoriesOptionsDef]
 
 
-    class CreateSecurityProfileParcelPostRequest12:
+    class CreateSdwanSecurityFeaturePostRequest12:
         data: Data
         name: str
         description: Optional[str]
         metadata: Optional[Any]
 
 
-    class CreateSecurityProfileParcelPostRequest21:
+    class CreateSdwanSecurityFeaturePostRequest21:
         data: Any
         name: str
         description: Optional[str]
         metadata: Optional[Any]
 
 
-    class CreateSecurityProfileParcelPostRequest31:
+    class CreateSdwanSecurityFeaturePostRequest22:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class CreateSdwanSecurityFeaturePostRequest31:
         data: Any
         name: str
         description: Optional[str]
         metadata: Optional[Any]
 
 
-    class CreateSecurityProfileParcelPostRequest41:
+    class CreateSdwanSecurityFeaturePostRequest32:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class CreateSdwanSecurityFeaturePostRequest41:
         data: Any
         name: str
         description: Optional[str]
         metadata: Optional[Any]
 
 
-    class CreateSecurityProfileParcelPostRequest61:
+    class CreateSdwanSecurityFeaturePostRequest42:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class CreateSdwanSecurityFeaturePostRequest51:
         data: Any
         name: str
         description: Optional[str]
         metadata: Optional[Any]
 
 
-    class GetSecurityProfileParcelGetResponse:
+    class CreateSdwanSecurityFeaturePostRequest52:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class CreateSdwanSecurityFeaturePostRequest61:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class CreateSdwanSecurityFeaturePostRequest62:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class CreateSdwanSecurityFeaturePostRequest71:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class CreateSdwanSecurityFeaturePostRequest72:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload11:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload12:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload21:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload22:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload31:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload32:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload41:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload42:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload51:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload52:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload61:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload62:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload71:
+        data: Any
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class Payload72:
+        data: Data
+        name: str
+        description: Optional[str]
+        metadata: Optional[Any]
+
+
+    class GetSdwanSecurityFeatureGetResponse:
         created_by: Optional[str]
         created_on: Optional[int]
         last_updated_by: Optional[str]
@@ -240,34 +398,13 @@ Models
         # url-filtering profile parcel schema for POST request
         payload: Optional[
             Union[
-                Union[
-                    CreateSecurityProfileParcelPostRequest11,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest21,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest31,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest41,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest31,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest61,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
-                Union[
-                    CreateSecurityProfileParcelPostRequest31,
-                    CreateSecurityProfileParcelPostRequest12,
-                ],
+                Union[Payload11, Payload12],
+                Union[Payload21, Payload22],
+                Union[Payload31, Payload32],
+                Union[Payload41, Payload42],
+                Union[Payload51, Payload52],
+                Union[Payload61, Payload62],
+                Union[Payload71, Payload72],
             ]
         ]
 

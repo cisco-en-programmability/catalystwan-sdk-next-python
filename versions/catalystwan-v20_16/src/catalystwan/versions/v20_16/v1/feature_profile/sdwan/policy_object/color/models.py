@@ -63,8 +63,18 @@ class CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest:
 
     data: Data
     description: Optional[str] = _field(default=None)
-    # This is the documentation for POST request schema for color profile parcel
-    documentation: Optional[Any] = _field(default=None)
+    metadata: Optional[Any] = _field(default=None)
+    name: Optional[str] = _field(default=None)
+
+
+@dataclass
+class Payload:
+    """
+    color profile parcel schema for POST request
+    """
+
+    data: Data
+    description: Optional[str] = _field(default=None)
     metadata: Optional[Any] = _field(default=None)
     name: Optional[str] = _field(default=None)
 
@@ -78,6 +88,4 @@ class GetDataPrefixProfileParcelForPolicyObjectGetResponse:
     parcel_id: Optional[str] = _field(default=None, metadata={"alias": "parcelId"})
     parcel_type: Optional[str] = _field(default=None, metadata={"alias": "parcelType"})
     # color profile parcel schema for POST request
-    payload: Optional[CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest] = _field(
-        default=None
-    )
+    payload: Optional[Payload] = _field(default=None)

@@ -22,11 +22,12 @@ class TransportBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_route_transport_type(
+    def get(
         self, type_: str, limit: int, query: Optional[str] = None, **kw
     ) -> AppRouteTransportResp:
         """
         Get application-aware routing statistics from device
+        GET /dataservice/statistics/approute/transport/{type}
 
         :param type_: Type
         :param query: Query filter

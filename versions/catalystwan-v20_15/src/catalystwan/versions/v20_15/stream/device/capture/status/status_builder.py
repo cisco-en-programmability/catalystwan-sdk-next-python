@@ -17,9 +17,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_file_download_status(self, session_id: str, **kw) -> GetFileDownloadStatusRes:
+    def get(self, session_id: str, **kw) -> GetFileDownloadStatusRes:
         """
         Get packet capture session status
+        GET /dataservice/stream/device/capture/status/{sessionId}
 
         :param session_id: Session id
         :returns: GetFileDownloadStatusRes

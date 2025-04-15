@@ -20,11 +20,10 @@ class EdgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_supported_edge_image_names(
-        self, edge_type: Optional[EdgeTypeParam] = "MEGAPORT", **kw
-    ) -> Any:
+    def get(self, edge_type: Optional[EdgeTypeParam] = "MEGAPORT", **kw) -> Any:
         """
         Get Edge provider supported images
+        GET /dataservice/multicloud/imagename/edge
 
         :param edge_type: Edge type
         :returns: Any

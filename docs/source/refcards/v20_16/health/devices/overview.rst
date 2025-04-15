@@ -11,9 +11,7 @@ gets devices health overview
 
 .. code:: python
 
-    def get_devices_health_overview(
-        vpn_id: Optional[str] = None,
-    ) -> Any: ...
+    def get(vpn_id: Optional[str] = None) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.health.devices.overview.get_devices_health_overview()
+        client.health.devices.overview.get()
 
 

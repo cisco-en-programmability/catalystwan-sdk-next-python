@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,11 +17,10 @@ class DevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_bootstrap_config_for_vedges(
-        self, payload: Optional[VEdgeBootstrapConfig] = None, **kw
-    ) -> GenerateBootstrapConfigForVedgesResponse:
+    def post(self, payload: VEdgeBootstrapConfig, **kw) -> GenerateBootstrapConfigForVedgesResponse:
         """
         Create bootstrap config for software vEdges
+        POST /dataservice/system/device/bootstrap/devices
 
         :param payload: Request body for Device bootstrap configuration
         :returns: GenerateBootstrapConfigForVedgesResponse

@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,9 +17,10 @@ class PushCgwConfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def push_cgw_cfg(self, payload: Optional[PushCgwConfig] = None, **kw) -> Taskid:
+    def post(self, payload: PushCgwConfig, **kw) -> Taskid:
         """
         Push configuration to devices of CGW
+        POST /dataservice/multicloud/pushCgwConfig
 
         :param payload: Push configuration to devices of CGW
         :returns: Taskid

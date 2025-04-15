@@ -17,9 +17,10 @@ class SmuBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_smu_list(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get software list from device
+        GET /dataservice/device/smu
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

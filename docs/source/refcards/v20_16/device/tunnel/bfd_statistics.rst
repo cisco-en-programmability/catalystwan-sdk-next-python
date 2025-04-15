@@ -11,7 +11,7 @@ Get tunnel BFD statistics all devices
 
 .. code:: python
 
-    def create_bfd_statistics_list(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tunnel.bfd_statistics.create_bfd_statistics_list()
+        client.device.tunnel.bfd_statistics.get()
 
 

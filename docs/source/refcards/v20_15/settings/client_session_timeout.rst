@@ -11,7 +11,7 @@ Get client session timeout
 
 .. code:: python
 
-    def get_session_timout() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.settings.client_session_timeout.get_session_timout()
+        client.settings.client_session_timeout.get()
 
 

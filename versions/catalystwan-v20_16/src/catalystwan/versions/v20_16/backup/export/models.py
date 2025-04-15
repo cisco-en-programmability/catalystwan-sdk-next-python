@@ -29,6 +29,10 @@ class LocalDestination:
 
 @dataclass
 class LocalBackupInfo:
+    """
+    List of all local backup info objects in the system
+    """
+
     # Current stage of database backup workflow. This could be [SCHEDULED/IN_PROGRESS/CONFIG_DB_BACKUP_SUCCESS/CONFIG_DB_BACKUP_FAILED/STATS_DB_EXPORT_SUCCESS/STATS_DB_EXPORT_FAILED/CONFIG_DB_CONSISTENCY_CHECK_FAILED/LEADER_SUCCESS/ALL_SUCCESS/FAILURE/DELETED]
     backup_state: Optional[str] = _field(default=None, metadata={"alias": "backupState"})
     # Type of backup. This could be [SCHEDULED/ON_DEMAND]

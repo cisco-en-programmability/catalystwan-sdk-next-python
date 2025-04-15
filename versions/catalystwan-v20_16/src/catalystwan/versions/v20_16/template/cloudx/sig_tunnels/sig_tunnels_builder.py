@@ -12,9 +12,10 @@ class SigTunnelsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sig_tunnel_list_1(self, device_id: str, **kw):
+    def get(self, device_id: str, **kw):
         """
         Get Secure Internet Gateway Tunnel List
+        GET /dataservice/template/cloudx/sig_tunnels
 
         :param device_id: DeviceIp/SystemIp
         :returns: None

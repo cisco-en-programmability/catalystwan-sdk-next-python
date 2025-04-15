@@ -7,11 +7,10 @@ Operation: GET /dataservice/sdavc/protocol-pack/maintenance/upgrade/status
 --------------------------------------------------------------------------
 
 
-Get active deploy job status
-
 .. code:: python
 
-    def get_deploy_job_status_1() -> None: ...
+    @overload
+    def get() -> None: ...
 
 
 Example:
@@ -29,18 +28,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.maintenance.upgrade.status.get_deploy_job_status_1()
+        client.sdavc.protocol_pack.maintenance.upgrade.status.get()
 
 
 Operation: GET /dataservice/sdavc/protocol-pack/maintenance/upgrade/status/{uuid}
 ---------------------------------------------------------------------------------
 
 
-Get upgrade status for given Task UUID
-
 .. code:: python
 
-    def get_deploy_job_status(uuid: str) -> None: ...
+    @overload
+    def get(uuid: str) -> None: ...
 
 
 Example:
@@ -58,6 +56,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.maintenance.upgrade.status.get_deploy_job_status()
+        client.sdavc.protocol_pack.maintenance.upgrade.status.get()
 
 

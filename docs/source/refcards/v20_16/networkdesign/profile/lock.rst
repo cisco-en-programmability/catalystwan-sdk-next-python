@@ -13,7 +13,7 @@ Get the service profile config for a given device profile id
 
 .. code:: python
 
-    def acquire_attach_lock(profile_id: str) -> Any: ...
+    def post(profile_id: str) -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.profile.lock.acquire_attach_lock()
+        client.networkdesign.profile.lock.post()
 
 

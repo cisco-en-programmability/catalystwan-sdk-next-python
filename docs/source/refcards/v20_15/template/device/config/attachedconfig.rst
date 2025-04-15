@@ -11,9 +11,7 @@ Get attached config to device<br><br><br>Note: In a multitenant vManage system, 
 
 .. code:: python
 
-    def get_attached_config_to_device(
-        device_id: str, policy_id: Optional[str] = None
-    ) -> Any: ...
+    def get(device_id: str, policy_id: Optional[str] = None) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.attachedconfig.get_attached_config_to_device()
+        client.template.device.config.attachedconfig.get()
 
 

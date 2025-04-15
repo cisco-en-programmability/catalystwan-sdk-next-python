@@ -19,12 +19,13 @@ class NetworkinterfaceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_network_interface(self, device_model: DeviceModelParam, **kw) -> Any:
+    def get(self, device_model: DeviceModelParam, **kw) -> Any:
         """
         Get default network interface
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        GET /dataservice/template/feature/default/networkinterface
 
         :param device_model: Device model
         :returns: Any

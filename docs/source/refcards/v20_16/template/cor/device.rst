@@ -13,7 +13,7 @@ Get available device list
 
 .. code:: python
 
-    def get_cloud_on_ramp_devices() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.device.get_cloud_on_ramp_devices()
+        client.template.cor.device.get()
 
 

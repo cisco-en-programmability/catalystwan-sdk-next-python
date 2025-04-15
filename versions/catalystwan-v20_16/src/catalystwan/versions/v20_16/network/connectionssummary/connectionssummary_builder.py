@@ -19,7 +19,7 @@ class ConnectionssummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_vmanage_control_status(
+    def get(
         self,
         is_cached: Optional[bool] = False,
         vpn_id: Optional[List[Vpnid]] = None,
@@ -28,6 +28,7 @@ class ConnectionssummaryBuilder:
     ) -> Any:
         """
         Retrieve vManage control status
+        GET /dataservice/network/connectionssummary
 
         :param is_cached: Is cached flag
         :param vpn_id: VPN Id

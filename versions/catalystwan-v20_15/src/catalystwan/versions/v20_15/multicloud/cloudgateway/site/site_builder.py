@@ -25,7 +25,7 @@ class SiteBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cgw_attached_sites(
+    def get(
         self,
         cloud_gateway_name: str,
         system_ip: Optional[str] = None,
@@ -37,6 +37,7 @@ class SiteBuilder:
     ) -> GetSitesResponse:
         """
         Get sites attached to CGW
+        GET /dataservice/multicloud/cloudgateway/{cloudGatewayName}/site
 
         :param cloud_gateway_name: Name of Cloud Gateway to attach site
         :param system_ip: System Ip of Branch Device
@@ -62,11 +63,10 @@ class SiteBuilder:
             **kw,
         )
 
-    def tunnel_scaling(
-        self, cloud_gateway_name: str, payload: Optional[TunnelScalingRequestPayload] = None, **kw
-    ) -> Taskid:
+    def put(self, cloud_gateway_name: str, payload: TunnelScalingRequestPayload, **kw) -> Taskid:
         """
         Update tunnel scaling and accelerated vpn parameter for a branch endpoint
+        PUT /dataservice/multicloud/cloudgateway/{cloudGatewayName}/site
 
         :param cloud_gateway_name: Name of Cloud Gateway to attach site
         :param payload: Site Information
@@ -84,14 +84,12 @@ class SiteBuilder:
             **kw,
         )
 
-    def attach_sites(
-        self,
-        cloud_gateway_name: str,
-        payload: Optional[List[AttachSitesRequestPayloadInner]] = None,
-        **kw,
+    def post(
+        self, cloud_gateway_name: str, payload: List[AttachSitesRequestPayloadInner], **kw
     ) -> Taskid:
         """
         Attach sites to Cloud Gateway
+        POST /dataservice/multicloud/cloudgateway/{cloudGatewayName}/site
 
         :param cloud_gateway_name: Name of Cloud Gateway to attach site
         :param payload: Site Information
@@ -109,7 +107,7 @@ class SiteBuilder:
             **kw,
         )
 
-    def detach_sites_1(
+    def delete(
         self,
         cloud_gateway_name: str,
         payload: Optional[List[DetachSitesRequestPayloadInner]] = None,
@@ -117,6 +115,7 @@ class SiteBuilder:
     ) -> Taskid:
         """
         Detach sites from cloud gateway
+        DELETE /dataservice/multicloud/cloudgateway/{cloudGatewayName}/site
 
         :param cloud_gateway_name: Name of Cloud Gateway to attach site
         :param payload: Site Information

@@ -11,7 +11,7 @@ Get device state data fileds
 
 .. code:: python
 
-    def generate_device_state_data_with_query_string(
+    def get(
         state_data_type: str,
     ) -> GenerateDeviceStateDataWithQueryString: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.data.device.state.query.generate_device_state_data_with_query_string()
+        client.data.device.state.query.get()
 
 
 .. toctree::

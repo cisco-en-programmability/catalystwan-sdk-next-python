@@ -11,7 +11,7 @@ Get SD AVC App Rules based on IP Address for O365
 
 .. code:: python
 
-    def get_cloud_connector_ip_address_app_rules() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.monitor.sdavccloudconnector.ipaddress.get_cloud_connector_ip_address_app_rules()
+        client.monitor.sdavccloudconnector.ipaddress.get()
 
 

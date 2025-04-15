@@ -17,9 +17,10 @@ class StopBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def task_stop(self, task_id: str, **kw) -> TasksStopResponsePayload:
+    def post(self, task_id: str, **kw) -> TasksStopResponsePayload:
         """
         Task Action - Stop
+        POST /dataservice/stream/device/nwpi/tasks/stop/{taskId}
 
         :param task_id: taskId
         :returns: TasksStopResponsePayload

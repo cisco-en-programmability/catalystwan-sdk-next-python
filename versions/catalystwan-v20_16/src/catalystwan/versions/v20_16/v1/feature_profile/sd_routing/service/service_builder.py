@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateSdroutingServiceFeatureProfilePostRequest,
+    CreateSdroutingServiceFeatureProfilePostResponse,
+    EditSdroutingServiceFeatureProfilePutRequest,
+    EditSdroutingServiceFeatureProfilePutResponse,
+    GetSdroutingServiceFeatureProfilesGetResponse,
+    GetSingleSdRoutingServicePayload,
+)
 
 if TYPE_CHECKING:
     from .dhcp_server.dhcp_server_builder import DhcpServerBuilder
@@ -22,68 +32,39 @@ class ServiceBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sd-routing/service
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sd_routing_service_feature_profiles(
-        self, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
-    ) -> Any:
-        """
-        Get all SD-Routing Service Feature Profiles
-
-        :param offset: Pagination offset
-        :param limit: Pagination limit
-        :returns: Any
-        """
-        params = {
-            "offset": offset,
-            "limit": limit,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/sd-routing/service", params=params, **kw
-        )
-
-    def create_sd_routing_service_feature_profile(self, payload: Optional[str] = None, **kw) -> str:
+    def post(
+        self, payload: CreateSdroutingServiceFeatureProfilePostRequest, **kw
+    ) -> CreateSdroutingServiceFeatureProfilePostResponse:
         """
         Create a SD-Routing Service Feature Profile
+        POST /dataservice/v1/feature-profile/sd-routing/service
 
         :param payload: SD-Routing Service Feature Profile
-        :returns: str
+        :returns: CreateSdroutingServiceFeatureProfilePostResponse
         """
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sd-routing/service",
-            return_type=str,
+            return_type=CreateSdroutingServiceFeatureProfilePostResponse,
             payload=payload,
             **kw,
         )
 
-    def get_sd_routing_service_feature_profile(self, service_id: str, **kw) -> Any:
-        """
-        Get a SD-Routing Service Feature Profile
-
-        :param service_id: Service Profile Id
-        :returns: Any
-        """
-        params = {
-            "serviceId": service_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}",
-            params=params,
-            **kw,
-        )
-
-    def edit_sd_routing_service_feature_profile(
-        self, service_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self, service_id: str, payload: EditSdroutingServiceFeatureProfilePutRequest, **kw
+    ) -> EditSdroutingServiceFeatureProfilePutResponse:
         """
         Edit a SD-Routing Service Feature Profile
+        PUT /dataservice/v1/feature-profile/sd-routing/service/{serviceId}
 
         :param service_id: Service Profile Id
         :param payload: SD-Routing Service Feature Profile
-        :returns: str
+        :returns: EditSdroutingServiceFeatureProfilePutResponse
         """
         params = {
             "serviceId": service_id,
@@ -91,15 +72,16 @@ class ServiceBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}",
-            return_type=str,
+            return_type=EditSdroutingServiceFeatureProfilePutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_sd_routing_service_feature_profile(self, service_id: str, **kw):
+    def delete(self, service_id: str, **kw):
         """
         Delete a SD-Routing Service Feature Profile
+        DELETE /dataservice/v1/feature-profile/sd-routing/service/{serviceId}
 
         :param service_id: Service Profile Id
         :returns: None
@@ -113,6 +95,68 @@ class ServiceBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(self, *, service_id: str, **kw) -> GetSingleSdRoutingServicePayload:
+        """
+        Get a SD-Routing Service Feature Profile
+        GET /dataservice/v1/feature-profile/sd-routing/service/{serviceId}
+
+        :param service_id: Service Profile Id
+        :returns: GetSingleSdRoutingServicePayload
+        """
+        ...
+
+    @overload
+    def get(
+        self, *, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
+    ) -> List[GetSdroutingServiceFeatureProfilesGetResponse]:
+        """
+        Get all SD-Routing Service Feature Profiles
+        GET /dataservice/v1/feature-profile/sd-routing/service
+
+        :param offset: Pagination offset
+        :param limit: Pagination limit
+        :returns: List[GetSdroutingServiceFeatureProfilesGetResponse]
+        """
+        ...
+
+    def get(
+        self,
+        *,
+        offset: Optional[int] = None,
+        limit: Optional[int] = None,
+        service_id: Optional[str] = None,
+        **kw,
+    ) -> Union[
+        List[GetSdroutingServiceFeatureProfilesGetResponse], GetSingleSdRoutingServicePayload
+    ]:
+        # /dataservice/v1/feature-profile/sd-routing/service/{serviceId}
+        if self._request_adapter.param_checker([(service_id, str)], [offset, limit]):
+            params = {
+                "serviceId": service_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}",
+                return_type=GetSingleSdRoutingServicePayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sd-routing/service
+        if self._request_adapter.param_checker([], [service_id]):
+            params = {
+                "offset": offset,
+                "limit": limit,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sd-routing/service",
+                return_type=List[GetSdroutingServiceFeatureProfilesGetResponse],
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def dhcp_server(self) -> DhcpServerBuilder:

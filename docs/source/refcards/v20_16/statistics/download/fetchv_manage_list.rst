@@ -9,7 +9,7 @@ Operation: GET /dataservice/statistics/download/{processType}/fetchvManageList
 
 .. code:: python
 
-    def fetch_list(process_type: str) -> None: ...
+    def get(process_type: str) -> None: ...
 
 
 Example:
@@ -27,6 +27,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.download.fetchv_manage_list.fetch_list()
+        client.statistics.download.fetchv_manage_list.get()
 
 

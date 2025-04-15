@@ -11,9 +11,7 @@ Generate CSR for all controller
 
 .. code:: python
 
-    def generate_cs_rfor_all_controller(
-        csr_key_length: Optional[str] = None,
-    ) -> str: ...
+    def post(csr_key_length: Optional[str] = None) -> str: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.controller.bulkcsr.generate_cs_rfor_all_controller()
+        client.certificate.controller.bulkcsr.post()
 
 

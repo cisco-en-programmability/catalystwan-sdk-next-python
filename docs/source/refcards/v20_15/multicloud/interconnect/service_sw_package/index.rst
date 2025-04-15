@@ -11,7 +11,7 @@ API to retrieve the Interconnect Services Sw Package Types Information from vMan
 
 .. code:: python
 
-    def get_interconnect_service_sw_pkg(
+    def get(
         interconnect_provider_name: str,
         interconnect_account_id: str,
         interconnect_service_type: str,
@@ -35,7 +35,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.service_sw_package.get_interconnect_service_sw_pkg()
+        client.multicloud.interconnect.service_sw_package.get()
 
 
 .. toctree::

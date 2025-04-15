@@ -11,7 +11,7 @@ Delete all or a specific backup file stored in vManage<br><br><br>Note: In a mul
 
 .. code:: python
 
-    def delete_tenant_backup(file_name: str) -> Any: ...
+    def delete(file_name: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenantbackup.delete.delete_tenant_backup()
+        client.tenantbackup.delete.delete()
 
 

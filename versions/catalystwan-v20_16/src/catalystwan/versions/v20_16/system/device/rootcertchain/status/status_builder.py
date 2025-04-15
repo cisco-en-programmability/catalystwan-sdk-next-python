@@ -17,9 +17,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_root_cert_status_all(self, state: str, **kw) -> GetRootCertStatusAll:
+    def get(self, state: str, **kw) -> GetRootCertStatusAll:
         """
         Get controllers vEdge sync status
+        GET /dataservice/system/device/rootcertchain/status
 
         :param state: state
         :returns: GetRootCertStatusAll

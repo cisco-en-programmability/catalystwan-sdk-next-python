@@ -19,9 +19,10 @@ class InstallBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def install_device_details(self, **kw) -> List[GetHsecDevicesPayloadInner]:
+    def get(self, **kw) -> List[GetHsecDevicesPayloadInner]:
         """
         Retrieve list of devices which has HSEC fetched
+        GET /dataservice/hsec/devices/install
 
         :returns: List[GetHsecDevicesPayloadInner]
         """

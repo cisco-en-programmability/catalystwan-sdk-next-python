@@ -11,7 +11,7 @@ get device certificate data
 
 .. code:: python
 
-    def get_certificate_data(
+    def get(
         request_id: Optional[str] = None,
         data_object: Optional[str] = None,
     ) -> List[str]: ...
@@ -32,6 +32,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.record.get_certificate_data()
+        client.certificate.record.get()
 
 

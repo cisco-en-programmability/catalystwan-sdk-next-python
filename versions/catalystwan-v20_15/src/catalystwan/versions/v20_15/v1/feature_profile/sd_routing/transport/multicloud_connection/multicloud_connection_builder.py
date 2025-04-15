@@ -1,49 +1,41 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
-if TYPE_CHECKING:
-    from .schema.schema_builder import SchemaBuilder
+from . import models
+from .models import (
+    CreateMultiCloudConnection1PostRequest,
+    CreateMultiCloudConnection1PostResponse,
+    EditMultiCloudConnection1PutRequest,
+    EditMultiCloudConnection1PutResponse,
+    GetListSdRoutingTransportVrfWanMulticloudConnectionPayload,
+    GetSingleSdRoutingTransportVrfWanMulticloudConnectionPayload,
+)
 
 
 class MulticloudConnectionBuilder:
     """
-    Builds and executes requests for operations under /v1/feature-profile/sd-routing/transport/multicloud-connection
+    Builds and executes requests for operations under /v1/feature-profile/sd-routing/transport/{transportId}/multicloud-connection
     """
+
+    m = models
 
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_lan_vpn_profile_parcel_for_service_1(self, transport_id: str, **kw) -> str:
-        """
-        Get Lan Vpn Profile Parcels for Service feature profile
-
-        :param transport_id: Feature Profile ID
-        :returns: str
-        """
-        params = {
-            "transportId": transport_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/multicloud-connection",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def create_multi_cloud_connection_1(
-        self, transport_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self, transport_id: str, payload: CreateMultiCloudConnection1PostRequest, **kw
+    ) -> CreateMultiCloudConnection1PostResponse:
         """
         Associate a MultiCloudConnection Parcel for transport feature profile
+        POST /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/multicloud-connection
 
         :param transport_id: Feature Profile ID
         :param payload: MultiConnection Extension Payload for defining the multicloud connection to the cloud gateway
-        :returns: str
+        :returns: CreateMultiCloudConnection1PostResponse
         """
         params = {
             "transportId": transport_id,
@@ -51,44 +43,27 @@ class MulticloudConnectionBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/multicloud-connection",
-            return_type=str,
+            return_type=CreateMultiCloudConnection1PostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_lan_vpn_profile_parcel_by_parcel_id_for_service_1(
-        self, transport_id: str, multi_cloud_connection_id: str, **kw
-    ) -> str:
-        """
-        Get Lan Vpn Profile Parcel by parcelId for Service feature profile
-
-        :param transport_id: Feature Profile ID
-        :param multi_cloud_connection_id: Profile Parcel ID
-        :returns: str
-        """
-        params = {
-            "transportId": transport_id,
-            "multiCloudConnectionId": multi_cloud_connection_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/multicloud-connection/{multiCloudConnectionId}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def edit_multi_cloud_connection_1(
-        self, transport_id: str, multi_cloud_connection_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self,
+        transport_id: str,
+        multi_cloud_connection_id: str,
+        payload: EditMultiCloudConnection1PutRequest,
+        **kw,
+    ) -> EditMultiCloudConnection1PutResponse:
         """
         Update a multicloud connection parcel
+        PUT /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/multicloud-connection/{multiCloudConnectionId}
 
         :param transport_id: Feature Profile ID
         :param multi_cloud_connection_id: Profile Parcel ID
         :param payload: Multicloud Connection Profile Parcel
-        :returns: str
+        :returns: EditMultiCloudConnection1PutResponse
         """
         params = {
             "transportId": transport_id,
@@ -97,17 +72,16 @@ class MulticloudConnectionBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/multicloud-connection/{multiCloudConnectionId}",
-            return_type=str,
+            return_type=EditMultiCloudConnection1PutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_multi_cloud_connection_parcel_for_transport(
-        self, transport_id: str, multi_cloud_connection_id: str, **kw
-    ):
+    def delete(self, transport_id: str, multi_cloud_connection_id: str, **kw):
         """
         Delete a MultiCloud Connection Profile Parcel for Transport feature profile
+        DELETE /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/multicloud-connection/{multiCloudConnectionId}
 
         :param transport_id: Feature Profile ID
         :param multi_cloud_connection_id: Profile Parcel ID
@@ -124,11 +98,64 @@ class MulticloudConnectionBuilder:
             **kw,
         )
 
-    @property
-    def schema(self) -> SchemaBuilder:
+    @overload
+    def get(
+        self, transport_id: str, multi_cloud_connection_id: str, **kw
+    ) -> GetSingleSdRoutingTransportVrfWanMulticloudConnectionPayload:
         """
-        The schema property
-        """
-        from .schema.schema_builder import SchemaBuilder
+        Get Lan Vpn Profile Parcel by parcelId for Service feature profile
+        GET /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/multicloud-connection/{multiCloudConnectionId}
 
-        return SchemaBuilder(self._request_adapter)
+        :param transport_id: Feature Profile ID
+        :param multi_cloud_connection_id: Profile Parcel ID
+        :returns: GetSingleSdRoutingTransportVrfWanMulticloudConnectionPayload
+        """
+        ...
+
+    @overload
+    def get(
+        self, transport_id: str, **kw
+    ) -> GetListSdRoutingTransportVrfWanMulticloudConnectionPayload:
+        """
+        Get Lan Vpn Profile Parcels for Service feature profile
+        GET /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/multicloud-connection
+
+        :param transport_id: Feature Profile ID
+        :returns: GetListSdRoutingTransportVrfWanMulticloudConnectionPayload
+        """
+        ...
+
+    def get(
+        self, transport_id: str, multi_cloud_connection_id: Optional[str] = None, **kw
+    ) -> Union[
+        GetListSdRoutingTransportVrfWanMulticloudConnectionPayload,
+        GetSingleSdRoutingTransportVrfWanMulticloudConnectionPayload,
+    ]:
+        # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/multicloud-connection/{multiCloudConnectionId}
+        if self._request_adapter.param_checker(
+            [(transport_id, str), (multi_cloud_connection_id, str)], []
+        ):
+            params = {
+                "transportId": transport_id,
+                "multiCloudConnectionId": multi_cloud_connection_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/multicloud-connection/{multiCloudConnectionId}",
+                return_type=GetSingleSdRoutingTransportVrfWanMulticloudConnectionPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/multicloud-connection
+        if self._request_adapter.param_checker([(transport_id, str)], [multi_cloud_connection_id]):
+            params = {
+                "transportId": transport_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/multicloud-connection",
+                return_type=GetListSdRoutingTransportVrfWanMulticloudConnectionPayload,
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")

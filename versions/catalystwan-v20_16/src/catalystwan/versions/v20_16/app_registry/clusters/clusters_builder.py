@@ -19,7 +19,7 @@ class ClustersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_kubernetes_cluster(
+    def get(
         self,
         is_cached: Optional[bool] = True,
         offset: Optional[int] = 0,
@@ -28,6 +28,7 @@ class ClustersBuilder:
     ) -> List[ClusterProperties]:
         """
         Obtain all clusters with associated cloud accounts
+        GET /dataservice/app-registry/clusters
 
         :param is_cached: Is cached
         :param offset: Pagination offset
@@ -47,17 +48,19 @@ class ClustersBuilder:
             **kw,
         )
 
-    def post_cluster(self, **kw):
+    def post(self, **kw):
         """
         Manually upload kubeConfig
+        POST /dataservice/app-registry/clusters
 
         :returns: None
         """
         return self._request_adapter.request("POST", "/dataservice/app-registry/clusters", **kw)
 
-    def edit_kubernetes_cluster(self, id: str, payload: Optional[PutProperties] = None, **kw):
+    def put(self, id: str, payload: PutProperties, **kw):
         """
         Edit the discovery status of a cluster
+        PUT /dataservice/app-registry/clusters/{id}
 
         :param id: Id
         :param payload: enable or disable Cluster Discovery Status
@@ -70,9 +73,10 @@ class ClustersBuilder:
             "PUT", "/dataservice/app-registry/clusters/{id}", params=params, payload=payload, **kw
         )
 
-    def delete_kubernetes_cluster(self, id: str, **kw):
+    def delete(self, id: str, **kw):
         """
         Delete manually uploaded cluster
+        DELETE /dataservice/app-registry/clusters/{id}
 
         :param id: Id
         :returns: None

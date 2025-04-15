@@ -15,9 +15,10 @@ class EdgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_edge_types(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get edge types
+        GET /dataservice/multicloud/types/edge
 
         :returns: Any
         """

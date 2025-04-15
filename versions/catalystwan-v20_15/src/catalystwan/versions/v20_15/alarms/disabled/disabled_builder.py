@@ -19,9 +19,10 @@ class DisabledBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_disabled_alarm(self, **kw) -> List[DisabledAlarmDetails]:
+    def get(self, **kw) -> List[DisabledAlarmDetails]:
         """
         List all disabled alarms
+        GET /dataservice/alarms/disabled
 
         :returns: List[DisabledAlarmDetails]
         """
@@ -29,11 +30,12 @@ class DisabledBuilder:
             "GET", "/dataservice/alarms/disabled", return_type=List[DisabledAlarmDetails], **kw
         )
 
-    def disable_enable_alarm(
+    def post(
         self, event_name: str, disable: Optional[bool] = None, time: Optional[int] = None, **kw
     ):
         """
         Enable/Disable alarms by event name
+        POST /dataservice/alarms/disabled
 
         :param event_name: Event name
         :param disable: Disable

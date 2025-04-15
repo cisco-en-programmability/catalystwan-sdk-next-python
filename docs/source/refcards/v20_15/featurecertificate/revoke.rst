@@ -11,9 +11,7 @@ Revoke feature cert from cEdge device<br><br><br>Note: In a multitenant vManage 
 
 .. code:: python
 
-    def revoke_feature_certificate(
-        payload: Optional[Any] = None,
-    ) -> Any: ...
+    def put(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.featurecertificate.revoke.revoke_feature_certificate()
+        client.featurecertificate.revoke.put()
 
 

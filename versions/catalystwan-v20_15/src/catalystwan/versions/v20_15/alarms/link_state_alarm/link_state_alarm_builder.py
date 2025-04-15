@@ -12,9 +12,10 @@ class LinkStateAlarmBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_link_state_alarm_config(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         Get configuration for link-state alarm
+        GET /dataservice/alarms/link-state-alarm
 
         :returns: str
         """
@@ -22,9 +23,10 @@ class LinkStateAlarmBuilder:
             "GET", "/dataservice/alarms/link-state-alarm", return_type=str, **kw
         )
 
-    def enable_disable_link_state_alarm(self, link_name: str, enable: bool, **kw):
+    def post(self, link_name: str, enable: bool, **kw):
         """
         Enable/Disable a specific link-state alarm
+        POST /dataservice/alarms/link-state-alarm
 
         :param link_name: Link Name
         :param enable: Enable

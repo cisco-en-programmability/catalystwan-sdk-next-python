@@ -14,9 +14,10 @@ class ApplicationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_by_uuid(self, app_uuid: str, **kw) -> List[Any]:
+    def get(self, app_uuid: str, **kw) -> List[Any]:
         """
         Get  app detail for particular App uuid
+        GET /dataservice/app-registry/application/{app-uuid}
 
         :param app_uuid: App uuid
         :returns: List[Any]

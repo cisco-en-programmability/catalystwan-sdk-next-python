@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,11 +19,10 @@ class DeleteDevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def delete_devices(
-        self, payload: Optional[DeleteDetails] = None, **kw
-    ) -> List[DeleteResponseInner]:
+    def post(self, payload: DeleteDetails, **kw) -> List[DeleteResponseInner]:
         """
         Delete Manual Onboard Device details
+        POST /dataservice/onboard/delete-devices
 
         :param payload: Payload
         :returns: List[DeleteResponseInner]

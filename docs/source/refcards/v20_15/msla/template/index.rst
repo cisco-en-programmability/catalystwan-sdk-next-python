@@ -11,7 +11,7 @@ Retrieve all MSLA template
 
 .. code:: python
 
-    def get_all_template() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.msla.template.get_all_template()
+        client.msla.template.get()
 
 
 .. toctree::

@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_list_status(self, **kw) -> List[str]:
+    def get(self, **kw) -> List[str]:
         """
         get certificate data
+        GET /dataservice/certificate/list/status
 
         :returns: List[str]
         """

@@ -12,9 +12,10 @@ class TypeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_log_type(self, uuid: str, **kw):
+    def get(self, uuid: str, **kw):
         """
-        Get log type
+        Get
+        GET /dataservice/stream/device/log/type
 
         :param uuid: Device uuid
         :returns: None

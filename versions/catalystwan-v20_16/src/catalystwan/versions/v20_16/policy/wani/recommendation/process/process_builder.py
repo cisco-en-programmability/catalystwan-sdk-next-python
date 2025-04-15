@@ -17,9 +17,10 @@ class ProcessBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def apply_wani_recommendation(self, key: str, **kw) -> ApplyRecommendationRes:
+    def post(self, key: str, **kw) -> ApplyRecommendationRes:
         """
         Applies recommendations to a centralized policy
+        POST /dataservice/policy/wani/recommendation/process
 
         :param key: Key from vAnalytics to retrieve recommendation json
         :returns: ApplyRecommendationRes

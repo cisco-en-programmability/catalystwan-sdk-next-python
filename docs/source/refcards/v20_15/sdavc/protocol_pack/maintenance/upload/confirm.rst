@@ -11,7 +11,7 @@ Confirm uploaded protocol pack
 
 .. code:: python
 
-    def confirm_protocol_pack_upload(uuid: str) -> None: ...
+    def post(uuid: str) -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.protocol_pack.maintenance.upload.confirm.confirm_protocol_pack_upload()
+        client.sdavc.protocol_pack.maintenance.upload.confirm.post()
 
 

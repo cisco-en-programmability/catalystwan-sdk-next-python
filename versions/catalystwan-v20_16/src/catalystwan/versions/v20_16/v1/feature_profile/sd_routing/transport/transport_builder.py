@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateSdroutingTransportFeatureProfilePostRequest,
+    CreateSdroutingTransportFeatureProfilePostResponse,
+    EditSdroutingTransportFeatureProfilePutRequest,
+    EditSdroutingTransportFeatureProfilePutResponse,
+    GetSdroutingTransportFeatureProfilesGetResponse,
+    GetSingleSdRoutingTransportPayload,
+)
 
 if TYPE_CHECKING:
     from .cellular_controller.cellular_controller_builder import CellularControllerBuilder
@@ -27,70 +37,39 @@ class TransportBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sd-routing/transport
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdrouting_transport_feature_profiles(
-        self, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
-    ) -> Any:
-        """
-        Get all SD-Routing Transport Feature Profiles
-
-        :param offset: Pagination offset
-        :param limit: Pagination limit
-        :returns: Any
-        """
-        params = {
-            "offset": offset,
-            "limit": limit,
-        }
-        return self._request_adapter.request(
-            "GET", "/dataservice/v1/feature-profile/sd-routing/transport", params=params, **kw
-        )
-
-    def create_sdrouting_transport_feature_profile(
-        self, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self, payload: CreateSdroutingTransportFeatureProfilePostRequest, **kw
+    ) -> CreateSdroutingTransportFeatureProfilePostResponse:
         """
         Create a SD-Routing Transport Feature Profile
+        POST /dataservice/v1/feature-profile/sd-routing/transport
 
         :param payload: SD-Routing Transport Feature Profile
-        :returns: str
+        :returns: CreateSdroutingTransportFeatureProfilePostResponse
         """
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sd-routing/transport",
-            return_type=str,
+            return_type=CreateSdroutingTransportFeatureProfilePostResponse,
             payload=payload,
             **kw,
         )
 
-    def get_sdrouting_transport_feature_profile(self, transport_id: str, **kw) -> Any:
-        """
-        Get a SD-Routing Transport Feature Profile
-
-        :param transport_id: Transport Profile Id
-        :returns: Any
-        """
-        params = {
-            "transportId": transport_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}",
-            params=params,
-            **kw,
-        )
-
-    def edit_sdrouting_transport_feature_profile(
-        self, transport_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self, transport_id: str, payload: EditSdroutingTransportFeatureProfilePutRequest, **kw
+    ) -> EditSdroutingTransportFeatureProfilePutResponse:
         """
         Edit a SD-Routing Transport Feature Profile
+        PUT /dataservice/v1/feature-profile/sd-routing/transport/{transportId}
 
         :param transport_id: Transport Profile Id
         :param payload: SD-Routing Transport Feature Profile
-        :returns: str
+        :returns: EditSdroutingTransportFeatureProfilePutResponse
         """
         params = {
             "transportId": transport_id,
@@ -98,15 +77,16 @@ class TransportBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}",
-            return_type=str,
+            return_type=EditSdroutingTransportFeatureProfilePutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_sdrouting_transport_feature_profile(self, transport_id: str, **kw):
+    def delete(self, transport_id: str, **kw):
         """
         Delete a SD-Routing Transport Feature Profile
+        DELETE /dataservice/v1/feature-profile/sd-routing/transport/{transportId}
 
         :param transport_id: Transport Profile Id
         :returns: None
@@ -120,6 +100,68 @@ class TransportBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(self, *, transport_id: str, **kw) -> GetSingleSdRoutingTransportPayload:
+        """
+        Get a SD-Routing Transport Feature Profile
+        GET /dataservice/v1/feature-profile/sd-routing/transport/{transportId}
+
+        :param transport_id: Transport Profile Id
+        :returns: GetSingleSdRoutingTransportPayload
+        """
+        ...
+
+    @overload
+    def get(
+        self, *, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
+    ) -> List[GetSdroutingTransportFeatureProfilesGetResponse]:
+        """
+        Get all SD-Routing Transport Feature Profiles
+        GET /dataservice/v1/feature-profile/sd-routing/transport
+
+        :param offset: Pagination offset
+        :param limit: Pagination limit
+        :returns: List[GetSdroutingTransportFeatureProfilesGetResponse]
+        """
+        ...
+
+    def get(
+        self,
+        *,
+        offset: Optional[int] = None,
+        limit: Optional[int] = None,
+        transport_id: Optional[str] = None,
+        **kw,
+    ) -> Union[
+        List[GetSdroutingTransportFeatureProfilesGetResponse], GetSingleSdRoutingTransportPayload
+    ]:
+        # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}
+        if self._request_adapter.param_checker([(transport_id, str)], [offset, limit]):
+            params = {
+                "transportId": transport_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}",
+                return_type=GetSingleSdRoutingTransportPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sd-routing/transport
+        if self._request_adapter.param_checker([], [transport_id]):
+            params = {
+                "offset": offset,
+                "limit": limit,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sd-routing/transport",
+                return_type=List[GetSdroutingTransportFeatureProfilesGetResponse],
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def cellular_controller(self) -> CellularControllerBuilder:

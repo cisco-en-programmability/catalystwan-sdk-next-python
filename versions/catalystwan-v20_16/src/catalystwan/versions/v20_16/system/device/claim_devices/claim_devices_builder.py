@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,11 +17,10 @@ class ClaimDevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def claim_devices(
-        self, payload: Optional[ClaimDevicesRequest] = None, **kw
-    ) -> ClaimDevicesResponse:
+    def post(self, payload: ClaimDevicesRequest, **kw) -> ClaimDevicesResponse:
         """
         Claim the selected unclaimed devices
+        POST /dataservice/system/device/claimDevices
 
         :param payload: Claim device request
         :returns: ClaimDevicesResponse

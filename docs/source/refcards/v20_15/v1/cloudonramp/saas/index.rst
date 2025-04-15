@@ -11,7 +11,7 @@ Get Cloud On Ramp For Saas apps status
 
 .. code:: python
 
-    def get_cloud_on_ramp_saas_status() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.cloudonramp.saas.get_cloud_on_ramp_saas_status()
+        client.v1.cloudonramp.saas.get()
 
 
 .. toctree::

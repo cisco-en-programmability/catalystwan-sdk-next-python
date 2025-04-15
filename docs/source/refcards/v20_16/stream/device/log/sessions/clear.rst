@@ -9,7 +9,7 @@ Operation: GET /dataservice/stream/device/log/sessions/clear/{sessionId}
 
 .. code:: python
 
-    def clear_session(session_id: str) -> None: ...
+    def get(session_id: str) -> None: ...
 
 
 Example:
@@ -27,6 +27,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.log.sessions.clear.clear_session()
+        client.stream.device.log.sessions.clear.get()
 
 

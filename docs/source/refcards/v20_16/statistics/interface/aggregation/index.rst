@@ -11,9 +11,7 @@ Get aggregated data based on input query and filters. The data can be filtered o
 
 .. code:: python
 
-    def get_aggregation_data_by_query_11(
-        query: str,
-    ) -> List[InterfaceAggRespWithPageInfo]: ...
+    def get(query: str) -> List[InterfaceAggRespWithPageInfo]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.interface.aggregation.get_aggregation_data_by_query_11()
+        client.statistics.interface.aggregation.get()
 
 
 Operation: POST /dataservice/statistics/interface/aggregation
@@ -42,9 +40,7 @@ Get aggregated data based on input query and filters. The data can be filtered o
 
 .. code:: python
 
-    def get_post_aggregation_data_by_query_11(
-        payload: Optional[Any] = None,
-    ) -> List[InterfaceAggResp]: ...
+    def post(payload: Any) -> List[InterfaceAggResp]: ...
 
 
 Example:
@@ -62,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.interface.aggregation.get_post_aggregation_data_by_query_11()
+        client.statistics.interface.aggregation.post()
 
 
 .. toctree::

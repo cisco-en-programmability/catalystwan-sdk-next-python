@@ -13,7 +13,7 @@ Get Trace Event Readout for NWPI.
 
 .. code:: python
 
-    def get_event_readout(
+    def get(
         trace_id: int,
         timestamp: int,
         state: Optional[str] = None,
@@ -38,7 +38,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.event_readout.get_event_readout()
+        client.stream.device.nwpi.event_readout.get()
 
 
 .. toctree::

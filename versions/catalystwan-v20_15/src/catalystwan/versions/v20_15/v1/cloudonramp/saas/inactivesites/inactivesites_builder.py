@@ -12,9 +12,10 @@ class InactivesitesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_inactive_cor_saas_sites(self, **kw):
+    def get(self, **kw):
         """
         Get inactive sites
+        GET /dataservice/v1/cloudonramp/saas/inactivesites
 
         :returns: None
         """

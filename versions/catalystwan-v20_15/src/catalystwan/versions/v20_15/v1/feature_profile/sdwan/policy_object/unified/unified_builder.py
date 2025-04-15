@@ -1,12 +1,32 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
-from .models import SecurityProfileParcelTypeParam
+from .models import (
+    CreateSecurityProfileParcelPostRequest1,
+    CreateSecurityProfileParcelPostRequest2,
+    CreateSecurityProfileParcelPostRequest3,
+    CreateSecurityProfileParcelPostRequest4,
+    CreateSecurityProfileParcelPostRequest5,
+    CreateSecurityProfileParcelPostRequest61,
+    CreateSecurityProfileParcelPostRequest62,
+    CreateSecurityProfileParcelPostResponse,
+    EditSecurityProfileParcel1PutRequest1,
+    EditSecurityProfileParcel1PutRequest2,
+    EditSecurityProfileParcel1PutRequest3,
+    EditSecurityProfileParcel1PutRequest4,
+    EditSecurityProfileParcel1PutRequest5,
+    EditSecurityProfileParcel1PutRequest61,
+    EditSecurityProfileParcel1PutRequest62,
+    EditSecurityProfileParcel1PutResponse,
+    GetListSdwanPolicyObjectUnifiedAdvancedInspectionProfilePayload,
+    GetSingleSdwanPolicyObjectUnifiedAdvancedInspectionProfilePayload,
+    SecurityProfileParcelTypeParam,
+)
 
 if TYPE_CHECKING:
     from .advanced_inspection_profile.advanced_inspection_profile_builder import (
@@ -31,48 +51,30 @@ class UnifiedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_security_profile_parcel(
+    def post(
         self,
         policy_object_id: str,
         security_profile_parcel_type: SecurityProfileParcelTypeParam,
-        reference_count: Optional[bool] = False,
+        payload: Union[
+            CreateSecurityProfileParcelPostRequest1,
+            CreateSecurityProfileParcelPostRequest2,
+            CreateSecurityProfileParcelPostRequest3,
+            CreateSecurityProfileParcelPostRequest4,
+            CreateSecurityProfileParcelPostRequest5,
+            Union[
+                CreateSecurityProfileParcelPostRequest61, CreateSecurityProfileParcelPostRequest62
+            ],
+        ],
         **kw,
-    ) -> str:
-        """
-        Get Security Profile Parcels for a given ParcelType
-
-        :param policy_object_id: Feature Profile ID
-        :param security_profile_parcel_type: Policy Object ListType
-        :param reference_count: get reference count
-        :returns: str
-        """
-        params = {
-            "policyObjectId": policy_object_id,
-            "securityProfileParcelType": security_profile_parcel_type,
-            "referenceCount": reference_count,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def create_security_profile_parcel(
-        self,
-        policy_object_id: str,
-        security_profile_parcel_type: SecurityProfileParcelTypeParam,
-        payload: Optional[str] = None,
-        **kw,
-    ) -> str:
+    ) -> CreateSecurityProfileParcelPostResponse:
         """
         Create Parcel for Security Policy
+        POST /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}
 
         :param policy_object_id: Feature Profile ID
         :param security_profile_parcel_type: Policy Object ListType
         :param payload: Security Profile Parcel
-        :returns: str
+        :returns: CreateSecurityProfileParcelPostResponse
         """
         params = {
             "policyObjectId": policy_object_id,
@@ -81,59 +83,36 @@ class UnifiedBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}",
-            return_type=str,
+            return_type=CreateSecurityProfileParcelPostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_security_profile_parcel_by_parcel_id(
+    def put(
         self,
         policy_object_id: str,
         security_profile_parcel_type: SecurityProfileParcelTypeParam,
         security_profile_parcel_id: str,
-        references: Optional[bool] = False,
+        payload: Union[
+            EditSecurityProfileParcel1PutRequest1,
+            EditSecurityProfileParcel1PutRequest2,
+            EditSecurityProfileParcel1PutRequest3,
+            EditSecurityProfileParcel1PutRequest4,
+            EditSecurityProfileParcel1PutRequest5,
+            Union[EditSecurityProfileParcel1PutRequest61, EditSecurityProfileParcel1PutRequest62],
+        ],
         **kw,
-    ) -> str:
-        """
-        Get Security Profile Parcel by parcelId
-
-        :param policy_object_id: Feature Profile ID
-        :param security_profile_parcel_type: Policy Object ListType
-        :param security_profile_parcel_id: Profile Parcel ID
-        :param references: get associated profile/parcel details
-        :returns: str
-        """
-        params = {
-            "policyObjectId": policy_object_id,
-            "securityProfileParcelType": security_profile_parcel_type,
-            "securityProfileParcelId": security_profile_parcel_id,
-            "references": references,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}/{securityProfileParcelId}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def edit_security_profile_parcel(
-        self,
-        policy_object_id: str,
-        security_profile_parcel_type: SecurityProfileParcelTypeParam,
-        security_profile_parcel_id: str,
-        payload: Optional[str] = None,
-        **kw,
-    ) -> str:
+    ) -> EditSecurityProfileParcel1PutResponse:
         """
         Update a Security Profile Parcel
+        PUT /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}/{securityProfileParcelId}
 
         :param policy_object_id: Feature Profile ID
         :param security_profile_parcel_type: Policy Object ListType
         :param security_profile_parcel_id: Profile Parcel ID
         :param payload: Security Profile Parcel
-        :returns: str
+        :returns: EditSecurityProfileParcel1PutResponse
         """
         params = {
             "policyObjectId": policy_object_id,
@@ -143,13 +122,13 @@ class UnifiedBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}/{securityProfileParcelId}",
-            return_type=str,
+            return_type=EditSecurityProfileParcel1PutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_security_profile_parcel(
+    def delete(
         self,
         policy_object_id: str,
         security_profile_parcel_type: SecurityProfileParcelTypeParam,
@@ -158,6 +137,7 @@ class UnifiedBuilder:
     ):
         """
         Delete a Security Profile Parcel
+        DELETE /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}/{securityProfileParcelId}
 
         :param policy_object_id: Feature Profile ID
         :param security_profile_parcel_type: Policy Object ListType
@@ -175,6 +155,105 @@ class UnifiedBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(
+        self,
+        *,
+        policy_object_id: str,
+        security_profile_parcel_type: SecurityProfileParcelTypeParam,
+        security_profile_parcel_id: str,
+        references: Optional[bool] = False,
+        **kw,
+    ) -> GetSingleSdwanPolicyObjectUnifiedAdvancedInspectionProfilePayload:
+        """
+        Get Security Profile Parcel by parcelId
+        GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}/{securityProfileParcelId}
+
+        :param policy_object_id: Feature Profile ID
+        :param security_profile_parcel_type: Policy Object ListType
+        :param security_profile_parcel_id: Profile Parcel ID
+        :param references: get associated profile/parcel details
+        :returns: GetSingleSdwanPolicyObjectUnifiedAdvancedInspectionProfilePayload
+        """
+        ...
+
+    @overload
+    def get(
+        self,
+        *,
+        policy_object_id: str,
+        security_profile_parcel_type: SecurityProfileParcelTypeParam,
+        reference_count: Optional[bool] = False,
+        **kw,
+    ) -> GetListSdwanPolicyObjectUnifiedAdvancedInspectionProfilePayload:
+        """
+        Get Security Profile Parcels for a given ParcelType
+        GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}
+
+        :param policy_object_id: Feature Profile ID
+        :param security_profile_parcel_type: Policy Object ListType
+        :param reference_count: get reference count
+        :returns: GetListSdwanPolicyObjectUnifiedAdvancedInspectionProfilePayload
+        """
+        ...
+
+    def get(
+        self,
+        *,
+        policy_object_id: str,
+        security_profile_parcel_type: SecurityProfileParcelTypeParam,
+        reference_count: Optional[bool] = None,
+        security_profile_parcel_id: Optional[str] = None,
+        references: Optional[bool] = None,
+        **kw,
+    ) -> Union[
+        GetListSdwanPolicyObjectUnifiedAdvancedInspectionProfilePayload,
+        GetSingleSdwanPolicyObjectUnifiedAdvancedInspectionProfilePayload,
+    ]:
+        # /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}/{securityProfileParcelId}
+        if self._request_adapter.param_checker(
+            [
+                (policy_object_id, str),
+                (security_profile_parcel_type, SecurityProfileParcelTypeParam),
+                (security_profile_parcel_id, str),
+            ],
+            [reference_count],
+        ):
+            params = {
+                "policyObjectId": policy_object_id,
+                "securityProfileParcelType": security_profile_parcel_type,
+                "securityProfileParcelId": security_profile_parcel_id,
+                "references": references,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}/{securityProfileParcelId}",
+                return_type=GetSingleSdwanPolicyObjectUnifiedAdvancedInspectionProfilePayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}
+        if self._request_adapter.param_checker(
+            [
+                (policy_object_id, str),
+                (security_profile_parcel_type, SecurityProfileParcelTypeParam),
+            ],
+            [security_profile_parcel_id, references],
+        ):
+            params = {
+                "policyObjectId": policy_object_id,
+                "securityProfileParcelType": security_profile_parcel_type,
+                "referenceCount": reference_count,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}",
+                return_type=GetListSdwanPolicyObjectUnifiedAdvancedInspectionProfilePayload,
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def advanced_inspection_profile(self) -> AdvancedInspectionProfileBuilder:

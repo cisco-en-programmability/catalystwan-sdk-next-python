@@ -1,6 +1,6 @@
 [project]
 name = "catalystwan-v20-15"
-version = "2.0.0a0"
+version = "2.0.0a1"
 description = "Cisco Catalyst WAN SDK for Python :: Version 20.15"
 readme = "README.md"
 license = {file = "LICENSE"}

@@ -13,7 +13,7 @@ Get event detail of VNF
 
 .. code:: python
 
-    def get_vnf_events_count_detail(user_group: str) -> None: ...
+    def get(user_group: str) -> None: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.colocation.monitor.vnf.alarms.get_vnf_events_count_detail()
+        client.colocation.monitor.vnf.alarms.get()
 
 
 .. toctree::

@@ -19,11 +19,10 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_route_tunnel_summary_type(
-        self, type_: str, query: Optional[str] = None, **kw
-    ) -> List[AppRouteRespWithPageInfo]:
+    def get(self, type_: str, query: Optional[str] = None, **kw) -> List[AppRouteRespWithPageInfo]:
         """
         Get tunnel top statistics in as chart
+        GET /dataservice/statistics/approute/tunnel/{type}/summary
 
         :param type_: Type
         :param query: Query

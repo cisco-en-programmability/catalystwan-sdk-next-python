@@ -11,7 +11,7 @@ Get stats raw data
 
 .. code:: python
 
-    def get_stat_data_raw_data_14(
+    def get(
         query: Optional[str] = None,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
@@ -36,7 +36,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.flowlog.get_stat_data_raw_data_14()
+        client.statistics.flowlog.get()
 
 
 Operation: POST /dataservice/statistics/flowlog
@@ -47,8 +47,8 @@ Get stats raw data
 
 .. code:: python
 
-    def get_stat_data_raw_data_post(
-        payload: Optional[Any] = None,
+    def post(
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -71,7 +71,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.flowlog.get_stat_data_raw_data_post()
+        client.statistics.flowlog.post()
 
 
 .. toctree::

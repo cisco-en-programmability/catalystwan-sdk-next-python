@@ -19,11 +19,10 @@ class SupportdevicelistBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_supported_device_list(
-        self, last_n_hours: Optional[int] = 24, **kw
-    ) -> SupportedDeviceList:
+    def get(self, last_n_hours: Optional[int] = 24, **kw) -> SupportedDeviceList:
         """
         Get power consumption collection supported device list
+        GET /dataservice/statistics/powerconsumption/supportdevicelist
 
         :param last_n_hours: Last n hours
         :returns: SupportedDeviceList

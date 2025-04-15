@@ -12,9 +12,10 @@ class DownloadBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def download_generated_file(self, request_uuid: str, **kw):
+    def get(self, request_uuid: str, **kw):
         """
         Download generated file
+        GET /dataservice/device/file-based/data-collection/download/{requestUUID}
 
         :param request_uuid: request UUID
         :returns: None

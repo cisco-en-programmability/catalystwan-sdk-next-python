@@ -11,7 +11,7 @@ get token generated list
 
 .. code:: python
 
-    def get_token_list() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.tokengeneratedlist.get_token_list()
+        client.certificate.tokengeneratedlist.get()
 
 

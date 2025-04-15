@@ -19,9 +19,10 @@ class DashboardBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_dashboard(self, **kw) -> List[InterconnectDashboard]:
+    def get(self, **kw) -> List[InterconnectDashboard]:
         """
         API to retrieve Multicloud Interconnect dashboard view.
+        GET /dataservice/multicloud/interconnect/dashboard
 
         :returns: List[InterconnectDashboard]
         """

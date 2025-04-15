@@ -11,7 +11,7 @@ Deprecated!!!
 
 .. code:: python
 
-    def get_current_timestamp() -> CurrentTimestampResponsePayload: ...
+    def get() -> CurrentTimestampResponsePayload: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.current_timestamp.get_current_timestamp()
+        client.stream.device.nwpi.current_timestamp.get()
 
 
 .. toctree::

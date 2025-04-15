@@ -11,7 +11,7 @@ Get SDA Sites for Partner
 
 .. code:: python
 
-    def get_sites_for_partner(partner_id: str) -> SdaSitesRes: ...
+    def get(partner_id: str) -> SdaSitesRes: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.dnac.sda.site.get_sites_for_partner()
+        client.partner.dnac.sda.site.get()
 
 
 .. toctree::

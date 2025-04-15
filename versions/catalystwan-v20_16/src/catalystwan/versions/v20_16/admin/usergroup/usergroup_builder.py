@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, List, Optional
+from typing import TYPE_CHECKING, Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -18,9 +18,10 @@ class UsergroupBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def find_user_groups(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get all user groups
+        GET /dataservice/admin/usergroup
 
         :returns: List[Any]
         """
@@ -28,9 +29,10 @@ class UsergroupBuilder:
             "GET", "/dataservice/admin/usergroup", return_type=List[Any], **kw
         )
 
-    def create_user_group(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Create user group
+        POST /dataservice/admin/usergroup
 
         :param payload: User group
         :returns: None
@@ -39,9 +41,10 @@ class UsergroupBuilder:
             "POST", "/dataservice/admin/usergroup", payload=payload, **kw
         )
 
-    def update_user_group(self, user_group_id: str, payload: Optional[Any] = None, **kw):
+    def put(self, user_group_id: str, payload: Any, **kw):
         """
         Update user group
+        PUT /dataservice/admin/usergroup/{userGroupId}
 
         :param user_group_id: User group Id
         :param payload: User group
@@ -58,9 +61,10 @@ class UsergroupBuilder:
             **kw,
         )
 
-    def delete_user_group(self, user_group_id: str, **kw):
+    def delete(self, user_group_id: str, **kw):
         """
         Delete user group
+        DELETE /dataservice/admin/usergroup/{userGroupId}
 
         :param user_group_id: User group Id
         :returns: None

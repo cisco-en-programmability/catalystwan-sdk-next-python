@@ -20,9 +20,10 @@ class FieldsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_query_fields_27(self, **kw) -> List[QueryFieldsResponsePayloadInner]:
+    def get(self, **kw) -> List[QueryFieldsResponsePayloadInner]:
         """
         Get query fields
+        GET /dataservice/stream/device/nwpi/query/fields
 
         :returns: List[QueryFieldsResponsePayloadInner]
         """

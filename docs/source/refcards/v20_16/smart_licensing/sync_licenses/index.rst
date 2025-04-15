@@ -13,9 +13,7 @@ get all licenses for sa/va
 
 .. code:: python
 
-    def sync_licenses(
-        payload: Optional[LicenseUplodFile] = None,
-    ) -> Any: ...
+    def post(payload: LicenseUplodFile) -> Any: ...
 
 
 Example:
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.smart_licensing.sync_licenses.sync_licenses()
+        client.smart_licensing.sync_licenses.post()
 
 
 .. toctree::

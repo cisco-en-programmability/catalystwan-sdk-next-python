@@ -19,7 +19,7 @@ class ServicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_services(
+    def get(
         self,
         interconnect_service_vendor_name: str,
         interconnect_type: str,
@@ -28,6 +28,7 @@ class ServicesBuilder:
     ) -> List[InterconnectService]:
         """
         API to retrieve the Interconnect Services Information from vManage.
+        GET /dataservice/multicloud/interconnect/services
 
         :param interconnect_service_vendor_name: Interconnect service vendor name
         :param interconnect_type: Interconnect provider type

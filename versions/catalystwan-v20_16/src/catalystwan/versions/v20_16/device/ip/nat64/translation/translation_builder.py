@@ -14,9 +14,10 @@ class TranslationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_nat64_translation_list(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get NAT64 interface list from device
+        GET /dataservice/device/ip/nat64/translation
 
         :param device_id: deviceId - Device IP
         :returns: Any

@@ -14,9 +14,10 @@ class IscreatedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def check_self_signed_cert_1(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Whether self signed certificate created
+        GET /dataservice/system/device/selfsignedcert/iscreated
 
         :returns: Any
         """

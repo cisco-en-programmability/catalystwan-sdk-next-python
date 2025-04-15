@@ -14,9 +14,10 @@ class InfoBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_server_info_1(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get Server info
+        GET /dataservice/server/info
 
         :returns: Any
         """

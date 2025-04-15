@@ -14,9 +14,10 @@ class VnfsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_vnf_info(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get NetworkHub CPU VNF info from device
+        GET /dataservice/device/csp/resources/cpu-info/vnfs
 
         :param device_id: deviceId - Device IP
         :returns: Any

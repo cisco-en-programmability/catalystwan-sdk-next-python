@@ -11,7 +11,7 @@ API to get Google Cloud Router and Attachments.
 
 .. code:: python
 
-    def get_google_cloud_router_and_attachments(
+    def get(
         cloud_type: CloudTypeParam,
         cloud_account_id: str,
         connectivity_gateway_name: Optional[str] = None,
@@ -38,7 +38,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.cloud.accounts.gcr_and_attachments.get_google_cloud_router_and_attachments()
+        client.multicloud.interconnect.cloud.accounts.gcr_and_attachments.get()
 
 
 .. toctree::

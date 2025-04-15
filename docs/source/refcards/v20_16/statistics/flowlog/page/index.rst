@@ -11,7 +11,7 @@ Get stats pagination raw data
 
 .. code:: python
 
-    def get_stats_pagination_raw_data_24(
+    def get(
         query: Optional[str] = None,
         scroll_id: Optional[str] = None,
         count: Optional[int] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.flowlog.page.get_stats_pagination_raw_data_24()
+        client.statistics.flowlog.page.get()
 
 
 Operation: POST /dataservice/statistics/flowlog/page
@@ -44,8 +44,8 @@ Get stats pagination raw data
 
 .. code:: python
 
-    def get_stats_pagination_raw_data_post(
-        payload: Optional[Any] = None,
+    def post(
+        payload: Any,
         scroll_id: Optional[str] = None,
         count: Optional[int] = None,
     ) -> FlowlogPaginationResponse: ...
@@ -66,7 +66,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.flowlog.page.get_stats_pagination_raw_data_post()
+        client.statistics.flowlog.page.post()
 
 
 .. toctree::

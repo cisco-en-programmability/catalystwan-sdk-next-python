@@ -11,7 +11,7 @@ Get alarms by severity
 
 .. code:: python
 
-    def get_by_severities(
+    def get(
         severity_level: List[str],
         device_id: Optional[List[str]] = None,
         query: Optional[str] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.event.severity.get_by_severities()
+        client.event.severity.get()
 
 
 .. toctree::

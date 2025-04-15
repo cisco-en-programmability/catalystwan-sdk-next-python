@@ -11,9 +11,7 @@ User authorization for Cisco vManage SecureX integration
 
 .. code:: python
 
-    def device_authorization(
-        client_id: str, region_base_uri: str
-    ) -> Codes: ...
+    def post(client_id: str, region_base_uri: str) -> Codes: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device_authorization.device_authorization()
+        client.device_authorization.post()
 
 
 .. toctree::

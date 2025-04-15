@@ -14,9 +14,10 @@ class ApplicationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_common_application_list(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get DPI common application list from device
+        GET /dataservice/device/dpi/common/applications
 
         :returns: List[Any]
         """

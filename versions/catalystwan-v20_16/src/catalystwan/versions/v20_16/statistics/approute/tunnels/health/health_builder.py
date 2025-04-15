@@ -19,7 +19,7 @@ class HealthBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_route_tunnel_health(
+    def get(
         self,
         type_: str,
         limit: Optional[int] = 10,
@@ -32,6 +32,7 @@ class HealthBuilder:
     ) -> List[AppRouteTunnenSummarResp]:
         """
         Get tunnel health
+        GET /dataservice/statistics/approute/tunnels/health/{type}
 
         :param type_: Type
         :param limit: Limit

@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,18 +15,20 @@ class CircuitBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_circuits(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get network circuits
+        GET /dataservice/networkdesign/circuit
 
         :returns: Any
         """
         logging.warning("Operation: %s is deprecated", "getCircuits")
         return self._request_adapter.request("GET", "/dataservice/networkdesign/circuit", **kw)
 
-    def create_circuit(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create network circuits
+        POST /dataservice/networkdesign/circuit
 
         :param payload: Network circuit
         :returns: Any
@@ -36,9 +38,10 @@ class CircuitBuilder:
             "POST", "/dataservice/networkdesign/circuit", payload=payload, **kw
         )
 
-    def delete_circuit(self, id: str, **kw):
+    def delete(self, id: str, **kw):
         """
         Delete network circuits
+        DELETE /dataservice/networkdesign/circuit/{id}
 
         :param id: Id
         :returns: None

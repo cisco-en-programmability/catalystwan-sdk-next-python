@@ -11,7 +11,7 @@ Unmap a set of devices for the partner
 
 .. code:: python
 
-    def delete_device_mapping(
+    def post(
         partner_type: str, nms_id: str, payload: MapDevicesRequest
     ) -> StatusResponse: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.unmap.delete_device_mapping()
+        client.partner.unmap.post()
 
 
 .. toctree::

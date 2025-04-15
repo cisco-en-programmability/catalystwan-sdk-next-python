@@ -11,7 +11,7 @@ Get CSR detail view
 
 .. code:: python
 
-    def get_csr_view_right_menus() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.csr.details.get_csr_view_right_menus()
+        client.certificate.csr.details.get()
 
 

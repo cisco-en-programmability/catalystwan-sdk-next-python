@@ -34,6 +34,7 @@ class CloudOnrampGatewayConnectionsBuilder:
     ) -> Any:
         """
         API to retrieve all Interconnect OnRamp gateway connection.
+        GET /dataservice/multicloud/interconnect/connectivity/cloud-onramp-gateway-connections
 
         :param cloud_type: Cloud provider type
         :param cloud_account_id: Cloud account id
@@ -54,11 +55,12 @@ class CloudOnrampGatewayConnectionsBuilder:
             **kw,
         )
 
-    def create_interconnect_on_ramp_gateway_connection(
+    def post(
         self, payload: List[CreateInterconnectOnRampGatewayConnectionPostRequest], **kw
     ) -> List[InterconnectOnRampGatewayConnection]:
         """
         API to create an Interconnect OnRamp gateway connection.
+        POST /dataservice/multicloud/interconnect/connectivity/cloud-onramp-gateway-connections
 
         :param payload: Request payload for Interconnect OnRamp gateway connection
         :returns: List[InterconnectOnRampGatewayConnection]
@@ -71,11 +73,10 @@ class CloudOnrampGatewayConnectionsBuilder:
             **kw,
         )
 
-    def get_interconnect_on_ramp_gateway_connection(
-        self, connection_name: str, **kw
-    ) -> InterconnectOnRampGatewayConnection:
+    def get(self, connection_name: str, **kw) -> InterconnectOnRampGatewayConnection:
         """
         API to retrieve a specific Interconnect OnRamp gateway connection.
+        GET /dataservice/multicloud/interconnect/connectivity/cloud-onramp-gateway-connections/{connection-name}
 
         :param connection_name: Interconnect OnRamp gateway connection name
         :returns: InterconnectOnRampGatewayConnection
@@ -91,7 +92,7 @@ class CloudOnrampGatewayConnectionsBuilder:
             **kw,
         )
 
-    def update_interconnect_on_ramp_gateway_connection(
+    def put(
         self,
         connection_name: str,
         payload: UpdateInterconnectOnRampGatewayConnectionPutRequest,
@@ -99,6 +100,7 @@ class CloudOnrampGatewayConnectionsBuilder:
     ) -> ProcessResponse:
         """
         API to update an Interconnect OnRamp gateway connection.
+        PUT /dataservice/multicloud/interconnect/connectivity/cloud-onramp-gateway-connections/{connection-name}
 
         :param connection_name: Interconnect OnRamp gateway connection name
         :param payload: Request payload for Interconnect OnRamp gateway connection
@@ -116,11 +118,12 @@ class CloudOnrampGatewayConnectionsBuilder:
             **kw,
         )
 
-    def delete_interconnect_on_ramp_gateway_connection(
+    def delete(
         self, connection_name: str, delete_cloud_resources: Optional[str] = "false", **kw
     ) -> ProcessResponse:
         """
         API to delete an Interconnect OnRamp gateway connection.
+        DELETE /dataservice/multicloud/interconnect/connectivity/cloud-onramp-gateway-connections/{connection-name}
 
         :param connection_name: Interconnect OnRamp gateway connection name
         :param delete_cloud_resources: Interconnect connection provider sync enabled

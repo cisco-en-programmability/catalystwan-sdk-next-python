@@ -17,11 +17,10 @@ class NetconfBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def push_netconf_configs(
-        self, nms_id: str, payload: WcmNetconfConfigRequest, **kw
-    ) -> WcmNetconfConfigRes:
+    def post(self, nms_id: str, payload: WcmNetconfConfigRequest, **kw) -> WcmNetconfConfigRes:
         """
         Push device configs
+        POST /dataservice/partner/wcm/netconf/{nmsId}
 
         :param nms_id: Nms id
         :param payload: Netconf configuration

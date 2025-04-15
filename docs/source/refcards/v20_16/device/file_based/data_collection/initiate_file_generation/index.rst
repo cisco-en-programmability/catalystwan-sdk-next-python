@@ -11,9 +11,7 @@ Request device to prepare realtime collection data in required file format
 
 .. code:: python
 
-    def initiate_file_generation_request_to_device(
-        payload: Optional[InitiateFileGenerationRequest] = None,
-    ) -> str: ...
+    def post(payload: InitiateFileGenerationRequest) -> str: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.file_based.data_collection.initiate_file_generation.initiate_file_generation_request_to_device()
+        client.device.file_based.data_collection.initiate_file_generation.post()
 
 
 .. toctree::

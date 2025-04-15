@@ -11,7 +11,7 @@ Get device variables
 
 .. code:: python
 
-    def get_policy_group_device_variables(
+    def get(
         policy_group_id: str,
         device_id: Optional[str] = None,
         suggestions: Optional[bool] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.policy_group.device.variables.get_policy_group_device_variables()
+        client.v1.policy_group.device.variables.get()
 
 
 Operation: PUT /dataservice/v1/policy-group/{policyGroupId}/device/variables
@@ -44,11 +44,9 @@ assign values to device variables
 
 .. code:: python
 
-    def create_policy_group_device_variables(
+    def put(
         policy_group_id: str,
-        payload: Optional[
-            CreatePolicyGroupDeviceVariablesPutRequest
-        ] = None,
+        payload: CreatePolicyGroupDeviceVariablesPutRequest,
     ) -> Any: ...
 
 
@@ -67,7 +65,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.policy_group.device.variables.create_policy_group_device_variables()
+        client.v1.policy_group.device.variables.put()
 
 
 Operation: POST /dataservice/v1/policy-group/{policyGroupId}/device/variables
@@ -78,11 +76,9 @@ Fetch device variables
 
 .. code:: python
 
-    def fetch_policy_group_device_variables(
+    def post(
         policy_group_id: str,
-        payload: Optional[
-            FetchPolicyGroupDeviceVariablesPostRequest
-        ] = None,
+        payload: FetchPolicyGroupDeviceVariablesPostRequest,
     ) -> FetchPolicyGroupDeviceVariablesPostResponse: ...
 
 
@@ -101,7 +97,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.policy_group.device.variables.fetch_policy_group_device_variables()
+        client.v1.policy_group.device.variables.post()
 
 
 .. toctree::

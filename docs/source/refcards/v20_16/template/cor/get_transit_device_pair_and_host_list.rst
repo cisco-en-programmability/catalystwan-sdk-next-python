@@ -13,9 +13,7 @@ Get device and host details
 
 .. code:: python
 
-    def get_transit_device_pair_and_host_list(
-        account_id: str, cloud_region: str
-    ) -> Any: ...
+    def get(account_id: str, cloud_region: str) -> Any: ...
 
 
 Example:
@@ -33,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.get_transit_device_pair_and_host_list.get_transit_device_pair_and_host_list()
+        client.template.cor.get_transit_device_pair_and_host_list.get()
 
 

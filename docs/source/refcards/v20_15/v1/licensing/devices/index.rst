@@ -11,7 +11,7 @@ Retrieve list of all devices along with license details if assigned
 
 .. code:: python
 
-    def get_msla_devices() -> DevicesDetails: ...
+    def get() -> DevicesDetails: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.licensing.devices.get_msla_devices()
+        client.v1.licensing.devices.get()
 
 
 .. toctree::

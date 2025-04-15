@@ -11,7 +11,7 @@ Get edge proxy certificate
 
 .. code:: python
 
-    def get_proxy_cert_of_edge(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.certificate.get_proxy_cert_of_edge()
+        client.sslproxy.certificate.get()
 
 
 Operation: PUT /dataservice/sslproxy/certificate
@@ -40,7 +40,7 @@ Upload device certificate
 
 .. code:: python
 
-    def update_certificate(payload: Optional[Any] = None) -> Any: ...
+    def put(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.certificate.update_certificate()
+        client.sslproxy.certificate.put()
 
 
 .. toctree::

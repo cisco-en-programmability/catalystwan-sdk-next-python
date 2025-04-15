@@ -11,7 +11,7 @@ Retrieves Pxgrid Certificate
 
 .. code:: python
 
-    def get_pxgrid_cert() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.ise.credentials.pxgrid.cert.get_pxgrid_cert()
+        client.ise.credentials.pxgrid.cert.get()
 
 

@@ -11,7 +11,7 @@ Get all SDWAN Feature Profiles
 
 .. code:: python
 
-    def get_sdwan_feature_profile_by_sdwan_family(
+    def get(
         offset: Optional[int] = None, limit: Optional[int] = 0
     ) -> List[GetSdwanFeatureProfileBySdwanFamilyGetResponse]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.get_sdwan_feature_profile_by_sdwan_family()
+        client.v1.feature_profile.sdwan.get()
 
 
 .. toctree::

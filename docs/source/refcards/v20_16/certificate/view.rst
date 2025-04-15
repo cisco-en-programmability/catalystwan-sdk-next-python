@@ -11,7 +11,7 @@ Get certificate UI view
 
 .. code:: python
 
-    def get_view() -> str: ...
+    def get() -> str: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.view.get_view()
+        client.certificate.view.get()
 
 

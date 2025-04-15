@@ -11,7 +11,7 @@ API to retrieve supported partner regions for an Interconnect provider.
 
 .. code:: python
 
-    def get_interconnect_partner_ports(
+    def get(
         interconnect_type: str,
         interconnect_account_id: str,
         cloud_type: str,
@@ -37,7 +37,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.accounts.cloud.connectivity.connections.partner_ports.get_interconnect_partner_ports()
+        client.multicloud.interconnect.accounts.cloud.connectivity.connections.partner_ports.get()
 
 
 .. toctree::

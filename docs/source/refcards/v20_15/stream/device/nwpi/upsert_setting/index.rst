@@ -13,9 +13,7 @@ insert or update setting
 
 .. code:: python
 
-    def upsert_setting(
-        payload: Optional[NwpiSettingDataPayload] = None,
-    ) -> None: ...
+    def post(payload: NwpiSettingDataPayload) -> None: ...
 
 
 Example:
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.upsert_setting.upsert_setting()
+        client.stream.device.nwpi.upsert_setting.post()
 
 
 .. toctree::

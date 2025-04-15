@@ -15,9 +15,10 @@ class HostvpcBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_host_vp_cs(self, transit_vpc_id: str, device_pair_id: str, **kw) -> Any:
+    def get(self, transit_vpc_id: str, device_pair_id: str, **kw) -> Any:
         """
         Get host VPC details
+        GET /dataservice/template/cor/devicepair/hostvpc
 
         :param transit_vpc_id: Transit VPC Id
         :param device_pair_id: Device pair Id

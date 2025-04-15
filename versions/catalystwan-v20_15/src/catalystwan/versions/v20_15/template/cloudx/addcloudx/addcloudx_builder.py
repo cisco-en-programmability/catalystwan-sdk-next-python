@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,9 +15,10 @@ class AddcloudxBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def add_cloudx_type(self, type_: str, payload: Optional[Any] = None, **kw):
+    def post(self, type_: str, payload: Any, **kw):
         """
         Add cloudx gateway
+        POST /dataservice/template/cloudx/addcloudx/{type}
 
         :param type_: Cloudx type
         :param payload: Cloudx

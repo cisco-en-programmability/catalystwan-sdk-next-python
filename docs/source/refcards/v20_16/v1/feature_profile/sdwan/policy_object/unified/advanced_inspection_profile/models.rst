@@ -14,7 +14,7 @@ Models
     ]
 
 
-    class CreateSecurityProfileParcelPostResponse:
+    class CreateSdwanSecurityFeaturePostResponse:
         parcel_id: Optional[str]
 
 
@@ -56,7 +56,7 @@ Models
         url_filtering: Optional[ReferenceDef]
 
 
-    class CreateSecurityProfileParcelPostRequest:
+    class CreateSdwanSecurityFeaturePostRequest:
         """
         advanced-malware-protection profile parcel schema for POST request
         """
@@ -65,12 +65,22 @@ Models
         data: Union[Data1, Data2, Data3]
         description: str
         name: str
-        # This is the documentation for POST request schema for advanced-malware-protection profile parcel
-        documentation: Optional[Any]
         metadata: Optional[Any]
 
 
-    class GetSecurityProfileParcelGetResponse:
+    class Payload:
+        """
+        advanced-malware-protection profile parcel schema for POST request
+        """
+
+        # requires tlsDecryptionAction and at least one of Intrusion Prevention or URL Filtering or Advanced Malware Protection policies
+        data: Union[Data1, Data2, Data3]
+        description: str
+        name: str
+        metadata: Optional[Any]
+
+
+    class GetSdwanSecurityFeatureGetResponse:
         created_by: Optional[str]
         created_on: Optional[int]
         last_updated_by: Optional[str]
@@ -78,6 +88,6 @@ Models
         parcel_id: Optional[str]
         parcel_type: Optional[str]
         # advanced-malware-protection profile parcel schema for POST request
-        payload: Optional[CreateSecurityProfileParcelPostRequest]
+        payload: Optional[Payload]
 
 

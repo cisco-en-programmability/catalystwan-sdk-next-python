@@ -17,9 +17,10 @@ class TokenBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def token(self, client_id: str, region_base_uri: str, **kw) -> Tokens:
+    def post(self, client_id: str, region_base_uri: str, **kw) -> Tokens:
         """
         Get Access Token and Refresh Token for authorized user
+        POST /dataservice/token/{regionBaseUri}/{clientId}
 
         :param client_id: Client id
         :param region_base_uri: Region base uri

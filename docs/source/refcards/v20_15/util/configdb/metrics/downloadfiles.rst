@@ -11,7 +11,7 @@ By passing in the appropriate metric, date, start and end time, it will return a
 
 .. code:: python
 
-    def return_metric_files(
+    def get(
         metric_name: str,
         start_date: str,
         end_date: Optional[str] = None,
@@ -35,6 +35,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.configdb.metrics.downloadfiles.return_metric_files()
+        client.util.configdb.metrics.downloadfiles.get()
 
 

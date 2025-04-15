@@ -14,9 +14,10 @@ class AccesslistcountersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_policy_access_list_counters(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get access list counter from device
+        GET /dataservice/device/policy/accesslistcounters
 
         :param device_id: deviceId - Device IP
         :returns: Any

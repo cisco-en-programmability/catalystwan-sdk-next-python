@@ -13,7 +13,7 @@ Get License Info for Edge Gateways/Connections
 
 .. code:: python
 
-    def get_licenses(
+    def get(
         edge_type: Optional[EdgeTypeParam] = None,
         account_id: Optional[str] = None,
         product_type: Optional[ProductTypeParam] = None,
@@ -36,7 +36,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.license.edge.get_licenses()
+        client.multicloud.license.edge.get()
 
 
 .. toctree::

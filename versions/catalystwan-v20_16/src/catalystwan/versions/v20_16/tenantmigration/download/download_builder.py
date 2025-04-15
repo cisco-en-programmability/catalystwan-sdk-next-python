@@ -14,9 +14,10 @@ class DownloadBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def download_tenant_data(self, path: str, **kw) -> Any:
+    def get(self, path: str, **kw) -> Any:
         """
         Download tenant data
+        GET /dataservice/tenantmigration/download/{path}
 
         :param path: File path
         :returns: Any

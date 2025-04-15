@@ -11,7 +11,7 @@ Get DPI detailed field from device
 
 .. code:: python
 
-    def get_dpi_device_details_field_json() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.dpi.devicedetails.fields.get_dpi_device_details_field_json()
+        client.device.dpi.devicedetails.fields.get()
 
 

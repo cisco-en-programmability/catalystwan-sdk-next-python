@@ -12,9 +12,10 @@ class CloudTunnelsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_tunnel_list(self, device_ip: str, **kw):
+    def get(self, device_ip: str, **kw):
         """
         Get Secure Internet Gateway Tunnel List
+        GET /dataservice/v1/cloudonramp/saas/cloud_tunnels
 
         :param device_ip: DeviceIp/SystemIp
         :returns: None

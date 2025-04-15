@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
+from typing import List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateWanVpnInterfaceEthernetAndIpv6TrackerParcelAssociationForTransportPostRequest,
+    CreateWanVpnInterfaceEthernetAndIpv6TrackerParcelAssociationForTransportPostResponse,
+    EditWanVpnInterfaceEthernetAndIpv6TrackerParcelAssociationForTransportPutRequest,
+    EditWanVpnInterfaceEthernetAndIpv6TrackerParcelAssociationForTransportPutResponse,
+    GetSingleSdwanTransportWanVpnInterfaceEthernetIpv6TrackerPayload,
+    GetWanVpnInterfaceEthernetAssociatedIpv6TrackerParcelsForTransportGetResponse,
+)
 
 
 class Ipv6TrackerBuilder:
@@ -11,77 +21,30 @@ class Ipv6TrackerBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ethernet/{ethernetId}/ipv6-tracker
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_wan_vpn_interface_ethernet_associated_ipv6_tracker_parcels_for_transport(
-        self, transport_id: str, vpn_id: str, ethernet_id: str, **kw
-    ) -> str:
-        """
-        Get WanVpnInterfaceEthernet associated IPv6 Tracker Parcels for transport feature profile
-
-        :param transport_id: Feature Profile ID
-        :param vpn_id: Feature Parcel ID
-        :param ethernet_id: Interface Profile Parcel ID
-        :returns: str
-        """
-        params = {
-            "transportId": transport_id,
-            "vpnId": vpn_id,
-            "ethernetId": ethernet_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ethernet/{ethernetId}/ipv6-tracker",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def get_wan_vpn_interface_ethernet_associated_ipv6_tracker_parcel_by_parcel_id_for_transport(
-        self, transport_id: str, vpn_id: str, ethernet_id: str, ipv6_tracker_id: str, **kw
-    ) -> str:
-        """
-        Get WanVpnInterfaceEthernet associated IPv6 Tracker Parcel by ipv6-trackerId for transport feature profile
-
-        :param transport_id: Feature Profile ID
-        :param vpn_id: Profile Parcel ID
-        :param ethernet_id: Interface Profile Parcel ID
-        :param ipv6_tracker_id: Tracker Parcel ID
-        :returns: str
-        """
-        params = {
-            "transportId": transport_id,
-            "vpnId": vpn_id,
-            "ethernetId": ethernet_id,
-            "ipv6-trackerId": ipv6_tracker_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ethernet/{ethernetId}/ipv6-tracker/{ipv6-trackerId}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def edit_wan_vpn_interface_ethernet_and_ipv6_tracker_parcel_association_for_transport(
+    def put(
         self,
         transport_id: str,
         vpn_id: str,
         ethernet_id: str,
         ipv6_tracker_id: str,
-        payload: Optional[str] = None,
+        payload: EditWanVpnInterfaceEthernetAndIpv6TrackerParcelAssociationForTransportPutRequest,
         **kw,
-    ) -> str:
+    ) -> EditWanVpnInterfaceEthernetAndIpv6TrackerParcelAssociationForTransportPutResponse:
         """
         Update a WanVpnInterfaceEthernet parcel and a IPv6 Tracker Parcel association for transport feature profile
+        PUT /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ethernet/{ethernetId}/ipv6-tracker/{ipv6-trackerId}
 
         :param transport_id: Feature Profile ID
         :param vpn_id: Profile Parcel ID
         :param ethernet_id: Interface Profile Parcel ID
         :param ipv6_tracker_id: Tracker ID
         :param payload: Tracker Profile Parcel
-        :returns: str
+        :returns: EditWanVpnInterfaceEthernetAndIpv6TrackerParcelAssociationForTransportPutResponse
         """
         params = {
             "transportId": transport_id,
@@ -92,17 +55,16 @@ class Ipv6TrackerBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ethernet/{ethernetId}/ipv6-tracker/{ipv6-trackerId}",
-            return_type=str,
+            return_type=EditWanVpnInterfaceEthernetAndIpv6TrackerParcelAssociationForTransportPutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_wan_vpn_interface_ethernet_and_ipv6_tracker_association_for_transport(
-        self, transport_id: str, vpn_id: str, ethernet_id: str, ipv6_tracker_id: str, **kw
-    ):
+    def delete(self, transport_id: str, vpn_id: str, ethernet_id: str, ipv6_tracker_id: str, **kw):
         """
         Delete a WanVpnInterfaceEthernet and a IPv6 Tracker Parcel association for transport feature profile
+        DELETE /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ethernet/{ethernetId}/ipv6-tracker/{ipv6-trackerId}
 
         :param transport_id: Feature Profile ID
         :param vpn_id: Profile Parcel ID
@@ -123,22 +85,23 @@ class Ipv6TrackerBuilder:
             **kw,
         )
 
-    def create_wan_vpn_interface_ethernet_and_ipv6_tracker_parcel_association_for_transport(
+    def post(
         self,
         transport_id: str,
         vpn_parcel_id: str,
         ethernet_id: str,
-        payload: Optional[str] = None,
+        payload: CreateWanVpnInterfaceEthernetAndIpv6TrackerParcelAssociationForTransportPostRequest,
         **kw,
-    ) -> str:
+    ) -> CreateWanVpnInterfaceEthernetAndIpv6TrackerParcelAssociationForTransportPostResponse:
         """
         Associate a WanVpnInterfaceEthernet parcel with a IPv6 Tracker Parcel for transport feature profile
+        POST /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnParcelId}/interface/ethernet/{ethernetId}/ipv6-tracker
 
         :param transport_id: Feature Profile ID
         :param vpn_parcel_id: VPN Profile Parcel ID
         :param ethernet_id: Interface Profile Parcel ID
         :param payload: Tracker Profile Parcel Id
-        :returns: str
+        :returns: CreateWanVpnInterfaceEthernetAndIpv6TrackerParcelAssociationForTransportPostResponse
         """
         params = {
             "transportId": transport_id,
@@ -148,8 +111,87 @@ class Ipv6TrackerBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnParcelId}/interface/ethernet/{ethernetId}/ipv6-tracker",
-            return_type=str,
+            return_type=CreateWanVpnInterfaceEthernetAndIpv6TrackerParcelAssociationForTransportPostResponse,
             params=params,
             payload=payload,
             **kw,
         )
+
+    @overload
+    def get(
+        self, transport_id: str, vpn_id: str, ethernet_id: str, ipv6_tracker_id: str, **kw
+    ) -> GetSingleSdwanTransportWanVpnInterfaceEthernetIpv6TrackerPayload:
+        """
+        Get WanVpnInterfaceEthernet associated IPv6 Tracker Parcel by ipv6-trackerId for transport feature profile
+        GET /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ethernet/{ethernetId}/ipv6-tracker/{ipv6-trackerId}
+
+        :param transport_id: Feature Profile ID
+        :param vpn_id: Profile Parcel ID
+        :param ethernet_id: Interface Profile Parcel ID
+        :param ipv6_tracker_id: Tracker Parcel ID
+        :returns: GetSingleSdwanTransportWanVpnInterfaceEthernetIpv6TrackerPayload
+        """
+        ...
+
+    @overload
+    def get(
+        self, transport_id: str, vpn_id: str, ethernet_id: str, **kw
+    ) -> List[GetWanVpnInterfaceEthernetAssociatedIpv6TrackerParcelsForTransportGetResponse]:
+        """
+        Get WanVpnInterfaceEthernet associated IPv6 Tracker Parcels for transport feature profile
+        GET /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ethernet/{ethernetId}/ipv6-tracker
+
+        :param transport_id: Feature Profile ID
+        :param vpn_id: Feature Parcel ID
+        :param ethernet_id: Interface Profile Parcel ID
+        :returns: List[GetWanVpnInterfaceEthernetAssociatedIpv6TrackerParcelsForTransportGetResponse]
+        """
+        ...
+
+    def get(
+        self,
+        transport_id: str,
+        vpn_id: str,
+        ethernet_id: str,
+        ipv6_tracker_id: Optional[str] = None,
+        **kw,
+    ) -> Union[
+        List[GetWanVpnInterfaceEthernetAssociatedIpv6TrackerParcelsForTransportGetResponse],
+        GetSingleSdwanTransportWanVpnInterfaceEthernetIpv6TrackerPayload,
+    ]:
+        # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ethernet/{ethernetId}/ipv6-tracker/{ipv6-trackerId}
+        if self._request_adapter.param_checker(
+            [(transport_id, str), (vpn_id, str), (ethernet_id, str), (ipv6_tracker_id, str)], []
+        ):
+            params = {
+                "transportId": transport_id,
+                "vpnId": vpn_id,
+                "ethernetId": ethernet_id,
+                "ipv6-trackerId": ipv6_tracker_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ethernet/{ethernetId}/ipv6-tracker/{ipv6-trackerId}",
+                return_type=GetSingleSdwanTransportWanVpnInterfaceEthernetIpv6TrackerPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ethernet/{ethernetId}/ipv6-tracker
+        if self._request_adapter.param_checker(
+            [(transport_id, str), (vpn_id, str), (ethernet_id, str)], [ipv6_tracker_id]
+        ):
+            params = {
+                "transportId": transport_id,
+                "vpnId": vpn_id,
+                "ethernetId": ethernet_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/ethernet/{ethernetId}/ipv6-tracker",
+                return_type=List[
+                    GetWanVpnInterfaceEthernetAssociatedIpv6TrackerParcelsForTransportGetResponse
+                ],
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")

@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,12 +17,13 @@ class RadiusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_radius_config(self, **kw) -> Radius:
+    def get(self, **kw) -> Radius:
         """
         Get radius configuration
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        GET /dataservice/admin/radius
 
         :returns: Radius
         """
@@ -32,12 +31,13 @@ class RadiusBuilder:
             "GET", "/dataservice/admin/radius", return_type=Radius, **kw
         )
 
-    def update_radius_config(self, payload: Optional[Radius] = None, **kw):
+    def put(self, payload: Radius, **kw):
         """
         Update radius configuration
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        PUT /dataservice/admin/radius
 
         :param payload: radius
         :returns: None
@@ -46,12 +46,13 @@ class RadiusBuilder:
             "PUT", "/dataservice/admin/radius", payload=payload, **kw
         )
 
-    def create_radius_config(self, payload: Optional[Radius] = None, **kw):
+    def post(self, payload: Radius, **kw):
         """
         Create radius configuration
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        POST /dataservice/admin/radius
 
         :param payload: radius
         :returns: None
@@ -60,12 +61,13 @@ class RadiusBuilder:
             "POST", "/dataservice/admin/radius", payload=payload, **kw
         )
 
-    def delete_radius_config(self, **kw) -> Radius:
+    def delete(self, **kw) -> Radius:
         """
         Delete radius configuration
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider and Provider-As-Tenant view.
+        DELETE /dataservice/admin/radius
 
         :returns: Radius
         """

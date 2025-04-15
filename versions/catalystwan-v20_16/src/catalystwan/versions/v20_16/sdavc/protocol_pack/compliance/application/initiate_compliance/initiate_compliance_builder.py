@@ -14,9 +14,10 @@ class InitiateComplianceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def initiate_application_compliance_check(self, **kw) -> Any:
+    def post(self, **kw) -> Any:
         """
         Initiate application name compliance task
+        POST /dataservice/sdavc/protocol-pack/compliance/application/initiate-compliance
 
         :returns: Any
         """

@@ -11,7 +11,7 @@ Upload file to vEdge
 
 .. code:: python
 
-    def form_post(payload: Optional[Any] = None) -> FormPostResp: ...
+    def post(payload: Any) -> FormPostResp: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.fileupload.form_post()
+        client.system.device.fileupload.post()
 
 
 .. toctree::

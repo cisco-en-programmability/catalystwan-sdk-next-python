@@ -61,9 +61,10 @@ class ListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_policy_lists(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get all policy lists
+        GET /dataservice/template/policy/list
 
         :returns: List[Any]
         """

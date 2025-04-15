@@ -11,7 +11,7 @@ List logger configuration
 
 .. code:: python
 
-    def list_configurations() -> Configurations: ...
+    def get() -> Configurations: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.logging.configurations.list_configurations()
+        client.util.logging.configurations.get()
 
 
 .. toctree::

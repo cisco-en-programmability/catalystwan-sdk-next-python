@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Optional
+from typing import TYPE_CHECKING, List, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -9,6 +9,8 @@ from . import models
 from .models import (
     CreateSdwanEmbeddedSecurityFeatureProfilePostRequest,
     CreateSdwanEmbeddedSecurityFeatureProfilePostResponse,
+    EditSdwanEmbeddedSecurityFeatureProfilePutRequest,
+    EditSdwanEmbeddedSecurityFeatureProfilePutResponse,
     GetSdwanEmbeddedSecurityFeatureProfilesGetResponse,
     GetSingleSdwanEmbeddedSecurityPayload,
 )
@@ -28,33 +30,12 @@ class EmbeddedSecurityBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sdwan_embedded_security_feature_profiles(
-        self, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
-    ) -> List[GetSdwanEmbeddedSecurityFeatureProfilesGetResponse]:
-        """
-        Get all SDWAN Feature Profiles with giving Family and profile type
-
-        :param offset: Pagination offset
-        :param limit: Pagination limit
-        :returns: List[GetSdwanEmbeddedSecurityFeatureProfilesGetResponse]
-        """
-        params = {
-            "offset": offset,
-            "limit": limit,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/embedded-security",
-            return_type=List[GetSdwanEmbeddedSecurityFeatureProfilesGetResponse],
-            params=params,
-            **kw,
-        )
-
-    def create_sdwan_embedded_security_feature_profile(
+    def post(
         self, payload: Optional[CreateSdwanEmbeddedSecurityFeatureProfilePostRequest] = None, **kw
     ) -> CreateSdwanEmbeddedSecurityFeatureProfilePostResponse:
         """
         Create a SDWAN Embedded Security Feature Profile
+        POST /dataservice/v1/feature-profile/sdwan/embedded-security
 
         :param payload: SDWAN Feature profile
         :returns: CreateSdwanEmbeddedSecurityFeatureProfilePostResponse
@@ -67,40 +48,19 @@ class EmbeddedSecurityBuilder:
             **kw,
         )
 
-    def get_sdwan_embedded_security_feature_profile_by_profile_id(
-        self, embedded_security_id: str, details: Optional[bool] = False, **kw
-    ) -> GetSingleSdwanEmbeddedSecurityPayload:
-        """
-        Get a SDWAN Embedded Security Feature Profile with embeddedSecurityId
-
-        :param embedded_security_id: Feature Profile Id
-        :param details: get feature details
-        :returns: GetSingleSdwanEmbeddedSecurityPayload
-        """
-        params = {
-            "embeddedSecurityId": embedded_security_id,
-            "details": details,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/embedded-security/{embeddedSecurityId}",
-            return_type=GetSingleSdwanEmbeddedSecurityPayload,
-            params=params,
-            **kw,
-        )
-
-    def edit_sdwan_embedded_security_feature_profile(
+    def put(
         self,
         embedded_security_id: str,
-        payload: Optional[CreateSdwanEmbeddedSecurityFeatureProfilePostRequest] = None,
+        payload: Optional[EditSdwanEmbeddedSecurityFeatureProfilePutRequest] = None,
         **kw,
-    ) -> CreateSdwanEmbeddedSecurityFeatureProfilePostResponse:
+    ) -> EditSdwanEmbeddedSecurityFeatureProfilePutResponse:
         """
         Edit a SDWAN Embedded Security Feature Profile
+        PUT /dataservice/v1/feature-profile/sdwan/embedded-security/{embeddedSecurityId}
 
         :param embedded_security_id: Feature Profile Id
         :param payload: SDWAN Feature profile
-        :returns: CreateSdwanEmbeddedSecurityFeatureProfilePostResponse
+        :returns: EditSdwanEmbeddedSecurityFeatureProfilePutResponse
         """
         params = {
             "embeddedSecurityId": embedded_security_id,
@@ -108,15 +68,16 @@ class EmbeddedSecurityBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sdwan/embedded-security/{embeddedSecurityId}",
-            return_type=CreateSdwanEmbeddedSecurityFeatureProfilePostResponse,
+            return_type=EditSdwanEmbeddedSecurityFeatureProfilePutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_sdwan_embedded_security_feature_profile(self, embedded_security_id: str, **kw):
+    def delete(self, embedded_security_id: str, **kw):
         """
         Delete Feature Profile
+        DELETE /dataservice/v1/feature-profile/sdwan/embedded-security/{embeddedSecurityId}
 
         :param embedded_security_id: Embedded security id
         :returns: None
@@ -130,6 +91,74 @@ class EmbeddedSecurityBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(
+        self, *, embedded_security_id: str, details: Optional[bool] = False, **kw
+    ) -> GetSingleSdwanEmbeddedSecurityPayload:
+        """
+        Get a SDWAN Embedded Security Feature Profile with embeddedSecurityId
+        GET /dataservice/v1/feature-profile/sdwan/embedded-security/{embeddedSecurityId}
+
+        :param embedded_security_id: Feature Profile Id
+        :param details: get feature details
+        :returns: GetSingleSdwanEmbeddedSecurityPayload
+        """
+        ...
+
+    @overload
+    def get(
+        self, *, offset: Optional[int] = None, limit: Optional[int] = 0, **kw
+    ) -> List[GetSdwanEmbeddedSecurityFeatureProfilesGetResponse]:
+        """
+        Get all SDWAN Feature Profiles with giving Family and profile type
+        GET /dataservice/v1/feature-profile/sdwan/embedded-security
+
+        :param offset: Pagination offset
+        :param limit: Pagination limit
+        :returns: List[GetSdwanEmbeddedSecurityFeatureProfilesGetResponse]
+        """
+        ...
+
+    def get(
+        self,
+        *,
+        offset: Optional[int] = None,
+        limit: Optional[int] = None,
+        embedded_security_id: Optional[str] = None,
+        details: Optional[bool] = None,
+        **kw,
+    ) -> Union[
+        List[GetSdwanEmbeddedSecurityFeatureProfilesGetResponse],
+        GetSingleSdwanEmbeddedSecurityPayload,
+    ]:
+        # /dataservice/v1/feature-profile/sdwan/embedded-security/{embeddedSecurityId}
+        if self._request_adapter.param_checker([(embedded_security_id, str)], [offset, limit]):
+            params = {
+                "embeddedSecurityId": embedded_security_id,
+                "details": details,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/embedded-security/{embeddedSecurityId}",
+                return_type=GetSingleSdwanEmbeddedSecurityPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sdwan/embedded-security
+        if self._request_adapter.param_checker([], [embedded_security_id, details]):
+            params = {
+                "offset": offset,
+                "limit": limit,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/embedded-security",
+                return_type=List[GetSdwanEmbeddedSecurityFeatureProfilesGetResponse],
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def policy(self) -> PolicyBuilder:

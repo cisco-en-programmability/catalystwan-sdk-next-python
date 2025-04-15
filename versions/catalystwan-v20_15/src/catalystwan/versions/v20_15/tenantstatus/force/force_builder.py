@@ -12,12 +12,13 @@ class ForceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def force_status_collection(self, **kw):
+    def post(self, **kw):
         """
         Force tenant status collection
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view.
+        POST /dataservice/tenantstatus/force
 
         :returns: None
         """

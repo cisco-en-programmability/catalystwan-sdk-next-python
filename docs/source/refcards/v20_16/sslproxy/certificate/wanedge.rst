@@ -11,9 +11,7 @@ Add SSL proxy wan edge
 
 .. code:: python
 
-    def add_wan_edge(
-        device_id: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def post(device_id: str, payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.certificate.wanedge.add_wan_edge()
+        client.sslproxy.certificate.wanedge.post()
 
 

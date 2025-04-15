@@ -11,7 +11,7 @@ Get a schedule record for backup by scheduler id
 
 .. code:: python
 
-    def get_schedule_record_for_backup(scheduler_id: str) -> Any: ...
+    def get(scheduler_id: str) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.schedule.get_schedule_record_for_backup()
+        client.schedule.get()
 
 
 Operation: DELETE /dataservice/schedule/{schedulerId}
@@ -40,7 +40,7 @@ Delete a schedule record for backup in vManage by scheduler id
 
 .. code:: python
 
-    def delete_schedule(scheduler_id: str) -> Any: ...
+    def delete(scheduler_id: str) -> Any: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.schedule.delete_schedule()
+        client.schedule.delete()
 
 
 .. toctree::

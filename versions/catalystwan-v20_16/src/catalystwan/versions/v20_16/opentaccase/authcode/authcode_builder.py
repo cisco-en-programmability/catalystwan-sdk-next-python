@@ -15,7 +15,7 @@ class AuthcodeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def oauth_access(
+    def get(
         self,
         code: Optional[str] = None,
         redirect: Optional[str] = None,
@@ -24,6 +24,7 @@ class AuthcodeBuilder:
     ) -> List[Any]:
         """
         Gets Access Token for SSO Logjn
+        GET /dataservice/opentaccase/authcode
 
         :param code: Code
         :param redirect: Redirect

@@ -17,9 +17,10 @@ class InputBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_events_query_config(self, **kw) -> EventQueryInputResponse:
+    def get(self, **kw) -> EventQueryInputResponse:
         """
         Get event field details
+        GET /dataservice/event/query/input
 
         :returns: EventQueryInputResponse
         """

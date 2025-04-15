@@ -39,8 +39,18 @@ Models
         name: str
         type_: Type
         description: Optional[str]
-        # This is the documentation for POST request schema for URL List profile parcel
-        documentation: Optional[Any]
+        metadata: Optional[Any]
+
+
+    class Payload:
+        """
+        URL List profile parcel schema for POST request
+        """
+
+        data: Data
+        name: str
+        type_: Type
+        description: Optional[str]
         metadata: Optional[Any]
 
 
@@ -52,8 +62,6 @@ Models
         parcel_id: Optional[str]
         parcel_type: Optional[str]
         # URL List profile parcel schema for POST request
-        payload: Optional[
-            CreateDataPrefixProfileParcelForSecurityPolicyObjectPostRequest
-        ]
+        payload: Optional[Payload]
 
 

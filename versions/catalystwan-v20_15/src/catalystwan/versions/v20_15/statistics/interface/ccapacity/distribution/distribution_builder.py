@@ -19,9 +19,10 @@ class DistributionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_bandwidth_distribution(self, site_id: Optional[str] = None, **kw) -> CapacityResp:
+    def get(self, site_id: Optional[str] = None, **kw) -> CapacityResp:
         """
         Get bandwidth distribution
+        GET /dataservice/statistics/interface/ccapacity/distribution
 
         :param site_id: Site id
         :returns: CapacityResp

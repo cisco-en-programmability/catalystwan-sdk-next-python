@@ -20,11 +20,12 @@ class TraceFinFlowTimeRangeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_fin_flow_time_range(
+    def get(
         self, trace_id: int, timestamp: int, state: str, **kw
     ) -> List[TraceFinFlowTimeRangeResponsePayloadInner]:
         """
         Retrieve Fin Flow time range
+        GET /dataservice/stream/device/nwpi/traceFinFlowTimeRange
 
         :param trace_id: Trace id
         :param timestamp: Timestamp

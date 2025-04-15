@@ -7,15 +7,14 @@ Operation: GET /dataservice/v1/feature-profile/mobility/global
 --------------------------------------------------------------
 
 
-Get Mobility Global Feature Profiles
-
 .. code:: python
 
-    def get_mobility_global_feature_profile(
+    @overload
+    def get(
         offset: Optional[int] = None,
         limit: Optional[int] = 0,
         reference_count: Optional[bool] = False,
-    ) -> Any: ...
+    ) -> List[GetMobilityGlobalFeatureProfileGetResponse]: ...
 
 
 Example:
@@ -33,20 +32,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.mobility.global_.get_mobility_global_feature_profile()
+        client.v1.feature_profile.mobility.global_.get()
 
 
 Operation: GET /dataservice/v1/feature-profile/mobility/global/{globalId}
 -------------------------------------------------------------------------
 
 
-Get a Mobility Global Feature Profile by profileId
-
 .. code:: python
 
-    def get_mobility_feature_profile_by_global_id(
-        global_id: str,
-    ) -> Any: ...
+    @overload
+    def get(global_id: str) -> GetSingleMobilityGlobalPayload: ...
 
 
 Example:
@@ -64,21 +60,22 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.mobility.global_.get_mobility_feature_profile_by_global_id()
+        client.v1.feature_profile.mobility.global_.get()
 
 
 .. toctree::
     :maxdepth: 1
 
     basic/index
-    qos
-    aaaservers
+    qos/index
+    aaaservers/index
     cellular/index
-    esimcellular
+    esimcellular/index
     ethernet/index
-    logging
+    logging/index
     network_protocol/index
     security_policy/index
-    vpn
+    vpn/index
     wifi/index
+    models
 

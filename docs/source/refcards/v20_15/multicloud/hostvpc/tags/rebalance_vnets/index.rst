@@ -11,9 +11,7 @@ Tag a VPC
 
 .. code:: python
 
-    def rebalance_vnets(
-        cloud_type: str, region: str, tag_name: str
-    ) -> Taskid: ...
+    def post(cloud_type: str, region: str, tag_name: str) -> Taskid: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.hostvpc.tags.rebalance_vnets.rebalance_vnets()
+        client.multicloud.hostvpc.tags.rebalance_vnets.post()
 
 
 .. toctree::

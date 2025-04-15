@@ -11,7 +11,7 @@ Get alarm statistics
 
 .. code:: python
 
-    def get_stats() -> AlarmStatsResponse: ...
+    def get() -> AlarmStatsResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.stats.get_stats()
+        client.alarms.stats.get()
 
 
 .. toctree::

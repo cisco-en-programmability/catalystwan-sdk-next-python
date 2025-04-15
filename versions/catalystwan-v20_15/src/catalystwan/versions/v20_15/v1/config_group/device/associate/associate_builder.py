@@ -1,9 +1,17 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Optional
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateConfigGroupAssociationPostRequest,
+    DeleteConfigGroupAssociationDeleteRequest,
+    GetConfigGroupAssociationGetResponse,
+    UpdateConfigGroupAssociationPutRequest,
+)
 
 
 class AssociateBuilder:
@@ -11,15 +19,18 @@ class AssociateBuilder:
     Builds and executes requests for operations under /v1/config-group/{configGroupId}/device/associate
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_config_group_association(self, config_group_id: str, **kw):
+    def get(self, config_group_id: str, **kw) -> GetConfigGroupAssociationGetResponse:
         """
         Get devices association with a config group
+        GET /dataservice/v1/config-group/{configGroupId}/device/associate
 
         :param config_group_id: Config group id
-        :returns: None
+        :returns: GetConfigGroupAssociationGetResponse
         """
         params = {
             "configGroupId": config_group_id,
@@ -27,15 +38,15 @@ class AssociateBuilder:
         return self._request_adapter.request(
             "GET",
             "/dataservice/v1/config-group/{configGroupId}/device/associate",
+            return_type=GetConfigGroupAssociationGetResponse,
             params=params,
             **kw,
         )
 
-    def update_config_group_association(
-        self, config_group_id: str, payload: Optional[Any] = None, **kw
-    ):
+    def put(self, config_group_id: str, payload: UpdateConfigGroupAssociationPutRequest, **kw):
         """
         Move the devices from one config group to another
+        PUT /dataservice/v1/config-group/{configGroupId}/device/associate
 
         :param config_group_id: Config group id
         :param payload: Payload
@@ -52,11 +63,10 @@ class AssociateBuilder:
             **kw,
         )
 
-    def create_config_group_association(
-        self, config_group_id: str, payload: Optional[Any] = None, **kw
-    ):
+    def post(self, config_group_id: str, payload: CreateConfigGroupAssociationPostRequest, **kw):
         """
         Create associations with device and a config group
+        POST /dataservice/v1/config-group/{configGroupId}/device/associate
 
         :param config_group_id: Config group id
         :param payload: Payload
@@ -73,11 +83,15 @@ class AssociateBuilder:
             **kw,
         )
 
-    def delete_config_group_association(
-        self, config_group_id: str, payload: Optional[Any] = None, **kw
+    def delete(
+        self,
+        config_group_id: str,
+        payload: Optional[DeleteConfigGroupAssociationDeleteRequest] = None,
+        **kw,
     ):
         """
         Delete Config Group Association from devices
+        DELETE /dataservice/v1/config-group/{configGroupId}/device/associate
 
         :param config_group_id: Config group id
         :param payload: Payload

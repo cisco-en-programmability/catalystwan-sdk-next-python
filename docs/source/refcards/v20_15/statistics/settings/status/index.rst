@@ -11,7 +11,7 @@ Get statistics settings
 
 .. code:: python
 
-    def get_statistics_settings() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.settings.status.get_statistics_settings()
+        client.statistics.settings.status.get()
 
 
 Operation: PUT /dataservice/statistics/settings/status
@@ -40,9 +40,7 @@ Update statistics settings
 
 .. code:: python
 
-    def update_statistics_settings(
-        payload: Optional[Any] = None,
-    ) -> None: ...
+    def put(payload: Any) -> None: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.settings.status.update_statistics_settings()
+        client.statistics.settings.status.put()
 
 
 .. toctree::

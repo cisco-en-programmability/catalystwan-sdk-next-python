@@ -11,9 +11,7 @@ Activate container
 
 .. code:: python
 
-    def activate_container(
-        task_id: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def post(task_id: str, payload: Any) -> None: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sdavc.task.activate_container()
+        client.sdavc.task.post()
 
 

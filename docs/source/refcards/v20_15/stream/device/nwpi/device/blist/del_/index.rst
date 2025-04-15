@@ -13,9 +13,7 @@ Delete Device BlackList for NWPI.
 
 .. code:: python
 
-    def del_device_black(
-        system_ip: str,
-    ) -> DeviceBlistDeleteResponsePayload: ...
+    def delete(system_ip: str) -> DeviceBlistDeleteResponsePayload: ...
 
 
 Example:
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.device.blist.del_.del_device_black()
+        client.stream.device.nwpi.device.blist.del_.delete()
 
 
 .. toctree::

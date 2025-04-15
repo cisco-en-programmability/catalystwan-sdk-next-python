@@ -17,9 +17,10 @@ class DeleteBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def trace_delete(self, trace_id: str, timestamp: int, **kw) -> NwpiTraceDeleteRespPayload:
+    def delete(self, trace_id: str, timestamp: int, **kw) -> NwpiTraceDeleteRespPayload:
         """
         Trace Action - Delete
+        DELETE /dataservice/stream/device/nwpi/trace/delete
 
         :param trace_id: trace id
         :param timestamp: start time

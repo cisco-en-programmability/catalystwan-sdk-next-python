@@ -13,9 +13,7 @@ Update Edge Locations
 
 .. code:: python
 
-    def update_edge_locations_info(
-        edge_type: EdgeTypeParam, account_id: str
-    ) -> Any: ...
+    def put(edge_type: EdgeTypeParam, account_id: str) -> Any: ...
 
 
 Example:
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.locations.edge.account_id.update_edge_locations_info()
+        client.multicloud.locations.edge.account_id.put()
 
 
 .. toctree::

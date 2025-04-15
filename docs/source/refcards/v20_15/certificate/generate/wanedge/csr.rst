@@ -11,9 +11,7 @@ generate CSR on WAN edge device
 
 .. code:: python
 
-    def generate_edge_device_csr(
-        payload: Optional[Any] = None,
-    ) -> str: ...
+    def post(payload: Any) -> str: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.generate.wanedge.csr.generate_edge_device_csr()
+        client.certificate.generate.wanedge.csr.post()
 
 

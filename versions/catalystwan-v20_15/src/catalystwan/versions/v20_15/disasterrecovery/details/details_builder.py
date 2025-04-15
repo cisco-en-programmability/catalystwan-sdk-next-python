@@ -14,9 +14,10 @@ class DetailsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_details(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get disaster recovery details
+        GET /dataservice/disasterrecovery/details
 
         :returns: Any
         """

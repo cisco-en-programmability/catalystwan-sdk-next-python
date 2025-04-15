@@ -11,7 +11,7 @@ Generate a list of templates which require migration<br><br><br>Note: In a multi
 
 .. code:: python
 
-    def get_template_for_migration() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.feature.migration.get_template_for_migration()
+        client.template.feature.migration.get()
 
 

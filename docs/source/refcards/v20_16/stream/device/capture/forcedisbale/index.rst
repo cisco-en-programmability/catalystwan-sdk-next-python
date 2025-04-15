@@ -11,9 +11,7 @@ Force stop packet capture session
 
 .. code:: python
 
-    def force_stop_pcap_session(
-        session_id: str,
-    ) -> ForceStopPacketCaptureRes: ...
+    def get(session_id: str) -> ForceStopPacketCaptureRes: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.capture.forcedisbale.force_stop_pcap_session()
+        client.stream.device.capture.forcedisbale.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Get vManage root certificate
 
 .. code:: python
 
-    def getv_manage_root_ca() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.settings.vmanage.rootca.getv_manage_root_ca()
+        client.sslproxy.settings.vmanage.rootca.get()
 
 
 Operation: POST /dataservice/sslproxy/settings/vmanage/rootca
@@ -40,7 +40,7 @@ Set vManage root certificate
 
 .. code:: python
 
-    def setv_manage_root_ca(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.settings.vmanage.rootca.setv_manage_root_ca()
+        client.sslproxy.settings.vmanage.rootca.post()
 
 

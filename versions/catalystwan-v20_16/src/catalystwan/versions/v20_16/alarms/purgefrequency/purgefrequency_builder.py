@@ -19,11 +19,12 @@ class PurgefrequencyBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def set_periodic_purge_timer(
+    def get(
         self, interval: Optional[str] = None, active_time: Optional[str] = None, **kw
     ) -> PurgeFrequency:
         """
         Set alarm purge timer
+        GET /dataservice/alarms/purgefrequency
 
         :param interval: Purge interval
         :param active_time: Active time

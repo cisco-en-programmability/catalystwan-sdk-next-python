@@ -14,9 +14,10 @@ class ValiddevicesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_valid_devices_list_real_time(self, device_id: str, **kw) -> List[Any]:
+    def get(self, device_id: str, **kw) -> List[Any]:
         """
         Get vmanage valid device list (Real Time)
+        GET /dataservice/device/control/validdevices
 
         :param device_id: deviceId - Device IP
         :returns: List[Any]

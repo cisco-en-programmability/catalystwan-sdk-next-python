@@ -32,6 +32,7 @@ class DeviceLinksBuilder:
     ) -> InterconnectDeviceLink:
         """
         API to retrieve Interconnect provider Device-Link.
+        GET /dataservice/multicloud/interconnect/connectivity/device-links
 
         :param device_link_name: Interconnect Device Link name
         :param interconnect_type: Interconnect Provider Type
@@ -51,11 +52,10 @@ class DeviceLinksBuilder:
             **kw,
         )
 
-    def add_interconnect_device_link(
-        self, payload: Optional[InterconnectDeviceLink] = None, **kw
-    ) -> ProcessResponse:
+    def post(self, payload: InterconnectDeviceLink, **kw) -> ProcessResponse:
         """
         API to create a Device-Link in vManage.
+        POST /dataservice/multicloud/interconnect/connectivity/device-links
 
         :param payload: Request Payload for Multicloud Interconnect Device Links
         :returns: ProcessResponse
@@ -68,9 +68,10 @@ class DeviceLinksBuilder:
             **kw,
         )
 
-    def get_interconnect_device_link(self, device_link_name: str, **kw) -> InterconnectDeviceLink:
+    def get(self, device_link_name: str, **kw) -> InterconnectDeviceLink:
         """
         API to retrieve Interconnect provider Device-Link.
+        GET /dataservice/multicloud/interconnect/connectivity/device-links/{device-link-name}
 
         :param device_link_name: Interconnect Device Link name
         :returns: InterconnectDeviceLink
@@ -86,11 +87,10 @@ class DeviceLinksBuilder:
             **kw,
         )
 
-    def update_interconnect_device_link(
-        self, device_link_name: str, payload: Optional[InterconnectDeviceLink] = None, **kw
-    ) -> ProcessResponse:
+    def put(self, device_link_name: str, payload: InterconnectDeviceLink, **kw) -> ProcessResponse:
         """
         API to update a Device-Link in vManage.
+        PUT /dataservice/multicloud/interconnect/connectivity/device-links/{device-link-name}
 
         :param device_link_name: Interconnect Device Link name
         :param payload: Request Payload for Multicloud Interconnect Device Links
@@ -108,9 +108,10 @@ class DeviceLinksBuilder:
             **kw,
         )
 
-    def delete_interconnect_device_link(self, device_link_name: str, **kw):
+    def delete(self, device_link_name: str, **kw):
         """
         API to Delete Interconnect provider Device-Link.
+        DELETE /dataservice/multicloud/interconnect/connectivity/device-links/{device-link-name}
 
         :param device_link_name: Interconnect Device Link name
         :returns: None

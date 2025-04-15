@@ -11,9 +11,7 @@ Get stat raw data
 
 .. code:: python
 
-    def get_stat_data_raw_audit_log_data(
-        query: str,
-    ) -> GetAuditLogData: ...
+    def get(query: str) -> GetAuditLogData: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.auditlog.get_stat_data_raw_audit_log_data()
+        client.auditlog.get()
 
 
 Operation: POST /dataservice/auditlog
@@ -42,9 +40,7 @@ Get raw property data with post action
 
 .. code:: python
 
-    def get_raw_property_data(
-        payload: Optional[Any] = None,
-    ) -> GetAuditLogData: ...
+    def post(payload: Any) -> GetAuditLogData: ...
 
 
 Example:
@@ -62,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.auditlog.get_raw_property_data()
+        client.auditlog.post()
 
 
 .. toctree::

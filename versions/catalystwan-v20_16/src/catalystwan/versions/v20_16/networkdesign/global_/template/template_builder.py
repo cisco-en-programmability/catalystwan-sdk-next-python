@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,9 +15,10 @@ class TemplateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_global_template(self, template_id: str, **kw) -> Any:
+    def get(self, template_id: str, **kw) -> Any:
         """
         Get global template
+        GET /dataservice/networkdesign/global/template/{templateId}
 
         :param template_id: Template Id
         :returns: Any
@@ -30,9 +31,10 @@ class TemplateBuilder:
             "GET", "/dataservice/networkdesign/global/template/{templateId}", params=params, **kw
         )
 
-    def edit_global_template(self, template_id: str, payload: Optional[Any] = None, **kw):
+    def put(self, template_id: str, payload: Any, **kw):
         """
         Edit global template
+        PUT /dataservice/networkdesign/global/template/{templateId}
 
         :param template_id: Template Id
         :param payload: Global template

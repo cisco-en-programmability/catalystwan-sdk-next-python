@@ -11,7 +11,7 @@ Get stats raw data
 
 .. code:: python
 
-    def get_stat_bulk_raw_data_2(
+    def get(
         query: str, count: str, scroll_id: Optional[str] = None
     ) -> InterfaceAggRespWithPageInfo: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.interface.page.get_stat_bulk_raw_data_2()
+        client.statistics.interface.page.get()
 
 
 Operation: POST /dataservice/statistics/interface/page
@@ -42,10 +42,8 @@ Get stats raw data
 
 .. code:: python
 
-    def get_post_stat_bulk_raw_data_2(
-        count: str,
-        payload: Optional[Any] = None,
-        scroll_id: Optional[str] = None,
+    def post(
+        count: str, payload: Any, scroll_id: Optional[str] = None
     ) -> InterfaceAggRespWithPageInfo: ...
 
 
@@ -64,7 +62,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.interface.page.get_post_stat_bulk_raw_data_2()
+        client.statistics.interface.page.post()
 
 
 .. toctree::

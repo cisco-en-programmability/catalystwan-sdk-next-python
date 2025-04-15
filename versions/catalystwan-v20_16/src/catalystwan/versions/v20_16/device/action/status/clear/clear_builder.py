@@ -14,9 +14,10 @@ class ClearBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def delete_status(self, process_id: Optional[str] = None, **kw):
+    def delete(self, process_id: Optional[str] = None, **kw):
         """
         Delete status of action
+        DELETE /dataservice/device/action/status/clear
 
         :param process_id: Process Id
         :returns: None

@@ -20,7 +20,7 @@ class EdgeBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_edge_mapping_tags(
+    def get(
         self,
         cloud_type: CloudTypeParam,
         account_id: Optional[str] = None,
@@ -29,6 +29,7 @@ class EdgeBuilder:
     ) -> Any:
         """
         Get default Interconnect mapping tag values
+        GET /dataservice/multicloud/map/tags/edge
 
         :param cloud_type: Cloud type
         :param account_id: Cloud Account Id

@@ -11,7 +11,7 @@ Update collection time of DCARest stat for vAnalytics
 
 .. code:: python
 
-    def create_stats(payload: Optional[Any] = None) -> None: ...
+    def put(payload: Any) -> None: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.analytics.create_stats()
+        client.dca.analytics.put()
 
 
 .. toctree::

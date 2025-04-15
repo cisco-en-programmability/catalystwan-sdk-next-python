@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, List, Optional
+from typing import Any, List
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -19,9 +19,10 @@ class ChangepartitionBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def generate_change_partition_info(self, device_id: List[DeviceIp], **kw):
+    def get(self, device_id: List[DeviceIp], **kw):
         """
         Get change partition information
+        GET /dataservice/device/action/changepartition
 
         :param device_id: deviceId - Device IP
         :returns: None
@@ -33,9 +34,10 @@ class ChangepartitionBuilder:
             "GET", "/dataservice/device/action/changepartition", params=params, **kw
         )
 
-    def process_change_partition(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Process change partition operation
+        POST /dataservice/device/action/changepartition
 
         :param payload: Request body for Process change partition operation
         :returns: Any

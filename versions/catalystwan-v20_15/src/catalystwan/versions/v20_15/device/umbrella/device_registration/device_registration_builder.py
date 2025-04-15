@@ -14,9 +14,10 @@ class DeviceRegistrationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_umbrella_dev_reg(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get Umbrella device registration from device
+        GET /dataservice/device/umbrella/device-registration
 
         :param device_id: deviceId - Device IP
         :returns: Any

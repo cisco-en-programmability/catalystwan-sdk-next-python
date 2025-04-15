@@ -11,7 +11,7 @@ Get mapping summary
 
 .. code:: python
 
-    def get_mapping_summary(
+    def get(
         cloud_type: Optional[CloudTypeParam] = None,
         vpn_tunnel_status: Optional[str] = None,
     ) -> List[MapSummary]: ...
@@ -32,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.map.summary.get_mapping_summary()
+        client.multicloud.map.summary.get()
 
 
 .. toctree::

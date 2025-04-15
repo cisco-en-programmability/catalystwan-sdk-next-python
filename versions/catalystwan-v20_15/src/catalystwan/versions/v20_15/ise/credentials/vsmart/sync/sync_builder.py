@@ -17,9 +17,10 @@ class SyncBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def sync_vsmart(self, **kw) -> VsmartSyncResponse:
+    def post(self, **kw) -> VsmartSyncResponse:
         """
         Send pxGrid and ISE server configuration to vSmarts
+        POST /dataservice/ise/credentials/vsmart/sync
 
         :returns: VsmartSyncResponse
         """

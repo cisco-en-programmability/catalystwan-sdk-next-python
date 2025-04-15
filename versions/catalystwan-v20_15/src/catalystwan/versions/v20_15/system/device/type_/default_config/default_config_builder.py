@@ -20,11 +20,10 @@ class DefaultConfigBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_dock_default_config_based_on_device_type(
-        self, device_category: DeviceCategoryParam, **kw
-    ) -> List[Any]:
+    def get(self, device_category: DeviceCategoryParam, **kw) -> List[Any]:
         """
         Get devices default config
+        GET /dataservice/system/device/type/{deviceCategory}/defaultConfig
 
         :param device_category: Device category
         :returns: List[Any]

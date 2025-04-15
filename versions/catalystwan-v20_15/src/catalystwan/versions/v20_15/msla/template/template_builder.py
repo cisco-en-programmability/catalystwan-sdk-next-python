@@ -17,9 +17,10 @@ class TemplateBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_all_template(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Retrieve all MSLA template
+        GET /dataservice/msla/template
 
         :returns: Any
         """

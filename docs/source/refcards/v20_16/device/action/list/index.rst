@@ -11,9 +11,7 @@ Get device action list
 
 .. code:: python
 
-    def generate_device_action_list() -> (
-        List[GenerateDeviceActionListInner]
-    ): ...
+    def get() -> List[GenerateDeviceActionListInner]: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.list.generate_device_action_list()
+        client.device.action.list.get()
 
 
 .. toctree::

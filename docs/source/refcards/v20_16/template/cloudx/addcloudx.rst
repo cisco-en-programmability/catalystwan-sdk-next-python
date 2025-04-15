@@ -13,9 +13,7 @@ Add cloudx gateway
 
 .. code:: python
 
-    def add_cloudx_type(
-        type_: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def post(type_: str, payload: Any) -> None: ...
 
 
 Example:
@@ -33,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cloudx.addcloudx.add_cloudx_type()
+        client.template.cloudx.addcloudx.post()
 
 

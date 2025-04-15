@@ -11,9 +11,7 @@ Get device system CPU stats list
 
 .. code:: python
 
-    def create_device_system_cpu_stat(
-        query: str, device_id: str
-    ) -> Any: ...
+    def get(query: str, device_id: str) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.system.cpu.create_device_system_cpu_stat()
+        client.statistics.system.cpu.get()
 
 

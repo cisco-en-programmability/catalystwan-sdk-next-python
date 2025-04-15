@@ -11,9 +11,7 @@ Get global settings
 
 .. code:: python
 
-    def get_global_settings(
-        cloud_type: CloudTypeParam,
-    ) -> GlobalSettings: ...
+    def get(cloud_type: CloudTypeParam) -> GlobalSettings: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.settings.global_.get_global_settings()
+        client.multicloud.settings.global_.get()
 
 
 Operation: PUT /dataservice/multicloud/settings/global
@@ -42,9 +40,7 @@ Update global settings
 
 .. code:: python
 
-    def update_global_settings(
-        payload: Optional[GlobalSettings] = None,
-    ) -> None: ...
+    def put(payload: GlobalSettings) -> None: ...
 
 
 Example:
@@ -62,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.settings.global_.update_global_settings()
+        client.multicloud.settings.global_.put()
 
 
 Operation: POST /dataservice/multicloud/settings/global
@@ -73,9 +69,7 @@ Add global settings
 
 .. code:: python
 
-    def add_global_settings(
-        payload: Optional[GlobalSettings] = None,
-    ) -> Taskid: ...
+    def post(payload: GlobalSettings) -> Taskid: ...
 
 
 Example:
@@ -93,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.settings.global_.add_global_settings()
+        client.multicloud.settings.global_.post()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Create SDA enabled device from Netconf
 
 .. code:: python
 
-    def create_sda_config_from_netconf(
+    def post(
         partner_id: str, payload: SdaConfigRequest
     ) -> SdaDeviceConfigRes: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.partner.dnac.sda.netconfconfig.create_sda_config_from_netconf()
+        client.partner.dnac.sda.netconfconfig.post()
 
 
 .. toctree::

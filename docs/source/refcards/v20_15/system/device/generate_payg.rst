@@ -11,7 +11,7 @@ Authenticate vSmart user account
 
 .. code:: python
 
-    def validate_user(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.generate_payg.validate_user()
+        client.system.device.generate_payg.post()
 
 

@@ -11,7 +11,7 @@ Get PPPoE statistics from device
 
 .. code:: python
 
-    def create_pp_po_e_neighbor_list(device_id: DeviceIp) -> Any: ...
+    def get(device_id: DeviceIp) -> Any: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.pppoe.statistic.create_pp_po_e_neighbor_list()
+        client.device.pppoe.statistic.get()
 
 
 .. toctree::

@@ -17,9 +17,10 @@ class AppserverBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def list_log_file_details(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Lists content of log file. This API accepts content type as text/plain. It is mandatory to provide response content type. Any other content type would result in empty response.
+        GET /dataservice/util/logfile/appserver
 
         :returns: Any
         """

@@ -34,7 +34,7 @@ class ApprouteBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_data_raw_data_2(
+    def get(
         self,
         query: Optional[str] = None,
         page: Optional[int] = None,
@@ -45,6 +45,7 @@ class ApprouteBuilder:
     ) -> Any:
         """
         Get stats raw data
+        GET /dataservice/statistics/approute
 
         :param query: Query
         :param page: Page
@@ -64,9 +65,9 @@ class ApprouteBuilder:
             "GET", "/dataservice/statistics/approute", params=params, **kw
         )
 
-    def get_stats_raw_data_2(
+    def post(
         self,
-        payload: Optional[Any] = None,
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -75,6 +76,7 @@ class ApprouteBuilder:
     ) -> List[AppRouteRespWithPageInfo]:
         """
         Get stats raw data
+        POST /dataservice/statistics/approute
 
         :param page: Page
         :param page_size: Page size

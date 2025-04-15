@@ -17,9 +17,10 @@ class ResetBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def reset_vedge_cloud(self, uuid: str, **kw) -> ResetVedgeCloud:
+    def put(self, uuid: str, **kw) -> ResetVedgeCloud:
         """
         Reset vEdge device
+        PUT /dataservice/system/device/reset/{uuid}
 
         :param uuid: Device uuid
         :returns: ResetVedgeCloud

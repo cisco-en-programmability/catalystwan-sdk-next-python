@@ -11,7 +11,7 @@ Get MDP onboarding status
 
 .. code:: python
 
-    def get_mdp_onboarding_status() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.mdp.onboard.status.get_mdp_onboarding_status()
+        client.mdp.onboard.status.get()
 
 

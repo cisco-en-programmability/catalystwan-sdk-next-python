@@ -11,9 +11,7 @@ Get time series aggregation data for packet duplication for an application over 
 
 .. code:: python
 
-    def get_dpi_stats_aggregation_data_for_packet_dup(
-        payload: Optional[Any] = None,
-    ) -> FecAndPktDupResponse: ...
+    def post(payload: Any) -> FecAndPktDupResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.dpi.pktdup.aggregation.get_dpi_stats_aggregation_data_for_packet_dup()
+        client.statistics.dpi.pktdup.aggregation.post()
 
 
 .. toctree::

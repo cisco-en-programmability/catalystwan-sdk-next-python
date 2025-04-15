@@ -11,7 +11,7 @@ Get supported applications from device (Real Time)
 
 .. code:: python
 
-    def create_dpi_statistics(
+    def get(
         device_id: str,
         application: Optional[str] = None,
         family: Optional[str] = None,
@@ -33,6 +33,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.dpi.supported_applications.create_dpi_statistics()
+        client.device.dpi.supported_applications.get()
 
 

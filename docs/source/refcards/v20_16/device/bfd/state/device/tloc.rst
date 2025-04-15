@@ -11,7 +11,7 @@ Get device BFD state summary with tloc color
 
 .. code:: python
 
-    def get_device_bfd_state_summary_tloc(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bfd.state.device.tloc.get_device_bfd_state_summary_tloc()
+        client.device.bfd.state.device.tloc.get()
 
 

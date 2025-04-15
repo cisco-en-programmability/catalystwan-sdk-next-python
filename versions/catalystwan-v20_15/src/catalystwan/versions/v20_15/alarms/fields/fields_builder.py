@@ -14,9 +14,10 @@ class FieldsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_alarm_data_fields(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get fields and types
+        GET /dataservice/alarms/fields
 
         :returns: Any
         """

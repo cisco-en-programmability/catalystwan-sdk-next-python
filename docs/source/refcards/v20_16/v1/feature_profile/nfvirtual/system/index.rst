@@ -3,37 +3,6 @@ v1.feature_profile.nfvirtual.system
 ===================================
 
 
-Operation: GET /dataservice/v1/feature-profile/nfvirtual/system
----------------------------------------------------------------
-
-
-Get all Nfvirtual System Feature Profiles
-
-.. code:: python
-
-    def get_all_nfvirtual_system_feature_profiles(
-        offset: Optional[int] = None, limit: Optional[int] = 0
-    ) -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.nfvirtual.system.get_all_nfvirtual_system_feature_profiles()
-
-
 Operation: POST /dataservice/v1/feature-profile/nfvirtual/system
 ----------------------------------------------------------------
 
@@ -42,9 +11,9 @@ Create a nfvirtual System Feature Profile
 
 .. code:: python
 
-    def create_nfvirtual_system_feature_profile(
-        payload: Optional[str] = None,
-    ) -> str: ...
+    def post(
+        payload: CreateNfvirtualSystemFeatureProfilePostRequest,
+    ) -> CreateNfvirtualSystemFeatureProfilePostResponse: ...
 
 
 Example:
@@ -62,38 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.nfvirtual.system.create_nfvirtual_system_feature_profile()
-
-
-Operation: GET /dataservice/v1/feature-profile/nfvirtual/system/{systemId}
---------------------------------------------------------------------------
-
-
-Get a Nfvirtual System Feature Profile with systemId
-
-.. code:: python
-
-    def get_nfvirtual_system_feature_profile_by_profile_id(
-        system_id: str,
-    ) -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.nfvirtual.system.get_nfvirtual_system_feature_profile_by_profile_id()
+        client.v1.feature_profile.nfvirtual.system.post()
 
 
 Operation: PUT /dataservice/v1/feature-profile/nfvirtual/system/{systemId}
@@ -104,9 +42,10 @@ Edit a Nfvirtual System Feature Profile
 
 .. code:: python
 
-    def edit_nfvirtual_system_feature_profile(
-        system_id: str, payload: Optional[str] = None
-    ) -> str: ...
+    def put(
+        system_id: str,
+        payload: EditNfvirtualSystemFeatureProfilePutRequest,
+    ) -> EditNfvirtualSystemFeatureProfilePutResponse: ...
 
 
 Example:
@@ -124,7 +63,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.nfvirtual.system.edit_nfvirtual_system_feature_profile()
+        client.v1.feature_profile.nfvirtual.system.put()
 
 
 Operation: DELETE /dataservice/v1/feature-profile/nfvirtual/system/{systemId}
@@ -135,9 +74,7 @@ Delete a Nfvirtual System Feature Profile
 
 .. code:: python
 
-    def delete_nfvirtual_system_feature_profile(
-        system_id: str,
-    ) -> None: ...
+    def delete(system_id: str) -> None: ...
 
 
 Example:
@@ -155,16 +92,75 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.nfvirtual.system.delete_nfvirtual_system_feature_profile()
+        client.v1.feature_profile.nfvirtual.system.delete()
+
+
+Operation: GET /dataservice/v1/feature-profile/nfvirtual/system
+---------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        offset: Optional[int] = None, limit: Optional[int] = 0
+    ) -> List[GetAllNfvirtualSystemFeatureProfilesGetResponse]: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.nfvirtual.system.get()
+
+
+Operation: GET /dataservice/v1/feature-profile/nfvirtual/system/{systemId}
+--------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(system_id: str) -> GetSingleNfvirtualSystemPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.nfvirtual.system.get()
 
 
 .. toctree::
     :maxdepth: 1
 
-    aaa
-    banner
-    logging
-    ntp
-    snmp
-    system_settings
+    aaa/index
+    banner/index
+    logging/index
+    ntp/index
+    snmp/index
+    system_settings/index
+    models
 

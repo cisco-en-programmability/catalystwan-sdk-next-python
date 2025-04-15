@@ -19,11 +19,12 @@ class MappingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cgw_associated_mappings(
+    def get(
         self, cloud_type: str, cloud_gateway_name: str, site_uuid: Optional[str] = None, **kw
     ) -> CgwVpnsResponse:
         """
         Get associated mappings to the CGW
+        GET /dataservice/multicloud/mapping/{cloudType}
 
         :param cloud_type: Multicloud provider type
         :param cloud_gateway_name: Cloud gateway name

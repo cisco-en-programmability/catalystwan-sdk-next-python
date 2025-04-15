@@ -15,9 +15,10 @@ class EditBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def acquire_edit_lock(self, **kw) -> Any:
+    def post(self, **kw) -> Any:
         """
         Acquire edit lock
+        POST /dataservice/networkdesign/lock/edit
 
         :returns: Any
         """

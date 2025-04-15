@@ -11,9 +11,7 @@ Get device tool nslookup
 
 .. code:: python
 
-    def get_device_tools_n_slookup(
-        vpn: VpnParam, dns: str, device_id: str
-    ) -> Any: ...
+    def get(vpn: VpnParam, dns: str, device_id: str) -> Any: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.nslookup.get_device_tools_n_slookup()
+        client.device.tools.nslookup.get()
 
 
 .. toctree::

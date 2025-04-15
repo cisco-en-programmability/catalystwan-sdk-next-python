@@ -11,7 +11,7 @@ Get Feature CA state<br><br><br>Note: In a multitenant vManage system, this API 
 
 .. code:: python
 
-    def get_feature_ca_state() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.featurecertificate.syslogconfig.get_feature_ca_state()
+        client.featurecertificate.syslogconfig.get()
 
 

@@ -19,9 +19,10 @@ class CurrentTimestampBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_current_timestamp(self, **kw) -> CurrentTimestampResponsePayload:
+    def get(self, **kw) -> CurrentTimestampResponsePayload:
         """
-        Get current timestamp
+        Get
+        GET /dataservice/stream/device/nwpi/currentTimestamp
 
         :returns: CurrentTimestampResponsePayload
         """

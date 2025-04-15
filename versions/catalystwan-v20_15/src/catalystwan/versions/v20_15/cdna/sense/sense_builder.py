@@ -17,9 +17,10 @@ class SenseBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cdna_sense_service(self, tag: str, **kw) -> DnaSenseResponse:
+    def get(self, tag: str, **kw) -> DnaSenseResponse:
         """
         Get Sense Service
+        GET /dataservice/cdna/sense/{tag}
 
         :param tag: Tag
         :returns: DnaSenseResponse

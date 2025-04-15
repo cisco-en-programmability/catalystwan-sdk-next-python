@@ -14,9 +14,10 @@ class TunnelsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_sse_tunnel(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get SSE  tunnels from device
+        GET /dataservice/device/sse/tunnels
 
         :param device_id: deviceId - Device IP
         :returns: Any

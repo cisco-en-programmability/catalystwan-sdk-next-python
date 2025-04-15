@@ -11,8 +11,8 @@ Get aggregation data and fec recovery rate
 
 .. code:: python
 
-    def get_app_route_fec_agg(
-        payload: Optional[Any] = None, site_id: Optional[str] = None
+    def post(
+        payload: Any, site_id: Optional[str] = None
     ) -> List[AppRouteFecAggRespInner]: ...
 
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.approute.fec.aggregation.get_app_route_fec_agg()
+        client.statistics.approute.fec.aggregation.post()
 
 
 .. toctree::

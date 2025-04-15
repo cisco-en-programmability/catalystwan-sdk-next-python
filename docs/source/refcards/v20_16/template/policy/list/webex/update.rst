@@ -11,7 +11,7 @@ TEMP-Update Webex policy lists from Webex config
 
 .. code:: python
 
-    def create_webex_prefix_lists_1() -> List[Any]: ...
+    def post() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.policy.list.webex.update.create_webex_prefix_lists_1()
+        client.template.policy.list.webex.update.post()
 
 

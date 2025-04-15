@@ -11,7 +11,7 @@ Gets alarm severity mappings
 
 .. code:: python
 
-    def get_alarm_severity_mappings() -> List[AlarmSeverityMapping]: ...
+    def get() -> List[AlarmSeverityMapping]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.severitymappings.get_alarm_severity_mappings()
+        client.alarms.severitymappings.get()
 
 
 .. toctree::

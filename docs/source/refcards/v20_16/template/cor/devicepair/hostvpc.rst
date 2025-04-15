@@ -13,9 +13,7 @@ Get host VPC details
 
 .. code:: python
 
-    def get_host_vp_cs(
-        transit_vpc_id: str, device_pair_id: str
-    ) -> Any: ...
+    def get(transit_vpc_id: str, device_pair_id: str) -> Any: ...
 
 
 Example:
@@ -33,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.devicepair.hostvpc.get_host_vp_cs()
+        client.template.cor.devicepair.hostvpc.get()
 
 

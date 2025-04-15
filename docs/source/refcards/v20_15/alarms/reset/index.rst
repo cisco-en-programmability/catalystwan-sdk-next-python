@@ -11,7 +11,7 @@ Reset correlation engine.
 
 .. code:: python
 
-    def reset() -> SimpleMessageResponse: ...
+    def get() -> SimpleMessageResponse: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.alarms.reset.reset()
+        client.alarms.reset.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ get quarantine banner data
 
 .. code:: python
 
-    def get_quarantine_banner() -> List[str]: ...
+    def get() -> List[str]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.certificate.quarantine.banner.get_quarantine_banner()
+        client.certificate.quarantine.banner.get()
 
 

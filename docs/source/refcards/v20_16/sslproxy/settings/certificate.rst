@@ -11,7 +11,7 @@ Get certificate state
 
 .. code:: python
 
-    def get_certificate_state() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.settings.certificate.get_certificate_state()
+        client.sslproxy.settings.certificate.get()
 
 

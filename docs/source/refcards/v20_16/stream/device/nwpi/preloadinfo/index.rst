@@ -11,9 +11,7 @@ Deprecated!!!
 
 .. code:: python
 
-    def get_preload_info(
-        mode: Optional[str] = None,
-    ) -> NwpiPreloadRespPayload: ...
+    def get(mode: Optional[str] = None) -> NwpiPreloadRespPayload: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.preloadinfo.get_preload_info()
+        client.stream.device.nwpi.preloadinfo.get()
 
 
 .. toctree::

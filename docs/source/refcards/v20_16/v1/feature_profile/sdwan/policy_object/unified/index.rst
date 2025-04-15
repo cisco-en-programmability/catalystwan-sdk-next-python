@@ -3,39 +3,6 @@ v1.feature_profile.sdwan.policy_object.unified
 ==============================================
 
 
-Operation: GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}
------------------------------------------------------------------------------------------------------------------------
-
-
-Get Security Features for a given ParcelType
-
-.. code:: python
-
-    def get_security_profile_parcel(
-        policy_object_id: str,
-        security_profile_parcel_type: SecurityProfileParcelTypeParam,
-        reference_count: Optional[bool] = False,
-    ) -> str: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.sdwan.policy_object.unified.get_security_profile_parcel()
-
-
 Operation: POST /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -44,11 +11,21 @@ Create Feature for Security Policy
 
 .. code:: python
 
-    def create_security_profile_parcel(
+    def post(
         policy_object_id: str,
         security_profile_parcel_type: SecurityProfileParcelTypeParam,
-        payload: Optional[str] = None,
-    ) -> str: ...
+        payload: Union[
+            CreateSdwanSecurityFeaturePostRequest1,
+            CreateSdwanSecurityFeaturePostRequest2,
+            CreateSdwanSecurityFeaturePostRequest3,
+            CreateSdwanSecurityFeaturePostRequest4,
+            CreateSdwanSecurityFeaturePostRequest5,
+            Union[
+                CreateSdwanSecurityFeaturePostRequest61,
+                CreateSdwanSecurityFeaturePostRequest62,
+            ],
+        ],
+    ) -> CreateSdwanSecurityFeaturePostResponse: ...
 
 
 Example:
@@ -66,41 +43,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.policy_object.unified.create_security_profile_parcel()
-
-
-Operation: GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}/{securityProfileParcelId}
--------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-Get Security Feature by FeatureId
-
-.. code:: python
-
-    def get_security_profile_parcel_by_parcel_id(
-        policy_object_id: str,
-        security_profile_parcel_type: SecurityProfileParcelTypeParam,
-        security_profile_parcel_id: str,
-        references: Optional[bool] = False,
-    ) -> str: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.sdwan.policy_object.unified.get_security_profile_parcel_by_parcel_id()
+        client.v1.feature_profile.sdwan.policy_object.unified.post()
 
 
 Operation: PUT /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}/{securityProfileParcelId}
@@ -111,12 +54,22 @@ Update a Security Feature
 
 .. code:: python
 
-    def edit_security_profile_parcel(
+    def put(
         policy_object_id: str,
         security_profile_parcel_type: SecurityProfileParcelTypeParam,
         security_profile_parcel_id: str,
-        payload: Optional[str] = None,
-    ) -> str: ...
+        payload: Union[
+            EditSdwanSecurityFeature1PutRequest1,
+            EditSdwanSecurityFeature1PutRequest2,
+            EditSdwanSecurityFeature1PutRequest3,
+            EditSdwanSecurityFeature1PutRequest4,
+            EditSdwanSecurityFeature1PutRequest5,
+            Union[
+                EditSdwanSecurityFeature1PutRequest61,
+                EditSdwanSecurityFeature1PutRequest62,
+            ],
+        ],
+    ) -> EditSdwanSecurityFeature1PutResponse: ...
 
 
 Example:
@@ -134,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.policy_object.unified.edit_security_profile_parcel()
+        client.v1.feature_profile.sdwan.policy_object.unified.put()
 
 
 Operation: DELETE /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}/{securityProfileParcelId}
@@ -145,7 +98,7 @@ Delete a Security Feature
 
 .. code:: python
 
-    def delete_security_profile_parcel(
+    def delete(
         policy_object_id: str,
         security_profile_parcel_type: SecurityProfileParcelTypeParam,
         security_profile_parcel_id: str,
@@ -167,7 +120,76 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.sdwan.policy_object.unified.delete_security_profile_parcel()
+        client.v1.feature_profile.sdwan.policy_object.unified.delete()
+
+
+Operation: GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}
+-----------------------------------------------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        policy_object_id: str,
+        security_profile_parcel_type: SecurityProfileParcelTypeParam,
+        reference_count: Optional[bool] = False,
+    ) -> (
+        GetListSdwanPolicyObjectUnifiedAdvancedInspectionProfilePayload
+    ): ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sdwan.policy_object.unified.get()
+
+
+Operation: GET /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}/{securityProfileParcelId}
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        policy_object_id: str,
+        security_profile_parcel_type: SecurityProfileParcelTypeParam,
+        security_profile_parcel_id: str,
+        references: Optional[bool] = False,
+    ) -> (
+        GetSingleSdwanPolicyObjectUnifiedAdvancedInspectionProfilePayload
+    ): ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.sdwan.policy_object.unified.get()
 
 
 .. toctree::

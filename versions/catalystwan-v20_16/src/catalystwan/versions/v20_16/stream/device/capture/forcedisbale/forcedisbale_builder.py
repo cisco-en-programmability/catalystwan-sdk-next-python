@@ -17,9 +17,10 @@ class ForcedisbaleBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def force_stop_pcap_session(self, session_id: str, **kw) -> ForceStopPacketCaptureRes:
+    def get(self, session_id: str, **kw) -> ForceStopPacketCaptureRes:
         """
         Force stop packet capture session
+        GET /dataservice/stream/device/capture/forcedisbale/{sessionId}
 
         :param session_id: Session id
         :returns: ForceStopPacketCaptureRes

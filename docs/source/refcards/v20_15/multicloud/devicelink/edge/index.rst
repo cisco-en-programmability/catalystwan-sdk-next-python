@@ -13,7 +13,7 @@ Get Device Links
 
 .. code:: python
 
-    def get_device_links(
+    def get(
         edge_type: Optional[EdgeTypeParam] = None,
         device_link_name: Optional[str] = None,
     ) -> Any: ...
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.devicelink.edge.get_device_links()
+        client.multicloud.devicelink.edge.get()
 
 
 Operation: PUT /dataservice/multicloud/devicelink/edge
@@ -47,7 +47,7 @@ Update Device Link
 
 .. code:: python
 
-    def update_device_link(payload: Optional[Any] = None) -> Any: ...
+    def put(payload: Any) -> Any: ...
 
 
 Example:
@@ -65,7 +65,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.devicelink.edge.update_device_link()
+        client.multicloud.devicelink.edge.put()
 
 
 Operation: POST /dataservice/multicloud/devicelink/edge
@@ -78,7 +78,7 @@ Create Device Link
 
 .. code:: python
 
-    def create_device_link(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -96,7 +96,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.devicelink.edge.create_device_link()
+        client.multicloud.devicelink.edge.post()
 
 
 Operation: DELETE /dataservice/multicloud/devicelink/edge/{deviceLinkName}
@@ -109,7 +109,7 @@ Delete Device Link
 
 .. code:: python
 
-    def delete_device_link(device_link_name: str) -> Any: ...
+    def delete(device_link_name: str) -> Any: ...
 
 
 Example:
@@ -127,7 +127,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.devicelink.edge.delete_device_link()
+        client.multicloud.devicelink.edge.delete()
 
 
 .. toctree::

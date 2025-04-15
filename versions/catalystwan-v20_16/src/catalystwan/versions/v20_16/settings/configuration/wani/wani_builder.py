@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -15,9 +15,10 @@ class WaniBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_wani_configuration(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Retrieve wani configuration value
+        GET /dataservice/settings/configuration/wani
 
         :returns: Any
         """
@@ -26,9 +27,10 @@ class WaniBuilder:
             "GET", "/dataservice/settings/configuration/wani", **kw
         )
 
-    def edit_wani_configuration(self, payload: Optional[str] = None, **kw) -> Any:
+    def put(self, payload: str, **kw) -> Any:
         """
         Update wani configuration setting
+        PUT /dataservice/settings/configuration/wani
 
         :param payload: Payload
         :returns: Any
@@ -38,9 +40,10 @@ class WaniBuilder:
             "PUT", "/dataservice/settings/configuration/wani", payload=payload, **kw
         )
 
-    def new_wani_configuration(self, payload: Optional[str] = None, **kw) -> str:
+    def post(self, payload: str, **kw) -> str:
         """
         Add new wani configuration
+        POST /dataservice/settings/configuration/wani
 
         :param payload: Payload
         :returns: str

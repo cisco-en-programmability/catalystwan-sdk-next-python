@@ -19,11 +19,12 @@ class TransitvpcBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_transit_vp_cs(
+    def get(
         self, accountid: str, cloudregion: str, cloudtype: Optional[str] = "AWS", **kw
     ) -> List[Any]:
         """
         Get transit VPC/VNet list
+        GET /dataservice/template/cor/transitvpc
 
         :param accountid: Account Id
         :param cloudregion: Cloud region
@@ -44,9 +45,10 @@ class TransitvpcBuilder:
             **kw,
         )
 
-    def update_transit_vpc(self, payload: Optional[Any] = None, **kw) -> Any:
+    def put(self, payload: Any, **kw) -> Any:
         """
         Update transit VPC/VNet
+        PUT /dataservice/template/cor/transitvpc
 
         :param payload: VPC
         :returns: Any
@@ -56,9 +58,10 @@ class TransitvpcBuilder:
             "PUT", "/dataservice/template/cor/transitvpc", payload=payload, **kw
         )
 
-    def add_transit_vpc(self, payload: Optional[Any] = None, **kw) -> Any:
+    def post(self, payload: Any, **kw) -> Any:
         """
         Create transit VPC/VNet
+        POST /dataservice/template/cor/transitvpc
 
         :param payload: VPC
         :returns: Any

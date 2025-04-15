@@ -11,7 +11,7 @@ Get radius configuration<br><br><br>Note: In a multitenant vManage system, this 
 
 .. code:: python
 
-    def get_radius_config() -> Radius: ...
+    def get() -> Radius: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.radius.get_radius_config()
+        client.admin.radius.get()
 
 
 Operation: PUT /dataservice/admin/radius
@@ -40,9 +40,7 @@ Update radius configuration<br><br><br>Note: In a multitenant vManage system, th
 
 .. code:: python
 
-    def update_radius_config(
-        payload: Optional[Radius] = None,
-    ) -> None: ...
+    def put(payload: Radius) -> None: ...
 
 
 Example:
@@ -60,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.radius.update_radius_config()
+        client.admin.radius.put()
 
 
 Operation: POST /dataservice/admin/radius
@@ -71,9 +69,7 @@ Create radius configuration<br><br><br>Note: In a multitenant vManage system, th
 
 .. code:: python
 
-    def create_radius_config(
-        payload: Optional[Radius] = None,
-    ) -> None: ...
+    def post(payload: Radius) -> None: ...
 
 
 Example:
@@ -91,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.radius.create_radius_config()
+        client.admin.radius.post()
 
 
 Operation: DELETE /dataservice/admin/radius
@@ -102,7 +98,7 @@ Delete radius configuration<br><br><br>Note: In a multitenant vManage system, th
 
 .. code:: python
 
-    def delete_radius_config() -> Radius: ...
+    def delete() -> Radius: ...
 
 
 Example:
@@ -120,7 +116,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.radius.delete_radius_config()
+        client.admin.radius.delete()
 
 
 .. toctree::

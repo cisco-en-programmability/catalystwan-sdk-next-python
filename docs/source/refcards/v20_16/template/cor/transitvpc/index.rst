@@ -13,7 +13,7 @@ Get transit VPC/VNet list
 
 .. code:: python
 
-    def get_transit_vp_cs(
+    def get(
         accountid: str, cloudregion: str, cloudtype: Optional[str] = "AWS"
     ) -> List[Any]: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.transitvpc.get_transit_vp_cs()
+        client.template.cor.transitvpc.get()
 
 
 Operation: PUT /dataservice/template/cor/transitvpc
@@ -46,7 +46,7 @@ Update transit VPC/VNet
 
 .. code:: python
 
-    def update_transit_vpc(payload: Optional[Any] = None) -> Any: ...
+    def put(payload: Any) -> Any: ...
 
 
 Example:
@@ -64,7 +64,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.transitvpc.update_transit_vpc()
+        client.template.cor.transitvpc.put()
 
 
 Operation: POST /dataservice/template/cor/transitvpc
@@ -77,7 +77,7 @@ Create transit VPC/VNet
 
 .. code:: python
 
-    def add_transit_vpc(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -95,7 +95,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cor.transitvpc.add_transit_vpc()
+        client.template.cor.transitvpc.post()
 
 
 .. toctree::

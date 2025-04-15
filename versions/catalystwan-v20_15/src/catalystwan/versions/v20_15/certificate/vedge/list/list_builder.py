@@ -14,9 +14,10 @@ class ListBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def getv_edge_list(self, state: Optional[str] = None, **kw) -> str:
+    def get(self, state: Optional[str] = None, **kw) -> str:
         """
         get vEdge list
+        GET /dataservice/certificate/vedge/list
 
         :param state: Certificate State
         :returns: str
@@ -28,11 +29,10 @@ class ListBuilder:
             "GET", "/dataservice/certificate/vedge/list", return_type=str, params=params, **kw
         )
 
-    def setv_edge_list(
-        self, payload: Optional[str] = None, action: Optional[str] = None, **kw
-    ) -> str:
+    def post(self, payload: str, action: Optional[str] = None, **kw) -> str:
         """
         Save vEdge list (send to controller)
+        POST /dataservice/certificate/vedge/list
 
         :param action: Action Type
         :param payload: Required only for save action

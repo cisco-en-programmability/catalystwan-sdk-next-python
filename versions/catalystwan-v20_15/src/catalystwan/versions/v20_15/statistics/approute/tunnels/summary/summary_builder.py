@@ -19,7 +19,7 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_route_tunnels_summary_type(
+    def get(
         self,
         type_: str,
         query: Optional[str] = None,
@@ -29,6 +29,7 @@ class SummaryBuilder:
     ) -> AppRouteTransportResp:
         """
         Get tunnel top statistics from device
+        GET /dataservice/statistics/approute/tunnels/summary/{type}
 
         :param type_: Type
         :param query: Query

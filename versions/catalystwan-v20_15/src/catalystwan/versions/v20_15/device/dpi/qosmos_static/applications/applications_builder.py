@@ -14,9 +14,10 @@ class ApplicationsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_qosmos_static_application_list(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get DPI QoSMos static application list
+        GET /dataservice/device/dpi/qosmos-static/applications
 
         :returns: List[Any]
         """

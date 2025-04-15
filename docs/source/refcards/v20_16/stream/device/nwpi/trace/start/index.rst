@@ -11,8 +11,8 @@ Trace Action - Start
 
 .. code:: python
 
-    def trace_start(
-        payload: Optional[NwpiTraceStartReqPayload] = None,
+    def post(
+        payload: NwpiTraceStartReqPayload,
     ) -> NwpiTraceStartRespPayload: ...
 
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.trace.start.trace_start()
+        client.stream.device.nwpi.trace.start.post()
 
 
 .. toctree::

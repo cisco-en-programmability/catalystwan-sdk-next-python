@@ -11,7 +11,7 @@ Get remote data center vManage version
 
 .. code:: python
 
-    def get_remote_data_center_version() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.remotedc.swversion.get_remote_data_center_version()
+        client.disasterrecovery.remotedc.swversion.get()
 
 

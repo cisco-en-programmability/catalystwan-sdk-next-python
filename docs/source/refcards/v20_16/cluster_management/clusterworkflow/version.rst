@@ -11,7 +11,7 @@ List vManages in the cluster<br><br><br>Note: In a multitenant vManage system, t
 
 .. code:: python
 
-    def get_cluster_workflow_version() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.cluster_management.clusterworkflow.version.get_cluster_workflow_version()
+        client.cluster_management.clusterworkflow.version.get()
 
 

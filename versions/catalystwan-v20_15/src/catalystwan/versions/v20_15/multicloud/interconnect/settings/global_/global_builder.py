@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,11 +17,10 @@ class GlobalBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_interconnect_global_settings(
-        self, interconnect_type: InterconnectTypeParam, **kw
-    ) -> InterconnectGlobalSettings:
+    def get(self, interconnect_type: InterconnectTypeParam, **kw) -> InterconnectGlobalSettings:
         """
         API to retrieve global settings for an Interconnect provider type.
+        GET /dataservice/multicloud/interconnect/settings/global
 
         :param interconnect_type: Interconnect provider type
         :returns: InterconnectGlobalSettings
@@ -39,11 +36,10 @@ class GlobalBuilder:
             **kw,
         )
 
-    def update_interconnect_global_settings(
-        self, payload: Optional[InterconnectGlobalSettings] = None, **kw
-    ):
+    def put(self, payload: InterconnectGlobalSettings, **kw):
         """
         API to update global settings for an Interconnect provider.
+        PUT /dataservice/multicloud/interconnect/settings/global
 
         :param payload: Request Payload for Multicloud Interconnect Global Settings
         :returns: None
@@ -52,11 +48,10 @@ class GlobalBuilder:
             "PUT", "/dataservice/multicloud/interconnect/settings/global", payload=payload, **kw
         )
 
-    def add_interconnect_global_settings(
-        self, payload: Optional[InterconnectGlobalSettings] = None, **kw
-    ):
+    def post(self, payload: InterconnectGlobalSettings, **kw):
         """
         API to add global settings for an Interconnect provider.
+        POST /dataservice/multicloud/interconnect/settings/global
 
         :param payload: Request Payload for Multicloud Interconnect Global Settings
         :returns: None

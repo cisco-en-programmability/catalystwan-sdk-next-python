@@ -11,7 +11,7 @@ Get audit logs for last 3 hours
 
 .. code:: python
 
-    def generate_audit_log(
+    def get(
         query: str,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
@@ -36,7 +36,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.auditlog.severity.generate_audit_log()
+        client.auditlog.severity.get()
 
 
 .. toctree::

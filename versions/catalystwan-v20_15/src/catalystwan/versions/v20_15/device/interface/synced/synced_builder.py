@@ -19,7 +19,7 @@ class SyncedBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_synced_device_interface(
+    def get(
         self,
         device_id: str,
         vpn_id: Optional[str] = None,
@@ -29,6 +29,7 @@ class SyncedBuilder:
     ) -> Any:
         """
         Get device interfaces synchronously
+        GET /dataservice/device/interface/synced
 
         :param vpn_id: VPN Id
         :param ifname: IF Name

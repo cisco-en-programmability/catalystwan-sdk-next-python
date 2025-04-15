@@ -11,7 +11,7 @@ Get VNF Properties
 
 .. code:: python
 
-    def get_vnf_properties(version_id: str) -> GetVnfProperties: ...
+    def get(version_id: str) -> GetVnfProperties: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.vnfproperties.get_vnf_properties()
+        client.device.action.software.vnfproperties.get()
 
 
 .. toctree::

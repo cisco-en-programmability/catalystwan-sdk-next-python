@@ -11,7 +11,7 @@ Get inactive sites
 
 .. code:: python
 
-    def get_inactive_cor_saas_sites() -> None: ...
+    def get() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.cloudonramp.saas.inactivesites.get_inactive_cor_saas_sites()
+        client.v1.cloudonramp.saas.inactivesites.get()
 
 

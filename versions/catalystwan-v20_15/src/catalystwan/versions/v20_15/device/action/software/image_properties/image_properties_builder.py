@@ -17,9 +17,10 @@ class ImagePropertiesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_image_properties(self, version_id: str, **kw) -> GetImageProperties:
+    def get(self, version_id: str, **kw) -> GetImageProperties:
         """
         Get Image Properties
+        GET /dataservice/device/action/software/imageProperties/{versionId}
 
         :param version_id: Version id
         :returns: GetImageProperties

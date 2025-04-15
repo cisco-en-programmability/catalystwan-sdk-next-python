@@ -11,7 +11,7 @@ Get device crash logs synchronously from device
 
 .. code:: python
 
-    def get_device_crash_logs_synced(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.crashlog.synced.get_device_crash_logs_synced()
+        client.device.crashlog.synced.get()
 
 

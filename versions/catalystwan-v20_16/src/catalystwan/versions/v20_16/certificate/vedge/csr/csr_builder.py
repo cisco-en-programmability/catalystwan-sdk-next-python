@@ -12,9 +12,10 @@ class CsrBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def getv_edge_csr(self, uuid: str, **kw) -> str:
+    def get(self, uuid: str, **kw) -> str:
         """
         get device CSR
+        GET /dataservice/certificate/vedge/csr
 
         :param uuid: UUID param to fetch installed CSR
         :returns: str

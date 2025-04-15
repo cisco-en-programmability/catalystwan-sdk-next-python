@@ -11,7 +11,7 @@ Get devices status for vSmart,vBond,vEdge, and cEdge
 
 .. code:: python
 
-    def get_all_device_status() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.status.get_all_device_status()
+        client.device.status.get()
 
 

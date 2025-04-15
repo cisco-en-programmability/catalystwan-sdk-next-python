@@ -13,7 +13,7 @@ Get migration generic settings
 
 .. code:: python
 
-    def get_stats_migration_settings() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.olapdb.migration.settings.get_stats_migration_settings()
+        client.util.olapdb.migration.settings.get()
 
 
 Operation: POST /dataservice/util/olapdb/migration/settings
@@ -44,9 +44,7 @@ Config generic settings
 
 .. code:: python
 
-    def post_stats_migration_settings(
-        payload: Optional[str] = None,
-    ) -> Any: ...
+    def post(payload: str) -> Any: ...
 
 
 Example:
@@ -64,6 +62,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.olapdb.migration.settings.post_stats_migration_settings()
+        client.util.olapdb.migration.settings.post()
 
 

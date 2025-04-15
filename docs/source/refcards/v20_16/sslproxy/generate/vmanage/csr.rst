@@ -11,7 +11,7 @@ Generate CSR
 
 .. code:: python
 
-    def generate_ssl_proxy_csr(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.sslproxy.generate.vmanage.csr.generate_ssl_proxy_csr()
+        client.sslproxy.generate.vmanage.csr.post()
 
 

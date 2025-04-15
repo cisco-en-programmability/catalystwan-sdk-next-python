@@ -11,9 +11,7 @@ Get Azure NVA SKUs
 
 .. code:: python
 
-    def get_azure_nva_sku_resources(
-        cloud_type: str,
-    ) -> NvaSkuListResponse: ...
+    def get(cloud_type: str) -> NvaSkuListResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.cloudgateway.nvasku.get_azure_nva_sku_resources()
+        client.multicloud.cloudgateway.nvasku.get()
 
 
 .. toctree::

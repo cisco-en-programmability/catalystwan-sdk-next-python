@@ -13,7 +13,7 @@ Get Edge Loopback CGW supported colors
 
 .. code:: python
 
-    def get_supported_loopback_cgw_colors() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.loopback_cgw_color.edge.get_supported_loopback_cgw_colors()
+        client.multicloud.loopback_cgw_color.edge.get()
 
 

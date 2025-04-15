@@ -15,7 +15,7 @@ class CloudRoutersAndAttachmentsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_routers_and_attachments(
+    def get(
         self,
         account_id: Optional[str] = None,
         region: Optional[str] = None,
@@ -28,6 +28,7 @@ class CloudRoutersAndAttachmentsBuilder:
     ) -> Any:
         """
         Get all Cloud Routers and their Attachments
+        GET /dataservice/multicloud/cloudRoutersAndAttachments
 
         :param account_id: Account Id
         :param region: Region

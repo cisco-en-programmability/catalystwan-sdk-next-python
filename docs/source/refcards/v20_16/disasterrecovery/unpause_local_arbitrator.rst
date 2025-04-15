@@ -11,7 +11,7 @@ Unpause DR for Local Arbitrator
 
 .. code:: python
 
-    def unpause_local_arbitrator() -> Any: ...
+    def post() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.disasterrecovery.unpause_local_arbitrator.unpause_local_arbitrator()
+        client.disasterrecovery.unpause_local_arbitrator.post()
 
 

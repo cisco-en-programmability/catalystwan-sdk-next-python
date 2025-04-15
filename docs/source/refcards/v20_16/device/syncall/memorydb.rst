@@ -11,7 +11,7 @@ Synchronize memory database for all devices
 
 .. code:: python
 
-    def sync_all_devices_mem_db() -> None: ...
+    def post() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.syncall.memorydb.sync_all_devices_mem_db()
+        client.device.syncall.memorydb.post()
 
 

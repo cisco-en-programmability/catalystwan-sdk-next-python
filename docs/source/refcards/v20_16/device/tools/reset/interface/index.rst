@@ -11,9 +11,7 @@ Reset device interface
 
 .. code:: python
 
-    def process_interface_reset(
-        device_ip: str, payload: Optional[ResetInterfaceReq] = None
-    ) -> None: ...
+    def post(device_ip: str, payload: ResetInterfaceReq) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.tools.reset.interface.process_interface_reset()
+        client.device.tools.reset.interface.post()
 
 
 .. toctree::

@@ -19,7 +19,7 @@ class Ndv6Builder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_ipv6_interface(
+    def get(
         self,
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
@@ -29,6 +29,7 @@ class Ndv6Builder:
     ) -> Any:
         """
         Get IPv6 Neighbors from device (Real Time)
+        GET /dataservice/device/ndv6
 
         :param vpn_id: VPN Id
         :param if_name: Interface name

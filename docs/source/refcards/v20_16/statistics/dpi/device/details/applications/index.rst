@@ -11,9 +11,7 @@ Get detailed DPI device and application list
 
 .. code:: python
 
-    def get_dpi_device_app_details(
-        query: str,
-    ) -> DeviceAppDetailResponse: ...
+    def get(query: str) -> DeviceAppDetailResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.dpi.device.details.applications.get_dpi_device_app_details()
+        client.statistics.dpi.device.details.applications.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Get query fields
 
 .. code:: python
 
-    def get_flowlog_query_fields() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.statistics.flowlog.query.fields.get_flowlog_query_fields()
+        client.statistics.flowlog.query.fields.get()
 
 

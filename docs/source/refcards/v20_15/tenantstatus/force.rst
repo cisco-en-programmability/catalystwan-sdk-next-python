@@ -11,7 +11,7 @@ Force tenant status collection<br><br><br>Note: In a multitenant vManage system,
 
 .. code:: python
 
-    def force_status_collection() -> None: ...
+    def post() -> None: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.tenantstatus.force.force_status_collection()
+        client.tenantstatus.force.post()
 
 

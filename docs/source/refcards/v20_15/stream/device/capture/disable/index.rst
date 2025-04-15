@@ -11,9 +11,7 @@ Disable packet capture session
 
 .. code:: python
 
-    def disable_packet_capture_session(
-        session_id: str,
-    ) -> DisablePacketCaptureRes: ...
+    def get(session_id: str) -> DisablePacketCaptureRes: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.capture.disable.disable_packet_capture_session()
+        client.stream.device.capture.disable.get()
 
 
 .. toctree::

@@ -11,7 +11,7 @@ Check if any device templates need migration<br><br><br>Note: In a multitenant v
 
 .. code:: python
 
-    def is_migration_required() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.is_migration_required.is_migration_required()
+        client.template.device.is_migration_required.get()
 
 

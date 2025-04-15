@@ -11,7 +11,7 @@ Get historical traces
 
 .. code:: python
 
-    def get_trace_history(
+    def get(
         trace_model: Optional[str] = None,
     ) -> NwpiTraceHistoryRespPayload: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.trace_history.get_trace_history()
+        client.stream.device.nwpi.trace_history.get()
 
 
 .. toctree::

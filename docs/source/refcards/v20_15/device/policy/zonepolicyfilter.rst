@@ -11,7 +11,7 @@ Get zone policy filter from device
 
 .. code:: python
 
-    def get_zone_policy_filters(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.policy.zonepolicyfilter.get_zone_policy_filters()
+        client.device.policy.zonepolicyfilter.get()
 
 

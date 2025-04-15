@@ -3,21 +3,30 @@ from __future__ import annotations
 
 from catalystwan.abc import RequestAdapterInterface
 
+from . import models
+from .models import ProviderInfo
+
 
 class RegisteredprovidersBuilder:
     """
     Builds and executes requests for operations under /v1/securedeviceonboarding/registeredproviders
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_providers_info(self, **kw):
+    def get(self, **kw) -> ProviderInfo:
         """
         Get Registered Providers Info
+        GET /dataservice/v1/securedeviceonboarding/registeredproviders
 
-        :returns: None
+        :returns: ProviderInfo
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/v1/securedeviceonboarding/registeredproviders", **kw
+            "GET",
+            "/dataservice/v1/securedeviceonboarding/registeredproviders",
+            return_type=ProviderInfo,
+            **kw,
         )

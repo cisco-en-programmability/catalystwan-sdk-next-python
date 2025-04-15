@@ -11,7 +11,7 @@ API to retrieve billing accounts for an Interconnect provider type and account.
 
 .. code:: python
 
-    def get_interconnect_billing_accounts(
+    def get(
         interconnect_type: str,
         interconnect_account_id: str,
         region: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.interconnect.accounts.billing_accounts.get_interconnect_billing_accounts()
+        client.multicloud.interconnect.accounts.billing_accounts.get()
 
 
 .. toctree::

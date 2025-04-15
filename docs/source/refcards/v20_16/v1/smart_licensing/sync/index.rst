@@ -11,9 +11,7 @@ Sync licenses from CSSM to vManage db
 
 .. code:: python
 
-    def sync_licenses_2(
-        payload: Optional[SyncRequest] = None,
-    ) -> None: ...
+    def post(payload: SyncRequest) -> None: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.smart_licensing.sync.sync_licenses_2()
+        client.v1.smart_licensing.sync.post()
 
 
 .. toctree::

@@ -14,9 +14,10 @@ class ImportBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def import_tenant_data(self, migration_key: str, **kw) -> Any:
+    def post(self, migration_key: str, **kw) -> Any:
         """
         Import tenant data
+        POST /dataservice/tenantmigration/import/{migrationKey}
 
         :param migration_key: Migration key
         :returns: Any

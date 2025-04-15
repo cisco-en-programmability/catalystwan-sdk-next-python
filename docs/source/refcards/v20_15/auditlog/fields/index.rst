@@ -11,7 +11,7 @@ Get fields and type
 
 .. code:: python
 
-    def get_stat_data_fields() -> List[GetStatDataFields]: ...
+    def get() -> List[GetStatDataFields]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.auditlog.fields.get_stat_data_fields()
+        client.auditlog.fields.get()
 
 
 .. toctree::

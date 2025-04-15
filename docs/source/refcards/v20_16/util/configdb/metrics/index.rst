@@ -11,7 +11,7 @@ By passing in the appropriate metric, it will return the values of  the respecti
 
 .. code:: python
 
-    def return_metric(
+    def get(
         metric_name: str,
         start_date: str,
         end_date: Optional[str] = None,
@@ -37,7 +37,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.configdb.metrics.return_metric()
+        client.util.configdb.metrics.get()
 
 
 .. toctree::

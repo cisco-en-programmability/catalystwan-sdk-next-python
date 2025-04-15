@@ -13,9 +13,7 @@ Get devices details
 
 .. code:: python
 
-    def get_cloud_dock_data_based_on_device_type(
-        device_category: DeviceCategoryParam,
-    ) -> List[Any]: ...
+    def get(device_category: DeviceCategoryParam) -> List[Any]: ...
 
 
 Example:
@@ -33,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.type_.get_cloud_dock_data_based_on_device_type()
+        client.system.device.type_.get()
 
 
 .. toctree::

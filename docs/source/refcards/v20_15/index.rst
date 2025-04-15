@@ -20,7 +20,6 @@
     cluster_management/index
     colocation/monitor/index
     container_manager/index
-    dashboard/index
     data/device/index
     dca/index
     device/index

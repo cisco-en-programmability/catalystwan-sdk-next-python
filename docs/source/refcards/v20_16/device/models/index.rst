@@ -7,11 +7,10 @@ Operation: GET /dataservice/device/models
 -----------------------------------------
 
 
-Get all device models supported by the vManage
-
 .. code:: python
 
-    def list_all_device_models() -> DeviceModelsResponse: ...
+    @overload
+    def get() -> DeviceModelsResponse: ...
 
 
 Example:
@@ -29,18 +28,17 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.models.list_all_device_models()
+        client.device.models.get()
 
 
 Operation: GET /dataservice/device/models/{uuid}
 ------------------------------------------------
 
 
-Get device model for the device
-
 .. code:: python
 
-    def get_device_models(uuid: str) -> Any: ...
+    @overload
+    def get(uuid: str) -> Any: ...
 
 
 Example:
@@ -58,7 +56,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.models.get_device_models()
+        client.device.models.get()
 
 
 .. toctree::

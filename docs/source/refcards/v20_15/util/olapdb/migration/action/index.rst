@@ -11,7 +11,7 @@ Migration actions - start pause or restart migration
 
 .. code:: python
 
-    def post_stats_migration_action(action: ActionParam) -> str: ...
+    def post(action: ActionParam) -> str: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.olapdb.migration.action.post_stats_migration_action()
+        client.util.olapdb.migration.action.post()
 
 
 .. toctree::

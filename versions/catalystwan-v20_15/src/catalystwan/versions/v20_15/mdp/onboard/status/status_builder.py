@@ -14,9 +14,10 @@ class StatusBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_mdp_onboarding_status(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         Get MDP onboarding status
+        GET /dataservice/mdp/onboard/status
 
         :returns: List[Any]
         """

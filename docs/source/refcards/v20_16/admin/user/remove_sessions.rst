@@ -11,7 +11,7 @@ Remove sessions
 
 .. code:: python
 
-    def remove_sessions_1(payload: Optional[List[Any]] = None) -> Any: ...
+    def delete(payload: Optional[List[Any]] = None) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.user.remove_sessions.remove_sessions_1()
+        client.admin.user.remove_sessions.delete()
 
 

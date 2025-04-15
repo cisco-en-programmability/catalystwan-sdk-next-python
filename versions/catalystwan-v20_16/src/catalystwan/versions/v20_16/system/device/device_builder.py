@@ -58,12 +58,13 @@ class DeviceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_device(self, payload: Optional[Any] = None, **kw):
+    def post(self, payload: Any, **kw):
         """
         Create new device
 
 
         Note: In a multitenant vManage system, this API is only available in the Provider view 123.
+        POST /dataservice/system/device
 
         :param payload: Create device request
         :returns: None
@@ -72,7 +73,7 @@ class DeviceBuilder:
             "POST", "/dataservice/system/device", payload=payload, **kw
         )
 
-    def get_devices_details(
+    def get(
         self,
         device_category: str,
         model: Optional[ModelParam] = None,
@@ -88,6 +89,7 @@ class DeviceBuilder:
     ) -> Any:
         """
         Get devices details. When {deviceCategory = controllers}, it returns vEdge sync status, vBond, vManage and vSmart. When {deviceCategory = vedges}, it returns all available vEdge routers
+        GET /dataservice/system/device/{deviceCategory}
 
         :param device_category: Device category
         :param model: Device model
@@ -117,9 +119,10 @@ class DeviceBuilder:
             "GET", "/dataservice/system/device/{deviceCategory}", params=params, **kw
         )
 
-    def edit_device(self, uuid: str, payload: Optional[Any] = None, **kw):
+    def put(self, uuid: str, payload: Any, **kw):
         """
         Edit device
+        PUT /dataservice/system/device/{uuid}
 
         :param uuid: Device UUID
         :param payload: Edit device request
@@ -132,9 +135,10 @@ class DeviceBuilder:
             "PUT", "/dataservice/system/device/{uuid}", params=params, payload=payload, **kw
         )
 
-    def delete_device_1(self, uuid: str, **kw) -> DeleteDevice:
+    def delete(self, uuid: str, **kw) -> DeleteDevice:
         """
         Delete vEdges
+        DELETE /dataservice/system/device/{uuid}
 
         :param uuid: Device uuid
         :returns: DeleteDevice

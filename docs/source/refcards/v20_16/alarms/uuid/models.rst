@@ -53,3 +53,21 @@ Models
         values_short_display: Optional[List[GeneralSchema]]
 
 
+    class PageInfo:
+        # number of alarms to be fetched
+        count: Optional[int]
+        # end time of alarms to be fetched
+        end_time: Optional[int]
+        # start time of alarms to be fetched
+        start_time: Optional[int]
+
+
+    class AlarmResponse:
+        """
+        AlarmResponse is used for GET/POST /alarms call.
+        """
+
+        data: Optional[List[Alarm]]
+        page_info: Optional[PageInfo]
+
+

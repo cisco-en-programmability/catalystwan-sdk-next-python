@@ -17,9 +17,10 @@ class ConnectBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def connect_1(self, **kw) -> ConnectResponse:
+    def get(self, **kw) -> ConnectResponse:
         """
         Check if the configured ISE server is reachable
+        GET /dataservice/ise/connect
 
         :returns: ConnectResponse
         """

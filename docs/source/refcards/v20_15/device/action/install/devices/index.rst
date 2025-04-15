@@ -11,7 +11,7 @@ Get list of installed devices
 
 .. code:: python
 
-    def generate_device_list(
+    def get(
         device_type: str, group_id: Optional[str] = None
     ) -> GenerateDeviceList: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.install.devices.generate_device_list()
+        client.device.action.install.devices.get()
 
 
 .. toctree::

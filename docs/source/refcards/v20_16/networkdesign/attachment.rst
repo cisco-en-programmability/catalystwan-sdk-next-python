@@ -13,7 +13,7 @@ Attach network design
 
 .. code:: python
 
-    def push_network_design(payload: Optional[Any] = None) -> Any: ...
+    def post(payload: Any) -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.attachment.push_network_design()
+        client.networkdesign.attachment.post()
 
 

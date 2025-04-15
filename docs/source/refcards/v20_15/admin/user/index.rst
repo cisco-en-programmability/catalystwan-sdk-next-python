@@ -11,7 +11,7 @@ Get all users
 
 .. code:: python
 
-    def find_users_1() -> List[Any]: ...
+    def get() -> List[Any]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.user.find_users_1()
+        client.admin.user.get()
 
 
 Operation: POST /dataservice/admin/user
@@ -40,7 +40,7 @@ Create a user
 
 .. code:: python
 
-    def create_user_1(payload: Optional[Any] = None) -> None: ...
+    def post(payload: Any) -> None: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.user.create_user_1()
+        client.admin.user.post()
 
 
 Operation: PUT /dataservice/admin/user/{userName}
@@ -69,9 +69,7 @@ Update user
 
 .. code:: python
 
-    def update_user_1(
-        user_name: str, payload: Optional[Any] = None
-    ) -> None: ...
+    def put(user_name: str, payload: Any) -> None: ...
 
 
 Example:
@@ -89,7 +87,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.user.update_user_1()
+        client.admin.user.put()
 
 
 Operation: DELETE /dataservice/admin/user/{userName}
@@ -100,7 +98,7 @@ Delete user
 
 .. code:: python
 
-    def delete_user_1(user_name: str) -> None: ...
+    def delete(user_name: str) -> None: ...
 
 
 Example:
@@ -118,7 +116,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.admin.user.delete_user_1()
+        client.admin.user.delete()
 
 
 .. toctree::

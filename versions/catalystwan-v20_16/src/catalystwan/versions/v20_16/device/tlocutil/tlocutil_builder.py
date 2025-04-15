@@ -17,9 +17,10 @@ class TlocutilBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_device_tloc_util(self, site_id: Optional[str] = None, **kw) -> Any:
+    def get(self, site_id: Optional[str] = None, **kw) -> Any:
         """
         Get TLOC list
+        GET /dataservice/device/tlocutil
 
         :param site_id: Optional site ID  to filter devices
         :returns: Any

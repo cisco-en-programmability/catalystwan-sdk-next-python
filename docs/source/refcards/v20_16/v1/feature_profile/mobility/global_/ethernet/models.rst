@@ -41,7 +41,85 @@ Models
         wan_configuration: Optional[str]
 
 
+    class Ethernet:
+        ethernet_interface_list: List[EthernetInterface]
+        # Name of the Profile Parcel. Must be unique.
+        name: str
+        type_: Type
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # Description of the Profile Parcel.
+        description: Optional[str]
+        # System generated unique identifier of the Profile Parcel in UUID format.
+        id: Optional[str]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        variables: Optional[List[Variable]]
+
+
+    class Data:
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        parcel_id: Optional[str]
+        parcel_type: Optional[str]
+        payload: Optional[Ethernet]
+
+
+    class GetListMobilityGlobalEthernetPayload:
+        data: Optional[List[Data]]
+
+
     class CreateEthernetProfileParcelForMobilityPostRequest:
+        ethernet_interface_list: List[EthernetInterface]
+        # Name of the Profile Parcel. Must be unique.
+        name: str
+        type_: Type
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # Description of the Profile Parcel.
+        description: Optional[str]
+        # System generated unique identifier of the Profile Parcel in UUID format.
+        id: Optional[str]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        variables: Optional[List[Variable]]
+
+
+    class GetEthernetProfileParcelGetResponse:
+        ethernet_interface_list: List[EthernetInterface]
+        # Name of the Profile Parcel. Must be unique.
+        name: str
+        type_: Type
+        # User who last created this.
+        created_by: Optional[str]
+        # Timestamp of creation
+        created_on: Optional[int]
+        # Description of the Profile Parcel.
+        description: Optional[str]
+        # System generated unique identifier of the Profile Parcel in UUID format.
+        id: Optional[str]
+        # User who last updated this.
+        last_updated_by: Optional[str]
+        # Timestamp of last update
+        last_updated_on: Optional[int]
+        variables: Optional[List[Variable]]
+
+
+    class EditEthernetProfileParcelForSystemPutRequest:
         ethernet_interface_list: List[EthernetInterface]
         # Name of the Profile Parcel. Must be unique.
         name: str

@@ -17,9 +17,10 @@ class FileprocessBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def enable_events_from_file(self, **kw) -> GeneralSchema:
+    def get(self, **kw) -> GeneralSchema:
         """
         Enable events from file.
+        GET /dataservice/event/enable/fileprocess
 
         :returns: GeneralSchema
         """

@@ -11,7 +11,7 @@ Get vnic info by vrfId
 
 .. code:: python
 
-    def get_vnic_info_by_vnf_id(vnf_id: str) -> List[VnicInfo]: ...
+    def get(vnf_id: str) -> List[VnicInfo]: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.capture.vnics_info.get_vnic_info_by_vnf_id()
+        client.stream.device.capture.vnics_info.get()
 
 
 .. toctree::

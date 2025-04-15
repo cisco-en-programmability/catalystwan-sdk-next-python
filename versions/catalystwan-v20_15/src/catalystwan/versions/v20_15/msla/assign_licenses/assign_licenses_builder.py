@@ -1,8 +1,6 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Optional
-
 from catalystwan.abc import RequestAdapterInterface
 
 from . import models
@@ -19,9 +17,10 @@ class AssignLicensesBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def assign_msla_licenses_to_devices(self, payload: Optional[AssignMslaLicenses] = None, **kw):
+    def post(self, payload: AssignMslaLicenses, **kw):
         """
         Assign msla licenses to devices
+        POST /dataservice/msla/assignLicenses
 
         :param payload: List of devices for assigning licenses
         :returns: None

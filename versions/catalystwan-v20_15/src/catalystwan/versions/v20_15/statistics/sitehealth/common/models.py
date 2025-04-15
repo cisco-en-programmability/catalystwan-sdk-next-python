@@ -4,6 +4,12 @@ from typing import Literal
 
 AppsHealth = Literal["fair", "good", "poor"]
 
+DevicesHealth = Literal["fair", "good", "poor"]
+
+SiteHealth = Literal["fair", "good", "poor"]
+
+TunnelsHealth = Literal["fair", "good", "poor"]
+
 HealthParam = Literal["FAIR", "GOOD", "POOR"]
 
 DeviceTypeParam = Literal["all", "controller", "vedge"]
@@ -13,7 +19,7 @@ DeviceTypeParam = Literal["all", "controller", "vedge"]
 class SiteHealthItem:
     apps_health: AppsHealth  # pytype: disable=annotation-type-mismatch
     apps_usage: int
-    devices_health: AppsHealth  # pytype: disable=annotation-type-mismatch
-    site_health: AppsHealth  # pytype: disable=annotation-type-mismatch
+    devices_health: DevicesHealth  # pytype: disable=annotation-type-mismatch
+    site_health: SiteHealth  # pytype: disable=annotation-type-mismatch
     site_id: str
-    tunnels_health: AppsHealth  # pytype: disable=annotation-type-mismatch
+    tunnels_health: TunnelsHealth  # pytype: disable=annotation-type-mismatch

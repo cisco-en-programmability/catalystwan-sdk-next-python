@@ -14,9 +14,10 @@ class DisconnectBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def disconnect_from_mdp(self, nms_id: str, **kw) -> List[Any]:
+    def get(self, nms_id: str, **kw) -> List[Any]:
         """
         disconnect from mpd controller
+        GET /dataservice/mdp/disconnect/{nmsId}
 
         :param nms_id: Nms id
         :returns: List[Any]

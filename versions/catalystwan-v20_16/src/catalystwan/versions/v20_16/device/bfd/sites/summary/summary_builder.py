@@ -19,11 +19,10 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_bfd_sites_summary(
-        self, vpn_id: List[Vpnid], is_cached: Optional[bool] = False, **kw
-    ) -> Any:
+    def get(self, vpn_id: List[Vpnid], is_cached: Optional[bool] = False, **kw) -> Any:
         """
         Get BFD site summary
+        GET /dataservice/device/bfd/sites/summary
 
         :param is_cached: Flag for caching
         :param vpn_id: Filter VPN

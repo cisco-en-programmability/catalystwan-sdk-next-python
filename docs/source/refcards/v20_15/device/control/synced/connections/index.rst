@@ -11,7 +11,7 @@ Get connections list from vManage
 
 .. code:: python
 
-    def create_synced_connection_list(
+    def get(
         device_id: str,
         peer_type: Optional[PeerTypeParam] = None,
         system_ip: Optional[str] = None,
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.control.synced.connections.create_synced_connection_list()
+        client.device.control.synced.connections.get()
 
 
 .. toctree::

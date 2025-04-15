@@ -17,9 +17,10 @@ class SgtBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def sgts(self, **kw) -> SgtResponse:
+    def get(self, **kw) -> SgtResponse:
         """
         Get trustsec Scalable Group Tags
+        GET /dataservice/template/policy/ise/identity/sgt
 
         :returns: SgtResponse
         """

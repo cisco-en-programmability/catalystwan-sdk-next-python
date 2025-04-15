@@ -1,9 +1,19 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING, Optional, Union, overload
 
 from catalystwan.abc import RequestAdapterInterface
+
+from . import models
+from .models import (
+    CreateDhcpServerProfileParcelForServicePostRequest,
+    CreateDhcpServerProfileParcelForServicePostResponse,
+    EditDhcpServerProfileParcelForServicePutRequest,
+    EditDhcpServerProfileParcelForServicePutResponse,
+    GetListSdwanServiceDhcpServerPayload,
+    GetSingleSdwanServiceDhcpServerPayload,
+)
 
 if TYPE_CHECKING:
     from .schema.schema_builder import SchemaBuilder
@@ -14,36 +24,21 @@ class DhcpServerBuilder:
     Builds and executes requests for operations under /v1/feature-profile/sdwan/service/dhcp-server
     """
 
+    m = models
+
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_dhcp_server_profile_parcel_for_service(self, service_id: str, **kw) -> str:
-        """
-        Get Dhcp Server Profile Parcels for Service feature profile
-
-        :param service_id: Feature Profile ID
-        :returns: str
-        """
-        params = {
-            "serviceId": service_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/dhcp-server",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def create_dhcp_server_profile_parcel_for_service(
-        self, service_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def post(
+        self, service_id: str, payload: CreateDhcpServerProfileParcelForServicePostRequest, **kw
+    ) -> CreateDhcpServerProfileParcelForServicePostResponse:
         """
         Create a Dhcp Server Profile Parcel for Service feature profile
+        POST /dataservice/v1/feature-profile/sdwan/service/{serviceId}/dhcp-server
 
         :param service_id: Feature Profile ID
         :param payload: Dhcp Server Profile Parcel
-        :returns: str
+        :returns: CreateDhcpServerProfileParcelForServicePostResponse
         """
         params = {
             "serviceId": service_id,
@@ -51,44 +46,27 @@ class DhcpServerBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/dhcp-server",
-            return_type=str,
+            return_type=CreateDhcpServerProfileParcelForServicePostResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def get_dhcp_server_profile_parcel_by_parcel_id_for_service(
-        self, service_id: str, dhcp_server_id: str, **kw
-    ) -> str:
-        """
-        Get Dhcp Server Profile Parcel by parcelId for Service feature profile
-
-        :param service_id: Feature Profile ID
-        :param dhcp_server_id: Profile Parcel ID
-        :returns: str
-        """
-        params = {
-            "serviceId": service_id,
-            "dhcpServerId": dhcp_server_id,
-        }
-        return self._request_adapter.request(
-            "GET",
-            "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/dhcp-server/{dhcpServerId}",
-            return_type=str,
-            params=params,
-            **kw,
-        )
-
-    def edit_dhcp_server_profile_parcel_for_service(
-        self, service_id: str, dhcp_server_id: str, payload: Optional[str] = None, **kw
-    ) -> str:
+    def put(
+        self,
+        service_id: str,
+        dhcp_server_id: str,
+        payload: EditDhcpServerProfileParcelForServicePutRequest,
+        **kw,
+    ) -> EditDhcpServerProfileParcelForServicePutResponse:
         """
         Update a Dhcp Server Profile Parcel for Service feature profile
+        PUT /dataservice/v1/feature-profile/sdwan/service/{serviceId}/dhcp-server/{dhcpServerId}
 
         :param service_id: Feature Profile ID
         :param dhcp_server_id: Profile Parcel ID
         :param payload: Dhcp Server Profile Parcel
-        :returns: str
+        :returns: EditDhcpServerProfileParcelForServicePutResponse
         """
         params = {
             "serviceId": service_id,
@@ -97,17 +75,16 @@ class DhcpServerBuilder:
         return self._request_adapter.request(
             "PUT",
             "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/dhcp-server/{dhcpServerId}",
-            return_type=str,
+            return_type=EditDhcpServerProfileParcelForServicePutResponse,
             params=params,
             payload=payload,
             **kw,
         )
 
-    def delete_dhcp_server_profile_parcel_for_service(
-        self, service_id: str, dhcp_server_id: str, **kw
-    ):
+    def delete(self, service_id: str, dhcp_server_id: str, **kw):
         """
         Delete a Dhcp Server Profile Parcel for Service feature profile
+        DELETE /dataservice/v1/feature-profile/sdwan/service/{serviceId}/dhcp-server/{dhcpServerId}
 
         :param service_id: Feature Profile ID
         :param dhcp_server_id: Profile Parcel ID
@@ -123,6 +100,61 @@ class DhcpServerBuilder:
             params=params,
             **kw,
         )
+
+    @overload
+    def get(
+        self, service_id: str, dhcp_server_id: str, **kw
+    ) -> GetSingleSdwanServiceDhcpServerPayload:
+        """
+        Get Dhcp Server Profile Parcel by parcelId for Service feature profile
+        GET /dataservice/v1/feature-profile/sdwan/service/{serviceId}/dhcp-server/{dhcpServerId}
+
+        :param service_id: Feature Profile ID
+        :param dhcp_server_id: Profile Parcel ID
+        :returns: GetSingleSdwanServiceDhcpServerPayload
+        """
+        ...
+
+    @overload
+    def get(self, service_id: str, **kw) -> GetListSdwanServiceDhcpServerPayload:
+        """
+        Get Dhcp Server Profile Parcels for Service feature profile
+        GET /dataservice/v1/feature-profile/sdwan/service/{serviceId}/dhcp-server
+
+        :param service_id: Feature Profile ID
+        :returns: GetListSdwanServiceDhcpServerPayload
+        """
+        ...
+
+    def get(
+        self, service_id: str, dhcp_server_id: Optional[str] = None, **kw
+    ) -> Union[GetListSdwanServiceDhcpServerPayload, GetSingleSdwanServiceDhcpServerPayload]:
+        # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/dhcp-server/{dhcpServerId}
+        if self._request_adapter.param_checker([(service_id, str), (dhcp_server_id, str)], []):
+            params = {
+                "serviceId": service_id,
+                "dhcpServerId": dhcp_server_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/dhcp-server/{dhcpServerId}",
+                return_type=GetSingleSdwanServiceDhcpServerPayload,
+                params=params,
+                **kw,
+            )
+        # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/dhcp-server
+        if self._request_adapter.param_checker([(service_id, str)], [dhcp_server_id]):
+            params = {
+                "serviceId": service_id,
+            }
+            return self._request_adapter.request(
+                "GET",
+                "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/dhcp-server",
+                return_type=GetListSdwanServiceDhcpServerPayload,
+                params=params,
+                **kw,
+            )
+        raise RuntimeError("Provided arguments do not match any signature")
 
     @property
     def schema(self) -> SchemaBuilder:

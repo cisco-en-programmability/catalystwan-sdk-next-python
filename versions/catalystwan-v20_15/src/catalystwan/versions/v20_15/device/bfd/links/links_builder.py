@@ -14,9 +14,10 @@ class LinksBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def create_bfd_link_list(self, state: str, **kw) -> List[Any]:
+    def get(self, state: str, **kw) -> List[Any]:
         """
         Get list of BFD connections
+        GET /dataservice/device/bfd/links
 
         :param state: Device state
         :returns: List[Any]

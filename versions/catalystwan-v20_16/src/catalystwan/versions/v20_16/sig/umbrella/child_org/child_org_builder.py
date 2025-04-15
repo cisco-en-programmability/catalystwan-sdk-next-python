@@ -12,9 +12,10 @@ class ChildOrgBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_child_orgs(self, type_: str, **kw):
+    def get(self, type_: str, **kw):
         """
         Get the list of child org IDs given the type management or device
+        GET /dataservice/sig/umbrella/childOrg/{type}
 
         :param type_: Type
         :returns: None

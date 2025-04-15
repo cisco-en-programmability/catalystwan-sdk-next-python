@@ -17,9 +17,10 @@ class InprogressBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_in_progress_count(self, **kw) -> InProgressCount:
+    def get(self, **kw) -> InProgressCount:
         """
         Get device admin-tech InProgressCount
+        GET /dataservice/device/tools/admintechs/inprogress
 
         :returns: InProgressCount
         """

@@ -29,6 +29,7 @@ class VirtualNetworkConnectionsBuilder:
     ) -> Any:
         """
         API to retrieve all exisiting Interconnect virtual network connections.
+        GET /dataservice/multicloud/interconnect/connectivity/virtual-network-connections
 
         :param connection_name: Interconnect virtual cross connection name
         :param cloud_type: Cloud provider type
@@ -49,11 +50,10 @@ class VirtualNetworkConnectionsBuilder:
             **kw,
         )
 
-    def create_interconenct_virtual_network_connection(
-        self, payload: Optional[List[InterconnectVirtualNetworkConnection]] = None, **kw
-    ) -> ProcessResponse:
+    def post(self, payload: List[InterconnectVirtualNetworkConnection], **kw) -> ProcessResponse:
         """
         API to create a Interconnect virtual network connection between virtual network Tags and OnRamp gateway connection.
+        POST /dataservice/multicloud/interconnect/connectivity/virtual-network-connections
 
         :param payload: Request Payload for Interconnect virtual network Connections
         :returns: ProcessResponse
@@ -66,11 +66,10 @@ class VirtualNetworkConnectionsBuilder:
             **kw,
         )
 
-    def get_interconnect_virtual_network_connection(
-        self, connection_name: str, **kw
-    ) -> InterconnectVirtualNetworkConnection:
+    def get(self, connection_name: str, **kw) -> InterconnectVirtualNetworkConnection:
         """
         API to retrieve an exisiting Interconnect Interconnect virtual network connection.
+        GET /dataservice/multicloud/interconnect/connectivity/virtual-network-connections/{connection-name}
 
         :param connection_name: Interconnect virtual network connection name
         :returns: InterconnectVirtualNetworkConnection
@@ -86,14 +85,12 @@ class VirtualNetworkConnectionsBuilder:
             **kw,
         )
 
-    def update_interconnect_virtual_network_connection(
-        self,
-        connection_name: str,
-        payload: Optional[InterconnectVirtualNetworkConnection] = None,
-        **kw,
+    def put(
+        self, connection_name: str, payload: InterconnectVirtualNetworkConnection, **kw
     ) -> ProcessResponse:
         """
         API to update a virtual network connection between virtual network Tags and onRamp gateway connection.
+        PUT /dataservice/multicloud/interconnect/connectivity/virtual-network-connections/{connection-name}
 
         :param connection_name: Interconnect virtual network connection name
         :param payload: Request Payload for Interconnect virtual network connections
@@ -111,11 +108,10 @@ class VirtualNetworkConnectionsBuilder:
             **kw,
         )
 
-    def delete_interconnect_virtual_network_connection(
-        self, connection_name: str, **kw
-    ) -> ProcessResponse:
+    def delete(self, connection_name: str, **kw) -> ProcessResponse:
         """
         API to delete an Interconnect virtual network connection.
+        DELETE /dataservice/multicloud/interconnect/connectivity/virtual-network-connections/{connection-name}
 
         :param connection_name: Interconnect virtual cross connection name
         :returns: ProcessResponse

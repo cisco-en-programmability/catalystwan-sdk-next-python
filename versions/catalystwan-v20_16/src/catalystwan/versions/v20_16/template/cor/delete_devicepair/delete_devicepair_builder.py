@@ -15,7 +15,7 @@ class DeleteDevicepairBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def remove_device_id(
+    def delete(
         self,
         accountid: str,
         transitvpcid: str,
@@ -27,6 +27,7 @@ class DeleteDevicepairBuilder:
     ) -> Any:
         """
         Remove device pair
+        DELETE /dataservice/template/cor/deleteDevicepair
 
         :param accountid: Account Id
         :param transitvpcid: VPC Id

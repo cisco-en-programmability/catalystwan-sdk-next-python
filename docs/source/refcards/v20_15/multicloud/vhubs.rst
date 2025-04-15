@@ -13,7 +13,7 @@ Get Virtual Hubs
 
 .. code:: python
 
-    def get_v_hubs(
+    def get(
         cloud_type: Optional[str] = None,
         account_id: Optional[str] = None,
         resource_group: Optional[str] = None,
@@ -37,6 +37,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.vhubs.get_v_hubs()
+        client.multicloud.vhubs.get()
 
 

@@ -9,10 +9,10 @@ v1.securedeviceonboarding
     fetch_sdo_token/index
     get_url_for_sdo_identity_service
     providercredentials/index
-    providerscredentials
-    rateplans
-    registeredproviders
-    commplans
+    providerscredentials/index
+    rateplans/index
+    registeredproviders/index
+    commplans/index
     provider_credentials
-    deviceusage
+    deviceusage/index
 

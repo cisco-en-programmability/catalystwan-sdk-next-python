@@ -11,7 +11,7 @@ Get BFD site summary
 
 .. code:: python
 
-    def get_bfd_sites_summary(
+    def get(
         vpn_id: List[Vpnid], is_cached: Optional[bool] = False
     ) -> Any: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.bfd.sites.summary.get_bfd_sites_summary()
+        client.device.bfd.sites.summary.get()
 
 
 .. toctree::

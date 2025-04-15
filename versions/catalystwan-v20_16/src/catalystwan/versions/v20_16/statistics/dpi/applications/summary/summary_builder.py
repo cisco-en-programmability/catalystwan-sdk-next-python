@@ -19,11 +19,12 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_agg_app_flows_summary(
+    def get(
         self, query: str, limit: Optional[int] = None, site_id: Optional[str] = None, **kw
     ) -> DpiAppResponse:
         """
         Get detailed DPI application flows summary
+        GET /dataservice/statistics/dpi/applications/summary
 
         :param query: Query
         :param limit: Limit

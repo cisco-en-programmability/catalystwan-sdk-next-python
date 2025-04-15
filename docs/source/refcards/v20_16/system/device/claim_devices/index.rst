@@ -11,9 +11,7 @@ Claim the selected unclaimed devices
 
 .. code:: python
 
-    def claim_devices(
-        payload: Optional[ClaimDevicesRequest] = None,
-    ) -> ClaimDevicesResponse: ...
+    def post(payload: ClaimDevicesRequest) -> ClaimDevicesResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.claim_devices.claim_devices()
+        client.system.device.claim_devices.post()
 
 
 .. toctree::

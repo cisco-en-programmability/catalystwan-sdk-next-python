@@ -11,7 +11,7 @@ Create VPN list
 
 .. code:: python
 
-    def create_vpn_list() -> CreateVpnList: ...
+    def get() -> CreateVpnList: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.vpn.create_vpn_list()
+        client.device.action.vpn.get()
 
 
 .. toctree::

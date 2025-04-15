@@ -14,9 +14,10 @@ class DevicesWithoutSubjectSudiBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def devices_without_subject_sudi(self, **kw) -> List[Any]:
+    def get(self, **kw) -> List[Any]:
         """
         retrieve devices without subject sudi
+        GET /dataservice/system/device/devicesWithoutSubjectSudi
 
         :returns: List[Any]
         """

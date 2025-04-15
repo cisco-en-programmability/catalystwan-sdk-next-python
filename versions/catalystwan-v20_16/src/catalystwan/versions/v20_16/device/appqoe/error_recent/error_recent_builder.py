@@ -14,9 +14,10 @@ class ErrorRecentBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_appqoe_error_recent(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get Appqoe error recent from device
+        GET /dataservice/device/appqoe/error-recent
 
         :param device_id: Device Id
         :returns: Any

@@ -15,11 +15,12 @@ class LicenseBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_subscriptions(
+    def get(
         self, virtual_account_id: Optional[str] = None, license_type: Optional[str] = None, **kw
     ) -> Any:
         """
         Retrieve MSLA subscription/licenses
+        GET /dataservice/msla/va/License
 
         :param virtual_account_id: virtual_account_id
         :param license_type: licenseType

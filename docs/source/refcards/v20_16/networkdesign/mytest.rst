@@ -13,7 +13,7 @@ Get all device templates for this feature template
 
 .. code:: python
 
-    def run_my_test(name: str) -> Any: ...
+    def get(name: str) -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.mytest.run_my_test()
+        client.networkdesign.mytest.get()
 
 

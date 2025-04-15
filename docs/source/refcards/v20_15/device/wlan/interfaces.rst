@@ -11,7 +11,7 @@ Get WLAN interface from device
 
 .. code:: python
 
-    def get_wlan_interfaces(device_id: str) -> Any: ...
+    def get(device_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.wlan.interfaces.get_wlan_interfaces()
+        client.device.wlan.interfaces.get()
 
 

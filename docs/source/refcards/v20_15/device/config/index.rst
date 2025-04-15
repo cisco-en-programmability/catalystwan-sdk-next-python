@@ -11,7 +11,7 @@ Get device running configuration
 
 .. code:: python
 
-    def get_device_running_config(device_id: List[str]) -> str: ...
+    def get(device_id: List[str]) -> str: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.config.get_device_running_config()
+        client.device.config.get()
 
 
 .. toctree::

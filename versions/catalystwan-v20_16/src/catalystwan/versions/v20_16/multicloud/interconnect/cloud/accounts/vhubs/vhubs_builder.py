@@ -14,7 +14,7 @@ class VhubsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_az_virtual_hubs(
+    def get(
         self,
         cloud_type: str,
         cloud_account_id: str,
@@ -26,6 +26,7 @@ class VhubsBuilder:
     ) -> Any:
         """
         API to retrieve Azure Virtual Hubs.
+        GET /dataservice/multicloud/interconnect/cloud/{cloud-type}/accounts/{cloud-account-id}/vhubs
 
         :param cloud_type: Cloud Provider Type
         :param cloud_account_id: Cloud account id

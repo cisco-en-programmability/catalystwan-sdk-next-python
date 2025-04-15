@@ -14,9 +14,10 @@ class EndpointTrackerGroupBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_endpoint_tracker_group_info(self, device_id: str, **kw) -> Any:
+    def get(self, device_id: str, **kw) -> Any:
         """
         Get endpoint tracker group info from device
+        GET /dataservice/device/endpointTrackerGroup
 
         :param device_id: deviceId - Device IP
         :returns: Any

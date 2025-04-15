@@ -11,7 +11,7 @@ Get the tunnels for cloudType
 
 .. code:: python
 
-    def get_tunnel_names(
+    def get(
         cloud_type: CloudTypeParam, cloud_gateway_name: str
     ) -> List[GetTunnelsResponse]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.multicloud.tunnels.get_tunnel_names()
+        client.multicloud.tunnels.get()
 
 
 .. toctree::

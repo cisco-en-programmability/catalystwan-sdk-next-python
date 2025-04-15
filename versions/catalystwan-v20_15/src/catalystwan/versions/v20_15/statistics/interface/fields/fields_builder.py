@@ -19,9 +19,10 @@ class FieldsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_data_fields_12(self, **kw) -> List[InterfaceDocCountRequest]:
+    def get(self, **kw) -> List[InterfaceDocCountRequest]:
         """
         Get fields and type
+        GET /dataservice/statistics/interface/fields
 
         :returns: List[InterfaceDocCountRequest]
         """

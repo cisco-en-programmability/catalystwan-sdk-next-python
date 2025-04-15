@@ -14,11 +14,10 @@ class ByuuidsBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_by_uuids(
-        self, payload: Optional[List[None]] = None, time_filter: Optional[str] = None, **kw
-    ) -> Any:
+    def post(self, payload: List[None], time_filter: Optional[str] = None, **kw) -> Any:
         """
         Get Events for given uuids
+        POST /dataservice/event/byuuids
 
         :param time_filter: Query
         :param payload: List of event uuids

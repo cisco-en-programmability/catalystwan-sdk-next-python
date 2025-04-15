@@ -9,11 +9,10 @@ Operation: GET /dataservice/networkdesign/profile/task/status
 
 Deprecated!!!
 
-Get device profile configuration task status
-
 .. code:: python
 
-    def get_device_profile_task_status() -> Any: ...
+    @overload
+    def get() -> Any: ...
 
 
 Example:
@@ -31,7 +30,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.profile.task.status.get_device_profile_task_status()
+        client.networkdesign.profile.task.status.get()
 
 
 Operation: GET /dataservice/networkdesign/profile/task/status/{profileId}
@@ -40,13 +39,10 @@ Operation: GET /dataservice/networkdesign/profile/task/status/{profileId}
 
 Deprecated!!!
 
-Get device profile configuration status by profile Id
-
 .. code:: python
 
-    def get_device_profile_task_status_by_profile_id(
-        profile_id: str,
-    ) -> Any: ...
+    @overload
+    def get(profile_id: str) -> Any: ...
 
 
 Example:
@@ -64,6 +60,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.networkdesign.profile.task.status.get_device_profile_task_status_by_profile_id()
+        client.networkdesign.profile.task.status.get()
 
 

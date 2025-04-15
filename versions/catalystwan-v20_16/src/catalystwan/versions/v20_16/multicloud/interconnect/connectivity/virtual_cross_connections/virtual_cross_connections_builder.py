@@ -31,6 +31,7 @@ class VirtualCrossConnectionsBuilder:
     ) -> Any:
         """
         API to retrieve all exisiting Interconnect virtual cross connections.
+        GET /dataservice/multicloud/interconnect/connectivity/virtual-cross-connections
 
         :param interconnect_type: Interconnect provider Type
         :param interconnect_gateway_name: Interconnect gateway name
@@ -55,11 +56,10 @@ class VirtualCrossConnectionsBuilder:
             **kw,
         )
 
-    def create_interconnect_cross_connection(
-        self, payload: Optional[List[InterconnectCrossConnection]] = None, **kw
-    ) -> ProcessResponse:
+    def post(self, payload: List[InterconnectCrossConnection], **kw) -> ProcessResponse:
         """
         API to create an Interconnect virtual cross connection on an Interconnect Gateway at an Interconnect Provider.
+        POST /dataservice/multicloud/interconnect/connectivity/virtual-cross-connections
 
         :param payload: Request Payload for Interconnect virtual cross connections
         :returns: ProcessResponse
@@ -72,9 +72,10 @@ class VirtualCrossConnectionsBuilder:
             **kw,
         )
 
-    def get_interconnect_cross_connection(self, connection_name: str, **kw) -> Any:
+    def get(self, connection_name: str, **kw) -> Any:
         """
         API to retrieve an exisiting Interconnect virtual cross connection.
+        GET /dataservice/multicloud/interconnect/connectivity/virtual-cross-connections/{connection-name}
 
         :param connection_name: Interconnect virtual cross connection name
         :returns: Any
@@ -89,11 +90,12 @@ class VirtualCrossConnectionsBuilder:
             **kw,
         )
 
-    def update_interconnect_cross_connection(
-        self, connection_name: str, payload: Optional[InterconnectCrossConnection] = None, **kw
+    def put(
+        self, connection_name: str, payload: InterconnectCrossConnection, **kw
     ) -> ProcessResponse:
         """
         API to update a virtual cross connection connection on an Interconnect Gateway at an Interconnect Provider.
+        PUT /dataservice/multicloud/interconnect/connectivity/virtual-cross-connections/{connection-name}
 
         :param connection_name: Interconnect virtual cross connection name
         :param payload: Request Payload for Multicloud Interconnect Virtual Cross Connections
@@ -111,9 +113,10 @@ class VirtualCrossConnectionsBuilder:
             **kw,
         )
 
-    def delete_interconnect_cross_connection(self, connection_name: str, **kw) -> ProcessResponse:
+    def delete(self, connection_name: str, **kw) -> ProcessResponse:
         """
         API to delete an Interconnect virtual cross connection at an Interconnect provider.
+        DELETE /dataservice/multicloud/interconnect/connectivity/virtual-cross-connections/{connection-name}
 
         :param connection_name: Interconnect virtual cross connection name
         :returns: ProcessResponse

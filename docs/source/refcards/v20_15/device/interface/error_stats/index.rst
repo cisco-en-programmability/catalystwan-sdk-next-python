@@ -11,7 +11,7 @@ Get interface error stats
 
 .. code:: python
 
-    def get_device_interface_error_stats(
+    def get(
         device_id: str,
         vpn_id: Optional[str] = None,
         ifname: Optional[IfnameParam] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.interface.error_stats.get_device_interface_error_stats()
+        client.device.interface.error_stats.get()
 
 
 .. toctree::

@@ -11,9 +11,7 @@ Get Mapped WAN Resource Groups
 
 .. code:: python
 
-    def get_mapped_wan_resource_groups(
-        accountid: str, cloudregion: str
-    ) -> Any: ...
+    def get(accountid: str, cloudregion: str) -> Any: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.cortex.map.get_mapped_wan_resource_groups()
+        client.template.cortex.map.get()
 
 

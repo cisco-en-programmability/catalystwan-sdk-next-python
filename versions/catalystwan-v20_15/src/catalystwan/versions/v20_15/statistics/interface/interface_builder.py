@@ -30,7 +30,7 @@ class InterfaceBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_stat_data_raw_data_11(
+    def get(
         self,
         query: str,
         page: Optional[int] = None,
@@ -41,6 +41,7 @@ class InterfaceBuilder:
     ) -> InterfaceQuery:
         """
         Get stats raw data
+        GET /dataservice/statistics/interface
 
         :param query: Query
         :param page: Page
@@ -64,9 +65,9 @@ class InterfaceBuilder:
             **kw,
         )
 
-    def get_stats_raw_data_11(
+    def post(
         self,
-        payload: Optional[Any] = None,
+        payload: Any,
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         sort_by: Optional[str] = None,
@@ -75,6 +76,7 @@ class InterfaceBuilder:
     ) -> List[InterfaceRespWithPageInfo]:
         """
         Get stats raw data
+        POST /dataservice/statistics/interface
 
         :param page: Page
         :param page_size: Page size

@@ -13,7 +13,7 @@ finalizedData for NWPI.
 
 .. code:: python
 
-    def get_finalized_data(
+    def get(
         trace_id: int, timestamp: int
     ) -> NwpitraceFlowRespPayload: ...
 
@@ -33,7 +33,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.stream.device.nwpi.finalized_data.get_finalized_data()
+        client.stream.device.nwpi.finalized_data.get()
 
 
 .. toctree::

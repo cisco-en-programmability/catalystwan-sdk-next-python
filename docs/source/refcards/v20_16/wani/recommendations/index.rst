@@ -11,9 +11,7 @@ API to get the recommendations obtained from WANI for a given tenant. This retur
 
 .. code:: python
 
-    def get_wani_recommendations(
-        site_id: Optional[str] = None,
-    ) -> RecommendationsResponse: ...
+    def get(site_id: Optional[str] = None) -> RecommendationsResponse: ...
 
 
 Example:
@@ -31,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.wani.recommendations.get_wani_recommendations()
+        client.wani.recommendations.get()
 
 
 .. toctree::

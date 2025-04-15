@@ -19,7 +19,7 @@ class SummaryBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_app_route_transport_summary_type(
+    def get(
         self,
         type_: str,
         limit: Optional[int] = 5,
@@ -29,6 +29,7 @@ class SummaryBuilder:
     ) -> List[AppRouteFecAggRespInner]:
         """
         Get application-aware routing statistics summary from device
+        GET /dataservice/statistics/approute/transport/summary/{type}
 
         :param type_: Type
         :param limit: Limit

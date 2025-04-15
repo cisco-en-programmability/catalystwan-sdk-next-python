@@ -11,7 +11,7 @@ Get topology monitor data for a given site id
 
 .. code:: python
 
-    def get_site_topology_monitor_data(site_id: str) -> Any: ...
+    def get(site_id: str) -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.topology.monitor.site.get_site_topology_monitor_data()
+        client.topology.monitor.site.get()
 
 

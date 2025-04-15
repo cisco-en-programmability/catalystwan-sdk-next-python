@@ -11,7 +11,7 @@ Get mp local mep from device
 
 .. code:: python
 
-    def get_mp_local_mep(
+    def get(
         device_id: str,
         domain: Optional[str] = None,
         service: Optional[str] = None,
@@ -34,6 +34,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.cfm.mp.local.mep.get_mp_local_mep()
+        client.device.cfm.mp.local.mep.get()
 
 

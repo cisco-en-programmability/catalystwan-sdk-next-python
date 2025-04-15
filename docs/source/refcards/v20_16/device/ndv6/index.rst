@@ -11,7 +11,7 @@ Get IPv6 Neighbors from device (Real Time)
 
 .. code:: python
 
-    def get_ipv6_interface(
+    def get(
         device_id: str,
         vpn_id: Optional[VpnIdParam] = None,
         if_name: Optional[IfNameParam] = None,
@@ -34,7 +34,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.ndv6.get_ipv6_interface()
+        client.device.ndv6.get()
 
 
 .. toctree::

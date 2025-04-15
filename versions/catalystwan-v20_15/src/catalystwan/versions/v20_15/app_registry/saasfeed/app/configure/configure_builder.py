@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,11 +14,10 @@ class ConfigureBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def disableor_enable_saas_feed_for_selected_app(
-        self, payload: Optional[Any] = None, **kw
-    ) -> Any:
+    def put(self, payload: Any, **kw) -> Any:
         """
         Get All the App for the given conditions
+        PUT /dataservice/app-registry/saasfeed/app/configure
 
         :param payload: Onboard
         :returns: Any

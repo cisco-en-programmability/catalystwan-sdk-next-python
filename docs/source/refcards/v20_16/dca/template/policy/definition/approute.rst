@@ -11,9 +11,7 @@ Get template policy definitions
 
 .. code:: python
 
-    def get_template_policy_definitions_dca(
-        payload: Optional[Any] = None,
-    ) -> List[Any]: ...
+    def post(payload: Any) -> List[Any]: ...
 
 
 Example:
@@ -31,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.dca.template.policy.definition.approute.get_template_policy_definitions_dca()
+        client.dca.template.policy.definition.approute.post()
 
 

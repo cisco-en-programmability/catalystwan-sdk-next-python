@@ -11,7 +11,7 @@ Get list of devices by security policy type
 
 .. code:: python
 
-    def generate_security_devices_list(
+    def get(
         policy_type: PolicyTypeParam, group_id: GroupId
     ) -> List[Any]: ...
 
@@ -31,7 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.security.devices.generate_security_devices_list()
+        client.device.action.security.devices.get()
 
 
 .. toctree::

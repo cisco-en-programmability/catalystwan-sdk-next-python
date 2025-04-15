@@ -11,7 +11,7 @@ Create bootstrap config for software vEdges
 
 .. code:: python
 
-    def generate_generic_bootstrap_config_for_vedges(
+    def get(
         wanif: Optional[str] = None,
         sd_routing_device: Optional[bool] = None,
     ) -> GenerateGenericBootstrapConfigForVedges: ...
@@ -32,7 +32,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.system.device.bootstrap.generic.devices.generate_generic_bootstrap_config_for_vedges()
+        client.system.device.bootstrap.generic.devices.get()
 
 
 .. toctree::

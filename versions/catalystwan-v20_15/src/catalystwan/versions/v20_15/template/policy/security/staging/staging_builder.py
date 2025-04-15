@@ -1,7 +1,7 @@
 # Copyright 2024 Cisco Systems, Inc. and its affiliates
 from __future__ import annotations
 
-from typing import Any, Optional
+from typing import Any
 
 from catalystwan.abc import RequestAdapterInterface
 
@@ -14,11 +14,10 @@ class StagingBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def edit_template_with_lenient_lock(
-        self, policy_id: str, payload: Optional[Any] = None, **kw
-    ) -> Any:
+    def put(self, policy_id: str, payload: Any, **kw) -> Any:
         """
         Edit Template
+        PUT /dataservice/template/policy/security/staging/{policyId}
 
         :param policy_id: Policy Id
         :param payload: Policy template

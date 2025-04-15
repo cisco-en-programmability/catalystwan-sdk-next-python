@@ -14,9 +14,10 @@ class DomainBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_cloud_connector_domain_app_rules(self, **kw) -> Any:
+    def get(self, **kw) -> Any:
         """
         Get SD AVC App Rules based on Domain for O365
+        GET /dataservice/monitor/sdavccloudconnector/domain
 
         :returns: Any
         """

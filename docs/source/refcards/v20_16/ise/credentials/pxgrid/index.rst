@@ -11,7 +11,7 @@ Get PxGrid account
 
 .. code:: python
 
-    def get_px_grid_account() -> PxGridInfo: ...
+    def get() -> PxGridInfo: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.ise.credentials.pxgrid.get_px_grid_account()
+        client.ise.credentials.pxgrid.get()
 
 
 Operation: DELETE /dataservice/ise/credentials/pxgrid
@@ -40,7 +40,7 @@ Delete PxGrid account information
 
 .. code:: python
 
-    def delete_px_grid() -> bool: ...
+    def delete() -> bool: ...
 
 
 Example:
@@ -58,7 +58,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.ise.credentials.pxgrid.delete_px_grid()
+        client.ise.credentials.pxgrid.delete()
 
 
 .. toctree::

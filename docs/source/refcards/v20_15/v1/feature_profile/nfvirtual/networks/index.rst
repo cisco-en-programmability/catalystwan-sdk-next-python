@@ -3,37 +3,6 @@ v1.feature_profile.nfvirtual.networks
 =====================================
 
 
-Operation: GET /dataservice/v1/feature-profile/nfvirtual/networks
------------------------------------------------------------------
-
-
-Get all Nfvirtual Feature Profiles
-
-.. code:: python
-
-    def get_all_nfvirtual_networks_feature_profiles(
-        offset: int, limit: int
-    ) -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.nfvirtual.networks.get_all_nfvirtual_networks_feature_profiles()
-
-
 Operation: POST /dataservice/v1/feature-profile/nfvirtual/networks
 ------------------------------------------------------------------
 
@@ -42,9 +11,9 @@ Create a nfvirtual Networks Feature Profile
 
 .. code:: python
 
-    def create_nfvirtual_networks_feature_profile(
-        payload: Optional[str] = None,
-    ) -> str: ...
+    def post(
+        payload: CreateNfvirtualNetworksFeatureProfilePostRequest,
+    ) -> CreateNfvirtualNetworksFeatureProfilePostResponse: ...
 
 
 Example:
@@ -62,38 +31,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.nfvirtual.networks.create_nfvirtual_networks_feature_profile()
-
-
-Operation: GET /dataservice/v1/feature-profile/nfvirtual/networks/{networkId}
------------------------------------------------------------------------------
-
-
-Get a Nfvirtual Networks Feature Profile with networkId
-
-.. code:: python
-
-    def get_nfvirtual_networks_feature_profile_by_profile_id(
-        network_id: str, details: bool
-    ) -> Any: ...
-
-
-Example:
-^^^^^^^^
-
-
-.. code:: python
-
-    from catalyswan.core import create_client
-
-    url = "example.com"
-    username = "admin"
-    password = "password123"
-
-    with create_client(
-        url=url, username=username, password=password
-    ) as client:
-        client.v1.feature_profile.nfvirtual.networks.get_nfvirtual_networks_feature_profile_by_profile_id()
+        client.v1.feature_profile.nfvirtual.networks.post()
 
 
 Operation: PUT /dataservice/v1/feature-profile/nfvirtual/networks/{networkId}
@@ -104,9 +42,10 @@ Edit a Nfvirtual Networks Feature Profile
 
 .. code:: python
 
-    def edit_nfvirtual_networks_feature_profile(
-        network_id: str, payload: Optional[str] = None
-    ) -> str: ...
+    def put(
+        network_id: str,
+        payload: EditNfvirtualNetworksFeatureProfilePutRequest,
+    ) -> EditNfvirtualNetworksFeatureProfilePutResponse: ...
 
 
 Example:
@@ -124,7 +63,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.nfvirtual.networks.edit_nfvirtual_networks_feature_profile()
+        client.v1.feature_profile.nfvirtual.networks.put()
 
 
 Operation: DELETE /dataservice/v1/feature-profile/nfvirtual/networks/{networkId}
@@ -135,9 +74,7 @@ Delete a Nfvirtual Networks Feature Profile
 
 .. code:: python
 
-    def delete_nfvirtual_networks_feature_profile(
-        network_id: str,
-    ) -> None: ...
+    def delete(network_id: str) -> None: ...
 
 
 Example:
@@ -155,16 +92,77 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.v1.feature_profile.nfvirtual.networks.delete_nfvirtual_networks_feature_profile()
+        client.v1.feature_profile.nfvirtual.networks.delete()
+
+
+Operation: GET /dataservice/v1/feature-profile/nfvirtual/networks
+-----------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        offset: int, limit: int
+    ) -> List[GetAllNfvirtualNetworksFeatureProfilesGetResponse]: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.nfvirtual.networks.get()
+
+
+Operation: GET /dataservice/v1/feature-profile/nfvirtual/networks/{networkId}
+-----------------------------------------------------------------------------
+
+
+.. code:: python
+
+    @overload
+    def get(
+        network_id: str, details: bool
+    ) -> GetSingleNfvirtualNetworksPayload: ...
+
+
+Example:
+^^^^^^^^
+
+
+.. code:: python
+
+    from catalyswan.core import create_client
+
+    url = "example.com"
+    username = "admin"
+    password = "password123"
+
+    with create_client(
+        url=url, username=username, password=password
+    ) as client:
+        client.v1.feature_profile.nfvirtual.networks.get()
 
 
 .. toctree::
     :maxdepth: 1
 
-    ovsnetwork
-    lan
-    routes
-    switch
+    ovsnetwork/index
+    lan/index
+    routes/index
+    switch/index
     vnf_attributes/index
-    wan
+    wan/index
+    models
 

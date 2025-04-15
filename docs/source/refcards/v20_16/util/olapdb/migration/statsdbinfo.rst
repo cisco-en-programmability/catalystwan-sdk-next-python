@@ -13,7 +13,7 @@ Get stats db table information
 
 .. code:: python
 
-    def get_stats_migration_stats_db_info() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -31,6 +31,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.util.olapdb.migration.statsdbinfo.get_stats_migration_stats_db_info()
+        client.util.olapdb.migration.statsdbinfo.get()
 
 

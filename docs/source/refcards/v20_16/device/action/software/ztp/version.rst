@@ -11,7 +11,7 @@ Get ZTP software version
 
 .. code:: python
 
-    def find_ztp_software_version() -> Any: ...
+    def get() -> Any: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.device.action.software.ztp.version.find_ztp_software_version()
+        client.device.action.software.ztp.version.get()
 
 

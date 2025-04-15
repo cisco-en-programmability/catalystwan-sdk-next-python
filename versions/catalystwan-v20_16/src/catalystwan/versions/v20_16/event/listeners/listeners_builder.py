@@ -12,9 +12,10 @@ class ListenersBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get_listeners_info(self, **kw) -> str:
+    def get(self, **kw) -> str:
         """
         Retrieve listener information
+        GET /dataservice/event/listeners
 
         :returns: str
         """

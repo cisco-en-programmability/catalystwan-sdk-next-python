@@ -11,7 +11,7 @@ Edit already enabled gateways, clients, dias<br><br><br>Note: In a multitenant v
 
 .. code:: python
 
-    def edit_cloudx_config(payload: Optional[Any] = None) -> str: ...
+    def put(payload: Any) -> str: ...
 
 
 Example:
@@ -29,7 +29,7 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.attachcloudx.edit_cloudx_config()
+        client.template.device.config.attachcloudx.put()
 
 
 Operation: POST /dataservice/template/device/config/attachcloudx
@@ -40,7 +40,7 @@ Enable gateways, clients, dias
 
 .. code:: python
 
-    def push_cloudx_config(payload: Optional[Any] = None) -> str: ...
+    def post(payload: Any) -> str: ...
 
 
 Example:
@@ -58,6 +58,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.template.device.config.attachcloudx.push_cloudx_config()
+        client.template.device.config.attachcloudx.post()
 
 

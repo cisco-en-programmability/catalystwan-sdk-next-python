@@ -11,7 +11,7 @@ Approve pxGrid account
 
 .. code:: python
 
-    def approve() -> bool: ...
+    def put() -> bool: ...
 
 
 Example:
@@ -29,6 +29,6 @@ Example:
     with create_client(
         url=url, username=username, password=password
     ) as client:
-        client.ise.pxgrid.approve.approve()
+        client.ise.pxgrid.approve.put()
 
 
