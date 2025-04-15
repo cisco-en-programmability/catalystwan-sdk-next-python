@@ -71,7 +71,7 @@ class AdminTech:
         if device_ips is None:
             device_ips = []
 
-        for device in self.client.device.list_all_devices(
+        for device in self.client.device.get(
             site_id=str(site_id) if site_id else None
         ):
             if device.device_id in device_ips or not device_ips:
@@ -131,7 +131,7 @@ class AdminTech:
             tech_filter=tech_filter,
         )
         logger.info(f"Generating admin-tech for device: {device_ip} ...")
-        response = self.client.device.tools.admintech.create_admin_tech(payload)
+        response = self.client.device.tools.admintech.post(payload)
         filename = ""
         if isinstance(response, Mapping):
             filename = response.get("fileName", "")
@@ -141,7 +141,7 @@ class AdminTech:
     def download(self, filename: str, download_dir: Path = Path.cwd()) -> Path:
         download_path = download_dir / filename
         logger.info(f"Downloading admin-tech to: {download_path} ...")
-        bytes = self.client.device.tools.admintech.download.download_admin_tech_file(
+        bytes = self.client.device.tools.admintech.download.get(
             filename=filename, timeout=(4.0, None)
         )
         with open(download_path, "wb") as file:
@@ -150,7 +150,7 @@ class AdminTech:
         return download_path
 
     def list(self) -> List[Info]:
-        response = self.client.device.tools.admintechs.list_admin_techs()
+        response = self.client.device.tools.admintechs.get()
         return [Info(**asdict(r)) for r in response]
 
     def wait_for_generated_token_ids(self) -> None:

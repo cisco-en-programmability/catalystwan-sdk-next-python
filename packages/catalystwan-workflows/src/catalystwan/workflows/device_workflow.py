@@ -50,13 +50,13 @@ class DeviceWorkflow:
 
     def get_devices_info(self, rediscover: bool = False) -> List[Device]:
         if rediscover:
-            self.client.device.action.rediscoverall.re_discover_all_device()
+            self.client.device.action.rediscoverall.post()
 
-        devices = self.client.device.list_all_devices()
+        devices = self.client.device.get()
         device_ids = [device.device_id for device in devices]
         devices_info: List[Device] = []
         for i in range(0, len(device_ids), self.PARAMS_LIMIT):
-            response = self.client.device.system.info.create_device_info_list(
+            response = self.client.device.system.info.get(
                 device_id=device_ids[i : i + self.PARAMS_LIMIT]
             )
             devices_info.extend([deserialize(Device, **data) for data in response])
