@@ -32,6 +32,13 @@ We appreciate your understanding and cooperation as we continue to enhance the C
 
 Thank you for your continued support and feedback!
 
+Supported Python Versions
+-------------------------
+
+Python >= 3.8
+
+> If you don't have a specific version, you can just use [Pyenv](https://github.com/pyenv/pyenv) to manage Python versions.
+
 
 Installation
 ------------
@@ -42,10 +49,14 @@ To install the SDK, run the following command:
 pip install catalystwan==2.0.0a0
 ```
 
-Supported Python Versions
--------------------------
+To manually install the necessary Python packages in editable mode, you can use the `pip install -e` command. 
 
-Python >= 3.8
+```bash
+pip install -e ./packages/catalystwan-types \
+            -e ./packages/catalystwan-core \
+            -e ./versions/catalystwan-v20_15 \
+            -e ./versions/catalystwan-v20_16
+```
 
 
 Getting Started
