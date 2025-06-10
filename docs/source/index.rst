@@ -7,5 +7,6 @@
    refcards/index
    refapi/index
    refexamples/index
+   changelogs/index
    contributing
    docs
