@@ -49,7 +49,7 @@ def mypy(session):
     session.install(
         "types-requests",
     )
-    session.run("mypy", "-p", "catalystwan.versions.v20_15", "--show-traceback")
+    session.run("mypy", "-p", "catalystwan.versions.v20_16", "--show-traceback")
 
 
 @nox.session(python=DEFAULT_PYTHON_VERSION)
