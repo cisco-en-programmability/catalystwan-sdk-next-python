@@ -4,7 +4,7 @@ import logging
 from copy import copy
 from dataclasses import dataclass, field, fields, is_dataclass
 from string import Formatter
-from typing import Any, Dict, List, Optional, Type, TypeVar, Union, cast
+from typing import Any, Dict, List, Literal, Optional, Tuple, Type, TypeVar, Union, cast
 
 from catalystwan.abc import RequestAdapterInterface, ResponseInterface, SessionInterface
 from catalystwan.abc.types import HTTP_METHOD, JSON
@@ -14,6 +14,7 @@ from catalystwan.core.exceptions import (
 )
 from catalystwan.core.models.deserialize import deserialize
 from catalystwan.core.models.serialize import serialize
+from catalystwan.core.models.utils import count_matching_keys
 from catalystwan.core.types import DataclassInstance
 from typing_extensions import get_args, get_origin
 
@@ -213,34 +214,44 @@ class RequestAdapter(RequestAdapterInterface):
         # return model that matches best with the input
         valid_models.sort(
             key=lambda x: (
-                self.__count_matching_keys(x.model, cast(dict, x.payload.data)),
+                count_matching_keys(x.model, cast(dict, x.payload.data)),
                 x.payload.priority,
             ),
             reverse=True,
         )
         return valid_models[0].model
 
-    def __count_matching_keys(self, model: DataclassType, model_payload: dict):
-        matched_keys = 0
-        for key, value in model_payload.items():
-            try:
-                model_value = getattr(model, key)
-                matched_keys += 1
-                if is_dataclass(model_value) and isinstance(value, dict):
-                    matched_keys += self.__count_matching_keys(
-                        cast(DataclassType, model_value), value
-                    )
-                elif (
-                    isinstance(model_value, list)
-                    and all([is_dataclass(element) for element in model_value])
-                    and isinstance(value, list)
-                ):
-                    for model_v, input_v in zip(model_value, value):
-                        matched_keys += self.__count_matching_keys(model_v, input_v)
-            except AttributeError:
+    def param_checker(self, required_params: List[Tuple[Any, Type]], excluded_params: List[Any]):
+        for param in excluded_params:
+            if param is not None:
+                return False
+        for param_value, expected_type in required_params:
+            if param_value is None:
+                return False
+            origin = get_origin(expected_type)
+            if origin is Any:
                 continue
-
-        return matched_keys
+            elif origin is None:
+                if type(param_value) is not expected_type:
+                    return False
+            elif origin is Literal:
+                if param_value not in get_args(expected_type):
+                    return False
+            # This part assumes List and Unions are not overly complex, allowing get_args to flatten the list of types
+            elif origin is list:
+                if type(param_value) is not list:
+                    return False
+                args = get_args(expected_type)
+                if Any in args:
+                    continue
+                if type(param_value) not in args:
+                    return False
+            elif origin is Union:
+                if type(param_value) not in get_args(expected_type):
+                    return False
+            else:
+                continue
+        return True
 
     def __copy__(self) -> RequestAdapter:
         return RequestAdapter(session=copy(self.session), logger=self.logger)

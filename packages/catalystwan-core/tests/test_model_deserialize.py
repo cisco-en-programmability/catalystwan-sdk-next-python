@@ -1,8 +1,11 @@
 from dataclasses import dataclass
 from ipaddress import IPv4Address, IPv6Address
 from typing import List, Literal, Optional, Union
+from uuid import UUID
 
+import pytest
 from catalystwan.core.models.deserialize import deserialize
+from catalystwan.core.types import Variable
 
 
 def test_simple_deserialize():
@@ -131,3 +134,102 @@ def test_direct_init():
     assert m.union_field == IPv4Address("10.0.0.1")
     assert m.submodel_field.int_field == 1
     assert isinstance(m.submodel_field, Submodel)
+
+
+@pytest.mark.parametrize(
+    "value",
+    [
+        ("1"),
+        (1),
+        (1.2),
+        ("True"),
+        ("3a56601d-6132-4aea-98d0-605fa966ad48"),
+        (UUID("3a56601d-6132-4aea-98d0-605fa966ad48")),
+    ],
+)
+def test_union_match_identity(value):
+    @dataclass
+    class Model:
+        union_field: Union[str, int, bool, float, UUID]
+
+    m = deserialize(Model, union_field=value)
+    assert m.union_field == value
+
+
+def test_union_match_optional():
+    @dataclass
+    class Model:
+        union_field: Optional[Union[str, int, bool, float, UUID]] = None
+
+    m1 = deserialize(Model)
+    m2 = deserialize(Model, union_field=None)
+    m3 = deserialize(Model, union_field=[])
+
+    assert m1.union_field is None
+    assert m2.union_field is None
+    assert m3.union_field is None
+
+
+@pytest.mark.parametrize(
+    "value",
+    [
+        ("1"),
+        (1),
+        ("True"),
+        ("3a56601d-6132-4aea-98d0-605fa966ad48"),
+        (UUID("3a56601d-6132-4aea-98d0-605fa966ad48")),
+        ([1, "2", 3]),
+        ([1.2, True, 1.3]),
+    ],
+)
+def test_union_match_nested_identity(value):
+    @dataclass
+    class Model:
+        union_field: Union[
+            str, int, Union[UUID, Union[List[Union[str, int]], List[Union[float, bool]]]]
+        ]
+
+    m = deserialize(Model, union_field=value)
+
+    assert m.union_field == value
+
+
+def test_union_match_models():
+    @dataclass
+    class Submodel1:
+        f1: int
+
+    @dataclass
+    class Submodel2:
+        f1: int
+        f2: int
+
+    @dataclass
+    class Model:
+        union_field: Union[str, Submodel1, Submodel2]
+
+    m1 = deserialize(Model, **{"union_field": {"f1": 1}})
+    m2 = deserialize(Model, **{"union_field": {"f1": 1, "f2": 2}})
+    m3 = deserialize(Model, **{"union_field": {"f1": 1, "f2": 2, "irrelevant_key": 0}})
+
+    assert m1.union_field == Submodel1(1)
+    assert m2.union_field == Submodel2(1, 2)
+    assert m3.union_field == Submodel2(1, 2)
+
+
+@pytest.mark.parametrize(
+    "model_input,expected_value",
+    [
+        ("1", 1),
+        ("3a56601d-6132-4aea-98d0-605fa966ad48", UUID("3a56601d-6132-4aea-98d0-605fa966ad48")),
+        ("some_string", "{{some_string}}"),
+    ],
+)
+def test_match_union_cast(model_input, expected_value):
+    @dataclass
+    class Model:
+        union_field: Optional[Union[int, bool, UUID, Variable]]
+
+    m = deserialize(Model, union_field=model_input)
+
+    assert m.union_field == expected_value

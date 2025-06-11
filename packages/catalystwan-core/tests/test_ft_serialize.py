@@ -54,9 +54,7 @@ def test_model_serialize_json():
             }
         )
         template_name: str = field(metadata={"alias": "templateName", "wrap": False})
-        template_description: str = field(
-            metadata={"alias": "templateDescription", "wrap": False}
-        )
+        template_description: str = field(metadata={"alias": "templateDescription", "wrap": False})
         template_type: str = field(
             default="type",
             init=False,
@@ -182,9 +180,7 @@ def test_model_serialize():
             }
         )
         template_name: str = field(metadata={"alias": "templateName", "wrap": False})
-        template_description: str = field(
-            metadata={"alias": "templateDescription", "wrap": False}
-        )
+        template_description: str = field(metadata={"alias": "templateDescription", "wrap": False})
         template_type: str = field(
             default="type",
             init=False,
@@ -259,9 +255,7 @@ def test_model_serialize_exclude_none():
             }
         )
         template_name: str = field(metadata={"alias": "templateName", "wrap": False})
-        template_description: str = field(
-            metadata={"alias": "templateDescription", "wrap": False}
-        )
+        template_description: str = field(metadata={"alias": "templateDescription", "wrap": False})
         template_type: str = field(
             default="type",
             init=False,
@@ -293,7 +287,7 @@ def test_model_serialize_exclude_none():
     assert serialized == expected
 
 
-def test_model_serialize_exclude_none():
+def test_model_serialize_not_exclude_none():
     @dataclass
     class Submodel:
         int_field: int = field(metadata={"object_type": "object"})
@@ -320,9 +314,7 @@ def test_model_serialize_exclude_none():
             }
         )
         template_name: str = field(metadata={"alias": "templateName", "wrap": False})
-        template_description: str = field(
-            metadata={"alias": "templateDescription", "wrap": False}
-        )
+        template_description: str = field(metadata={"alias": "templateDescription", "wrap": False})
         template_type: str = field(
             default="type",
             init=False,

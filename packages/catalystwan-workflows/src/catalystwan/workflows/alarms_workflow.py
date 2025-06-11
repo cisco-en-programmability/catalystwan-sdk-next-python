@@ -33,10 +33,8 @@ class AlarmsWorkflow:
             endpoint = self.client.alarms.post
         else:
             endpoint = self.client.alarms.get
-
         payload = Query(query=query)
-        response = endpoint(payload=serialize(payload, to_json=True))
-        return response
+        return endpoint(payload=serialize(payload, to_json=True))
 
     def get_alarms(self, from_time: Optional[int] = None, active: bool = True):
         query_spec = QuerySpec(condition="AND", rules=[])
@@ -59,10 +57,10 @@ class AlarmsWorkflow:
     def clear(self, uuid: Optional[UUID]) -> List[ClearedAlarm]: ...
 
     @overload
-    def clear(self, *, query: Optional[Query]) -> List[ClearedAlarm]: ...
+    def clear(self, *, query: Optional[QuerySpec]) -> List[ClearedAlarm]: ...
 
     def clear(
-        self, uuid: Optional[UUID] = None, query: Optional[Query] = None
+        self, uuid: Optional[UUID] = None, query: Optional[QuerySpec] = None
     ) -> List[ClearedAlarm]:
         ids: List[UUID] = []
         if uuid is not None:
