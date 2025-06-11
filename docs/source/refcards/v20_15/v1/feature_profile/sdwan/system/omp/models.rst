@@ -13,11 +13,29 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanTrueDef = Literal[True]
+
+    BooleanFalseDef = Literal[False]
+
+    Value = Literal[60, 300]
+
+    DefaultAdvertiseConnectedDef = Literal[False, True]
+
+    DefaultAdvertiseStaticDef = Literal[False, True]
+
     TransportGatewayEnumDef = Literal["ecmp-with-direct-path", "prefer"]
 
     SiteTypeListDef = Literal[
         "br", "branch", "cloud", "spoke", "type-1", "type-2", "type-3"
     ]
+
+    OmpDefaultAdvertiseConnectedDef = Literal[False, True]
+
+    OmpDefaultAdvertiseStaticDef = Literal[False, True]
+
+    SystemOmpDefaultAdvertiseConnectedDef = Literal[False, True]
+
+    SystemOmpDefaultAdvertiseStaticDef = Literal[False, True]
 
     OmpTransportGatewayEnumDef = Literal[
         "ecmp-with-direct-path", "prefer"
@@ -29,6 +47,18 @@ Models
 
     SystemOmpSiteTypeListDef = Literal[
         "br", "branch", "cloud", "spoke", "type-1", "type-2", "type-3"
+    ]
+
+    SdwanSystemOmpDefaultAdvertiseConnectedDef = Literal[False, True]
+
+    SdwanSystemOmpDefaultAdvertiseStaticDef = Literal[False, True]
+
+    FeatureProfileSdwanSystemOmpDefaultAdvertiseConnectedDef = Literal[
+        False, True
+    ]
+
+    FeatureProfileSdwanSystemOmpDefaultAdvertiseStaticDef = Literal[
+        False, True
     ]
 
     SystemOmpTransportGatewayEnumDef = Literal[
@@ -58,7 +88,7 @@ Models
 
     class OneOfGracefulRestartOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfOverlayAsOptionsDef1:
@@ -125,7 +155,7 @@ Models
 
     class OneOfShutdownOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfOmpAdminDistanceIpv4OptionsDef1:
@@ -227,7 +257,7 @@ Models
 
     class OneOfHoldtimeOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: int
+        value: Value
 
 
     class OneOfAdvertiseProtocolOptionsDef1:
@@ -244,7 +274,7 @@ Models
 
     class OneOfAdvertiseProtocolOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfAdvertiseConnectedOptionsDef1:
@@ -262,7 +292,7 @@ Models
     class OneOfAdvertiseConnectedOptionsDef3:
         option_type: DefaultOptionTypeDef
         # use enum for backward compatibility, use default for UI to display default value
-        value: Optional[bool]
+        value: Optional[DefaultAdvertiseConnectedDef]
 
 
     class OneOfAdvertiseStaticOptionsDef1:
@@ -280,7 +310,7 @@ Models
     class OneOfAdvertiseStaticOptionsDef3:
         option_type: DefaultOptionTypeDef
         # use enum for backward compatibility, use default for UI to display default value
-        value: Optional[bool]
+        value: Optional[DefaultAdvertiseStaticDef]
 
 
     class AdvertiseIpv4:
@@ -378,7 +408,7 @@ Models
 
     class OneOfIgnoreRegionPathLengthOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfTransportGatewayOptionsDef1:
@@ -429,7 +459,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OmpData:
@@ -732,13 +762,13 @@ Models
     class OmpOneOfAdvertiseConnectedOptionsDef3:
         option_type: DefaultOptionTypeDef
         # use enum for backward compatibility, use default for UI to display default value
-        value: Optional[bool]
+        value: Optional[OmpDefaultAdvertiseConnectedDef]
 
 
     class OmpOneOfAdvertiseStaticOptionsDef3:
         option_type: DefaultOptionTypeDef
         # use enum for backward compatibility, use default for UI to display default value
-        value: Optional[bool]
+        value: Optional[OmpDefaultAdvertiseStaticDef]
 
 
     class OmpAdvertiseIpv4:
@@ -787,13 +817,13 @@ Models
     class SystemOmpOneOfAdvertiseConnectedOptionsDef3:
         option_type: DefaultOptionTypeDef
         # use enum for backward compatibility, use default for UI to display default value
-        value: Optional[bool]
+        value: Optional[SystemOmpDefaultAdvertiseConnectedDef]
 
 
     class SystemOmpOneOfAdvertiseStaticOptionsDef3:
         option_type: DefaultOptionTypeDef
         # use enum for backward compatibility, use default for UI to display default value
-        value: Optional[bool]
+        value: Optional[SystemOmpDefaultAdvertiseStaticDef]
 
 
     class OmpAdvertiseIpv6:
@@ -1042,13 +1072,13 @@ Models
     class SdwanSystemOmpOneOfAdvertiseConnectedOptionsDef3:
         option_type: DefaultOptionTypeDef
         # use enum for backward compatibility, use default for UI to display default value
-        value: Optional[bool]
+        value: Optional[SdwanSystemOmpDefaultAdvertiseConnectedDef]
 
 
     class SdwanSystemOmpOneOfAdvertiseStaticOptionsDef3:
         option_type: DefaultOptionTypeDef
         # use enum for backward compatibility, use default for UI to display default value
-        value: Optional[bool]
+        value: Optional[SdwanSystemOmpDefaultAdvertiseStaticDef]
 
 
     class SystemOmpAdvertiseIpv4:
@@ -1097,13 +1127,17 @@ Models
     class FeatureProfileSdwanSystemOmpOneOfAdvertiseConnectedOptionsDef3:
         option_type: DefaultOptionTypeDef
         # use enum for backward compatibility, use default for UI to display default value
-        value: Optional[bool]
+        value: Optional[
+            FeatureProfileSdwanSystemOmpDefaultAdvertiseConnectedDef
+        ]
 
 
     class FeatureProfileSdwanSystemOmpOneOfAdvertiseStaticOptionsDef3:
         option_type: DefaultOptionTypeDef
         # use enum for backward compatibility, use default for UI to display default value
-        value: Optional[bool]
+        value: Optional[
+            FeatureProfileSdwanSystemOmpDefaultAdvertiseStaticDef
+        ]
 
 
     class SystemOmpAdvertiseIpv6:

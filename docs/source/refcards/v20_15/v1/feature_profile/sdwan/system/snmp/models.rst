@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
     CommunityAuthorizationDef = Literal["read-only", "read-write"]
 
     GroupSecurityLevelDef = Literal[
@@ -60,7 +62,7 @@ Models
 
     class OneOfShutdownOptionsDef3:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfContactOptionsDef1:
@@ -126,7 +128,7 @@ Models
 
     class OneOfViewOidExcludeOptionsDef3:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class Oid:

@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
     UserPrivilegeDef = Literal["1", "15"]
 
     DefaultUserPrivilegeDef = Literal["15"]
@@ -32,6 +34,8 @@ Models
     ]
 
     AccountingRuleLevelDef = Literal["1", "15"]
+
+    BooleanTrueDef = Literal[True]
 
     AuthorizationRuleMethodDef = Literal["commands"]
 
@@ -100,7 +104,7 @@ Models
 
     class OneOfAuthenticationGroupOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfAccountingGroupOptionsDef1:
@@ -117,7 +121,7 @@ Models
 
     class OneOfAccountingGroupOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfServerAuthOrderOptionsDef:
@@ -607,7 +611,7 @@ Models
 
     class OneOfAccountingRuleStartStopOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfAccountingRuleGroupOptionsDef:
@@ -648,7 +652,7 @@ Models
 
     class OneOfAuthorizationConsoleOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfAuthorizationConfigCommandsOptionsDef1:
@@ -665,7 +669,7 @@ Models
 
     class OneOfAuthorizationConfigCommandsOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfAuthorizationRuleRuleIdOptionsDef:
@@ -695,7 +699,7 @@ Models
 
     class OneOfAuthorizationRuleIfAuthenticatedOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class AuthorizationRule:

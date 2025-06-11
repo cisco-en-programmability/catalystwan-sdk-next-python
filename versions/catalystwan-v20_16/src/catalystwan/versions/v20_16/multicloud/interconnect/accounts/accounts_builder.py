@@ -113,26 +113,26 @@ class AccountsBuilder:
         if self._request_adapter.param_checker(
             [(interconnect_account_id, str)], [interconnect_type]
         ):
-            params = {
+            params_1 = {
                 "interconnect-account-id": interconnect_account_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/multicloud/interconnect/accounts/{interconnect-account-id}",
                 return_type=InterconnectAccount,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/multicloud/interconnect/accounts
         if self._request_adapter.param_checker([], [interconnect_account_id]):
-            params = {
+            params_2 = {
                 "interconnect-type": interconnect_type,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/multicloud/interconnect/accounts",
                 return_type=List[InterconnectAccount],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

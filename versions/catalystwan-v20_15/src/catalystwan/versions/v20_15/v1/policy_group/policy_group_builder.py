@@ -111,26 +111,26 @@ class PolicyGroupBuilder:
     ) -> Union[List[PolicyGroup], PolicyGroup]:
         # /dataservice/v1/policy-group/{policyGroupId}
         if self._request_adapter.param_checker([(policy_group_id, str)], [solution]):
-            params = {
+            params_1 = {
                 "policyGroupId": policy_group_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/policy-group/{policyGroupId}",
                 return_type=PolicyGroup,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/policy-group
         if self._request_adapter.param_checker([], [policy_group_id]):
-            params = {
+            params_2 = {
                 "solution": solution,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/policy-group",
                 return_type=List[PolicyGroup],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

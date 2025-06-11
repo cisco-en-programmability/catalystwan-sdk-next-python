@@ -21,6 +21,10 @@ ExtensionsParcelTypeDef = Literal[
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanFalseDef = Literal[False]
+
+BooleanTrueDef = Literal[True]
+
 Value = Literal["ipv4-unicast", "vpnv4-unicast", "vpnv6-unicast"]
 
 MulticloudConnectionValue = Literal["disable-peer", "warning-only"]
@@ -247,7 +251,7 @@ class OneOfOnBooleanDefaultFalseOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -377,7 +381,7 @@ class OneOfOnBooleanDefaultTrueOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -444,7 +448,7 @@ class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1397,7 +1401,7 @@ class OneOfIpv4V6RouteNull0OptionsWithoutVariable2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

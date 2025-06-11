@@ -82,7 +82,7 @@ class SpeedBuilder:
 
     def post(
         self,
-        payload: Union[SpeedTestSession, SpeedTestResult],
+        payload: Union[SpeedTestResult, SpeedTestSession],
         device_uuid: Optional[str] = None,
         session_id: Optional[Uuid] = None,
         **kw,
@@ -91,7 +91,7 @@ class SpeedBuilder:
         if self._request_adapter.param_checker(
             [(payload, SpeedTestResult), (device_uuid, str), (session_id, Uuid)], []
         ):
-            params = {
+            params_1 = {
                 "deviceUUID": device_uuid,
                 "sessionId": session_id,
             }
@@ -99,7 +99,7 @@ class SpeedBuilder:
                 "POST",
                 "/dataservice/stream/device/speed/{deviceUUID}/{sessionId}",
                 return_type=SpeedTestStatusResponse,
-                params=params,
+                params=params_1,
                 payload=payload,
                 **kw,
             )

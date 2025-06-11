@@ -99,22 +99,22 @@ class SecurityBuilder:
     ) -> Union[List[Any], Any]:
         # /dataservice/template/policy/security/{deviceModel}
         if self._request_adapter.param_checker([(device_model, DeviceModel)], [mode]):
-            params = {
+            params_1 = {
                 "deviceModel": device_model,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/template/policy/security/{deviceModel}", params=params, **kw
+                "GET", "/dataservice/template/policy/security/{deviceModel}", params=params_1, **kw
             )
         # /dataservice/template/policy/security
         if self._request_adapter.param_checker([], [device_model]):
-            params = {
+            params_2 = {
                 "mode": mode,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/template/policy/security",
                 return_type=List[Any],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

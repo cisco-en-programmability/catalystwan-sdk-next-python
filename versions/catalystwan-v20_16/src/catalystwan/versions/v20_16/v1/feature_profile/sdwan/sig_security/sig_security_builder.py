@@ -138,7 +138,7 @@ class SigSecurityBuilder:
         if self._request_adapter.param_checker(
             [(sig_security_id, str)], [offset, limit, reference_count]
         ):
-            params = {
+            params_1 = {
                 "sigSecurityId": sig_security_id,
                 "references": references,
             }
@@ -146,12 +146,12 @@ class SigSecurityBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/sig-security/{sigSecurityId}",
                 return_type=GetSingleSdwanSigSecurityPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/sig-security
         if self._request_adapter.param_checker([], [sig_security_id, references]):
-            params = {
+            params_2 = {
                 "offset": offset,
                 "limit": limit,
                 "referenceCount": reference_count,
@@ -160,7 +160,7 @@ class SigSecurityBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/sig-security",
                 return_type=List[GetSdwanSigSecurityFeatureProfilesGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

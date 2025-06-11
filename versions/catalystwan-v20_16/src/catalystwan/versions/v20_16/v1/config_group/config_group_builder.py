@@ -122,7 +122,7 @@ class ConfigGroupBuilder:
     ) -> Union[List[ConfigGroup], ConfigGroup]:
         # /dataservice/v1/config-group/{configGroupId}
         if self._request_adapter.param_checker([(config_group_id, str)], [solution, name]):
-            params = {
+            params_1 = {
                 "configGroupId": config_group_id,
                 "deviceList": device_list,
             }
@@ -130,12 +130,12 @@ class ConfigGroupBuilder:
                 "GET",
                 "/dataservice/v1/config-group/{configGroupId}",
                 return_type=ConfigGroup,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/config-group
         if self._request_adapter.param_checker([], [config_group_id, device_list]):
-            params = {
+            params_2 = {
                 "solution": solution,
                 "name": name,
             }
@@ -143,7 +143,7 @@ class ConfigGroupBuilder:
                 "GET",
                 "/dataservice/v1/config-group",
                 return_type=List[ConfigGroup],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

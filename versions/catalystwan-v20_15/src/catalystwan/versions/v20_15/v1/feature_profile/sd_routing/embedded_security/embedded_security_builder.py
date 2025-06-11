@@ -150,7 +150,7 @@ class EmbeddedSecurityBuilder:
         if self._request_adapter.param_checker(
             [(embedded_security_id, str)], [offset, limit, reference_count]
         ):
-            params = {
+            params_1 = {
                 "embeddedSecurityId": embedded_security_id,
                 "details": details,
                 "references": references,
@@ -159,12 +159,12 @@ class EmbeddedSecurityBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/embedded-security/{embeddedSecurityId}",
                 return_type=GetSingleSdRoutingEmbeddedSecurityPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/embedded-security
         if self._request_adapter.param_checker([], [embedded_security_id, details, references]):
-            params = {
+            params_2 = {
                 "offset": offset,
                 "limit": limit,
                 "referenceCount": reference_count,
@@ -173,7 +173,7 @@ class EmbeddedSecurityBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/embedded-security",
                 return_type=List[GetSdRoutingEmbeddedSecurityFeatureProfilesGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

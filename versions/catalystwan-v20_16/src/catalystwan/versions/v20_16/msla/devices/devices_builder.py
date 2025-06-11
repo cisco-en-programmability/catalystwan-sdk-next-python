@@ -58,26 +58,26 @@ class DevicesBuilder:
     ) -> Union[GetMslaDevicesPayload, List[GetDeviceLicensesInner]]:
         # /dataservice/msla/devices/{uuid}
         if self._request_adapter.param_checker([(uuid, str)], [site_id]):
-            params = {
+            params_1 = {
                 "uuid": uuid,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/msla/devices/{uuid}",
                 return_type=List[GetDeviceLicensesInner],
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/msla/devices
         if self._request_adapter.param_checker([], [uuid]):
-            params = {
+            params_2 = {
                 "site-id": site_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/msla/devices",
                 return_type=GetMslaDevicesPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

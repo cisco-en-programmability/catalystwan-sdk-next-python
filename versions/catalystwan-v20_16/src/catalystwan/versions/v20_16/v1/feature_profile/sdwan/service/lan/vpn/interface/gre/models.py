@@ -44,6 +44,10 @@ Ipv4SubnetMaskDef = Literal[
     "255.255.255.255",
 ]
 
+DefaultShutdownDef = Literal[False, True]
+
+BooleanFalseDef = Literal[False]
+
 TunnelModeDef = Literal["ipv4", "ipv6"]
 
 DefaultTunnelModeDef = Literal["ipv4"]
@@ -254,7 +258,7 @@ class OneOfShutdownOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: Optional[bool] = _field(default=None)
+    value: Optional[DefaultShutdownDef] = _field(default=None)
 
 
 @dataclass
@@ -270,7 +274,7 @@ class OneOfTunnelProtectionOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -586,7 +590,7 @@ class OneOfClearDontFragmentOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass

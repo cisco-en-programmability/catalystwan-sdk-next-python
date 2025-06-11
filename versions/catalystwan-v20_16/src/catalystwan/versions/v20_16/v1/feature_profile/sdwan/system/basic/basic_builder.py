@@ -129,7 +129,7 @@ class BasicBuilder:
     ) -> Union[GetListSdwanSystemBasicPayload, GetSingleSdwanSystemBasicPayload]:
         # /dataservice/v1/feature-profile/sdwan/system/{systemId}/basic/{basicId}
         if self._request_adapter.param_checker([(system_id, str), (basic_id, str)], []):
-            params = {
+            params_1 = {
                 "systemId": system_id,
                 "basicId": basic_id,
             }
@@ -137,19 +137,19 @@ class BasicBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/system/{systemId}/basic/{basicId}",
                 return_type=GetSingleSdwanSystemBasicPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/system/{systemId}/basic
         if self._request_adapter.param_checker([(system_id, str)], [basic_id]):
-            params = {
+            params_2 = {
                 "systemId": system_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/system/{systemId}/basic",
                 return_type=GetListSdwanSystemBasicPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

@@ -38,6 +38,8 @@ Models
         "silver",
     ]
 
+    BooleanTrueDef = Literal[True]
+
     BfdColorDef = Literal[
         "3g",
         "biz-internet",
@@ -200,7 +202,7 @@ Models
 
     class OneOfPmtuDiscoveryOptions3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfColorDscpOptions1:

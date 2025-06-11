@@ -64,19 +64,19 @@ class CliBuilder:
     ) -> Union[List[GetMobilityCliFeatureProfileGetResponse], GetSingleMobilityCliPayload]:
         # /dataservice/v1/feature-profile/mobility/cli/{cliId}
         if self._request_adapter.param_checker([(cli_id, str)], [offset, limit, reference_count]):
-            params = {
+            params_1 = {
                 "cliId": cli_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/cli/{cliId}",
                 return_type=GetSingleMobilityCliPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/mobility/cli
         if self._request_adapter.param_checker([], [cli_id]):
-            params = {
+            params_2 = {
                 "offset": offset,
                 "limit": limit,
                 "referenceCount": reference_count,
@@ -85,7 +85,7 @@ class CliBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/cli",
                 return_type=List[GetMobilityCliFeatureProfileGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

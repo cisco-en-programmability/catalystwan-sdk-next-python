@@ -9,6 +9,8 @@ VariableOptionTypeDef = Literal["variable"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanFalseDef = Literal[False]
+
 Ipv4SubnetMaskDef = Literal[
     "0.0.0.0",
     "128.0.0.0",
@@ -43,6 +45,8 @@ Ipv4SubnetMaskDef = Literal[
     "255.255.255.254",
     "255.255.255.255",
 ]
+
+BooleanTrueDef = Literal[True]
 
 NetworkRedundancyDef = Literal["hsrp", "off", "vrrp"]
 
@@ -80,7 +84,7 @@ class OneOfShutdownOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -329,7 +333,7 @@ class DhcpClient:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -495,7 +499,7 @@ class OneOfEnableBfdOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1100,7 +1104,7 @@ class OneOfIpv6HsrpIpv6AutoConfigOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1194,7 +1198,7 @@ class OneOfOnBooleanDefaultTrueOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1474,7 +1478,7 @@ class OneOfIpDirectedBroadcastOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

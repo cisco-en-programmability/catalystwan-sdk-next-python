@@ -26,7 +26,7 @@ class SummaryBuilder:
         query: Optional[str] = None,
         site_id: Optional[str] = None,
         **kw,
-    ) -> List[AppRouteFecAggRespInner]:
+    ) -> List[List[AppRouteFecAggRespInner]]:
         """
         Get application-aware routing statistics summary from device
         GET /dataservice/statistics/approute/transport/summary/{type}
@@ -35,7 +35,7 @@ class SummaryBuilder:
         :param limit: Limit
         :param query: Query
         :param site_id: Site id
-        :returns: List[AppRouteFecAggRespInner]
+        :returns: List[List[AppRouteFecAggRespInner]]
         """
         params = {
             "type": type_,
@@ -46,7 +46,7 @@ class SummaryBuilder:
         return self._request_adapter.request(
             "GET",
             "/dataservice/statistics/approute/transport/summary/{type}",
-            return_type=List[AppRouteFecAggRespInner],
+            return_type=List[List[AppRouteFecAggRespInner]],
             params=params,
             **kw,
         )

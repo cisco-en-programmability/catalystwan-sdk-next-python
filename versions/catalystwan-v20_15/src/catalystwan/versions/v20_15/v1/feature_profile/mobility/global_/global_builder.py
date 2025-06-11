@@ -76,19 +76,19 @@ class GlobalBuilder:
         if self._request_adapter.param_checker(
             [(global_id, str)], [offset, limit, reference_count]
         ):
-            params = {
+            params_1 = {
                 "globalId": global_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{globalId}",
                 return_type=GetSingleMobilityGlobalPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/mobility/global
         if self._request_adapter.param_checker([], [global_id]):
-            params = {
+            params_2 = {
                 "offset": offset,
                 "limit": limit,
                 "referenceCount": reference_count,
@@ -97,7 +97,7 @@ class GlobalBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global",
                 return_type=List[GetMobilityGlobalFeatureProfileGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

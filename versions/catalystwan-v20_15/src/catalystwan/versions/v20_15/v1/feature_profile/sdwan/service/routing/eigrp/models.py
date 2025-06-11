@@ -50,6 +50,8 @@ Ipv4SubnetMaskDef = Literal[
 
 TypeDef = Literal["hmac-sha-256", "md5"]
 
+BooleanFalseDef = Literal[False]
+
 
 @dataclass
 class OneOfAsNumOptionsDef1:
@@ -396,7 +398,7 @@ class OneOfAfInterfaceShutdownOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -443,7 +445,7 @@ class OneOfFilterOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

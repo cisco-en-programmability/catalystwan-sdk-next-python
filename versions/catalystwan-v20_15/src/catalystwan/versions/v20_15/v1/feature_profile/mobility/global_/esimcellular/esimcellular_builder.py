@@ -130,7 +130,7 @@ class EsimcellularBuilder:
     ]:
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/esimcellular/{esimCellularId}
         if self._request_adapter.param_checker([(profile_id, str), (esim_cellular_id, str)], []):
-            params = {
+            params_1 = {
                 "profileId": profile_id,
                 "esimCellularId": esim_cellular_id,
             }
@@ -138,19 +138,19 @@ class EsimcellularBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/esimcellular/{esimCellularId}",
                 return_type=GetSingleMobilityGlobalEsimcellularPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/esimcellular
         if self._request_adapter.param_checker([(profile_id, str)], [esim_cellular_id]):
-            params = {
+            params_2 = {
                 "profileId": profile_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/esimcellular",
                 return_type=GetListMobilityGlobalEsimcellularPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

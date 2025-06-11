@@ -46,6 +46,8 @@ Ipv4SubnetMaskDef = Literal[
     "255.255.255.255",
 ]
 
+BooleanTrueDef = Literal[True]
+
 
 @dataclass
 class OneOfVrfNameOptionsDef:
@@ -302,7 +304,7 @@ class OneOfIpv4V6RouteNull0OptionsWithoutVariable2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -332,7 +334,7 @@ class OneOfIpv4RouteDhcpOptionsWithoutVariable2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

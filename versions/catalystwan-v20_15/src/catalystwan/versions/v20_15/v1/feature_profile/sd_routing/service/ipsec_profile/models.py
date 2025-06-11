@@ -13,6 +13,8 @@ IpsecReplayWindowDef = Literal["1024", "128", "256", "512", "64"]
 
 DefaultIpsecReplayWindowDef = Literal["64"]
 
+BooleanFalseDef = Literal[False]
+
 PfsGroupDef = Literal["14", "15", "16", "19", "20", "21"]
 
 DefaultPfsGroupDef = Literal["16"]
@@ -335,7 +337,7 @@ class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

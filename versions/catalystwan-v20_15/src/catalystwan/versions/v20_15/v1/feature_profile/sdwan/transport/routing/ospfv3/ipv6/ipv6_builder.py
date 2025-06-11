@@ -134,7 +134,7 @@ class Ipv6Builder:
     ]:
         # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/routing/ospfv3/ipv6/{ospfv3Id}
         if self._request_adapter.param_checker([(transport_id, str), (ospfv3_id, str)], []):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "ospfv3Id": ospfv3_id,
             }
@@ -142,19 +142,19 @@ class Ipv6Builder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/routing/ospfv3/ipv6/{ospfv3Id}",
                 return_type=GetSingleSdwanTransportRoutingOspfv3Ipv6Payload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/routing/ospfv3/ipv6
         if self._request_adapter.param_checker([(transport_id, str)], [ospfv3_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/routing/ospfv3/ipv6",
                 return_type=GetListSdwanTransportRoutingOspfv3Ipv6Payload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

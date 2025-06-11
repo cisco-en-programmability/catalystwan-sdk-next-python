@@ -148,7 +148,7 @@ class OspfBuilder:
         if self._request_adapter.param_checker(
             [(transport_id, str), (vpn_id, str), (ospf_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "vpnId": vpn_id,
                 "ospfId": ospf_id,
@@ -157,12 +157,12 @@ class OspfBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/routing/ospf/{ospfId}",
                 return_type=GetSingleSdwanTransportWanVpnRoutingOspfPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/routing/ospf
         if self._request_adapter.param_checker([(transport_id, str), (vpn_id, str)], [ospf_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
                 "vpnId": vpn_id,
             }
@@ -170,7 +170,7 @@ class OspfBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/routing/ospf",
                 return_type=List[GetWanVpnAssociatedRoutingOspfParcelsForTransportGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

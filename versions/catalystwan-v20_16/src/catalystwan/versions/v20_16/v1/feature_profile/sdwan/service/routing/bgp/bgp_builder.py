@@ -129,7 +129,7 @@ class BgpBuilder:
     ) -> Union[GetListSdwanServiceRoutingBgpPayload, GetSingleSdwanServiceRoutingBgpPayload]:
         # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/bgp/{bgpId}
         if self._request_adapter.param_checker([(service_id, str), (bgp_id, str)], []):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "bgpId": bgp_id,
             }
@@ -137,19 +137,19 @@ class BgpBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/bgp/{bgpId}",
                 return_type=GetSingleSdwanServiceRoutingBgpPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/bgp
         if self._request_adapter.param_checker([(service_id, str)], [bgp_id]):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/routing/bgp",
                 return_type=GetListSdwanServiceRoutingBgpPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

@@ -220,7 +220,7 @@ class UnifiedBuilder:
             ],
             [reference_count],
         ):
-            params = {
+            params_1 = {
                 "policyObjectId": policy_object_id,
                 "securityProfileParcelType": security_profile_parcel_type,
                 "securityProfileParcelId": security_profile_parcel_id,
@@ -230,7 +230,7 @@ class UnifiedBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}/{securityProfileParcelId}",
                 return_type=GetSingleSdwanPolicyObjectUnifiedAdvancedInspectionProfilePayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}
@@ -241,7 +241,7 @@ class UnifiedBuilder:
             ],
             [security_profile_parcel_id, references],
         ):
-            params = {
+            params_2 = {
                 "policyObjectId": policy_object_id,
                 "securityProfileParcelType": security_profile_parcel_type,
                 "referenceCount": reference_count,
@@ -250,7 +250,7 @@ class UnifiedBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/unified/{securityProfileParcelType}",
                 return_type=GetListSdwanPolicyObjectUnifiedAdvancedInspectionProfilePayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

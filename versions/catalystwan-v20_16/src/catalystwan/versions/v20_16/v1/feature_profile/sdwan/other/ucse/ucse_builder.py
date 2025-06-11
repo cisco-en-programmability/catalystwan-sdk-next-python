@@ -122,7 +122,7 @@ class UcseBuilder:
     ) -> Union[GetListSdwanOtherUcsePayload, GetSingleSdwanOtherUcsePayload]:
         # /dataservice/v1/feature-profile/sdwan/other/{otherId}/ucse/{ucseId}
         if self._request_adapter.param_checker([(other_id, str), (ucse_id, str)], []):
-            params = {
+            params_1 = {
                 "otherId": other_id,
                 "ucseId": ucse_id,
             }
@@ -130,19 +130,19 @@ class UcseBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/other/{otherId}/ucse/{ucseId}",
                 return_type=GetSingleSdwanOtherUcsePayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/other/{otherId}/ucse
         if self._request_adapter.param_checker([(other_id, str)], [ucse_id]):
-            params = {
+            params_2 = {
                 "otherId": other_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/other/{otherId}/ucse",
                 return_type=GetListSdwanOtherUcsePayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

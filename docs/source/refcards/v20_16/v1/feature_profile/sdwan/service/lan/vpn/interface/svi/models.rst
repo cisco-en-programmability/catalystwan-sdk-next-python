@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanTrueDef = Literal[True]
+
     Ipv4SubnetMaskDef = Literal[
         "0.0.0.0",
         "128.0.0.0",
@@ -48,9 +50,13 @@ Models
         "255.255.255.255",
     ]
 
+    BooleanFalseDef = Literal[False]
+
     Ipv4VrrpTrackingObjectTrackActionDef = Literal[
         "decrement", "shutdown"
     ]
+
+    DefaultIpv4VrrpTimerDef = Literal[100, 1000]
 
     SviIpv4VrrpTrackingObjectTrackActionDef = Literal[
         "decrement", "shutdown"
@@ -59,6 +65,8 @@ Models
     InterfaceSviIpv4VrrpTrackingObjectTrackActionDef = Literal[
         "decrement", "shutdown"
     ]
+
+    DefaultIpv6VrrpTimerDef = Literal[100, 1000]
 
     VpnInterfaceSviIpv4VrrpTrackingObjectTrackActionDef = Literal[
         "decrement", "shutdown"
@@ -83,7 +91,7 @@ Models
 
     class OneOfShutdownOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIfNameOptionsDef1:
@@ -441,7 +449,7 @@ Models
 
     class OneOfIpv4VrrpTrackOmpOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpv4VrrpTrackPrefixListOptionsDef1:
@@ -498,7 +506,7 @@ Models
 
     class OneOfIpv4VrrpTlocChangePrefOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class TlocPrefChangeValue:
@@ -561,7 +569,7 @@ Models
 
     class OneOfOnBooleanDefaultTrueNoVariableOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class Vrrp1:
@@ -735,7 +743,7 @@ Models
 
     class OneOfIpv6VrrpTrackOmpOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpv6VrrpTrackPrefixListOptionsDef1:
@@ -867,7 +875,7 @@ Models
 
     class OneOfDhcpClientV6OptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfTcpMssOptionsDef1:
@@ -917,7 +925,7 @@ Models
 
     class OneOfIpDirectedBroadcastOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIcmpRedirectDisableOptionsDef1:
@@ -934,7 +942,7 @@ Models
 
     class OneOfIcmpRedirectDisableOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class Advanced:
@@ -1258,7 +1266,7 @@ Models
 
     class SviOneOfIpv4VrrpTimerOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: int
+        value: DefaultIpv4VrrpTimerDef  # pytype: disable=annotation-type-mismatch
 
 
     class SviOneOfIpv4VrrpTrackPrefixListOptionsDef1:
@@ -1370,7 +1378,7 @@ Models
 
     class InterfaceSviOneOfIpv4VrrpTimerOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: int
+        value: DefaultIpv4VrrpTimerDef  # pytype: disable=annotation-type-mismatch
 
 
     class InterfaceSviOneOfIpv4VrrpTrackPrefixListOptionsDef1:
@@ -1494,7 +1502,7 @@ Models
 
     class SviOneOfIpv6VrrpTimerOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: int
+        value: DefaultIpv6VrrpTimerDef  # pytype: disable=annotation-type-mismatch
 
 
     class SviOneOfIpv6VrrpTrackPrefixListOptionsDef1:
@@ -1832,7 +1840,7 @@ Models
 
     class VpnInterfaceSviOneOfIpv4VrrpTimerOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: int
+        value: DefaultIpv4VrrpTimerDef  # pytype: disable=annotation-type-mismatch
 
 
     class VpnInterfaceSviOneOfIpv4VrrpTrackPrefixListOptionsDef1:
@@ -1946,7 +1954,7 @@ Models
 
     class LanVpnInterfaceSviOneOfIpv4VrrpTimerOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: int
+        value: DefaultIpv4VrrpTimerDef  # pytype: disable=annotation-type-mismatch
 
 
     class LanVpnInterfaceSviOneOfIpv4VrrpTrackPrefixListOptionsDef1:
@@ -2070,7 +2078,7 @@ Models
 
     class InterfaceSviOneOfIpv6VrrpTimerOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: int
+        value: DefaultIpv6VrrpTimerDef  # pytype: disable=annotation-type-mismatch
 
 
     class InterfaceSviOneOfIpv6VrrpTrackPrefixListOptionsDef1:

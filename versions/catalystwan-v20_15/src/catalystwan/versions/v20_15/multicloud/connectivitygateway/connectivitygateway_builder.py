@@ -122,7 +122,7 @@ class ConnectivitygatewayBuilder:
             [(cloud_provider, str), (connectivity_gateway_name, str)], [deletion_type]
         ):
             logging.warning("Operation: %s is deprecated", "deleteConnectivityGateway")
-            params = {
+            params_1 = {
                 "cloudProvider": cloud_provider,
                 "connectivityGatewayName": connectivity_gateway_name,
                 "connectivityType": connectivity_type,
@@ -130,7 +130,7 @@ class ConnectivitygatewayBuilder:
             return self._request_adapter.request(
                 "DELETE",
                 "/dataservice/multicloud/connectivitygateway/{cloudProvider}/{connectivityGatewayName}",
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/multicloud/connectivitygateway
@@ -140,10 +140,10 @@ class ConnectivitygatewayBuilder:
             logging.warning(
                 "Operation: %s is deprecated", "cleanUpAllConnectivityGatewaysInLocalDB"
             )
-            params = {
+            params_2 = {
                 "deletionType": deletion_type,
             }
             return self._request_adapter.request(
-                "DELETE", "/dataservice/multicloud/connectivitygateway", params=params, **kw
+                "DELETE", "/dataservice/multicloud/connectivitygateway", params=params_2, **kw
             )
         raise RuntimeError("Provided arguments do not match any signature")

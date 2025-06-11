@@ -98,7 +98,7 @@ class EigrpBuilder:
         if self._request_adapter.param_checker(
             [(service_id, str), (vrf_id, str), (eigrp_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "vrfId": vrf_id,
                 "eigrpId": eigrp_id,
@@ -107,12 +107,12 @@ class EigrpBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}/routing/eigrp/{eigrpId}",
                 return_type=GetSingleSdRoutingServiceVrfVrfRoutingEigrpPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/routing/eigrp/{eigrpId}
         if self._request_adapter.param_checker([(service_id, str), (eigrp_id, str)], [vrf_id]):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
                 "eigrpId": eigrp_id,
             }
@@ -120,12 +120,12 @@ class EigrpBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/routing/eigrp/{eigrpId}",
                 return_type=GetSingleSdRoutingServiceVrfRoutingEigrpPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}/routing/eigrp
         if self._request_adapter.param_checker([(service_id, str), (vrf_id, str)], [eigrp_id]):
-            params = {
+            params_3 = {
                 "serviceId": service_id,
                 "vrfId": vrf_id,
             }
@@ -133,19 +133,19 @@ class EigrpBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}/routing/eigrp",
                 return_type=List[GetServiceVrfAssociatedRoutingEigrpFeaturesGetResponse],
-                params=params,
+                params=params_3,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/routing/eigrp
         if self._request_adapter.param_checker([(service_id, str)], [eigrp_id, vrf_id]):
-            params = {
+            params_4 = {
                 "serviceId": service_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/routing/eigrp",
                 return_type=GetListSdRoutingServiceVrfRoutingEigrpPayload,
-                params=params,
+                params=params_4,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")
@@ -205,7 +205,7 @@ class EigrpBuilder:
             ],
             [],
         ):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "vrfId": vrf_id,
             }
@@ -213,7 +213,7 @@ class EigrpBuilder:
                 "POST",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}/routing/eigrp",
                 return_type=CreateServiceVrfAndRoutingEigrpFeatureAssociationPostResponse,
-                params=params,
+                params=params_1,
                 payload=payload,
                 **kw,
             )
@@ -222,14 +222,14 @@ class EigrpBuilder:
             [(service_id, str), (payload, CreateSdroutingServiceVrfEigrpFeaturePostRequest)],
             [vrf_id],
         ):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
             }
             return self._request_adapter.request(
                 "POST",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/routing/eigrp",
                 return_type=CreateSdroutingServiceVrfEigrpFeaturePostResponse,
-                params=params,
+                params=params_2,
                 payload=payload,
                 **kw,
             )
@@ -280,8 +280,8 @@ class EigrpBuilder:
         service_id: str,
         eigrp_id: str,
         payload: Union[
-            EditSdroutingServiceVrfEigrpFeaturePutRequest,
             EditServiceVrfAndRoutingEigrpFeatureAssociationPutRequest,
+            EditSdroutingServiceVrfEigrpFeaturePutRequest,
         ],
         vrf_id: Optional[str] = None,
         **kw,
@@ -299,7 +299,7 @@ class EigrpBuilder:
             ],
             [],
         ):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "eigrpId": eigrp_id,
                 "vrfId": vrf_id,
@@ -308,7 +308,7 @@ class EigrpBuilder:
                 "PUT",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}/routing/eigrp/{eigrpId}",
                 return_type=EditServiceVrfAndRoutingEigrpFeatureAssociationPutResponse,
-                params=params,
+                params=params_1,
                 payload=payload,
                 **kw,
             )
@@ -321,7 +321,7 @@ class EigrpBuilder:
             ],
             [vrf_id],
         ):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
                 "eigrpId": eigrp_id,
             }
@@ -329,7 +329,7 @@ class EigrpBuilder:
                 "PUT",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/routing/eigrp/{eigrpId}",
                 return_type=EditSdroutingServiceVrfEigrpFeaturePutResponse,
-                params=params,
+                params=params_2,
                 payload=payload,
                 **kw,
             )
@@ -365,7 +365,7 @@ class EigrpBuilder:
         if self._request_adapter.param_checker(
             [(service_id, str), (eigrp_id, str), (vrf_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "eigrpId": eigrp_id,
                 "vrfId": vrf_id,
@@ -373,19 +373,19 @@ class EigrpBuilder:
             return self._request_adapter.request(
                 "DELETE",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}/routing/eigrp/{eigrpId}",
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/routing/eigrp/{eigrpId}
         if self._request_adapter.param_checker([(service_id, str), (eigrp_id, str)], [vrf_id]):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
                 "eigrpId": eigrp_id,
             }
             return self._request_adapter.request(
                 "DELETE",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/routing/eigrp/{eigrpId}",
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

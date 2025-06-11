@@ -166,7 +166,7 @@ class Ipv6TrackergroupBuilder:
             [(transport_id, str), (vpn_id, str), (cellular_id, str), (ipv6_trackergroup_id, str)],
             [],
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "vpnId": vpn_id,
                 "cellularId": cellular_id,
@@ -176,14 +176,14 @@ class Ipv6TrackergroupBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/cellular/{cellularId}/ipv6-trackergroup/{ipv6-trackergroupId}",
                 return_type=GetSingleSdwanTransportWanVpnInterfaceCellularIpv6TrackergroupPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/cellular/{cellularId}/ipv6-trackergroup
         if self._request_adapter.param_checker(
             [(transport_id, str), (vpn_id, str), (cellular_id, str)], [ipv6_trackergroup_id]
         ):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
                 "vpnId": vpn_id,
                 "cellularId": cellular_id,
@@ -194,7 +194,7 @@ class Ipv6TrackergroupBuilder:
                 return_type=List[
                     GetWanVpnInterfaceCellularAssociatedIpv6TrackerGroupParcelsForTransportGetResponse
                 ],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

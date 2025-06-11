@@ -48,6 +48,10 @@ Models
         "255.255.255.255",
     ]
 
+    DefaultShutdownDef = Literal[False, True]
+
+    BooleanFalseDef = Literal[False]
+
     TunnelModeDef = Literal["ipv4", "ipv6"]
 
     DefaultTunnelModeDef = Literal["ipv4"]
@@ -211,7 +215,7 @@ Models
 
     class OneOfShutdownOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: Optional[bool]
+        value: Optional[DefaultShutdownDef]
 
 
     class OneOfTunnelProtectionOptionsDef1:
@@ -221,7 +225,7 @@ Models
 
     class OneOfTunnelProtectionOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfTunnelModeOptionsDef1:
@@ -447,7 +451,7 @@ Models
 
     class OneOfClearDontFragmentOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfDpdIntervalOptionsDef1:

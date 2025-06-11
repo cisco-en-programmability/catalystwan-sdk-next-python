@@ -48,6 +48,8 @@ Ipv4GatewayDef = Literal["dhcp", "nextHop", "null0"]
 
 DefaultIpv4GatewayDef = Literal["nextHop"]
 
+BooleanTrueDef = Literal[True]
+
 Ipv6RouteNatDef = Literal["NAT64", "NAT66"]
 
 VpnIpv4GatewayDef = Literal["dhcp", "nextHop", "null0"]
@@ -557,7 +559,7 @@ class OneOfIpv4V6RouteNull0OptionsWithoutVariable2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

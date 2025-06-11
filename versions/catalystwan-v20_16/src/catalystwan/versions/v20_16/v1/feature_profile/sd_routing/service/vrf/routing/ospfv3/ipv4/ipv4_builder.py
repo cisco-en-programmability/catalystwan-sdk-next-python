@@ -148,7 +148,7 @@ class Ipv4Builder:
         if self._request_adapter.param_checker(
             [(service_id, str), (vrf_id, str), (ospfv3_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "vrfId": vrf_id,
                 "ospfv3Id": ospfv3_id,
@@ -157,12 +157,12 @@ class Ipv4Builder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}/routing/ospfv3/ipv4/{ospfv3Id}",
                 return_type=GetSingleSdRoutingServiceVrfRoutingOspfv3Ipv4Payload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}/routing/ospfv3/ipv4
         if self._request_adapter.param_checker([(service_id, str), (vrf_id, str)], [ospfv3_id]):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
                 "vrfId": vrf_id,
             }
@@ -170,7 +170,7 @@ class Ipv4Builder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}/routing/ospfv3/ipv4",
                 return_type=List[GetServiceVrfAssociatedRoutingOspfv3Ipv4FeaturesGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

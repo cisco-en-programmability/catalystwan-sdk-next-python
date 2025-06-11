@@ -148,7 +148,7 @@ class Ipv6Builder:
         if self._request_adapter.param_checker(
             [(transport_id, str), (vrf_id, str), (ospfv3_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "vrfId": vrf_id,
                 "ospfv3Id": ospfv3_id,
@@ -157,12 +157,12 @@ class Ipv6Builder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/routing/ospfv3/ipv6/{ospfv3Id}",
                 return_type=GetSingleSdRoutingTransportGlobalVrfRoutingOspfv3Ipv6Payload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/routing/ospfv3/ipv6
         if self._request_adapter.param_checker([(transport_id, str), (vrf_id, str)], [ospfv3_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
                 "vrfId": vrf_id,
             }
@@ -170,7 +170,7 @@ class Ipv6Builder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/routing/ospfv3/ipv6",
                 return_type=List[GetTransportVrfAssociatedRoutingOspfv3Ipv6FeaturesGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

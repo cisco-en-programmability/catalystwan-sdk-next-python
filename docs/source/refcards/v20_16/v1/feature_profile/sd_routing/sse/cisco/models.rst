@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
     CiscoGlobalOptionTypeDef = Literal["global"]
 
     VariableOptionTypeDef = Literal["variable"]
@@ -150,6 +152,8 @@ Models
 
     DefaultInterfaceTrackerDef = Literal["DefaultTracker"]
 
+    BooleanTrueDef = Literal[True]
+
     GlobalOptionTypeDef13 = Literal["global"]
 
     GlobalOptionTypeDef14 = Literal["global"]
@@ -211,7 +215,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfInterfaceIfNameOptionsDef:
@@ -233,7 +237,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfInterfaceTunnelSourceInterfaceOptionsDef1:
@@ -498,7 +502,7 @@ Models
 
     class OneOfOnBooleanDefaultTrueOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class Interface:

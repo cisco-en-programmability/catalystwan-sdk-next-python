@@ -9,15 +9,41 @@ GlobalOptionTypeDef = Literal["global"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanTrueDef = Literal[True]
+
+BooleanFalseDef = Literal[False]
+
+Value = Literal[60, 300, 5400]
+
+DefaultAdvertiseConnectedDef = Literal[False, True]
+
+DefaultAdvertiseStaticDef = Literal[False, True]
+
 TransportGatewayEnumDef = Literal["ecmp-with-direct-path", "prefer"]
 
 SiteTypeListDef = Literal["br", "branch", "cloud", "spoke", "type-1", "type-2", "type-3"]
+
+OmpDefaultAdvertiseConnectedDef = Literal[False, True]
+
+OmpDefaultAdvertiseStaticDef = Literal[False, True]
+
+SystemOmpDefaultAdvertiseConnectedDef = Literal[False, True]
+
+SystemOmpDefaultAdvertiseStaticDef = Literal[False, True]
 
 OmpTransportGatewayEnumDef = Literal["ecmp-with-direct-path", "prefer"]
 
 OmpSiteTypeListDef = Literal["br", "branch", "cloud", "spoke", "type-1", "type-2", "type-3"]
 
 SystemOmpSiteTypeListDef = Literal["br", "branch", "cloud", "spoke", "type-1", "type-2", "type-3"]
+
+SdwanSystemOmpDefaultAdvertiseConnectedDef = Literal[False, True]
+
+SdwanSystemOmpDefaultAdvertiseStaticDef = Literal[False, True]
+
+FeatureProfileSdwanSystemOmpDefaultAdvertiseConnectedDef = Literal[False, True]
+
+FeatureProfileSdwanSystemOmpDefaultAdvertiseStaticDef = Literal[False, True]
 
 SystemOmpTransportGatewayEnumDef = Literal["ecmp-with-direct-path", "prefer"]
 
@@ -53,7 +79,7 @@ class OneOfGracefulRestartOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -156,7 +182,7 @@ class OneOfShutdownOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -312,7 +338,7 @@ class OneOfHoldtimeOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: Value
 
 
 @dataclass
@@ -338,7 +364,7 @@ class OneOfAdvertiseProtocolOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -365,7 +391,7 @@ class OneOfAdvertiseConnectedOptionsDef3:
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
     # use enum for backward compatibility, use default for UI to display default value
-    value: Optional[bool] = _field(default=True)
+    value: Optional[DefaultAdvertiseConnectedDef] = _field(default=True)
 
 
 @dataclass
@@ -392,7 +418,7 @@ class OneOfAdvertiseStaticOptionsDef3:
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
     # use enum for backward compatibility, use default for UI to display default value
-    value: Optional[bool] = _field(default=True)
+    value: Optional[DefaultAdvertiseStaticDef] = _field(default=True)
 
 
 @dataclass
@@ -501,7 +527,7 @@ class OneOfIgnoreRegionPathLengthOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -577,7 +603,7 @@ class OneOfOnBooleanDefaultFalseOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -875,7 +901,7 @@ class OmpOneOfAdvertiseConnectedOptionsDef3:
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
     # use enum for backward compatibility, use default for UI to display default value
-    value: Optional[bool] = _field(default=True)
+    value: Optional[OmpDefaultAdvertiseConnectedDef] = _field(default=True)
 
 
 @dataclass
@@ -884,7 +910,7 @@ class OmpOneOfAdvertiseStaticOptionsDef3:
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
     # use enum for backward compatibility, use default for UI to display default value
-    value: Optional[bool] = _field(default=True)
+    value: Optional[OmpDefaultAdvertiseStaticDef] = _field(default=True)
 
 
 @dataclass
@@ -937,7 +963,7 @@ class SystemOmpOneOfAdvertiseConnectedOptionsDef3:
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
     # use enum for backward compatibility, use default for UI to display default value
-    value: Optional[bool] = _field(default=True)
+    value: Optional[SystemOmpDefaultAdvertiseConnectedDef] = _field(default=True)
 
 
 @dataclass
@@ -946,7 +972,7 @@ class SystemOmpOneOfAdvertiseStaticOptionsDef3:
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
     # use enum for backward compatibility, use default for UI to display default value
-    value: Optional[bool] = _field(default=True)
+    value: Optional[SystemOmpDefaultAdvertiseStaticDef] = _field(default=True)
 
 
 @dataclass
@@ -1221,7 +1247,7 @@ class SdwanSystemOmpOneOfAdvertiseConnectedOptionsDef3:
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
     # use enum for backward compatibility, use default for UI to display default value
-    value: Optional[bool] = _field(default=True)
+    value: Optional[SdwanSystemOmpDefaultAdvertiseConnectedDef] = _field(default=True)
 
 
 @dataclass
@@ -1230,7 +1256,7 @@ class SdwanSystemOmpOneOfAdvertiseStaticOptionsDef3:
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
     # use enum for backward compatibility, use default for UI to display default value
-    value: Optional[bool] = _field(default=True)
+    value: Optional[SdwanSystemOmpDefaultAdvertiseStaticDef] = _field(default=True)
 
 
 @dataclass
@@ -1283,7 +1309,7 @@ class FeatureProfileSdwanSystemOmpOneOfAdvertiseConnectedOptionsDef3:
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
     # use enum for backward compatibility, use default for UI to display default value
-    value: Optional[bool] = _field(default=True)
+    value: Optional[FeatureProfileSdwanSystemOmpDefaultAdvertiseConnectedDef] = _field(default=True)
 
 
 @dataclass
@@ -1292,7 +1318,7 @@ class FeatureProfileSdwanSystemOmpOneOfAdvertiseStaticOptionsDef3:
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
     # use enum for backward compatibility, use default for UI to display default value
-    value: Optional[bool] = _field(default=True)
+    value: Optional[FeatureProfileSdwanSystemOmpDefaultAdvertiseStaticDef] = _field(default=True)
 
 
 @dataclass

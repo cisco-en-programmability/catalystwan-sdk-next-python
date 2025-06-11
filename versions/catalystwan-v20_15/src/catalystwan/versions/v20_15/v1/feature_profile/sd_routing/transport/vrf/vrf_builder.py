@@ -130,7 +130,7 @@ class VrfBuilder:
     ) -> Union[GetListSdRoutingTransportVrfPayload, GetSingleSdRoutingTransportVrfPayload]:
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/{vrfId}
         if self._request_adapter.param_checker([(transport_id, str), (vrf_id, str)], []):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "vrfId": vrf_id,
             }
@@ -138,19 +138,19 @@ class VrfBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/{vrfId}",
                 return_type=GetSingleSdRoutingTransportVrfPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf
         if self._request_adapter.param_checker([(transport_id, str)], [vrf_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf",
                 return_type=GetListSdRoutingTransportVrfPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

@@ -123,7 +123,7 @@ class CellularBuilder:
     ) -> Union[GetListMobilityGlobalCellularPayload, GetSingleMobilityGlobalCellularPayload]:
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/cellular/{cellularId}
         if self._request_adapter.param_checker([(profile_id, str), (cellular_id, str)], []):
-            params = {
+            params_1 = {
                 "profileId": profile_id,
                 "cellularId": cellular_id,
             }
@@ -131,19 +131,19 @@ class CellularBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/cellular/{cellularId}",
                 return_type=GetSingleMobilityGlobalCellularPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/cellular
         if self._request_adapter.param_checker([(profile_id, str)], [cellular_id]):
-            params = {
+            params_2 = {
                 "profileId": profile_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/cellular",
                 return_type=GetListMobilityGlobalCellularPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

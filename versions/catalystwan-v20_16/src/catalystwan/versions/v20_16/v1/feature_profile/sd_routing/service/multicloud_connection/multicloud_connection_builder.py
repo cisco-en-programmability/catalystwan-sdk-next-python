@@ -135,7 +135,7 @@ class MulticloudConnectionBuilder:
         if self._request_adapter.param_checker(
             [(service_id, str), (multi_cloud_connection_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "multiCloudConnectionId": multi_cloud_connection_id,
             }
@@ -143,19 +143,19 @@ class MulticloudConnectionBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/multicloud-connection/{multiCloudConnectionId}",
                 return_type=GetSingleSdRoutingServiceVrfLanMulticloudConnectionPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/multicloud-connection
         if self._request_adapter.param_checker([(service_id, str)], [multi_cloud_connection_id]):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/multicloud-connection",
                 return_type=GetListSdRoutingServiceVrfLanMulticloudConnectionPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

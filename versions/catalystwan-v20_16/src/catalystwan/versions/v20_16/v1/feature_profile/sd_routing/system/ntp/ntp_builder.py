@@ -124,7 +124,7 @@ class NtpBuilder:
     ]:
         # /dataservice/v1/feature-profile/sd-routing/system/{systemId}/ntp/{ntpId}
         if self._request_adapter.param_checker([(system_id, str), (ntp_id, str)], []):
-            params = {
+            params_1 = {
                 "systemId": system_id,
                 "ntpId": ntp_id,
             }
@@ -132,19 +132,19 @@ class NtpBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/system/{systemId}/ntp/{ntpId}",
                 return_type=GetSingleSdRoutingSystemNtpSdRoutingPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/system/{systemId}/ntp
         if self._request_adapter.param_checker([(system_id, str)], [ntp_id]):
-            params = {
+            params_2 = {
                 "systemId": system_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/system/{systemId}/ntp",
                 return_type=GetListSdRoutingSystemNtpSdRoutingPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

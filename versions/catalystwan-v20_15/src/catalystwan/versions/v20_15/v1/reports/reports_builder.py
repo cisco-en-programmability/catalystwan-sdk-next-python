@@ -105,14 +105,14 @@ class ReportsBuilder:
     def get(self, report_id: Optional[str] = None, **kw) -> ReportSummaryResponse:
         # /dataservice/v1/reports/{reportId}
         if self._request_adapter.param_checker([(report_id, str)], []):
-            params = {
+            params_1 = {
                 "reportId": report_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/reports/{reportId}",
                 return_type=ReportSummaryResponse,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/reports

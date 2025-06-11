@@ -17,6 +17,8 @@ Models
 
     DefaultIpsecReplayWindowDef = Literal["64"]
 
+    BooleanFalseDef = Literal[False]
+
     PfsGroupDef = Literal["14", "15", "16", "19", "20", "21"]
 
     DefaultPfsGroupDef = Literal["16"]
@@ -260,7 +262,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfPfsGroupOptionsDef1:

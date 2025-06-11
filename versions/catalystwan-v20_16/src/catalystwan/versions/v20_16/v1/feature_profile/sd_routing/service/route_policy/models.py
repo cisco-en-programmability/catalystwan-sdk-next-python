@@ -17,6 +17,10 @@ ProtocolDef = Literal["BOTH", "IPV4", "IPV6"]
 
 RoutePolicyValue = Literal["IPV4"]
 
+BooleanFalseDef = Literal[False]
+
+BooleanTrueDef = Literal[True]
+
 VariableOptionTypeDef = Literal["variable"]
 
 MetricTypeDef = Literal["type1", "type2"]
@@ -114,7 +118,7 @@ class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -227,7 +231,7 @@ class SequencesActionsEnableAcceptOptionsDef:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -410,7 +414,7 @@ class SequencesActionsRejectOptionsDef:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

@@ -95,14 +95,14 @@ class VoiceBuilder:
     def get(self, device_model: Optional[DeviceModel] = None, **kw) -> List[Any]:
         # /dataservice/template/policy/voice/{deviceModel}
         if self._request_adapter.param_checker([(device_model, DeviceModel)], []):
-            params = {
+            params_1 = {
                 "deviceModel": device_model,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/template/policy/voice/{deviceModel}",
                 return_type=List[Any],
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/template/policy/voice

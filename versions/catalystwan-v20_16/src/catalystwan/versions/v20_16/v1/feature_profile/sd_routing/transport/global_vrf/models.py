@@ -9,6 +9,8 @@ GlobalOptionTypeDef = Literal["global"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanFalseDef = Literal[False]
+
 Ipv4SubnetMaskDef = Literal[
     "0.0.0.0",
     "128.0.0.0",
@@ -44,6 +46,8 @@ Ipv4SubnetMaskDef = Literal[
     "255.255.255.255",
 ]
 
+BooleanTrueDef = Literal[True]
+
 StaticNatDirectionDef = Literal["inside", "outside"]
 
 NatPortForwardProtocolDef = Literal["TCP", "UDP"]
@@ -76,7 +80,7 @@ class OneOfOnBooleanDefaultFalseOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -301,7 +305,7 @@ class OneOfIpv4V6RouteNull0OptionsWithoutVariable2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -331,7 +335,7 @@ class OneOfIpv4RouteDhcpOptionsWithoutVariable2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -570,7 +574,7 @@ class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

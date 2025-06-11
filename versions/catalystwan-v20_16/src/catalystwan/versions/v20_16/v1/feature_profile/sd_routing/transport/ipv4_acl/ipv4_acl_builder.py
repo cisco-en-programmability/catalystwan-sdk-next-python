@@ -128,7 +128,7 @@ class Ipv4AclBuilder:
     ) -> Union[GetListSdRoutingTransportIpv4AclPayload, GetSingleSdRoutingTransportIpv4AclPayload]:
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/ipv4-acl/{ipv4AclId}
         if self._request_adapter.param_checker([(transport_id, str), (ipv4_acl_id, str)], []):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "ipv4AclId": ipv4_acl_id,
             }
@@ -136,19 +136,19 @@ class Ipv4AclBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/ipv4-acl/{ipv4AclId}",
                 return_type=GetSingleSdRoutingTransportIpv4AclPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/ipv4-acl
         if self._request_adapter.param_checker([(transport_id, str)], [ipv4_acl_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/ipv4-acl",
                 return_type=GetListSdRoutingTransportIpv4AclPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

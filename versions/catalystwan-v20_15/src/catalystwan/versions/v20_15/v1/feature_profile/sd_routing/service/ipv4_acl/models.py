@@ -19,6 +19,8 @@ SequencesActionTypeDef = Literal["accept", "drop"]
 
 Ipv4AclValue = Literal["accept"]
 
+BooleanTrueDef = Literal[True]
+
 SequencesMatchEntriesTcpPortEqAppNamesDef = Literal[
     "bgp",
     "chargen",
@@ -233,7 +235,7 @@ class OneOfSequencesActionsLogOptionsDef:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -881,7 +883,7 @@ class OneOfSequencesActionsLogInputOptionsDef:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

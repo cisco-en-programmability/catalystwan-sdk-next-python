@@ -88,19 +88,19 @@ class TenantBuilder:
     ) -> Union[List[Any], Any]:
         # /dataservice/tenant/{tenantId}
         if self._request_adapter.param_checker([(tenant_id, str)], [device_id]):
-            params = {
+            params_1 = {
                 "tenantId": tenant_id,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/tenant/{tenantId}", params=params, **kw
+                "GET", "/dataservice/tenant/{tenantId}", params=params_1, **kw
             )
         # /dataservice/tenant
         if self._request_adapter.param_checker([], [tenant_id]):
-            params = {
+            params_2 = {
                 "deviceId": device_id,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/tenant", return_type=List[Any], params=params, **kw
+                "GET", "/dataservice/tenant", return_type=List[Any], params=params_2, **kw
             )
         raise RuntimeError("Provided arguments do not match any signature")
 

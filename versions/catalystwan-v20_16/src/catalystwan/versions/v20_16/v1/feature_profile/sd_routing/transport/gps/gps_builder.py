@@ -99,7 +99,7 @@ class GpsBuilder:
     ) -> Union[GetListSdRoutingTransportGpsPayload, GetSingleSdRoutingTransportGpsPayload]:
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/gps/{gpsId}
         if self._request_adapter.param_checker([(transport_id, str), (gps_id, str)], []):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "gpsId": gps_id,
             }
@@ -107,19 +107,19 @@ class GpsBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/gps/{gpsId}",
                 return_type=GetSingleSdRoutingTransportGpsPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/gps
         if self._request_adapter.param_checker([(transport_id, str)], [gps_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/gps",
                 return_type=GetListSdRoutingTransportGpsPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")
@@ -188,7 +188,7 @@ class GpsBuilder:
             ],
             [],
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "gpsId": gps_id,
                 "cellularControllerId": cellular_controller_id,
@@ -197,7 +197,7 @@ class GpsBuilder:
                 "PUT",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/{cellularControllerId}/gps/{gpsId}",
                 return_type=EditCellularControllerAndGpsParcelAssociationForTransport1PutResponse,
-                params=params,
+                params=params_1,
                 payload=payload,
                 **kw,
             )
@@ -210,7 +210,7 @@ class GpsBuilder:
             ],
             [cellular_controller_id],
         ):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
                 "gpsId": gps_id,
             }
@@ -218,7 +218,7 @@ class GpsBuilder:
                 "PUT",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/gps/{gpsId}",
                 return_type=EditGpsProfileParcelForTransportPutResponse,
-                params=params,
+                params=params_2,
                 payload=payload,
                 **kw,
             )

@@ -38,14 +38,14 @@ class DevicesBuilder:
     def get(self, policy_id: Optional[str] = None, **kw) -> List[Any]:
         # /dataservice/template/policy/security/devices/{policyId}
         if self._request_adapter.param_checker([(policy_id, str)], []):
-            params = {
+            params_1 = {
                 "policyId": policy_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/template/policy/security/devices/{policyId}",
                 return_type=List[Any],
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/template/policy/security/devices

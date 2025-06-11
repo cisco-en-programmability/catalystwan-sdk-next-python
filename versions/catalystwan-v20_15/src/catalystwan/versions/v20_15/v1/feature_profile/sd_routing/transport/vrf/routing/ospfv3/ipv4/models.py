@@ -9,7 +9,11 @@ VariableOptionTypeDef = Literal["variable"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanTrueDef = Literal[True]
+
 OptionType = Literal["default", "global"]
+
+BooleanFalseDef = Literal[False]
 
 MetricTypeDef = Literal["type1", "type2"]
 
@@ -287,7 +291,7 @@ class OneOfOnBooleanDefaultTrueOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -299,7 +303,7 @@ class Originate:
     option_type: OptionType = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -317,7 +321,7 @@ class Ipv4Originate:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -343,7 +347,7 @@ class OneOfOnBooleanDefaultFalseOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

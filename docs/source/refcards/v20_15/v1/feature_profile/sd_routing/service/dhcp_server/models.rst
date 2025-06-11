@@ -48,6 +48,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
 
     class OneOfIpV4AddressOptionsDef1:
         option_type: VariableOptionTypeDef
@@ -111,7 +113,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfLeaseTimeOptionsDef1:

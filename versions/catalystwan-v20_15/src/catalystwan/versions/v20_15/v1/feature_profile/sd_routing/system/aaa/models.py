@@ -9,6 +9,8 @@ VariableOptionTypeDef = Literal["variable"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanFalseDef = Literal[False]
+
 UserPrivilegeDef = Literal["1", "15"]
 
 DefaultUserPrivilegeDef = Literal["15"]
@@ -26,6 +28,8 @@ TacacsServerKeyEnumDef = Literal["6", "7"]
 AccountingRuleMethodDef = Literal["commands", "exec", "network", "system"]
 
 AccountingRuleLevelDef = Literal["1", "15"]
+
+BooleanTrueDef = Literal[True]
 
 AuthorizationRuleMethodDef = Literal["commands"]
 
@@ -55,7 +59,7 @@ class OneOfAuthenticationGroupOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -81,7 +85,7 @@ class OneOfAccountingGroupOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -731,7 +735,7 @@ class OneOfAccountingRuleStartStopOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -782,7 +786,7 @@ class OneOfAuthorizationConsoleOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -808,7 +812,7 @@ class OneOfAuthorizationConfigCommandsOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -856,7 +860,7 @@ class OneOfAuthorizationRuleIfAuthenticatedOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

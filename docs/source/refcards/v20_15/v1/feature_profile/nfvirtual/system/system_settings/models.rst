@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
 
     class CreateNfvirtualSystemSettingsParcelPostResponse:
         """
@@ -48,7 +50,7 @@ Models
 
     class OneOfDpdkOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class Data:

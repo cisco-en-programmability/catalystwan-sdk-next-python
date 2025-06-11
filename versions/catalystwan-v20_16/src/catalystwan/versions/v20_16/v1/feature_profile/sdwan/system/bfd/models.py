@@ -34,6 +34,8 @@ ColorDef = Literal[
     "silver",
 ]
 
+BooleanTrueDef = Literal[True]
+
 BfdColorDef = Literal[
     "3g",
     "biz-internet",
@@ -256,7 +258,7 @@ class OneOfPmtuDiscoveryOptions3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

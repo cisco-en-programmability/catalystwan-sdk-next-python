@@ -50,6 +50,8 @@ Models
         "255.255.255.255",
     ]
 
+    BooleanTrueDef = Literal[True]
+
 
     class OneOfVrfNameOptionsDef:
         option_type: DefaultOptionTypeDef
@@ -237,7 +239,7 @@ Models
 
     class OneOfIpv4V6RouteNull0OptionsWithoutVariable2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpRoute2:
@@ -261,7 +263,7 @@ Models
 
     class OneOfIpv4RouteDhcpOptionsWithoutVariable2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpRoute3:

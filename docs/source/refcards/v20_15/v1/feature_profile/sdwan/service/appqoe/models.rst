@@ -11,6 +11,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
     VirtualApplicationApplicationTypeDef = Literal["dreopt"]
 
     VirtualApplicationResourceProfileDef = Literal[
@@ -29,6 +31,8 @@ Models
         "serviceNodeWithDre",
     ]
 
+    AppqoeVpnDef = Literal[0]
+
     DefaultAppnavControllerGroupDef = Literal["ACG-APPQOE"]
 
     DefaultServiceNodeGroupDef = Literal["SNG-APPQOE"]
@@ -36,6 +40,8 @@ Models
     AppnavControllerGroupAppnavControllersDefaultAddressDef = Literal[
         "192.168.2.1"
     ]
+
+    BooleanTrueDef = Literal[True]
 
     DefaultExternalServiceNodeAddressDef = Literal["192.168.2.2"]
 
@@ -49,7 +55,7 @@ Models
 
     class OneOfDreoptOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfVirtualApplicationInstanceIdOptionsDef:
@@ -125,7 +131,7 @@ Models
 
     class OneOfAppqoeVpnOptionsDef1:
         option_type: GlobalOptionTypeDef
-        value: int
+        value: AppqoeVpnDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfAppqoeVpnOptionsDef2:
@@ -225,7 +231,7 @@ Models
 
     class OneOfDefaultFalseServiceNodeGroupInternalOptionsDef:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfServiceNodeGroupServiceNodeAddressOptionsDef:
@@ -280,7 +286,7 @@ Models
 
     class OneOfDefaultTrueServiceNodeGroupInternalOptionsDef:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfDefaultExternalServiceNodeGroupServiceNodeAddressOptionsDef:
@@ -318,7 +324,7 @@ Models
 
     class OneOfServiceNodeGroupExternalNodeOptionsDef:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfServiceNodeGroupServiceNodeVpgIpOptionsDef:

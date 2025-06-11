@@ -148,7 +148,7 @@ class OspfBuilder:
         if self._request_adapter.param_checker(
             [(transport_id, str), (vrf_id, str), (ospf_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "vrfId": vrf_id,
                 "ospfId": ospf_id,
@@ -157,12 +157,12 @@ class OspfBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/routing/ospf/{ospfId}",
                 return_type=GetSingleSdRoutingTransportGlobalVrfRoutingOspfPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/routing/ospf
         if self._request_adapter.param_checker([(transport_id, str), (vrf_id, str)], [ospf_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
                 "vrfId": vrf_id,
             }
@@ -170,7 +170,7 @@ class OspfBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/routing/ospf",
                 return_type=List[GetTransportVrfAssociatedRoutingOspfFeaturesGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

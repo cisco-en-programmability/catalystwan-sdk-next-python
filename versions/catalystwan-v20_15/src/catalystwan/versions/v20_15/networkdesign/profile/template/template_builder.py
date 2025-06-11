@@ -61,13 +61,13 @@ class TemplateBuilder:
         # /dataservice/networkdesign/profile/template/{templateId}
         if self._request_adapter.param_checker([(template_id, str)], []):
             logging.warning("Operation: %s is deprecated", "getDeviceProfileTemplate")
-            params = {
+            params_1 = {
                 "templateId": template_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/networkdesign/profile/template/{templateId}",
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/networkdesign/profile/template

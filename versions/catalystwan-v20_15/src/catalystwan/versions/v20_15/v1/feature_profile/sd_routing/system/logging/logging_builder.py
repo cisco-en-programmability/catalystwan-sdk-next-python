@@ -127,7 +127,7 @@ class LoggingBuilder:
     ]:
         # /dataservice/v1/feature-profile/sd-routing/system/{systemId}/logging/{loggingId}
         if self._request_adapter.param_checker([(system_id, str), (logging_id, str)], []):
-            params = {
+            params_1 = {
                 "systemId": system_id,
                 "loggingId": logging_id,
             }
@@ -135,19 +135,19 @@ class LoggingBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/system/{systemId}/logging/{loggingId}",
                 return_type=GetSingleSdRoutingSystemLoggingSdRoutingPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/system/{systemId}/logging
         if self._request_adapter.param_checker([(system_id, str)], [logging_id]):
-            params = {
+            params_2 = {
                 "systemId": system_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/system/{systemId}/logging",
                 return_type=GetListSdRoutingSystemLoggingSdRoutingPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

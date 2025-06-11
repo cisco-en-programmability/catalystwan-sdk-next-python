@@ -72,13 +72,13 @@ class PackageBuilder:
     def post(self, payload: InstallPkg, image_type: Optional[str] = None, **kw):
         # /dataservice/device/action/software/package/{imageType}
         if self._request_adapter.param_checker([(payload, InstallPkg), (image_type, str)], []):
-            params = {
+            params_1 = {
                 "imageType": image_type,
             }
             return self._request_adapter.request(
                 "POST",
                 "/dataservice/device/action/software/package/{imageType}",
-                params=params,
+                params=params_1,
                 payload=payload,
                 **kw,
             )

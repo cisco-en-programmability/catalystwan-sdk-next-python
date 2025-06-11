@@ -135,7 +135,7 @@ class PartnerBuilder:
     ) -> Union[List[PartnerRes], PartnerRes]:
         # /dataservice/partner/{partnerType}/{nmsId}
         if self._request_adapter.param_checker([(partner_type, str), (nms_id, str)], []):
-            params = {
+            params_1 = {
                 "partnerType": partner_type,
                 "nmsId": nms_id,
             }
@@ -143,19 +143,19 @@ class PartnerBuilder:
                 "GET",
                 "/dataservice/partner/{partnerType}/{nmsId}",
                 return_type=PartnerRes,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/partner/{partnerType}
         if self._request_adapter.param_checker([(partner_type, str)], [nms_id]):
-            params = {
+            params_2 = {
                 "partnerType": partner_type,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/partner/{partnerType}",
                 return_type=List[PartnerRes],
-                params=params,
+                params=params_2,
                 **kw,
             )
         # /dataservice/partner

@@ -13,6 +13,10 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanTrueDef = Literal[True]
+
+    BooleanFalseDef = Literal[False]
+
     MetricTypeDef = Literal["type1", "type2"]
 
     RedistributeProtocolDef = Literal[
@@ -129,7 +133,7 @@ Models
 
     class OneOfRfc1583OptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfOriginateOptionsDef1:
@@ -139,7 +143,7 @@ Models
 
     class OneOfOriginateOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfAlwaysOptionsDef1:
@@ -156,7 +160,7 @@ Models
 
     class OneOfAlwaysOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfMetricOptionsDef1:
@@ -395,7 +399,7 @@ Models
 
     class OneOfAreaNoSummaryOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfAreaInterfaceNameOptionsDef1:
@@ -525,7 +529,7 @@ Models
 
     class OneOfAreaInterfacePassiveInterfaceOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfAreaInterfaceTypeOptionsDef1:
@@ -720,7 +724,7 @@ Models
 
     class OneOfAreaRangeNoAdvertiseOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class Range:

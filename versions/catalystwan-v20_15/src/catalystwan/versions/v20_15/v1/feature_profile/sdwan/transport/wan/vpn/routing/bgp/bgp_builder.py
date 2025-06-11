@@ -148,7 +148,7 @@ class BgpBuilder:
         if self._request_adapter.param_checker(
             [(transport_id, str), (vpn_id, str), (bgp_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "vpnId": vpn_id,
                 "bgpId": bgp_id,
@@ -157,12 +157,12 @@ class BgpBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/routing/bgp/{bgpId}",
                 return_type=GetSingleSdwanTransportWanVpnRoutingBgpPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/routing/bgp
         if self._request_adapter.param_checker([(transport_id, str), (vpn_id, str)], [bgp_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
                 "vpnId": vpn_id,
             }
@@ -170,7 +170,7 @@ class BgpBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/routing/bgp",
                 return_type=List[GetWanVpnAssociatedRoutingBgpParcelsForTransportGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

@@ -46,7 +46,7 @@ class ConnectedDevicesBuilder:
     def get(self, vmanage_ip: str, tenant_id: Optional[str] = None, **kw) -> List[Any]:
         # /dataservice/clusterManagement/{tenantId}/connectedDevices/{vmanageIP}
         if self._request_adapter.param_checker([(vmanage_ip, str), (tenant_id, str)], []):
-            params = {
+            params_1 = {
                 "vmanageIP": vmanage_ip,
                 "tenantId": tenant_id,
             }
@@ -54,19 +54,19 @@ class ConnectedDevicesBuilder:
                 "GET",
                 "/dataservice/clusterManagement/{tenantId}/connectedDevices/{vmanageIP}",
                 return_type=List[Any],
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/clusterManagement/connectedDevices/{vmanageIP}
         if self._request_adapter.param_checker([(vmanage_ip, str)], [tenant_id]):
-            params = {
+            params_2 = {
                 "vmanageIP": vmanage_ip,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/clusterManagement/connectedDevices/{vmanageIP}",
                 return_type=List[Any],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

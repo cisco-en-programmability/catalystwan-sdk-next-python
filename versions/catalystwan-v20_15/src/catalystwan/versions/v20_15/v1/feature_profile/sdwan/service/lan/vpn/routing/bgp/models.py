@@ -9,6 +9,10 @@ VariableOptionTypeDef = Literal["variable"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanFalseDef = Literal[False]
+
+BooleanTrueDef = Literal[True]
+
 Value = Literal["ipv4-unicast"]
 
 BgpValue = Literal["disable-peer", "warning-only"]
@@ -125,7 +129,7 @@ class OneOfOnBooleanDefaultFalseOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -374,7 +378,7 @@ class OneOfOnBooleanDefaultTrueOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

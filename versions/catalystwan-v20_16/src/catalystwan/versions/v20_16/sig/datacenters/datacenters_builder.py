@@ -51,7 +51,7 @@ class DatacentersBuilder:
         if self._request_adapter.param_checker(
             [(type_, str), (tunneltype, str), (devicetype, str)], []
         ):
-            params = {
+            params_1 = {
                 "type": type_,
                 "tunneltype": tunneltype,
                 "devicetype": devicetype,
@@ -59,12 +59,12 @@ class DatacentersBuilder:
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/sig/datacenters/{type}/{tunneltype}/{devicetype}",
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/sig/datacenters/{type}/{tunneltype}
         if self._request_adapter.param_checker([(type_, str), (tunneltype, str)], [devicetype]):
-            params = {
+            params_2 = {
                 "type": type_,
                 "tunneltype": tunneltype,
             }
@@ -72,7 +72,7 @@ class DatacentersBuilder:
                 "GET",
                 "/dataservice/sig/datacenters/{type}/{tunneltype}",
                 return_type=GetDataCenters,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

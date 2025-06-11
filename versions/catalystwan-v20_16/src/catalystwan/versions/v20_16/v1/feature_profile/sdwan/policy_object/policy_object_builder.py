@@ -350,7 +350,7 @@ class PolicyObjectBuilder:
             ],
             [reference_count],
         ):
-            params = {
+            params_1 = {
                 "policyObjectId": policy_object_id,
                 "policyObjectListType": policy_object_list_type,
                 "listObjectId": list_object_id,
@@ -360,7 +360,7 @@ class PolicyObjectBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}/{listObjectId}",
                 return_type=GetSingleSdwanPolicyObjectSecurityDataIpPrefixPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}
@@ -368,7 +368,7 @@ class PolicyObjectBuilder:
             [(policy_object_id, str), (policy_object_list_type, PolicyObjectListTypeParam)],
             [list_object_id, references],
         ):
-            params = {
+            params_2 = {
                 "policyObjectId": policy_object_id,
                 "policyObjectListType": policy_object_list_type,
                 "referenceCount": reference_count,
@@ -377,7 +377,7 @@ class PolicyObjectBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/policy-object/{policyObjectId}/{policyObjectListType}",
                 return_type=GetListSdwanPolicyObjectSecurityDataIpPrefixPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

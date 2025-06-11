@@ -138,7 +138,7 @@ class Ipv6TrackergroupBuilder:
         if self._request_adapter.param_checker(
             [(transport_id, str), (ipv6_trackergroup_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "ipv6-trackergroupId": ipv6_trackergroup_id,
             }
@@ -146,19 +146,19 @@ class Ipv6TrackergroupBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/ipv6-trackergroup/{ipv6-trackergroupId}",
                 return_type=GetSingleSdwanTransportIpv6TrackergroupPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/ipv6-trackergroup
         if self._request_adapter.param_checker([(transport_id, str)], [ipv6_trackergroup_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/ipv6-trackergroup",
                 return_type=GetListSdwanTransportIpv6TrackergroupPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

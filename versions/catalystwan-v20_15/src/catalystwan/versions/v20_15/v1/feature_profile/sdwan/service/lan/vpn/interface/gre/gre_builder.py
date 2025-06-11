@@ -150,7 +150,7 @@ class GreBuilder:
         if self._request_adapter.param_checker(
             [(service_id, str), (vpn_id, str), (gre_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "vpnId": vpn_id,
                 "greId": gre_id,
@@ -159,12 +159,12 @@ class GreBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/gre/{greId}",
                 return_type=GetSingleSdwanServiceLanVpnInterfaceGrePayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/gre
         if self._request_adapter.param_checker([(service_id, str), (vpn_id, str)], [gre_id]):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
                 "vpnId": vpn_id,
             }
@@ -172,7 +172,7 @@ class GreBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/gre",
                 return_type=GetListSdwanServiceLanVpnInterfaceGrePayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

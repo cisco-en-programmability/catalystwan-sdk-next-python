@@ -130,19 +130,19 @@ class SystemBuilder:
     ) -> Union[List[GetSdroutingSystemFeatureProfilesGetResponse], GetSingleSdRoutingSystemPayload]:
         # /dataservice/v1/feature-profile/sd-routing/system/{systemId}
         if self._request_adapter.param_checker([(system_id, str)], [offset, limit]):
-            params = {
+            params_1 = {
                 "systemId": system_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/system/{systemId}",
                 return_type=GetSingleSdRoutingSystemPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/system
         if self._request_adapter.param_checker([], [system_id]):
-            params = {
+            params_2 = {
                 "offset": offset,
                 "limit": limit,
             }
@@ -150,7 +150,7 @@ class SystemBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/system",
                 return_type=List[GetSdroutingSystemFeatureProfilesGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

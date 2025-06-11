@@ -13,6 +13,10 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
+    BooleanTrueDef = Literal[True]
+
     HttpAuthenticationDef = Literal["aaa", "local"]
 
     VersionDef = Literal["2"]
@@ -73,7 +77,7 @@ Models
 
     class OneOfServerDefaultFalseOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfServerDefaultTrueOptionsDef1:
@@ -90,7 +94,7 @@ Models
 
     class OneOfServerDefaultTrueOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfSourceInterfaceOptionsDef1:

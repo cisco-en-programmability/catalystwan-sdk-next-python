@@ -38,6 +38,8 @@ DefaultOptionTypeDef = Literal["default"]
 
 DefaultModeDef = Literal["trunk"]
 
+BooleanFalseDef = Literal[False]
+
 Ipv4SubnetMaskDef = Literal[
     "0.0.0.0",
     "128.0.0.0",
@@ -259,7 +261,7 @@ class OneOfDhcpOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass
@@ -311,7 +313,7 @@ class OneOfShutdownOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass

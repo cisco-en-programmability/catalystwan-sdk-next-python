@@ -9,6 +9,8 @@ VariableOptionTypeDef = Literal["variable"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanFalseDef = Literal[False]
+
 CommunityAuthorizationDef = Literal["read-only", "read-write"]
 
 GroupSecurityLevelDef = Literal["auth-no-priv", "auth-priv", "no-auth-no-priv"]
@@ -41,7 +43,7 @@ class OneOfShutdownOptionsDef3:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass
@@ -143,7 +145,7 @@ class OneOfViewOidExcludeOptionsDef3:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass

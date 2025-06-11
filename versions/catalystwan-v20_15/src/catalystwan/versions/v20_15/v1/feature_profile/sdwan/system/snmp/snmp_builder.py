@@ -125,7 +125,7 @@ class SnmpBuilder:
     ) -> Union[GetListSdwanSystemSnmpPayload, GetSingleSdwanSystemSnmpPayload]:
         # /dataservice/v1/feature-profile/sdwan/system/{systemId}/snmp/{snmpId}
         if self._request_adapter.param_checker([(system_id, str), (snmp_id, str)], []):
-            params = {
+            params_1 = {
                 "systemId": system_id,
                 "snmpId": snmp_id,
             }
@@ -133,19 +133,19 @@ class SnmpBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/system/{systemId}/snmp/{snmpId}",
                 return_type=GetSingleSdwanSystemSnmpPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/system/{systemId}/snmp
         if self._request_adapter.param_checker([(system_id, str)], [snmp_id]):
-            params = {
+            params_2 = {
                 "systemId": system_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/system/{systemId}/snmp",
                 return_type=GetListSdwanSystemSnmpPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

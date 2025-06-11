@@ -128,7 +128,7 @@ class CybervisionBuilder:
     ) -> Union[GetListSdRoutingOtherCybervisionPayload, GetSingleSdRoutingOtherCybervisionPayload]:
         # /dataservice/v1/feature-profile/sd-routing/other/{otherId}/cybervision/{cybervisionId}
         if self._request_adapter.param_checker([(other_id, str), (cybervision_id, str)], []):
-            params = {
+            params_1 = {
                 "otherId": other_id,
                 "cybervisionId": cybervision_id,
             }
@@ -136,19 +136,19 @@ class CybervisionBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/other/{otherId}/cybervision/{cybervisionId}",
                 return_type=GetSingleSdRoutingOtherCybervisionPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/other/{otherId}/cybervision
         if self._request_adapter.param_checker([(other_id, str)], [cybervision_id]):
-            params = {
+            params_2 = {
                 "otherId": other_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/other/{otherId}/cybervision",
                 return_type=GetListSdRoutingOtherCybervisionPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

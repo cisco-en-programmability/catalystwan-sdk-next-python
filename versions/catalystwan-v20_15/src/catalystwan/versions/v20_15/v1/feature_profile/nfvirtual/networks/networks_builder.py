@@ -134,7 +134,7 @@ class NetworksBuilder:
         if self._request_adapter.param_checker(
             [(offset, int), (limit, int)], [network_id, details]
         ):
-            params = {
+            params_1 = {
                 "offset": offset,
                 "limit": limit,
             }
@@ -142,14 +142,14 @@ class NetworksBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/nfvirtual/networks",
                 return_type=List[GetAllNfvirtualNetworksFeatureProfilesGetResponse],
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/nfvirtual/networks/{networkId}
         if self._request_adapter.param_checker(
             [(network_id, str), (details, bool)], [offset, limit]
         ):
-            params = {
+            params_2 = {
                 "networkId": network_id,
                 "details": details,
             }
@@ -157,7 +157,7 @@ class NetworksBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/nfvirtual/networks/{networkId}",
                 return_type=GetSingleNfvirtualNetworksPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

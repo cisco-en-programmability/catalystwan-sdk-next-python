@@ -42,11 +42,14 @@ class StatusBuilder:
             logging.warning(
                 "Operation: %s is deprecated", "getDeviceProfileConfigStatusByProfileId"
             )
-            params = {
+            params_1 = {
                 "profileId": profile_id,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/networkdesign/profile/status/{profileId}", params=params, **kw
+                "GET",
+                "/dataservice/networkdesign/profile/status/{profileId}",
+                params=params_1,
+                **kw,
             )
         # /dataservice/networkdesign/profile/status
         if self._request_adapter.param_checker([], [profile_id]):

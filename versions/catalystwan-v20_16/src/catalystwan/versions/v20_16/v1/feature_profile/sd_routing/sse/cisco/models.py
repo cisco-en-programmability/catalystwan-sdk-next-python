@@ -9,6 +9,8 @@ SseInstanceDef = Literal["Cisco-Secure-Access"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanFalseDef = Literal[False]
+
 CiscoGlobalOptionTypeDef = Literal["global"]
 
 VariableOptionTypeDef = Literal["variable"]
@@ -127,6 +129,8 @@ DefaultOptionTypeDef8 = Literal["default"]
 
 DefaultInterfaceTrackerDef = Literal["DefaultTracker"]
 
+BooleanTrueDef = Literal[True]
+
 GlobalOptionTypeDef13 = Literal["global"]
 
 GlobalOptionTypeDef14 = Literal["global"]
@@ -197,7 +201,7 @@ class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -231,7 +235,7 @@ class OneOfOnBooleanDefaultFalseOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -628,7 +632,7 @@ class OneOfOnBooleanDefaultTrueOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

@@ -11,7 +11,7 @@ Get tloc
 
 .. code:: python
 
-    def post(payload: Any) -> List[AppRouteTlocRespInner]: ...
+    def post(payload: Any) -> List[List[AppRouteTlocRespInner]]: ...
 
 
 Example:

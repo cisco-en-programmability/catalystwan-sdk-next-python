@@ -21,14 +21,14 @@ class AggregationBuilder:
 
     def post(
         self, payload: Any, site_id: Optional[str] = None, **kw
-    ) -> List[AppRouteFecAggRespInner]:
+    ) -> List[List[AppRouteFecAggRespInner]]:
         """
         Get aggregation data and fec recovery rate
         POST /dataservice/statistics/approute/fec/aggregation
 
         :param site_id: Site id
         :param payload: Query filter
-        :returns: List[AppRouteFecAggRespInner]
+        :returns: List[List[AppRouteFecAggRespInner]]
         """
         params = {
             "site-id": site_id,
@@ -36,7 +36,7 @@ class AggregationBuilder:
         return self._request_adapter.request(
             "POST",
             "/dataservice/statistics/approute/fec/aggregation",
-            return_type=List[AppRouteFecAggRespInner],
+            return_type=List[List[AppRouteFecAggRespInner]],
             params=params,
             payload=payload,
             **kw,

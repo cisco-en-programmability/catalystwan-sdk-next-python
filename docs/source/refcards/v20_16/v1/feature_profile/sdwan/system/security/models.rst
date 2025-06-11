@@ -23,7 +23,11 @@ Models
         "esp", "ip-udp-esp", "ip-udp-esp-no-id", "none"
     ]
 
+    BooleanFalseDef = Literal[False]
+
     KeyTcpDef = Literal["aes-128-cmac", "hmac-sha-1", "hmac-sha-256"]
+
+    BooleanTrueDef = Literal[True]
 
 
     class OneOfRekeyOptionsDef1:
@@ -103,7 +107,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfKeychainNameOptionsDef:
@@ -191,7 +195,7 @@ Models
 
     class OneOfOnBooleanDefaultTrueOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfendChoice1:

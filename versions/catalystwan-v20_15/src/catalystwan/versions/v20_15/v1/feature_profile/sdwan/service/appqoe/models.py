@@ -7,6 +7,8 @@ GlobalOptionTypeDef = Literal["global"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanFalseDef = Literal[False]
+
 VirtualApplicationApplicationTypeDef = Literal["dreopt"]
 
 VirtualApplicationResourceProfileDef = Literal["default", "extra-large", "large", "medium", "small"]
@@ -23,11 +25,15 @@ AppqoeDeviceRoleDef = Literal[
     "serviceNodeWithDre",
 ]
 
+AppqoeVpnDef = Literal[0]
+
 DefaultAppnavControllerGroupDef = Literal["ACG-APPQOE"]
 
 DefaultServiceNodeGroupDef = Literal["SNG-APPQOE"]
 
 AppnavControllerGroupAppnavControllersDefaultAddressDef = Literal["192.168.2.1"]
+
+BooleanTrueDef = Literal[True]
 
 DefaultExternalServiceNodeAddressDef = Literal["192.168.2.2"]
 
@@ -47,7 +53,7 @@ class OneOfDreoptOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -162,7 +168,7 @@ class OneOfAppqoeVpnOptionsDef1:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: AppqoeVpnDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -296,7 +302,7 @@ class OneOfDefaultFalseServiceNodeGroupInternalOptionsDef:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -375,7 +381,7 @@ class OneOfDefaultTrueServiceNodeGroupInternalOptionsDef:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -426,7 +432,7 @@ class OneOfServiceNodeGroupExternalNodeOptionsDef:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

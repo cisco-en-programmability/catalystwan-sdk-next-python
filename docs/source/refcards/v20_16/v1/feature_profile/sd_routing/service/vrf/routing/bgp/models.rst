@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
     Ipv4SubnetMaskDef = Literal[
         "0.0.0.0",
         "128.0.0.0",
@@ -47,6 +49,8 @@ Models
         "255.255.255.254",
         "255.255.255.255",
     ]
+
+    BooleanTrueDef = Literal[True]
 
     Value = Literal["ipv4-unicast"]
 
@@ -194,7 +198,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfMaxListenPrefixNumOptionsDef1:
@@ -412,7 +416,7 @@ Models
 
     class OneOfOnBooleanDefaultTrueOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfNeighborEbgpMultihopOptionsDef1:

@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
     VariableOptionTypeDef = Literal["variable"]
 
     InterfaceApplicationDef = Literal["sig"]
@@ -38,6 +40,8 @@ Models
         "14", "15", "16", "19", "2", "20", "21", "5"
     ]
 
+    InterfaceIpsecReplayWindowDef = Literal[64, 128, 256, 512, 1024]
+
     InterfaceIpsecCiphersuiteDef = Literal[
         "aes256-cbc-sha1",
         "aes256-cbc-sha256",
@@ -57,6 +61,8 @@ Models
         "group-5",
         "none",
     ]
+
+    BooleanTrueDef = Literal[True]
 
     ServiceDisplayTimeUnitDef = Literal["DAY", "HOUR", "MINUTE"]
 
@@ -98,6 +104,8 @@ Models
     SigSecuritySigInterfaceIkeGroupDef = Literal[
         "14", "15", "16", "19", "2", "20", "21", "5"
     ]
+
+    SigInterfaceIpsecReplayWindowDef = Literal[64, 128, 256, 512, 1024]
 
     SigInterfaceIpsecCiphersuiteDef = Literal[
         "aes256-cbc-sha1",
@@ -184,6 +192,10 @@ Models
         "14", "15", "16", "19", "2", "20", "21", "5"
     ]
 
+    SigSecuritySigInterfaceIpsecReplayWindowDef = Literal[
+        64, 128, 256, 512, 1024
+    ]
+
     SdwanSigSecuritySigInterfaceIpsecCiphersuiteDef = Literal[
         "aes256-cbc-sha1",
         "aes256-cbc-sha256",
@@ -255,7 +267,7 @@ Models
 
     class OneOfSrcVpnOptionsDef2:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class InterfaceMetadataSharing:
@@ -281,7 +293,7 @@ Models
 
     class OneOfInterfaceShutdownOptionsDef2:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfInterfaceDescriptionOptionsDef1:
@@ -591,7 +603,7 @@ Models
 
     class OneOfInterfaceIpsecReplayWindowOptionsDef1:
         option_type: GlobalOptionTypeDef
-        value: int
+        value: InterfaceIpsecReplayWindowDef
 
 
     class OneOfInterfaceIpsecReplayWindowOptionsDef2:
@@ -656,7 +668,7 @@ Models
 
     class OneOfInterfaceTrackEnableOptionsDef2:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanTrueDef]
 
 
     class OneOfInterfaceTunnelPublicIpOptionsDef1:
@@ -897,7 +909,7 @@ Models
 
     class OneOfServiceAuthRequiredOptionsDef2:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfServiceXffForwardEnabledOptionsDef1:
@@ -907,7 +919,7 @@ Models
 
     class OneOfServiceXffForwardEnabledOptionsDef2:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfServiceOfwEnabledOptionsDef1:
@@ -917,7 +929,7 @@ Models
 
     class OneOfServiceOfwEnabledOptionsDef2:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfServiceIpsControlOptionsDef1:
@@ -927,7 +939,7 @@ Models
 
     class OneOfServiceIpsControlOptionsDef2:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfServiceCautionEnabledOptionsDef1:
@@ -937,7 +949,7 @@ Models
 
     class OneOfServiceCautionEnabledOptionsDef2:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfServicePrimaryDataCenterOptionsDef1:
@@ -981,7 +993,7 @@ Models
 
     class OneOfServiceIpOptionsDef2:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfServiceIdleTimeOptionsDef1:
@@ -1011,7 +1023,7 @@ Models
 
     class OneOfServiceIpEnforcedForKnownBrowsersOptionsDef2:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfServiceRefreshTimeOptionsDef1:
@@ -1041,7 +1053,7 @@ Models
 
     class OneOfServiceEnabledOptionsDef2:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfServiceBlockInternetUntilAcceptedOptionsDef1:
@@ -1051,7 +1063,7 @@ Models
 
     class OneOfServiceBlockInternetUntilAcceptedOptionsDef2:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfServiceForceSslInspectionOptionsDef1:
@@ -1061,7 +1073,7 @@ Models
 
     class OneOfServiceForceSslInspectionOptionsDef2:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfServiceTimeoutOptionsDef1:
@@ -1601,7 +1613,7 @@ Models
 
     class SigOneOfInterfaceIpsecReplayWindowOptionsDef1:
         option_type: GlobalOptionTypeDef
-        value: int
+        value: SigInterfaceIpsecReplayWindowDef
 
 
     class SigOneOfInterfaceIpsecReplayWindowOptionsDef3:
@@ -2368,7 +2380,7 @@ Models
 
     class SigSecuritySigOneOfInterfaceIpsecReplayWindowOptionsDef1:
         option_type: GlobalOptionTypeDef
-        value: int
+        value: SigSecuritySigInterfaceIpsecReplayWindowDef
 
 
     class SigSecuritySigOneOfInterfaceIpsecReplayWindowOptionsDef3:

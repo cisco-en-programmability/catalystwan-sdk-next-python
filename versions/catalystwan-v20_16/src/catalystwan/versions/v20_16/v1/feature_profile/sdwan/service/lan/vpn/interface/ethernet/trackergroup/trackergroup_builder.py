@@ -163,7 +163,7 @@ class TrackergroupBuilder:
         if self._request_adapter.param_checker(
             [(service_id, str), (vpn_id, str), (ethernet_id, str), (trackergroup_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "vpnId": vpn_id,
                 "ethernetId": ethernet_id,
@@ -173,14 +173,14 @@ class TrackergroupBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet/{ethernetId}/trackergroup/{trackergroupId}",
                 return_type=GetSingleSdwanServiceLanVpnInterfaceEthernetTrackergroupPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/ethernet/{ethernetId}/trackergroup
         if self._request_adapter.param_checker(
             [(service_id, str), (vpn_id, str), (ethernet_id, str)], [trackergroup_id]
         ):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
                 "vpnId": vpn_id,
                 "ethernetId": ethernet_id,
@@ -191,7 +191,7 @@ class TrackergroupBuilder:
                 return_type=List[
                     GetLanVpnInterfaceEthernetAssociatedTrackerGroupParcelsForTransportGetResponse
                 ],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

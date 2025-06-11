@@ -15,6 +15,8 @@ Models
 
     VariableOptionTypeDef = Literal["variable"]
 
+    BooleanTrueDef = Literal[True]
+
 
     class ConfigType:
         option_type: DefaultOptionTypeDef
@@ -95,7 +97,7 @@ Models
 
     class OneOfAutoSimOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class CommonControllerConfigDef:

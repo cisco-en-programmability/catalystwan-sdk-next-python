@@ -9,6 +9,8 @@ VariableOptionTypeDef = Literal["variable"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanFalseDef = Literal[False]
+
 
 @dataclass
 class CreateNfvirtualSystemSettingsParcelPostResponse:
@@ -56,7 +58,7 @@ class OneOfDpdkOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass

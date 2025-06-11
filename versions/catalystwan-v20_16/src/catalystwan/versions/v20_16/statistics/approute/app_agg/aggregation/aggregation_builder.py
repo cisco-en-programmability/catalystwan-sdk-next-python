@@ -19,18 +19,18 @@ class AggregationBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def post(self, payload: Any, **kw) -> List[AppRouteAppAggRespInner]:
+    def post(self, payload: Any, **kw) -> List[List[AppRouteAppAggRespInner]]:
         """
         Get aggregated data based on input query and filters. The data can be filtered on time and other unique parameters based upon necessity and intended usage
         POST /dataservice/statistics/approute/app-agg/aggregation
 
         :param payload: Stats query string
-        :returns: List[AppRouteAppAggRespInner]
+        :returns: List[List[AppRouteAppAggRespInner]]
         """
         return self._request_adapter.request(
             "POST",
             "/dataservice/statistics/approute/app-agg/aggregation",
-            return_type=List[AppRouteAppAggRespInner],
+            return_type=List[List[AppRouteAppAggRespInner]],
             payload=payload,
             **kw,
         )

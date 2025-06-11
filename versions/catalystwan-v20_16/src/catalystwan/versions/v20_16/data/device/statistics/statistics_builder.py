@@ -66,7 +66,7 @@ class StatisticsBuilder:
     ) -> Union[Any, List[Any]]:
         # /dataservice/data/device/statistics/{state_data_type}
         if self._request_adapter.param_checker([(state_data_type, str)], []):
-            params = {
+            params_1 = {
                 "state_data_type": state_data_type,
                 "scrollId": scroll_id,
                 "startDate": start_date,
@@ -78,7 +78,7 @@ class StatisticsBuilder:
                 "GET",
                 "/dataservice/data/device/statistics/{state_data_type}",
                 return_type=List[Any],
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/data/device/statistics

@@ -74,11 +74,11 @@ class IdentityBuilder:
     def get(self, id: Optional[str] = None, **kw) -> Union[List[Any], Any]:
         # /dataservice/template/policy/list/identity/{id}
         if self._request_adapter.param_checker([(id, str)], []):
-            params = {
+            params_1 = {
                 "id": id,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/template/policy/list/identity/{id}", params=params, **kw
+                "GET", "/dataservice/template/policy/list/identity/{id}", params=params_1, **kw
             )
         # /dataservice/template/policy/list/identity
         if self._request_adapter.param_checker([], [id]):
@@ -114,22 +114,22 @@ class IdentityBuilder:
     ) -> Union[List[Any], None]:
         # /dataservice/template/policy/list/identity/{id}
         if self._request_adapter.param_checker([(id, str)], [info_tag]):
-            params = {
+            params_1 = {
                 "id": id,
             }
             return self._request_adapter.request(
-                "DELETE", "/dataservice/template/policy/list/identity/{id}", params=params, **kw
+                "DELETE", "/dataservice/template/policy/list/identity/{id}", params=params_1, **kw
             )
         # /dataservice/template/policy/list/identity
         if self._request_adapter.param_checker([], [id]):
-            params = {
+            params_2 = {
                 "infoTag": info_tag,
             }
             return self._request_adapter.request(
                 "DELETE",
                 "/dataservice/template/policy/list/identity",
                 return_type=List[Any],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

@@ -9,6 +9,8 @@ VariableOptionTypeDef = Literal["variable"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanTrueDef = Literal[True]
+
 Ipv4SubnetMaskDef = Literal[
     "0.0.0.0",
     "128.0.0.0",
@@ -44,11 +46,17 @@ Ipv4SubnetMaskDef = Literal[
     "255.255.255.255",
 ]
 
+BooleanFalseDef = Literal[False]
+
 Ipv4VrrpTrackingObjectTrackActionDef = Literal["decrement", "shutdown"]
+
+DefaultIpv4VrrpTimerDef = Literal[100, 1000]
 
 SviIpv4VrrpTrackingObjectTrackActionDef = Literal["decrement", "shutdown"]
 
 InterfaceSviIpv4VrrpTrackingObjectTrackActionDef = Literal["decrement", "shutdown"]
+
+DefaultIpv6VrrpTimerDef = Literal[100, 1000]
 
 VpnInterfaceSviIpv4VrrpTrackingObjectTrackActionDef = Literal["decrement", "shutdown"]
 
@@ -78,7 +86,7 @@ class OneOfShutdownOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -585,7 +593,7 @@ class OneOfIpv4VrrpTrackOmpOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -669,7 +677,7 @@ class OneOfIpv4VrrpTlocChangePrefOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -755,7 +763,7 @@ class OneOfOnBooleanDefaultTrueNoVariableOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -965,7 +973,7 @@ class OneOfIpv6VrrpTrackOmpOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1137,7 +1145,7 @@ class OneOfDhcpClientV6OptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1214,7 +1222,7 @@ class OneOfIpDirectedBroadcastOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1240,7 +1248,7 @@ class OneOfIcmpRedirectDisableOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1576,7 +1584,7 @@ class SviOneOfIpv4VrrpTimerOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: DefaultIpv4VrrpTimerDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1714,7 +1722,7 @@ class InterfaceSviOneOfIpv4VrrpTimerOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: DefaultIpv4VrrpTimerDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1860,7 +1868,7 @@ class SviOneOfIpv6VrrpTimerOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: DefaultIpv6VrrpTimerDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -2239,7 +2247,7 @@ class VpnInterfaceSviOneOfIpv4VrrpTimerOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: DefaultIpv4VrrpTimerDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -2377,7 +2385,7 @@ class LanVpnInterfaceSviOneOfIpv4VrrpTimerOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: DefaultIpv4VrrpTimerDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -2523,7 +2531,7 @@ class InterfaceSviOneOfIpv6VrrpTimerOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: DefaultIpv6VrrpTimerDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

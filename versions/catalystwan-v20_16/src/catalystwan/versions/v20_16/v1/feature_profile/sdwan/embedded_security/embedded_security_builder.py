@@ -134,7 +134,7 @@ class EmbeddedSecurityBuilder:
     ]:
         # /dataservice/v1/feature-profile/sdwan/embedded-security/{embeddedSecurityId}
         if self._request_adapter.param_checker([(embedded_security_id, str)], [offset, limit]):
-            params = {
+            params_1 = {
                 "embeddedSecurityId": embedded_security_id,
                 "details": details,
             }
@@ -142,12 +142,12 @@ class EmbeddedSecurityBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/embedded-security/{embeddedSecurityId}",
                 return_type=GetSingleSdwanEmbeddedSecurityPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/embedded-security
         if self._request_adapter.param_checker([], [embedded_security_id, details]):
-            params = {
+            params_2 = {
                 "offset": offset,
                 "limit": limit,
             }
@@ -155,7 +155,7 @@ class EmbeddedSecurityBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/embedded-security",
                 return_type=List[GetSdwanEmbeddedSecurityFeatureProfilesGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

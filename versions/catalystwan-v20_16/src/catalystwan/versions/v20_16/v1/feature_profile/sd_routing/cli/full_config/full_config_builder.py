@@ -126,7 +126,7 @@ class FullConfigBuilder:
     ) -> Union[GetListSdRoutingCliFullConfigPayload, GetSingleSdRoutingCliFullConfigPayload]:
         # /dataservice/v1/feature-profile/sd-routing/cli/{cliId}/full-config/{fullConfigId}
         if self._request_adapter.param_checker([(cli_id, str), (full_config_id, str)], []):
-            params = {
+            params_1 = {
                 "cliId": cli_id,
                 "fullConfigId": full_config_id,
             }
@@ -134,19 +134,19 @@ class FullConfigBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/cli/{cliId}/full-config/{fullConfigId}",
                 return_type=GetSingleSdRoutingCliFullConfigPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/cli/{cliId}/full-config
         if self._request_adapter.param_checker([(cli_id, str)], [full_config_id]):
-            params = {
+            params_2 = {
                 "cliId": cli_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/cli/{cliId}/full-config",
                 return_type=GetListSdRoutingCliFullConfigPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

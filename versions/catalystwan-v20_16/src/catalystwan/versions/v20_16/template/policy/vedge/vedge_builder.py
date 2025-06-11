@@ -97,14 +97,14 @@ class VedgeBuilder:
         if self._request_adapter.param_checker(
             [(policy_id, str), (resource_group_name, str)], [payload]
         ):
-            params = {
+            params_1 = {
                 "policyId": policy_id,
                 "resourceGroupName": resource_group_name,
             }
             return self._request_adapter.request(
                 "POST",
                 "/dataservice/template/policy/vedge/{resourceGroupName}/{policyId}",
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/template/policy/vedge

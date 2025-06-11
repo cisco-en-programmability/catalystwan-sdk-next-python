@@ -46,14 +46,14 @@ class WidgetBuilder:
     def get(self, cloud_type: Optional[str] = None, **kw) -> Union[List[CloudWidget], CloudWidget]:
         # /dataservice/multicloud/widget/{cloudType}
         if self._request_adapter.param_checker([(cloud_type, str)], []):
-            params = {
+            params_1 = {
                 "cloudType": cloud_type,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/multicloud/widget/{cloudType}",
                 return_type=CloudWidget,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/multicloud/widget

@@ -126,7 +126,7 @@ class AppqoeBuilder:
     ) -> Union[GetListSdwanServiceAppqoePayload, GetSingleSdwanServiceAppqoePayload]:
         # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/appqoe/{appqoeId}
         if self._request_adapter.param_checker([(service_id, str), (appqoe_id, str)], []):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "appqoeId": appqoe_id,
             }
@@ -134,19 +134,19 @@ class AppqoeBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/appqoe/{appqoeId}",
                 return_type=GetSingleSdwanServiceAppqoePayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/appqoe
         if self._request_adapter.param_checker([(service_id, str)], [appqoe_id]):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/appqoe",
                 return_type=GetListSdwanServiceAppqoePayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

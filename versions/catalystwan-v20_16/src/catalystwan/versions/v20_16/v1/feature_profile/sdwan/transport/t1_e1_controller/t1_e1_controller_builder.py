@@ -136,7 +136,7 @@ class T1E1ControllerBuilder:
     ]:
         # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/t1-e1-controller/{t1e1controllerId}
         if self._request_adapter.param_checker([(transport_id, str), (t1e1controller_id, str)], []):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "t1e1controllerId": t1e1controller_id,
             }
@@ -144,19 +144,19 @@ class T1E1ControllerBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/t1-e1-controller/{t1e1controllerId}",
                 return_type=GetSingleSdwanTransportT1E1ControllerPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/t1-e1-controller
         if self._request_adapter.param_checker([(transport_id, str)], [t1e1controller_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/t1-e1-controller",
                 return_type=GetListSdwanTransportT1E1ControllerPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

@@ -40,11 +40,11 @@ class EdgeBuilder:
         # /dataservice/multicloud/widget/edge/{edgeType}
         if self._request_adapter.param_checker([(edge_type, str)], []):
             logging.warning("Operation: %s is deprecated", "getEdgeWidget")
-            params = {
+            params_1 = {
                 "edgeType": edge_type,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/multicloud/widget/edge/{edgeType}", params=params, **kw
+                "GET", "/dataservice/multicloud/widget/edge/{edgeType}", params=params_1, **kw
             )
         # /dataservice/multicloud/widget/edge
         if self._request_adapter.param_checker([], [edge_type]):

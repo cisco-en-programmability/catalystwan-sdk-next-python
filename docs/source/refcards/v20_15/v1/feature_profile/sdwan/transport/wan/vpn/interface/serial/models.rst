@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanTrueDef = Literal[True]
+
     Ipv4SubnetMaskDef = Literal[
         "0.0.0.0",
         "128.0.0.0",
@@ -83,6 +85,8 @@ Models
 
     EncapsulationSerialDef = Literal["frame-relay", "hdlc", "ppp"]
 
+    BooleanFalseDef = Literal[False]
+
     ModeDef = Literal["spoke"]
 
     ValueDef = Literal[
@@ -151,7 +155,7 @@ Models
 
     class OneOfShutdownOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIfNameOptionsDef1:
@@ -349,7 +353,7 @@ Models
 
     class OneOfOnOffDefaultFalseWithVariable3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfModeOptionsDef1:
@@ -395,7 +399,7 @@ Models
 
     class OneOfRestrictOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfGroupOptionsDef1:
@@ -428,7 +432,7 @@ Models
 
     class OneOfBorderOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfMaxControlConnectionsOptionsDef1:
@@ -461,7 +465,7 @@ Models
 
     class OneOfVbondAsStunServerOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfExcludeControllerGroupListOptionsDef1:
@@ -511,7 +515,7 @@ Models
 
     class OneOfPortHopOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfLowBandwidthLinkOptionsDef1:
@@ -528,7 +532,7 @@ Models
 
     class OneOfLowBandwidthLinkOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfTunnelTcpMssAdjustOptionsDef1:
@@ -561,7 +565,7 @@ Models
 
     class OneOfTunnelClearDontFragmentOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfNetworkBroadcastOptionsDef1:
@@ -578,7 +582,7 @@ Models
 
     class OneOfNetworkBroadcastOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfCarrierOptionsDef1:
@@ -630,7 +634,7 @@ Models
 
     class OneOfLastResortCircuitOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfNatRefreshIntervalOptionsDef1:
@@ -853,7 +857,7 @@ Models
 
     class OneOfAllOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfBgpOptionsDef1:
@@ -870,7 +874,7 @@ Models
 
     class OneOfBgpOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfDhcpOptionsDef1:
@@ -887,7 +891,7 @@ Models
 
     class OneOfDhcpOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfDnsOptionsDef1:
@@ -904,7 +908,7 @@ Models
 
     class OneOfDnsOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIcmpOptionsDef1:
@@ -921,7 +925,7 @@ Models
 
     class OneOfIcmpOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfNetconfOptionsDef1:
@@ -938,7 +942,7 @@ Models
 
     class OneOfNetconfOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfNtpOptionsDef1:
@@ -955,7 +959,7 @@ Models
 
     class OneOfNtpOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfOspfOptionsDef1:
@@ -972,7 +976,7 @@ Models
 
     class OneOfOspfOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfSshdOptionsDef1:
@@ -989,7 +993,7 @@ Models
 
     class OneOfSshdOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfStunOptionsDef1:
@@ -1006,7 +1010,7 @@ Models
 
     class OneOfStunOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfHttpsOptionsDef1:
@@ -1023,7 +1027,7 @@ Models
 
     class OneOfHttpsOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfSnmpOptionsDef1:
@@ -1040,7 +1044,7 @@ Models
 
     class OneOfSnmpOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfBfdOptionsDef1:
@@ -1057,7 +1061,7 @@ Models
 
     class OneOfBfdOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class AllowService:
@@ -1165,7 +1169,7 @@ Models
 
     class OneOfEnableRegionDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfCoreRegionDef1:

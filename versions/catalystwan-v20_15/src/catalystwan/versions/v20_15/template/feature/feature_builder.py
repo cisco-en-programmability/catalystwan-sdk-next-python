@@ -124,25 +124,25 @@ class FeatureBuilder:
     ) -> List[Any]:
         # /dataservice/template/feature/{deviceType}
         if self._request_adapter.param_checker([(device_type, str)], [summary, offset, limit]):
-            params = {
+            params_1 = {
                 "deviceType": device_type,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/template/feature/{deviceType}",
                 return_type=List[Any],
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/template/feature
         if self._request_adapter.param_checker([], [device_type]):
-            params = {
+            params_2 = {
                 "summary": summary,
                 "offset": offset,
                 "limit": limit,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/template/feature", return_type=List[Any], params=params, **kw
+                "GET", "/dataservice/template/feature", return_type=List[Any], params=params_2, **kw
             )
         raise RuntimeError("Provided arguments do not match any signature")
 

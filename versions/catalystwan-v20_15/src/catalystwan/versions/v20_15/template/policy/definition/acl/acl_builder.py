@@ -90,11 +90,11 @@ class AclBuilder:
     def get(self, id: Optional[str] = None, **kw) -> Any:
         # /dataservice/template/policy/definition/acl/{id}
         if self._request_adapter.param_checker([(id, str)], []):
-            params = {
+            params_1 = {
                 "id": id,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/template/policy/definition/acl/{id}", params=params, **kw
+                "GET", "/dataservice/template/policy/definition/acl/{id}", params=params_1, **kw
             )
         # /dataservice/template/policy/definition/acl
         if self._request_adapter.param_checker([], [id]):

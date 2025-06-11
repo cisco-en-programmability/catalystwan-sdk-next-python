@@ -9,6 +9,8 @@ VariableOptionTypeDef = Literal["variable"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanTrueDef = Literal[True]
+
 TunnelModeDef = Literal["ipv4", "ipv4-v6overlay", "ipv6"]
 
 DefaultTunnelModeDef = Literal["ipv4"]
@@ -49,6 +51,8 @@ Ipv4SubnetMaskDef = Literal[
 ]
 
 ApplicationDef = Literal["none", "sig"]
+
+BooleanFalseDef = Literal[False]
 
 IkeModeDef = Literal["aggressive", "main"]
 
@@ -136,7 +140,7 @@ class OneOfShutdownOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -367,7 +371,7 @@ class OneOfClearDontFragmentOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

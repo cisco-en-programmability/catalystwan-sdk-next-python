@@ -16,7 +16,7 @@ Get application-aware routing statistics summary from device
         limit: Optional[int] = 5,
         query: Optional[str] = None,
         site_id: Optional[str] = None,
-    ) -> List[AppRouteFecAggRespInner]: ...
+    ) -> List[List[AppRouteFecAggRespInner]]: ...
 
 
 Example:

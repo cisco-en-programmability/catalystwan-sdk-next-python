@@ -13,6 +13,8 @@ Models
 
     VariableOptionTypeDef = Literal["variable"]
 
+    BooleanFalseDef = Literal[False]
+
     Ipv4SubnetMaskDef = Literal[
         "0.0.0.0",
         "128.0.0.0",
@@ -51,6 +53,8 @@ Models
     Ipv4GatewayDef = Literal["dhcp", "nextHop", "null0"]
 
     DefaultIpv4GatewayDef = Literal["nextHop"]
+
+    BooleanTrueDef = Literal[True]
 
     Ipv6RouteNatDef = Literal["NAT64", "NAT66"]
 
@@ -93,7 +97,7 @@ Models
 
     class OneOfEnhanceEcmpKeyingOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfPrimaryDnsAddressIpv4OptionsDef1:
@@ -453,7 +457,7 @@ Models
 
     class OneOfIpv4V6RouteNull0OptionsWithoutVariable2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpRoute2:
@@ -551,7 +555,7 @@ Models
 
     class OneOfNat64V4PoolOverloadOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class Nat64V4Pool:

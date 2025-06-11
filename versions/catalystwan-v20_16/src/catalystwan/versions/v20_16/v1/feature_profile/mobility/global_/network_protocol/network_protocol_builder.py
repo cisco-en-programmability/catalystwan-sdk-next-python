@@ -130,7 +130,7 @@ class NetworkProtocolBuilder:
     ]:
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/networkProtocol/{networkProtocolId}
         if self._request_adapter.param_checker([(profile_id, str), (network_protocol_id, str)], []):
-            params = {
+            params_1 = {
                 "profileId": profile_id,
                 "networkProtocolId": network_protocol_id,
             }
@@ -138,19 +138,19 @@ class NetworkProtocolBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/networkProtocol/{networkProtocolId}",
                 return_type=GetSingleMobilityGlobalNetworkprotocolPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/networkProtocol
         if self._request_adapter.param_checker([(profile_id, str)], [network_protocol_id]):
-            params = {
+            params_2 = {
                 "profileId": profile_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/networkProtocol",
                 return_type=GetListMobilityGlobalNetworkprotocolPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

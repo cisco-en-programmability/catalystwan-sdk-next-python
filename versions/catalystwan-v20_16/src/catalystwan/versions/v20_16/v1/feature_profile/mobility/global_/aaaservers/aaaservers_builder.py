@@ -128,7 +128,7 @@ class AaaserversBuilder:
     ) -> Union[GetListMobilityGlobalAaaserversPayload, GetSingleMobilityGlobalAaaserversPayload]:
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/aaaservers/{aaaserversId}
         if self._request_adapter.param_checker([(profile_id, str), (aaaservers_id, str)], []):
-            params = {
+            params_1 = {
                 "profileId": profile_id,
                 "aaaserversId": aaaservers_id,
             }
@@ -136,19 +136,19 @@ class AaaserversBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/aaaservers/{aaaserversId}",
                 return_type=GetSingleMobilityGlobalAaaserversPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/aaaservers
         if self._request_adapter.param_checker([(profile_id, str)], [aaaservers_id]):
-            params = {
+            params_2 = {
                 "profileId": profile_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/aaaservers",
                 return_type=GetListMobilityGlobalAaaserversPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

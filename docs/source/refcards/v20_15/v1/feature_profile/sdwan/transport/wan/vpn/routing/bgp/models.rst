@@ -13,6 +13,10 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
+    BooleanTrueDef = Literal[True]
+
     Value = Literal["ipv4-unicast", "vpnv4-unicast", "vpnv6-unicast"]
 
     BgpValue = Literal["disable-peer", "warning-only"]
@@ -109,7 +113,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfExternalOptionsDef1:
@@ -271,7 +275,7 @@ Models
 
     class OneOfOnBooleanDefaultTrueOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfNeighborEbgpMultihopOptionsDef1:
@@ -314,7 +318,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfNeighborAsNumberOptionsDef1:

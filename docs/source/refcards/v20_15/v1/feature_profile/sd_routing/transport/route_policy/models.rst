@@ -21,6 +21,10 @@ Models
 
     RoutePolicyValue = Literal["IPV4"]
 
+    BooleanFalseDef = Literal[False]
+
+    BooleanTrueDef = Literal[True]
+
     VariableOptionTypeDef = Literal["variable"]
 
     MetricTypeDef = Literal["type1", "type2"]
@@ -86,7 +90,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfSequencesMatchEntriesCommunityListDef1:
@@ -170,7 +174,7 @@ Models
 
     class SequencesActionsEnableAcceptOptionsDef:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class PrependOptionsDef:
@@ -293,7 +297,7 @@ Models
 
     class SequencesActionsRejectOptionsDef:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class Actions2:

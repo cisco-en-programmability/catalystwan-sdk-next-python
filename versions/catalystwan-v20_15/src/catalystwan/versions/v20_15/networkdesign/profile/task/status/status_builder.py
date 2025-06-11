@@ -40,13 +40,13 @@ class StatusBuilder:
         # /dataservice/networkdesign/profile/task/status/{profileId}
         if self._request_adapter.param_checker([(profile_id, str)], []):
             logging.warning("Operation: %s is deprecated", "getDeviceProfileTaskStatusByProfileId")
-            params = {
+            params_1 = {
                 "profileId": profile_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/networkdesign/profile/task/status/{profileId}",
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/networkdesign/profile/task/status

@@ -85,11 +85,11 @@ class CustomappBuilder:
     def get(self, id: Optional[str] = None, **kw) -> Union[List[Any], Any]:
         # /dataservice/template/policy/customapp/{id}
         if self._request_adapter.param_checker([(id, str)], []):
-            params = {
+            params_1 = {
                 "id": id,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/template/policy/customapp/{id}", params=params, **kw
+                "GET", "/dataservice/template/policy/customapp/{id}", params=params_1, **kw
             )
         # /dataservice/template/policy/customapp
         if self._request_adapter.param_checker([], [id]):

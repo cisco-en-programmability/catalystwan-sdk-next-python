@@ -23,6 +23,8 @@ Models
 
     Ipv4AclValue = Literal["accept"]
 
+    BooleanTrueDef = Literal[True]
+
     SequencesMatchEntriesTcpPortEqAppNamesDef = Literal[
         "bgp",
         "chargen",
@@ -195,7 +197,7 @@ Models
 
     class OneOfSequencesActionsLogOptionsDef:
         option_type: GlobalOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class Actions:
@@ -224,7 +226,7 @@ Models
 
     class OneOfSequencesActionsLogInputOptionsDef:
         option_type: GlobalOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class Actions2:

@@ -111,19 +111,19 @@ class AccountsBuilder:
         if self._request_adapter.param_checker(
             [(account_id, str)], [cloud_type, cloud_gateway_enabled]
         ):
-            params = {
+            params_1 = {
                 "accountId": account_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/multicloud/accounts/{accountId}",
                 return_type=GetAccounts,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/multicloud/accounts
         if self._request_adapter.param_checker([], [account_id]):
-            params = {
+            params_2 = {
                 "cloudType": cloud_type,
                 "cloudGatewayEnabled": cloud_gateway_enabled,
             }
@@ -131,7 +131,7 @@ class AccountsBuilder:
                 "GET",
                 "/dataservice/multicloud/accounts",
                 return_type=List[GetAccounts],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

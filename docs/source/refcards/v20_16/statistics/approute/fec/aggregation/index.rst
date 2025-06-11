@@ -13,7 +13,7 @@ Get aggregation data and fec recovery rate
 
     def post(
         payload: Any, site_id: Optional[str] = None
-    ) -> List[AppRouteFecAggRespInner]: ...
+    ) -> List[List[AppRouteFecAggRespInner]]: ...
 
 
 Example:

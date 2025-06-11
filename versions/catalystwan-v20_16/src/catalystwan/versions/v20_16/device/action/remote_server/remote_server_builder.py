@@ -90,11 +90,11 @@ class RemoteServerBuilder:
     def get(self, id: Optional[str] = None, **kw) -> Any:
         # /dataservice/device/action/remote-server/{id}
         if self._request_adapter.param_checker([(id, str)], []):
-            params = {
+            params_1 = {
                 "id": id,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/device/action/remote-server/{id}", params=params, **kw
+                "GET", "/dataservice/device/action/remote-server/{id}", params=params_1, **kw
             )
         # /dataservice/device/action/remote-server
         if self._request_adapter.param_checker([], [id]):

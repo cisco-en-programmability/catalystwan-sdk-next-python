@@ -123,7 +123,7 @@ class WifiBuilder:
     ) -> Union[GetListMobilityGlobalWifiPayload, GetSingleMobilityGlobalWifiPayload]:
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/wifi/{wifiId}
         if self._request_adapter.param_checker([(profile_id, str), (wifi_id, str)], []):
-            params = {
+            params_1 = {
                 "profileId": profile_id,
                 "wifiId": wifi_id,
             }
@@ -131,19 +131,19 @@ class WifiBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/wifi/{wifiId}",
                 return_type=GetSingleMobilityGlobalWifiPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/wifi
         if self._request_adapter.param_checker([(profile_id, str)], [wifi_id]):
-            params = {
+            params_2 = {
                 "profileId": profile_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/wifi",
                 return_type=GetListMobilityGlobalWifiPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

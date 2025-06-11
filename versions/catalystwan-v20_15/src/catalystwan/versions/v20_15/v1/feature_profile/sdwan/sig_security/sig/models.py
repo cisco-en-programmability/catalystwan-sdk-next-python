@@ -9,6 +9,8 @@ SigProviderDef = Literal["Generic", "Umbrella", "Zscaler"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanFalseDef = Literal[False]
+
 VariableOptionTypeDef = Literal["variable"]
 
 InterfaceApplicationDef = Literal["sig"]
@@ -29,6 +31,8 @@ DefaultInterfaceIkeCiphersuiteDef = Literal["aes256-cbc-sha1"]
 
 InterfaceIkeGroupDef = Literal["14", "15", "16", "19", "2", "20", "21", "5"]
 
+InterfaceIpsecReplayWindowDef = Literal[64, 128, 256, 512, 1024]
+
 InterfaceIpsecCiphersuiteDef = Literal[
     "aes256-cbc-sha1", "aes256-cbc-sha256", "aes256-cbc-sha384", "aes256-cbc-sha512", "aes256-gcm"
 ]
@@ -44,6 +48,8 @@ InterfacePerfectForwardSecrecyDef = Literal[
     "group-5",
     "none",
 ]
+
+BooleanTrueDef = Literal[True]
 
 ServiceDisplayTimeUnitDef = Literal["DAY", "HOUR", "MINUTE"]
 
@@ -76,6 +82,8 @@ SigDefaultInterfaceIkeCiphersuiteDef = Literal["aes256-cbc-sha1"]
 SigInterfaceIkeGroupDef = Literal["14", "15", "16", "19", "2", "20", "21", "5"]
 
 SigSecuritySigInterfaceIkeGroupDef = Literal["14", "15", "16", "19", "2", "20", "21", "5"]
+
+SigInterfaceIpsecReplayWindowDef = Literal[64, 128, 256, 512, 1024]
 
 SigInterfaceIpsecCiphersuiteDef = Literal[
     "aes256-cbc-sha1", "aes256-cbc-sha256", "aes256-cbc-sha384", "aes256-cbc-sha512", "aes256-gcm"
@@ -143,6 +151,8 @@ FeatureProfileSdwanSigSecuritySigInterfaceIkeGroupDef = Literal[
     "14", "15", "16", "19", "2", "20", "21", "5"
 ]
 
+SigSecuritySigInterfaceIpsecReplayWindowDef = Literal[64, 128, 256, 512, 1024]
+
 SdwanSigSecuritySigInterfaceIpsecCiphersuiteDef = Literal[
     "aes256-cbc-sha1", "aes256-cbc-sha256", "aes256-cbc-sha384", "aes256-cbc-sha512", "aes256-gcm"
 ]
@@ -207,7 +217,7 @@ class OneOfSrcVpnOptionsDef2:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass
@@ -246,7 +256,7 @@ class OneOfInterfaceShutdownOptionsDef2:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass
@@ -716,7 +726,7 @@ class OneOfInterfaceIpsecReplayWindowOptionsDef1:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: InterfaceIpsecReplayWindowDef
 
 
 @dataclass
@@ -817,7 +827,7 @@ class OneOfInterfaceTrackEnableOptionsDef2:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanTrueDef] = _field(default=None)
 
 
 @dataclass
@@ -1070,7 +1080,7 @@ class OneOfServiceAuthRequiredOptionsDef2:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass
@@ -1086,7 +1096,7 @@ class OneOfServiceXffForwardEnabledOptionsDef2:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass
@@ -1102,7 +1112,7 @@ class OneOfServiceOfwEnabledOptionsDef2:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass
@@ -1118,7 +1128,7 @@ class OneOfServiceIpsControlOptionsDef2:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass
@@ -1134,7 +1144,7 @@ class OneOfServiceCautionEnabledOptionsDef2:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass
@@ -1202,7 +1212,7 @@ class OneOfServiceIpOptionsDef2:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass
@@ -1250,7 +1260,7 @@ class OneOfServiceIpEnforcedForKnownBrowsersOptionsDef2:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass
@@ -1298,7 +1308,7 @@ class OneOfServiceEnabledOptionsDef2:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass
@@ -1314,7 +1324,7 @@ class OneOfServiceBlockInternetUntilAcceptedOptionsDef2:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass
@@ -1330,7 +1340,7 @@ class OneOfServiceForceSslInspectionOptionsDef2:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass
@@ -2008,7 +2018,7 @@ class SigOneOfInterfaceIpsecReplayWindowOptionsDef1:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: SigInterfaceIpsecReplayWindowDef
 
 
 @dataclass
@@ -2936,7 +2946,7 @@ class SigSecuritySigOneOfInterfaceIpsecReplayWindowOptionsDef1:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: SigSecuritySigInterfaceIpsecReplayWindowDef
 
 
 @dataclass

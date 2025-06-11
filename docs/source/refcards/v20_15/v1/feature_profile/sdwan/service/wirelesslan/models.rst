@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanTrueDef = Literal[True]
+
     SsidRadioTypeDef = Literal["24ghz", "5ghz", "all"]
 
     DefaultSsidRadioTypeDef = Literal["all"]
@@ -130,6 +132,8 @@ Models
     ]
 
     OptionType = Literal["default", "global"]
+
+    BooleanFalseDef = Literal[False]
 
     Ipv4SubnetMaskDef = Literal[
         "0.0.0.0",
@@ -417,7 +421,7 @@ Models
 
     class OneOfOnBooleanDefaultTrueOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfSsidNameOptionsDef:
@@ -681,7 +685,7 @@ Models
 
     class BooleanGlobalFalseOptionsDef:
         option_type: GlobalOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpV4SubnetMaskOptionsDef1:

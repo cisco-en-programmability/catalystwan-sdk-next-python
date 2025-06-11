@@ -134,7 +134,7 @@ class ObjecttrackerBuilder:
     ]:
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/objecttracker/{objectTrackerId}
         if self._request_adapter.param_checker([(transport_id, str), (object_tracker_id, str)], []):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "objectTrackerId": object_tracker_id,
             }
@@ -142,19 +142,19 @@ class ObjecttrackerBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/objecttracker/{objectTrackerId}",
                 return_type=GetSingleSdRoutingTransportObjecttrackerPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/objecttracker
         if self._request_adapter.param_checker([(transport_id, str)], [object_tracker_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/objecttracker",
                 return_type=GetListSdRoutingTransportObjecttrackerPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

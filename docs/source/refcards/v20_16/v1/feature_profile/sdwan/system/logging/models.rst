@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanTrueDef = Literal[True]
+
     TlsVersionDef = Literal["TLSv1.1", "TLSv1.2"]
 
     Value = Literal["TLSv1.1"]
@@ -43,6 +45,8 @@ Models
     ]
 
     SystemLoggingValue = Literal["informational"]
+
+    BooleanFalseDef = Literal[False]
 
     LoggingTlsVersionDef = Literal["TLSv1.1", "TLSv1.2"]
 
@@ -107,7 +111,7 @@ Models
 
     class OneOfDiskEnableOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfDiskFileSizeOptionsDef1:
@@ -317,7 +321,7 @@ Models
 
     class OneOfTlsEnableOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfTlsPropCustomProfileOptionsDef1:
@@ -334,7 +338,7 @@ Models
 
     class OneOfTlsPropCustomProfileOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfTlsPropProfileOptionsDef1:

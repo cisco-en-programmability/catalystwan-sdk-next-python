@@ -136,7 +136,7 @@ class EsimcellularControllerBuilder:
         if self._request_adapter.param_checker(
             [(transport_id, str), (esim_cellular_controller_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "esimCellularControllerId": esim_cellular_controller_id,
             }
@@ -144,21 +144,21 @@ class EsimcellularControllerBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/esimcellular-controller/{esimCellularControllerId}",
                 return_type=GetSingleSdwanTransportEsimcellularControllerPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/esimcellular-controller
         if self._request_adapter.param_checker(
             [(transport_id, str)], [esim_cellular_controller_id]
         ):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/esimcellular-controller",
                 return_type=GetListSdwanTransportEsimcellularControllerPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

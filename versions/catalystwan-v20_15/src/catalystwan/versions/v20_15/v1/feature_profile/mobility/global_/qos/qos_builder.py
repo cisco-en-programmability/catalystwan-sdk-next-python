@@ -122,7 +122,7 @@ class QosBuilder:
     ) -> Union[GetListMobilityGlobalQosPayload, GetSingleMobilityGlobalQosPayload]:
         # /dataservice/v1/feature-profile/mobility/global/{globalId}/qos/{qosId}
         if self._request_adapter.param_checker([(global_id, str), (qos_id, str)], []):
-            params = {
+            params_1 = {
                 "globalId": global_id,
                 "qosId": qos_id,
             }
@@ -130,19 +130,19 @@ class QosBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{globalId}/qos/{qosId}",
                 return_type=GetSingleMobilityGlobalQosPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/mobility/global/{globalId}/qos
         if self._request_adapter.param_checker([(global_id, str)], [qos_id]):
-            params = {
+            params_2 = {
                 "globalId": global_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{globalId}/qos",
                 return_type=GetListMobilityGlobalQosPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

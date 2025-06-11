@@ -21,6 +21,10 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
+    BooleanTrueDef = Literal[True]
+
     Value = Literal["disable-peer", "warning-only"]
 
     Ipv4SubnetMaskDef = Literal[
@@ -174,7 +178,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfAsNumOptionsDef1:
@@ -259,7 +263,7 @@ Models
 
     class OneOfOnBooleanDefaultTrueOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfNeighborEbgpMultihopOptionsDef1:
@@ -1014,7 +1018,7 @@ Models
 
     class OneOfIpv4V6RouteNull0OptionsWithoutVariable2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpRoute2:
@@ -1031,7 +1035,7 @@ Models
 
     class OneOfIpv4RouteDhcpOptionsWithoutVariable2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpRoute3:
@@ -1048,7 +1052,7 @@ Models
 
     class OneOfIpv4RouteVpnOptionsWithoutVariable2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpRoute4:

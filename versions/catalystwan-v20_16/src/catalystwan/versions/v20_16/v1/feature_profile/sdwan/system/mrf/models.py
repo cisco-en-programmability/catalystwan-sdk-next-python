@@ -13,6 +13,8 @@ RoleDef = Literal["border-router", "edge-router"]
 
 EnableMrfMigrationDef = Literal["enabled", "enabled-from-bgp-core"]
 
+BooleanFalseDef = Literal[False]
+
 
 @dataclass
 class OneOfSecondaryRegionOptionsDef1:
@@ -107,7 +109,7 @@ class OneOfEnableManagemantRegionOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -183,7 +185,7 @@ class OneOfManagementGatewayOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

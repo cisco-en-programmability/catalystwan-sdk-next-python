@@ -158,7 +158,7 @@ class DhcpServerBuilder:
         if self._request_adapter.param_checker(
             [(service_id, str), (vpn_id, str), (svi_id, str), (dhcp_server_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "vpnId": vpn_id,
                 "sviId": svi_id,
@@ -168,14 +168,14 @@ class DhcpServerBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}/dhcp-server/{dhcpServerId}",
                 return_type=GetSingleSdwanServiceLanVpnInterfaceSviDhcpServerPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/interface/svi/{sviId}/dhcp-server
         if self._request_adapter.param_checker(
             [(service_id, str), (vpn_id, str), (svi_id, str)], [dhcp_server_id]
         ):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
                 "vpnId": vpn_id,
                 "sviId": svi_id,
@@ -186,7 +186,7 @@ class DhcpServerBuilder:
                 return_type=List[
                     GetLanVpnInterfaceSviAssociatedDhcpServerParcelsForTransportGetResponse
                 ],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
 
     class OneOfServerNameOptionsDef1:
         option_type: VariableOptionTypeDef
@@ -105,7 +107,7 @@ Models
 
     class OneOfPreferOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class Server:
@@ -217,7 +219,7 @@ Models
 
     class OneOfLeaderEnableOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfLeaderStratumOptionsDef1:

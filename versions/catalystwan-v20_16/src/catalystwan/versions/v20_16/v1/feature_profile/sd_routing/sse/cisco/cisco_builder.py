@@ -122,7 +122,7 @@ class CiscoBuilder:
     ) -> Union[GetListSdRoutingSseCiscoSsePayload, GetSingleSdRoutingSseCiscoSsePayload]:
         # /dataservice/v1/feature-profile/sd-routing/sse/{sseId}/cisco/{ciscoSseId}
         if self._request_adapter.param_checker([(sse_id, str), (cisco_sse_id, str)], []):
-            params = {
+            params_1 = {
                 "sseId": sse_id,
                 "ciscoSseId": cisco_sse_id,
             }
@@ -130,19 +130,19 @@ class CiscoBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/sse/{sseId}/cisco/{ciscoSseId}",
                 return_type=GetSingleSdRoutingSseCiscoSsePayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/sse/{sseId}/cisco
         if self._request_adapter.param_checker([(sse_id, str)], [cisco_sse_id]):
-            params = {
+            params_2 = {
                 "sseId": sse_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/sse/{sseId}/cisco",
                 return_type=GetListSdRoutingSseCiscoSsePayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

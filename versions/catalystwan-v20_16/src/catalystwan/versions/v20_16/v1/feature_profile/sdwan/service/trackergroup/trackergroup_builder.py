@@ -131,7 +131,7 @@ class TrackergroupBuilder:
     ) -> Union[GetListSdwanServiceTrackergroupPayload, GetSingleSdwanServiceTrackergroupPayload]:
         # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/trackergroup/{trackergroupId}
         if self._request_adapter.param_checker([(service_id, str), (trackergroup_id, str)], []):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "trackergroupId": trackergroup_id,
             }
@@ -139,19 +139,19 @@ class TrackergroupBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/trackergroup/{trackergroupId}",
                 return_type=GetSingleSdwanServiceTrackergroupPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/trackergroup
         if self._request_adapter.param_checker([(service_id, str)], [trackergroup_id]):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/trackergroup",
                 return_type=GetListSdwanServiceTrackergroupPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

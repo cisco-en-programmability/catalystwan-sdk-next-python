@@ -7,6 +7,8 @@ GlobalOptionTypeDef = Literal["global"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanTrueDef = Literal[True]
+
 SharedLomTypeDef = Literal["console", "failover", "ge1", "ge2", "ge3", "te2", "te3"]
 
 SharedFailOverTypeDef = Literal["ge2", "te2"]
@@ -43,7 +45,7 @@ class OneOfOnBooleanDefaultTrueNoVariableOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -233,7 +235,7 @@ class Onel3DefaultOptionsDef:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

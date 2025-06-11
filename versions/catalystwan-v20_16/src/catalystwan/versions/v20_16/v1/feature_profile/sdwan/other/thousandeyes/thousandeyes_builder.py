@@ -131,7 +131,7 @@ class ThousandeyesBuilder:
     ) -> Union[GetListSdwanOtherThousandeyesPayload, GetSingleSdwanOtherThousandeyesPayload]:
         # /dataservice/v1/feature-profile/sdwan/other/{otherId}/thousandeyes/{thousandeyesId}
         if self._request_adapter.param_checker([(other_id, str), (thousandeyes_id, str)], []):
-            params = {
+            params_1 = {
                 "otherId": other_id,
                 "thousandeyesId": thousandeyes_id,
             }
@@ -139,19 +139,19 @@ class ThousandeyesBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/other/{otherId}/thousandeyes/{thousandeyesId}",
                 return_type=GetSingleSdwanOtherThousandeyesPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/other/{otherId}/thousandeyes
         if self._request_adapter.param_checker([(other_id, str)], [thousandeyes_id]):
-            params = {
+            params_2 = {
                 "otherId": other_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/other/{otherId}/thousandeyes",
                 return_type=GetListSdwanOtherThousandeyesPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

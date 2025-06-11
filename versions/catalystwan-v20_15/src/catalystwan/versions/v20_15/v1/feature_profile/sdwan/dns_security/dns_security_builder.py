@@ -138,7 +138,7 @@ class DnsSecurityBuilder:
         if self._request_adapter.param_checker(
             [(dns_security_id, str)], [offset, limit, reference_count]
         ):
-            params = {
+            params_1 = {
                 "dnsSecurityId": dns_security_id,
                 "references": references,
             }
@@ -146,12 +146,12 @@ class DnsSecurityBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/dns-security/{dnsSecurityId}",
                 return_type=GetSingleSdwanDnsSecurityPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/dns-security
         if self._request_adapter.param_checker([], [dns_security_id, references]):
-            params = {
+            params_2 = {
                 "offset": offset,
                 "limit": limit,
                 "referenceCount": reference_count,
@@ -160,7 +160,7 @@ class DnsSecurityBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/dns-security",
                 return_type=List[GetSdwanDnsSecurityFeatureProfilesGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

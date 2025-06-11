@@ -151,7 +151,7 @@ class EthernetBuilder:
         if self._request_adapter.param_checker(
             [(transport_id, str), (vpn_id, str), (ethernet_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "vpnId": vpn_id,
                 "ethernetId": ethernet_id,
@@ -160,12 +160,12 @@ class EthernetBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/management/vpn/{vpnId}/interface/ethernet/{ethernetId}",
                 return_type=GetSingleSdwanTransportManagementVpnInterfaceEthernetPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/management/vpn/{vpnId}/interface/ethernet
         if self._request_adapter.param_checker([(transport_id, str), (vpn_id, str)], [ethernet_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
                 "vpnId": vpn_id,
             }
@@ -173,7 +173,7 @@ class EthernetBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/management/vpn/{vpnId}/interface/ethernet",
                 return_type=GetListSdwanTransportManagementVpnInterfaceEthernetPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

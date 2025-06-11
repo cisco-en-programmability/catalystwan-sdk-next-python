@@ -42,6 +42,8 @@ Models
 
     DefaultModeDef = Literal["trunk"]
 
+    BooleanFalseDef = Literal[False]
+
     Ipv4SubnetMaskDef = Literal[
         "0.0.0.0",
         "128.0.0.0",
@@ -223,7 +225,7 @@ Models
 
     class OneOfDhcpOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfIpv4AddressOptionsDef1:
@@ -259,7 +261,7 @@ Models
 
     class OneOfShutdownOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class OneOfDefaultGatewayOptionsDef1:

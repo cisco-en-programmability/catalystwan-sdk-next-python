@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
     CommunityAuthorizationDef = Literal["read-only", "read-write"]
 
     GroupSecurityLevelDef = Literal[
@@ -60,7 +62,7 @@ Models
 
     class OneOfShutdownOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfContactOptionsDef1:
@@ -126,7 +128,7 @@ Models
 
     class OneOfViewOidExcludeOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class Oid:

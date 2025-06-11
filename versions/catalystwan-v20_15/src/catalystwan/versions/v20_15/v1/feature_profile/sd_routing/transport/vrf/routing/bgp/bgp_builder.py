@@ -98,7 +98,7 @@ class BgpBuilder:
         if self._request_adapter.param_checker(
             [(transport_id, str), (vrf_id, str), (bgp_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "vrfId": vrf_id,
                 "bgpId": bgp_id,
@@ -107,12 +107,12 @@ class BgpBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/{vrfId}/routing/bgp/{bgpId}",
                 return_type=GetSingleSdRoutingTransportVrfVrfRoutingBgpPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/routing/bgp/{bgpId}
         if self._request_adapter.param_checker([(transport_id, str), (bgp_id, str)], [vrf_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
                 "bgpId": bgp_id,
             }
@@ -120,12 +120,12 @@ class BgpBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/routing/bgp/{bgpId}",
                 return_type=GetSingleSdRoutingTransportVrfRoutingBgpPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/{vrfId}/routing/bgp
         if self._request_adapter.param_checker([(transport_id, str), (vrf_id, str)], [bgp_id]):
-            params = {
+            params_3 = {
                 "transportId": transport_id,
                 "vrfId": vrf_id,
             }
@@ -133,19 +133,19 @@ class BgpBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/{vrfId}/routing/bgp",
                 return_type=List[GetTransportVrfAssociatedRoutingBgpFeatures1GetResponse],
-                params=params,
+                params=params_3,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/routing/bgp
         if self._request_adapter.param_checker([(transport_id, str)], [bgp_id, vrf_id]):
-            params = {
+            params_4 = {
                 "transportId": transport_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/routing/bgp",
                 return_type=GetListSdRoutingTransportVrfRoutingBgpPayload,
-                params=params,
+                params=params_4,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")
@@ -187,8 +187,8 @@ class BgpBuilder:
         self,
         transport_id: str,
         payload: Union[
-            CreateTransportVrfAndRoutingBgpFeatureAssociationPostRequest,
             CreateSdroutingTransportVrfBgpFeaturePostRequest,
+            CreateTransportVrfAndRoutingBgpFeatureAssociationPostRequest,
         ],
         vrf_id: Optional[str] = None,
         **kw,
@@ -205,7 +205,7 @@ class BgpBuilder:
             ],
             [],
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "vrfId": vrf_id,
             }
@@ -213,7 +213,7 @@ class BgpBuilder:
                 "POST",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/{vrfId}/routing/bgp",
                 return_type=CreateTransportVrfAndRoutingBgpFeatureAssociationPostResponse,
-                params=params,
+                params=params_1,
                 payload=payload,
                 **kw,
             )
@@ -222,14 +222,14 @@ class BgpBuilder:
             [(transport_id, str), (payload, CreateSdroutingTransportVrfBgpFeaturePostRequest)],
             [vrf_id],
         ):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
             }
             return self._request_adapter.request(
                 "POST",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/routing/bgp",
                 return_type=CreateSdroutingTransportVrfBgpFeaturePostResponse,
-                params=params,
+                params=params_2,
                 payload=payload,
                 **kw,
             )
@@ -280,8 +280,8 @@ class BgpBuilder:
         transport_id: str,
         bgp_id: str,
         payload: Union[
-            EditSdroutingTransportVrfBgpFeaturePutRequest,
             EditTransportVrfAndRoutingBgpFeatureAssociationPutRequest,
+            EditSdroutingTransportVrfBgpFeaturePutRequest,
         ],
         vrf_id: Optional[str] = None,
         **kw,
@@ -299,7 +299,7 @@ class BgpBuilder:
             ],
             [],
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "bgpId": bgp_id,
                 "vrfId": vrf_id,
@@ -308,7 +308,7 @@ class BgpBuilder:
                 "PUT",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/{vrfId}/routing/bgp/{bgpId}",
                 return_type=EditTransportVrfAndRoutingBgpFeatureAssociationPutResponse,
-                params=params,
+                params=params_1,
                 payload=payload,
                 **kw,
             )
@@ -321,7 +321,7 @@ class BgpBuilder:
             ],
             [vrf_id],
         ):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
                 "bgpId": bgp_id,
             }
@@ -329,7 +329,7 @@ class BgpBuilder:
                 "PUT",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/routing/bgp/{bgpId}",
                 return_type=EditSdroutingTransportVrfBgpFeaturePutResponse,
-                params=params,
+                params=params_2,
                 payload=payload,
                 **kw,
             )
@@ -365,7 +365,7 @@ class BgpBuilder:
         if self._request_adapter.param_checker(
             [(transport_id, str), (bgp_id, str), (vrf_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "bgpId": bgp_id,
                 "vrfId": vrf_id,
@@ -373,19 +373,19 @@ class BgpBuilder:
             return self._request_adapter.request(
                 "DELETE",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/{vrfId}/routing/bgp/{bgpId}",
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/routing/bgp/{bgpId}
         if self._request_adapter.param_checker([(transport_id, str), (bgp_id, str)], [vrf_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
                 "bgpId": bgp_id,
             }
             return self._request_adapter.request(
                 "DELETE",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/vrf/routing/bgp/{bgpId}",
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

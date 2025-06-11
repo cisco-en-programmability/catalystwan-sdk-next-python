@@ -123,7 +123,7 @@ class EthernetBuilder:
     ) -> Union[GetListMobilityGlobalEthernetPayload, GetEthernetProfileParcelGetResponse]:
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/ethernet/{ethernetId}
         if self._request_adapter.param_checker([(profile_id, str), (ethernet_id, str)], []):
-            params = {
+            params_1 = {
                 "profileId": profile_id,
                 "ethernetId": ethernet_id,
             }
@@ -131,19 +131,19 @@ class EthernetBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/ethernet/{ethernetId}",
                 return_type=GetEthernetProfileParcelGetResponse,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/ethernet
         if self._request_adapter.param_checker([(profile_id, str)], [ethernet_id]):
-            params = {
+            params_2 = {
                 "profileId": profile_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/ethernet",
                 return_type=GetListMobilityGlobalEthernetPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

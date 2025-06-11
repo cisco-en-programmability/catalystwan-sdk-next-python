@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
     ModeDef = Literal["ms-based", "standalone"]
 
     DefaultModeDef = Literal["ms-based"]
@@ -36,7 +38,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfModeOptionsDef1:
@@ -70,7 +72,7 @@ Models
 
     class OneOfNmeaOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfSourceAddressOptionsDef1:

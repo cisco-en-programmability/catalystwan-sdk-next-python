@@ -19,6 +19,8 @@ PdnTypeDef = Literal["ipv4", "ipv4v6", "ipv6"]
 
 DefaultPdnTypeDef = Literal["ipv4"]
 
+SliceTypeDef = Literal[1, 2, 3]
+
 CellularProfileDefaultAuthenticationDef = Literal["none"]
 
 CellularProfileAuthenticationDef = Literal["chap", "pap", "pap_chap"]
@@ -27,6 +29,8 @@ CellularProfilePdnTypeDef = Literal["ipv4", "ipv4v6", "ipv6"]
 
 CellularProfileDefaultPdnTypeDef = Literal["ipv4"]
 
+CellularProfileSliceTypeDef = Literal[1, 2, 3]
+
 TransportCellularProfileDefaultAuthenticationDef = Literal["none"]
 
 TransportCellularProfileAuthenticationDef = Literal["chap", "pap", "pap_chap"]
@@ -34,6 +38,8 @@ TransportCellularProfileAuthenticationDef = Literal["chap", "pap", "pap_chap"]
 TransportCellularProfilePdnTypeDef = Literal["ipv4", "ipv4v6", "ipv6"]
 
 TransportCellularProfileDefaultPdnTypeDef = Literal["ipv4"]
+
+TransportCellularProfileSliceTypeDef = Literal[1, 2, 3]
 
 
 @dataclass
@@ -219,7 +225,7 @@ class OneOfSliceTypeOptionsDef1:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: SliceTypeDef
 
 
 @dataclass
@@ -458,7 +464,7 @@ class CellularProfileOneOfSliceTypeOptionsDef1:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: CellularProfileSliceTypeDef
 
 
 @dataclass
@@ -659,7 +665,7 @@ class TransportCellularProfileOneOfSliceTypeOptionsDef1:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: TransportCellularProfileSliceTypeDef
 
 
 @dataclass

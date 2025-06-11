@@ -97,26 +97,26 @@ class TopologyGroupBuilder:
     ) -> Union[List[TopologyGroup], TopologyGroup]:
         # /dataservice/v1/topology-group/{topologyGroupId}
         if self._request_adapter.param_checker([(topology_group_id, str)], [solution]):
-            params = {
+            params_1 = {
                 "topologyGroupId": topology_group_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/topology-group/{topologyGroupId}",
                 return_type=TopologyGroup,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/topology-group
         if self._request_adapter.param_checker([], [topology_group_id]):
-            params = {
+            params_2 = {
                 "solution": solution,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/topology-group",
                 return_type=List[TopologyGroup],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

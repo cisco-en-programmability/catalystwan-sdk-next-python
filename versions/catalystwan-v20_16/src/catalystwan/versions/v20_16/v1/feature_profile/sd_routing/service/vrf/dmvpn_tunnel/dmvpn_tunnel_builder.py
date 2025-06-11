@@ -148,7 +148,7 @@ class DmvpnTunnelBuilder:
         if self._request_adapter.param_checker(
             [(service_id, str), (vrf_id, str), (tunnel_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "vrfId": vrf_id,
                 "tunnelId": tunnel_id,
@@ -157,12 +157,12 @@ class DmvpnTunnelBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}/dmvpn-tunnel/{tunnelId}",
                 return_type=GetSingleSdRoutingServiceVrfLanDmvpnTunnelPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}/dmvpn-tunnel
         if self._request_adapter.param_checker([(service_id, str), (vrf_id, str)], [tunnel_id]):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
                 "vrfId": vrf_id,
             }
@@ -170,7 +170,7 @@ class DmvpnTunnelBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}/dmvpn-tunnel",
                 return_type=GetListSdRoutingServiceVrfLanDmvpnTunnelPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

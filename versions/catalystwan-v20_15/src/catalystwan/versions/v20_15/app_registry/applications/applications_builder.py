@@ -73,14 +73,14 @@ class ApplicationsBuilder:
     ) -> Union[List[Any], PayloadItems]:
         # /dataservice/app-registry/applications/{appId}
         if self._request_adapter.param_checker([(payload, Any), (app_id, str)], []):
-            params = {
+            params_1 = {
                 "appId": app_id,
             }
             return self._request_adapter.request(
                 "PUT",
                 "/dataservice/app-registry/applications/{appId}",
                 return_type=PayloadItems,
-                params=params,
+                params=params_1,
                 payload=payload,
                 **kw,
             )

@@ -140,7 +140,7 @@ class ServiceBuilder:
     ) -> Union[List[GetSdwanServiceFeatureProfilesGetResponse], GetSingleSdwanServicePayload]:
         # /dataservice/v1/feature-profile/sdwan/service/{serviceId}
         if self._request_adapter.param_checker([(service_id, str)], [offset, limit]):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "details": details,
             }
@@ -148,12 +148,12 @@ class ServiceBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/service/{serviceId}",
                 return_type=GetSingleSdwanServicePayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/service
         if self._request_adapter.param_checker([], [service_id]):
-            params = {
+            params_2 = {
                 "offset": offset,
                 "limit": limit,
                 "details": details,
@@ -162,7 +162,7 @@ class ServiceBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/service",
                 return_type=List[GetSdwanServiceFeatureProfilesGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

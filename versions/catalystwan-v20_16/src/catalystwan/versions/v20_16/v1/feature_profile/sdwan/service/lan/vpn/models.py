@@ -48,6 +48,8 @@ Ipv4SubnetMaskDef = Literal[
     "255.255.255.255",
 ]
 
+BooleanFalseDef = Literal[False]
+
 RegionDef = Literal["access", "core", "core-and-access"]
 
 Value = Literal["core-and-access"]
@@ -55,6 +57,8 @@ Value = Literal["core-and-access"]
 AdvertiseIpv6ProtocolDef = Literal["Aggregate", "BGP", "Connected", "Network", "OSPF", "Static"]
 
 ProtocolSubTypeDef = Literal["External"]
+
+BooleanTrueDef = Literal[True]
 
 Ipv6RouteNatDef = Literal["NAT64", "NAT66"]
 
@@ -537,7 +541,7 @@ class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -811,7 +815,7 @@ class OneOfIpv4V6RouteNull0OptionsWithoutVariable2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -867,7 +871,7 @@ class OneOfIpv4RouteDhcpOptionsWithoutVariable2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -890,7 +894,7 @@ class OneOfIpv4RouteVpnOptionsWithoutVariable2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1227,7 +1231,7 @@ class OneOfServiceTrackingOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1522,7 +1526,7 @@ class OneOfNatPoolOverloadOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1902,7 +1906,7 @@ class OneOfNat64V4PoolOverloadOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -2183,7 +2187,7 @@ class OneOfEnableSdraDef2:
     option_type: Optional[DefaultOptionTypeDef] = _field(
         default=None, metadata={"alias": "optionType"}
     )
-    value: Optional[bool] = _field(default=None)
+    value: Optional[BooleanFalseDef] = _field(default=None)
 
 
 @dataclass

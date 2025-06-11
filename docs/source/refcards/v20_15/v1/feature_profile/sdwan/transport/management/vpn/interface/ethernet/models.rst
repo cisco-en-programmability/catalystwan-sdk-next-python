@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanTrueDef = Literal[True]
+
     Ipv4SubnetMaskDef = Literal[
         "0.0.0.0",
         "128.0.0.0",
@@ -47,6 +49,8 @@ Models
         "255.255.255.254",
         "255.255.255.255",
     ]
+
+    BooleanFalseDef = Literal[False]
 
     DuplexDef = Literal["auto", "full", "half"]
 
@@ -85,7 +89,7 @@ Models
 
     class OneOfShutdownOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfInterfaceNameOptionsDef1:
@@ -292,7 +296,7 @@ Models
 
     class OneOfAutoBandwidthDetectOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class DhcpClient:
@@ -561,7 +565,7 @@ Models
 
     class OneOfIcmpRedirectDisableOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpDirectedBroadcastOptionsDef1:
@@ -578,7 +582,7 @@ Models
 
     class OneOfIpDirectedBroadcastOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class Advanced:

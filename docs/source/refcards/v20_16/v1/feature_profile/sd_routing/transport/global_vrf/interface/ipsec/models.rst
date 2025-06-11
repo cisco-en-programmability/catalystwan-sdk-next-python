@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
     TunnelModeDef = Literal["ipv4", "ipv4-v6overlay", "ipv6"]
 
     Ipv4SubnetMaskDef = Literal[
@@ -50,6 +52,8 @@ Models
         "255.255.255.255",
     ]
 
+    BooleanTrueDef = Literal[True]
+
     IkeV1ModeDef = Literal["aggressive", "main"]
 
     DefaultIkeV1ModeDef = Literal["main"]
@@ -66,6 +70,8 @@ Models
     IkeGroupDef = Literal["14", "15", "16", "19", "20", "21"]
 
     DefaultIkeGroupDef = Literal["16"]
+
+    IpsecReplayWindowDef = Literal[64, 128, 256, 512, 1024]
 
     IpsecCipherSuiteDef = Literal[
         "aes256-cbc-sha1",
@@ -88,6 +94,8 @@ Models
     ]
 
     DefaultPerfectForwardSecrecyDef = Literal["group-16"]
+
+    IkeVersionDef = Literal[1, 2]
 
 
     class OneOfIpsecIfNameOptionsDef1:
@@ -116,7 +124,7 @@ Models
 
     class OneOfShutdownOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfDescriptionOptionsDef1:
@@ -247,7 +255,7 @@ Models
 
     class OneOfClearDontFragmentOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class TunnelConfig4O4:
@@ -434,7 +442,7 @@ Models
 
     class OneOfTunnelVrfGlobalVrfOptionsDef:
         option_type: GlobalOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class TunnelVrf2:
@@ -455,7 +463,7 @@ Models
 
     class OneOfMultiplexingOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfDpdIntervalOptionsDef1:
@@ -913,7 +921,7 @@ Models
 
     class OneOfIpsecReplayWindowOptionsDef1:
         option_type: GlobalOptionTypeDef
-        value: int
+        value: IpsecReplayWindowDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpsecReplayWindowOptionsDef2:
@@ -1041,7 +1049,7 @@ Models
 
     class OneOfIkeVersionOptionsDef:
         option_type: GlobalOptionTypeDef
-        value: int
+        value: IkeVersionDef
 
 
     class Data2:

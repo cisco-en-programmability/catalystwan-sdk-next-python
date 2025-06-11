@@ -133,7 +133,7 @@ class RoutePolicyBuilder:
     ]:
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/route-policy/{routePolicyId}
         if self._request_adapter.param_checker([(transport_id, str), (route_policy_id, str)], []):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "routePolicyId": route_policy_id,
             }
@@ -141,19 +141,19 @@ class RoutePolicyBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/route-policy/{routePolicyId}",
                 return_type=GetSingleSdRoutingTransportRoutePolicyPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/route-policy
         if self._request_adapter.param_checker([(transport_id, str)], [route_policy_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/route-policy",
                 return_type=GetListSdRoutingTransportRoutePolicyPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

@@ -61,6 +61,8 @@ Models
         "255.255.255.255",
     ]
 
+    BooleanFalseDef = Literal[False]
+
     RegionDef = Literal["access", "core", "core-and-access"]
 
     Value = Literal["core-and-access"]
@@ -70,6 +72,8 @@ Models
     ]
 
     ProtocolSubTypeDef = Literal["External"]
+
+    BooleanTrueDef = Literal[True]
 
     Ipv6RouteNatDef = Literal["NAT64", "NAT66"]
 
@@ -509,7 +513,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfRegionOptionsDef1:
@@ -740,7 +744,7 @@ Models
 
     class OneOfIpv4V6RouteNull0OptionsWithoutVariable2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpv4GatewayDistanceOptionsDef1:
@@ -781,7 +785,7 @@ Models
 
     class OneOfIpv4RouteDhcpOptionsWithoutVariable2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpRoute3:
@@ -798,7 +802,7 @@ Models
 
     class OneOfIpv4RouteVpnOptionsWithoutVariable2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpRoute4:
@@ -1055,7 +1059,7 @@ Models
 
     class OneOfServiceTrackingOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class Service:
@@ -1276,7 +1280,7 @@ Models
 
     class OneOfNatPoolOverloadOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfNatPoolDirectionOptionsDef1:
@@ -1565,7 +1569,7 @@ Models
 
     class OneOfNat64V4PoolOverloadOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class Nat64V4Pool:
@@ -1799,7 +1803,7 @@ Models
 
     class OneOfEnableSdraDef2:
         option_type: Optional[DefaultOptionTypeDef]
-        value: Optional[bool]
+        value: Optional[BooleanFalseDef]
 
 
     class VpnData:

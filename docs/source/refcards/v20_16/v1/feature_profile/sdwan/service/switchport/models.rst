@@ -15,11 +15,15 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanTrueDef = Literal[True]
+
     InterfaceSpeedDef = Literal[
         "10", "100", "1000", "10000", "2500", "25000"
     ]
 
     InterfaceDuplexDef = Literal["full", "half"]
+
+    BooleanFalseDef = Literal[False]
 
     InterfacePortControlDef = Literal[
         "auto", "force-authorized", "force-unauthorized"
@@ -101,7 +105,7 @@ Models
 
     class OneOfInterfaceShutdownOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfInterfaceSpeedOptionsDef1:
@@ -195,7 +199,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfInterfacePortControlOptionsDef1:

@@ -130,7 +130,7 @@ class CertificateBuilder:
     ]:
         # /dataservice/v1/feature-profile/sd-routing/system/{systemId}/certificate/{certificateId}
         if self._request_adapter.param_checker([(system_id, str), (certificate_id, str)], []):
-            params = {
+            params_1 = {
                 "systemId": system_id,
                 "certificateId": certificate_id,
             }
@@ -138,19 +138,19 @@ class CertificateBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/system/{systemId}/certificate/{certificateId}",
                 return_type=GetSingleSdRoutingSystemCertificatePayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/system/{systemId}/certificate
         if self._request_adapter.param_checker([(system_id, str)], [certificate_id]):
-            params = {
+            params_2 = {
                 "systemId": system_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/system/{systemId}/certificate",
                 return_type=GetListSdRoutingSystemCertificatePayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

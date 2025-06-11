@@ -125,7 +125,7 @@ class MrfBuilder:
     ) -> Union[GetListSdwanSystemMrfPayload, GetSingleSdwanSystemMrfPayload]:
         # /dataservice/v1/feature-profile/sdwan/system/{systemId}/mrf/{mrfId}
         if self._request_adapter.param_checker([(system_id, str), (mrf_id, str)], []):
-            params = {
+            params_1 = {
                 "systemId": system_id,
                 "mrfId": mrf_id,
             }
@@ -133,19 +133,19 @@ class MrfBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/system/{systemId}/mrf/{mrfId}",
                 return_type=GetSingleSdwanSystemMrfPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/system/{systemId}/mrf
         if self._request_adapter.param_checker([(system_id, str)], [mrf_id]):
-            params = {
+            params_2 = {
                 "systemId": system_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/system/{systemId}/mrf",
                 return_type=GetListSdwanSystemMrfPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

@@ -9,6 +9,8 @@ VariableOptionTypeDef = Literal["variable"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanFalseDef = Literal[False]
+
 TunnelModeDef = Literal["ipv4", "ipv4-v6overlay", "ipv6"]
 
 Ipv4SubnetMaskDef = Literal[
@@ -46,6 +48,8 @@ Ipv4SubnetMaskDef = Literal[
     "255.255.255.255",
 ]
 
+BooleanTrueDef = Literal[True]
+
 IkeV1ModeDef = Literal["aggressive", "main"]
 
 DefaultIkeV1ModeDef = Literal["main"]
@@ -60,6 +64,8 @@ IkeGroupDef = Literal["14", "15", "16", "19", "20", "21"]
 
 DefaultIkeGroupDef = Literal["16"]
 
+IpsecReplayWindowDef = Literal[64, 128, 256, 512, 1024]
+
 IpsecCipherSuiteDef = Literal[
     "aes256-cbc-sha1", "aes256-cbc-sha256", "aes256-cbc-sha384", "aes256-cbc-sha512", "aes256-gcm"
 ]
@@ -71,6 +77,8 @@ PerfectForwardSecrecyDef = Literal[
 ]
 
 DefaultPerfectForwardSecrecyDef = Literal["group-16"]
+
+IkeVersionDef = Literal[1, 2]
 
 
 @dataclass
@@ -114,7 +122,7 @@ class OneOfShutdownOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -298,7 +306,7 @@ class OneOfClearDontFragmentOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -526,7 +534,7 @@ class OneOfTunnelVrfGlobalVrfOptionsDef:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1085,7 +1093,7 @@ class OneOfIpsecReplayWindowOptionsDef1:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: IpsecReplayWindowDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -1235,7 +1243,7 @@ class OneOfIkeVersionOptionsDef:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: int
+    value: IkeVersionDef
 
 
 @dataclass

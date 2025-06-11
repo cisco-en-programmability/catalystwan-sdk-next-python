@@ -126,7 +126,7 @@ class LoggingBuilder:
     ) -> Union[GetListMobilityGlobalLoggingPayload, GetSingleMobilityGlobalLoggingPayload]:
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/logging/{loggingId}
         if self._request_adapter.param_checker([(profile_id, str), (logging_id, str)], []):
-            params = {
+            params_1 = {
                 "profileId": profile_id,
                 "loggingId": logging_id,
             }
@@ -134,19 +134,19 @@ class LoggingBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/logging/{loggingId}",
                 return_type=GetSingleMobilityGlobalLoggingPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/logging
         if self._request_adapter.param_checker([(profile_id, str)], [logging_id]):
-            params = {
+            params_2 = {
                 "profileId": profile_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/logging",
                 return_type=GetListMobilityGlobalLoggingPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

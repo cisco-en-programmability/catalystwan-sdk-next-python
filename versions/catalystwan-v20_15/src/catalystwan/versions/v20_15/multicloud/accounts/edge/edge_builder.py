@@ -101,20 +101,20 @@ class EdgeBuilder:
         # /dataservice/multicloud/accounts/edge/{accountId}
         if self._request_adapter.param_checker([(account_id, str)], [edge_type]):
             logging.warning("Operation: %s is deprecated", "getEdgeAccountDetails")
-            params = {
+            params_1 = {
                 "accountId": account_id,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/multicloud/accounts/edge/{accountId}", params=params, **kw
+                "GET", "/dataservice/multicloud/accounts/edge/{accountId}", params=params_1, **kw
             )
         # /dataservice/multicloud/accounts/edge
         if self._request_adapter.param_checker([], [account_id]):
             logging.warning("Operation: %s is deprecated", "getEdgeAccounts")
-            params = {
+            params_2 = {
                 "edgeType": edge_type,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/multicloud/accounts/edge", params=params, **kw
+                "GET", "/dataservice/multicloud/accounts/edge", params=params_2, **kw
             )
         raise RuntimeError("Provided arguments do not match any signature")
 

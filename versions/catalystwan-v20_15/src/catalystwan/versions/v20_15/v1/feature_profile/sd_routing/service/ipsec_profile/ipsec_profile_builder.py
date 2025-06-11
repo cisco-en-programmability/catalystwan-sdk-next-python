@@ -130,7 +130,7 @@ class IpsecProfileBuilder:
     ]:
         # /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/ipsec-profile/{ipsecProfileId}
         if self._request_adapter.param_checker([(service_id, str), (ipsec_profile_id, str)], []):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "ipsecProfileId": ipsec_profile_id,
             }
@@ -138,19 +138,19 @@ class IpsecProfileBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/ipsec-profile/{ipsecProfileId}",
                 return_type=GetSingleSdRoutingServiceIpsecProfilePayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/ipsec-profile
         if self._request_adapter.param_checker([(service_id, str)], [ipsec_profile_id]):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/ipsec-profile",
                 return_type=GetListSdRoutingServiceIpsecProfilePayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

@@ -11,7 +11,7 @@ Get aggregated data based on input query and filters. The data can be filtered o
 
 .. code:: python
 
-    def post(payload: Any) -> List[AppRouteAppAggRespInner]: ...
+    def post(payload: Any) -> List[List[AppRouteAppAggRespInner]]: ...
 
 
 Example:

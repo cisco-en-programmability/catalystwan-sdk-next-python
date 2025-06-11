@@ -45,7 +45,7 @@ class DeviceBuilder:
     def get(self, partner_id: str, uuid: Optional[str] = None, **kw) -> SdaDevicesRes:
         # /dataservice/partner/dnac/sda/device/{partnerId}/{uuid}
         if self._request_adapter.param_checker([(partner_id, str), (uuid, str)], []):
-            params = {
+            params_1 = {
                 "partnerId": partner_id,
                 "uuid": uuid,
             }
@@ -53,19 +53,19 @@ class DeviceBuilder:
                 "GET",
                 "/dataservice/partner/dnac/sda/device/{partnerId}/{uuid}",
                 return_type=SdaDevicesRes,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/partner/dnac/sda/device/{partnerId}
         if self._request_adapter.param_checker([(partner_id, str)], [uuid]):
-            params = {
+            params_2 = {
                 "partnerId": partner_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/partner/dnac/sda/device/{partnerId}",
                 return_type=SdaDevicesRes,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

@@ -61,7 +61,7 @@ class CaptureBuilder:
     ) -> Union[PacketCaptureInfo, FormPacketCaptureRes]:
         # /dataservice/stream/device/capture/{deviceUUID}/{sessionId}
         if self._request_adapter.param_checker([(device_uuid, str), (session_id, str)], [payload]):
-            params = {
+            params_1 = {
                 "deviceUUID": device_uuid,
                 "sessionId": session_id,
             }
@@ -69,7 +69,7 @@ class CaptureBuilder:
                 "POST",
                 "/dataservice/stream/device/capture/{deviceUUID}/{sessionId}",
                 return_type=FormPacketCaptureRes,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/stream/device/capture

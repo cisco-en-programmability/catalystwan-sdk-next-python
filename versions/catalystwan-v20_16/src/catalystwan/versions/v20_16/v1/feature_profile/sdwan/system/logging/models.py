@@ -9,6 +9,8 @@ GlobalOptionTypeDef = Literal["global"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanTrueDef = Literal[True]
+
 TlsVersionDef = Literal["TLSv1.1", "TLSv1.2"]
 
 Value = Literal["TLSv1.1"]
@@ -32,6 +34,8 @@ PrioritytDef = Literal[
 ]
 
 SystemLoggingValue = Literal["informational"]
+
+BooleanFalseDef = Literal[False]
 
 LoggingTlsVersionDef = Literal["TLSv1.1", "TLSv1.2"]
 
@@ -77,7 +81,7 @@ class OneOfDiskEnableOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -363,7 +367,7 @@ class OneOfTlsEnableOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -389,7 +393,7 @@ class OneOfTlsPropCustomProfileOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

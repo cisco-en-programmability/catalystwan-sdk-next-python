@@ -148,7 +148,7 @@ class IpsecBuilder:
         if self._request_adapter.param_checker(
             [(transport_id, str), (vrf_id, str), (ipsec_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "vrfId": vrf_id,
                 "ipsecId": ipsec_id,
@@ -157,12 +157,12 @@ class IpsecBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec/{ipsecId}",
                 return_type=GetSingleSdRoutingTransportGlobalVrfWanInterfaceIpsecPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec
         if self._request_adapter.param_checker([(transport_id, str), (vrf_id, str)], [ipsec_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
                 "vrfId": vrf_id,
             }
@@ -170,7 +170,7 @@ class IpsecBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/ipsec",
                 return_type=GetListSdRoutingTransportGlobalVrfWanInterfaceIpsecPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

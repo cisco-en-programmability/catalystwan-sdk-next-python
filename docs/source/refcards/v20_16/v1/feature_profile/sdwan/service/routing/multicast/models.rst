@@ -13,7 +13,11 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
     OptionType = Literal["default", "global"]
+
+    BooleanTrueDef = Literal[True]
 
     SptThresholdDef = Literal["0", "infinity"]
 
@@ -34,7 +38,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfThresholdOptionsDef1:
@@ -181,7 +185,7 @@ Models
 
     class BooleanGlobalTrueOptionsDef:
         option_type: GlobalOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfRangeOptionsDef1:

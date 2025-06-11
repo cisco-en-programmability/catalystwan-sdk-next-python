@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
     Ipv4SubnetMaskDef = Literal[
         "0.0.0.0",
         "128.0.0.0",
@@ -48,6 +50,8 @@ Models
         "255.255.255.255",
     ]
 
+    BooleanTrueDef = Literal[True]
+
     NetworkRedundancyDef = Literal["hsrp", "off", "vrrp"]
 
     DefaultNetworkRedundancyDef = Literal["off"]
@@ -75,7 +79,7 @@ Models
 
     class OneOfShutdownOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfInterfaceNameOptionsDef1:
@@ -258,7 +262,7 @@ Models
         """
 
         option_type: GlobalOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpv6PrefixGlobalVariableWithoutDefault1:
@@ -378,7 +382,7 @@ Models
 
     class OneOfEnableBfdOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfEnableBfdOptionsDef3:
@@ -844,7 +848,7 @@ Models
 
     class OneOfIpv6HsrpIpv6AutoConfigOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class HsrpIpv6:
@@ -928,7 +932,7 @@ Models
 
     class OneOfOnBooleanDefaultTrueOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfDuplexOptionsDef1:
@@ -1109,7 +1113,7 @@ Models
 
     class OneOfIpDirectedBroadcastOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class Advanced:

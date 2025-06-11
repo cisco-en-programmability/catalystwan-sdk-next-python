@@ -11,6 +11,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanTrueDef = Literal[True]
+
     SharedLomTypeDef = Literal[
         "console", "failover", "ge1", "ge2", "ge3", "te2", "te3"
     ]
@@ -37,7 +39,7 @@ Models
 
     class OneOfOnBooleanDefaultTrueNoVariableOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfSharedLomOptionsDef:
@@ -179,7 +181,7 @@ Models
 
     class Onel3DefaultOptionsDef:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfInterfaceUcseInterfaceVpnOptionsDef1:

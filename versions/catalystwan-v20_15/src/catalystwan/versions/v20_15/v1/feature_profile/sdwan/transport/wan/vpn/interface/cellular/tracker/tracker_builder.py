@@ -163,7 +163,7 @@ class TrackerBuilder:
         if self._request_adapter.param_checker(
             [(transport_id, str), (vpn_id, str), (cellular_id, str), (tracker_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "vpnId": vpn_id,
                 "cellularId": cellular_id,
@@ -173,14 +173,14 @@ class TrackerBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/cellular/{cellularId}/tracker/{trackerId}",
                 return_type=GetSingleSdwanTransportWanVpnInterfaceCellularTrackerPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/wan/vpn/{vpnId}/interface/cellular/{cellularId}/tracker
         if self._request_adapter.param_checker(
             [(transport_id, str), (vpn_id, str), (cellular_id, str)], [tracker_id]
         ):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
                 "vpnId": vpn_id,
                 "cellularId": cellular_id,
@@ -191,7 +191,7 @@ class TrackerBuilder:
                 return_type=List[
                     GetWanVpnInterfaceCellularAssociatedTrackerParcelsForTransportGetResponse
                 ],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

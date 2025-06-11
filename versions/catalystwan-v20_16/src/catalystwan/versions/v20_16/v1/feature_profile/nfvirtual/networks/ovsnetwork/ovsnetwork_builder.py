@@ -138,7 +138,7 @@ class OvsnetworkBuilder:
         if self._request_adapter.param_checker(
             [(network_id, str), (details, bool)], [networks_id, ovs_network_id]
         ):
-            params = {
+            params_1 = {
                 "networkId": network_id,
                 "details": details,
             }
@@ -146,14 +146,14 @@ class OvsnetworkBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/nfvirtual/networks/ovsnetwork/{networkId}",
                 return_type=GetSingleNfvirtualNetworksOvsnetworkPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/ovsnetwork/{ovsNetworkId}
         if self._request_adapter.param_checker(
             [(networks_id, str), (ovs_network_id, str)], [network_id, details]
         ):
-            params = {
+            params_2 = {
                 "networksId": networks_id,
                 "ovsNetworkId": ovs_network_id,
             }
@@ -161,7 +161,7 @@ class OvsnetworkBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/nfvirtual/networks/{networksId}/ovsnetwork/{ovsNetworkId}",
                 return_type=GetSingleNfvirtualNetworksOvsnetworkPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

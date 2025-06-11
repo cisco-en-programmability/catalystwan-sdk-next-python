@@ -45,14 +45,14 @@ class WidgetBuilder:
     ) -> Union[List[InterconnectWidget], InterconnectWidget]:
         # /dataservice/multicloud/interconnect/{interconnect-type}/widget
         if self._request_adapter.param_checker([(interconnect_type, str)], []):
-            params = {
+            params_1 = {
                 "interconnect-type": interconnect_type,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/multicloud/interconnect/{interconnect-type}/widget",
                 return_type=InterconnectWidget,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/multicloud/interconnect/widget

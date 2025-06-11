@@ -11,7 +11,7 @@ Get WAN interface colors
 
 .. code:: python
 
-    def get() -> List[str]: ...
+    def get() -> List[List[str]]: ...
 
 
 Example:

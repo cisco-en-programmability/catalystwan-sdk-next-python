@@ -79,11 +79,11 @@ class SegmentBuilder:
     def get(self, id: Optional[str] = None, **kw) -> List[Any]:
         # /dataservice/segment/{id}
         if self._request_adapter.param_checker([(id, str)], []):
-            params = {
+            params_1 = {
                 "id": id,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/segment/{id}", return_type=List[Any], params=params, **kw
+                "GET", "/dataservice/segment/{id}", return_type=List[Any], params=params_1, **kw
             )
         # /dataservice/segment
         if self._request_adapter.param_checker([], [id]):

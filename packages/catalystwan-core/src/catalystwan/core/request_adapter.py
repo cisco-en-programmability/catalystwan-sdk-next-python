@@ -221,7 +221,7 @@ class RequestAdapter(RequestAdapterInterface):
         )
         return valid_models[0].model
 
-    def param_checker(self, required_params: List[Tuple[Any, Type]], excluded_params: List[Any]):
+    def param_checker(self, required_params: List[Tuple[Any, Any]], excluded_params: List[Any]):
         for param in excluded_params:
             if param is not None:
                 return False

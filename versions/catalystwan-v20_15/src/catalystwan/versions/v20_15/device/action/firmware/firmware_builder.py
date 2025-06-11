@@ -72,11 +72,11 @@ class FirmwareBuilder:
         # /dataservice/device/action/firmware/{versionId}
         if self._request_adapter.param_checker([(version_id, str)], []):
             logging.warning("Operation: %s is deprecated", "getFirmwareImageDetails")
-            params = {
+            params_1 = {
                 "versionId": version_id,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/device/action/firmware/{versionId}", params=params, **kw
+                "GET", "/dataservice/device/action/firmware/{versionId}", params=params_1, **kw
             )
         # /dataservice/device/action/firmware
         if self._request_adapter.param_checker([], [version_id]):

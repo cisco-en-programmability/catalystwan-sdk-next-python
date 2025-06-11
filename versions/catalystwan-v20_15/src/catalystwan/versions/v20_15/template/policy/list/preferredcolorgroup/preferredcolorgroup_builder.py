@@ -74,13 +74,13 @@ class PreferredcolorgroupBuilder:
     def get(self, id: Optional[str] = None, **kw) -> Union[List[Any], Any]:
         # /dataservice/template/policy/list/preferredcolorgroup/{id}
         if self._request_adapter.param_checker([(id, str)], []):
-            params = {
+            params_1 = {
                 "id": id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/template/policy/list/preferredcolorgroup/{id}",
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/template/policy/list/preferredcolorgroup
@@ -120,25 +120,25 @@ class PreferredcolorgroupBuilder:
     ) -> Union[List[Any], None]:
         # /dataservice/template/policy/list/preferredcolorgroup/{id}
         if self._request_adapter.param_checker([(id, str)], [info_tag]):
-            params = {
+            params_1 = {
                 "id": id,
             }
             return self._request_adapter.request(
                 "DELETE",
                 "/dataservice/template/policy/list/preferredcolorgroup/{id}",
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/template/policy/list/preferredcolorgroup
         if self._request_adapter.param_checker([], [id]):
-            params = {
+            params_2 = {
                 "infoTag": info_tag,
             }
             return self._request_adapter.request(
                 "DELETE",
                 "/dataservice/template/policy/list/preferredcolorgroup",
                 return_type=List[Any],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

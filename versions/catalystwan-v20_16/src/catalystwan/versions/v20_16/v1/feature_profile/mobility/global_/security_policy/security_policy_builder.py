@@ -130,7 +130,7 @@ class SecurityPolicyBuilder:
     ]:
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/securityPolicy/{securityPolicyId}
         if self._request_adapter.param_checker([(profile_id, str), (security_policy_id, str)], []):
-            params = {
+            params_1 = {
                 "profileId": profile_id,
                 "securityPolicyId": security_policy_id,
             }
@@ -138,19 +138,19 @@ class SecurityPolicyBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/securityPolicy/{securityPolicyId}",
                 return_type=GetSingleMobilityGlobalSecuritypolicyPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/mobility/global/{profileId}/securityPolicy
         if self._request_adapter.param_checker([(profile_id, str)], [security_policy_id]):
-            params = {
+            params_2 = {
                 "profileId": profile_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/mobility/global/{profileId}/securityPolicy",
                 return_type=GetListMobilityGlobalSecuritypolicyPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

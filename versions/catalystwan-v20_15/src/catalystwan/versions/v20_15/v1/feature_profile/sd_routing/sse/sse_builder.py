@@ -131,7 +131,7 @@ class SseBuilder:
     ) -> Union[List[GetSdRoutingSseFeatureProfilesGetResponse], GetSingleSdRoutingSsePayload]:
         # /dataservice/v1/feature-profile/sd-routing/sse/{sseId}
         if self._request_adapter.param_checker([(sse_id, str)], [offset, limit, reference_count]):
-            params = {
+            params_1 = {
                 "sseId": sse_id,
                 "references": references,
             }
@@ -139,12 +139,12 @@ class SseBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/sse/{sseId}",
                 return_type=GetSingleSdRoutingSsePayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/sse
         if self._request_adapter.param_checker([], [sse_id, references]):
-            params = {
+            params_2 = {
                 "offset": offset,
                 "limit": limit,
                 "referenceCount": reference_count,
@@ -153,7 +153,7 @@ class SseBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/sse",
                 return_type=List[GetSdRoutingSseFeatureProfilesGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

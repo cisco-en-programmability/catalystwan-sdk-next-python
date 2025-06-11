@@ -54,6 +54,8 @@ Models
 
     TypeDef = Literal["hmac-sha-256", "md5"]
 
+    BooleanFalseDef = Literal[False]
+
 
     class OneOfAsNumOptionsDef1:
         option_type: GlobalOptionTypeDef
@@ -313,7 +315,7 @@ Models
 
     class OneOfAfInterfaceShutdownOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class SummaryAddress:
@@ -350,7 +352,7 @@ Models
 
     class OneOfFilterOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class TableMap:

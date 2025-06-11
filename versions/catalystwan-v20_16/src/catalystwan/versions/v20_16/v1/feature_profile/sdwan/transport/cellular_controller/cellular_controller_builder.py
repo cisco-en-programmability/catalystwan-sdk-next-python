@@ -141,7 +141,7 @@ class CellularControllerBuilder:
         if self._request_adapter.param_checker(
             [(transport_id, str), (cellular_controller_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "cellularControllerId": cellular_controller_id,
             }
@@ -149,19 +149,19 @@ class CellularControllerBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/cellular-controller/{cellularControllerId}",
                 return_type=GetSingleSdwanTransportCellularControllerPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/cellular-controller
         if self._request_adapter.param_checker([(transport_id, str)], [cellular_controller_id]):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/cellular-controller",
                 return_type=GetListSdwanTransportCellularControllerPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

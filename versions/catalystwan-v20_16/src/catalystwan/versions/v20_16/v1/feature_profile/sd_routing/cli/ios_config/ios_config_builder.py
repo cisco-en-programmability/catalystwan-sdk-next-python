@@ -126,7 +126,7 @@ class IosConfigBuilder:
     ) -> Union[GetListSdRoutingCliIosConfigPayload, GetSingleSdRoutingCliIosConfigPayload]:
         # /dataservice/v1/feature-profile/sd-routing/cli/{cliId}/ios-config/{iosConfigId}
         if self._request_adapter.param_checker([(cli_id, str), (ios_config_id, str)], []):
-            params = {
+            params_1 = {
                 "cliId": cli_id,
                 "iosConfigId": ios_config_id,
             }
@@ -134,19 +134,19 @@ class IosConfigBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/cli/{cliId}/ios-config/{iosConfigId}",
                 return_type=GetSingleSdRoutingCliIosConfigPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/cli/{cliId}/ios-config
         if self._request_adapter.param_checker([(cli_id, str)], [ios_config_id]):
-            params = {
+            params_2 = {
                 "cliId": cli_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/cli/{cliId}/ios-config",
                 return_type=GetListSdRoutingCliIosConfigPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

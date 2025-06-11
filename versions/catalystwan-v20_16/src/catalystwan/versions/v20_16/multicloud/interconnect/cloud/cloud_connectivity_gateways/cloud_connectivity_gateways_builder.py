@@ -145,7 +145,7 @@ class CloudConnectivityGatewaysBuilder:
         if self._request_adapter.param_checker(
             [(connectivity_gateway_name, str), (cloud_type, CloudTypeParam)], []
         ):
-            params = {
+            params_1 = {
                 "connectivity-gateway-name": connectivity_gateway_name,
                 "cloud-type": cloud_type,
                 "connectivity-gateway-type": connectivity_gateway_type,
@@ -153,21 +153,21 @@ class CloudConnectivityGatewaysBuilder:
             return self._request_adapter.request(
                 "DELETE",
                 "/dataservice/multicloud/interconnect/cloud/{cloud-type}/cloud-connectivity-gateways/{connectivity-gateway-name}",
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/multicloud/interconnect/cloud/{cloud-type}/cloud-connectivity-gateways
         if self._request_adapter.param_checker(
             [(cloud_type, CloudTypeParam)], [connectivity_gateway_name]
         ):
-            params = {
+            params_2 = {
                 "cloud-type": cloud_type,
                 "connectivity-gateway-type": connectivity_gateway_type,
             }
             return self._request_adapter.request(
                 "DELETE",
                 "/dataservice/multicloud/interconnect/cloud/{cloud-type}/cloud-connectivity-gateways",
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

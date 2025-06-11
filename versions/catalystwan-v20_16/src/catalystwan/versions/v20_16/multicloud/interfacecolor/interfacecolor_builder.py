@@ -14,13 +14,13 @@ class InterfacecolorBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def get(self, **kw) -> List[str]:
+    def get(self, **kw) -> List[List[str]]:
         """
         Get WAN interface colors
         GET /dataservice/multicloud/interfacecolor
 
-        :returns: List[str]
+        :returns: List[List[str]]
         """
         return self._request_adapter.request(
-            "GET", "/dataservice/multicloud/interfacecolor", return_type=List[str], **kw
+            "GET", "/dataservice/multicloud/interfacecolor", return_type=List[List[str]], **kw
         )

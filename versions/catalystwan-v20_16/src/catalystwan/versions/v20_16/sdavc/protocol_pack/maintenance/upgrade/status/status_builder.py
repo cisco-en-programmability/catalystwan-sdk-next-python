@@ -38,13 +38,13 @@ class StatusBuilder:
     def get(self, uuid: Optional[str] = None, **kw) -> Any:
         # /dataservice/sdavc/protocol-pack/maintenance/upgrade/status/{uuid}
         if self._request_adapter.param_checker([(uuid, str)], []):
-            params = {
+            params_1 = {
                 "uuid": uuid,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/sdavc/protocol-pack/maintenance/upgrade/status/{uuid}",
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/sdavc/protocol-pack/maintenance/upgrade/status

@@ -20,7 +20,7 @@ Models
         details_url: Optional[str]
         image: Optional[str]
         name: Optional[str]
-        status_list: Optional[List[StatusObject]]
+        status_list: Optional[List[List[StatusObject]]]
         type_: Optional[str]
 
 

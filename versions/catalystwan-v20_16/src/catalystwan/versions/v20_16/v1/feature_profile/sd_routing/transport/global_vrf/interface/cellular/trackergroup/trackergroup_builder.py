@@ -163,7 +163,7 @@ class TrackergroupBuilder:
         if self._request_adapter.param_checker(
             [(transport_id, str), (vrf_id, str), (cellular_id, str), (tracker_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "vrfId": vrf_id,
                 "cellularId": cellular_id,
@@ -173,14 +173,14 @@ class TrackergroupBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/cellular/{cellularId}/trackergroup/{trackerId}",
                 return_type=GetSingleSdRoutingTransportGlobalVrfInterfaceCellularTrackergroupPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/transport/{transportId}/global-vrf/{vrfId}/interface/cellular/{cellularId}/trackergroup
         if self._request_adapter.param_checker(
             [(transport_id, str), (vrf_id, str), (cellular_id, str)], [tracker_id]
         ):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
                 "vrfId": vrf_id,
                 "cellularId": cellular_id,
@@ -191,7 +191,7 @@ class TrackergroupBuilder:
                 return_type=List[
                     GetGlobalVrfInterfaceCellularAssociatedTrackerParcelsForTransportGetResponse
                 ],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

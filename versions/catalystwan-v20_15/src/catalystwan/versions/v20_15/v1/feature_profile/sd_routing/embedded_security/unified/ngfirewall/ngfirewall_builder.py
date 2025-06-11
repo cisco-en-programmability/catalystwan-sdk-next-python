@@ -135,7 +135,7 @@ class NgfirewallBuilder:
         if self._request_adapter.param_checker(
             [(security_id, str), (security_profile_parcel_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "securityId": security_id,
                 "securityProfileParcelId": security_profile_parcel_id,
             }
@@ -143,19 +143,19 @@ class NgfirewallBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/embedded-security/{securityId}/unified/ngfirewall/{securityProfileParcelId}",
                 return_type=GetSingleSdRoutingEmbeddedSecurityUnifiedNgfirewallPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/embedded-security/{securityId}/unified/ngfirewall
         if self._request_adapter.param_checker([(security_id, str)], [security_profile_parcel_id]):
-            params = {
+            params_2 = {
                 "securityId": security_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/embedded-security/{securityId}/unified/ngfirewall",
                 return_type=GetListSdRoutingEmbeddedSecurityUnifiedNgfirewallPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

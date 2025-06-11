@@ -9,6 +9,8 @@ DefaultOptionTypeDef = Literal["default"]
 
 VariableOptionTypeDef = Literal["variable"]
 
+BooleanFalseDef = Literal[False]
+
 Ipv4SubnetMaskDef = Literal[
     "0.0.0.0",
     "128.0.0.0",
@@ -47,6 +49,8 @@ Ipv4SubnetMaskDef = Literal[
 Ipv4GatewayDef = Literal["dhcp", "nextHop", "null0"]
 
 DefaultIpv4GatewayDef = Literal["nextHop"]
+
+BooleanTrueDef = Literal[True]
 
 Ipv6RouteNatDef = Literal["NAT64", "NAT66"]
 
@@ -104,7 +108,7 @@ class OneOfEnhanceEcmpKeyingOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -579,7 +583,7 @@ class OneOfIpv4V6RouteNull0OptionsWithoutVariable2:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -710,7 +714,7 @@ class OneOfNat64V4PoolOverloadOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

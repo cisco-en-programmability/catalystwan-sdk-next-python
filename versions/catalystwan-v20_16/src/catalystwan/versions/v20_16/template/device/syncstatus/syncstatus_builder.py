@@ -44,14 +44,14 @@ class SyncstatusBuilder:
     def get(self, template_id: Optional[str] = None, **kw) -> List[Any]:
         # /dataservice/template/device/syncstatus/{templateId}
         if self._request_adapter.param_checker([(template_id, str)], []):
-            params = {
+            params_1 = {
                 "templateId": template_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/template/device/syncstatus/{templateId}",
                 return_type=List[Any],
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/template/device/syncstatus

@@ -50,20 +50,20 @@ class ConfigBuilder:
     ) -> Any:
         # /dataservice/device/history/config
         if self._request_adapter.param_checker([(device_id, str), (query, str)], [config_id]):
-            params = {
+            params_1 = {
                 "deviceId": device_id,
                 "query": query,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/device/history/config", params=params, **kw
+                "GET", "/dataservice/device/history/config", params=params_1, **kw
             )
         # /dataservice/device/history/config/{config_id}
         if self._request_adapter.param_checker([(config_id, str)], [device_id, query]):
-            params = {
+            params_2 = {
                 "config_id": config_id,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/device/history/config/{config_id}", params=params, **kw
+                "GET", "/dataservice/device/history/config/{config_id}", params=params_2, **kw
             )
         raise RuntimeError("Provided arguments do not match any signature")
 

@@ -15,7 +15,11 @@ DefaultReplayWindowDef = Literal["512"]
 
 IntegrityTypeListDef = Literal["esp", "ip-udp-esp", "ip-udp-esp-no-id", "none"]
 
+BooleanFalseDef = Literal[False]
+
 KeyTcpDef = Literal["aes-128-cmac", "hmac-sha-1", "hmac-sha-256"]
+
+BooleanTrueDef = Literal[True]
 
 
 @dataclass
@@ -137,7 +141,7 @@ class OneOfOnBooleanDefaultFalseOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -271,7 +275,7 @@ class OneOfOnBooleanDefaultTrueOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

@@ -13,7 +13,11 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanTrueDef = Literal[True]
+
     OptionType = Literal["default", "global"]
+
+    BooleanFalseDef = Literal[False]
 
     MetricTypeDef = Literal["type1", "type2"]
 
@@ -192,7 +196,7 @@ Models
 
     class OneOfOnBooleanDefaultTrueOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class Originate:
@@ -201,7 +205,7 @@ Models
         """
 
         option_type: OptionType
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfDefaultOriginateOptionsDef1:
@@ -215,7 +219,7 @@ Models
         """
 
         option_type: GlobalOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfOnBooleanDefaultFalseOptionsDef1:
@@ -232,7 +236,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfMetricOptionsDef1:

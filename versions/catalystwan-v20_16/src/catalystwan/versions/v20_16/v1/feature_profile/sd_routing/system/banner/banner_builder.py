@@ -122,7 +122,7 @@ class BannerBuilder:
     ) -> Union[GetListSdRoutingSystemBannerPayload, GetSingleSdRoutingSystemBannerPayload]:
         # /dataservice/v1/feature-profile/sd-routing/system/{systemId}/banner/{bannerId}
         if self._request_adapter.param_checker([(system_id, str), (banner_id, str)], []):
-            params = {
+            params_1 = {
                 "systemId": system_id,
                 "bannerId": banner_id,
             }
@@ -130,19 +130,19 @@ class BannerBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/system/{systemId}/banner/{bannerId}",
                 return_type=GetSingleSdRoutingSystemBannerPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/system/{systemId}/banner
         if self._request_adapter.param_checker([(system_id, str)], [banner_id]):
-            params = {
+            params_2 = {
                 "systemId": system_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/system/{systemId}/banner",
                 return_type=GetListSdRoutingSystemBannerPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

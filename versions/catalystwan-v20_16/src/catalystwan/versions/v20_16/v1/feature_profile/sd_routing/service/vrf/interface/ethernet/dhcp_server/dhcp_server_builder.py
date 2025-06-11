@@ -163,7 +163,7 @@ class DhcpServerBuilder:
         if self._request_adapter.param_checker(
             [(service_id, str), (vrf_id, str), (ethernet_id, str), (dhcp_server_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "vrfId": vrf_id,
                 "ethernetId": ethernet_id,
@@ -173,14 +173,14 @@ class DhcpServerBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}/interface/ethernet/{ethernetId}/dhcp-server/{dhcpServerId}",
                 return_type=GetSingleSdRoutingServiceVrfInterfaceEthernetDhcpServerPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/service/{serviceId}/vrf/{vrfId}/interface/ethernet/{ethernetId}/dhcp-server
         if self._request_adapter.param_checker(
             [(service_id, str), (vrf_id, str), (ethernet_id, str)], [dhcp_server_id]
         ):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
                 "vrfId": vrf_id,
                 "ethernetId": ethernet_id,
@@ -191,7 +191,7 @@ class DhcpServerBuilder:
                 return_type=List[
                     GetVrfInterfaceEthernetAssociatedDhcpServerParcelsForServiceGetResponse
                 ],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

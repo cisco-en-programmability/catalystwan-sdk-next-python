@@ -133,19 +133,19 @@ class ServiceBuilder:
     ]:
         # /dataservice/v1/feature-profile/sd-routing/service/{serviceId}
         if self._request_adapter.param_checker([(service_id, str)], [offset, limit]):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service/{serviceId}",
                 return_type=GetSingleSdRoutingServicePayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/service
         if self._request_adapter.param_checker([], [service_id]):
-            params = {
+            params_2 = {
                 "offset": offset,
                 "limit": limit,
             }
@@ -153,7 +153,7 @@ class ServiceBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/service",
                 return_type=List[GetSdroutingServiceFeatureProfilesGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

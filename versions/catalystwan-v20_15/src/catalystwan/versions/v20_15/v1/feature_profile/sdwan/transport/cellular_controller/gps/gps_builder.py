@@ -148,7 +148,7 @@ class GpsBuilder:
         if self._request_adapter.param_checker(
             [(transport_id, str), (cellular_controller_id, str), (gps_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "transportId": transport_id,
                 "cellularControllerId": cellular_controller_id,
                 "gpsId": gps_id,
@@ -157,14 +157,14 @@ class GpsBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/cellular-controller/{cellularControllerId}/gps/{gpsId}",
                 return_type=GetSingleSdwanTransportCellularControllerGpsPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/transport/{transportId}/cellular-controller/{cellularControllerId}/gps
         if self._request_adapter.param_checker(
             [(transport_id, str), (cellular_controller_id, str)], [gps_id]
         ):
-            params = {
+            params_2 = {
                 "transportId": transport_id,
                 "cellularControllerId": cellular_controller_id,
             }
@@ -172,7 +172,7 @@ class GpsBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/transport/{transportId}/cellular-controller/{cellularControllerId}/gps",
                 return_type=List[GetCellularControllerAssociatedGpsParcelsForTransportGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

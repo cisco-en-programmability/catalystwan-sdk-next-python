@@ -48,6 +48,10 @@ Models
         "255.255.255.255",
     ]
 
+    BooleanTrueDef = Literal[True]
+
+    BooleanFalseDef = Literal[False]
+
     StaticNatDirectionDef = Literal["inside", "outside"]
 
     NatPortForwardProtocolDef = Literal["TCP", "UDP"]
@@ -282,7 +286,7 @@ Models
 
     class OneOfIpv4V6RouteNull0OptionsWithoutVariable2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpRoute2:
@@ -306,7 +310,7 @@ Models
 
     class OneOfIpv4RouteDhcpOptionsWithoutVariable2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfIpRoute3:
@@ -499,7 +503,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfDirectionOptionsDef:
@@ -649,7 +653,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class NatPool:

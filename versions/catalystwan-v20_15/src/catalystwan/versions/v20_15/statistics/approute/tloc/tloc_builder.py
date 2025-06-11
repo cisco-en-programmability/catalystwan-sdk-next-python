@@ -19,18 +19,18 @@ class TlocBuilder:
     def __init__(self, request_adapter: RequestAdapterInterface) -> None:
         self._request_adapter = request_adapter
 
-    def post(self, payload: Any, **kw) -> List[AppRouteTlocRespInner]:
+    def post(self, payload: Any, **kw) -> List[List[AppRouteTlocRespInner]]:
         """
         Get tloc
         POST /dataservice/statistics/approute/tloc
 
         :param payload: Query filter
-        :returns: List[AppRouteTlocRespInner]
+        :returns: List[List[AppRouteTlocRespInner]]
         """
         return self._request_adapter.request(
             "POST",
             "/dataservice/statistics/approute/tloc",
-            return_type=List[AppRouteTlocRespInner],
+            return_type=List[List[AppRouteTlocRespInner]],
             payload=payload,
             **kw,
         )

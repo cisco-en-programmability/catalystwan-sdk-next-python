@@ -81,7 +81,7 @@ class LogBuilder:
         if self._request_adapter.param_checker(
             [(payload, str), (log_type, str), (device_uuid, str), (session_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "logType": log_type,
                 "deviceUUID": device_uuid,
                 "sessionId": session_id,
@@ -89,7 +89,7 @@ class LogBuilder:
             return self._request_adapter.request(
                 "POST",
                 "/dataservice/stream/device/log/{logType}/{deviceUUID}/{sessionId}",
-                params=params,
+                params=params_1,
                 payload=payload,
                 **kw,
             )

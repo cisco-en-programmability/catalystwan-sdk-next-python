@@ -132,7 +132,7 @@ class PolicyBuilder:
         if self._request_adapter.param_checker(
             [(security_id, str), (security_profile_parcel_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "securityId": security_id,
                 "securityProfileParcelId": security_profile_parcel_id,
             }
@@ -140,19 +140,19 @@ class PolicyBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/embedded-security/{securityId}/policy/{securityProfileParcelId}",
                 return_type=GetSingleSdwanEmbeddedSecurityPolicyPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/embedded-security/{securityId}/policy
         if self._request_adapter.param_checker([(security_id, str)], [security_profile_parcel_id]):
-            params = {
+            params_2 = {
                 "securityId": security_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/embedded-security/{securityId}/policy",
                 return_type=GetListSdwanEmbeddedSecurityPolicyPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

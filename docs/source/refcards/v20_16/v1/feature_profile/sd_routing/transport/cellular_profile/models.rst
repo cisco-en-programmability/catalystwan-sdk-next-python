@@ -23,6 +23,8 @@ Models
 
     DefaultPdnTypeDef = Literal["ipv4"]
 
+    SliceTypeDef = Literal[1, 2, 3]
+
     CellularProfileDefaultAuthenticationDef = Literal["none"]
 
     CellularProfileAuthenticationDef = Literal["chap", "pap", "pap_chap"]
@@ -30,6 +32,8 @@ Models
     CellularProfilePdnTypeDef = Literal["ipv4", "ipv4v6", "ipv6"]
 
     CellularProfileDefaultPdnTypeDef = Literal["ipv4"]
+
+    CellularProfileSliceTypeDef = Literal[1, 2, 3]
 
     TransportCellularProfileDefaultAuthenticationDef = Literal["none"]
 
@@ -40,6 +44,8 @@ Models
     TransportCellularProfilePdnTypeDef = Literal["ipv4", "ipv4v6", "ipv6"]
 
     TransportCellularProfileDefaultPdnTypeDef = Literal["ipv4"]
+
+    TransportCellularProfileSliceTypeDef = Literal[1, 2, 3]
 
 
     class ConfigType:
@@ -171,7 +177,7 @@ Models
 
     class OneOfSliceTypeOptionsDef1:
         option_type: GlobalOptionTypeDef
-        value: int
+        value: SliceTypeDef
 
 
     class OneOfSliceTypeOptionsDef2:
@@ -371,7 +377,7 @@ Models
 
     class CellularProfileOneOfSliceTypeOptionsDef1:
         option_type: GlobalOptionTypeDef
-        value: int
+        value: CellularProfileSliceTypeDef
 
 
     class CellularProfileOneOfSliceDifferentiatorOptionsDef1:
@@ -540,7 +546,7 @@ Models
 
     class TransportCellularProfileOneOfSliceTypeOptionsDef1:
         option_type: GlobalOptionTypeDef
-        value: int
+        value: TransportCellularProfileSliceTypeDef
 
 
     class TransportCellularProfileOneOfSliceDifferentiatorOptionsDef1:

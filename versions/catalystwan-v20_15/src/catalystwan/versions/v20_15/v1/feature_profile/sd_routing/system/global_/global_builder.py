@@ -126,7 +126,7 @@ class GlobalBuilder:
     ) -> Union[GetListSdRoutingSystemGlobalPayload, GetSingleSdRoutingSystemGlobalPayload]:
         # /dataservice/v1/feature-profile/sd-routing/system/{systemId}/global/{globalId}
         if self._request_adapter.param_checker([(system_id, str), (global_id, str)], []):
-            params = {
+            params_1 = {
                 "systemId": system_id,
                 "globalId": global_id,
             }
@@ -134,19 +134,19 @@ class GlobalBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/system/{systemId}/global/{globalId}",
                 return_type=GetSingleSdRoutingSystemGlobalPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sd-routing/system/{systemId}/global
         if self._request_adapter.param_checker([(system_id, str)], [global_id]):
-            params = {
+            params_2 = {
                 "systemId": system_id,
             }
             return self._request_adapter.request(
                 "GET",
                 "/dataservice/v1/feature-profile/sd-routing/system/{systemId}/global",
                 return_type=GetListSdRoutingSystemGlobalPayload,
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

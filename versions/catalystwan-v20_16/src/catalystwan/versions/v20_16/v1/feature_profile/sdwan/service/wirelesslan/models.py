@@ -9,6 +9,8 @@ GlobalOptionTypeDef = Literal["global"]
 
 DefaultOptionTypeDef = Literal["default"]
 
+BooleanTrueDef = Literal[True]
+
 SsidRadioTypeDef = Literal["24ghz", "5ghz", "all"]
 
 DefaultSsidRadioTypeDef = Literal["all"]
@@ -126,6 +128,8 @@ CountryDef = Literal[
 ]
 
 OptionType = Literal["default", "global"]
+
+BooleanFalseDef = Literal[False]
 
 Ipv4SubnetMaskDef = Literal[
     "0.0.0.0",
@@ -418,7 +422,7 @@ class OneOfOnBooleanDefaultTrueOptionsDef3:
     option_type: DefaultOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass
@@ -752,7 +756,7 @@ class BooleanGlobalFalseOptionsDef:
     option_type: GlobalOptionTypeDef = _field(
         metadata={"alias": "optionType"}
     )  # pytype: disable=annotation-type-mismatch
-    value: bool
+    value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
 @dataclass

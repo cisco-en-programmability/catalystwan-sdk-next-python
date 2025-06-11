@@ -43,11 +43,11 @@ class ModelsBuilder:
     def get(self, uuid: Optional[str] = None, **kw) -> Union[DeviceModelsResponse, Any]:
         # /dataservice/device/models/{uuid}
         if self._request_adapter.param_checker([(uuid, str)], []):
-            params = {
+            params_1 = {
                 "uuid": uuid,
             }
             return self._request_adapter.request(
-                "GET", "/dataservice/device/models/{uuid}", params=params, **kw
+                "GET", "/dataservice/device/models/{uuid}", params=params_1, **kw
             )
         # /dataservice/device/models
         if self._request_adapter.param_checker([], [uuid]):

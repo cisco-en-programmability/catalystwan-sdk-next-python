@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanTrueDef = Literal[True]
+
     RefTypeDef = Literal["esimcellular-profile"]
 
     EsimcellularControllerRefTypeDef = Literal["esimcellular-profile"]
@@ -93,7 +95,7 @@ Models
 
     class OneOfAutoSimOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class EsimControllerConfigDef:

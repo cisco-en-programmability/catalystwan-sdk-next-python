@@ -148,7 +148,7 @@ class MulticastBuilder:
         if self._request_adapter.param_checker(
             [(service_id, str), (vpn_id, str), (multicast_id, str)], []
         ):
-            params = {
+            params_1 = {
                 "serviceId": service_id,
                 "vpnId": vpn_id,
                 "multicastId": multicast_id,
@@ -157,12 +157,12 @@ class MulticastBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/routing/multicast/{multicastId}",
                 return_type=GetSingleSdwanServiceLanVpnRoutingMulticastPayload,
-                params=params,
+                params=params_1,
                 **kw,
             )
         # /dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/routing/multicast
         if self._request_adapter.param_checker([(service_id, str), (vpn_id, str)], [multicast_id]):
-            params = {
+            params_2 = {
                 "serviceId": service_id,
                 "vpnId": vpn_id,
             }
@@ -170,7 +170,7 @@ class MulticastBuilder:
                 "GET",
                 "/dataservice/v1/feature-profile/sdwan/service/{serviceId}/lan/vpn/{vpnId}/routing/multicast",
                 return_type=List[GetLanVpnAssociatedRoutingMulticastParcelsForServiceGetResponse],
-                params=params,
+                params=params_2,
                 **kw,
             )
         raise RuntimeError("Provided arguments do not match any signature")

@@ -13,6 +13,8 @@ Models
 
     DefaultOptionTypeDef = Literal["default"]
 
+    BooleanFalseDef = Literal[False]
+
     Ipv4SubnetMaskDef = Literal[
         "0.0.0.0",
         "128.0.0.0",
@@ -50,6 +52,8 @@ Models
 
     ModeTypeDef = Literal["ipv4", "ipv6"]
 
+    BooleanTrueDef = Literal[True]
+
 
     class OneOfIfNameOptionsDef1:
         option_type: GlobalOptionTypeDef
@@ -77,7 +81,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfVpnNameOptionsDef1:
@@ -211,7 +215,7 @@ Models
 
     class BooleanDefaultTrueOptionsDef:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class TunnelVrf2:
@@ -410,7 +414,7 @@ Models
 
     class OneOfOnBooleanDefaultTrueOptionsDef3:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanTrueDef  # pytype: disable=annotation-type-mismatch
 
 
     class Hub:
@@ -540,7 +544,7 @@ Models
 
     class OneOfOnBooleanDefaultFalseNoVariableOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfTransmitIntervalOptionsDef1:

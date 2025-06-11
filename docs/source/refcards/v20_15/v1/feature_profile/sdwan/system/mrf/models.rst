@@ -17,6 +17,8 @@ Models
 
     EnableMrfMigrationDef = Literal["enabled", "enabled-from-bgp-core"]
 
+    BooleanFalseDef = Literal[False]
+
 
     class OneOfSecondaryRegionOptionsDef1:
         option_type: GlobalOptionTypeDef
@@ -75,7 +77,7 @@ Models
 
     class OneOfEnableManagemantRegionOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfEnableManagemantRegionOptionsDef3:
@@ -124,7 +126,7 @@ Models
 
     class OneOfManagementGatewayOptionsDef2:
         option_type: DefaultOptionTypeDef
-        value: bool
+        value: BooleanFalseDef  # pytype: disable=annotation-type-mismatch
 
 
     class OneOfManagementGatewayOptionsDef3:
