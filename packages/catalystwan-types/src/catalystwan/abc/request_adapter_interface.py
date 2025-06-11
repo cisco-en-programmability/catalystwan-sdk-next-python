@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Optional, Protocol, Type, TypeVar, Union
+from typing import TYPE_CHECKING, Any, Optional, Protocol, Type, TypeVar, Union, List, Tuple
 
 from catalystwan.abc.types import HTTP_METHOD, JSON
 from typing_extensions import Self
@@ -26,5 +26,7 @@ class RequestAdapterInterface(Protocol):
         *args,
         **kwargs,
     ) -> Union[ReturnType, Any]: ...
+    
+    def param_checker(self, required_params: List[Tuple[Any, Type]], excluded_params: List[Any]): ...
 
     def __copy__(self) -> Self: ...
