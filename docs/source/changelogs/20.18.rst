@@ -1,6 +1,0 @@
-=======================
-Changelog 20.16 > 20.18
-=======================
-
-.. literalinclude:: 20.18.txt
-   :language: none
