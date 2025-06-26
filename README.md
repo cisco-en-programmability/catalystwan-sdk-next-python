@@ -14,14 +14,15 @@ Supported Catalystwan WAN Server Versions
 - 20.15
 - 20.16
 
+
 Important Notice: Version Incompatibility
 -----------------------------------------
 
-Cisco Catalyst WAN SDK Version 2.0 Incompatibility with Legacy Versions
-We are excited to announce the release of Cisco Catalyst WAN SDK version 2.0. 
-This new version introduces a range of enhancements and features designed 
-to improve performance and usability. However, it is important to note that version 2.0 
+We are excited to announce the release of Cisco Catalyst WAN SDK version 2.0.
+This new version introduces a range of enhancements and features designed
+to improve performance and usability. However, it is important to note that version 2.0
 is not compatible with any previous legacy versions of the SDK.
+
 
 Actions Recommended:
     Backup: Ensure you have backups of your current projects before attempting to upgrade.
@@ -31,6 +32,15 @@ Actions Recommended:
 We appreciate your understanding and cooperation as we continue to enhance the Cisco Catalyst WAN SDK. Should you have any questions or require assistance, please reach out through our support channels.
 
 Thank you for your continued support and feedback!
+
+
+Not recommend to use in production environments.
+------------------------------------------------
+Cisco Catalyst WAN SDK in its `pre-alpha` release phase. This marks a significant milestone
+in empowering developers to unlock the full capabilities of Cisco's networking solutions.
+Please note that, as a pre-alpha release, this version of the SDK is still in active development
+and testing. It is provided "as is," with limited support offered on a best-effort basis.
+
 
 Supported Python Versions
 -------------------------
@@ -49,7 +59,7 @@ To install the SDK, run the following command:
 pip install catalystwan==2.0.0a0
 ```
 
-To manually install the necessary Python packages in editable mode, you can use the `pip install -e` command. 
+To manually install the necessary Python packages in editable mode, you can use the `pip install -e` command.
 
 ```bash
 pip install -e ./packages/catalystwan-types \
@@ -80,7 +90,7 @@ with create_client(url=url, username=username, password=password) as client:
     print(result)
 ```
 
-If you need to preform more complex operations that require models, they can utilize an alias: `m`. 
+If you need to preform more complex operations that require models, they can utilize an alias: `m`.
 ```python
 
 with create_client(...) as client:
