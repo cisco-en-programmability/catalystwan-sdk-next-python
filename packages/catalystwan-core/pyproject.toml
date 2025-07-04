@@ -1,6 +1,6 @@
 [project]
 name = "catalystwan"
-version = "2.0.0a1"
+version = "2.0.0a4"
 description = "Cisco Catalyst WAN SDK for Python"
 dependencies = [
     "packaging >= 23.0",
@@ -12,7 +12,8 @@ dependencies = [
     "catalystwan-v20-16 == 2.0.0a1"
 ]
 readme = "README.md"
-license = {file = "LICENSE"}
+license = { file = "LICENSE"}
+
 requires-python = ">= 3.8"
 classifiers = [
   # one of:
@@ -21,7 +22,6 @@ classifiers = [
   # "Development Status :: 5 - Production/Stable"
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
-  "License :: OSI Approved :: Apache Software License",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.8",
@@ -80,3 +80,6 @@ exclude="loader\\.py$"
 mypy_path = "$MYPY_CONFIG_FILE_DIR/src/"
 namespace_packages = true
 explicit_package_bases = true
+
+[project.entry-points.pytest11]
+catalystwan = "catalystwan.core.tests"
