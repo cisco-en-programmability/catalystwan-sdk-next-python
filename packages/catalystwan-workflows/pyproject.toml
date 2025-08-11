@@ -1,8 +1,0 @@
-[project]
-name = "catalystwan_workflows"
-version = "0.0.2"
-description = "Workflows for Cisco Catalyst WAN SDK for Python"
-requires-python = ">= 3.8"
-dependencies = [
-    "catalystwan-core== 2.0.0a1",
-]
